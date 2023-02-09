@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkqodly=self.webpackChunkqodly||[]).push([[8315],{9733:o=>{o.exports=JSON.parse('{"permalink":"/qodly/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
