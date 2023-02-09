@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkqodly=self.webpackChunkqodly||[]).push([[1773],{7652:l=>{l.exports=JSON.parse('{"label":"hello","permalink":"/qodly/blog/tags/hello","allTagsPath":"/qodly/blog/tags","count":2}')}}]);
