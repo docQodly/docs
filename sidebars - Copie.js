@@ -41,15 +41,29 @@ const sidebars = {
       label: "Getting Started"
     },
   ],
-  Guides:[
+  Development:[
    {
       type: 'category',
-      label: 'Concepts',
-      items: ['concepts/server-architecture'
+      label: 'Qodly Studio',
+      items: ['design-webforms/create-webform',
+        'design-webforms/components',
+        'design-webforms/styling',
+        'design-webforms/datasources',
+        'design-webforms/events/events'
       ],
     },
+	{
+      type: 'doc',
+      id: 'debug',
+      label: "Debugging"
+    },
+	{
+      type: 'doc',
+      id: 'api',
+      label: "API"
+    },
   ],
-  API:[
+  Deployment:[
    {
       type: 'doc',
       id: 'deploy/get-started',
@@ -61,6 +75,18 @@ const sidebars = {
       label: "On Premise"
     },
   ],
+  CloudAdmin:[
+   {
+      type: 'doc',
+      id: 'cloud/tools',
+      label: "Online tools"
+    },
+	{
+      type: 'doc',
+      id: 'cloud/statistics',
+      label: "Statistics"
+    },
+	],
 };
 
 module.exports = sidebars;
