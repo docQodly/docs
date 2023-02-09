@@ -8,15 +8,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Qodly Developer Center',
   tagline: 'Welcome to the Qodly Documentation',
-  url: "https://doc4d.github.io",
-  baseUrl: '/qodly/',
+  url: "https://docQodly.github.io",
+  baseUrl: '/docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'doc4d', // Usually your GitHub org/user name.
+  organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
   noIndex: true,
   // Even if you don't use internalization, you can use this field to set useful
@@ -39,6 +39,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+		path: 'docs',
+		routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
