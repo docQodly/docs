@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/4d/qodly/edit/main",
+            "https://github.com/qodly/docs/edit/main",
         },
         blog: {
         //  showReadingTime: true,
