@@ -80,21 +80,15 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: 'design-webforms/create-webform',
+            docId: 'concepts/server-architecture',
             position: 'left',
-            label: 'Development',
+            label: 'Guides',
           },
 		  {
             type: 'doc',
-            docId: 'deploy/get-started',
+            docId: 'api',
             position: 'left',
-            label: 'Deployment',
-          },
-		  {
-            type: 'doc',
-            docId: 'cloud/tools',
-            position: 'left',
-            label: 'Cloud Admin',
+            label: 'API',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
