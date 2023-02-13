@@ -53,7 +53,7 @@ The Qodly relational database, named DB4D, has extended capabilities to store an
 
 Data access is done through ORDA (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). 
 
-ORDA extends the capabilities and power of the database by allowing application logic to be implemented directly into the core of the data model. ORDA uses relational attributes, computed attributes and aliases like any other attribute, making application development particularly intuitive.
+Instead of representing information as tables, records, and fields, ORDA uses a different approach that more accurately maps data to real world items and concepts. ORDA extends the capabilities and power of the database by allowing application logic to be implemented directly into the core of the data model. ORDA uses relational attributes, computed attributes and aliases like any other attribute, making application development particularly intuitive.
 
 
 ## Qodly language
