@@ -45,7 +45,7 @@ const sidebars = {
    {
       type: 'category',
       label: 'Concepts',
-      items: ['concepts/server-architecture'
+      items: ['concepts/server-architecture','concepts/db'
       ],
     },
   ],
