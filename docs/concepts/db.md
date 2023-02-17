@@ -74,10 +74,27 @@ The Qodly database supports **transactions**. A transaction represents a series 
 
 ## CRUD operations
 
-CRUD (*Create, Read, Update, Delete*) operations in the Qodly database can only be executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the Qodly language/REST APIs since they all share the same definition of objects:
+CRUD (*Create, Read, Update, Delete*) operations in the Qodly database are executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the Qodly language/REST APIs since they all share the same definition of objects:
 
-- On the database side, the model itself as well as tables and fields are automatically exposed as a datastore with datastore class and attributes. 
+- On the database side, the model itself as well as underlying tables and fields are automatically exposed as a datastore with datastore class and attributes, thanks to the dynamic ORM. 
 - On the APIs side, the datastore (**ds**), datastore class, and attributes are automatically available as classes, functions, and properties. Keep in mind that the ORDA concept also includes access to objects describing **data**, such as entities and entity selections. 
+
+For example, to create and save a new entity, you just have to write:
+
+```4d
+ $employee:=ds.Employee.new() //create an entity in the Employee dataclass
+ $employee.firstName:="Mary" //update some attributes
+ $employee.lastName:="Smith"
+ $status:=$employee.save() //save changes
+``` 
+
+To get or delete entities, you can just write:
+
+```4d
+ $employees:=ds.Employee.query("lastName=:1";"Smith") //query employees
+ $employee:=$employees.first() //get the entity
+ $status:=$employee.drop() //delete the entity
+```
 
 
 
