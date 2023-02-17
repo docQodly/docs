@@ -3,7 +3,7 @@ id: db
 title: Qodly Database
 ---
 
-## Architecture
+## Overview
 
 
 At the heart of the Qodly platform is the Qodly database, named **QodlyDB**. QodlyDB is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
@@ -18,24 +18,23 @@ Unlike other databases that require the addition and configuration of an externa
 
 ### Data types
 
-The following table lists all available data types and how they are supported/declared in the Qodly database and in the Qodly language:
+The following table lists all available Qodly database scalar data types and how they are handled in the Qodly language:
 
-|Data Types	|Database support|Language declaration (var)|
-|---|----|---|---|---|
-|[Text](Concepts/dt_string.md)	|Yes	|`Text`|
-|[Date](Concepts/dt_date.md)	|Yes	|`Date`|
-|[Time](Concepts/dt_time.md)	|Yes	|`Time`|
-|[Boolean](Concepts/dt_boolean.md)	|Yes	|`Boolean`|
-|[Integer](Concepts/dt_number.md)	|Yes	|`Integer`|
-|[Real](Concepts/dt_number.md)	|Yes	|`Real`|
-|[Undefined](Concepts/dt_null_undefined.md)	|-	|Yes|
-|[Null](Concepts/dt_null_undefined.md)	|-	|Yes|
-|[Pointer](Concepts/dt_pointer.md)	|-	|`Pointer`|
-|[Picture](Concepts/dt_picture.md)	|Yes	|`Picture`|
-|[BLOB](Concepts/dt_blob.md)	|Yes	|`Blob`, `4D.Blob`|
-|[Object](Concepts/dt_object.md)	|Yes	|`Object`|
-|[Collection](Concepts/dt_collection.md)	|-	|`Collection`|
-|[Variant](Concepts/dt_variant.md)	|-	|`Variant`|
+|Data Types	|Language support|Description|
+|---|----|---|
+|[Text]|`var Text`	|A sequence of characters up to 2 GB|
+|[String]	|-	|A sequence of characters with properties|
+|[UUID]|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
+|[Date]|`var Date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
+|[Duration]|-	|A duration between two dates	|
+|[Bool]|`var Boolean`|A Boolean value: either true or false.|
+|[Byte]	|-|A sequence of 8 bits.|
+|[Word]|-|A 16-bit signed integer. Range: -32,767 to 32,768|
+|[Number]|-|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
+|[Long]|`var Real`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
+|[Long 64]|-	|A whole number, greater than or equal to a standard number. Range: -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807|
+|[Object]|`var Object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
+|[Image]|`var Picture`	|A reference to an image file or an actual image.	|
 
 
 
@@ -49,54 +48,68 @@ The following table lists the maximum capabilities of the Qodly database per app
 |Number of attributes per dataclass|32,767|
 |Number of entities per dataclass|1 billion|
 |Number of index keys per dataclass|128 billion|
-|Size of text fields|2 GB|
-|Size BLOB fields|2 GB|
-|Size of object fields|2 GB|
+|Size of text attributes|2 GB|
+|*Size BLOB fields*|2 GB|
+|Size of object attributes|2 GB|
 |Number of properties per object attribute|up to 128 billion*|
 |Number of transaction levels|Unlimited|
 
 * depending on the number of index keys
 
- 
+
+### Data Model
+
+The Data Model describes how information is organized and stored in your application, according to your business rules. Built into Qodly is a data management system that lets you easily manipulate information. 
+
+The Qodly **datastore** model uses a datastore class paradigm rather than a relational database methodology. Instead of representing information as tables, records, and fields, Qodly uses an approach that more accurately maps data to real world items and concepts. A dynamic **ORM** (Object Relational Mapping) automatically maps the underlying database to the high-level datastore concepts, allowing the use of advanced features such as alias attributes, relation attributes, computed attributes, and more. 
+
+You create and configure your data model in Qodly Studio using the Data Model Designer that provides a graphical representation of your model.
+
+### Transactions
+
+The Qodly database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
+
+
+
+
+## CRUD operations
+
+CRUD (*Create, Read, Update, Delete*) operations in the Qodly database can only be executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the Qodly language/REST APIs since they all share the same definition of objects:
+
+- On the database side, the model itself as well as tables and fields are automatically exposed as a datastore with datastore class and attributes. 
+- On the APIs side, the datastore (**ds**), datastore class, and attributes are automatically available as classes, functions, and properties. Keep in mind that the ORDA concept also includes access to objects describing **data**, such as entities and entity selections. 
+
 
 
 ## Queries
 
-Qodly queries are expressed through a natural, extensive query syntax using the **query()** function. Queries can be built upon strings or formula objects. 
+Querying data is the most common database operation. You will always need to search, filter, and sort your data in datasources using different criteria.
 
-On the server, queries are processed by the Qodly **query parser** that translates the user query in a SQL-like statement, including automatic joins and subqueries. It also optimizes the query path, depending on the query context. For example, the query analyzer can dynamically convert an indexed query into a sequential one if it estimates that it is faster. This particular case can occur when the number of entities being searched for is low.
+Querying the Qodly database can be done through two APIs:
+
+- the Qodly language - using the **query()** function 
+- the REST API - using the **$filter** command 
+
+Note that **components** can execute automatic queries since they subscribe to datasources that connect to the server to get data.  
 
 Queries always return **entity selections**. 
 
 ### Syntax
 
+Queries are expressed through a natural, extensive **query syntax**. 
+
 The basic syntax for a query is:
 
 ```
-attributePath|formula comparator value   
- {logicalOperator attributePath|formula comparator value}   
- {order by attributePath {desc | asc}}
+attribute|formula comparator value   
+ {logicalOperator attribute|formula comparator value}...
+ {order by attribute {desc | asc}}
 ```
-
-
 where:
 
-* **attributePath**: path of attribute on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `Collection`, \[] notation is used to handle all the occurences (for example "children\[].age").
-
- >*You cannot use directly attributes whose name contains special characters such as ".", "\[ ]", or "=", ">", "#"..., because they will be incorrectly evaluated in the query string. If you need to query on such attributes, you must consider using placeholders, which allow an extended range of characters in attribute paths (see* **Using placeholders** *below).*
+* **attribute**: path of attribute on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `Collection`, \[] notation is used to handle all the occurences (for example "children\[].age").
 
 * **formula**: a valid formula passed as `Text` or `Object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `This` object.  
-
-  * **Text**: the formula string must be preceeded by the `eval()` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(This.lastname) >=30)"*
-  * **Object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`Formula`](FunctionClass.md#formula) or [`Formula from string`](FunctionClass.md#formula-from-string) command.
-
- >* Keep in mind that Qodly formulas only support `&` and `|` symbols as logical operators.
- >* If the formula is not the only search criteria, the query engine optimizer could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.
-
- Formulas in queries can receive parameters through $1. This point is detailed in the **formula parameter** paragraph below.
-
- >* You can also pass directy a `formula` parameter object instead of the `queryString` parameter (recommended when formulas are more complex). See **formula parameter** paragraph below.
- >* For security reasons, formula calls within `query()` functions can be disallowed. See `querySettings` parameter description.
 
 * **comparator**: symbol that compares *attributePath* and *value*. The following symbols are supported:
 
@@ -114,14 +127,8 @@ where:
  |Not condition applied on a statement| NOT| Parenthesis are mandatory when NOT is used before a statement containing several operators|
  |Contains keyword| %| Keywords can be used in attributes of string or picture type|
 
-* **value**: the value to compare to the current value of the property of each entity in the entity selection or element in the collection. It can be a **placeholder** (see **Using placeholders** below) or any expression matching the data type property.
-When using a constant value, the following rules must be respected:
-  * **text** type constant can be passed with or without simple quotes (see **Using quotes** below). To query a string within a string (a "contains" query), use the wildcard symbol (@) in value to isolate the string to be searched for as shown in this example: "@Smith@". The following keywords are forbidden for text constants: true, false.
-  * **boolean** type constants: **true** or **false** (case sensitive).
-  * **numeric** type constants: decimals are separated by a '.' (period).
-  * **date** type constants: "YYYY-MM-DD" format
-  * **null** constant: using the "null" keyword will find **null** and **undefined** properties.  
-  * in case of a query with an IN comparator, *value* must be a collection, or values matching the type of the attribute path between \[ ] separated by commas (for strings, `"` characters must be escaped with `\`).
+* **value**: the value to compare to the current value of the property of each entity in the entity selection or element in the collection. 
+
 * **logicalOperator**: used to join multiple conditions in the query (optional). You can use one of the following logical operators (either the name or the symbol can be used):
 
  |Conjunction|Symbol(s)|
@@ -129,24 +136,51 @@ When using a constant value, the following rules must be respected:
  |AND|&, &&, and|
  |OR | &#124;,&#124;&#124;, or|
 
-* **order by attributePath**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
+* **order by attribute**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
+
+Here are some examples of valid queries:
+
+```
+'employee.name == "smith" AND employee.firstname == "john"'
+```
+
+```
+'(employee.age >= "30" OR employee.age <= "65") AND (employee.salary <= "10000" OR employee.status == "Manager")'
+```
 
 
+### Placeholders
+
+Queries can include placeholders. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
+
+For example:
+
+```4d
+$result:=$col.query("address.city = :1 & name =:2";$city;$myVar+"@")
+$result2:=$col.query("company.name = :1";"John's Pizzas")
+```
+
+```
+$entitySelection:=ds.Student.query("nationality = :1 order by campus.name desc, lastname";"French")
+```
+
+### Parser
+
+On the server, queries are processed by the Qodly **query parser** that translates the user query in a SQL-like statement, including automatic joins and subqueries: the **query plan**. It also optimizes the **query path**, depending on the query context. For example, the query analyzer can dynamically convert an indexed query into a sequential one if it estimates that it is faster. This particular case can occur when the number of entities being searched for is low.
 
 
+For more detailed information about queries in Qodly, see XXX.
 
 
+## Security
+
+Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
+
+Qodly's key features to protect your data from breaches, loss and failure events include:
+- **Authentication**: Qodly supports built-in and customized authentication, as well as authentication via Active Directory and LDAP.
+- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
+- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
+- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
 
 
-
-
-
-
- perfectly matches the Qodly language since they both share the same definition of objects, thanks to the ORDA technology:
-
-- On the database side, the model itself as well as tables and fields are automatically exposed as a datastore with datastore class and attributes. 
-- On the language side, the datastore (**ds**), datastore class, and attributes are automatically available as classes, functions, and properties. Keep in mind that the ORDA concept also includes access to objects describing **data**, such as entities and entity selections. 
-
-
-
-
+## Mirroring
