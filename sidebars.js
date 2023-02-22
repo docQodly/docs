@@ -45,7 +45,11 @@ const sidebars = {
    {
       type: 'category',
       label: 'Concepts',
-      items: ['concepts/server-architecture','concepts/db'
+      items: ['concepts/server-architecture','concepts/db',
+		{ 	type: 'category',
+			label: 'Qodly Language',
+			items: ['concepts/lang-quicktour','concepts/lang-operators'],
+		},
       ],
     },
   ],
