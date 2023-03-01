@@ -45,6 +45,14 @@ const sidebars = {
    {
       type: 'category',
       label: 'Concepts',
+	  link: {
+			type: 'generated-index',
+			title: 'Concepts',
+			description: 'Description of the main concepts implemented in Qodly.',
+			slug: '/category/concepts',
+			keywords: ['concepts'],
+			image: '/img/docusaurus.png',
+			},
       items: ['concepts/server-architecture','concepts/db',
 		{ 	type: 'category',
 			label: 'Qodly Language',
