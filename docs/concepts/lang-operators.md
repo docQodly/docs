@@ -41,7 +41,7 @@ Operator results depend on the **data types** they are applied to. Qodly support
 - [**Date operators**](dt_date.md#date-operators)
 - [**Time operators**](dt_time.md#time-operators)
 - [**Number operators**](dt_number.md#number-operators)
-- [**Bitwise operators**](dt_number.md#bitwise-operators) (on **long integer** expressions)
+- [**Bitwise operators**](dt_number.md#bitwise-operators) (on **integer** expressions)
 - [**Picture operators**](dt_picture.md#picture-operators)
 - [**Pointer operators**](dt_pointer.md#pointer-operators)
 - [**String operators**](dt_string.md#string-operators)

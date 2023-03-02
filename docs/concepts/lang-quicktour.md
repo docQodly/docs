@@ -3,201 +3,427 @@ id: lang-quicktour
 title: A Quick Tour
 ---
 
-## Overview
+Since the Qodly language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the followinbg line:
+
+```4d  
+Web Form.setMessage("Hello, World!")
+```
+
+This code will display a "Hello, World!" message at the bottom of your web form.
+
+## Assigning Values
+
+Data can be put into and copied out of variables, attributes, collection items... Putting data into a variable is called assigning the data to the variable and is done with the assignment operator (=). The assignment operator is also used to assign data to attributes, collection items, etc.
+
+```4d
+MyNumber=3 //assigns 3 to MyNumber variable  
+myEntity.Product.size=myNumber //assigns myNumber variable to products.size dataclass attribute
+MyVar=Length("Acme") //assigns the result of the function (4) to MyVar
+myDate=!2023/01/21! //assigns a date literal
+myColl[2].hours=?08:12:55? //assigns a time literal
+arrDays{2}="Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
+```
+
+You MUST distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
+
+For efficiency, Qodly also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
+
+```4d
+a=1 //1
+a+=2 //3
+```
 
 
-At the heart of the Qodly platform is the Qodly database, named **QodlyDB**. QodlyDB is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
+## Variables
 
-Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly database is automatically available as an object thanks to the dynamic ORM layer implemented by ORDA. In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
+The Qodly language is strongly typed, although some flexibility is allowed in many cases. You create a typed variable using the `var` keyword. For example, to create a variable of the date type, you can write:
 
-![qodly database](img/qodlydb.png)
+```4d
+var MyDate : Date 
+```
 
+The `var` keyword allows declaring object variables of a defined class type, for example:
 
+```4d
+var myPerson : cs.Person 
+//variable of the Person user class
+```
 
-## Features
+:::caution TO BE CHECKED
 
-### Data types
+Even if it is usually not recommended, you can declare variables simply by using them; you do not necessarily need to formally define them. For example, if you want a variable that will hold the current date plus 30 days, you can write:
 
-The following table lists all available Qodly database scalar data types and how they are handled in the Qodly language:
+```4d
+MyOtherDate=Current date+30
+```
 
-|Data Types	|Language support|Description|
-|---|----|---|
-|[Text]|`var Text`	|A sequence of characters up to 2 GB|
-|[String]	|-	|A sequence of characters with properties|
-|[UUID]|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
-|[Date]|`var Date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
-|[Duration]|-	|A duration between two dates	|
-|[Bool]|`var Boolean`|A Boolean value: either true or false.|
-|[Byte]	|-|A sequence of 8 bits.|
-|[Word]|-|A 16-bit signed integer. Range: -32,767 to 32,768|
-|[Number]|-|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
-|[Long]|`var Real`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
-|[Long 64]|-	|A whole number, greater than or equal to a standard number. Range: -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807|
-|[Object]|`var Object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
-|[Image]|`var Picture`	|A reference to an image file or an actual image.	|
+The line of code reads "MyOtherDate gets the current date plus 30 days". This line declares the variable, assigns it with both the (temporary) date type and a content. A variable declared by assignment is interpreted as typeless, that is, it can be assigned with other types in other lines and then changes the type dynamically. A variable typed with `var` cannot change the type. 
+
+:::
 
 
+## Commands
 
-### Capabilities
+Qodly commands are built-in methods to perform an action. Commands are often used with parameters, which are passed in brackets () and separated by commas `,`. Example:
 
-The following table lists the maximum capabilities of the Qodly database per application:
+```4d
+CONVERT FROM TEXT(vText,"UTF-8",vBlob)
+```
 
-|Capabilities|Maximum|
+Some commands are attached to collections or objects, in which case they are named functions and are used using the dot notation. For example: 
+
+```4d
+c:=New collection(1;2;3;4;5)
+nc:=c.slice(0;3) //$nc=[1,2,3]  
+
+lastEmployee:=employee.last()
+```
+
+
+## Constants
+
+Qodly proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `sk char codes` is a constant (value 1). 
+
+```4d
+a="alpha bravo charlie"
+b="Alpha Bravo Charlie"  
+vResult=Compare strings(a,b,sk char codes) // vResult==1
+```
+
+Constants can be added:
+
+```4d
+vResult=Compare strings(a,b,sk char codes+sk case insensitive) // vResult==0
+```
+
+
+
+## Methods
+
+Qodly provides a large number of built-in methods (or commands) but also lets you can create your own **methods**. User-defined methods can contain commands, operators, and any other parts of the language. 
+
+A method is composed of statements; each statement consists of one line in the method. A statement performs an action, and may be simple or complex.
+
+For example, the following line is a statement that will compress a BLOB:
+
+```4d
+COMPRESS BLOB(vBlob;GZIP Best compression mode)
+```
+
+A method also contains tests and loops that control the flow of the execution. Qodly methods support `If...Else...End if` and `Case of...Else...End case` branching structures as well as looping structures: `While...End while`, `Repeat...Until`, `For...End for`, and `For each...End for each`:
+
+The following example goes through all the characters of the text vtSomeText:
+
+```4d
+For($vlChar,1,Length(vtSomeText))
+	//Do something with the character if it is a TAB
+
+
+	If(Character code(vtSomeText[[$vlChar]])==Tab)
+		//...
+	End if
+End for
+```
+
+A method can call another method with or without parameters (arguments). The parameters are passed to the method in parentheses, following the name of the method. Each parameter is separated from the next by a comma `,`. The parameters are directly available within the called method if they are declared. 
+
+as consecutively numbered local variables: $1, $2,…, $n. A method can return a single value in the $0 parameter. When you call a method, you just type its name:
+
+```4d
+myText="hello"
+myText=Do_Something(myText) //Call the Do_Something method
+File("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
+ 
+  //code of the method Do_Something  
+#DECLARE ( input : Text) -> output : Text 
+output:=Uppercase(input)
+```
+
+
+## Data Types
+
+In the language, the various types of data that can be handled are referred to as data types. There are basic data types (string, numeric, date, time, Boolean, picture, pointers, arrays), and also composite data types (BLOBs, objects, collections).
+
+Note that string and numeric data types can be associated with more than one type of datastore attributes. When data is put into an attribute, the language automatically converts the data to the correct type for the attribute. For example, if an integer attribute is used, its data is automatically treated as numeric. In other words, you need not worry about mixing similar attribute types when using the language; it will manage them for you.
+
+However, when using the language it is important that you do not mix different data types. In the same way that it makes no sense to store "ABC" in a Date attribute, it makes no sense to put "ABC" in a variable used for dates. In most cases, Qodly is very tolerant and will try to make sense of what you are doing. For example, if you add a number to a date, Qodly will assume that you want to add that number of days to the date, but if you try to add a string to a date, Qodly will tell you that the operation cannot work.
+
+There are cases in which you need to store data as one type and use it as another type. The language contains a full complement of commands that let you convert from one data type to another. For example, you may need to create a part number that starts with a number and ends with characters such as "abc". In this case, you might write:
+
+```4d
+myEntity.Product.partNumber=String(Number)+"abc"
+```
+
+If _Number_ is 17, then _myEntity.Product.partNumber_ will get the string "17abc".
+
+The data types are fully defined in the section [Data Types](Concepts/data-types.md).
+
+## Objects and collections 
+
+You can handle 4D language objects and collections using the object notation to get or to set their values. For example:
+
+```4d
+employee.name="Smith"
+```
+
+You can also use a string within square brackets, for example:
+
+```4d
+vName=employee["name"]
+```
+
+Since an object property value can be an object or a collection, object notation accepts a sequence of symbols to access sub-properties, for example:
+
+```4d
+vAge=employee.children[2].age
+```
+
+Note that if the object property value is an object that encapsulates a method (a formula), you need to add parenthesis () to the property name to execute the method:
+
+```
+f=New object
+f.add=Formula(1+2)
+f.add() //returns 3
+```
+
+To access a collection element, you have to pass the element number embedded in square brackets:
+
+```4d
+C_COLLECTION(myColl)
+myColl:=New collection("A";"B";1;2;Current time)
+myColl[3]  //access to 4th element of the collection
+```
+
+## Classes
+
+The 4D language supports object classes. Add a `myClass.4dm` file in the Project/Sources/Classes folder of a project to create a class named "myClass". 
+
+To instantiate an object of the class in a method, call the user class from the *class store* (`cs`) and use the `new()` member function. You can pass parameters.
+
+```4d  
+// in a 4D method
+$o:=cs.myClass.new() 
+```
+
+In the `myClass` class method, use the `Function <methodName>` statement to define the *methodName* class member function. A class member function can receive and return parameters like any method, and use `This` as the object instance. 
+
+```4d  
+//in the myClass.4dm file
+Function hello -> $welcome : Text
+  $welcome:="Hello "+This.who
+```
+
+To execute a class member function, just use the `()` operator on the member function of the object instance. 
+
+```4d
+$o:=cs.myClass.new()
+$o.who:="World"
+$message:=$o.myClass.hello()  
+//$message: "Hello World"
+```
+
+Optionally, use the `Class constructor` keyword to declare properties of the object.
+
+```4d  
+//in the Rectangle.4dm file
+Class constructor
+var $height; $width : Integer
+This.height:=$height
+This.width:=$width 
+This.name:="Rectangle"
+```
+
+A class can extend another class by using `Class extends <ClassName>`. Superclasses can be called using the `Super` command. For example:
+
+```4d  
+//in the Square.4dm file
+Class extends rectangle
+ 
+Class constructor
+var $length : Integer
+ 
+  // It calls the parent class's constructor with lengths   
+  // provided for the Rectangle's width and height
+Super($length;$length)
+
+This.name:="Square"
+```
+
+
+## Operators
+When you use the language, it is rare that you will simply want a piece of data. It is more likely that you will want to do something to or with that data. You perform such calculations with operators. Operators, in general, take two pieces of data and perform an operation on them that results in a new piece of data. You are already familiar with many operators. For example, 1 + 2 uses the addition (or plus sign) operator to add two numbers together, and the result is 3. This table shows some familiar numeric operators:
+
+|Operator|Operation|Example  
+|---|---|---|
+|+|	Addition | 1 + 2 results in 3
+|–|	Subtraction | 3 – 2 results in 1
+|*|	Multiplication | 2 * 3 results in 6
+|/|	Division | 6 / 2 results in 3|
+
+Numeric operators are just one type of operator available to you. 4D supports many different types of data, such as numbers, text, dates, and pictures, so there are operators that perform operations on these different data types.
+
+The same symbols are often used for different operations, depending on the data type. For example, the plus sign (+) performs different operations with different data:
+
+|Data Type	|Operation|	Example  
+|---|---|---|
+|Number|	Addition	|1 + 2 adds the numbers and results in 3
+|String	|Concatenation	|“Hello ” + “there” concatenates (joins together) the strings and results in “Hello there”
+|Date and Number	|Date addition	|!1989-01-01! + 20 adds 20 days to the date January 1, 1989, and results in the date January 21, 1989|
+
+
+## Expressions 
+
+Simply put, expressions return a value. In fact, when using the 4D language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
+
+Expressions are made up of almost all the other parts of the language: commands, operators, variables, fields, object properties, and collection elements. You use expressions to build statements (lines of code), which in turn are used to build methods. The language uses expressions wherever it needs a piece of data.
+
+Expressions rarely “stand alone.” There are several places in 4D where an expression can be used by itself. It includes:
+
+- Formula editor (apply formula, query with formula, order by formula)
+- The `EXECUTE FORMULA` command
+- The Property list, where an expression can be used as a data source for most of widgets
+- Debugger where the value of expressions can be checked
+- Quick Report editor as a formula for a column
+
+
+### Expression types
+You refer to an expression by the data type it returns. There are several expression types. The following table gives examples of each type of expression.
+
+|Expression|Type|Description|
+|---|---|---|
+|“Hello”|String	|The word Hello is a string constant, indicated by the double quotation marks.|
+|“Hello ” + “there”|	String|	Two strings, “Hello ” and “there”, are added together (concatenated) with the string concatenation operator (+). The string “Hello there” is returned.|
+|“Mr. ” + [People]Name|	String|	Two strings are concatenated: the string “Mr. ” and the current value of the Name field in the People table. If the field contains “Smith”, the expression returns “Mr. Smith”.|
+|Uppercase("smith")	|String	|This expression uses `Uppercase`, a command from the language, to convert the string “smith” to uppercase. It returns “SMITH”.|
+|4	|Number |	This is a number constant, 4.|
+|4 * 2|	Number|	Two numbers, 4 and 2, are multiplied using the multiplication operator (*). The result is the number 8.|
+|myButton	|Number|	This is a variable associated to a button. It returns the current value of the button: 1 if it was clicked, 0 if not.|
+|!1997-01-25!|	Date|	This is a date constant for the date 1/25/97 (January 25, 1997).|
+|Current date+ 30|	Date	|This is a date expression that uses the `Current date` command to get today’s date. It adds 30 days to today’s date and returns the new date.|
+|?8:05:30?	|Time|	This is a time constant that represents 8 hours, 5 minutes, and 30 seconds.|
+|?2:03:04? + ?1:02:03?	|Time	|This expression adds two times together and returns the time 3:05:07.|
+|True|	Boolean|	This command returns the Boolean value TRUE.|
+|10 # 20|Boolean	|This is a logical comparison between two numbers. The number sign (#) means “is not equal to”. Since 10 “is not equal to” 20, the expression returns TRUE.|
+|“ABC” = “XYZ”	|Boolean	|This is a logical comparison between two strings. They are not equal, so the expression returns FALSE.|
+|My Picture + 50	|Picture	|This expression takes the picture in My Picture, moves it 50 pixels to the right, and returns the resulting picture.|
+|->[People]Name	|Pointer	|This expression returns a pointer to the field called [People]Name.|
+|Table (1)|	Pointer	|This is a command that returns a pointer to the first table.|
+|JSON Parse (MyString)|	Object|	This is a command that returns MyString as an object (if proper format)|
+|JSON Parse (MyJSONArray)	|Collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
+|Form.pageNumber|Object property|An object property is an expression that can be of any supported type
+|Col[5]|Collection element|A collection element is an expression that can be of any supported type|  
+|$entitySel[0]|Entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
+
+### Assignable vs non-assignable expressions
+
+An expression can simply be a literal constant, such as the number 4 or the string "Hello", or a variable like `$myButton`. It can also use operators. For example, 4 + 2 is an expression that uses the addition operator to add two numbers together and return the result 6. In any cases, these expressions are **non-assignable**, which means that you cannot assign a value to them.
+In 4D, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
+
+```4d  
+//$myVar variable is assignable, you can write:  
+$myVar:="Hello" //assign "Hello" to myVar
+//Form.pageNumber is assignable, you can write:  
+Form.pageNumber:=10 //assign 10 to Form.pageNumber
+//Form.pageTotal-Form.pageNumber is not assignable:
+Form.pageTotal- Form.pageNumber:=10 //error, non-assignable
+```
+In general, expressions that use an operator are non-assignable. For example, `[Person]FirstName+" "+[Person]LastName` is not assignable. 
+
+ 
+## Pointers
+
+The 4D language provides an advanced implementation of pointers, that allow writing powerful and modular code. You can use pointers to reference tables, fields, variables, arrays, and array elements.
+
+A pointer to an element is created by adding a "->" symbol before the element name, and can be dereferenced by adding the "->" symbol after the pointer name.
+
+```4d
+MyVar:="Hello"
+MyPointer:=->MyVar
+ALERT(MyPointer->)
+```
+
+## Code on several lines
+
+You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The 4D language will consider all the lines at once. For example, both the following statements are equivalent:
+
+```4d
+$str:=String("hello world!")
+```
+
+```4d
+$str:=String("hello"+\
+" world"+\
++"!")
+```
+
+## Comments
+
+Comments are inactive lines of code. These lines are not interpreted by the 4D language and are not executed when the code is called. 
+
+There are two ways to create comments:
+
+- `//` for single line comments
+- `/*...*/` for inline or multiline commnents.
+
+Both styles of comments can be used simultaneously. 
+
+#### Single line comments (`//comment`)
+
+Insert `//` at the beginning of a line or after a statement to add a single line comment. Example: 
+
+```4d
+//This is a comment
+For($vCounter;1;100) //Starting loop
+  //comment
+  //comment
+  //comment
+ End for
+```
+
+#### Inline or multiline comments (`/*comment*/`)
+
+Surround contents with `/*` ... `*/` characters to create inline comments or multiline comment blocks. Both inline and multiline comment blocks begin with `/*` and end with `*/`.
+
+- **Inline comments** can be inserted anywhere in the code. Example:
+
+```4d
+For /* inline comment */ ($vCounter;1;100)
+	...
+End for
+```
+
+- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the 4D code editor supports block collapsing). Example:
+
+```4d
+For ($vCounter;1;100)
+/*
+comments  
+	/* 
+	other comments
+	*/
+*/
+...
+End for
+```
+
+## Escape sequences  
+
+The 4D language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
+
+The sequence consists of a backslash `\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
+
+In 4D, the following escape sequences can be used:
+
+|Escape sequence|Character replaced|
 |---|---|
-|Number of dataclasses|32,767|
-|Number of attributes per dataclass|32,767|
-|Number of entities per dataclass|1 billion|
-|Number of index keys per dataclass|128 billion|
-|Size of text attributes|2 GB|
-|*Size BLOB fields*|2 GB|
-|Size of object attributes|2 GB|
-|Number of properties per object attribute|up to 128 billion*|
-|Number of transaction levels|Unlimited|
+| `\n` | LF (Line feed) |
+| `\t` | HT (Tab) |
+| `\r` | CR (Carriage return) |
+| `\\` | `\` (Backslash) |
+| `\"` | " (Quotation marks) |
 
-* depending on the number of index keys
+> It is possible to use either upper or lower case in escape sequences.
 
+In the following example, the **Carriage return** character (escape sequence `\r`) is inserted in a statement in order to obtain a dialog box:
 
-### Data Model
-
-The Data Model describes how information is organized and stored in your application, according to your business rules. Built into Qodly is a data management system that lets you easily manipulate information. 
-
-The Qodly **datastore** model uses a datastore class paradigm rather than a relational database methodology. Instead of representing information as tables, records, and fields, Qodly uses an approach that more accurately maps data to real world items and concepts. A dynamic **ORM** (Object Relational Mapping) automatically maps the underlying database to the high-level datastore concepts, allowing the use of advanced features such as alias attributes, relation attributes, computed attributes, and more. 
-
-You create and configure your data model in Qodly Studio using the Data Model Designer that provides a graphical representation of your model.
-
-### Transactions
-
-The Qodly database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
-
-
-
-
-## CRUD operations
-
-CRUD (*Create, Read, Update, Delete*) operations in the Qodly database are executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the Qodly language/REST APIs since they all share the same definition of objects:
-
-- On the database side, the model itself as well as underlying tables and fields are automatically exposed as a datastore with datastore class and attributes, thanks to the dynamic ORM. 
-- On the APIs side, the datastore (**ds**), datastore class, and attributes are automatically available as classes, functions, and properties. Keep in mind that the ORDA concept also includes access to objects describing **data**, such as entities and entity selections. 
-
-For example, to create and save a new entity, you just have to write:
-
-```4d
- $employee:=ds.Employee.new() //create an entity in the Employee dataclass
- $employee.firstName:="Mary" //update some attributes
- $employee.lastName:="Smith"
- $status:=$employee.save() //save changes
-``` 
-
-To get or delete entities, you can just write:
-
-```4d
- $employees:=ds.Employee.query("lastName=:1";"Smith") //query employees
- $employee:=$employees.first() //get the entity
- $status:=$employee.drop() //delete the entity
-```
-
-
-
-## Queries
-
-Querying data is the most common database operation. You will always need to search, filter, and sort your data in datasources using different criteria.
-
-Querying the Qodly database can be done through two APIs:
-
-- the Qodly language - using the **query()** function 
-- the REST API - using the **$filter** command 
-
-Note that **components** can execute automatic queries since they subscribe to datasources that connect to the server to get data.  
-
-Queries always return **entity selections**. 
-
-### Syntax
-
-Queries are expressed through a natural, extensive **query syntax**. 
-
-The basic syntax for a query is:
-
-```
-attribute|formula comparator value   
- {logicalOperator attribute|formula comparator value}...
- {order by attribute {desc | asc}}
-```
-where:
-
-* **attribute**: path of attribute on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `Collection`, \[] notation is used to handle all the occurences (for example "children\[].age").
-
-* **formula**: a valid formula passed as `Text` or `Object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `This` object.  
-
-* **comparator**: symbol that compares *attributePath* and *value*. The following symbols are supported:
-
- |Comparison| Symbol(s)| Comment|
- |---|---|---|
- |Equal to |=, == |Gets matching data, supports the wildcard (@), neither case-sensitive nor diacritic.|
- ||===, IS| Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
- |Not equal to| #, != |Supports the wildcard (@)|
- ||!==, IS NOT| Considers the @ as a standard character|
- |Less than| <| |
- |Greater than| > ||
- |Less than or equal to| <=||
- |Greater than or equal to| >= ||
- |Included in| IN |Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
- |Not condition applied on a statement| NOT| Parenthesis are mandatory when NOT is used before a statement containing several operators|
- |Contains keyword| %| Keywords can be used in attributes of string or picture type|
-
-* **value**: the value to compare to the current value of the property of each entity in the entity selection or element in the collection. 
-
-* **logicalOperator**: used to join multiple conditions in the query (optional). You can use one of the following logical operators (either the name or the symbol can be used):
-
- |Conjunction|Symbol(s)|
- |---|---|
- |AND|&, &&, and|
- |OR | &#124;,&#124;&#124;, or|
-
-* **order by attribute**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
-
-Here are some examples of valid queries:
-
-```
-'employee.name == "smith" AND employee.firstname == "john"'
-```
-
-```
-'(employee.age >= "30" OR employee.age <= "65") AND (employee.salary <= "10000" OR employee.status == "Manager")'
-```
-
-
-### Placeholders
-
-Queries can include placeholders. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
-
-For example:
-
-```4d
-$result:=$col.query("address.city = :1 & name =:2";$city;$myVar+"@")
-$result2:=$col.query("company.name = :1";"John's Pizzas")
-```
-
-```
-$entitySelection:=ds.Student.query("nationality = :1 order by campus.name desc, lastname";"French")
-```
-
-### Parser
-
-On the server, queries are processed by the Qodly **query parser** that translates the user query in a SQL-like statement, including automatic joins and subqueries: the **query plan**. It also optimizes the **query path**, depending on the query context. For example, the query analyzer can dynamically convert an indexed query into a sequential one if it estimates that it is faster. This particular case can occur when the number of entities being searched for is low.
-
-
-For more detailed information about queries in Qodly, see XXX.
-
-
-## Security
-
-Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
-
-Qodly's key features to protect your data from breaches, loss and failure events include:
-- **Authentication**: Qodly supports built-in and customized authentication, as well as authentication via Active Directory and LDAP.
-- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
-- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
-- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
-
-
-## Mirroring
+`ALERT("The operation has been completed successfully.\rYou may now disconnect.")`
