@@ -17,7 +17,7 @@ Data can be put into and copied out of variables, attributes, collection items..
 
 ```4d
 MyNumber=3 //assigns 3 to MyNumber variable  
-myEntity.Product.size=myNumber //assigns myNumber variable to products.size dataclass attribute
+myEntity.size=myNumber //assigns myNumber variable to products.size entity attribute
 MyVar=Length("Acme") //assigns the result of the function (4) to MyVar
 myDate=!2023/01/21! //assigns a date literal
 myColl[2].hours=?08:12:55? //assigns a time literal
@@ -154,13 +154,13 @@ There are cases in which you need to store data as one type and use it as anothe
 myEntity.Product.partNumber=String(Number)+"abc"
 ```
 
-If _Number_ is 17, then _myEntity.Product.partNumber_ will get the string "17abc".
+If _Number_ is 17, then _myEntity.partNumber_ will get the string "17abc".
 
 The data types are fully defined in the section [Data Types](Concepts/data-types.md).
 
 ## Objects and collections 
 
-You can handle 4D language objects and collections using the object notation to get or to set their values. For example:
+You can handle objects and collections using the object notation to get or to set their values. For example:
 
 ```4d
 employee.name="Smith"
@@ -189,68 +189,69 @@ f.add() //returns 3
 To access a collection element, you have to pass the element number embedded in square brackets:
 
 ```4d
-C_COLLECTION(myColl)
-myColl:=New collection("A";"B";1;2;Current time)
+var myColl : Collection
+myColl=New collection("A","B",1,2,Current time)
 myColl[3]  //access to 4th element of the collection
 ```
 
 ## Classes
 
-The 4D language supports object classes. Add a `myClass.4dm` file in the Project/Sources/Classes folder of a project to create a class named "myClass". 
+The Qodly language supports classes. 
 
-To instantiate an object of the class in a method, call the user class from the *class store* (`cs`) and use the `new()` member function. You can pass parameters.
+You can create a class named "myClass" for example. To instantiate an object of this class in a method, call the class from the user *class store* (`cs`) and use the `new()` member function. You can pass parameters.
 
 ```4d  
-// in a 4D method
-$o:=cs.myClass.new() 
+// in a Qodly method
+o=cs.myClass.new() 
 ```
 
 In the `myClass` class method, use the `Function <methodName>` statement to define the *methodName* class member function. A class member function can receive and return parameters like any method, and use `This` as the object instance. 
 
 ```4d  
-//in the myClass.4dm file
-Function hello -> $welcome : Text
-  $welcome:="Hello "+This.who
+//in the myClass definition
+Function hello -> welcome : Text
+  welcome="Hello "+This.who
 ```
 
 To execute a class member function, just use the `()` operator on the member function of the object instance. 
 
 ```4d
-$o:=cs.myClass.new()
-$o.who:="World"
-$message:=$o.myClass.hello()  
-//$message: "Hello World"
+o=cs.myClass.new()
+o.who="World"
+message=o.myClass.hello()  
+//message: "Hello World"
 ```
 
-Optionally, use the `Class constructor` keyword to declare properties of the object.
+Optionally, use the `Class constructor` keyword to declare properties for the object.
 
 ```4d  
-//in the Rectangle.4dm file
+//in the Rectangle class
 Class constructor
-var $height; $width : Integer
-This.height:=$height
-This.width:=$width 
-This.name:="Rectangle"
+var height, $width : Integer
+This.height=height
+This.width=width 
+This.name="Rectangle"
 ```
 
 A class can extend another class by using `Class extends <ClassName>`. Superclasses can be called using the `Super` command. For example:
 
 ```4d  
-//in the Square.4dm file
+//in the Square class
 Class extends rectangle
  
 Class constructor
-var $length : Integer
+var length : Integer
  
   // It calls the parent class's constructor with lengths   
   // provided for the Rectangle's width and height
-Super($length;$length)
+Super($length,$length)
 
-This.name:="Square"
+This.name="Square"
 ```
 
 
 ## Operators
+
 When you use the language, it is rare that you will simply want a piece of data. It is more likely that you will want to do something to or with that data. You perform such calculations with operators. Operators, in general, take two pieces of data and perform an operation on them that results in a new piece of data. You are already familiar with many operators. For example, 1 + 2 uses the addition (or plus sign) operator to add two numbers together, and the result is 3. This table shows some familiar numeric operators:
 
 |Operator|Operation|Example  
@@ -260,105 +261,90 @@ When you use the language, it is rare that you will simply want a piece of data.
 |*|	Multiplication | 2 * 3 results in 6
 |/|	Division | 6 / 2 results in 3|
 
-Numeric operators are just one type of operator available to you. 4D supports many different types of data, such as numbers, text, dates, and pictures, so there are operators that perform operations on these different data types.
+Numeric operators are just one type of operator available to you. Qodly supports many different types of data, such as numbers, text, dates, and pictures, so there are operators that perform operations on these different data types.
 
 The same symbols are often used for different operations, depending on the data type. For example, the plus sign (+) performs different operations with different data:
 
 |Data Type	|Operation|	Example  
 |---|---|---|
 |Number|	Addition	|1 + 2 adds the numbers and results in 3
-|String	|Concatenation	|“Hello ” + “there” concatenates (joins together) the strings and results in “Hello there”
-|Date and Number	|Date addition	|!1989-01-01! + 20 adds 20 days to the date January 1, 1989, and results in the date January 21, 1989|
+|String	|Concatenation	|"Hello " + "there" concatenates (joins together) the strings and results in "Hello there"
+|Date and Number	|Date addition	|!2023-01-01! + 20 adds 20 days to the date January 1, 2023, and results in the date January 21, 2023|
 
 
 ## Expressions 
 
-Simply put, expressions return a value. In fact, when using the 4D language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
+Simply put, expressions return a value. In fact, when using the Qodly language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
 
-Expressions are made up of almost all the other parts of the language: commands, operators, variables, fields, object properties, and collection elements. You use expressions to build statements (lines of code), which in turn are used to build methods. The language uses expressions wherever it needs a piece of data.
+Expressions are made up of almost all the other parts of the language: commands, operators, variables, entity attributes, object properties, collection elements. You use expressions to build statements (lines of code), which in turn are used to build methods. The language uses expressions wherever it needs a piece of data.
 
-Expressions rarely “stand alone.” There are several places in 4D where an expression can be used by itself. It includes:
+Expressions rarely "stand alone". There are several places in Qodly where an expression can be used by itself. It includes:
 
-- Formula editor (apply formula, query with formula, order by formula)
+- Formula API (apply formula, query with formula, order by formula)
 - The `EXECUTE FORMULA` command
-- The Property list, where an expression can be used as a data source for most of widgets
+- Web forms, where an expression can be used as a data source for most of components
 - Debugger where the value of expressions can be checked
-- Quick Report editor as a formula for a column
 
 
 ### Expression types
+
 You refer to an expression by the data type it returns. There are several expression types. The following table gives examples of each type of expression.
 
 |Expression|Type|Description|
 |---|---|---|
-|“Hello”|String	|The word Hello is a string constant, indicated by the double quotation marks.|
-|“Hello ” + “there”|	String|	Two strings, “Hello ” and “there”, are added together (concatenated) with the string concatenation operator (+). The string “Hello there” is returned.|
-|“Mr. ” + [People]Name|	String|	Two strings are concatenated: the string “Mr. ” and the current value of the Name field in the People table. If the field contains “Smith”, the expression returns “Mr. Smith”.|
-|Uppercase("smith")	|String	|This expression uses `Uppercase`, a command from the language, to convert the string “smith” to uppercase. It returns “SMITH”.|
+|"Hello"|String	|The word Hello is a string constant, indicated by the double quotation marks.|
+|"Hello " + "there"|	String|	Two strings, "Hello " and "there", are added together (concatenated) with the string concatenation operator (+). The string "Hello there" is returned.|
+|"Mr. " + person.name|	String|	Two strings are concatenated: the string "Mr. " and the current value of the name attribute in the person entity. If the attribute contains "Smith", the expression returns "Mr. Smith".|
+|Uppercase("smith")	|String	|This expression uses `Uppercase`, a command from the language, to convert the string "smith" to uppercase. It returns "SMITH".|
 |4	|Number |	This is a number constant, 4.|
 |4 * 2|	Number|	Two numbers, 4 and 2, are multiplied using the multiplication operator (*). The result is the number 8.|
-|myButton	|Number|	This is a variable associated to a button. It returns the current value of the button: 1 if it was clicked, 0 if not.|
-|!1997-01-25!|	Date|	This is a date constant for the date 1/25/97 (January 25, 1997).|
+|!2023-01-25!|	Date|	This is a date constant for the date 1/25/2023 (January 25, 2023).|
 |Current date+ 30|	Date	|This is a date expression that uses the `Current date` command to get today’s date. It adds 30 days to today’s date and returns the new date.|
 |?8:05:30?	|Time|	This is a time constant that represents 8 hours, 5 minutes, and 30 seconds.|
 |?2:03:04? + ?1:02:03?	|Time	|This expression adds two times together and returns the time 3:05:07.|
 |True|	Boolean|	This command returns the Boolean value TRUE.|
-|10 # 20|Boolean	|This is a logical comparison between two numbers. The number sign (#) means “is not equal to”. Since 10 “is not equal to” 20, the expression returns TRUE.|
-|“ABC” = “XYZ”	|Boolean	|This is a logical comparison between two strings. They are not equal, so the expression returns FALSE.|
-|My Picture + 50	|Picture	|This expression takes the picture in My Picture, moves it 50 pixels to the right, and returns the resulting picture.|
-|->[People]Name	|Pointer	|This expression returns a pointer to the field called [People]Name.|
-|Table (1)|	Pointer	|This is a command that returns a pointer to the first table.|
-|JSON Parse (MyString)|	Object|	This is a command that returns MyString as an object (if proper format)|
-|JSON Parse (MyJSONArray)	|Collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
+|10 != 20|Boolean	|This is a logical comparison between two numbers. The != sign means "is not equal to". Since 10 "is not equal to" 20, the expression returns TRUE.|
+|"ABC" == "XYZ"	|Boolean	|This is a logical comparison between two strings. They are not equal, so the expression returns FALSE.|
+|myPicture + 50	|Picture	|This expression takes the picture in myPicture, moves it 50 pixels to the right, and returns the resulting picture.|
+|JSON Parse(MyString)|	Object|	This is a command that returns MyString as an object (if proper format)|
+|JSON Parse(MyJSONArray)	|Collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
 |Form.pageNumber|Object property|An object property is an expression that can be of any supported type
 |Col[5]|Collection element|A collection element is an expression that can be of any supported type|  
-|$entitySel[0]|Entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
+|entitySel[0]|Entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
 
 ### Assignable vs non-assignable expressions
 
-An expression can simply be a literal constant, such as the number 4 or the string "Hello", or a variable like `$myButton`. It can also use operators. For example, 4 + 2 is an expression that uses the addition operator to add two numbers together and return the result 6. In any cases, these expressions are **non-assignable**, which means that you cannot assign a value to them.
-In 4D, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
+An expression can simply be a literal constant, such as the number 4 or the string "Hello", or a variable like `myButton`. It can also use operators. For example, 4 + 2 is an expression that uses the addition operator to add two numbers together and return the result 6. In any cases, these expressions are **non-assignable**, which means that you cannot assign a value to them.
+In Qodly, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
 
 ```4d  
-//$myVar variable is assignable, you can write:  
-$myVar:="Hello" //assign "Hello" to myVar
+//myVar variable is assignable, you can write:  
+myVar="Hello" //assign "Hello" to myVar
 //Form.pageNumber is assignable, you can write:  
-Form.pageNumber:=10 //assign 10 to Form.pageNumber
+Form.pageNumber=10 //assign 10 to Form.pageNumber
 //Form.pageTotal-Form.pageNumber is not assignable:
-Form.pageTotal- Form.pageNumber:=10 //error, non-assignable
+Form.pageTotal-Form.pageNumber=10 //error, non-assignable
 ```
-In general, expressions that use an operator are non-assignable. For example, `[Person]FirstName+" "+[Person]LastName` is not assignable. 
+In general, expressions that use an operator are non-assignable. For example, `entity.firstName+" "+entity.lastName` is not assignable. 
 
  
-## Pointers
-
-The 4D language provides an advanced implementation of pointers, that allow writing powerful and modular code. You can use pointers to reference tables, fields, variables, arrays, and array elements.
-
-A pointer to an element is created by adding a "->" symbol before the element name, and can be dereferenced by adding the "->" symbol after the pointer name.
-
-```4d
-MyVar:="Hello"
-MyPointer:=->MyVar
-ALERT(MyPointer->)
-```
-
 ## Code on several lines
 
-You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The 4D language will consider all the lines at once. For example, both the following statements are equivalent:
+You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The Qodly language will consider all the lines at once. For example, both the following statements are equivalent:
 
 ```4d
-$str:=String("hello world!")
+str=String("hello world!")
 ```
 
 ```4d
-$str:=String("hello"+\
+str=String("hello"+\
 " world"+\
 +"!")
 ```
 
 ## Comments
 
-Comments are inactive lines of code. These lines are not interpreted by the 4D language and are not executed when the code is called. 
+Comments are inactive lines of code. These lines are not interpreted by the Qodly language and are not executed when the code is called. 
 
 There are two ways to create comments:
 
@@ -373,11 +359,11 @@ Insert `//` at the beginning of a line or after a statement to add a single line
 
 ```4d
 //This is a comment
-For($vCounter;1;100) //Starting loop
+For($vCounter,1,100) //Starting loop
   //comment
   //comment
   //comment
- End for
+End for
 ```
 
 #### Inline or multiline comments (`/*comment*/`)
@@ -387,15 +373,15 @@ Surround contents with `/*` ... `*/` characters to create inline comments or mul
 - **Inline comments** can be inserted anywhere in the code. Example:
 
 ```4d
-For /* inline comment */ ($vCounter;1;100)
+For /* inline comment */ ($vCounter,1,100)
 	...
 End for
 ```
 
-- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the 4D code editor supports block collapsing). Example:
+- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the Qodly code editor supports block collapsing). Example:
 
 ```4d
-For ($vCounter;1;100)
+For ($vCounter,1,100)
 /*
 comments  
 	/* 
@@ -408,11 +394,11 @@ End for
 
 ## Escape sequences  
 
-The 4D language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
+The Qodly language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
 
-The sequence consists of a backslash `\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
+The sequence consists of a backslash `\\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
 
-In 4D, the following escape sequences can be used:
+In Qodly, the following escape sequences can be used:
 
 |Escape sequence|Character replaced|
 |---|---|
@@ -424,6 +410,6 @@ In 4D, the following escape sequences can be used:
 
 > It is possible to use either upper or lower case in escape sequences.
 
-In the following example, the **Carriage return** character (escape sequence `\r`) is inserted in a statement in order to obtain a dialog box:
+In the following example, the **Carriage return** character (escape sequence `\r`) is inserted in a statement in order to obtain a message on two lines:
 
-`ALERT("The operation has been completed successfully.\rYou may now disconnect.")`
+`myDoc.setMessage("The operation has been completed successfully.\rYou may now disconnect.")`
