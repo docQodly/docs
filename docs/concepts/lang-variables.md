@@ -3,337 +3,141 @@ id: lang-variables
 title: Variables
 ---
 
-An operator is a symbol or a group of symbols that you use to check, modify, or combine values. You are already familiar with many operators. For example, `1 + 2` uses the addition (or plus sign) operator to add two numbers together, and the result is 3. Comparison operators, like = or >, let you compare two or more values. 
+**Variables** store data temporarily in memory. 
 
-The Qodly language supports the operators you may already know from other languages like C or JavaScript. The assignment operator is `=` and the equal to operator is `==`. [Basic operators](#basic-operators) such as arithmetic operators (+, -, *, /, %...) and comparison operators (=, >, >=...) can be used with numbers, but also with boolean, text, date, time, pointer, or picture data types. Like JavaScript, the Qodly language supports the concept of [truthy and falsy values](#truthy-and-falsy), which in use in [short-cicrcuit operators](#short-circuit-operators). 
+When you set up your Qodly database, you specify the names and types of attributes that you want to use. Variables are much the same—you also give them names and different types (see [Data types](Concepts/data-types.md)).
 
-
-## Terminology
-
-The Qodly language supports **binary** and **ternary** operators:
-
-- binary operators operate on two targets (such as `2 + 3`) and appear in between their two targets.
-- ternary operators operate on three targets. Like C, Qodly has only one ternary operator, the [ternary conditional operator](#ternary-operator) (`a ? b : c`).
-
-The values that operators affect are operands. In the expression `1 + 2`, the + symbol is a binary operator and its two operands are the values 1 and 2.
-
-
-
-## Assignment operator
-
-The **assignment operator** (`a=b`) initializes or updates the value of `a` with the value of `b`:
+Once created, you can use a variable wherever you need it in your application. For example, you might need to store a text variable in an attribute of same type:
 
 ```4d
-myNumber=3 //assigns 3 to MyNumber variable  
-myDate=!2023/01/21! //assigns a date literal
-myLength=Length("Acme") //assigns the result of the command (4) to myLength
-col=New collection //col is initialized with an empty collection
+myEntity.text=MyText //put the MyText variable contents into the text attribute
 ```
 
-> Do NOT confuse the assignment operator `=` with the equality comparison operator `==`.
+Variables are language objects; you can create and use variables that will never appear on the screen. In your web forms, you can display variables on the screen, enter data into them, and print them in reports. 
 
+## Declaring Variables
 
-## Basic operators
+You create variables by declaring them. When variables are declared, they are initialized to the [**default value corresponding to their type**](data-types.md#default-values), which they will keep during the session as long as they have not been [assigned](#assigning-data). 
 
-Operator results depend on the **data types** they are applied to. Qodly supports different operators on scalar data types. They are described with the data types, in the following sections:
+You declare variables using the `var` keyword. It allows you to bind object variables with classes. To declare a variable of any type with the `var` keyword, use the following syntax:
 
-- [**Logical operators**](dt_boolean.md#logical-operators) (on **boolean** expressions)
-- [**Date operators**](dt_date.md#date-operators)
-- [**Time operators**](dt_time.md#time-operators)
-- [**Number operators**](dt_number.md#number-operators)
-- [**Bitwise operators**](dt_number.md#bitwise-operators) (on **integer** expressions)
-- [**Picture operators**](dt_picture.md#picture-operators)
-- [**Pointer operators**](dt_pointer.md#pointer-operators)
-- [**String operators**](dt_string.md#string-operators)
-- [**Null operators**](dt_null_undefined.md#null-operators)
-- [**Undefined operators**](dt_null_undefined.md#undefined-operators)
+`var <varName>{, <varName2>,...}{ : <varType>}`
 
+`varName` is the variable name, it must comply with the [rules](Concepts/identifiers.md) about identifiers.
 
-## Compound assignment operators
+`varType` can be:
 
-Qodly provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+=`):
+- a [basic type](Concepts/data-types.md), in which case the variable contains a value of the declared type,
+- a [class reference](Concepts/classes.md) (4D class or user class), in which case the variable contains a reference to an object of the defined class.
 
-```4d
-a=1 
-a+=2 // a=3
-```
+If `varType` is omitted, a variable of the **variant** type is created.
 
+The following table lists all supported `varType` values:
 
-The following compound assignment operators are supported:
+|varType|Contents|
+|---|---|
+|`Text`|Text value|
+|`Date`|Date value|
+|`Time`|Time value|
+|`Boolean`|Boolean value|
+|`Integer`|Long integer value|
+|`Real`|Real value|
+|`Pointer`|Pointer value|
+|`Picture`|Picture value|
+|`Blob`|Scalar Blob value|
+|`Collection`|Collection value|
+|`Variant`|Variant value|
+|`Object`|Object with default class (4D.Object)|
+|`4D.<className>`|Object of the 4D class name|
+|`cs.<className>`|Object of the user class name|
 
-|Operator|Syntax|Assigns|Example
-|---|---|---|---|
-|Addition|Text += Text|Text|`t+=" World"  //t=t+" World"`|
-||Number += Number |Number|`n+=5 //n=n+5`|
-||Date += Number |Date|`d+=5 //d=d+5`|
-||Time += Time |Time|`t1+=t2 //t1=t1+t2`|
-||Time += Number |Number |`t1+=5 //t1=t1+5`|
-||Picture += Picture|Picture|`p1+=p2 //p1=p1+p2 (add p2 to the right of p1)`|
-||Picture += Number|Picture|`p1+=5 //p1=p1+5 (move p1 horizontally 5 pixels to the right)`|
-|Subtraction|Number -= Number |Number|`n-=5 //n=n-5`|
-||Date -= Number |Date|`d-=5 //d=d-5`|
-||Time -= Time |Time|`t1-=t2 //t1=t1-t2`|
-||Time -= Number |Number |`t1-=5 //t1=t1-5`|
-||Picture -= Number|Picture|`p1-=5 //p1=p1-5 (move p1 horizontally 5 pixels to the left)`|
-|Division|Number /= Number |Number|`n/=5 //n=n/5`|
-||Time /= Time |Time|`t1/=t2 //t1=t1/t2`|
-||Time /= Number |Number |`t1/=5 //t1=t1/5`|
-||Picture /= Picture|Picture|`p1/=p2 //p1=p1/p2 (add p2 to the bottom of p1)`|
-||Picture /= Number|Picture|`p1/=5 //p1=p1/5 (move p1 vertically 5 pixels)`|
-|Multiplication|Text *= Number |Text|`t*="abc"  //t=t*"abc"`|
-||Number *= Number |Number|`n*=5 //n=n*5`|
-||Time *= Time |Time|`t1*=t2 //t1=t1*t2`|
-||Time *= Number |Number |`t1*=5 //t1=t1*5`|
-||Picture *= Number|Picture|`p1*=5 //p1=p1*5 (resize p1 by 5)`|
-
-These operators apply on any [assignable expressions](quick-tour.md#assignable-vs-non-assignable-expressions) (except pictures as object properties or collection elements).
-
-The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+=1` the `getPointer` method is called only once.
-
-> [Character indexing in text](dt_string.md#character-reference-symbols) and [byte indexing in blob](dt_blob.md#accessing-a-scalar-blobs-bytes) do not support these operators.
-> 
 #### Examples
 
 ```4d
-// Addition
-x=2
-x+=5 //x=7
-
-t="Hello" 
-t+=" World" //t="Hello World" 
-
-d=!2000-11-10!
-d+=10 //d=!2000-11-20!
-
-// Subtraction
-x1=10
-x1-=5 //x1=5
-
-d1=!2000-11-10!
-d1-=10 // d1=!2000-10-31!
-
-// Division
-x3=10
-x3/=2 // x3=5
-
-
-// Multiplication
-x2=10
-x2*=5 // x2=10
-
-t2="Hello" 
-t2*=2 // t2="HelloHello"
-
+var myText : Text  //a text variable
+var myDate1, myDate2 : Date  //several date variables
+var myFile : 4D.File  //a file class object variable
+var aSquare : cs.Rectangle  //a user class object variable
+var myVar //a variant variable
+var o : Object //a generic object variable
+//equivalent to:  
+var o : 4D.Object
+var myClass : cs.MyClass
+var dataclass : cs.Employee //ORDA dataclass class
+var entity : cs.EmployeeEntity //ORDA entity class
 ```
 
+:::info
 
+Arrays are a particular type of variables (an array is an ordered series of variables of the same type). Arrays are declared with specific commands, such as `ARRAY LONGINT(alAnArray;10)`. For more information, please refer to [Arrays](Concepts/arrays.md).
 
- 
-## Short-circuit operators
+:::
 
-The **&&** and **||** operators are **short circuit operators**. A short circuit operator is one that doesn't necessarily evaluate all of its operands. 
+## Assigning Data
 
-The difference with the single [**&** and **|** boolean operators](dt_boolean.md#logical-operators) is that the short-circuit operators **&&** and **||** don't return a boolean value. They evaluate expressions as [truthy or falsy](#truthy-and-falsy), then return one of the expressions.
+Data can be put into and copied out of variables and arrays. Putting data into a variable is called **assigning the data to the variable** and is done with the assignment operator (=). The assignment operator is also used to assign data to dataclass attributes.
 
-### Short-circuit AND operator (&&)
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R4|Added
-</details>
-
-The rule is as follows: 
-
-Given `Expr1 && Expr2`:
-
-The short-circuit AND operator evaluates operands from left to right, returning immediately with the value of the first falsy operand it encounters; if all values are [truthy](#truthy-and-falsy), the value of the last operand is returned.
-
-The following table summarizes the different cases for the **&&** operator:
-
-|Expr1	|Expr2	|  Value returned
-|---|---|---|
-|truthy	|truthy	|Expr2|
-|truthy	|falsy	|Expr2|
-|falsy	|truthy	|Expr1|
-|falsy	|falsy	|Expr1|
-
-#### Example 1 
+You write the name of the variable that you want to be assigned on the left side of the assignment operator. For example:
 
 ```4d
-var v : Variant
-
-v="Hello" && "World" //"World"
-v=False && 0 // False
-v=0 && False // False
-v=5 && !00-00-00! // 00/00/00
-v=5 && 10 && "hello" //"hello"
+MyNumber=3
 ```
 
-#### Example 2
+puts the number 3 into the variable *MyNumber*. If *MyNumber* already had a value, then the number 3 replaces it.
 
-Say you have an online store, and some products have a tax rate applied, and others don't. 
-
-To calculate the tax, you multiply the price by the tax rate, which may not have been specified.
-
-So you can write this: 
+Of course, variables would not be very useful if you could not get data out of them. Once again, you use the assignment operator. If you need to put the value of MyNumber in an attribute called size, you would write *MyNumber* on the right side of the assignment operator:
 
 ```4d
-var tax : Variant
-
-tax=item.taxRate && (item.price*item.taxRate)
+myEntity.size=MyNumber
 ```
 
-`tax` will be NULL if taxRate is NULL (or undefined), otherwise it will store the result of the calculation.
+In this case, *myEntity.size* would be equal to 3. This example is rather simple, but it illustrates the fundamental way that data is transferred from one place to another by using the language.
 
-#### Example 3
-
-Short-circuit operators are useful in tests such as:
+You assign data to array elements by using curly braces ({...}):
 
 ```4d
-If((myObject#Null) && (myObject.value>10))
-	//code
-End if
+atNames{1}="Richard"
 ```
 
-If myObject is Null, the second argument is not executed, thus no error is thrown.
+## Lifetime of a variable
 
-### Short-circuit OR operator (||)
+A variable is local to a method—accessible only within the method in which it was created and not accessible outside of that method. Being local to a method is formally referred to as being “local in scope.” Local variables are used to restrict a variable so that it works only within the method.
 
-<details><summary>History</summary>
+You may want to use a local variable to:
 
-|Version|Changes|
-|---|---|
-|v19 R4|Added
-</details>
+- Avoid conflicts with the names of other variables
+- Use data temporarily
+- Reduce the number of process variables
 
-The || operator returns the value of one of the specified operands. The expression is evaluated left to right and tested for possible "short-circuit" evaluation using the following rule:
+The name of a local variable always starts with a dollar sign ($) and can contain up to 31 additional characters. If you enter a longer name, 4D truncates it to the appropriate length.
 
-Given `Expr1 || Expr2`:
+When you are working in an application project with many methods and variables, you often find that you need to use a variable only within the method on which you are working. You can create and use a local variable in the method without worrying about whether you have used the same variable name somewhere else.
 
-If Expr1 is [truthy](#truthy-and-falsy), Expr2 is not evaluated and the calculation returns Expr1.
-
-If Expr1 is [falsy](#truthy-and-falsy), the calculation returns Expr2.
-
-The following table summarizes the different cases and the value returned for the **||** operator:
-
-|Expr1	|Expr2	|  Value returned
-|---|---|---|
-|truthy	|truthy	|Expr1|
-|truthy	|falsy	|Expr1|
-|falsy	|truthy	|Expr2|
-|falsy	|falsy	|Expr2|
-
-#### Example 1
-
-Say you have a table called Employee. Some employees have entered a phone number, and others haven't. This means that `emp.phone` could be NULL, and you cannot assign NULL to a Text variable. But you can write the following:
+Frequently, in an application, small pieces of information are needed from the user. The `Request` command can obtain this information. It displays a dialog box with a message prompting the user for a response. When the user enters the response, the command returns the information the user entered. You usually do not need to keep this information in your methods for very long. This is a typical way to use a local variable. Here is an example:
 
 ```4d
-var phone : Text
-
-phone=emp.phone || "n/a"
+ $vsID:=Request("Please enter your ID:")
+ If(OK=1)
+    QUERY([People];[People]ID =$vsID)
+ End if
 ```
 
-In which case `phone` will store either a phone number or the "n/a" string. 
+This method simply asks the user to enter an ID. It puts the response into a local variable, $vsID, and then searches for the ID that the user entered. When this method finishes, the $vsID local variable is erased from memory. This is fine, because the variable is needed only once and only in this method.
 
-#### Example 2
+**Note:** Parameters $1, $2... passed to methods are local variables. For more information, please refer to [Parameters](Concepts/parameters.md).
 
-Given a table called Person with a *name* field, as well as a *maiden name* field for married women.
+### Process variables
 
-The following example checks if there is a maiden name and stores it in a variable, otherwise it simply stores the person's name:
+A process variable is available only within a process. It is accessible to the process method and any other method called from within the process.
 
-```4d
-var name: Text
+A process variable does not have a prefix before its name. A process variable name can contain up to 31 characters.
 
-name=person.maidenName || person.name
-```
+In interpreted mode, variables are maintained dynamically; they are created and erased from memory “on the fly.” In compiled mode, all processes you create (user processes) share the same definition of process variables, but each process has a different instance for each variable. For example, the variable myVar is one variable in the process P_1 and another one in the process P_2.
 
-### Precedence
+A process can “peek and poke” process variables from another process using the commands `GET PROCESS VARIABLE` and `SET PROCESS VARIABLE`. It is good programming practice to restrict the use of these commands to the situation for which they were added to 4D:
 
-The `&&` and `||` operators have the same precedence as the logical operators `&` and `|`, and are evaluated left to right.
+- Interprocess communication at specific places or your code
+- Handling of interprocess drag and drop
+- In Client/Server, communication between processes on client machines and the stored procedures running on the server machines
 
-This means that `a || b && c` is evaluated as `(a || b) && c`.
-
-
-## Ternary operator
-
-The ternary conditional operator allows you to write one-line conditional expressions. For example, it can replace a full sequence of [If…Else](./cf_branching.md#ifelseend-if) statements.
-
-It takes three operands in the following order: 
-
-* a condition followed by a question mark (?)
-* an expression to execute if the condition is [truthy](#truthy-and-falsy), followed by a colon (:) 
-* an expression to execute if the condition is [falsy](#truthy-and-falsy)
-
-### Syntax 
-
-The syntax is as follows:
-
-`condition ? exprIfTruthy : exprIfFalsy`
-
-
-### Examples
-
-#### A simple example
-
-```4d
-var age : Integer
-var beverage : Text
-
-age=26
-beverage=(age>=21) ? "Beer" : "Juice"
-
-ALERT(beverage) // "Beer"
-```
-
-#### Handling data from a table
-
-This example stores a person's full name in a variable, and handles the case when no first name or last name has been specified:
-
-```4d
-var fullname : Text
-
-// If one of the names is missing, store the one that exists, otherwise store an empty string
-fullname=(person.firstname && person.lastname) ? (person.firstname+" "+person.lastname) : (person.lastname || person.firstname) || ""
-```
-
-## Truthy and falsy
-
-As well as a type, each value also has an inherent Boolean value, generally known as either **truthy** or **falsy**. 
-
-> **truthy** and **falsy** values are only evaluated by [short-circuit](#short-circuit-operators) and [ternary](#ternary-operator) operators.
-
-The following values are **falsy**:
-
-* false
-* Null
-* undefined
-* Null object
-* Null collection
-* Null pointer
-* Null picture
-* Null date !00-00-00!
-* "" - Empty strings
-* [] - Empty collections
-* {} - Empty objects
-
-All other values are considered **truthy**, including:
-
-* 0 - numeric zero (Integer or otherwise)
-
-In Qodly, **truthy** and **falsy** evaluation reflects the **usability** of a value, which means that a truthy value exists and can be processed by the code without generating errors or unexpected results. The rationale behind this is to provide a convenient way to handle *undefined* and *null* values in objects and collections, so that a reduced number of [If…Else](./cf_branching.md#ifelseend-if) statements are necessary to avoid runtime errors.
-
-For example, when you use a [short-circuit OR operator](#short-circuit-or-operator-):
-
-```4d
-value=object.value || defaultValue
-```
-
-... you get the default value whenever *object* does not contain the `value` property OR when it is *null*. So this operator checks the existence or usability of the value instead of a specific value. Note that because the numerical value 0 exists and is usable, it is not treated specially, thus it is **truthy**.
-
-Regarding values representing collections, objects, or strings, "empty" values are considered **falsy**. It is handy when you want to assign a default value whenever an empty one is encountered.
-
-```4d
-phone=emp.phone || "n/a"
-```
+For more information, see the chapter **Processes** and the description of these commands.

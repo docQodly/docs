@@ -64,7 +64,7 @@ const sidebars = {
 				keywords: ['language'],
 				image: '/img/docusaurus.png',
 			},
-			items: ['concepts/lang-quicktour','concepts/lang-operators'],
+			items: ['concepts/lang-quicktour','concepts/lang-operators','concepts/lang-variables'],
 		},
       ],
     },
