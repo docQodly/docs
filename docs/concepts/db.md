@@ -82,18 +82,18 @@ CRUD (*Create, Read, Update, Delete*) operations in the Qodly database are execu
 For example, to create and save a new entity, you just have to write:
 
 ```4d
- $employee:=ds.Employee.new() //create an entity in the Employee dataclass
- $employee.firstName:="Mary" //update some attributes
- $employee.lastName:="Smith"
- $status:=$employee.save() //save changes
+ employee=ds.Employee.new() //create an entity in the Employee dataclass
+ employee.firstName="Mary" //update some attributes
+ employee.lastName="Smith"
+ status=employee.save() //save changes
 ``` 
 
 To get or delete entities, you can just write:
 
 ```4d
- $employees:=ds.Employee.query("lastName=:1";"Smith") //query employees
- $employee:=$employees.first() //get the entity
- $status:=$employee.drop() //delete the entity
+ employees=ds.Employee.query("lastName=:1";"Smith") //query employees
+ employee=employees.first() //get the entity
+ status=employee.drop() //delete the entity
 ```
 
 
@@ -173,12 +173,12 @@ Queries can include placeholders. A placeholder is a parameter that you insert i
 For example:
 
 ```4d
-$result:=$col.query("address.city = :1 & name =:2";$city;$myVar+"@")
-$result2:=$col.query("company.name = :1";"John's Pizzas")
+result=col.query("address.city = :1 & name =:2";city;myVar+"@")
+result2=col.query("company.name = :1";"John's Pizzas")
 ```
 
 ```
-$entitySelection:=ds.Student.query("nationality = :1 order by campus.name desc, lastname";"French")
+entitySelection=ds.Student.query("nationality = :1 order by campus.name desc, lastname";"French")
 ```
 
 ### Parser
