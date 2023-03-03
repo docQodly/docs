@@ -125,9 +125,9 @@ For($vlChar,1,Length(vtSomeText))
 End for
 ```
 
-A method can call another method with or without parameters (arguments). The parameters are passed to the method in parentheses, following the name of the method. Each parameter is separated from the next by a comma `,`. The parameters are directly available within the called method if they are declared. 
+A method can call another method with or without parameters (arguments). The parameters are passed to the method in parentheses, following the name of the method. Each parameter is separated from the next by a comma `,`. The parameters are directly available within the called method if they are declared. A method can return a single parameter. 
 
-as consecutively numbered local variables: $1, $2,…, $n. A method can return a single value in the $0 parameter. When you call a method, you just type its name:
+When you call a method, you just type its name:
 
 ```4d
 myText="hello"
