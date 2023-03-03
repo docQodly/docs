@@ -1,5 +1,5 @@
 ---
-id: arrays
+id: lang-arrays
 title: Arrays
 ---
 
