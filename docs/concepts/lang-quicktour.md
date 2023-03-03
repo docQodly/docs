@@ -49,18 +49,7 @@ var myPerson : cs.Person
 //variable of the Person user class
 ```
 
-:::caution TO BE CHECKED
-
-Even if it is usually not recommended, you can declare variables simply by using them; you do not necessarily need to formally define them. For example, if you want a variable that will hold the current date plus 30 days, you can write:
-
-```4d
-MyOtherDate=Current date+30
-```
-
-The line of code reads "MyOtherDate gets the current date plus 30 days". This line declares the variable, assigns it with both the (temporary) date type and a content. A variable declared by assignment is interpreted as typeless, that is, it can be assigned with other types in other lines and then changes the type dynamically. A variable typed with `var` cannot change the type. 
-
-:::
-
+A declared variable cannot change of type. 
 
 ## Commands
 

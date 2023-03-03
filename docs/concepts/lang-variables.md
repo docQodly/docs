@@ -99,45 +99,12 @@ You assign data to array elements by using curly braces ({...}):
 atNames{1}="Richard"
 ```
 
-## Lifetime of a variable
+## Sharing Variable Values
 
-A variable is local to a method—accessible only within the method in which it was created and not accessible outside of that method. Being local to a method is formally referred to as being “local in scope.” Local variables are used to restrict a variable so that it works only within the method.
+A variable is local to a method, i.e. it is accessible only within the method in which it was created and not accessible outside of that method. 
 
-You may want to use a local variable to:
+When the method finishes, the variable is erased from memory. This is fine when a variable is needed only once and only in this method.
 
-- Avoid conflicts with the names of other variables
-- Use data temporarily
-- Reduce the number of process variables
+If you want to share values between methods, you can pass the variables as [parameters](XXX) to the called methods. 
 
-The name of a local variable always starts with a dollar sign ($) and can contain up to 31 additional characters. If you enter a longer name, 4D truncates it to the appropriate length.
-
-When you are working in an application project with many methods and variables, you often find that you need to use a variable only within the method on which you are working. You can create and use a local variable in the method without worrying about whether you have used the same variable name somewhere else.
-
-Frequently, in an application, small pieces of information are needed from the user. The `Request` command can obtain this information. It displays a dialog box with a message prompting the user for a response. When the user enters the response, the command returns the information the user entered. You usually do not need to keep this information in your methods for very long. This is a typical way to use a local variable. Here is an example:
-
-```4d
- $vsID:=Request("Please enter your ID:")
- If(OK=1)
-    QUERY([People];[People]ID =$vsID)
- End if
-```
-
-This method simply asks the user to enter an ID. It puts the response into a local variable, $vsID, and then searches for the ID that the user entered. When this method finishes, the $vsID local variable is erased from memory. This is fine, because the variable is needed only once and only in this method.
-
-**Note:** Parameters $1, $2... passed to methods are local variables. For more information, please refer to [Parameters](Concepts/parameters.md).
-
-### Process variables
-
-A process variable is available only within a process. It is accessible to the process method and any other method called from within the process.
-
-A process variable does not have a prefix before its name. A process variable name can contain up to 31 characters.
-
-In interpreted mode, variables are maintained dynamically; they are created and erased from memory “on the fly.” In compiled mode, all processes you create (user processes) share the same definition of process variables, but each process has a different instance for each variable. For example, the variable myVar is one variable in the process P_1 and another one in the process P_2.
-
-A process can “peek and poke” process variables from another process using the commands `GET PROCESS VARIABLE` and `SET PROCESS VARIABLE`. It is good programming practice to restrict the use of these commands to the situation for which they were added to 4D:
-
-- Interprocess communication at specific places or your code
-- Handling of interprocess drag and drop
-- In Client/Server, communication between processes on client machines and the stored procedures running on the server machines
-
-For more information, see the chapter **Processes** and the description of these commands.
+If you want to store value during the session, it is recommended to use the [session storage](XXX) shared object.   
