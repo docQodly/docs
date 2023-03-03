@@ -188,7 +188,6 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-		additionalLanguages: ['4d'],
       },
     }),
 };
