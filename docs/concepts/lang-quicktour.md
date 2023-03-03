@@ -17,7 +17,7 @@ Data can be put into and copied out of variables, attributes, collection items..
 
 ```4d
 MyNumber=3 //assigns 3 to MyNumber variable  
-myEntity.size=myNumber //assigns myNumber variable to products.size entity attribute
+myEntity.size=myNumber //assigns myNumber variable to size entity attribute
 MyVar=Length("Acme") //assigns the result of the function (4) to MyVar
 myDate=!2023/01/21! //assigns a date literal
 myColl[2].hours=?08:12:55? //assigns a time literal
