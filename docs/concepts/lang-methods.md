@@ -19,14 +19,20 @@ The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.
 
 Once a method is created, it becomes part of the language of the project. 
 
-A method is executed when its name is called, with or without parameters, by another code. For example, `:
+A method is executed when its name is called, with or without [parameters](lang-parameters.md), by another code. For example:
 
 ```4d
 //methodA
-
-methodB("hello") //methodA calls methodB with one parameter
+//methodA calls methodB with one parameter
+var t : Text
+t=methodB("world") //t == "hello world"
 ```
 
+```4d
+//methodB
+#DECLARE (param : Text)
+return ("hello " + param)
+```
 
 :::note
 
@@ -113,3 +119,12 @@ Methods can call themselves. For example:
 - A method can call itself.
 
 This is called recursion. The Qodly language fully supports recursion.
+
+
+Process Methods
+A process method is a project method that is called when a process is started. The process lasts only as long as the process method continues to execute, except if it is a Worker process. Note that a menu method attached to a menu command with Start a New Process property is also the process method for the newly started process.
+
+
+## Process Methods
+
+A process method is a method that is called when a process is started with the `New process` command for example. The process lasts only as long as the process method continues to execute, except if it is a Worker process. 
