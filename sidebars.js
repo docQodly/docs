@@ -69,6 +69,7 @@ const sidebars = {
 				'concepts/lang-variables',
 				'concepts/lang-arrays',
 				'concepts/lang-methods',
+				'concepts/lang-parameters',
 				],
 		},
       ],
