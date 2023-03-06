@@ -11,20 +11,28 @@ A method is basically a piece of code that executes one or several action(s). Qo
 
 A method can contain any code to execute any custom actions. 
 
-You give a method a name that identifies what it does, and this name is used to call the method wherever it is needed. A method is executed when its name is called, with or without parameters, by another code. 
-
-:::note
-
-Qodly Studio allows executing methods from the Explorer to test them.
-
-:::
-
+You give a method a name that identifies what it does, and this name is used to call the method wherever it is needed. 
 
 A user method is composed of statements. A statement performs an action, and may be simple or complex. Each statement usually consists of one line in the method (if necessary, it can however be [split using the `\` character](lang-quicktour.md#code-on-several-lines)). 
 
 The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.  
 
 Once a method is created, it becomes part of the language of the project. 
+
+A method is executed when its name is called, with or without parameters, by another code. For example, `:
+
+```4d
+//methodA
+
+methodB("hello") //methodA calls methodB with one parameter
+```
+
+
+:::note
+
+Qodly Studio allows executing methods from the Explorer to test them.
+
+:::
 
 
 ## Methods as Object Formulas
@@ -36,7 +44,7 @@ The `Formula` and `Formula from string` commands allow you to create formula obj
 To execute a method stored in an object property, use the **()** operator after the property name. For example:
 
 ```4d
-//myMethod
+//three_days_later
 return (Current date+3)
 ```
 
@@ -44,7 +52,7 @@ Then `three_days_later` can be encapsulated in any object and called:
 
 ```4d
 var o : Object
-o=New object("threeDays";Formula(myMethod))
+o=New object("threeDays";Formula(three_days_later))
 o.threeDays() //returns the date in three days
 ```
 
