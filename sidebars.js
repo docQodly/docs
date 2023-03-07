@@ -70,6 +70,7 @@ const sidebars = {
 				'concepts/lang-arrays',
 				'concepts/lang-methods',
 				'concepts/lang-parameters',
+				'concepts/lang-shared',
 				],
 		},
       ],
