@@ -361,32 +361,29 @@ You can also call a method or function with more parameters than declared. They 
 
 :::
 
-Using the `Count parameters` command from within the called method, you can detect the actual number of parameters and perform different operations depending on what you have received.
-
-The following example records a text message and can insert the text into a document on disk or in a 4D Write Pro area:
+Using the `Count parameters` command from within the called method, you can detect the actual number of parameters and perform different operations depending on what you have received. For example:
 
 ```4d
-// APPEND TEXT Project Method
-// APPEND TEXT ( Text { ; Text { ; Object } } )
-// APPEND TEXT ( Message { ; Path { ; 4DWPArea } } )
+// Append_Text Method
+// Append_Text ( Text { ; 4D.File } )
  
- Method($message : Text; $path : Text; $wpArea : Object)
-  
- ALERT($message)
- If(Count parameters>=3)
-    WP SET TEXT($wpArea;$1;wk append)
- Else
+#Declare(param1 : Text; param2 : Text; param3 : Object)
+
+...// do action1
+If(Count parameters>=3)
+    ...//do action2 
+Else
     If(Count parameters>=2)
-       TEXT TO DOCUMENT($path;$message)
+       ...//do action3
     End if
- End if
+End if
 ```
-After this project method has been added to your application, you can write:
+After this method has been added to your project, you can write:
 
 ```4d  
-APPEND TEXT(vtSomeText) //Will only display the  message
-APPEND TEXT(vtSomeText;$path) //Displays text message and appends it to document at $path
-APPEND TEXT(vtSomeText;"";$wpArea) //Displays text message and writes it to $wpArea
+Append_Text(vt1) //do only action1
+Append_Text(vt1;vt2) //do action1 and action3
+Append_Text(vt1;"";vobj) //do action1 and action2
 ```
 
 > When optional parameters are needed in your methods, you might also consider using [object properties as named parameters](#using-objects-properties-as-named-parameters) which provide a flexible way to handle variable numbers of parameters.  
@@ -395,78 +392,82 @@ APPEND TEXT(vtSomeText;"";$wpArea) //Displays text message and writes it to $wpA
 
 ## Values or references
 
-When you pass a parameter, 4D always evaluates the parameter expression in the context of the calling method and sets the **resulting value** to the local variables in the class function or subroutine. The local variables/parameters are not the actual fields, variables, or expressions passed by the calling method; they only contain the values that have been passed. Since its scope is local, if the value of a parameter is modified in the class function/subroutine, it does not change the value in the calling method. For example:
+When you pass a parameter, Qodly always evaluates the parameter expression in the context of the calling method and sets the **resulting value** to the declared parameters in the called class function or method. The declared parameters are not the actual variables or expressions passed by the calling method; they only contain the values that have been passed. Since its scope is local, if the value of a parameter is modified in the class function/method, it does not change the value in the calling method. For example:
 
 ```4d
-	//Here is some code from the method MY_METHOD
-DO_SOMETHING([People]Name) //Let's say [People]Name value is "williams"
-ALERT([People]Name)
+	//Here is some code from the method myMethod
+var myVar, result : Text
+myVar="williams"
+Do_Something(myVar)
+result=myVar //williams
  
-	//Here is the code of the method DO_SOMETHING
- $1:=Uppercase($1)
- ALERT($1)
+	//Here is the code of the method Do_Something
+#Declare ( param : Text )
+result:=Uppercase(param) //WILLIAMS
 ```
 
-The alert box displayed by `DO_SOMETHING` will read "WILLIAMS" and the alert box displayed by `MY_METHOD` will read "williams". The method locally changed the value of the parameter $1, but this does not affect the value of the field `[People]Name` passed as parameter by the method `MY_METHOD`.
+The *result* value in `Do_Something` will be "WILLIAMS" and the *result* value in `myMethod` will be "williams". The method locally changed the value of the parameter, but this does not affect the value of the variable `myVar` passed as parameter by the method `myMethod`.
 
-There are two ways to make the method `DO_SOMETHING` change the value of the field:
+In some cases, you might want that the method `Do_Something` change the value of the variable. There are two ways to do that:
 
-1. Rather than passing the field to the method, you pass a pointer to it, so you would write:
+1. Rather than passing a Text variable to the method, you pass an Object variable containing the text value as a property. Since [object parameters are passed by **reference**](#particular-cases-objects-and-collections), the value will always be the same in all contexts:
 
 ```4d
-  //Here is some code from the method MY_METHOD
- DO_SOMETHING(->[People]Name) //Let's say [People]Name value is "williams"
- ALERT([People]Last Name)
- 
-  //Here the code of the method DO_SOMETHING
- $1->:=Uppercase($1->)
- ALERT($1->)
+	//Here is some code from the method myMethod
+var myVar : Object
+var result : Text
+myVar=New object("name";"williams")
+Do_Something(myVar)
+result=myVar.name //WILLIAMS
+
+	//Here is the code of the method Do_Something
+#Declare ( param : Object )
+var result : Text
+result:=Uppercase(param.name) //WILLIAMS
 ```
 
-Here the parameter is not the field, but a pointer to it. Therefore, within the `DO SOMETHING` method, $1 is no longer the value of the field but a pointer to the field. The object **referenced** by $1 ($1-> in the code above) is the actual field. Consequently, changing the referenced object goes beyond the scope of the subroutine, and the actual field is affected. In this example, both alert boxes will read "WILLIAMS".
-
-2. Rather than having the method `DO_SOMETHING` "doing something," you can rewrite the method so it returns a value. Thus you would write:
+2. Rather than having the method `Do_Something` "doing something," you can rewrite the method so it returns a value. Thus you would write:
 
 ```4d
-	//Here is some code from the method MY METHOD
- [People]Name:=DO_SOMETHING([People]Name) //Let's say [People]Name value is "williams"
- ALERT([People]Name)
+	//Here is some code from the method myMethod
+var myVar, result : Text
+myVar="williams"
+myVar=Do_Something(myVar) 
+result=myVar //WILLIAMS
 
-	//Here the code of the method DO SOMETHING
- $0:=Uppercase($1)
- ALERT($0)
+	//Here is the code of the method Do_Something
+#Declare ( param : Text ) -> result : Text
+result=Uppercase(param) //WILLIAMS
 ```
 
-This second technique of returning a value by a subroutine is called “using a function.” This is described in the [Returning values](#returning-values) paragraph.
+This second technique of returning a value by a subroutine is called "using a function".
 
 
 ### Particular cases: objects and collections
 
 You need to pay attention to the fact that Object and Collection data types can only be handled through a reference (i.e. an internal *pointer*). 
 
-Consequently, when using such data types as parameters, `$1, $2...` do not contain *values* but *references*. Modifying the value of the `$1, $2...` parameters within the subroutine will be propagated wherever the source object or collection is used. This is the same principle as for [pointers](dt_pointer.md#pointers-as-parameters-to-methods), except that `$1, $2...` parameters do not need to be dereferenced in the subroutine.
+Consequently, when using such data types as parameters, they do not contain *values* but *references*. Modifying the value of the parameters within the subroutine will be propagated wherever the source object or collection is used. 
 
 For example, consider the `CreatePerson` method that creates an object and sends it as a parameter:
 
 ```4d
   //CreatePerson
- var $person : Object
- $person:=New object("Name";"Smith";"Age";40)
- ChangeAge($person)
- ALERT(String($person.Age))  
+var person : Object
+person:=New object("Name";"Smith";"Age";40)
+ChangeAge(person)
+person.Age //50 
 ```
 
 The `ChangeAge` method adds 10 to the Age attribute of the received object
 
 ```4d
   //ChangeAge
- #DECLARE ($person : Object)
- $person.Age:=$person.Age+10
- ALERT(String($person.Age))
+#Declare (person : Object)
+person.Age=person.Age+10
+person.Age //50 
 ```
 
-When you execute the `CreatePerson` method, both alert boxes will read "50" since the same object reference is handled by both methods.
-
-**4D Server:** When parameters are passed between methods that are not executed on the same machine (using for example the "Execute on Server" option), references are not usable. In these cases, copies of object and collection parameters are sent instead of references.
+When you execute the `CreatePerson` method, person.Age will be 50 everywhere since the same object reference is handled by both methods.
 
 
