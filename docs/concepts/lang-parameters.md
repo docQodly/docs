@@ -334,7 +334,7 @@ With named variables, any parameter can be optional. In the above example, all p
 
 ## Optional parameters
 
-In the Qodly Language Reference, the `{ }` characters (braces) indicate optional parameters. For example, `ASSERT ( boolExpression {, messageText} ) ` means that the *messageText* parameter may be omitted when calling the command. You can call it in the following ways:
+In the Qodly documentation, the `{ }` characters (braces) indicate optional parameters. For example, `ASSERT ( boolExpression {, messageText} )` means that the *messageText* parameter may be omitted when calling the command. You can call it in the following ways:
 
 ```4d
 ASSERT(a != "","Search for a blank value") //2 parameters
