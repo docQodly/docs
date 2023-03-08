@@ -98,7 +98,7 @@ Shared objects and shared collections are designed to allow communication betwee
 
 :::note
 
-If a collection class function modifies a shared collection, an internal **Use** is automatically called for this shared collection while the function is executed. 
+If a function of the `[collection class](../API/CollectionClass.md)` modifies a shared collection, an internal **Use** is automatically called for this shared collection while the function is executed. 
 
 :::
 
