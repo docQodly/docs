@@ -100,73 +100,22 @@ strings2=strings1.orderByMethod("sortCollection",sk strict)
 
 :::
 
-## Tables and Fields
-
-You designate a table by placing its name between brackets: \[...]. You designate a field by first specifying the table to which it belongs (the field name immediately follows the table name).
-
-A table name and field name can contain up to 31 characters.
-
-- A table or field name must begin with a letter, an underscore, or a dollar ("$")
-- Thereafter, the name can include alphabetic characters, numeric characters, the space character, and the underscore character ("_").
-- Do not use reserved names, i.e. 4D command names (`Date`, `Time`, etc), keywords (`If`, `For`, etc.), or constant names (`Euro`, `Black`, `Friday`, etc.).
-- Additional rules must be respected when the database must be handled via SQL: only the characters _0123456789abcdefghijklmnopqrstuvwxyz are accepted, and the name must not include any SQL keywords (command, attribute, etc.).
-
-Examples:
-
-```4d
-FORM SET INPUT([Clients];"Entry")
-ADD RECORD([Letters])
-[Orders]Total:=Sum([Line]Amount)
-QUERY([Clients];[Clients]Name="Smith")
-[Letters]Text:=Capitalize text([Letters]Text)
-
-```
-
-> Giving the same name to a table and a [class](#classes) is not recommended, in order to prevent any conflict.
 
 ## Variables
 
 The name of a variable can be up to 31 characters.
 
-- A variable name must begin with a letter, an underscore, or a dollar ("$") for [parameters](parameters.md) and [local variables](variables.md#local-variables), or `<>` for [interprocess variables](variables.md#interprocess-variables).
-- A digit as first character is allowed but not recommended, and is not supported by the [`var` declaration syntax](variables.md#using-the-var-keyword).
-- Thereafter, the name can include any letter or digit, and the underscore character ("_").
-- Space character is allowed but not recommended, and is not supported by the [`var` declaration syntax](variables.md#using-the-var-keyword).
+- A variable name must begin with a [Unicode](https://developer.mozilla.org/en-US/docs/Glossary/Unicode) letter or an underscore.
+- Thereafter, the name can include any letter or digit or the underscore character ("_").
 - Do not use reserved names, i.e. 4D command names (`Date`, `Time`, etc), keywords (`If`, `For`, etc.), or constant names (`Euro`, `Black`, `Friday`, etc.).
 - Variable names are case insensitive.
 
 Examples:
 
 ```4d
-For($vlRecord;1;100) //local variable
-$vsMyString:="Hello there" //local variable
-var $vName; $vJob : Text //local variales 
-If(bValidate=1) //process variable
-<>vlProcessID:=Current process() //interprocess variable
-```
-
-## Other names
-
-In the 4D language, several elements have their names handled as strings: **forms**, **form objects**, **named selections**, **processes**, **sets**, **menu bars**, etc.
-
-Such string names can contain up to 255 characters, not including the `$` or `<>` characters (if any).
-
-- String names can contain any characters.
-- String names are case insensitive.
-
-Examples:
-
-```4d
-DIALOG([Storage];"Note box"+String($vlStage))
-OBJECT SET FONT(*;"Binfo";"Times")
-USE NAMED SELECTION([Customers];"Closed")//Process Named Selection
-USE NAMED SELECTION([Customers];"<>ByZipcode") //Interprocess Named Selection
- //Starting the global process "Add Customers"
-$vlProcessID:=New process("P_ADD_CUSTOMERS";48*1024;"Add Customers")
- //Starting the local process "$Follow Mouse Moves"
-$vlProcessID:=New process("P_MOUSE_SNIFFER";16*1024;"$Follow Mouse Moves")
-CREATE SET([Customers];"Customer Orders")//Process set
-USE SET("<>Deleted Records") //Interprocess set
-If(Records in set("$Selection"+String($i))>0) //Client set
-
+for(vlRecord,1,100) 
+vs_My_String="Hello there" 
+var _vAge : Integer 
+if(bValidate==1) 
+vlProcessID:=Current process()
 ```

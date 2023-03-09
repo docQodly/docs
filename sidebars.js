@@ -74,6 +74,8 @@ const sidebars = {
 				'concepts/lang-classes',
 				'concepts/lang-control-flow',
 				'concepts/lang-errors',
+				'concepts/lang-identifiers',
+				'concepts/lang-pathnames',
 				],
 		},
       ],
