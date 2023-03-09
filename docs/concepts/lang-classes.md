@@ -45,6 +45,8 @@ When naming classes, you should keep in mind the following rules:
 
 - A [class name](identifiers.md#classes) must be compliant with [property naming rules](identifiers.md#object-properties).
 - Class names are case sensitive.
+- Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
+
 
 For example, if you want to define a class named "Polygon", you need to create the following file:
 
