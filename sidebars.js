@@ -73,6 +73,7 @@ const sidebars = {
 				'concepts/lang-shared',
 				'concepts/lang-classes',
 				'concepts/lang-control-flow',
+				'concepts/lang-errors',
 				],
 		},
       ],

@@ -3,7 +3,7 @@ id: lang-quicktour
 title: A Quick Tour
 ---
 
-Since the Qodly language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the followinbg line:
+Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the followinbg line:
 
 ```4d  
 Web Form.setMessage("Hello, World!")
@@ -26,7 +26,7 @@ arrDays{2}="Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
 
 You MUST distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
 
-For efficiency, Qodly also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
+For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
 
 ```4d
 a=1 //1
@@ -36,7 +36,7 @@ a+=2 //3
 
 ## Variables
 
-The Qodly language is strongly typed, although some flexibility is allowed in many cases. You create a typed variable using the `var` keyword. For example, to create a variable of the date type, you can write:
+The QodlyScript language is strongly typed, although some flexibility is allowed in many cases. You create a typed variable using the `var` keyword. For example, to create a variable of the date type, you can write:
 
 ```4d
 var MyDate : Date 
@@ -53,7 +53,7 @@ A declared variable cannot change of type.
 
 ## Commands
 
-Qodly commands are built-in methods to perform an action. Commands are often used with parameters, which are passed in brackets () and separated by commas `,`. Example:
+QodlyScript commands are built-in methods to perform an action. Commands are often used with parameters, which are passed in brackets () and separated by commas `,`. Example:
 
 ```4d
 CONVERT FROM TEXT(vText,"UTF-8",vBlob)
@@ -71,7 +71,7 @@ lastEmployee:=employee.last()
 
 ## Constants
 
-Qodly proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `sk char codes` is a constant (value 1). 
+QodlyScript proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `sk char codes` is a constant (value 1). 
 
 ```4d
 a="alpha bravo charlie"
@@ -89,7 +89,7 @@ vResult=Compare strings(a,b,sk char codes+sk case insensitive) // vResult==0
 
 ## Methods
 
-Qodly provides a large number of built-in methods (or commands) but also lets you can create your own **methods**. User-defined methods can contain commands, operators, and any other parts of the language. 
+QodlyScript provides a large number of built-in methods (or commands) but also lets you can create your own **methods**. User-defined methods can contain commands, operators, and any other parts of the language. 
 
 A method is composed of statements; each statement consists of one line in the method. A statement performs an action, and may be simple or complex.
 
@@ -99,7 +99,7 @@ For example, the following line is a statement that will compress a BLOB:
 COMPRESS BLOB(vBlob;GZIP Best compression mode)
 ```
 
-A method also contains tests and loops that control the flow of the execution. Qodly methods support `If...Else...End if` and `Case of...Else...End case` branching structures as well as looping structures: `While...End while`, `Repeat...Until`, `For...End for`, and `For each...End for each`:
+A method also contains tests and loops that control the flow of the execution. QodlyScript methods support `If...Else...End if` and `Case of...Else...End case` branching structures as well as looping structures: `While...End while`, `Repeat...Until`, `For...End for`, and `For each...End for each`:
 
 The following example goes through all the characters of the text vtSomeText:
 
@@ -135,7 +135,7 @@ In the language, the various types of data that can be handled are referred to a
 
 Note that string and numeric data types can be associated with more than one type of datastore attributes. When data is put into an attribute, the language automatically converts the data to the correct type for the attribute. For example, if an integer attribute is used, its data is automatically treated as numeric. In other words, you need not worry about mixing similar attribute types when using the language; it will manage them for you.
 
-However, when using the language it is important that you do not mix different data types. In the same way that it makes no sense to store "ABC" in a Date attribute, it makes no sense to put "ABC" in a variable used for dates. In most cases, Qodly is very tolerant and will try to make sense of what you are doing. For example, if you add a number to a date, Qodly will assume that you want to add that number of days to the date, but if you try to add a string to a date, Qodly will tell you that the operation cannot work.
+However, when using the language it is important that you do not mix different data types. In the same way that it makes no sense to store "ABC" in a Date attribute, it makes no sense to put "ABC" in a variable used for dates. In most cases, QodlyScript is very tolerant and will try to make sense of what you are doing. For example, if you add a number to a date, QodlyScript will assume that you want to add that number of days to the date, but if you try to add a string to a date, QodlyScript will tell you that the operation cannot work.
 
 There are cases in which you need to store data as one type and use it as another type. The language contains a full complement of commands that let you convert from one data type to another. For example, you may need to create a part number that starts with a number and ends with characters such as "abc". In this case, you might write:
 
@@ -185,12 +185,12 @@ myColl[3]  //access to 4th element of the collection
 
 ## Classes
 
-The Qodly language supports classes. 
+The QodlyScript language supports classes. 
 
 You can create a class named "myClass" for example. To instantiate an object of this class in a method, call the class from the user *class store* (`cs`) and use the `new()` member function. You can pass parameters.
 
 ```4d  
-// in a Qodly method
+// in a QodlyScript method
 o=cs.myClass.new() 
 ```
 
@@ -250,7 +250,7 @@ When you use the language, it is rare that you will simply want a piece of data.
 |*|	Multiplication | 2 * 3 results in 6
 |/|	Division | 6 / 2 results in 3|
 
-Numeric operators are just one type of operator available to you. Qodly supports many different types of data, such as numbers, text, dates, and pictures, so there are operators that perform operations on these different data types.
+Numeric operators are just one type of operator available to you. QodlyScript supports many different types of data, such as numbers, text, dates, and pictures, so there are operators that perform operations on these different data types.
 
 The same symbols are often used for different operations, depending on the data type. For example, the plus sign (+) performs different operations with different data:
 
@@ -263,11 +263,11 @@ The same symbols are often used for different operations, depending on the data 
 
 ## Expressions 
 
-Simply put, expressions return a value. In fact, when using the Qodly language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
+Simply put, expressions return a value. In fact, when using the QodlyScript language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
 
 Expressions are made up of almost all the other parts of the language: commands, operators, variables, entity attributes, object properties, collection elements. You use expressions to build statements (lines of code), which in turn are used to build methods. The language uses expressions wherever it needs a piece of data.
 
-Expressions rarely "stand alone". There are several places in Qodly where an expression can be used by itself. It includes:
+Expressions rarely "stand alone". There are several places in QodlyScript where an expression can be used by itself. It includes:
 
 - Formula API (apply formula, query with formula, order by formula)
 - The `EXECUTE FORMULA` command
@@ -304,7 +304,7 @@ You refer to an expression by the data type it returns. There are several expres
 ### Assignable vs non-assignable expressions
 
 An expression can simply be a literal constant, such as the number 4 or the string "Hello", or a variable like `myButton`. It can also use operators. For example, 4 + 2 is an expression that uses the addition operator to add two numbers together and return the result 6. In any cases, these expressions are **non-assignable**, which means that you cannot assign a value to them.
-In Qodly, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
+In QodlyScript, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
 
 ```4d  
 //myVar variable is assignable, you can write:  
@@ -319,7 +319,7 @@ In general, expressions that use an operator are non-assignable. For example, `e
  
 ## Code on several lines
 
-You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The Qodly language will consider all the lines at once. For example, both the following statements are equivalent:
+You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
 
 ```4d
 str=String("hello world!")
@@ -333,7 +333,7 @@ str=String("hello"+\
 
 ## Comments
 
-Comments are inactive lines of code. These lines are not interpreted by the Qodly language and are not executed when the code is called. 
+Comments are inactive lines of code. These lines are not interpreted by the QodlyScript language and are not executed when the code is called. 
 
 There are two ways to create comments:
 
@@ -367,7 +367,7 @@ For /* inline comment */ ($vCounter,1,100)
 End for
 ```
 
-- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the Qodly code editor supports block collapsing). Example:
+- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the QodlyScript code editor supports block collapsing). Example:
 
 ```4d
 For ($vCounter,1,100)
@@ -383,11 +383,11 @@ End for
 
 ## Escape sequences  
 
-The Qodly language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
+The QodlyScript language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
 
 The sequence consists of a backslash `\\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
 
-In Qodly, the following escape sequences can be used:
+In QodlyScript, the following escape sequences can be used:
 
 |Escape sequence|Character replaced|
 |---|---|
