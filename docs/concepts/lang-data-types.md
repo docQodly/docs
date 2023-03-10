@@ -3,30 +3,33 @@ id: lang-data-types
 title: Data types
 ---
 
+
+## Overview
+
 In Qodly, data are handled according to their type in two places: the datastore and the QodlyScript language.
 
 Although they are usually equivalent, some data types available at the datastore level are not directly available in the language and are automatically converted. Conversely, some data types can only be handled through the language. The following table lists all available data types and how they are supported/declared:
 
-|Data Types	|Datastore support	|Language support|Variable declaration|
+|Data Types	|Datastore support (kind)	|Language support|Variable declaration|
 |---|----|---|---|
-|[Text](Concepts/dt_string.md)	|Yes	|Yes|`Text`, `ARRAY TEXT`|
-|[Date](Concepts/dt_date.md)	|Yes	|Yes|`Date`, `ARRAY DATE`|
-|[Time](Concepts/dt_time.md)	|With date	|Yes|`Time`, `ARRAY TIME`|
-|[Boolean](Concepts/dt_boolean.md)	|Yes	|Yes|`Boolean`, `ARRAY BOOLEAN`|
-|[Integer](Concepts/dt_number.md)	|Yes	|Yes|`Integer`|`ARRAY INTEGER`, `ARRAY LONGINT`|
-|[Real](Concepts/dt_number.md)	|Yes	|Yes|`Real`, `ARRAY REAL`|
+|[Text](Concepts/dt_string.md)	|string	|Yes|`Text`, `ARRAY TEXT`|
+|[Date](Concepts/dt_date.md)	|date	|Yes|`Date`, `ARRAY DATE`|
+|[Time](Concepts/dt_time.md)	|date	|Yes|`Time`, `ARRAY TIME`|
+|[Boolean](Concepts/dt_boolean.md)	|bool	|Yes|`Boolean`, `ARRAY BOOLEAN`|
+|[Integer](Concepts/dt_number.md)	|number	|Yes|`Integer`|`ARRAY INTEGER`, `ARRAY LONGINT`|
+|[Real](Concepts/dt_number.md)	|number	|Yes|`Real`, `ARRAY REAL`|
 |[Undefined](Concepts/dt_null_undefined.md)	|-	|Yes|-|
 |[Null](Concepts/dt_null_undefined.md)	|-	|Yes|-|
-|[Picture](Concepts/dt_picture.md)	|Yes	|Yes|`Picture`, `ARRAY PICTURE`|
-|[BLOB](Concepts/dt_blob.md)	|Yes	|Yes|`Blob`, `4D.Blob`, `ARRAY BLOB`|
-|[Object](Concepts/dt_object.md)	|Yes	|Yes|`Object`, `ARRAY OBJECT`|
+|[Picture](Concepts/dt_picture.md)	|image	|Yes|`Picture`, `ARRAY PICTURE`|
+|[BLOB](Concepts/dt_blob.md)	|blob	|Yes|`Blob`, `4D.Blob`, `ARRAY BLOB`|
+|[Object](Concepts/dt_object.md)	|object	|Yes|`Object`, `ARRAY OBJECT`|
 |[Collection](Concepts/dt_collection.md)	|-	|Yes|`Collection`|
 |[Variant](Concepts/dt_variant.md)(1)	|-	|Yes|`Variant`|
 
 
 (1) Variant is actually not a *data* type but a *variable* type that can contain a value of any other data type. 
 
-## Default values
+### Default values
 
 When [variables](lang-variables.md) or [parameters](lang-parameters.md) are [typed](lang-variables.md#declaring-variables), they receive a default value, which they will keep during the session as long as they have not been assigned. 
 
@@ -47,7 +50,7 @@ The default value depends on the variable type:
 |Variant|undefined|
 
 
-## Converting data types
+### Converting data types
 
 QodlyScript contains operators and commands to convert between data types, where such conversions are meaningful. QodlyScript enforces data type checking. For example, you cannot write: "abc"+0.5+!12/25/96!-?00:30:45?. This will generate syntax errors.
 
