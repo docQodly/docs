@@ -77,9 +77,11 @@ const sidebars = {
 						id: 'concepts/lang-data-types',
 					},
 					items: [
-						'concepts/lang-text',
+						'concepts/lang-boolean',
 						'concepts/lang-date',
 						'concepts/lang-number',
+						'concepts/lang-picture',
+						'concepts/lang-text',
 					],
 				},
 				'concepts/lang-operators',

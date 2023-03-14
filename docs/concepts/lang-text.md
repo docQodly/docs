@@ -5,6 +5,7 @@ title: Text
 
 A text (or string) value is an attribute, variable, or expression that may contain from 0 to 2 GB of text.
 
+
 ## Literals
 
 A string literal is enclosed in double, straight quotation marks ("..."). Here are some examples of string literals:
@@ -142,18 +143,26 @@ QodlyScript uses the ICU library for comparing strings (using `<>==!=` operators
 
 :::
 
+## String functions
+
+QodlyScript provides several functions such as [`Replace string`](string.md#replace-string) or [`Substring`](string.md#substring) to handle text values. For more information, see the [**String**](string.md) chapter.
+
+
 ## Character Reference Symbols  
 
 The character reference symbols: `[[...]]`
 
-These symbols are used to refer to a single character within a string. This syntax allows you to individually address the characters of a text variable, string variable, or attribute.
+These symbols are used to refer to a single character within a string. This syntax allows you to individually address the characters of a text variable or attribute.
 
 If the character reference symbols appear on the left side of the assignment operator (`=`), a character is assigned to the referenced position in the string. For example, if `vsName` is not an empty string, the following line sets the first character of `vsName` to uppercase:
 
-```4d
+```4d  
+var vsName : Text
+vsName = "hello"
 if(vsName!="")
     vsName[[1]]=Uppercase(vsName[[1]])
-end if
+end if  
+//"Hello"
 ```
 
 Otherwise, if the character reference symbols appear within an expression, they return the character (to which they refer) as a 1-character string. For example:
