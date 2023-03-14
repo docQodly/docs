@@ -53,12 +53,15 @@ const sidebars = {
 			keywords: ['concepts'],
 			image: '/img/docusaurus.png',
 			},
-      items: ['concepts/server-architecture','concepts/db',
-		{ 	type: 'category',
-			label: 'QodlyScript Language',
+      items: ['concepts/server-architecture','concepts/db'],
+    },
+  ],
+  QodlyScript:[
+   		{ 	type: 'category',
+			label: 'QodlyScript overview',
 			link: {
 				type: 'generated-index',
-				title: 'QodlyScript',
+				title: 'QodlyScript overview',
 				description: 'Main concepts of the QodlyScript Language.',
 				slug: '/category/language',
 				keywords: ['language'],
@@ -90,19 +93,10 @@ const sidebars = {
 				'concepts/lang-pathnames',
 				],
 		},
-      ],
-    },
-  ],
-  API:[
-   {
-      type: 'doc',
-      id: 'deploy/get-started',
-      label: "Getting Started"
-    },
  {
       type: 'doc',
-      id: 'deploy/on-premise',
-      label: "On Premise"
+      id: 'language/string',
+      label: "String"
     },
   ],
 };

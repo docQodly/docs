@@ -86,9 +86,9 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: 'api',
+            docId: '/category/language',
             position: 'left',
-            label: 'API',
+            label: 'QodlyScript',
           },
 		  /*
           {to: '/blog', label: 'Blog', position: 'left'},
