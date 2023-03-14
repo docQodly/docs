@@ -3,131 +3,58 @@ id: string
 title: String
 ---
 
-`File` objects are created with the [`File`](#file) command. They contain references to disk files that may or may not actually exist on disk. For example, when you execute the `File` command to create a new file, a valid `File` object is created but nothing is actually stored on disk until you call the [`file.create( )`](#create) function.
+`String` is a generic term that stands for both [**text and string data types**](../concepts/lang-text.md).
 
-### Example
+**See also:** 
 
-The following example creates a preferences file in the project folder:
-
-```code4d
-var $created : Boolean
-$created:=File("/PACKAGE/SpecialPrefs/"+Current user+".myPrefs").create()
-```
-
-### Pathnames
-
-`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](../Concepts/paths.md) page. 
+- [**String operators**](../concepts/lang-text.md#string-operators)
+- [**Character Reference Symbols**](../concepts/lang-text.md#character-reference-symbols)
 
 
-
-### File object
+## String Commands
 
 ||
 |---|
-|[<!-- INCLUDE #document.copyTo().Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.copyTo().Summary -->|
+|[<!-- INCLUDE #_command_.Change string.Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
 |[<!-- INCLUDE #FileClass.create().Syntax -->](#create)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.create().Summary -->|
-|[<!-- INCLUDE #FileClass.createAlias().Syntax -->](#createalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.createAlias().Summary -->|
-|[<!-- INCLUDE #document.creationDate.Syntax -->](#creationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.creationDate.Summary -->|
-|[<!-- INCLUDE #document.creationTime.Syntax -->](#creationtime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.creationTime.Summary -->|
-|[<!-- INCLUDE #FileClass.delete().Syntax -->](#delete)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.delete().Summary -->|
-|[<!-- INCLUDE #document.exists.Syntax -->](#exists)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.exists.Summary -->|
-|[<!-- INCLUDE #document.extension.Syntax -->](#extension)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.extension.Summary -->|
-|[<!-- INCLUDE #document.fullName.Syntax -->](#fullname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.fullName.Summary -->|
-|[<!-- INCLUDE #FileClass.getAppInfo().Syntax -->](#getappinfo)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.getAppInfo().Summary -->|
-|[<!-- INCLUDE #document.getContent().Syntax -->](#getcontent)<!-- INCLUDE #document.getContent().Summary -->|
-|[<!-- INCLUDE #document.getIcon().Syntax -->](#geticon)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.getIcon().Summary -->|
-|[<!-- INCLUDE #document.getText().Syntax -->](#gettext)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.getText().Summary -->|
-|[<!-- INCLUDE #document.hidden.Syntax -->](#hidden)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.hidden.Summary -->|
-|[<!-- INCLUDE #document.isAlias.Syntax -->](#isalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.isAlias.Summary -->|
-|[<!-- INCLUDE #document.isFile.Syntax -->](#isfile)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.isFile.Summary -->|
-|[<!-- INCLUDE #document.isFolder.Syntax -->](#isfolder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.isFolder.Summary -->|
-|[<!-- INCLUDE #document.isWritable.Syntax -->](#iswritable)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.isWritable.Summary -->|
-|[<!-- INCLUDE #document.modificationDate.Syntax -->](#modificationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.modificationDate.Summary -->|
-|[<!-- INCLUDE #document.modificationTime.Syntax -->](#modificationtime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.modificationTime.Summary -->|
-|[<!-- INCLUDE #FileClass.moveTo().Syntax -->](#moveto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.moveTo().Summary -->|
-|[<!-- INCLUDE #document.name.Syntax -->](#name)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.name.Summary -->|
-|[<!-- INCLUDE #FileClass.open().Syntax -->](#open)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.open().Summary -->|
-|[<!-- INCLUDE #document.original.Syntax -->](#original)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.original.Summary -->|
-|[<!-- INCLUDE #document.parent.Syntax -->](#parent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.parent.Summary -->|
-|[<!-- INCLUDE #document.path.Syntax -->](#path)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.path.Summary -->|
-|[<!-- INCLUDE #document.platformPath.Syntax -->](#platformpath)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.platformPath.Summary -->|
-|[<!-- INCLUDE #FileClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.rename().Summary -->|
-|[<!-- INCLUDE #FileClass.setAppInfo().Syntax -->](#setappinfo)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setAppInfo().Summary -->|
-|[<!-- INCLUDE #FileClass.setContent().Syntax -->](#setcontent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setContent().Summary -->|
-|[<!-- INCLUDE #FileClass.setText().Syntax -->](#settext)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setText().Summary -->|
-|[<!-- INCLUDE #document.size.Syntax -->](#size)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.size.Summary -->|
-
-## File
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added|
-
-</details>
-
-<!-- REF #_command_.File.Syntax -->**File** ( *path* : Text { ; *pathType* : Integer }{ ; *\** } ) : 4D.File<br/>**File** ( *fileConstant* : Integer { ; *\** } ) : 4D.File<!-- END REF -->
 
 
-<!-- REF #_command_.File.Params -->
+## Change string
+
+<!-- REF #_command_.Change string.Syntax -->**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Change string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|path|Text|->|File path|
-|fileConstant|Integer|->|4D file constant|
-|pathType|Integer|->|`fk posix path` (default) or `fk platform path`|
-|*||->|* to return file of host database|
-|Result|4D.File|<-|New file object|<!-- END REF -->
+|source|Text|->|Original string|
+|newChars|Text|->|New characters|
+|where|Integer|->|Where to start the changes|
+|Result|Text|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-The `File` command <!-- REF #_command_.File.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. The command accepts two syntaxes:
+The `Change string` command <!-- REF #_command_.Change string.Summary -->changes a group of characters in *source* and returns the resulting string<!-- END REF -->. The command overlays *source*, with the characters in *newChars*, at the character described by *where*.
 
-**File ( path { ; pathType } { ; \* })**
+If *newChars* is an empty string (""), `Change string` returns *source* unchanged. `Change string` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `Change string` returns *source*.
 
-In the *path* parameter, pass a file path string. You can use a custom string or a filesystem (e.g., "/DATA/myfile.txt").
+`Change string` is different from [`Insert string`](#insert-string) in that it overwrites characters instead of inserting them.
 
-> Only absolute pathnames are supported with the `File` command.
+#### Example
 
-By default, 4D expects a path expressed with the POSIX syntax. If you work with platform pathnames (Windows or macOS), you must declare it using the *pathType* parameter. The following constants are available:
+```4d
+var vtResult : Text
+vtResult=Change string("Acme","CME",2) //vtResult gets "ACME"
+vtResult=Change string("November","Dec",1) //vtResult gets "December"
 
-|Constant|Value|Comment|
-|---|---|---|
-|fk platform path|1|Path expressed with a platform-specific syntax (mandatory in case of platform pathname)|
-|fk posix path|0|Path expressed with POSIX syntax (default)
+```
 
-**File ( fileConstant { ; \* } )**
+#### See also
 
-In the *fileConstant* parameter, pass a 4D built-in or system file, using one of the following constants:
+[`Delete string`](#delete-string)<br/>
+[`Insert string`](#insert-string)<br/>
+[`Replace string`](#replace-string)
 
-|Constant|Value|Comment|
-|---|---|---|
-|Backup history file|19|Backup history file (see Configuration and trace files). Stored in the backup destination folder. |
-|Backup log file|13|Current backup journal file. Stored in the application Logs folder.|
-|Backup settings file|1|Default backup.4DSettings file (xml format), stored in the Settings folder of the project|
-|Backup settings file for data|17|backup.4DSettings file (xml format) for the data file, stored in the Settings folder of the data folder|
-|Build application log file|14|Current log file in xml format of the application builder. Stored in the Logs folder. |
-|Build application settings file|20|Default settings file of the application builder ("buildApp.4DSettings"). Stored in the Settings folder of the project.|
-|Compacting log file|6|Log file of the most recent compacting done with the Compact data file command or the Maintenance and security center. Stored in the Logs folder.|
-|Current backup settings file|18|backup.4DSettings file currently used by the application. It can be the backup settings file (default) or a custom user backup settings file defined for the data file|
-|Debug log file|12|Log file created by the `SET DATABASE PARAMETER(Debug log recording)` command. Stored in the Logs folder. |
-|Diagnostic log file|11|Log file created by the `SET DATABASE PARAMETER(Diagnostic log recording)` command. Stored in the Logs folder. |
-|Directory file|16|directory.json file, containing the description of users and groups (if any) for the project application. It can be located either in the user settings folder (default, global to the project), or in the data settings folder (specific to a data file). |
-|HTTP debug log file|9|Log file created by the `WEB SET OPTION(Web debug log)` command. Stored in the Logs folder. |
-|HTTP log file|8|Log file created by the `WEB SET OPTION(Web log recording)` command. Stored in Logs folder.|
-|IMAP Log file|23|Log file created by the `SET DATABASE PARAMETER(IMAP Log)` command. Stored in the Logs folder.|  
-|Last backup file|2|Last backup file, named `\<applicationName>[bkpNum].4BK`, stored at a custom location.|
-|Last journal integration log file|22|Full pathname of the last journal integration log file (stored in the Logs folder of the restored application), if any. This file is created, in auto-repair mode, as soon as a log file integration occurred|
-|Repair log file|7|Log file of database repairs made on the database in the Maintenance and Security Center (MSC). Stored in the Logs folder.|
-|Request log file|10|Standard client/server request log file (excluding Web requests) created by the `SET DATABASE PARAMETER(4D Server log recording)` or `SET DATABASE PARAMETER(Client log recording)` commands. If executed on the server, the server log file is returned (stored in the Logs folder on the server). If executed on the client, the client log file is returned (stored in the client local Logs folder). |
-|SMTP log file|15|Log file created by the `SET DATABASE PARAMETER(SMTP Log)` command. Stored in the Logs folder. |
-|User settings file|3|settings.4DSettings file for all data files, stored in Preferences folder next to structure file if enabled.|
-|User settings file for data|4|settings.4DSettings file for current data file, stored in Preferences folder next to the data file.|
-|Verification log file|5|Log files created by the `VERIFY CURRENT DATA FILE` and `VERIFY DATA FILE` commands or the Maintenance and Security Center (MSC). Stored in the Logs folder. |
-
-If the target *fileConstant* does not exist, a null object is returned. No errors are raised.
-
-If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
 ## 4D.File.new()
 
