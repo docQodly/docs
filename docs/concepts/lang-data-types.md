@@ -10,44 +10,27 @@ In Qodly, data are handled according to their type in two places: the datastore 
 
 Although they are usually equivalent, some data types available at the datastore level are not directly available in the language and are automatically converted. Conversely, some data types can only be handled through the language. The following table lists all available data types and how they are supported/declared:
 
-|Data Types	|Datastore support (kind)	|Language support|Variable declaration|
-|---|----|---|---|
-|[Text](Concepts/dt_string.md)	|string	|Yes|`Text`, `ARRAY TEXT`|
-|[Date](Concepts/dt_date.md)	|date	|Yes|`Date`, `ARRAY DATE`|
-|[Time](Concepts/dt_time.md)	|date	|Yes|`Time`, `ARRAY TIME`|
-|[Boolean](Concepts/dt_boolean.md)	|bool	|Yes|`Boolean`, `ARRAY BOOLEAN`|
-|[Integer](Concepts/dt_number.md)	|number	|Yes|`Integer`|`ARRAY INTEGER`, `ARRAY LONGINT`|
-|[Real](Concepts/dt_number.md)	|number	|Yes|`Real`, `ARRAY REAL`|
-|[Undefined](Concepts/dt_null_undefined.md)	|-	|Yes|-|
-|[Null](Concepts/dt_null_undefined.md)	|-	|Yes|-|
-|[Picture](Concepts/dt_picture.md)	|image	|Yes|`Picture`, `ARRAY PICTURE`|
-|[BLOB](Concepts/dt_blob.md)	|blob	|Yes|`Blob`, `4D.Blob`, `ARRAY BLOB`|
-|[Object](Concepts/dt_object.md)	|object	|Yes|`Object`, `ARRAY OBJECT`|
-|[Collection](Concepts/dt_collection.md)	|-	|Yes|`Collection`|
-|[Variant](Concepts/dt_variant.md)(1)	|-	|Yes|`Variant`|
-
+|Data Types	|Variable declaration|Datastore support (type)|Default value|
+|---|----|---|
+|[BLOB](lang-blob.md)	|`var Blob`|blob|`Blob size`==0|
+||`var 4D.Blob`|blob|null|
+|[Boolean](lang-boolean.md)	|`var Boolean`|bool|False|
+|[Collection](lang-collection.md)	|`var Collection`|-|null|
+|[Date](lang-date.md)|`var Date`|date|00-00-00|
+|[Null](lang-null.md)	|-	|-|null|
+|[Number](lang-number.md)|`var Integer`, `var Real`|number|0|
+|[Object](lang-object.md)	|`var Object`|object|null|
+|[Picture](lang-picture.md)	|`var Picture`|image|`Picture size`==0|
+|[String](lang-text.md)	|`var Text`|string|""|
+|[Time](lang-time.md) |`var Time`|date|00:00:00|
+|[Undefined](lang-undefined.md)	|-	|-|undefined|
+|[Variant](lang-variant.md)(1)	|`var Variant`|-|undefined|
+|[Array](lang-arrays.md)(2)|`ARRAY BLOB`, `ARRAY DATE`, etc.|-|-|
 
 (1) Variant is actually not a *data* type but a *variable* type that can contain a value of any other data type. 
 
-### Default values
+(2) Arrays are series of variables of the same data type. 
 
-When [variables](lang-variables.md) or [parameters](lang-parameters.md) are [typed](lang-variables.md#declaring-variables), they receive a default value, which they will keep during the session as long as they have not been assigned. 
-
-The default value depends on the variable type:
-
-|Type|Default value|  
-|---|---|
-|Booleen	|False	|
-|Date	|00-00-00	|
-|Integer|0	|
-|Time|00:00:00	|
-|Picture|picture size=0	|
-|Real|0	|
-|Text|""|
-|Blob|Blob size=0|
-|Object|null|
-|Collection|null|
-|Variant|undefined|
 
 
 ### Converting data types
@@ -64,7 +47,7 @@ The following table lists the basic data types, the data types to which they can
 |Time|`String`||||`Bool`|
 |Boolean||`Num`||||
 
-(1) Strings formatted in JSON can be converted into scalar data, objects, or collections, using the `JSON Parse` command.
+(1) Strings formatted in JSON can be converted into scalar data, objects, or collections using the `JSON Parse` command.
 
 (2) Time values can be treated as numbers.
 
