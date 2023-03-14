@@ -1,5 +1,5 @@
 ---
-id: boolean
+id: lang-boolean
 title: Boolean
 ---
 
