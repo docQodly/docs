@@ -13,7 +13,7 @@ Although they are usually equivalent, some data types available at the datastore
 |Data Types	|Variable declaration|Datastore support (type)|Default value|
 |---|----|---|
 |[BLOB](lang-blob.md)	|`var Blob`|blob|`Blob size`==0|
-||`var 4D.Blob`|blob|null|
+||`var 4D.Blob`|object|null|
 |[Boolean](lang-boolean.md)	|`var Boolean`|bool|False|
 |[Collection](lang-collection.md)	|`var Collection`|-|null|
 |[Date](lang-date.md)|`var Date`|date|00-00-00|

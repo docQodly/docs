@@ -29,8 +29,8 @@ Most of the [picture management commands](picture.md) can receive a Codec ID as 
 |---|---|---|---|
 |Horizontal concatenation	|Pict1 + Pict2	|Picture	|Add Pict2 to the right of Pict1
 |Vertical concatenation	|Pict1 / Pict2	|Picture	|Add Pict2 to the bottom of Pict1|
-|Exclusive superimposition	|Pict1 & Pict2	|Picture	|Superimposes Pict2 on top of Pict1 (Pict2 in foreground). Produces the same result as `COMBINE PICTURES(pict3;pict1;Superimposition;pict2)`
-|Inclusive superimposition	|Pict1 &#124; Pict2	|Picture	|Superimposes Pict2 on Pict1 and returns resulting mask if both pictures are the same size. Produces the same result as `$equal:=Equal pictures(Pict1;Pict2;Pict3)`|
+|Exclusive superimposition	|Pict1 & Pict2	|Picture	|Superimposes Pict2 on top of Pict1 (Pict2 in foreground). Produces the same result as `COMBINE PICTURES(pict3,pict1,Superimposition,pict2)`
+|Inclusive superimposition	|Pict1 &#124; Pict2	|Picture	|Superimposes Pict2 on Pict1 and returns resulting mask if both pictures are the same size. Produces the same result as `equal=Equal pictures(Pict1,Pict2,Pict3)`|
 |Horizontal move	|Picture + Number	|Picture	|Move Picture horizontally Number pixels|
 |Vertical move	|Picture / Number	|Picture	|Move Picture vertically Number pixels|
 |Resizing	|Picture * Number	|Picture	|Resize Picture by Number ratio|
@@ -67,13 +67,13 @@ Vertical concatenation
 
 Exclusive superimposition
 ```4d
-Pict3:=Pict1 & Pict2 // Superimposes Pict2 on top of  Pict1
+Pict3=Pict1 & Pict2 // Superimposes Pict2 on top of  Pict1
 ```
 ![](img/superimpoExc.fr.png)
 
 Inclusive superimposition
 ```4d
-Pict3:=Pict1|Pict2 // Recovers resulting mask from superimposing two pictures of the same size
+Pict3=Pict1|Pict2 // Recovers resulting mask from superimposing two pictures of the same size
 ```
 ![](img/superimpoInc.fr.png)
 
@@ -90,6 +90,7 @@ Vertical move
 rectangle/50 //Move the rectangle down by 50 pixels
 rectangle/-20 //Move the rectangle up by 20 pixels
 ```
+
 ![](img/vertmove.en.png)![](img/vertmove2.en.png)
 
 Resize
