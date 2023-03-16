@@ -22,7 +22,7 @@ Although they are usually equivalent, some data types available at the datastore
 |[Object](lang-object.md)	|`var Object`|object|null|
 |[Picture](lang-picture.md)	|`var Picture`|image|`Picture size`==0|
 |[String](lang-text.md)	|`var Text`|string|""|
-|[Time](lang-time.md) |`var Time`|date|00:00:00|
+|[Time](lang-time.md) |`var Time`|number|00:00:00|
 |[Undefined](lang-undefined.md)	|-	|-|undefined|
 |[Variant](lang-variant.md)(1)	|`var Variant`|-|undefined|
 |[Array](lang-arrays.md)(2)|`ARRAY BLOB`, `ARRAY DATE`, etc.|-|-|
