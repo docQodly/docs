@@ -6,16 +6,9 @@ title: Methods
 A method is basically a piece of code that executes one or several action(s). Qodly provides a large number of built-in methods (i.e. **commands**) but also lets you create your own user methods. In this section, we describe user methods.
 
 
-
 ## Defining and Calling Methods
 
-A method can contain any code to execute any custom actions. 
-
-You give a method a name that identifies what it does, and this name is used to call the method wherever it is needed. 
-
-A user method is composed of statements. A statement performs an action, and may be simple or complex. Each statement usually consists of one line in the method (if necessary, it can however be [split using the `\` character](lang-quicktour.md#code-on-several-lines)). 
-
-The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.  
+You give a method a [name](identifiers.md#methods) that usually identifies what it does, and this name is used to call the method wherever it is needed. 
 
 Once a method is created, it becomes part of the language of the project. 
 
@@ -39,6 +32,79 @@ return ("hello " + param)
 Qodly Studio allows executing methods from the Explorer to test them.
 
 :::
+
+## Writing Method Code
+
+A method can contain any code to execute any custom actions. 
+
+A user method is composed of statements. A statement performs an action, and may be simple or complex. Each statement usually consists of one line in the method (if necessary, it can however be split using the `\` character, see below). 
+
+The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.  
+
+### Code on several lines
+
+You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
+
+```4d
+str=String("hello world!")
+```
+
+```4d
+str=String("hello"+\
+" world"+\
++"!")
+```
+
+### Comments
+
+Comments are inactive lines of code. These lines are not interpreted by the QodlyScript language and are not executed when the code is called. 
+
+There are two ways to create comments:
+
+- `//` for single line comments
+- `/*...*/` for inline or multiline commnents.
+
+Both styles of comments can be used simultaneously. 
+
+#### Single line comments (`//comment`)
+
+Insert `//` at the beginning of a line or after a statement to add a single line comment. Example: 
+
+```4d
+//This is a comment
+for($vCounter,1,100) //Starting loop
+  //comment
+  //comment
+  //comment
+end for
+```
+
+#### Inline or multiline comments (`/*comment*/`)
+
+Surround contents with `/*` ... `*/` characters to create inline comments or multiline comment blocks. Both inline and multiline comment blocks begin with `/*` and end with `*/`.
+
+- **Inline comments** can be inserted anywhere in the code. Example:
+
+```4d
+for /* inline comment */ ($vCounter,1,100)
+	...
+end for
+```
+
+- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the QodlyScript code editor supports block collapsing). Example:
+
+```4d
+for ($vCounter,1,100)
+/*
+comments  
+	/* 
+	other comments
+	*/
+*/
+...
+end for
+```
+
 
 
 ## Methods as Object Formulas

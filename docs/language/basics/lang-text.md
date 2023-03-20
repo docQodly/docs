@@ -18,17 +18,28 @@ A string literal is enclosed in double, straight quotation marks ("..."). Here a
 
 An empty string is specified by two quotation marks with nothing between them ("").
 
-### Escape sequences
+## Escape sequences  
 
-The following escape sequences can be used within strings:
+The QodlyScript language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
+
+The sequence consists of a backslash `\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
+
+In QodlyScript, the following escape sequences can be used:
 
 |Escape sequence|Character replaced|
-|---|----|
-|\n|LF (Line feed)|
-|\t|HT (Tab)|
-|\r|CR (Carriage return)|
-|\\\|\ (Backslash)|
-|\\"|" (Quotation marks)|
+|---|---|
+| `\n` | LF (Line feed) |
+| `\t` | HT (Tab) |
+| `\r` | CR (Carriage return) |
+| `\\` | `\` (Backslash) |
+| `\"` | " (Quotation marks) |
+
+> It is possible to use either upper or lower case in escape sequences.
+
+In the following example, the **Carriage return** character (escape sequence `\r`) is inserted in a statement in order to obtain a message on two lines:
+
+`myDoc.setMessage("The operation has been completed successfully.\rYou may now disconnect.")`
+
 
 
 ## String operators

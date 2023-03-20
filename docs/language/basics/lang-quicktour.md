@@ -62,10 +62,10 @@ CONVERT FROM TEXT(vText,"UTF-8",vBlob)
 Some commands are attached to collections or objects, in which case they are named functions and are used using the dot notation. For example: 
 
 ```4d
-c:=New collection(1;2;3;4;5)
-nc:=c.slice(0;3) //$nc=[1,2,3]  
+c=New collection(1,2,3,4,5)
+nc=c.slice(0,3) //$nc=[1,2,3]  
 
-lastEmployee:=employee.last()
+lastEmployee=employee.last()
 ```
 
 
@@ -76,42 +76,42 @@ QodlyScript proposes an extensed set of predefined constants, whose values are a
 ```4d
 a="alpha bravo charlie"
 b="Alpha Bravo Charlie"  
-vResult=Compare strings(a,b,sk char codes) // vResult==1
+vResult=Compare strings(a,b,sk char codes) // vResult: 1
 ```
 
 Constants can be added:
 
 ```4d
-vResult=Compare strings(a,b,sk char codes+sk case insensitive) // vResult==0
+vResult=Compare strings(a,b,sk char codes+sk case insensitive) // vResult: 0
 ```
 
 
 
 ## Methods
 
-QodlyScript provides a large number of built-in methods (or commands) but also lets you can create your own **methods**. User-defined methods can contain commands, operators, and any other parts of the language. 
+QodlyScript provides a large number of built-in methods (or *commands*) but also lets you can create your own **methods**. User-defined methods can contain commands, operators, and any other parts of the language. 
 
 A method is composed of statements; each statement consists of one line in the method. A statement performs an action, and may be simple or complex.
 
 For example, the following line is a statement that will compress a BLOB:
 
 ```4d
-COMPRESS BLOB(vBlob;GZIP Best compression mode)
+COMPRESS BLOB(vBlob,GZIP Best compression mode)
 ```
 
 A method also contains tests and loops that control the flow of the execution. QodlyScript methods support `If...Else...End if` and `Case of...Else...End case` branching structures as well as looping structures: `While...End while`, `Repeat...Until`, `For...End for`, and `For each...End for each`:
 
-The following example goes through all the characters of the text vtSomeText:
+The following example goes through all the characters of the text *vtSomeText*:
 
 ```4d
-For($vlChar,1,Length(vtSomeText))
+for($vlChar,1,Length(vtSomeText))
 	//Do something with the character if it is a TAB
 
 
-	If(Character code(vtSomeText[[$vlChar]])==Tab)
+	if(Character code(vtSomeText[[$vlChar]])==Tab)
 		//...
-	End if
-End for
+	end if
+end for
 ```
 
 A method can call another method with or without parameters (arguments). The parameters are passed to the method in parentheses, following the name of the method. Each parameter is separated from the next by a comma `,`. The parameters are directly available within the called method if they are declared. A method can return a single parameter. 
@@ -125,13 +125,13 @@ File("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
  
   //code of the method Do_Something  
 #DECLARE ( input : Text) -> output : Text 
-output:=Uppercase(input)
+output=Uppercase(input)
 ```
 
 
 ## Data Types
 
-In the language, the various types of data that can be handled are referred to as data types. There are basic data types (string, numeric, date, time, Boolean, picture, pointers, arrays), and also composite data types (BLOBs, objects, collections).
+In the language, the various types of data that can be handled are referred to as data types. There are scalar data types (string, numeric, date, time, boolean, picture, arrays), and also composite data types (BLOBs, objects, collections).
 
 Note that string and numeric data types can be associated with more than one type of datastore attributes. When data is put into an attribute, the language automatically converts the data to the correct type for the attribute. For example, if an integer attribute is used, its data is automatically treated as numeric. In other words, you need not worry about mixing similar attribute types when using the language; it will manage them for you.
 
@@ -145,7 +145,7 @@ myEntity.Product.partNumber=String(Number)+"abc"
 
 If _Number_ is 17, then _myEntity.partNumber_ will get the string "17abc".
 
-The data types are fully defined in the section [Data Types](Concepts/data-types.md).
+The data types are fully defined in the section [Data Types](lang-data-types.md).
 
 ## Objects and collections 
 
@@ -261,144 +261,4 @@ The same symbols are often used for different operations, depending on the data 
 |Date and Number	|Date addition	|!2023-01-01! + 20 adds 20 days to the date January 1, 2023, and results in the date January 21, 2023|
 
 
-## Expressions 
 
-Simply put, expressions return a value. In fact, when using the QodlyScript language, you use expressions all the time and tend to think of them only in terms of the value they represent. Expressions are also sometimes referred to as formulas.
-
-Expressions are made up of almost all the other parts of the language: commands, operators, variables, entity attributes, object properties, collection elements. You use expressions to build statements (lines of code), which in turn are used to build methods. The language uses expressions wherever it needs a piece of data.
-
-Expressions rarely "stand alone". There are several places in QodlyScript where an expression can be used by itself. It includes:
-
-- Formula API (apply formula, query with formula, order by formula)
-- The `EXECUTE FORMULA` command
-- Web forms, where an expression can be used as a data source for most of components
-- Debugger where the value of expressions can be checked
-
-
-### Expression types
-
-You refer to an expression by the data type it returns. There are several expression types. The following table gives examples of each type of expression.
-
-|Expression|Type|Description|
-|---|---|---|
-|"Hello"|String	|The word Hello is a string constant, indicated by the double quotation marks.|
-|"Hello " + "there"|	String|	Two strings, "Hello " and "there", are added together (concatenated) with the string concatenation operator (+). The string "Hello there" is returned.|
-|"Mr. " + person.name|	String|	Two strings are concatenated: the string "Mr. " and the current value of the name attribute in the person entity. If the attribute contains "Smith", the expression returns "Mr. Smith".|
-|Uppercase("smith")	|String	|This expression uses `Uppercase`, a command from the language, to convert the string "smith" to uppercase. It returns "SMITH".|
-|4	|Number |	This is a number constant, 4.|
-|4 * 2|	Number|	Two numbers, 4 and 2, are multiplied using the multiplication operator (*). The result is the number 8.|
-|!2023-01-25!|	Date|	This is a date constant for the date 1/25/2023 (January 25, 2023).|
-|Current date+ 30|	Date	|This is a date expression that uses the `Current date` command to get today’s date. It adds 30 days to today’s date and returns the new date.|
-|?8:05:30?	|Time|	This is a time constant that represents 8 hours, 5 minutes, and 30 seconds.|
-|?2:03:04? + ?1:02:03?	|Time	|This expression adds two times together and returns the time 3:05:07.|
-|True|	Boolean|	This command returns the Boolean value TRUE.|
-|10 != 20|Boolean	|This is a logical comparison between two numbers. The != sign means "is not equal to". Since 10 "is not equal to" 20, the expression returns TRUE.|
-|"ABC" == "XYZ"	|Boolean	|This is a logical comparison between two strings. They are not equal, so the expression returns FALSE.|
-|myPicture + 50	|Picture	|This expression takes the picture in myPicture, moves it 50 pixels to the right, and returns the resulting picture.|
-|JSON Parse(MyString)|	Object|	This is a command that returns MyString as an object (if proper format)|
-|JSON Parse(MyJSONArray)	|Collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
-|Form.pageNumber|Object property|An object property is an expression that can be of any supported type
-|Col[5]|Collection element|A collection element is an expression that can be of any supported type|  
-|entitySel[0]|Entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
-
-### Assignable vs non-assignable expressions
-
-An expression can simply be a literal constant, such as the number 4 or the string "Hello", or a variable like `myButton`. It can also use operators. For example, 4 + 2 is an expression that uses the addition operator to add two numbers together and return the result 6. In any cases, these expressions are **non-assignable**, which means that you cannot assign a value to them.
-In QodlyScript, expressions can be **assignable**. An expression is assignable when it can be used on the left side of an assignation. For example:
-
-```4d  
-//myVar variable is assignable, you can write:  
-myVar="Hello" //assign "Hello" to myVar
-//Form.pageNumber is assignable, you can write:  
-Form.pageNumber=10 //assign 10 to Form.pageNumber
-//Form.pageTotal-Form.pageNumber is not assignable:
-Form.pageTotal-Form.pageNumber=10 //error, non-assignable
-```
-In general, expressions that use an operator are non-assignable. For example, `entity.firstName+" "+entity.lastName` is not assignable. 
-
- 
-## Code on several lines
-
-You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
-
-```4d
-str=String("hello world!")
-```
-
-```4d
-str=String("hello"+\
-" world"+\
-+"!")
-```
-
-## Comments
-
-Comments are inactive lines of code. These lines are not interpreted by the QodlyScript language and are not executed when the code is called. 
-
-There are two ways to create comments:
-
-- `//` for single line comments
-- `/*...*/` for inline or multiline commnents.
-
-Both styles of comments can be used simultaneously. 
-
-#### Single line comments (`//comment`)
-
-Insert `//` at the beginning of a line or after a statement to add a single line comment. Example: 
-
-```4d
-//This is a comment
-For($vCounter,1,100) //Starting loop
-  //comment
-  //comment
-  //comment
-End for
-```
-
-#### Inline or multiline comments (`/*comment*/`)
-
-Surround contents with `/*` ... `*/` characters to create inline comments or multiline comment blocks. Both inline and multiline comment blocks begin with `/*` and end with `*/`.
-
-- **Inline comments** can be inserted anywhere in the code. Example:
-
-```4d
-For /* inline comment */ ($vCounter,1,100)
-	...
-End for
-```
-
-- **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the QodlyScript code editor supports block collapsing). Example:
-
-```4d
-For ($vCounter,1,100)
-/*
-comments  
-	/* 
-	other comments
-	*/
-*/
-...
-End for
-```
-
-## Escape sequences  
-
-The QodlyScript language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
-
-The sequence consists of a backslash `\\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
-
-In QodlyScript, the following escape sequences can be used:
-
-|Escape sequence|Character replaced|
-|---|---|
-| `\n` | LF (Line feed) |
-| `\t` | HT (Tab) |
-| `\r` | CR (Carriage return) |
-| `\\` | `\` (Backslash) |
-| `\"` | " (Quotation marks) |
-
-> It is possible to use either upper or lower case in escape sequences.
-
-In the following example, the **Carriage return** character (escape sequence `\r`) is inserted in a statement in order to obtain a message on two lines:
-
-`myDoc.setMessage("The operation has been completed successfully.\rYou may now disconnect.")`
