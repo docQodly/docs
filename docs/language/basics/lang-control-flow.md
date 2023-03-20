@@ -49,7 +49,7 @@ The `if...else...end if` structure lets your method choose between two actions, 
 Note that the Boolean expression is always fully evaluated. Consider in particular the following test:
 
 ```4d
- if(MethodA & MethodB)
+ if(MethodA && MethodB)
     ...
  end if
 ``` 
@@ -191,13 +191,13 @@ For comparison, here is the `if...else...end if` version of the same code:
 
 Remember that with a `case of...else...end case` structure, only the first TRUE case is executed. Even if two or more cases are TRUE, only the statements following the first TRUE case will be executed.
 
-Consequently, when you want to implement hierarchical tests, you should make sure the condition statements that are lower in the hierarchical scheme appear first in the test sequence. For example, the test for the presence of condition1 covers the test for the presence of condition1&condition2 and should therefore be located last in the test sequence. For example, the following code will never see its last condition detected:
+Consequently, when you want to implement hierarchical tests, you should make sure the condition statements that are lower in the hierarchical scheme appear first in the test sequence. For example, the test for the presence of condition1 covers the test for the presence of condition1 && condition2 and should therefore be located last in the test sequence. For example, the following code will never see its last condition detected:
 
 ```4d
  case of
     :(vResult==1)
        ... //statement(s)
-    :((vResult==1) & (vCondition != 2)) //this case will never be detected
+    :((vResult==1) && (vCondition != 2)) //this case will never be detected
        ... //statement(s)
  end case
 ```
@@ -206,7 +206,7 @@ In the code above, the presence of the second condition is not detected since th
 
 ```4d
  case of
-    :((vResult==1) & (vCondition != 2)) //this case will be detected first
+    :((vResult==1) && (vCondition != 2)) //this case will be detected first
        ... //statement(s)
     :(vResult==1)
        ... //statement(s)
