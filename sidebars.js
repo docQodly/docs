@@ -93,6 +93,7 @@ const sidebars = {
 				'language/basics/lang-operators',
 				'language/basics/lang-methods',
 				'language/basics/lang-parameters',
+				'language/basics/lang-expressions',
 				'language/basics/lang-shared',
 				'language/basics/lang-classes',
 				'language/basics/lang-control-flow',

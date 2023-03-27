@@ -6,11 +6,13 @@ title: Qodly Database
 ## Overview
 
 
-At the heart of the Qodly platform is the Qodly database, named **QodlyDB**. QodlyDB is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
+At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly Database is an evolution of the 4D Database which has proven itself in terms of reliability and robustness for over 30 years. 
 
-Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly database is automatically available as an object thanks to the dynamic ORM layer implemented by ORDA. In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
+Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
 
-![qodly database](img/qodlydb.png)
+Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by ORDA. In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
+
+![qodly database](img/qodlydb2.png)
 
 
 
@@ -18,7 +20,7 @@ Unlike other databases that require the addition and configuration of an externa
 
 ### Data types
 
-The following table lists all available Qodly database scalar data types and how they are handled in the Qodly language:
+The following table lists all available Qodly Database scalar data types and how they are handled in the Qodly language:
 
 |Data Types	|Language support|Description|
 |---|----|---|
@@ -32,7 +34,6 @@ The following table lists all available Qodly database scalar data types and how
 |[Word]|-|A 16-bit signed integer. Range: -32,767 to 32,768|
 |[Number]|-|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
 |[Long]|`var Real`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
-|[Long 64]|-	|A whole number, greater than or equal to a standard number. Range: -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807|
 |[Object]|`var Object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
 |[Image]|`var Picture`	|A reference to an image file or an actual image.	|
 
@@ -40,7 +41,7 @@ The following table lists all available Qodly database scalar data types and how
 
 ### Capabilities
 
-The following table lists the maximum capabilities of the Qodly database per application:
+The following table lists the maximum capabilities of the Qodly Database per application:
 
 |Capabilities|Maximum|
 |---|---|
@@ -67,14 +68,14 @@ You create and configure your data model in Qodly Studio using the Data Model De
 
 ### Transactions
 
-The Qodly database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
+The Qodly Database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
 
 
 
 
 ## CRUD operations
 
-CRUD (*Create, Read, Update, Delete*) operations in the Qodly database are executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the Qodly language/REST APIs since they all share the same definition of objects:
+CRUD (*Create, Read, Update, Delete*) operations in the Qodly Database are executed using the Qodly language or the REST API. Thanks to the ORDA concept, the database perfectly matches the QodlyScript language/REST APIs since they all share the same definition of objects:
 
 - On the database side, the model itself as well as underlying tables and fields are automatically exposed as a datastore with datastore class and attributes, thanks to the dynamic ORM. 
 - On the APIs side, the datastore (**ds**), datastore class, and attributes are automatically available as classes, functions, and properties. Keep in mind that the ORDA concept also includes access to objects describing **data**, such as entities and entity selections. 
@@ -102,9 +103,9 @@ To get or delete entities, you can just write:
 
 Querying data is the most common database operation. You will always need to search, filter, and sort your data in datasources using different criteria.
 
-Querying the Qodly database can be done through two APIs:
+Querying the Qodly Database can be done through two APIs:
 
-- the Qodly language - using the **query()** function 
+- the QodlyScript language - using the **query()** function 
 - the REST API - using the **$filter** command 
 
 Note that **components** can execute automatic queries since they subscribe to datasources that connect to the server to get data.  

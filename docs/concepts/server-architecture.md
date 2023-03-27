@@ -15,14 +15,14 @@ Qodly Server includes:
 - a Web server,
 - the Datasource manager,
 - DB4D, a built-in relational database, directly available through the ORDA (Object Relational Data Access) technology. 
-- the **Qodly language**, that can be used in all layers of the project. 
+- the **QodlyScript language**, that can be used in all layers of the project. 
 
 
 ![full stack of servers](img/full-stack.png)
 
 
 
-All these elements are included in one single executable, providing the best performances by eliminating unnecessary intermediary connectors.
+All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
 
 In the development environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
 
@@ -30,7 +30,7 @@ In the staging and production environments, the same Qodly Server is also used t
 
 ## HTTP Server
 
-The HTTP server handles all incoming requests. It provides a high level of security by supporting user sessions and their associated roles. 
+The HTTP server handles all incoming requests. It provides a high level of security by supporting user sessions and their associated roles, connected to your own user directory in the cloud through **Amazon Cognito**. 
 
 ## REST Server
 
@@ -56,10 +56,10 @@ Data access is done through ORDA (*Object Relational Data Access*), an enhanced 
 Instead of representing information as tables, records, and fields, ORDA uses a different approach that more accurately maps data to real world items and concepts. ORDA extends the capabilities and power of the database by allowing application logic to be implemented directly into the core of the data model. ORDA uses relational attributes, computed attributes and aliases like any other attribute, making application development particularly intuitive.
 
 
-## Qodly language
+## QodlyScript language
 
-The Qodly language can be used at all levels of the application development on the server: to configure the model, the application layer, the datasources, the web forms, the events. No other language is required to develop a Qodly application. 
+The QodlyScript language can be used at all levels of the application development on the server: to configure the model, the application layer, the datasources, the web forms, the events. No other language is required to develop a Qodly application. 
 
-The Qodly language is an object-oriented containing built-in classes that you can extend, and also user classes. ORDA provides classes that are very efficient to handle data.  
+QodlyScript is an object-oriented language containing built-in classes that you can extend, and also user classes. ORDA provides data model classes that are very efficient to handle data.  
 
 
