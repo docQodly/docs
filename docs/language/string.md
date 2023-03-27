@@ -55,598 +55,380 @@ vtResult=Change string("November","Dec",1) //vtResult gets "December"
 [`Insert string`](#insert-string)<br/>
 [`Replace string`](#replace-string)
 
+## Char
 
-## 4D.File.new()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v18 R6|Added
-</details>
-
-<!-- REF #4D.File.new().Syntax -->
-**4D.File.new** ( *path* : Text { ; *pathType* : Integer }{ ; * } ) : 4D.File<br/>**4D.File.new** ( *fileConstant* : Integer { ; * } ) : 4D.File<!-- END REF -->
-
-#### Description
-
-The `4D.File.new()` function <!-- REF #4D.File.new().Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. It is identical to the [`File`](#file) command (shortcut).
-
-> It is recommended to use the [`File`](#file) shortcut command instead of `4D.File.new()`.
-
-<!-- INCLUDE document.copyTo().Desc -->
-
-<!-- REF file.create().Desc -->
-## .create()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF file.create().Note -->
-**Not available for ZIP archives**<!-- END REF -->
+<!-- REF #_command_.Char.Syntax -->**Char** ( *charCode* : Integer ) : Text<!-- END REF -->
 
 
-<!--REF #FileClass.create().Syntax -->**.create()** : Boolean <!-- END REF -->
-
-
-<!--REF #FileClass.create().Params -->
+<!-- REF #_command_.Char.Params -->
 |Parameter|Type||Description|
-|---|---|---|---|
-|Result|Boolean|<-|True if the file was created successfully, false otherwise|<!-- END REF -->
+|---------|--- |:---:|------|
+|charCode|Integer|->|Character code|
+|Result|Text|<-|Character represented by the charCode|<!-- END REF -->
 
 #### Description
 
-The `.create()` function <!-- REF #FileClass.create().Summary -->creates a file on disk according to the properties of the `File` object<!-- END REF -->.
+The `Char` command <!-- REF #_command_.Char.Summary -->returns the character whose code is *charCode*.<!-- END REF -->. 
 
-If necessary, the function creates the folder hierachy as described in the [platformPath](#platformpath) or [path](#path) properties. If the file already exists on disk, the function does nothing (no error is thrown) and returns false.
+Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 
-**Returned value**
+**Tip:** In editing a method, the command `Char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the Method editor.
 
-* **True** if the file is created successfully;
-* **False** if a file with the same name already exists or if an error occured.
-
-#### Example
-
-Creation of a preferences file in the database folder:
-
-```4d
- var $created : Boolean
- $created:=File("/PACKAGE/SpecialPrefs/"+Current user+".myPrefs").create()
-```
-<!-- END REF -->
-
-<!-- REF file.createAlias().Desc -->
-## .createAlias()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF #FileClass.createAlias().Syntax -->**.createAlias**( *destinationFolder* : 4D.Folder ; *aliasName* : Text { ; *aliasType* : Integer } ) : 4D.File<!-- END REF -->
-
-
-<!--REF #FileClass.createAlias().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|destinationFolder|4D.Folder|->|Destination folder for the alias or shortcut|
-|aliasName|Text|->|Name of the alias or shortcut|
-|aliasType|Integer|->|Type of the alias link|
-|Result|4D.File|<-|Alias or shortcut file reference|<!-- END REF -->
-
-#### Description
-
-The `.createAlias()` function <!-- REF #FileClass.createAlias().Summary -->creates an alias (macOS) or a shortcut (Windows)<!-- END REF --> to the file with the specified *aliasName* name in the folder designated by the *destinationFolder* object.
-
-Pass the name of the alias or shortcut to create in the *aliasName* parameter.
-
-By default on macOS, the function creates a standard alias. You can also create a symbolic link by using the *aliasType* parameter. The following constants are available:
-
-|Constant|Value|Comment|
-|--------|-----|-------|
-|`fk alias link`|0|Alias link (default)|
-|`fk symbolic link`|1|Symbolic link (macOS only)|
-
-On Windows, a shortcut (.lnk file) is always created (the *aliasType* parameter is ignored).
-
-**Returned object**
-
-A `4D.File` object with the `isAlias` property set to **true**.
-
-#### Example
-
-You want to create an alias to a file in your database folder:
-
-```4d
- $myFile:=Folder(fk documents folder).file("Archives/ReadMe.txt")
- $aliasFile:=$myFile.createAlias(File("/PACKAGE");"ReadMe")
-```
-<!-- END REF -->
-
-<!-- INCLUDE document.creationDate.Desc -->
-
-<!-- INCLUDE document.creationTime.Desc -->
-
-<!-- REF file.delete().Desc -->
-## .delete()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF #FileClass.delete().Syntax -->**.delete( )**<!-- END REF -->
-
-
-<!-- REF #FileClass.delete().Params -->
-|Parameter|Type||Description|
-|---|----|---|---|
-| |  ||Does not require any parameters|<!-- END REF -->
-
-#### Description
-
-The `.delete()` function <!-- REF #FileClass.delete().Summary -->deletes the file<!-- END REF -->.
-
-If the file is currently open, an error is generated.
-
-If the file does not exist on disk, the function does nothing (no error is generated).
-
->**WARNING**: `.delete( )` can delete any file on a disk. This includes documents created with other applications, as well as the applications themselves. `.delete( )` should be used with extreme caution. Deleting a file is a permanent operation and cannot be undone.
-
-#### Example
-
-You want to delete a specific file in the database folder:
-
-```4d
- $tempo:=File("/PACKAGE/SpecialPrefs/"+Current user+".prefs")
- If($tempo.exists)
-    $tempo.delete()
-    ALERT("User preference file deleted.")
- End if
-```
-<!-- END REF -->
-
-<!-- INCLUDE document.exists.Desc -->
-
-<!-- INCLUDE document.extension.Desc -->
-
-<!-- INCLUDE document.fullName.Desc -->
-
-<!-- REF file.getAppInfo().Desc -->
-## .getAppInfo()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19|Added
-</details>
-
-<!--REF #FileClass.getAppInfo().Syntax -->**.getAppInfo**() : Object<!-- END REF -->
-
-
-<!--REF #FileClass.getAppInfo().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|Result|Object|<-|Contents of .exe/.dll version resource or .plist file|<!-- END REF -->
-
-
-#### Description
-
-The `.getAppInfo()` function <!-- REF #FileClass.getAppInfo().Summary -->returns the contents of a **.exe**, **.dll** or **.plist** file information as an object<!-- END REF -->.
-
-The function must be used with an existing .exe, .dll or .plist file. If the file does not exist on disk or is not a valid .exe, .dll or .plist file, the function returns an empty object (no error is generated).
-
-> The function only supports .plist files in xml format (text-based). An error is returned if it is used with a .plist file in binary format.  
-
-**Returned object with a .exe or .dll file**
-
-> Reading a .exe or .dll is only possible on Windows.
-
-All property values are Text.
-
-|Property|Type|
-|---|---|
-|InternalName|Text|
-|ProductName|Text|
-|CompanyName|Text|
-|LegalCopyright|Text|
-|ProductVersion|Text|
-|FileDescription|Text|
-|FileVersion|Text|
-|OriginalFilename|Text|
-
-**Returned object with a .plist file**
-
-The xml file contents is parsed and keys are returned as properties of the object, preserving their types (text, boolean, number). `.plist dict` is returned as a JSON object and `.plist array` is returned as a JSON array.
 
 #### Example
 
 ```4d
- // display copyright info of application .exe file (windows)
-var $exeFile : 4D.File
-var $info : Object
-$exeFile:=File(Application file; fk platform path)
-$info:=$exeFile.getAppInfo()
-ALERT($info.LegalCopyright)
 
-  // display copyright info of an info.plist (any platform)
-var $infoPlistFile : 4D.File
-var $info : Object
-$infoPlistFile:=File("/RESOURCES/info.plist")
-$info:=$infoPlistFile.getAppInfo()
-ALERT($info.Copyright)
+var myText : Text
+myText ="hello"+Char(Carriage return)+"world"
 ```
 
 #### See also
 
-[.setAppInfo()](#setappinfo)
+[`Character code`](#character-code)<br/>
+[`Character Reference Symbols`](../basics/lang-text#character-reference-symbols)
 
-<!-- END REF -->
+## Character code
 
-<!-- INCLUDE document.getContent().Desc -->
-
-<!-- INCLUDE document.getIcon().Desc -->
-
-<!-- INCLUDE document.getText().Desc -->
-
-<!-- INCLUDE document.hidden.Desc -->
-
-<!-- INCLUDE document.isAlias.Desc -->
-
-<!-- INCLUDE document.isFile.Desc -->
-
-<!-- INCLUDE document.isFolder.Desc -->
-
-<!-- INCLUDE document.isWritable.Desc -->
-
-<!-- INCLUDE document.modificationDate.Desc -->
-
-<!-- INCLUDE document.modificationTime.Desc -->
-
-<!-- REF file.moveTo().Desc -->
-## .moveTo()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF #FileClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { ; *newName* : Text } ) : 4D.File<!-- END REF -->
+<!-- REF #_command_.Character code.Syntax -->**Character code** ( *character* : String ) : Integer<!-- END REF -->
 
 
-<!--REF #FileClass.moveTo().Params -->
+<!-- REF #_command_.Character code.Params -->
 |Parameter|Type||Description|
-|---|----|---|---|
-|destinationFolder|4D.Folder|->|Destination folder|
-|newName|Text|->|Full name for the moved file|
-|Result|4D.File|<-|Moved file|<!-- END REF -->
-
+|---------|--- |:---:|------|
+|character|Text|->|Character for which you want to get the code|
+|Result|Integer|<-|Character code|<!-- END REF -->
 
 #### Description
 
-The `.moveTo()` function <!-- REF #FileClass.moveTo().Summary -->moves or renames the `File` object into the specified *destinationFolder*<!-- END REF -->.
+The `Character code` command <!-- REF #_command_.Character code.Summary -->returns the Unicode UTF-16 code (included between 1 and 65535) of *character*<!-- END REF -->. 
 
-The *destinationFolder* must exist on disk, otherwise an error is generated.  
+If there is more than one character in the string, `Character code` returns only the code of the first character.
 
-By default, the file retains its name when moved. If you want to rename the moved file, pass the new full name in the *newName* parameter. The new name must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned.
+The [`Char`](#char) function is the counterpart of `Character code`. It returns the character that the UTF-16 code represents.
 
-**Returned object**
 
-The moved `File` object.
+#### Example 1
+
+Uppercase and lowercase characters are considered equal within a comparison. You can use Character code to differentiate between uppercase and lowercase characters. Thus, this line returns True:
+
+```4d
+("A"=="a")
+
+```
+
+On the other hand, this line returns False:
+
+```4d
+ (Character code("A")==Character code("a"))
+
+```
+
+#### Example 2
+
+This example returns the code of the first character of the string "ABC":
+
+```4d
+ var GetCode : Integer
+ GetCode=Character code("ABC") //GetCode gets 65, the character code of A
+
+```
+
+#### Example 3
+
+The following example tests for carriage returns and tabs:
+
+```4d
+ var vlChar : Integer
+ var vtText : Text
+ for(vlChar,1,Length(vtText))
+    case of
+       :(vtText[[vlChar]]==Char(Carriage return))
+  //do something
+       :(vtText[[vlChar]]==Char(Tab))
+  // do something else
+       :(...)
+  //...
+    end case
+ end for
+
+```
+
+When executed multiple times on large texts, this test will run faster when compiled if it is written this way:
+
+```4d
+ var vlChar, vlCode  : Integer
+ var vtText : Text
+ for(vlChar,1,Length(vtText))
+    vlCode=Character code(vtText[[vlChar]])
+    case of
+       :(vlCode==Carriage return)
+  //do something
+       :(vlCode==Tab)
+  //do something else
+       :(...)
+  //...
+    end case
+ end for
+
+```
+
+The second piece of code runs faster for two reasons: it does only one character reference by iteration and uses LongInt comparisons instead of string comparisons to test for carriage returns and tabs. Use this technique when working with common codes such as CR and TAB
+
+#### See also
+
+[`Char`](#char)<br/>
+[`Character Reference Symbols`](#character-reference-symbols)
+
+## Convert to text
+
+<!-- REF #_command_.Convert to text.Syntax -->**Convert to text** ( *blob* : BLOB , *charSet* : Text, Integer ) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Convert to text.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|blob|BLOB|->|BLOB containing text expressed in a specific character set|
+|charSet|Text, Integer|->|Name or Number of BLOB character set|
+|Result|Text|<-|Contents of BLOB expressed in 4D character set|<!-- END REF -->
+
+#### Description
+
+The `Convert to text` command <!-- REF #_command_.Convert to text.Summary -->converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D<!-- END REF -->. 4D uses the UTF-16 character set by default.
+
+In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (longint). For more information, please refer to the description of the [`CONVERT FROM TEXT`](#convert-from-text) command.
+
+`Convert to text` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), 4D attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and 4D uses the character set that it defines instead of the one specified.
+
+#### System variables and sets
+
+If the command has been correctly executed, the OK variable is set to 1. Otherwise, it is set to 0.
+
+#### See also
+
+[`CONVERT FROM TEXT`](#convert-from-text)
+
+## Delete string
+
+<!-- REF #_command_.Delete string.Syntax -->**Delete string** ( *source* : Text , *where * : Integer , *numChars* : Integer ) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Delete string.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|source|Text|->|String from which to delete characters|
+|where |Integer|->|First character to delete|
+|numChars|Integer|->|Number of characters to delete|
+|Result|Text|<-|Resulting string|<!-- END REF -->
+
+#### Description
+
+`Delete string` <!-- REF #_command_.Delete string.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
+
+`Delete string` returns the same string as `*source*` when:
+
+* *source* is an empty string
+* *where* is greater than the length of *source*
+* *numChars* is zero (0)
+
+If *where* is less than one, the characters are deleted from the beginning of the string.
+
+If *where* plus *numChars* is equal to or greater than the length of *source*, the characters are deleted from *where* to the end of *source*.
 
 #### Example
 
 ```4d
-$DocFolder:=Folder(fk documents folder)
-$myFile:=$DocFolder.file("Current/Infos.txt")
-$myFile.moveTo($DocFolder.folder("Archives");"Infos_old.txt")
-```
-<!-- END REF -->
-
-<!-- INCLUDE document.name.Desc -->
-
-<!-- REF file.open().Desc -->
-## .open()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R7|Added
-</details>
-
-<!--REF #FileClass.open().Syntax -->**.open**( { *mode* : Text } ) : 4D.FileHandle<br/>**.open**( { *options* : Object } ) : 4D.FileHandle<!-- END REF -->
-
-
-<!--REF #FileClass.open().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|mode|Text|->|Opening mode: "read", "write", "append"|
-|options|Object|->|Opening options|
-|Result|[4D.FileHandle](FileHandleClass)|<-|New File handle object|<!-- END REF -->
-
-#### Description
-
-The `.open()` function <!-- REF #FileClass.open().Summary -->creates and returns a new [4D.FileHandle](FileHandleClass) object on the file, in the specified *mode* or with the specified *options*<!-- END REF -->. You can use functions and properties of the [4D.FileHandle](FileHandleClass) class to write, read, or append contents to the file.
-
-If you use the *mode* (text) parameter, pass the opening mode for the file handle:
-
-|*mode*|Description|
-|---|---|
-|"read"|(Default) Creates a file handle to read values from the file. If the file does not exist on disk, an error is returned. You can open as many file handles as you want in "read" mode on the same File object.|
-|"write"|Creates a file handle to write values to the file (starting at the beginning of the file content). If the file does not exist on disk, it is created. You can open only one file handle in "write" mode on the same File object.|
-|"append"|Creates a file handle to write values to the file (starting at the end of the file content). If the file does not exist on disk, it is created. You can open only one file handle in "append" mode on the same File object.|
-
-> The *mode* value is case sensitive.
-
-If you use the *options* (object) parameter, you can pass more options for the file handle through the following properties (these properties can be read afterwards from the opened [file handle object](FileHandleClass)):
-
-|*options*|Type|Description|Default|
-|---|---|---|---|
-|`.mode`|Text|Opening mode (see *mode* above)|"read"|
-|`.charset`|Text|Charset used when reading from or writing to the file. Use the standard name of the set (for example "ISO-8859-1" or "UTF-8")|"UTF-8"|
-|`.breakModeRead`|Text or Number|Processing mode for line breaks used when reading in the file (see below)|"native" or 1|
-|`.breakModeWrite`|Text or Number|Processing mode for line breaks used when writing to the file (see below)|"native" or 1|
-
-The `.breakModeRead` and `.breakModeWrite` indicate the processing to apply to end-of-line characters in the document. You can use one of the following values (text or number):
-
-|Break mode as text|Break mode as number (constant)|Description|
-|---|---|---|
-|"native"|1 (`Document with native format`)|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) under macOS, CRLF (carriage return + line feed) under Windows|
-|"crlf"|2 (`Document with CRLF`)|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|"cr"|3 (`Document with CR`)|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|"lf"|4 (`Document with LF`)|Line breaks are converted to LF (line feed), the default Unix and macOS format|
-
-> The *break mode as text* value is case sensitive.
-
-#### Example
-
-You want to create a file handle for reading the "ReadMe.txt" file:
-
-```4d
-var $f : 4D.File
-var $fhandle : 4D.FileHandle
-
-$f:=File("C:\\Documents\\Archives\\ReadMe.txt";fk platform path)
-$fhandle:=$f.open("read")
-
-```
-<!-- END REF -->
-
-<!-- INCLUDE document.original.Desc -->
-
-<!-- INCLUDE document.parent.Desc -->
-
-<!-- INCLUDE document.path.Desc -->
-
-<!-- INCLUDE document.platformPath.Desc -->
-
-<!-- REF file.rename().Desc -->
-## .rename()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF #FileClass.rename().Syntax -->**.rename**( *newName* : Text ) : 4D.File<!-- END REF -->
-
-
-<!--REF #FileClass.rename().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|newName|Text|->|New full name for the file|
-|Result|4D.File|<-|Renamed file|<!-- END REF -->
-
-#### Description
-
-The `.rename()` function <!-- REF #FileClass.rename().Summary -->renames the file with the name you passed in *newName* and returns the renamed `File` object<!-- END REF -->.
-
-The *newName* parameter must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned. If a file with the same name already exists, an error is returned.
-
-Note that the function modifies the full name of the file, i.e. if you do not pass an extension in *newName*, the file will have a name without an extension.
-
-**Returned object**
-
-The renamed `File` object.
-
-#### Example
-
-You want to rename "ReadMe.txt" in "ReadMe_new.txt":
-
-```4d
- $toRename:=File("C:\\Documents\\Archives\\ReadMe.txt";fk platform path)
- $newName:=$toRename.rename($toRename.name+"_new"+$toRename.extension)
-```
-<!-- END REF -->
-
-<!-- REF file.setAppInfo().Desc -->
-## .setAppInfo()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19|Added
-</details>
-
-<!--REF #FileClass.setAppInfo().Syntax -->**.setAppInfo**( *info* : Object )<!-- END REF -->
-
-
-<!--REF #FileClass.setAppInfo().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|info|Object|->|Properties to write in .exe/.dll version resource or .plist file|<!-- END REF -->
-
-#### Description
-
-The `.setAppInfo()` function <!-- REF #FileClass.setAppInfo().Summary -->writes the *info* properties as information contents of a **.exe**, **.dll** or **.plist** file<!-- END REF -->.
-
-The function must be used with an existing .exe, .dll or .plist file. If the file does not exist on disk or is not a valid .exe, .dll or .plist file, the function does nothing (no error is generated).
-
-> The function only supports .plist files in xml format (text-based). An error is returned if it is used with a .plist file in binary format.
-
-***info* parameter object with a .exe or .dll file**
-
-> Writing a .exe or .dll file information is only possible on Windows.
-
-Each valid property set in the *info* object parameter is written in the version resource of the .exe or .dll file. Available properties are (any other property will be ignored):
-
-|Property|Type|
-|---|---|
-|InternalName|Text|
-|ProductName|Text|
-|CompanyName|Text|
-|LegalCopyright|Text|
-|ProductVersion|Text|
-|FileDescription|Text|
-|FileVersion|Text|
-|OriginalFilename|Text|
-
-If you pass a null or empty text as value, an empty string is written in the property. If you pass a value type different from text, it is stringified.
-
-***info* parameter object with a .plist file**
-
-Each valid property set in the *info* object parameter is written in the .plist file as a key. Any key name is accepted. Value types are preserved when possible.
-
-If a key set in the *info* parameter is already defined in the .plist file, its value is updated while keeping its original type. Other existing keys in the .plist file are left untouched.  
-
-> To define a Date type value, the format to use is a json timestamp string formated in ISO UTC without milliseconds ("2003-02-01T01:02:03Z") like in the Xcode plist editor.
-
-#### Example
-
-```4d
-  // set copyright and version of a .exe file (Windows)
-var $exeFile : 4D.File
-var $info : Object
-$exeFile:=File(Application file; fk platform path)
-$info:=New object
-$info.LegalCopyright:="Copyright 4D 2021"
-$info.ProductVersion:="1.0.0"
-$exeFile.setAppInfo($info)
-```
-
-```4d
-  // set some keys in an info.plist file (all platforms)
-var $infoPlistFile : 4D.File
-var $info : Object
-$infoPlistFile:=File("/RESOURCES/info.plist")
-$info:=New object
-$info.Copyright:="Copyright 4D 2021" //text
-$info.ProductVersion:=12 //integer
-$info.ShipmentDate:="2021-04-22T06:00:00Z" //timestamp
-$infoPlistFile.setAppInfo($info)
+var vtResult, vtOtherVar : Text
+ vtResult=Delete string("Lamborghini",6,6) // vtResult gets "Lambo"
+ vtResult=Delete string("Indentation",6,2) // vtResult gets "Indention"
+ vtResult=Delete string(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
+ 
 ```
 
 #### See also
 
-[.getAppInfo()](#getappinfo)
-
-<!-- REF file.setContent().Desc -->
-## .setContent()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Added
-</details>
-
-<!--REF #FileClass.setContent().Syntax -->**.setContent** ( *content* : Blob ) <!-- END REF -->
+[`Change string`](#change-string)<br/>
+[`Insert string`](#insert-string)<br/>
+[`Replace string`](#replace-string)
 
 
-<!--REF #FileClass.setContent().Params -->
+## Insert string
+
+<!-- REF #_command_.Insert string.Syntax -->**Insert string** ( *source* : Text , *what* : Text , *where* : Integer ) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Insert string.Params -->
 |Parameter|Type||Description|
-|---|---|---|---|
-|content|BLOB|->|New contents for the file|<!-- END REF -->
+|---------|--- |:---:|------|
+|source|Text|->|String in which to insert the other string|
+|what|Text|->|String to insert|
+|where|Integer|->|Where to insert|
+|Result|Text|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-The `.setContent( )` function <!-- REF #FileClass.setContent().Summary -->rewrites the entire content of the file using the data stored in the *content* BLOB<!-- END REF -->. For information on BLOBs, please refer to the [BLOB](Concepts/dt_blob.md) section.
+The `Insert string` command <!-- REF #_command_.Insert string.Summary -->inserts a string into *source* and returns the resulting string<!-- END REF -->. The command inserts the string *what* before the character at position *where*.
+
+If *what* is an empty string (""), `Insert string` returns source unchanged.
+
+If *where* is greater than the length of *source*, then *what* is appended to *source*. If *where* is less than one (1), then *what* is inserted before *source*.
+
+`Insert string` is different from [`Change string`](#change-string) in that it inserts characters instead of overwriting them.
 
 #### Example
 
 ```4d
- $myFile:=Folder(fk documents folder).file("Archives/data.txt")
- $myFile.setContent([aTable]aBlobField)
+ var vtResult : Text
+ vtResult=Insert string("The tree"," green",4) // vtResult gets "The green  tree"
+ vtResult=Insert string("Shut","o",3) // vtResult gets "Shout"
+ vtResult=Insert string("Indention","ta",6) // vtResult gets "Indentation"
+ 
 ```
-<!-- END REF -->
 
-<!-- REF file.setText().Desc -->
-## .setText()
+#### See also
 
-<details><summary>History</summary>
+[`Change string`](#change-string)<br/>
+[`Delete string`](#delete-string)<br/>
+[`Replace string`](#replace-string)
 
-|Version|Changes|
-|---|---|
-|v19 R3|Default for new projects: no BOM and (macOS) LF for EOL|
-|v17 R5|Added|
+## Length
 
-</details>
-
-<!--REF #FileClass.setText().Syntax -->**.setText** ( *text* : Text {; *charSetName* : Text { ; *breakMode* : Integer } } )<br/>**.setText** ( *text* : Text {; *charSetNum* : Integer { ; *breakMode* : Integer } } )<!-- END REF -->
+<!-- REF #_command_.Length.Syntax -->**Length** ( *string* : Text ) : Integer<!-- END REF -->
 
 
-
-<!--REF #FileClass.setText().Params -->
+<!-- REF #_command_.Length.Params -->
 |Parameter|Type||Description|
-|---------|----|---|--------|
-|text|Text|->|Text to store in the file|
-|charSetName|Text|->|Name of character set|
-|charSetNum|Integer|->|Number of character set|
-|breakMode|Integer|->|Processing mode for line breaks|<!-- END REF -->
-
+|---------|--- |:---:|------|
+|string|Text|->|String for which to return length|
+|Result|Integer|<-|Length of string|<!-- END REF -->
 
 #### Description
 
-The `.setText()` function <!-- REF #FileClass.setText().Summary -->writes *text* as the new contents of the file<!-- END REF -->.
+`Length` is used to find the length of a *string*. `Length` <!-- REF #_command_.Length.Summary -->returns the number of characters that are in a *string*.<!-- END REF -->. 
 
-If the file referenced in the `File` object does not exist on the disk, it is created by the function. When the file already exists on the disk, its prior contents are erased, except if it is already open, in which case, its contents are locked and an error is generated.
+:::note
 
-In *text*, pass the text to write to the file. It can be a literal ("my text"), or a 4D text field or variable.
+When you want to check whether a string contains any characters, including ignorable characters, you must use the test If(Length(vtAnyText)=0) rather than If(vtAnyText=""). If the string contains for example Char(1), which is an ignorable character, Length(vtAnyText) does return 1 but vtAnyText="" returns True.
 
-Optionally, you can designate the character set to be used for writing the contents. You can pass either:
-
-* in *charSetName*, a string containing the standard set name (for example "ISO-8859-1" or "UTF-8"),
-* or in *charSetNum*, the MIBEnum ID (number) of the standard set name.
-
-> For the list of character sets supported by 4D, refer to the description of the `CONVERT FROM TEXT` command.
-
-If a Byte Order Mark (BOM) exists for the character set, 4D inserts it into the file unless the character set used contains the suffix "-no-bom" (e.g. "UTF-8-no-bom"). If you do not specify a character set, by default 4D uses the "UTF-8" character set without BOM.
-
-In *breakMode*, you can pass a number indicating the processing to apply to end-of-line characters before saving them in the file. The following constants, found in the **System Documents** theme, are available:
-
-|Constant|Value|Comment|
-|--------|-----|-------|
-|`Document unchanged`|0|No processing|
-|`Document with native format`|1|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) on macOS, CRLF (carriage return + line feed) on Windows|
-|`Document with CRLF`|2|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|`Document with CR`|3|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|`Document with LF`|4|Line breaks are converted to LF (line feed), the default Unix and macOS format|
-
-By default, when you omit the *breakMode* parameter, line breaks are processed in native mode (1).
-
-> **Compatibility Note**: Compatibility options are available for EOL and BOM management. See [Compatibility page](https://doc.4d.com/4dv19R/help/title/en/page3239.html) on doc.4d.com.
+:::
 
 #### Example
 
 ```4d
-$myFile:=File("C:\\Documents\\Hello.txt";fk platform path)
-$myFile.setText("Hello world")
+ var vtResult : Text
+ vlResult=Length("Topaz") // vlResult gets 5
+ vlResult=Length("Citizen") // vlResult gets 7
+ 
 ```
-<!-- END REF -->
 
-<!-- INCLUDE document.size.Desc -->
+
+## Lowercase
+
+<!-- REF #_command_.Lowercase.Syntax -->**Lowercase** ( *aString* : Text , *** : Operator ) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Lowercase.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|aString|Text|->|String to convert to lowercase|
+|*|Operator|->|If passed: keep accents|
+|Result|Text|<-|String in lowercase|<!-- END REF -->
+
+#### Description
+
+`Lowercase` <!-- REF #_command_.Lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase.<!-- END REF -->. 
+
+The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented lowercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
+
+#### Example 1
+
+The following project method capitalizes the string or text received as parameter. For instance, Caps ("john") would return "John".
+
+```4d
+  //Caps project method
+  //Caps ( String ) -> String
+  //Caps ( Any text  ) -> Capitalized text
+ #declare (myText : Text) -> myCapText : Text
+ myCapText=Lowercase(myText)
+ if(Length(myCapText)>0)
+    myCapText[[1]]==Uppercase(myCapText[[1]])
+ end if
+
+```
+
+#### See also
+
+[`Uppercase`](#Uppercase)
+
+## Replace string
+
+<!-- REF #_command_.Replace string.Syntax -->**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : Integer , *\** : Operator) : Text<!-- END REF -->
+
+
+<!-- REF #_command_.Replace string.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|source|Text|->|Original string|
+|oldString|Text|->|Characters to replace|
+|newString|Text|->|Replacement string (if empty string, occurrences are deleted)|
+|howMany|Integer|->|How many times to replace If omitted, all occurrences are replaced|
+|*||->|If passed: evaluation based on character codes|
+|Result|Text|<-|Resulting string|<!-- END REF -->
+
+#### Description
+
+`Replace string` <!-- REF #_command_.Replace string.Summary -->replaces *howMany* occurrences of *oldString* in *source* with *newString*<!-- END REF -->. 
+
+If *newString* is an empty string (""), `Replace string` deletes each occurrence of *oldString* in *source*.
+
+If *howMany* is specified, `Replace string` will replace only the number of occurrences of *oldString* specified, starting at the first character of *source*. If *howMany* is not specified, then all occurrences of *oldString* are replaced.
+
+If *oldString* is an empty string, `Replace string` returns the unchanged *source*.
+
+By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a=A, a=à and so on) and does not take "ignorable" characters such as characters whose code < 9 into account (Unicode specification).
+
+To modify this functioning, pass the asterisk * as the last parameter. In this case, comparisons will be based on character codes. You must pass the * parameter:
+
+* If you want to replace special characters, used for example as delimiters (`Char`(1), etc.),
+* If the replacement of characters must be case sensitive and take accented characters into account (a#A, a#à and so on).
+Note that in this mode, the evaluation does not handle variations in the way words are written.
+
+#### Example 1
+
+The following example illustrates the use of `Replace string`. The results, described in the comments, are assigned to the variable *vtResult*.
+
+```4d
+ var vtResult, vtOtherVar : Text
+ vtResult=Replace string("Willow"," ll","d") // Result gets "Widow"
+ vtResult=Replace string("Shout","o","") // Result gets "Shut"
+ vtResult=Replace string(vtOtherVar,Char(Tab),",",*) // Replaces all tabs in vtOtherVar with commas
+
+```
+
+#### Example 2
+
+The following example eliminates CRs and TABs from the text in *vtResult*:
+
+```4d
+ var vtResult : Text
+ vtResult=Replace string(Replace string(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
+
+```
+
+#### Example 3
+
+The following example illustrates the use of the * parameter in the case of a diacritical evaluation:
+
+```4d
+ var vtResult : Text
+ vtResult=Replace string("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
+ vtResult=Replace string("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
+
+```
+
+#### See also
+
+[`Change string`](#change-string)<br/>
+[`Delete string`](#delete-string)<br/>
+[`Insert string`](#insert-string)
+
