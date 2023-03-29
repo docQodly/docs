@@ -53,7 +53,21 @@ const sidebars = {
 			keywords: ['concepts'],
 			image: '/img/docusaurus.png',
 			},
-      items: ['concepts/server-architecture','concepts/db'],
+      items: ['concepts/server-architecture','concepts/db',
+				{ 	type: 'category',
+					label: 'ORDA',
+					link: {
+						type: 'doc',
+						id: 'concepts/orda/overview',
+					},
+					items: [
+						'concepts/orda/data-model',
+						'concepts/orda/orda-classes',
+						'concepts/orda/data',
+						'concepts/orda/glossary',
+					],
+				},
+				],
     },
   ],
   QodlyScript:[
