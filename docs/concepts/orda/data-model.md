@@ -3,55 +3,11 @@ id: data-model
 title: Data Model Objects
 ---
 
-The ORDA technology is based upon an automatic mapping of an underlying database structure. It also provides access to data through entity and entity selection objects. As a result, ORDA exposes the whole database as a set of data model objects. 
- 
+The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (i.e. an included [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides access to data through entity and entity selection objects. 
 
+As a result, ORDA exposes the whole database as a set of data model objects. 
+ 
 ![schema](img/orda-schema.png)
-
-
-
-## Structure mapping
-
-When you call a datastore using the [`ds`](API/DataStoreClass.md#ds) or the [`Open datastore`](API/DataStoreClass.md#open-datastore) command, tables and fields of the corresponding structure are automatically referenced as properties of the returned [datastore](#datastore) object:
-
-*	Tables are mapped to dataclasses.
-*	Fields are mapped to storage attributes.
-*	Relations are mapped to relation attributes - relation names are used as relation attribute names.
- 
-
-### General rules
-
-The following rules are applied for any conversions:
-
-- Table, field, and relation names are mapped to object property names. 
-- A datastore only references tables with a single primary key. The following tables are not referenced:
-	*	Tables without a primary key
-	*	Tables with composite primary keys.
-
-### Remote access control
-
-Tables and fields of a remote datastore accessed through the [`Open datastore`](API/DataStoreClass.md#open-datastore) command or [REST requests](REST/gettingStarted.md) must usually be explicitely exposed to REST requests to be available remotely. 
-
-:::note
-
-[ORDA class functions], including [computed attribute functions], must be explicitely exposed to REST requests. 
-
-:::
-
-### Data model update  
-
-Any modifications applied at the level of the database structure invalidate the current ORDA model layer. These modifications include:
-
-*	adding or removing a table, a field, or a relation
-*	renaming of a table, a field, or a relation
-*	changing a core property of a field (type, unique, index, autoincrement, null value support)
-
-When the current ORDA model layer has been invalidated, it is automatically reloaded and updated in subsequent calls of the local `ds` datastore. Note that existing references to ORDA objects such as entities or entity selections will continue to use the model from which they have been created, until they are regenerated.
-
-However, the updated ORDA model layer is not automatically available in the following contexts:
-
-*	a remote 4D application connected to 4D Server -- the remote application must reconnect to the server. 
-*	a remote datastore opened using `Open datastore` or through [REST calls](REST/gettingStarted.md) -- a new session must be opened. 
 
 
 ## Object definition
@@ -63,19 +19,12 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object whose properties are all of the [dataclasses](#dataclass) which have been specifically exposed. 
-
-You can handle the following datastores:
-
-- a local datastore, based on the current 4D database, returned by the `ds` command (the main datastore).
-- one or more remote datastore(s) exposed as REST resources, returned by the `Open datastore` command. 
-
-A datastore references only a single local or remote database.
+When handled through the code, the datastore is an object, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
 The datastore object itself cannot be copied as an object:
 
 ```4d 
-$mydatastore:=OB Copy(ds) //returns null
+mydatastore=OB Copy(ds) //returns null
 ```
 
 
@@ -83,78 +32,77 @@ The datastore properties are however enumerable:
 
 
 ```4d 
- ARRAY TEXT($prop;0)
- OB GET PROPERTY NAMES(ds;$prop)
-  //$prop contains the names of all the dataclasses
+ ARRAY TEXT(prop,0)
+ OB GET PROPERTY NAMES(ds,prop)
+  //prop contains the names of all the dataclasses
 ```
 
 
 
-The main (default) datastore is always available through the `ds` command, but the `Open datastore` command allows referencing any remote datastore. 
-
 ### Dataclass
 
-A dataclass is the equivalent of a table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses). Relational attributes can be used in queries like any other attribute.
+A dataclass is the equivalent of a table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as computed attributes or alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
 
-All dataclasses in a 4D project are available as a property of the `ds` datastore. For remote datastores accessed through `Open datastore` or [REST requests](REST/gettingStarted.md), the **Expose as REST resource** option must be selected at the 4D structure level for each exposed table that you want to be exposed as dataclass in the datastore. 
+All dataclasses in a Qodly project are available as a property of the `ds` datastore. The **Expose as REST resource** option must be selected at the model level for each dataclass that you want to be called from the Web. 
 
 For example, consider the following database table:
 
 ![](img/structure.png)
 
-The `Company` table is available as a [dataclass](#dataclass) in the `ds` datastore. You can write:
+The `Company` [dataclass](#dataclass) is available in the `ds` datastore. You can write:
 
 ```4d 
-var $compClass : cs.Company //declares a $compClass object variable of the Company class
-$compClass:=ds.Company //assigns the Company dataclass reference to $compClass
+var compClass : cs.Company //declares a compClass object variable of the Company class
+compClass=ds.Company //assigns the Company dataclass reference to compClass
 ```
 
 A dataclass object can contain:
 
 *	attributes
 *	relation attributes
-*	[computed attributes](###)
+*	[computed attributes]
+*	alias attributes
+*	functions
 
-The dataclass offers an abstraction of the physical database and allows handling a conceptual data model with specific features such as computed attributes. The dataclass is the only means to query the datastore. A query is done from a single dataclass. Queries are built around attributes and relation attribute names of the dataclasses. So the relation attributes are the means to involve several linked tables in a query.
+The dataclass offers an abstraction of the physical database and allows handling a conceptual data model with specific features such as computed attributes or alias attributes. The dataclass is the only means to query the datastore. A query is done from a single dataclass. Queries are built around attributes and relation attribute names of the dataclasses. So the relation attributes are the means to involve several linked dataclasses in a query.
 
 The dataclass object itself cannot be copied as an object:
 
 ```4d 
-$mydataclass:=OB Copy(ds.Employee) //returns null
+mydataclass=OB Copy(ds.Employee) //returns null
 ```
 
 The dataclass properties are however enumerable:
 
 ```
-ARRAY TEXT($prop;0)
-OB GET PROPERTY NAMES(ds.Employee;$prop)
-//$prop contains the names of all the dataclass attributes
+ARRAY TEXT(prop;0)
+OB GET PROPERTY NAMES(ds.Employee,prop)
+//prop contains the names of all the dataclass attributes
 ```
 
 
 ### Attribute
 
-Dataclass properties are attribute objects describing the underlying fields or relations. For example:
+Basically, dataclass properties are attribute objects describing the underlying fields or relations. For example:
 
 ```4d 
- var $nameAttribute; $revenuesAttribute : Object
- $nameAttribute:=ds.Company.name //reference to class attribute
- $revenuesAttribute:=ds.Company["revenues"] //alternate way
+ var nameAttribute, revenuesAttribute : Object
+ nameAttribute=ds.Company.name //reference to class attribute
+ revenuesAttribute=ds.Company["revenues"] //alternate way to reference
 ```
 
-This code assigns to `$nameAttribute` and `$revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` class. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle using the [`DataClassAttribute` class API](../API/DataClassAttribute.md). To handle values, you need to go through [Entities](#entity).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle using the [`DataClassAttribute` class functions](../language/DataClassAttribute.md). To handle values, you need to go through [Entities](#entity).
 
-All eligible fields in a table are available as attributes of their [dataclass](#dataclass). Remote datastores accessed through `Open datastore` or [REST requests](REST/gettingStarted.md) must expose as REST resource each field to be used as a dataclass attribute. 
+The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 
+Dataclass attributes come in several kinds: storage, relatedEntity, relatedEntities, computed (*aka* calculated), or alias. Attributes that are scalar (*i.e.*, provide only a single value) support all the standard data types (integer, text, object, etc.).
 
 #### Storage and Relation attributes  
-
-Dataclass attributes come in several kinds: storage, relatedEntity, relatedEntities, or computed (*aka* calculated). Attributes that are scalar (*i.e.*, provide only a single value) support all the standard data types (integer, text, object, etc.).
 
 *	A **storage attribute** is equivalent to a field in a database and can be indexed. Values assigned to a storage attribute are stored as part of the entity when it is saved. When a storage attribute is accessed, its value comes directly from the datastore. Storage attributes are the most basic building block of an entity and are defined by name and data type.
 *	A **relation attribute** provides access to other entities. Relation attributes can result in either a single entity (or no entity) or an entity selection (0 to N entities). Relation attributes are built upon "classic" relations in the relational structure to provide direct access to related entity or related entities. Relation attributes are directy available in ORDA using their names.
 
-For example, consider the following partial database structure and the relation properties:
+For example, consider the following partial model and the relation properties:
 
 ![](img/structure2.png)
 
@@ -192,40 +140,41 @@ Keep in mind that these objects describe attributes, but do not give access to d
 
 [Computed attributes](orda-classes.md#computed-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
+#### Alias attributes
+
+An [alias attribute](orda-classes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
+
 
 ### Entity
 
-An entity is the equivalent of a record. It is actually an object that references a record in the database. It can be seen as an instance of a [dataclass](#dataclass), like a record of the table matching the dataclass. However, an entity also contains data correlated to the database related to the datastore. 
+An entity is the equivalent of a record. It is actually an object that references a record in the database. It can be seen as an instance of a [dataclass](#dataclass), like a record of the table matching the dataclass. 
 
-The purpose of the entity is to manage data (create, read, update, delete). When an entity reference is obtained by means of an entity selection, it also retains information about the entity selection which allows iteration through the selection.
+However, an entity also contains data correlated to the datastore. The purpose of the entity is to manage data (create, read, update, delete). When an entity reference is obtained by means of an entity selection, it also retains information about the entity selection which allows iteration through the selection.
 
 For example, to create an entity:
 
 ```4d
- var $status : Object
- var $employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
+ var status : Object
+ var employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
 
-
- 
-
- $employee:=ds.Employee.new()
- $employee.firstName:="Mary"
- $employee.lastName:="Smith"
- $status:=$employee.save()
+ employee=ds.Employee.new()
+ employee.firstName="Mary"
+ employee.lastName="Smith"
+ status=employee.save()
 ```
 
 The entity object itself cannot be copied as an object:
 
 ```4d
- $myentity:=OB Copy(ds.Employee.get(1)) //returns null
+ myentity=OB Copy(ds.Employee.get(1)) //returns null
 ```
 
 The entity properties are however enumerable:
 
 ```4d
- ARRAY TEXT($prop;0)
- OB GET PROPERTY NAMES(ds.Employee.get(1);$prop)
-  //$prop contains the names of all the entity attributes
+ ARRAY TEXT($prop,0)
+ OB GET PROPERTY NAMES(ds.Employee.get(1),prop)
+  //prop contains the names of all the entity attributes
 ```
 
 
@@ -236,22 +185,22 @@ An entity selection is an object containing one or more reference(s) to entities
 Example:
 
 ```4d
-var $e : cs.EmployeeSelection //declares a $e object variable of the EmployeeSelection class type
-$e:=ds.Employee.all() //assigns the resulting entity selection reference to the $e variable
+var e : cs.EmployeeSelection //declares a e object variable of the EmployeeSelection class type
+e=ds.Employee.all() //assigns the resulting entity selection reference to the e variable
 ``` 
 
 The entity selection object itself cannot be copied as an object:
 
 ```4d
- $myentitysel:=OB Copy(ds.Employee.all()) //returns null
+ myentitysel=OB Copy(ds.Employee.all()) //returns null
 ``` 
  
 The entity selection properties are however enumerable:
 
 ```4d
- ARRAY TEXT($prop;0)
- OB GET PROPERTY NAMES(ds.Employee.all();$prop)
-  //$prop contains the names of the entity selection properties
+ ARRAY TEXT(prop,0)
+ OB GET PROPERTY NAMES(ds.Employee.all();prop)
+  //prop contains the names of the entity selection properties
   //("length", 00", "01"...)
 ```
 
