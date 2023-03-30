@@ -74,7 +74,7 @@ Function of an ORDA data model class.
 
 A dataclass is an object model that describes the data. Tables in the database provided by the datastore are handled through dataclasses. Each table in the database provided by the datastore has a corresponding dataclass with the same name. Each field of the table is an attribute of the dataclass.
 
-A dataclass is related to a single datastore.
+A dataclass is related to a single datastore. 
 
 
 ## DataClass class
@@ -90,7 +90,7 @@ A datastore provides:
 *	a connection to a database
 *	a set of dataclasses to work with the database
 
-The database can be a 4D local database (the Main datastore), or a 4D Server database exposed as REST resource (a Remote datastore). 
+The database can be a local database (the Main datastore), or a server database exposed as REST resource (a Remote datastore). 
 
 A datastore references only a single database. It is, however, possible to open several datastores to access several databases.
 
@@ -109,7 +109,7 @@ A deep copy duplicates an object and all the references it contains. After a dee
 
 ## ds  
 
-`ds` is the 4D language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the 4D main database.
+`ds` is the QodlyScript language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the Qodly main database.
 
 ## Entity  
 
@@ -145,7 +145,7 @@ Since entities are managed as references, data is loaded only when necessary, i.
 
 ## Main datastore  
 
-The Datastore object matching the opened 4D database (standalone or client/server). The main datastore is returned by the `ds` command. 
+The Datastore object matching the opened database. The main datastore is returned by the `ds` command. 
 
 ## Optimistic Lock  
 
@@ -195,11 +195,11 @@ Entity selections may refer to related entities according to the relation attrib
 
 ## Remote datastore  
 
-A 4D database opened on a 4D or 4D Server (available through HTTP) and exposed as a REST resource. This database can be referenced locally as a Datastore from other workstations, where it is assigned a locaID. The remote datastore can be used through ORDA concepts (datastore, dataclass, entity selection...). This use is submitted to a licencing system.
+A Qodly database opened on a Server (available through HTTP) and exposed as a REST resource. This database can be referenced locally as a Datastore from other workstations, where it is assigned a localID. The remote datastore can be used through ORDA concepts (datastore, dataclass, entity selection...). This use is submitted to a licencing system.
 
 ## Session  
 
-When the 4D application connects to a Remote datastore, a session is created on the 4D Server (HTTP). A session cookie is generated and associated to the local datastore id. 
+When the application connects to a Remote datastore, a session is created on the server (HTTP). A session cookie is generated and associated to the local datastore id. 
 
 Each time a new session is opened, a license is used. Each time a session is closed, the license is freed.
 
