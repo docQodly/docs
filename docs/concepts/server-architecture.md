@@ -14,7 +14,7 @@ Qodly Server includes:
 - a REST server with a comprehensive API,
 - a Web server,
 - the Datasource manager,
-- DB4D, a built-in relational database, directly available through the ORDA (Object Relational Data Access) technology. 
+- Qodly Database, a built-in relational database, directly available through the ORDA (Object Relational Data Access) technology. 
 - the **QodlyScript language**, that can be used in all layers of the project. 
 
 
@@ -47,13 +47,11 @@ Qodly Server includes a datasource manager that automatically handles interactio
 Datasources are a central concept to Qodly's architecture and are intended to make developping Web applications as simple as possible. **A datasource references data and automatically generates events when this data is changed**. Your components and code can subscribe to these events and take appropriate actions. Different kind of events can be subscribed to separately.
 
 
-## DB4D and ORDA
+## Qodly Database and ORDA
 
-The Qodly relational database, named DB4D, has extended capabilities to store and process data. 
+The Qodly Database has extended capabilities to store and process data. 
 
-Data access is done through ORDA (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). 
-
-Instead of representing information as tables, records, and fields, ORDA uses a different approach that more accurately maps data to real world items and concepts. ORDA extends the capabilities and power of the database by allowing application logic to be implemented directly into the core of the data model. ORDA uses relational attributes, computed attributes and aliases like any other attribute, making application development particularly intuitive.
+Data access is done through ORDA (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept. 
 
 
 ## QodlyScript language
