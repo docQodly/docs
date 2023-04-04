@@ -4,7 +4,7 @@ title: DataClass
 ---
 
 
-A [DataClass](../Concepts/data-model#dataclass) provides an object interface to a database table. All dataclasses in a 4D application are available as a property of the `ds` [datastore](../Concepts/data-model#datastore). 
+A [DataClass](../Concepts/data-model#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../basics/data-model#datastore). 
 
 
 
@@ -22,23 +22,23 @@ A [DataClass](../Concepts/data-model#dataclass) provides an object interface to 
 |[<!-- INCLUDE #DataClassClass.newSelection().Syntax -->](#newselection)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.newSelection().Summary --></p> |
 |[<!-- INCLUDE #DataClassClass.query().Syntax -->](#query)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.query().Summary --></p> |
 
+
 <!-- REF DataClassClass.all().Desc -->
 ## .all() 
 
 <!-- REF #DataClassClass.all().Syntax -->
-**.all** ( { *settings* : Object } ) : 4D.EntitySelection<!-- END REF -->
+**.all**() : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #DataClassClass.all().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|settings|Object|->|Build option: context|
 |Result|4D.EntitySelection|<-|References on all entities related to the Dataclass|
 <!-- END REF -->
 
 
 #### Description
 
-The `.all( )` function <!-- REF #DataClassClass.all().Summary -->queries the datastore to find all the entities related to the dataclass and returns them as an entity selection<!-- END REF -->. 
+The `.all()` function <!-- REF #DataClassClass.all().Summary -->queries the datastore to find all the entities related to the dataclass and returns them as an entity selection<!-- END REF -->. 
 
 The entities are returned in the default order, which is initially the order in which they were created. Note however that, if entities have been deleted and new ones added, the default order does not reflect the creation order anymore.
 
@@ -46,20 +46,12 @@ If no corresponding entity is found, an empty entity selection is returned.
 
 Lazy loading is applied.
 
-**settings** 
- 
-In the optional *settings* parameter, you can pass an object containing additional options. The following property is supported:
-
-|Property|	Type|	Description|
-|---|---|---|
-|context|Text|Label for the optimization context applied to the entity selection. This context will be used by the code that handles the entity selection so that it can benefit from the optimization. This feature is `[designed for ORDA client/server processing](ORDA/entities.md#client-server-optimization)`.|
-
 
 #### Example 
 
 ```4d
- var $allEmp : cs.EmployeeSelection
- $allEmp:=ds.Employee.all()
+ var allEmp : cs.EmployeeSelection
+ allEmp=ds.Employee.all()
 ```
 
 
@@ -72,14 +64,13 @@ In the optional *settings* parameter, you can pass an object containing addition
 
 
 <!-- REF #DataClassClass.fromCollection().Syntax -->
-**.fromCollection**( *objectCol* : Collection { ; *settings* : Object } ) : 4D.EntitySelection<!-- END REF -->
+**.fromCollection**( *objectCol* : Collection ) : 4D.EntitySelection<!-- END REF -->
 
 
 <!-- REF #DataClassClass.fromCollection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |objectCol |Collection|->|Collection of objects to be mapped with entities|
-|settings  |Object|->|Build option: context|
 |Result|4D.EntitySelection|<-|Entity selection filled from the collection|
 <!-- END REF -->
 
@@ -113,19 +104,11 @@ The objects of *objectCol* may contain one or more nested object(s) featuring on
 
 The nested objects featuring related entities must contain a "\_\_KEY" property (filled with the primary key value of the related entity) or the primary key attribute of the related entity itself. The use of a \_\_KEY property allows independence from the primary key attribute name.
 
->The content of the related entities cannot be created / updated through this mechanism.
+>The content of the related entities cannot be created/updated through this mechanism.
 
 **Stamp**
 
 If a \_\_STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned ("Given stamp does not match current one for record# XX of table XXXX"). For more information, see [Entity locking](../Concepts/data#entity-locking).
-
-**settings**  
-
-In the optional *settings* parameter, you can pass an object containing additional options. The following property is supported:
-
-|Property	|Type|	Description|
-|---|---|---|
-|context|Text|Label for the optimization context applied to the entity selection. This context will be used by the code that handles the entity selection so that it can benefit from the optimization. This feature is `[designed for ORDA client/server processing](ORDA/entities.md#client-server-optimization)`.|
 
 
 #### Example 1
@@ -133,39 +116,39 @@ In the optional *settings* parameter, you can pass an object containing addition
 We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given and exists:
 
 ```4d
- var $empsCollection : Collection
- var $emp : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.ID:=668 //Existing PK in Employee table
- $emp.firstName:="Arthur"
- $emp.lastName:="Martin"
- $emp.employer:=New object("ID";121) //Existing PK in the related dataClass Company
+ empsCollection=New collection
+ emp=New object
+ emp.ID=668 //Existing PK in Employee table
+ emp.firstName="Arthur"
+ emp.lastName="Martin"
+ emp.employer=New object("ID";121) //Existing PK in the related dataClass Company
   // For this employee, we can change the Company by using another existing PK in the related dataClass Company
- $empsCollection.push($emp)
- $employees:=ds.Employee.fromCollection($empsCollection)
+ empsCollection.push(emp)
+ employees=ds.Employee.fromCollection(empsCollection)
 ```
 
 #### Example 2
 
-We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is with the \_\_KEY attribute and exists:
+We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given with the \_\_KEY attribute and exists:
 
 ```4d
- var $empsCollection : Collection
- var $emp : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.__KEY:=1720 //Existing PK in Employee table
- $emp.firstName:="John"
- $emp.lastName:="Boorman"
- $emp.employer:=New object("ID";121) //Existing PK in the related dataClass Company
+ empsCollection=New collection
+ emp=New object
+ emp.__KEY=1720 //Existing PK in Employee table
+ emp.firstName="John"
+ emp.lastName="Boorman"
+ emp.employer=New object("ID";121) //Existing PK in the related dataClass Company
   // For this employee, we can change the Company by using another existing PK in the related dataClass Company
- $empsCollection.push($emp)
- $employees:=ds.Employee.fromCollection($empsCollection)
+ empsCollection.push(emp)
+ employees=ds.Employee.fromCollection(empsCollection)
 ```
 
 #### Example 3
@@ -173,16 +156,16 @@ We want to update an existing entity. The \_\_NEW property is not given, the emp
 We want to simply create a new entity from a collection:
 
 ```4d
- var $empsCollection : Collection
- var $emp : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.firstName:="Victor"
- $emp.lastName:="Hugo"
- $empsCollection.push($emp)
- $employees:=ds.Employee.fromCollection($empsCollection)
+ empsCollection=New collection
+ emp=New object
+ emp.firstName="Victor"
+ emp.lastName="Hugo"
+ empsCollection.push(emp)
+ employees=ds.Employee.fromCollection(empsCollection)
 ```
 
 #### Example 4
@@ -190,21 +173,18 @@ We want to simply create a new entity from a collection:
 We want to create an entity. The \_\_NEW property is True, the employee primary key is not given:
 
 ```4d
- var $empsCollection : Collection
- var $emp : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.firstName:="Mary"
- $emp.lastName:="Smith"
- $emp.employer:=New object("__KEY";121) //Existing PK in the related dataClass Company
- $emp.__NEW:=True
- $empsCollection.push($emp)
- $employees:=ds.Employee.fromCollection($empsCollection)
-
-
-
+ empsCollection:=New collection
+ emp=New object
+ emp.firstName="Mary"
+ emp.lastName="Smith"
+ emp.employer=New object("__KEY";121) //Existing PK in the related dataClass Company
+ emp.__NEW=True
+ empsCollection.push(emp)
+ employees=ds.Employee.fromCollection(empsCollection)
 
 
 ```
@@ -214,17 +194,17 @@ We want to create an entity. The \_\_NEW property is True, the employee primary 
 We want to create an entity. The \_\_NEW property is omitted, the employee primary key is given and does not exist:
 
 ```4d
- var $empsCollection : Collection
- var $emp : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.ID:=10000 //Unexisting primary key
- $emp.firstName:="Françoise"
- $emp.lastName:="Sagan"
- $empsCollection.push($emp)
- $employees:=ds.Employee.fromCollection($empsCollection)
+ empsCollection=New collection
+ emp=New object
+ emp.ID=10000 //Unexisting primary key
+ emp.firstName="Françoise"
+ emp.lastName="Sagan"
+ empsCollection.push(emp)
+ employees=ds.Employee.fromCollection(empsCollection)
 ```
 
 #### Example 6
@@ -232,25 +212,25 @@ We want to create an entity. The \_\_NEW property is omitted, the employee prima
 In this example, the first entity will be created and saved but the second will fail since they both use the same primary key:
 
 ```4d
- var $empsCollection : Collection
- var $emp; $emp2 : Object
- var $employees : cs.EmployeeSelection
+ var empsCollection : Collection
+ var emp, $emp2 : Object
+ var employees : cs.EmployeeSelection
  
- $empsCollection:=New collection
- $emp:=New object
- $emp.ID:=10001 // Unexisting primary key
- $emp.firstName:="Simone"
- $emp.lastName:="Martin"
- $emp.__NEW:=True
- $empsCollection.push($emp)
+ empsCollection=New collection
+ emp=New object
+ emp.ID=10001 // Unexisting primary key
+ emp.firstName="Simone"
+ emp.lastName="Martin"
+ emp.__NEW=True
+ empsCollection.push(emp)
  
- $emp2:=New object
- $emp2.ID:=10001 // Same primary key, already existing
- $emp2.firstName:="Marc"
- $emp2.lastName:="Smith"
- $emp2.__NEW:=True
- $empsCollection.push($emp2)
- $employees:=ds.Employee.fromCollection($empsCollection)
+ emp2=New object
+ emp2.ID=10001 // Same primary key, already existing
+ emp2.firstName="Marc"
+ emp2.lastName="Smith"
+ emp2.__NEW=True
+ empsCollection.push(emp2)
+ employees=ds.Employee.fromCollection(empsCollection)
   //first entity is created
   //duplicated key error for the second entity
 ```
@@ -266,14 +246,13 @@ In this example, the first entity will be created and saved but the second will 
 ## .get()   
 
 <!-- REF #DataClassClass.get().Syntax -->
-**.get**( *primaryKey* : Integer { ; *settings* : Object } ) : 4D.Entity<br/>**.get**( *primaryKey* : Text { ; *settings* : Object } ) : 4D.Entity<!-- END REF -->
+**.get**( *primaryKey* : Integer ) : 4D.Entity<br/>**.get**( *primaryKey* : Text ) : 4D.Entity<!-- END REF -->
 
 
 <!-- REF #DataClassClass.get().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |primaryKey |Integer OR Text|->|Primary key value of the entity to retrieve|
-|settings  |Object|->|Build option: context|
 |Result|4D.Entity|<-|Entity matching the designated primary key|
 <!-- END REF -->
 
@@ -287,61 +266,22 @@ If no entity is found with *primaryKey*, a **Null** entity is returned.
 
 Lazy loading is applied, which means that related data is loaded from disk only when it is required.
 
-**settings** 
 
-In the optional *settings* parameter, you can pass an object containing additional options. The following property is supported:
-
-|Property|	Type|	Description|
-|---|---|---|
-|context|	Text|	Label for the automatic optimization context applied to the entity. This context will be used by the subsequent code that loads the entity so that it can benefit from the optimization. This feature is `[designed for ORDA client/server processing](ORDA/entities.md#client-server-optimization)`.|
-
-
-
-#### Example 1  
+#### Example
 
 ```4d
- var $entity : cs.EmployeeEntity  
- var $entity2 : cs.InvoiceEntity
- $entity:=ds.Employee.get(167) // return the entity whose primary key value is 167
- $entity2:=ds.Invoice.get("DGGX20030") // return the entity whose primary key value is "DGGX20030"
+ var entity : cs.EmployeeEntity  
+ var entity2 : cs.InvoiceEntity
+ entity=ds.Employee.get(167) // return the entity whose primary key value is 167
+ entity2=ds.Invoice.get("DGGX20030") // return the entity whose primary key value is "DGGX20030"
 ```
 
-#### Example 2  
-
-This example illustrates the use of the *context* property:
-
-```4d
- var $e1; $e2; $e3; $e4 : cs.EmployeeEntity
- var $settings; $settings2 : Object
- 
- $settings:=New object("context";"detail")
- $settings2:=New object("context";"summary")
- 
- $e1:=ds.Employee.get(1;$settings)
- completeAllData($e1) // In completeAllData method, an optimization is triggered and associated to context "detail"
- 
- $e2:=ds.Employee.get(2;$settings)
- completeAllData($e2) // In completeAllData method, the optimization associated to context "detail" is applied
- 
- $e3:=ds.Employee.get(3;$settings2)
- completeSummary($e3) //In completeSummary method, an optimization is triggered and associated to context "summary"
- 
- $e4:=ds.Employee.get(4;$settings2)
- completeSummary($e4) //In completeSummary method, the optimization associated to context "summary" is applied
-``` 
- 
 
 <!-- END REF -->
 
 
 <!-- REF DataClassClass.getCount.Desc -->
 ## .getCount()
-
-<details><summary>History</summary>
-|Version|Changes|
-|---|---|
-|v19 R5|Added|
-</details>
 
 <!-- REF #DataClassClass.getCount().Syntax -->
 **.getCount()** : Integer <!-- END REF -->
@@ -361,12 +301,8 @@ If this function is used within a transaction, entities created during the trans
 #### Example 
 
 ```4d
-var $ds : 4D.DataStoreImplementation
-var $number : Integer
-
-$ds:=Open datastore(New object("hostname"; "www.myserver.com"); "myDS")
-
-$number:=$ds.Persons.getCount() 
+var number : Integer
+number=ds.Persons.getCount() 
 ```
 
 <!-- END REF -->
@@ -388,33 +324,29 @@ $number:=$ds.Persons.getCount()
 
 #### Description
 
-The `.getDataStore( )` function <!-- REF #DataClassClass.getDataStore().Summary -->returns the datastore for the specified dataclass<!-- END REF -->.
+The `.getDataStore()` function <!-- REF #DataClassClass.getDataStore().Summary -->returns the datastore for the specified dataclass<!-- END REF -->.
 
-The datastore can be:
-
-*	the main datastore, as returned by the `ds` command. 
-*	a remote datastore, opened using the `Open datastore` command.
-
+The main datastore is returned by the `ds` command. 
 
 #### Example
 
 The `SearchDuplicate` project method searches for duplicated values in any dataclass.
 
 ```4d
- var $pet : cs.CatsEntity
- $pet:=ds.Cats.all().first() //get an entity
- SearchDuplicate($pet;"Dogs")
+ var pet : cs.CatsEntity
+ pet=ds.Cats.all().first() //get an entity
+ SearchDuplicate(pet,"Dogs")
 ```
 
 ```4d
   // SearchDuplicate method
-  // SearchDuplicate(entity_to_search;dataclass_name)
+  // SearchDuplicate(entity_to_search,dataclass_name)
    
- #DECLARE ($pet : Object ; $dataClassName : Text)
- var $dataStore; $duplicates : Object  
+ #declare (pet : Object , dataClassName : Text)
+ var dataStore,duplicates : Object  
  
- $dataStore:=$pet.getDataClass().getDataStore()
- $duplicates:=$dataStore[$dataClassName].query("name=:1";$pet.name)
+ dataStore=pet.getDataClass().getDataStore()
+ duplicates=dataStore[dataClassName].query("name=:1",pet.name)
 ```
 
 <!-- END REF -->
@@ -437,7 +369,7 @@ The `SearchDuplicate` project method searches for duplicated values in any datac
 
 #### Description
 
-The `.getInfo( )` function <!-- REF #DataClassClass.getInfo().Summary -->returns an object providing information about the dataclass<!-- END REF -->. This function is useful for setting up generic code.
+The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns an object providing information about the dataclass<!-- END REF -->. This function is useful for setting up generic code.
 
 **Returned object**
 
@@ -452,37 +384,38 @@ The `.getInfo( )` function <!-- REF #DataClassClass.getInfo().Summary -->returns
 #### Example 1 
 
 ```4d 
- #DECLARE ($entity : Object)  
- var $status : Object
+ #declare (entity : Object)  
+ var status : Object
+ var info : Text
  
- computeEmployeeNumber($entity) //do some actions on entity
+ computeEmployeeNumber(entity) //do some actions on entity
  
- $status:=$entity.save()
- if($status.success)
-    ALERT("Record updated in table "+$entity.getDataClass().getInfo().name)
- End if
+ status=entity.save()
+ if(status.success)
+    info="Record updated in table "+entity.getDataClass().getInfo().name
+ end if
 ```
  
 #### Example 2  
 
 ```4d
- var $settings : Object
- var $es : cs.ClientsSelection
+ var settings : Object
+ var es : cs.ClientsSelection
  
- $settings:=New object
- $settings.parameters:=New object("receivedIds";getIds())
- $settings.attributes:=New object("pk";ds.Clients.getInfo().primaryKey)
- $es:=ds.Clients.query(":pk in :receivedIds";$settings)
+ settings=New object
+ settings.parameters=New object("receivedIds",getIds())
+ settings.attributes=New object("pk",ds.Clients.getInfo().primaryKey)
+ es=ds.Clients.query(":pk in :receivedIds",settings)
 ```
  
 #### Example 3 
 
 ```4d 
- var $pk : Text
- var $dataClassAttribute : Object
+ var pk : Text
+ var dataClassAttribute : Object
  
- $pk:=ds.Employee.getInfo().primaryKey
- $dataClassAttribute:=ds.Employee[$pk] // If needed the attribute matching the primary key is accessible
+ pk=ds.Employee.getInfo().primaryKey
+ dataClassAttribute=ds.Employee[pk] //If needed the attribute matching the primary key is accessible
 ```
 
 <!-- END REF -->
@@ -504,13 +437,11 @@ The `.getInfo( )` function <!-- REF #DataClassClass.getInfo().Summary -->returns
 
 #### Description
 
-The `.new( )` function <!-- REF #DataClassClass.new().Summary -->creates in memory and returns a new blank entity related to the Dataclass<!-- END REF -->. 
+The `.new()` function <!-- REF #DataClassClass.new().Summary -->creates in memory and returns a new blank entity related to the Dataclass<!-- END REF -->. 
 
-The entity object is created in memory and is not saved in the database until the [`.save( )`](EntityClass.md#save) function is called. If the entity is deleted before being saved, it cannot be recovered.
+The entity object is created in memory and is not saved in the database until the [`.save()`](EntityClass.md#save) function is called. If the entity is deleted before being saved, it cannot be recovered.
 
-**4D Server**: In client-server, if the primary key of the corresponding table is auto-incremented, it will be calculated when the entity is saved on the server.
-
-All attributes of the entity are initialized with the **null** value.
+All attributes of the entity are initialized with the **null** value. If the primary key of the dataclass is autoincremented, it will be calculated when the entity is saved on the server.
 
 
 #### Example
@@ -518,10 +449,10 @@ All attributes of the entity are initialized with the **null** value.
 This example creates a new entity in the "Log" Dataclass and records information in the "info" attribute:
 
 ```4d 
- var $entity : cs.LogEntity
- $entity:=ds.Log.new() //create a reference
- $entity.info:="New entry" //store some information
- $entity.save() //save the entity
+ var entity : cs.LogEntity
+ entity=ds.Log.new() //create a reference
+ entity.info="New entry" //store some information
+ entity.save() //save the entity
 ```
  
 <!-- END REF -->
@@ -548,7 +479,7 @@ This example creates a new entity in the "Log" Dataclass and records information
 
 The `.newSelection( )` function <!-- REF #DataClassClass.newSelection().Summary -->creates a new, blank, non-shareable entity selection, related to the dataclass, in memory<!-- END REF -->. 
 
-If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../Concepts/data-model#ordered-or-unordered-entity-selection).
+If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../ORDA/data-model#ordered-or-unordered-entity-selection).
 
 When created, the entity selection does not contain any entities (`mySelection.length` returns 0). This method lets you build entity selections gradually by making subsequent calls to the [`add()`](EntitySelectionClass.md#add) function.
 
@@ -557,9 +488,9 @@ When created, the entity selection does not contain any entities (`mySelection.l
 
 
 ```4d 
- var $USelection; $OSelection : cs.EmployeeSelection
- $USelection:=ds.Employee.newSelection() //create an unordered empty entity selection
- $OSelection:=ds.Employee.newSelection(dk keep ordered) //create an ordered empty entity selection
+ var USelection,OSelection : cs.EmployeeSelection
+ USelection=ds.Employee.newSelection() //create an unordered empty entity selection
+ OSelection=ds.Employee.newSelection(dk keep ordered) //create an ordered empty entity selection
 ```
  
 
@@ -571,7 +502,7 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ## .query()
 
 <!-- REF #DataClassClass.query().Syntax -->
-**.query**( *queryString* : Text { ; *...value* : any } { ; *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { ; *querySettings* : Object } ) : 4D.EntitySelection <!-- END REF -->
+**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { , *querySettings* : Object } ) : 4D.EntitySelection <!-- END REF -->
 
 <!-- REF #DataClassClass.query().Params -->
 |Parameter|Type||Description|
@@ -586,7 +517,7 @@ When created, the entity selection does not contain any entities (`mySelection.l
 
 #### Description
 
-The `.query( )` function <!-- REF #DataClassClass.query().Summary -->searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s)<!-- END REF -->, for all the entities in the dataclass, and returns a new object of type `EntitySelection` containing all the entities that are found. Lazy loading is applied.
+The `.query()` function <!-- REF #DataClassClass.query().Summary -->searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s)<!-- END REF -->, for all the entities in the dataclass, and returns a new object of type `EntitySelection` containing all the entities that are found. Lazy loading is applied.
 
 If no matching entities are found, an empty `EntitySelection` is returned.
 
@@ -609,15 +540,15 @@ where:
 *	**formula**: a valid formula passed as `Text` or `Object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `This` object.  
 
 	*	**Text**: the formula string must be preceeded by the `eval( )` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(This.lastname) >=30)"*
-	*	**Object**: the [formula object](https://developer.4d.com/docs/en/API/FunctionClass.html) is passed as a **placeholder** (see below). The formula must have been created using the [`Formula`] or [`Formula from string`] command. 
+	*	**Object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`Formula`] or [`Formula from string`] command. 
 
-	>* Keep in mind that 4D formulas only support `&` and `|` symbols as logical operators. 
+	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators. 
 	>* If the formula is not the only search criteria, the query engine optimizer could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.   
 
-	Formulas in queries can receive parameters through $1. This point is detailed in the **formula parameter** paragraph below.
+	Formulas in queries can receive parameters through `$1`. This point is detailed in the **formula parameter** paragraph below.
 
-	>*	You can also pass directy a `formula` parameter object instead of the `queryString` parameter (recommended when formulas are more complex). See **formula parameter** paragraph below. 
-	>*	For security reasons, formula calls within `query()` methods can be disallowed. See `querySettings` parameter description. 
+	>*	You can also pass directy a `formula` parameter object instead of the *queryString* parameter (recommended when formulas are more complex). See **formula parameter** paragraph below. 
+	>*	For security reasons, formula calls within `query()` methods can be disallowed. See *querySettings* parameter description. 
 
 *	**comparator**: symbol that compares *attributePath* and *value*. The following symbols are supported:
 
@@ -651,7 +582,7 @@ where:
 	|OR | &#124;,&#124;&#124;, or|
 
 *	**order by attributePath**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
-	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../Concepts/data-model#ordered-or-unordered-entity-selection). 
+	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../ORDA/data-model#ordered-or-unordered-entity-selection). 
 
 **Using quotes**
 
@@ -674,17 +605,16 @@ You can use parentheses in the query to give priority to the calculation. For ex
 
 **Using placeholders**
 
-4D allows you to use placeholders for *attributePath*, *formula* and *value* arguments within the *queryString* parameter. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
+Qodly allows you to use placeholders for *attributePath*, *formula* and *value* arguments within the *queryString* parameter. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
 
 Two types of placeholders can be used: **indexed placeholders** and **named placeholders**:
 
 |-	|Indexed placeholders|	Named placeholders|
 |---|---|---|
-|Definition	|Parameters are inserted as :paramIndex (for example :1, :2...) in queryString and their corresponding values are provided by the sequence of value parameter(s). You can use up to 128 value parameters|	Parameters are inserted as :paramName (for example :myparam) and their values are provided in the attributes and/or parameters objects in the querySettings parameter|
-|Example|$r:=class.query(":1=:2";"city";"Chicago")| $o.attributes:=New object("att";"city")<br/> $o.parameters:=New object("name";"Chicago")<br/> $r:=class.query(":att=:name";$o)|
+|Definition	|Parameters are inserted as :paramIndex (for example :1, :2...) in *queryString* and their corresponding values are provided by the sequence of value parameter(s). You can use up to 128 value parameters|	Parameters are inserted as :paramName (for example :myparam) and their values are provided in the attributes and/or parameters objects in the *querySettings* parameter|
+|Example|`r=class.query(":1=:2","city","Chicago")`| `o.attributes={att:"city"}`<br/>` o.parameters={name:"Chicago"}`<br/>` r=class.query(":att=:name",o)`|
  
 You can mix all argument kinds in *queryString*. A *queryString* can contain, for *attributePath*, *formula* and *value* parameters:
-
 
 *	direct values (no placeholders), 
 *	indexed placeholders and/or named placeholders.
@@ -694,8 +624,8 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 1.	It prevents malicious code insertion: if you directly use user-filled variables within the query string, a user could modifiy the query conditions by entering additional query arguments. For example, imagine a query string like:
  
 	```4d
-	 $vquery:="status = 'public' & name = "+myname //user enters their name
-	 $result:=$col.query($vquery)
+	 vquery="status = 'public' & name = "+myname //user enters their name
+	 result=col.query(vquery)
 	```
 
 	This query seems secured since non-public data are filtered. However, if the user enters in the *myname* area something like *"smith OR status='private'*, the query string would be modified at the interpretation step and could return private data.
@@ -703,7 +633,7 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 	When using placeholders, overriding security conditions is not possible:
 
 	```4d
-	 $result:=$col.query("status='public' & name=:1";myname)
+	 result=col.query("status='public' & name=:1",myname)
 	```
 
 	In this case if the user enters *smith OR status='private'* in the *myname* area, it will not be interpreted in the query string, but only passed as a value. Looking for a person named "smith OR status='private'" will just fail.
@@ -713,8 +643,8 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 3.	It allows the use of variables or expressions in query arguments. Examples:
 
 	```4d
- 	$result:=$col.query("address.city = :1 & name =:2";$city;$myVar+"@")
-	$result2:=$col.query("company.name = :1";"John's Pizzas")
+ 	result=col.query("address.city = :1 & name =:2",city,myVar+"@")
+	result2=col.query("company.name = :1","John's Pizzas")
 	``` 
 
 **Looking for null values**
@@ -722,13 +652,13 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 When you look for null values, you cannot use the placeholder syntax because the query engine considers null as an unexpected comparison value. For example, if you execute the following query:
 
 ```4d
-$vSingles:=ds.Person.query("spouse = :1";Null) // will NOT work
+vSingles=ds.Person.query("spouse = :1",Null) // will NOT work
 ```
 
-You will not get the expected result because the null value will be evaluated by 4D as an error resulting from the parameter evaluation (for example, an attribute coming from another query). For these kinds of queries, you must use the direct query syntax:
+You will not get the expected result because the null value will be evaluated by Qodly as an error resulting from the parameter evaluation (for example, an attribute coming from another query). For these kinds of queries, you must use the direct query syntax:
 
 ```4d
- $vSingles:=ds.Person.query("spouse = null") //correct syntax
+vSingles=ds.Person.query("spouse = null") //correct syntax
 ``` 
 
 
@@ -762,20 +692,20 @@ ds.People.places:
 You want to find people with a "home" location kind in the city "paris". If you write:
 
 ```4d
-ds.People.query("places.locations[].kind= :1 and places.locations[].city= :2";"home";"paris")
+ds.People.query("places.locations[].kind= :1 and places.locations[].city= :2","home","paris")
 ```
 
 ... the query will return "martin" **and** "smith" because "smith" has a "locations" element whose "kind" is "home" and a "locations" element whose "city" is "paris", even though they are different elements.
 
 If you want to only get entities where matching arguments are in the same collection element, you need to **link arguments**. To link query arguments:
 
-- Add a letter between the \[] in the first path to link and repeat the same letter in all linked arguments. For example: `locations[a].city and locations[a].kind`. You can use any letter of the Latin alphabet (not case sensitive).
+- Add a letter between the `[]` in the first path to link and repeat the same letter in all linked arguments. For example: `locations[a].city and locations[a].kind`. You can use any letter of the Latin alphabet (not case sensitive).
 - To add different linked criteria in the same query, use another letter. You can create up to 26 combinations of criteria in a single query. 
 
 With the above entities, if you write:
 
 ```4d
-ds.People.query("places.locations[a].kind= :1 and places.locations[a].city= :2";"home";"paris")
+ds.People.query("places.locations[a].kind= :1 and places.locations[a].city= :2","home","paris")
 ```
 
 ... the query will only return "martin" because it has a "locations" element whose "kind" is "home" and whose "city" is "paris". The query will not return "smith" because the values "home" and "paris" are not in the same collection element. 
@@ -792,8 +722,8 @@ Imagine that you want to search all movies in which *both* actor A and actor B h
 
 ```4d
 // invalid code
-$es:=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor.lastName = :2";"Hanks";"Ryan")  
-// $es is empty
+es=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor.lastName = :2","Hanks","Ryan")  
+// es is empty
 ```
 Basically, the issue is related to the internal logic of the query: you cannot search for an attribute whose value would be both "A" and "B". 
 
@@ -808,8 +738,8 @@ In our example, it would be:
 
 ```4d
 // valid code
-$es:=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor{2}.lastName = :2";"Hanks";"Ryan")  
-// $es contains movies (You've Got Mail, Sleepless in Seattle, Joe Versus the Volcano)
+es=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor{2}.lastName = :2","Hanks","Ryan")  
+// es contains movies (You've Got Mail, Sleepless in Seattle, Joe Versus the Volcano)
 ```
 
 
@@ -823,7 +753,7 @@ The formula must have been created using the `Formula` or `Formula from string` 
 *	within the *formula*, the entity is available through the `This` object.  
 *	if the `Formula` object is **null**, the errror 1626 ("Expecting a text or formula") is generated, that you call intercept using a method installed with `ON ERR CALL`.
 
-	>For security reasons, formula calls within `query(`) member methods can be disallowed. See *querySettings* parameter description. 
+	>For security reasons, formula calls within `query()` functions can be disallowed. See *querySettings* parameter description. 
 
 **Passing parameters to formulas**
 
@@ -835,13 +765,11 @@ Any *formula* called by the `query()` class function can receive parameters:
 This small code shows the principles of how parameter are passed to methods:
 
 ```4d
- $settings:=New object("args";New object("exclude";"-")) //args object to pass parameters
- $es:=ds.Students.query("eval(checkName($1.exclude))";$settings) //args is received in $1
+ settings=New object("args",New object("exclude","-")) //args object to pass parameters
+ es=ds.Students.query("eval(checkName($1.exclude))",$settings) //args is received in $1
 ```
 
 Additional examples are provided in example 3.
-
-**4D Server**: In client/server, formulas are executed on the server. In this context, only the `querySettings.args` object is sent to the formulas.
 
 
 
@@ -855,7 +783,6 @@ In the *querySettings* parameter, you can pass an object containing additional o
 |attributes|Object|**Named placeholders for attribute paths** used in the *queryString* or *formula*. Attributes are expressed as property / value pairs, where property is the placeholder name inserted for an attribute path in the *queryString* or *formula* (":placeholder"), and value can be a string or a collection of strings. Each value is a path that can designate either a scalar or a related attribute of the dataclass or a property in an object field of the dataclass<p><table><tr><th>Type</th><th>Description</th></tr><tr><td>String</td><td>attributePath expressed using the dot notation, e.g. "name" or "user.address.zipCode"</td></tr><tr><td>Collection of strings</td><td>Each string of the collection represents a level of attributePath, e.g. \["name"] or \["user","address","zipCode"]. Using a collection allows querying on attributes with names that are not compliant with dot notation, e.g. \["4Dv17.1","en/fr"]</td></tr></table></p>You can mix indexed placeholders (values directly passed in *value* parameters) and named placeholder values in the same query.|
 |args|Object|Parameter(s) to pass to formulas, if any. The **args** object will be received in $1 within formulas and thus its values will be available through *$1.property* (see example 3).| 
 |allowFormulas|	Boolean|True to allow the formula calls in the query (default). Pass false to disallow formula execution. If set to false and `query()` is given a formula, an error is sent (1278 - Formula not allowed in this member method).|
-|context|Text|Label for the automatic optimization context applied to the entity selection. This context will be used by the code that handles the entity selection so that it can benefit from the optimization. This feature is designed for client/server processing; for more information, please refer to the **Client/server optimization** section.|
 |queryPlan|	Boolean	|In the resulting entity selection, returns or does not return the detailed description of the query just before it is executed, i.e. the planned query. The returned property is an object that includes each planned query and subquery (in the case of a complex query). This option is useful during the development phase of an application. It is usually used in conjunction with queryPath. Default if omitted: false. **Note**: This property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
 |queryPath|Boolean|	In the resulting entity selection, returns or does not return the detailed description of the query as it is actually performed. The returned property is an object that contains the actual path used for the query (usually identical to that of the queryPlan, but may differ if the engine manages to optimize the query), as well as the processing time and the number of records found. This option is useful during the development phase of an application. Default if omitted: false. **Note**: This property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
 
@@ -866,8 +793,8 @@ The information recorded in `queryPlan`/`queryPath` include the query type (inde
 For example, if you execute the following query:
 
 ```4d
- $sel:=ds.Employee.query("salary < :1 and employer.name = :2 or employer.revenues > :3";\  
- 50000;"Lima West Kilo";10000000;New object("queryPath";True;"queryPlan";True))
+ sel=ds.Employee.query("salary < :1 and employer.name = :2 or employer.revenues > :3",\  
+ 50000,"Lima West Kilo",10000000,New object("queryPath",True,"queryPlan",True))
 ```
 
 queryPlan:
@@ -897,124 +824,124 @@ This section provides various examples of queries.
 Query on a string:
 
 ```4d
-$entitySelection:=ds.Customer.query("firstName = 'S@'")
+entitySelection=ds.Customer.query("firstName = 'S@'")
 ```
 
 Query with a NOT statement:
 
 ```4d
-$entitySelection:=ds.Employee.query("not(firstName=Kim)")
+entitySelection=ds.Employee.query("not(firstName=Kim)")
 ```
 
 Queries with dates:
 
 ```4d
-$entitySelection:=ds.Employee.query("birthDate > :1";"1970-01-01")
-$entitySelection:=ds.Employee.query("birthDate <= :1";Current date-10950)
+entitySelection=ds.Employee.query("birthDate > :1","1970-01-01")
+entitySelection=ds.Employee.query("birthDate <= :1",Current date-10950)
 ```
 
 Query with indexed placeholders for values:
 
 ```4d
-$entitySelection:=ds.Customer.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)";"D@";"R@";"S@";"K@")
+entitySelection=ds.Customer.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@")
 ```
 
 Query with indexed placeholders for values on a related dataclass:
 
 ```4d
-$entitySelection:=ds.Employee.query("lastName = :1 and manager.lastName = :2";"M@";"S@")
+entitySelection=ds.Employee.query("lastName = :1 and manager.lastName = :2","M@","S@")
 ```
 
 Query with indexed placeholder including a descending order by statement:
 
 ```4d
-$entitySelection:=ds.Student.query("nationality = :1 order by campus.name desc, lastname";"French")
+entitySelection=ds.Student.query("nationality = :1 order by campus.name desc, lastname","French")
 ```
 
 Query with named placeholders for values:
 
 ```4d
-var $querySettings : Object
-var $managedCustomers : cs.CustomerSelection
-$querySettings:=New object
-$querySettings.parameters:=New object("userId";1234;"extraInfo";New object("name";"Smith"))
-$managedCustomers:=ds.Customer.query("salesperson.userId = :userId and name = :extraInfo.name";$querySettings)
+var querySettings : Object
+var managedCustomers : cs.CustomerSelection
+querySettings=New object
+querySettings.parameters=New object("userId",1234,"extraInfo",New object("name","Smith"))
+managedCustomers=ds.Customer.query("salesperson.userId = :userId and name = :extraInfo.name",querySettings)
 ```
 
 Query that uses both named and indexed placeholders for values:
 
 ```4d
-var $querySettings : Object
-var $managedCustomers : cs.CustomerSelection
-$querySettings.parameters:=New object("userId";1234)
-$managedCustomers:=ds.Customer.query("salesperson.userId = :userId and name=:1";"Smith";$querySettings)
+var querySettings : Object
+var managedCustomers : cs.CustomerSelection
+querySettings.parameters=New object("userId",1234)
+managedCustomers=ds.Customer.query("salesperson.userId = :userId and name=:1","Smith",querySettings)
 ```
 
 Query with queryPlan and queryPath objects:
 
 ```4d
-$entitySelection:=ds.Employee.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)";"D@";"R@";"S@";"K@";New object("queryPlan";True;"queryPath";True))
+entitySelection=ds.Employee.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@",New object("queryPlan",True,"queryPath",True))
  
   //you can then get these properties in the resulting entity selection
-var $queryPlan; $queryPath : Object
-$queryPlan:=$entitySelection.queryPlan
-$queryPath:=$entitySelection.queryPath
+var queryPlan, queryPath : Object
+queryPlan=entitySelection.queryPlan
+queryPath=entitySelection.queryPath
 ```
 
 Query with an attribute path of Collection type:
 
 ```4d
-$entitySelection:=ds.Employee.query("extraInfo.hobbies[].name = :1";"horsebackriding")
+entitySelection=ds.Employee.query("extraInfo.hobbies[].name = :1","horsebackriding")
 ```
 
 Query with an attribute path of Collection type and linked attributes:
 
 ```4d
-$entitySelection:=ds.Employee.query("extraInfo.hobbies[a].name = :1 and extraInfo.hobbies[a].level=:2";"horsebackriding";2)
+entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and extraInfo.hobbies[a].level=:2","horsebackriding",2)
 ```
 
 Query with an attribute path of Collection type and multiple linked attributes:
 
 ```4d
-$entitySelection:=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
+entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
 	extraInfo.hobbies[a].level = :2 and extraInfo.hobbies[b].name = :3 and
-	extraInfo.hobbies[b].level = :4";"horsebackriding";2;"Tennis";5)
+	extraInfo.hobbies[b].level = :4","horsebackriding",2,"Tennis",5)
 ```
 
 Query with an attribute path of Object type:
 
 ```4d
-$entitySelection:=ds.Employee.query("extra.eyeColor = :1";"blue")
+entitySelection=ds.Employee.query("extra.eyeColor = :1","blue")
 ```
 
 Query with an IN statement:
 
 ```4d
-$entitySelection:=ds.Employee.query("firstName in :1";New collection("Kim";"Dixie"))
+entitySelection=ds.Employee.query("firstName in :1",New collection("Kim","Dixie"))
 ```
 
 Query with a NOT (IN) statement:
 
 ```4d
-$entitySelection:=ds.Employee.query("not (firstName in :1)";New collection("John";"Jane"))
+entitySelection=ds.Employee.query("not (firstName in :1)",New collection("John","Jane"))
 ```
 
 Query with indexed placeholders for attributes:
 
 ```4d
-var $es : cs.EmployeeSelection
-$es:=ds.Employee.query(":1 = 1234 and :2 = 'Smith'";"salesperson.userId";"name")
+var es : cs.EmployeeSelection
+es=ds.Employee.query(":1 = 1234 and :2 = 'Smith'","salesperson.userId","name")
   //salesperson is a related entity
 ```
 
 Query with indexed placeholders for attributes and named placeholders for values: 
 
 ```4d
-var $es : cs.EmployeeSelection
-var $querySettings : Object
-$querySettings:=New object
-$querySettings.parameters:=New object("customerName";"Smith")
-$es:=ds.Customer.query(":1 = 1234 and :2 = :customerName";"salesperson.userId";"name";$querySettings)
+var es : cs.EmployeeSelection
+var querySettings : Object
+querySettings=New object
+querySettings.parameters=New object("customerName","Smith")
+es=ds.Customer.query(":1 = 1234 and :2 = :customerName","salesperson.userId","name",querySettings)
   //salesperson is a related entity
 ```
 
@@ -1022,8 +949,8 @@ Query with indexed placeholders for attributes and values:
 
 
 ```4d
-var $es : cs.EmployeeSelection
-$es:=ds.Clients.query(":1 = 1234 and :2 = :3";"salesperson.userId";"name";"Smith")
+var es : cs.EmployeeSelection
+es=ds.Clients.query(":1 = 1234 and :2 = :3","salesperson.userId","name","Smith")
   //salesperson is a related entity
 ```
 
@@ -1060,29 +987,29 @@ softwares:{
 Query with named placeholders for attributes:
 
 ```4d
- var $querySettings : Object
- var $es : cs.EmployeeSelection
- $querySettings:=New object
- $querySettings.attributes:=New object("attName";"name";"attWord";New collection("softwares";"Word 10.2"))
- $es:=ds.Employee.query(":attName = 'Marie' and :attWord = 'Installed'";$querySettings)
-  //$es.length=1 (Employee Marie)
+ var querySettings : Object
+ var es : cs.EmployeeSelection
+ querySettings=New object
+ querySettings.attributes=New object("attName","name","attWord",New collection("softwares","Word 10.2"))
+ es=ds.Employee.query(":attName = 'Marie' and :attWord = 'Installed'",querySettings)
+  //es.length=1 (Employee Marie)
 ```
 
 Query with named placeholders for attributes and values: 
 
 ```4d
- var $querySettings : Object
- var $es : cs.EmployeeSelection
- var $name : Text
- $querySettings:=New object
+ var querySettings : Object
+ var es : cs.EmployeeSelection
+ var name : Text
+ querySettings=New object
   //Named placeholders for values
   //The user is asked for a name
- $name:=Request("Please enter the name to search:")
+ name=Request("Please enter the name to search:")
  If(OK=1)
-    $querySettings.parameters:=New object("givenName";$name)
+    querySettings.parameters=New object("givenName",name)
   //Named placeholders for attribute paths
-    $querySettings.attributes:=New object("attName";"name")
-    $es:=ds.Employee.query(":attName= :givenName";$querySettings)
+    querySettings.attributes=New object("attName","name")
+    es=ds.Employee.query(":attName= :givenName",querySettings)
  End if
 ```
 
@@ -1093,78 +1020,79 @@ These examples illustrate the various ways to use formulas with or without param
 The formula is given as text with `eval()` in the *queryString* parameter:
 
 ```4d
- var $es : cs.StudentsSelection
- $es:=ds.Students.query("eval(length(This.lastname) >=30) and nationality='French'")
+ var es : cs.StudentsSelection
+ es=ds.Students.query("eval(length(This.lastname) >=30) and nationality='French'")
 ```
 
 The formula is given as a `Formula` object through a placeholder:
 
 ```4d
- var $es : cs.StudentsSelection
- var $formula : Object
- $formula:=Formula(Length(This.lastname)>=30)
- $es:=ds.Students.query(":1 and nationality='French'";$formula)
+ var es : cs.StudentsSelection
+ var aform : Object
+ aform=Formula(Length(This.lastname)>=30)
+ es=ds.Students.query(":1 and nationality='French'",aform)
 ```
 
 Only a `Formula` object is given as criteria:
 
 ```4d
- var $es : cs.StudentsSelection
- var $formula : Object
- $formula:=Formula(Length(This.lastname)>=30)
- $es:=ds.Students.query($formula)
+ var es : cs.StudentsSelection
+ var aform : Object
+ aform=Formula(Length(This.lastname)>=30)
+ es:=ds.Students.query(aform)
 ```
 
 Several formulas can be applied:
 
 ```4d
- var $formula1; $1; $formula2 ;$0 : Object
- $formula1:=$1
- $formula2:=Formula(Length(This.firstname)>=30)
- $0:=ds.Students.query(":1 and :2 and nationality='French'";$formula1;$formula2)
+ #declare(formula1 : 4D.Function) -> result : cs.StudentsSelection
+ var formula2 : 4D.Function
+ formula2=Formula(Length(This.firstname)>=30)
+ result=ds.Students.query(":1 and :2 and nationality='French'",formula1,formula2)
 ```
 
 
 A text formula in *queryString* receives a parameter:
 
 ```4d
- var $es : cs.StudentsSelection
- var $settings : Object
- $settings:=New object()
- $settings.args:=New object("filter";"-")
- $es:=ds.Students.query("eval(checkName($1.filter)) and nationality=:1";"French";$settings)
+ var es : cs.StudentsSelection
+ var settings : Object
+ settings=New object()
+ settings.args=New object("filter";"-")
+ es=ds.Students.query("eval(checkName($1.filter)) and nationality=:1","French",settings)
 ```
 
 ```4d
   //checkName method
- #DECLARE($exclude : Text) -> $result : Boolean
- $result:=(Position($exclude;This.lastname)=0)
+ #declare(exclude : Text) -> result : Boolean
+ result=(Position(exclude,This.lastname)=0)
 ```
 
-Using the same ***checkName*** method, a `Formula` object as placeholder receives a parameter:
+Using the same **checkName** method, a `Formula` object as placeholder receives a parameter:
 
 ```4d
- var $es : cs.StudentsSelection
- var $settings; $formula : Object
- $formula:=Formula(checkName($1.filter))
- $settings:=New object()
- $settings.args:=New object("filter";"-")
- $es:=ds.Students.query(":1 and nationality=:2";$formula;"French";$settings)
- $settings.args.filter:="*" // change the parameters without updating the $formula object
- $es:=ds.Students.query(":1 and nationality=:2";$formula;"French";$settings)
+ var es : cs.StudentsSelection
+ var settings : Object
+ var aformula : 4D.Function
+ aformula=Formula(checkName($1.filter))
+ settings=New object()
+ settings.args=New object("filter","-")
+ es=ds.Students.query(":1 and nationality=:2",aformula,"French",settings)
+ settings.args.filter="*" // change the parameters without updating the aformula object
+ es=ds.Students.query(":1 and nationality=:2",aformula,"French",settings)
 ```
 
 We want to disallow formulas, for example when the user enters their query:
 
 ```4d
- var $es : cs.StudentsSelection
- var $settings : Object
- var $queryString : Text
- $queryString:=Request("Enter your query:")
+ var es : cs.StudentsSelection
+ var settings : Object
+ var queryString : Text
+ queryString=Request("Enter your query:")
  if(OK=1)
-    $settings:=New object("allowFormulas";False)
-    $es:=ds.Students.query($queryString;$settings) //An error is raised if $queryString contains a formula
- End if
+    settings=New object("allowFormulas",False)
+    es=ds.Students.query(queryString,settings) //An error is raised if queryString contains a formula
+ end if
 ``` 
 
 #### See also

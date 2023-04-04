@@ -116,11 +116,37 @@ const sidebars = {
 				'language/basics/lang-pathnames',
 				],
 		},
- {
-      type: 'doc',
-      id: 'language/string',
-      label: "String"
-    },
+		{
+			type: 'doc',
+			id: 'language/DataClassClass',
+			label: "DataClass"
+		},
+		{
+			type: 'doc',
+			id: 'language/DataClassAttributeClass',
+			label: "DataClassAttribute"
+		},
+		{
+			type: 'doc',
+			id: 'language/DataStoreClass',
+			label: "DataStore"
+		},
+		{
+			type: 'doc',
+			id: 'language/EntityClass',
+			label: "Entity"
+		},
+		{
+			type: 'doc',
+			id: 'language/EntitySelectionClass',
+			label: "EntitySelection"
+		},		
+		{
+			type: 'doc',
+			id: 'language/string',
+			label: "String"
+		},
+
   ],
 };
 
