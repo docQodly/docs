@@ -6,15 +6,15 @@ title: DataClassAttribute
 Dataclass attributes are available as properties of their respective classes. For example:
 
 ```4d
- $nameAttribute:=ds.Company.name //reference to class attribute
- $revenuesAttribute:=ds.Company["revenues"] //alternate way
+ nameAttribute=ds.Company.name //reference to class attribute
+ revenuesAttribute=ds.Company["revenues"] //alternate way
 ```
 
-This code assigns to `$nameAttribute` and `$revenuesAttribute` references to the `name` and `revenues` attributes of the Company class. This syntax does NOT return values held inside of the attribute, but instead returns references to the attributes themselves. To handle values, you need to go through [**Entities**](EntityClass).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the Company class. This syntax does NOT return values held inside of the attribute, but instead returns references to the attributes themselves. To handle values, you need to go through [**Entities**](EntityClass.md).
 
 `DataClassAttribute` objects have properties that you can read to get information about your dataclass attributes.
 
-> Dataclass attribute objects can be modified, but the underlying database structure will not be altered.
+> Dataclass attribute objects can be modified, but the underlying model will not be altered.
 
 ### Summary
 
@@ -46,14 +46,11 @@ This code assigns to `$nameAttribute` and `$revenuesAttribute` references to the
 
 #### Description
 
-The `.autoFilled` property <!-- REF DataClassAttributeClass.autoFilled.Summary -->contains True if the attribute value is automatically filled by 4D<!-- END REF -->. This property corresponds to the following 4D field properties:
-
-*	"Autoincrement", for numeric type fields
-*	"Auto UUID", for UUID (alpha type) fields.
+The `.autoFilled` property <!-- REF DataClassAttributeClass.autoFilled.Summary -->contains True if the attribute value is automatically filled by Qodly<!-- END REF -->. This property corresponds to the **autosequence** model attribute property. 
 
 This property is not returned if `.kind` = "relatedEntity" or "relatedEntities".
 
->For generic programming, you can use **Bool**(dataClassAttribute.autoFilled) to get a valid value (false) even if `.autoFilled` is not returned.
+>For generic programming, you can use `Bool(dataClassAttribute.autoFilled)` to get a valid value (false) even if `.autoFilled` is not returned.
 
 
 <!-- END REF -->
@@ -85,11 +82,11 @@ The `.exposed` property is <!-- REF DataClassAttributeClass.exposed.Summary -->t
 
 #### Description
 
-The `.fieldNumber` property <!-- REF DataClassAttributeClass.fieldNumber.Summary -->contains the internal 4D field number of the attribute<!-- END REF -->.
+The `.fieldNumber` property <!-- REF DataClassAttributeClass.fieldNumber.Summary -->contains the internal Qodly database field number of the attribute<!-- END REF -->.
 
 This property is not returned if `.kind` = "relatedEntity" or "relatedEntities".
 
->For generic programming, you can use **Num**(dataClassAttribute.fieldNumber) to get a valid value (0) even if `.fieldNumber` is not returned.
+>For generic programming, you can use `Num(dataClassAttribute.fieldNumber)` to get a valid value (0) even if `.fieldNumber` is not returned.
 
 
 <!-- END REF -->
@@ -107,16 +104,16 @@ This property is not returned if `.kind` = "relatedEntity" or "relatedEntities".
 
 #### Description
 
-The `.fieldType` property <!-- REF DataClassAttributeClass.fieldType.Summary -->contains the 4D database type of the attribute<!-- END REF -->. It depends on the attribute kind (see [`.kind`](#kind)).
+The `.fieldType` property <!-- REF DataClassAttributeClass.fieldType.Summary -->contains the Qodly database field type of the attribute<!-- END REF -->. It depends on the attribute kind (see [`.kind`](#kind)).
 
 **Possible values:**
 
 |dataClassAttribute.kind|	fieldType|
 |---|---|
-|storage|	Corresponding 4D field type, see [`Value type`](https://doc.4d.com/4dv19/help/command/en/page1509.html)|
+|storage|	Corresponding Qodly database field type, see [`Value type`]|
 |relatedEntity|	38 (`Is object`)	|
 |relatedEntities|	42 (`Is collection`)	|
-|calculated|<li>scalar: corresponding 4D field type, see [`Value type`](https://doc.4d.com/4dv19/help/command/en/page1509.html)</li><li>entity: 38 (`Is object`)</li><li>entity selection: 42 (`Is collection)`</li>|
+|calculated|<li>scalar: corresponding Qodly field type, see [`Value type`]</li><li>entity: 38 (`Is object`)</li><li>entity selection: 42 (`Is collection)`</li>|
 
 
 <!-- END REF -->
@@ -139,7 +136,7 @@ The `.indexed` property <!-- REF DataClassAttributeClass.indexed.Summary -->cont
 
 This property is not returned if `.kind` = "relatedEntity" or "relatedEntities".
 
-> For generic programming, you can use `**Bool**(dataClassAttribute.indexed)` to get a valid value (false) even if `.indexed` is not returned.
+> For generic programming, you can use `Bool(dataClassAttribute.indexed)` to get a valid value (false) even if `.indexed` is not returned.
 
 <!-- END REF -->
 
@@ -159,7 +156,7 @@ The `.inverseName` property <!-- REF DataClassAttributeClass.inverseName.Summary
 
 This property is not returned if `.kind` = "storage". It must be of the "relatedEntity" or "relatedEntities" kind.
 
->For generic programming, you can use `**String**(dataClassAttribute.inverseName)` to get a valid value ("") even if `.inverseName` is not returned.  
+>For generic programming, you can use `String(dataClassAttribute.inverseName)` to get a valid value ("") even if `.inverseName` is not returned.  
 
 <!-- END REF -->
 
@@ -180,7 +177,7 @@ The `.keywordIndexed` property <!-- REF DataClassAttributeClass.keywordIndexed.S
 
 This property is not returned if [`.kind`](#kind) = "relatedEntity" or "relatedEntities".
 
-> For generic programming, you can use `**Bool**(dataClassAttribute.keywordIndexed)` to get a valid value (false) even if `.keywordIndexed` is not returned.
+> For generic programming, you can use `Bool(dataClassAttribute.keywordIndexed)` to get a valid value (false) even if `.keywordIndexed` is not returned.
 
 <!-- END REF -->
 
@@ -199,22 +196,22 @@ This property is not returned if [`.kind`](#kind) = "relatedEntity" or "relatedE
 The `.kind` property <!-- REF DataClassAttributeClass.kind.Summary -->returns the category of the attribute<!-- END REF -->. Returned value can be one of the following:
 
 *	"storage": storage (or scalar) attribute, i.e. attribute storing a value, not a reference to another attribute
-*	"calculated": computed attribute, i.e. defined through a [`get` function](../Concepts/orda-classes#function-get-attributename).
+*	"calculated": computed attribute, i.e. defined through a [`get` function](../concepts/orda/orda-classes#function-get-attributename).
 *	"relatedEntity": N -> 1 relation attribute (reference to an entity)
 *	"relatedEntities": 1 -> N relation attribute (reference to an entity selection)
 
 
 #### Example
 
-Given the following table and relation:
+Given the following dataclass and relation:
 
 ![](img/structure4.png)
 
 ```4d
- var $attKind : Text
- $attKind:=ds.Employee.lastname.kind //$attKind="storage"
- $attKind:=ds.Employee.manager.kind //$attKind="relatedEntity"
- $attKind:=ds.Employee.directReports.kind //$attKind="relatedEntities"
+ var attKind : Text
+ attKind=ds.Employee.lastname.kind //"storage"
+ attKind=ds.Employee.manager.kind //"relatedEntity"
+ attKind=ds.Employee.directReports.kind //"relatedEntities"
 ```
 
 
@@ -237,9 +234,7 @@ The `.mandatory` property <!-- REF DataClassAttributeClass.mandatory.Summary -->
 
 This property is not returned if [`.kind`](#kind) = "relatedEntity" or "relatedEntities".
 
->For generic programming, you can use `**Bool**(dataClassAttribute.mandatory)` to get a valid value (false) even if `.mandatory` is not returned.
-
->**Warning**: This property corresponds to the "Reject NULL value input" field property at the 4D database level. It is unrelated to the existing "Mandatory" property which is a data entry control option for a table.
+>For generic programming, you can use `Bool(dataClassAttribute.mandatory)` to get a valid value (false) even if `.mandatory` is not returned.
 
 <!-- END REF -->
 
@@ -261,8 +256,8 @@ The `.name` property <!-- REF DataClassAttributeClass.name.Summary -->returns th
 #### Example
 
 ```4d
- var $attName : Text
- $attName:=ds.Employee.lastname.name //$attName="lastname"
+ var attName : Text
+ attName=ds.Employee.lastname.name //attName="lastname"
 ```
 
 <!-- END REF -->
@@ -281,7 +276,7 @@ The `.name` property <!-- REF DataClassAttributeClass.name.Summary -->returns th
 
 The `.readOnly` property is <!-- REF DataClassAttributeClass.readOnly.Summary -->true if the attribute is read-only<!-- END REF -->.
 
-For example, computed attributes without [`set` function](Concepts/orda-classes#function-set-attributename) are read-only. 
+For example, computed attributes without [`set` function](../basics/orda/orda-classes#function-set-attributename) are read-only. 
 
 <!-- END REF -->
 
@@ -311,9 +306,9 @@ Given the following tables and relations:
 
 
 ```4d
- var $relClass1; $relClassN : Text
- $relClass1:=ds.Employee.employer.relatedDataClass //$relClass1="Company"
- $relClassN:=ds.Employee.directReports.relatedDataClass //$relClassN="Employee"
+ var relClass1, relClassN : Text
+ relClass1=ds.Employee.employer.relatedDataClass //relClass1="Company"
+ relClassN=ds.Employee.directReports.relatedDataClass //relClassN="Employee"
 ```
 
 <!-- END REF -->
@@ -338,7 +333,7 @@ The conceptual value type depends on the attribute [`.kind`](#kind).
 
 |dataClassAttribute.kind|	type|	Comment|
 |---|---|---|
-|storage|"blob", "bool", "date", "image", "number", "object", or "string"| "number" is returned for any numeric types including duration. "string" is returned for uuid, alpha and text field types. "blob" attributes are [blob objects](https://developer.4d.com/docs/en/Concepts/blob.html#blob-types), they are handled using the [Blob class](https://developer.4d.com/docs/en/API/BlobClass.html).|
+|storage|"blob", "bool", "date", "image", "number", "object", or "string"| "number" is returned for any numeric types including duration. "string" is returned for uuid, alpha and text field types. "blob" attributes are [blob objects](../basics/lang-blob.md), they are handled using the [Blob class](BlobClass.md).|
 |relatedEntity|related dataClass name|Ex: "Companies"|
 |relatedEntities|related dataClass name + "Selection" suffix|	Ex: "EmployeeSelection"|
 |calculated|<li>storage: type ("blob", "number", etc.)</li><li>entity: dataClass name</li><li>entity selection: dataClass name + "Selection"</li>||
@@ -364,7 +359,7 @@ The `.unique` property <!-- REF DataClassAttributeClass.unique.Summary -->contai
 
 This property is not returned if [`.kind`](#kind) = "relatedEntity" or "relatedEntities".
 
->For generic programming, you can use `**Bool**(dataClassAttribute.unique)` to get a valid value (false) even if `.unique` is not returned.
+>For generic programming, you can use `Bool(dataClassAttribute.unique)` to get a valid value (false) even if `.unique` is not returned.
 
 <!-- END REF -->
 
