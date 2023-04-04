@@ -124,7 +124,7 @@ myText=Do_Something(myText) //Call the Do_Something method
 File("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
  
   //code of the method Do_Something  
-#DECLARE ( input : Text) -> output : Text 
+#declare ( input : Text) -> output : Text 
 output=Uppercase(input)
 ```
 
@@ -215,8 +215,7 @@ Optionally, use the `Class constructor` keyword to declare properties for the ob
 
 ```4d  
 //in the Rectangle class
-Class constructor
-var height, $width : Integer
+Class constructor(height : Integer, width : Integer)
 This.height=height
 This.width=width 
 This.name="Rectangle"
@@ -228,12 +227,11 @@ A class can extend another class by using `Class extends <ClassName>`. Superclas
 //in the Square class
 Class extends rectangle
  
-Class constructor
-var length : Integer
+Class constructor(length : Integer)
  
   // It calls the parent class's constructor with lengths   
   // provided for the Rectangle's width and height
-Super($length,$length)
+Super(length,length)
 
 This.name="Square"
 ```
