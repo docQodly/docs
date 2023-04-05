@@ -8,7 +8,7 @@ title: Classes
 
 The Qodly language supports the concept of **classes**. In a programming language, using a class allows you to define an object behaviour with associated properties and functions.
 
-Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([static](#class-constructor) and [computed](#function-get-and-function-set)).
+Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#class-constructor) and [computed](#function-get-and-function-set)).
 
 > The class model in Qodly is similar to classes in JavaScript, and based on a chain of prototypes.
 
@@ -128,7 +128,7 @@ Specific Qodly keywords can be used in class definitions:
 
 :::info
 
-[ORDA data model classes](XXX) support additional keywords such as `exposed` and `Alias`. 
+[ORDA data model classes](../../concepts/orda/orda-classes.md) support additional keywords such as `exposed` and `Alias`. 
 
 :::
 
@@ -331,11 +331,13 @@ Class Constructor({parameterName : type, ...})
 // code
 ```
 
-A class constructor function, which can accept [parameters](#parameters), can be used to define a user class.  
+A class constructor function, which can accept [parameters](#parameters), can be used to create and initialize objects of the user class.
 
-In that case, when you call the [`new()`](API/ClassClass.md#new) function, the class constructor is called with the parameters optionally passed to the `new()` function.
+When you call the [`new()`](../ClassClass.md#new) function, the class constructor is called with the parameters optionally passed to the `new()` function.
 
-For a class constructor function, the `Current method name` command returns: `<ClassName>:constructor`, for example "MyClass:constructor".
+There can only be one constructor function in a class (otherwise an error is returned). A constructor can use the [`Super`](#super) keyword to call the constructor of the super class.
+
+You can create and type instance properties inside the constructor (see example). Alternatively, if your instance properties' values do not depend on parameters passed to the constructor, you can define them using the [`property`](#property) keyword.
 
 #### Example
 
@@ -352,6 +354,71 @@ Class Constructor (name : Text)
 var o : cs.MyClass
 o=cs.MyClass.new("HelloWorld")  
 // o == {"name":"HelloWorld"}
+```
+
+
+### `property`
+
+#### Syntax
+
+`property <propertyName>{, <propertyName2>,...}{ : <propertyType>}`
+
+The `property` keyword can be used to declare a property inside a user class. A class property has a name and a type.
+
+Declaring class properties enhances code editor suggestions, type-ahead features and error detection.
+
+Properties are declared for new objects when you call the [`new()`](../ClassClass.md#new) function, however they are not automatically added to objects (they are only added when they are assigned a value).
+
+Property names must be compliant with [property naming rules](../basics/lang-identifiers.md#object-properties).
+
+:::tip
+
+Starting the property name with an underscore character ("_") will exclude the property from the autocompletion features in the code editor. For example, if you declare `property _myPrivateProperty` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
+
+:::
+
+The property type can be one of the following supported types:
+
+|propertyType|Contents|
+|---|---|
+|`Text`|Text value|
+|`Date`|Date value|
+|`Time`|Time value|
+|`Boolean`|Boolean value|
+|`Integer`|Long integer value|
+|`Real`|Real value|
+|`Pointer`|Pointer value|
+|`Picture`|Picture value|
+|`Blob`|Scalar Blob value|
+|`Collection`|Collection value|
+|`Variant`|Variant value|
+|`Object`|Object with default class (4D.Object)|
+|`4D.<className>`|Object of the 4D class name|
+|`cs.<className>`|Object of the user class name|
+
+:::info
+
+The `property` keyword can only be used in class methods and outside any `Function` block.
+
+:::
+
+
+#### Example
+
+```4d
+// Class: MyClass
+
+property name : Text
+property age : Integer
+```
+
+In a method:
+
+```4d
+var o : cs.MyClass
+o=cs.MyClass.new() //$o:{}
+o.name="John" //$o:{"name":"John"}
+o.age="Smith"  //error with check syntax
 ```
 
 ### `Class extends <ClassName>`
