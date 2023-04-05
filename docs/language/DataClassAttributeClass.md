@@ -333,7 +333,7 @@ The conceptual value type depends on the attribute [`.kind`](#kind).
 
 |dataClassAttribute.kind|	type|	Comment|
 |---|---|---|
-|storage|"blob", "bool", "date", "image", "number", "object", or "string"| "number" is returned for any numeric types including duration. "string" is returned for uuid, alpha and text field types. "blob" attributes are [blob objects](../basics/lang-blob.md), they are handled using the [Blob class](BlobClass.md).|
+|storage|"blob", "bool", "date", "image", "number", "object", or "string"| "number" is returned for any numeric types including duration. "string" is returned for uuid, string and text attribute types. "blob" attributes are [blob objects](../basics/lang-blob.md), they are handled using the [Blob class](BlobClass.md).|
 |relatedEntity|related dataClass name|Ex: "Companies"|
 |relatedEntities|related dataClass name + "Selection" suffix|	Ex: "EmployeeSelection"|
 |calculated|<li>storage: type ("blob", "number", etc.)</li><li>entity: dataClass name</li><li>entity selection: dataClass name + "Selection"</li>||

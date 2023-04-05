@@ -3,10 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../Concepts/data-model#datastore) is the interface object provided by ORDA to reference and access a database. `Datastore` objects are returned by the following commands:
-
-*	[ds](#ds): a shortcut to the main datastore
-*	[Open datastore](#open-datastore): to open any remote datastore
+A [Datastore](../../concepts/orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
 
 ### Summary
 
@@ -14,9 +11,7 @@ A [Datastore](../Concepts/data-model#datastore) is the interface object provided
 |---|
 |[<!-- INCLUDE #DataStoreClass.cancelTransaction().Syntax -->](#canceltransaction)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.cancelTransaction().Summary --></p>|
 |[<!-- INCLUDE DataStoreClass.dataclassName.Syntax -->](#dataclassname)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE DataStoreClass.dataclassName.Summary --></p> |
-|[<!-- INCLUDE #DataStoreClass.encryptionStatus().Syntax -->](#encryptionstatus)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.encryptionStatus().Summary --></p> |
-|[<!-- INCLUDE #DataStoreClass.getInfo().Syntax -->](#getinfo)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.getInfo().Summary --></p> |
-|[<!-- INCLUDE #DataStoreClass.getRequestLog().Syntax -->](#getrequestlog)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.getRequestLog().Summary --></p> |
+|[<!-- INCLUDE #DataStoreClass.isAdminProtected().Syntax -->](#isadminprotected)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.isAdminProtected().Summary --></p> |
 |[<!-- INCLUDE #DataStoreClass.makeSelectionsAlterable().Syntax -->](#makeselectionsalterable)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.makeSelectionsAlterable().Summary --></p> |
 |[<!-- INCLUDE #DataStoreClass.provideDataKey().Syntax -->](#providedatakey)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.provideDataKey().Summary --></p> |
 |[<!-- INCLUDE #DataStoreClass.setAdminProtection().Syntax -->](#setadminprotection)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.setAdminProtection().Summary --></p> |
@@ -33,167 +28,29 @@ A [Datastore](../Concepts/data-model#datastore) is the interface object provided
 
 
 <!-- REF #_command_.ds.Syntax -->
-**ds** { ( *localID* : Text ) } : cs.DataStore <!-- END REF -->
+**ds** : cs.DataStore <!-- END REF -->
 
 <!-- REF #_command_.ds.Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|localID|Text|->|Local ID of the remote datastore to return|
 |Result |cs.DataStore|<-|Reference to the datastore|
 <!-- END REF -->
 
 
 #### Description
 
-The `ds` command <!-- REF #_command_.ds.Summary -->returns a reference to the datastore matching the current 4D database or the database designated by *localID*<!-- END REF -->.
+The `ds` command <!-- REF #_command_.ds.Summary -->returns a reference to the datastore matching the current Qodly database<!-- END REF -->.
 
-If you omit the *localID* parameter (or pass an empty string ""), the command returns a reference to the datastore matching the local 4D database (or the 4D Server database in case of opening a remote database on 4D Server). The datastore is opened automatically and available directly through `ds`.
+The datastore is opened automatically and available directly through `ds`.
 
-You can also get a reference on an open remote datastore by passing its local id in the *localID* parameter. The datastore must have been previously opened with the [`Open datastore`](#open-datastore) command. The local id is defined when using this command.
 
->The scope of the local id is the project where the datastore has been opened.
+#### Example
 
-If no *localID* datastore is found, the command returns **Null**.
-
-Objects available in the `cs.Datastore` are mapped from the target database with respect to the [ORDA general rules](../Concepts/data-model#general-rules).
-
-#### Example 1
-
-Using the main datastore on the 4D database:
+Using the datastore on the Qodly database:
 
 ```4d
- $result:=ds.Employee.query("firstName = :1";"S@")
+ result=ds.Employee.query("firstName = :1","S@")
 ```
-
-#### Example 2
-
-```4d
- var $connectTo; $firstFrench; $firstForeign : Object
-
- var $frenchStudents; $foreignStudents : cs.DataStore
-
- $connectTo:=New object("type";"4D Server";"hostname";"192.168.18.11:8044")
- $frenchStudents:=Open datastore($connectTo;"french")
-
- $connectTo.hostname:="192.168.18.11:8050"
- $foreignStudents:=Open datastore($connectTo;"foreign")
-  //...
-  //...
- $firstFrench:=getFirst("french";"Students")
- $firstForeign:=getFirst("foreign";"Students")
-```
-
-```4d
-  //getFirst method
-  //getFirst(localID;dataclass) -> entity
- #DECLARE( $localId : Text; $dataClassName : Text ) -> $entity : 4D.Entity
-
- $0:=ds($localId)[$dataClassName].all().first()
-```
-
-
-
-
-## Open datastore
-
-
-<!-- REF #_command_.Open datastore.Syntax -->
-**Open datastore**( *connectionInfo* : Object ; *localID* : Text ) : cs.DataStore <!-- END REF -->
-
-<!-- REF #_command_.Open datastore.Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|connectionInfo|Object|->|Connection properties used to reach the remote datastore|
-|localID |Text|->|Id to assign to the opened datastore on the local application (mandatory)|
-|Result |cs.DataStore|<-|Datastore object|
-<!-- END REF -->
-
-
-#### Description
-
-The `Open datastore` command <!-- REF #_command_.Open datastore.Summary -->connects the application to the 4D database identified by the *connectionInfo* parameter<!-- END REF --> and returns a matching `cs.DataStore` object associated with the *localID* local alias.
-
-The *connectionInfo* 4D database must be available as a remote datastore, i.e.:
-
-*	its web server must be launched with http and/or https enabled,
-*	its [**Expose as REST server**](https://developer.4d.com/docs/en/REST/configuration.html#starting-the-rest-server) option must be checked,
-*	at least one client license is available.
-
-If no matching database is found, `Open datastore` returns **Null**.
-
-*localID* is a local alias for the session opened on remote datastore. If *localID* already exists on the application, it is used. Otherwise, a new *localID* session is created when the datastore object is used.
-
-Objects available in the `cs.Datastore` are mapped from the target database with respect to the [ORDA general rules](../Concepts/data-model#general-rules).
-
-Once the session is opened, the following statements become equivalent and return a reference on the same datastore object:
-
-```4d
- $myds:=Open datastore(connectionInfo;"myLocalId")
- $myds2:=ds("myLocalId")
-  //$myds and $myds2 are equivalent
-```
-
-Pass in *connectionInfo* an object describing the remote datastore you want to connect to. It can contain the following properties (all properties are optional except *hostname*):
-
-|Property|	Type|	Description|
-|---|---|---|
-|hostname|Text|Name or IP address of the remote database + ":" + port number (port number is mandatory)|
-|user|Text|User name
-|password|Text|User password
-|idleTimeout|Longint|Inactivity session timeout (in minutes), after which the session is automatically closed by 4D. If omitted, default value is 60 (1h). The value cannot be < 60 (if a lower value is passed, the timeout is set to 60). For more information, see **Closing sessions**.|
-|tls|Boolean|Use secured connection(*). If omitted, false by default. Using a secured connection is recommended whenever possible.|
-|type	|Text	|Must be "4D Server"|
-
-(*) If tls is true, the HTTPS protocol is used if:
-
-*	HTTPS is enabled on the remote datastore
-*	the given port is the right HTTPS port configured in the database settings
-*	a valid certificate and private encryption key are installed in the database. Otherwise, error "1610 - A remote request to host xxx has failed" is raised
-
-#### Example 1  
-
-Connection to a remote datastore without user / password:
-
-```4d
- var $connectTo : Object
- var $remoteDS : cs.DataStore
- $connectTo:=New object("type";"4D Server";"hostname";"192.168.18.11:8044")
- $remoteDS:=Open datastore($connectTo;"students")
- ALERT("This remote datastore contains "+String($remoteDS.Students.all().length)+" students")
-```
-
-#### Example 2
-
-Connection to a remote datastore with user / password / timeout / tls:
-
-```4d
- var $connectTo : Object
- var $remoteDS : cs.DataStore
- $connectTo:=New object("type";"4D Server";"hostname";\"192.168.18.11:4443";\  
- 	"user";"marie";"password";$pwd;"idleTimeout";70;"tls";True)
- $remoteDS:=Open datastore($connectTo;"students")
- ALERT("This remote datastore contains "+String($remoteDS.Students.all().length)+" students")
-```
-
-#### Example 3  
-
-Working with several remote datastores:
-
-```4d
- var $connectTo : Object
- var $frenchStudents; $foreignStudents : cs.DataStore
- $connectTo:=New object("hostname";"192.168.18.11:8044")
- $frenchStudents:=Open datastore($connectTo;"french")
- $connectTo.hostname:="192.168.18.11:8050"
- $foreignStudents:=Open datastore($connectTo;"foreign")
- ALERT("They are "+String($frenchStudents.Students.all().length)+" French students")
- ALERT("They are "+String($foreignStudents.Students.all().length)+" foreign students")
-```
-
-#### Error management  
-
-In case of error, the command returns **Null**. If the remote datastore cannot be reached (wrong address, web server not started, http and https not enabled...), error 1610 "A remote request to host XXX has failed" is raised. You can intercept this error with a method installed by `ON ERR CALL`.
-
 
 
 <!-- REF DataStoreClass.dataclassName.Desc -->
@@ -205,19 +62,19 @@ In case of error, the command returns **Null**. If the remote datastore cannot b
 
 #### Description
 
-Each dataclass in a datastore is available as a property of the [DataStore object](Concepts/data-model#datastore) data. The returned object <!-- REF DataStoreClass.dataclassName.Summary -->contains a description of the dataclass<!-- END REF -->.
+Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned object <!-- REF DataStoreClass.dataclassName.Summary -->contains a description of the dataclass<!-- END REF -->.
 
 
 #### Example
 
 ```4d
- var $emp : cs.Employee
- var $sel : cs.EmployeeSelection
- $emp:=ds.Employee //$emp contains the Employee dataclass
- $sel:=$emp.all() //gets an entity selection of all employees
+ var emp : cs.Employee
+ var sel : cs.EmployeeSelection
+ emp=ds.Employee //emp contains the Employee dataclass
+ sel=emp.all() //gets an entity selection of all employees
 
   //you could also write directly:
- $sel:=ds.Employee.all()
+ sel=ds.Employee.all()
 ```
 
 
@@ -258,175 +115,6 @@ See example for the [`.startTransaction()`](#starttransaction) function.
 
 
 
-<!-- REF DataStoreClass.encryptionStatus().Desc -->
-## .encryptionStatus()
-
-
-<!-- REF #DataStoreClass.encryptionStatus().Syntax -->
-**.encryptionStatus()**: Object<!-- END REF -->
-
-
-<!-- REF #DataStoreClass.encryptionStatus().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|Object|<-|Information about the encryption of the current datastore and of each table|
-<!-- END REF -->
-
-
-#### Description
-
-The `.encryptionStatus()` function <!-- REF #DataStoreClass.encryptionStatus().Summary -->returns an object providing the encryption status for the current data file<!-- END REF --> (i.e., the data file of the `ds` datastore). The status for each table is also provided.
-
->Use the `Data file encryption status` command to determine the encryption status of any other data file.
-
-
-**Returned value**
-
-The returned object contains the following properties:
-
-|Property	|	|	|Type	|Description|
-|---|---|---|---|---|
-|isEncrypted|||Boolean|True if the data file is encrypted|
-|keyProvided|||Boolean|True if the encryption key matching the encrypted data file is provided(*).|
-|tables| ||Object|	Object containing as many properties as there are encryptable or encrypted tables.|
-||*tableName*||		Object|	Encryptable or Encrypted table|
-|||name	|Text|	Name of the table|
-|||num|	Number	|Table number|
-|||isEncryptable|Boolean|True if the table is declared encryptable in the structure file|
-|||isEncrypted|	Boolean|	True if the records of the table are encrypted in the data file|
-
-(*) The encryption key can be provided:
-
-*	with the `.provideDataKey()` command,
-*	at the root of a connected device before opening the datastore,
-*	with the `Discover data key` command.
-
-#### Example
-
-You want to know the number of encrypted tables in the current data file:
-
-```4d
- var $status : Object
-
- $status:=ds.encryptionStatus()
-
- If($status.isEncrypted) //the database is encrypted
-    C_LONGINT($vcount)
-    C_TEXT($tabName)
-    For each($tabName;$status.tables)
-       If($status.tables[$tabName].isEncrypted)
-          $vcount:=$vcount+1
-       End if
-    End for each
-    ALERT(String($vcount)+" encrypted table(s) in this datastore.")
- Else
-    ALERT("This database is not encrypted.")
- End if
-```
-
-<!-- END REF -->
-
-
-
-<!-- REF DataStoreClass.getInfo().Desc -->
-## .getInfo()   
-
-
-<!-- REF #DataStoreClass.getInfo().Syntax -->
-**.getInfo()**: Object<!-- END REF -->
-
-<!-- REF #DataStoreClass.getInfo().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|Object|<-|Datastore properties|
-<!-- END REF -->
-
-#### Description
-
-The `.getInfo()` function <!-- REF #DataStoreClass.getInfo().Summary -->returns an object providing information about the datastore<!-- END REF -->. This function is useful for setting up generic code.
-
-**Returned object**
-
-|Property	|Type	|Description|
-|---|---|---|
-|type|	string	|<li>"4D": main datastore, available through ds </li><li>"4D Server": remote datastore, open with Open datastore</li>|
-|networked	|boolean|<li>True: the datastore is reached through a network connection.</li><li>False: the datastore is not reached through a network connection (local database)</li>|
-|localID|	text|	ID of the datastore on the machine. Corresponds to the localId string given with the `Open datastore` command. Empty string ("") for main datastore.|
-|connection	|object|Object describing the remote datastore connection (not returned for main datastore). Available properties:<p><table><tr><th>Property</th><th>Type</th><th>Description</th></tr><tr><td>hostname</td><td>text</td><td>IP address or name of the remote datastore + ":" + port number</td></tr><tr><td>tls</td><td>boolean</td><td>True if secured connection is used with the remote datastore</td></tr><tr><td>idleTimeout</td><td>number</td><td>Session inactivity timeout (in minutes)</td></tr><tr><td>user</td><td>text</td><td>User authenticated on the remote datastore</td></tr></table></p>|
-
-*	If the `.getInfo()` function is executed on a 4D Server or 4D single-user, `networked` is False.
-*	If the `.getInfo()` function is executed on a remote 4D, `networked` is True
-
-
-#### Example 1  
-
-```4d
- var $info : Object
-
- $info:=ds.getInfo() //Executed on 4D Server or 4D
-  //{"type":"4D","networked":false,"localID":""}
-
- $info:=ds.getInfo() // Executed on 4D remote
-  //{"type":"4D","networked":true,"localID":""}
-```
-
-#### Example 2  
-
-On a remote datastore:
-
-```4d
-  var $remoteDS : cs.DataStore
-  var $info; $connectTo : Object
-
- $connectTo:=New object("hostname";"111.222.33.44:8044";"user";"marie";"password";"aaaa")
- $remoteDS:=Open datastore($connectTo;"students")
- $info:=$remoteDS.getInfo()
-
-  //{"type":"4D Server",
-  //"localID":"students",
-  //"networked":true,
-  //"connection":{hostname:"111.222.33.44:8044","tls":false,"idleTimeout":2880,"user":"marie"}}
-```
-
-
-<!-- END REF -->
-
-
-
-<!-- REF DataStoreClass.getRequestLog().Desc -->
-## .getRequestLog()
-
-
-<!-- REF #DataStoreClass.getRequestLog().Syntax -->
-**.getRequestLog()** : Collection<!-- END REF -->
-
-<!-- REF #DataStoreClass.getRequestLog().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|Collection|<-|Collection of objects, where each object describes a request|
-<!-- END REF -->
-
-
-#### Description
-
-The `.getRequestLog()` function <!-- REF #DataStoreClass.getRequestLog().Summary -->returns the ORDA requests logged in memory on the client side<!-- END REF -->. The ORDA request logging must have previously been enabled using the [`.startRequestLog()`](#startrequestlog) function.
-
-This function must be called on a remote 4D, otherwise it returns an empty collection. It is designed for debugging purposes in client/server configurations.
-
-**Returned value**
-
-Collection of stacked request objects. The most recent request has index 0.
-
-For a description of the ORDA request log format, please refer to the [**ORDA client requests**](https://developer.4d.com/docs/en/Admin/debugLogFiles.html#orda-client-requests) section.
-
-
-#### Example
-
-See Example 2 of [`.startRequestLog()`](#startrequestlog).
-
-<!-- END REF -->
-
-
 <!-- REF DataStoreClass.isAdminProtected().Desc -->
 ## .isAdminProtected()
 
@@ -442,7 +130,7 @@ See Example 2 of [`.startRequestLog()`](#startrequestlog).
 
 #### Description
 
-The `.isAdminProtected()` function <!-- REF #DataStoreClass.isAdminProtected().Summary -->returns `True` if [Data Explorer](https://developer.4d.com/docs/en/Admin/dataExplorer.html#opening-the-data-explorer) access has been disabled for the working session<!-- END REF -->.
+The `.isAdminProtected()` function <!-- REF #DataStoreClass.isAdminProtected().Summary -->returns `True` if Data Explorer access has been disabled for the working session<!-- END REF -->.
 
 By default, the Data Explorer access is granted for `webAdmin` sessions, but it can be disabled to prevent any data access from administrators (see the [`.setAdminProtection()`](#setadminprotection) function).
 
@@ -452,110 +140,6 @@ By default, the Data Explorer access is granted for `webAdmin` sessions, but it 
 
 <!-- END REF -->
 
-
-
-
-<!-- REF DataStoreClass.makeSelectionsAlterable().Desc -->
-## .makeSelectionsAlterable()
-
-
-<!-- REF #DataStoreClass.makeSelectionsAlterable().Syntax -->
-**.makeSelectionsAlterable()**<!-- END REF -->
-
-<!-- REF #DataStoreClass.makeSelectionsAlterable().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-||||Does not require any parameters|
-<!-- END REF -->
-
-
-#### Description
-
-The `.makeSelectionsAlterable()` function <!-- REF #DataStoreClass.makeSelectionsAlterable().Summary -->sets all entity selections as alterable by default in the current application datastores<!-- END REF --> (including remote datastores`(ORDA/remoteDatastores.md)`). It is intended to be used once, for example in the `On Startup` database method.
-
-When this function is not called, new entity selections can be shareable, depending on the nature of their "parent", or [how they are created](../Concepts/data#shareable-or-alterable-entity-selections).
-
-> This function does not modify entity selections created by [`.copy()`](#copy) or `OB Copy` when the explicit `ck shared` option is used.
-
-
-> **Compatibility**: This function must only be used in projects converted from 4D versions prior to 4D v18 R5 and containing [.add()](EntitySelectionClass.md#add) calls. In this context, using `.makeSelectionsAlterable()` can save time by restoring instantaneously the previous 4D behavior in existing projects.
-On the other hand, using this method in new projects created in 4D v18 R5 and higher **is not recommended**, since it prevents entity selections to be shared, which provides greater performance and scalabitlity.
-
-
-<!-- END REF -->
-
-
-<!-- REF DataStoreClass.provideDataKey().Desc -->
-## .provideDataKey()
-
-<!-- REF #DataStoreClass.provideDataKey().Syntax -->
-**.provideDataKey**( *curPassPhrase* : Text ) : Object <br/>**.provideDataKey**( *curDataKey* : Object ) : Object <!-- END REF -->
-
-
-<!-- REF #DataStoreClass.provideDataKey().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|curPassPhrase |Text|->|Current encryption passphrase|
-|curDataKey |Object|->|Current data encryption key|
-|Result|Object|<-|Result of the encryption key matching|
-<!-- END REF -->
-
-
-#### Description
-
-The `.provideDataKey()` function <!-- REF #DataStoreClass.provideDataKey().Summary -->allows providing a data encryption key for the current data file of the datastore and detects if the key matches the encrypted data<!-- END REF -->. This function can be used when opening an encrypted database, or when executing any encryption operation that requires the encryption key, such as re-encrypting the data file.
-
->*	The `.provideDataKey()` function must be called in an encrypted database. If it is called in a non-encrypted database, the error 2003 (the encryption key does not match the data.) is returned. Use the `Data file encryption status` command to determine if the database is encrypted.
->*	The `.provideDataKey()` function cannot be called from a remote 4D or an encrypted remote datastore.
-
-If you use the *curPassPhrase* parameter, pass the string used to generate the data encryption key. When you use this parameter, an encryption key is generated.
-
-If you use the *curDataKey* parameter, pass an object (with *encodedKey* property) that contains the data encryption key. This key may have been generated with the `New data key` command.
-
-If a valid data encryption key is provided, it is added to the *keyChain* in memory and the encryption mode is enabled:
-
-*	all data modifications in encryptable tables are encrypted on disk (.4DD, .journal. 4Dindx files)
-*	all data loaded from encryptable tables is decrypted in memory
-
-
-**Result**
-
-The result of the command is described in the returned object:
-
-|Property|		|Type|	Description|
-|---|---|---|---|
-|success|	|	Boolean|	True if the provided encryption key matches the encrypted data, False otherwise|
-||||Properties below are returned only if success is *FALSE*|
-|status	|	|Number|	Error code (4 if the provided encryption key is wrong)|
-|statusText|	|	Text|	Error message|
-|errors	|	|Collection|	Stack of errors. The first error has the highest index|
-||\[ ].componentSignature|	Text|	Internal component name|
-||\[ ].errCode	|Number	|Error number|
-||\[ ].message	|Text|	Error message|
-
-If no *curPassphrase* or *curDataKey* is given, `.provideDataKey()` returns **null** (no error is generated).
-
-
-
-#### Example  
-
-```4d
- var $keyStatus : Object
- var $passphrase : Text
-
- $passphrase:=Request("Enter the passphrase")
- If(OK=1)
-    $keyStatus:=ds.provideDataKey($passphrase)
-    If($keyStatus.success)
-       ALERT("You have provided a valid encryption key")
-    Else
-       ALERT("You have provided an invalid encryption key, you will not be able to work with encrypted data")
-    End if
- End if
-```
-
-
-<!-- END REF -->
 
 
 <!-- REF DataStoreClass.setAdminProtection().Desc -->
