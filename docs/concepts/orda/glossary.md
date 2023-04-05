@@ -74,7 +74,7 @@ Function of an ORDA data model class.
 
 A dataclass is an object model that describes the data. Tables in the database provided by the datastore are handled through dataclasses. Each table in the database provided by the datastore has a corresponding dataclass with the same name. Each field of the table is an attribute of the dataclass.
 
-A dataclass is related to a single datastore. 
+A dataclass is related to a single datastore.
 
 
 ## DataClass class
@@ -83,16 +83,13 @@ Class for specific dataclass objects, in which you can add custom functions.
 
 ## Datastore  
 
-A datastore is the interface object provided by ORDA to reference a structure and access its data. The main database, returned by the `ds` command, is available as a datastore (the main datastore).
+A datastore is the interface object provided by ORDA to reference a model and access its data. The model, returned by the `ds` command, is available as a datastore (the main datastore).
 
 A datastore provides:
 
 *	a connection to a database
 *	a set of dataclasses to work with the database
 
-The database can be a local database (the Main datastore), or a server database exposed as REST resource (a Remote datastore). 
-
-A datastore references only a single database. It is, however, possible to open several datastores to access several databases.
 
 ## DataStore class
 
@@ -109,7 +106,7 @@ A deep copy duplicates an object and all the references it contains. After a dee
 
 ## ds  
 
-`ds` is the QodlyScript language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the Qodly main database.
+`ds` is the language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the Qodly database.
 
 ## Entity  
 
@@ -145,7 +142,7 @@ Since entities are managed as references, data is loaded only when necessary, i.
 
 ## Main datastore  
 
-The Datastore object matching the opened database. The main datastore is returned by the `ds` command. 
+The Datastore object matching the opened Qodly database (standalone or client/server). The main datastore is returned by the `ds` command. 
 
 ## Optimistic Lock  
 
@@ -193,17 +190,13 @@ A related entity can be seen as the instance of a relation attribute in a datacl
 
 Entity selections may refer to related entities according to the relation attributes defined in the corresponding dataclasses.
 
-## Remote datastore  
-
-A Qodly database opened on a Server (available through HTTP) and exposed as a REST resource. This database can be referenced locally as a Datastore from other workstations, where it is assigned a localID. The remote datastore can be used through ORDA concepts (datastore, dataclass, entity selection...). This use is submitted to a licencing system.
 
 ## Session  
 
-When the application connects to a Remote datastore, a session is created on the server (HTTP). A session cookie is generated and associated to the local datastore id. 
+When a user connects to a Qodly application, a Session object is created on the Server (HTTP). A session cookie is generated. 
 
-Each time a new session is opened, a license is used. Each time a session is closed, the license is freed.
+Each Session object provides a `.storage` property which is a shared object. Privileges are associated to user sessions. 
 
-Inactive sessions are automatically closed after a timeout. The default timeout is 60 minutes, it can be set by the developer (it must be >= 60 minutes).  
 
 ## Shallow copy 
  
