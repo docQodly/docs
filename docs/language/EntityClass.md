@@ -887,7 +887,7 @@ The object returned by `.lock()` contains the following properties:
 
 |Constant	|Value|	Comment|
 |---|---|---|
-|`dk status entity does not exist anymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `dk reload if stamp changed` option is used<br/>**Associated statusText**: "Entity does not exist anymore"|
+|`dk status entity does not exist anymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `dk reload if stamp changed` option is used</li><br/>**Associated statusText**: "Entity does not exist anymore"|
 |`dk status locked`|	3	|The entity is locked by a pessimistic lock. **Associated statusText**: "Already locked"
 |`dk status serious error`|	4	|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc. **Associated statusText**: "Other error"|
 |`dk status stamp has changed`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error occurs only if the `dk reload if stamp changed` option is not used<br/>**Associated statusText**: "Stamp has changed"|
