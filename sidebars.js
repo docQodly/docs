@@ -72,10 +72,10 @@ const sidebars = {
   ],
   QodlyScript:[
    		{ 	type: 'category',
-			label: 'QodlyScript overview',
+			label: 'QodlyScript Concepts',
 			link: {
 				type: 'generated-index',
-				title: 'QodlyScript overview',
+				title: 'QodlyScript Concepts',
 				description: 'Main concepts of the QodlyScript Language.',
 				slug: '/category/language',
 				keywords: ['language'],
