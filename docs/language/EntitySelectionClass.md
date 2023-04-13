@@ -1513,7 +1513,7 @@ result2=invoices.selected(creditSel)
 ## .slice()   
 
 <!-- REF #EntitySelectionClass.slice().Syntax -->
-**.slice**( *startFrom* : Integer { ; *end* : Integer } ) : 4D.EntitySelection<!-- END REF -->
+**.slice**( *startFrom* : Integer { , *end* : Integer } ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.slice().Params -->
 |Parameter|Type||Description|
@@ -1543,9 +1543,9 @@ If the entity selection contains entities that were dropped in the meantime, the
 You want to get a selection of the first 9 entities of the entity selection:
 
 ```4d
-var $sel; $sliced : cs.EmployeeSelection
-$sel:=ds.Employee.query("salary > :1";50000)
-$sliced:=$sel.slice(0;9) //
+var sel, sliced : cs.EmployeeSelection
+sel=ds.Employee.query("salary > :1",50000)
+sliced=sel.slice(0,9) //
 ```
 
 
@@ -1554,8 +1554,9 @@ $sliced:=$sel.slice(0;9) //
 Assuming we have ds.Employee.all().length = 10
 
 ```4d
-var $slice : cs.EmployeeSelection
-$slice:=ds.Employee.all().slice(-1;-2) //tries to return entities from index 9 to 8, but since 9 > 8, returns an empty entity selection
+var slice : cs.EmployeeSelection
+slice=ds.Employee.all().slice(-1,-2) //tries to return entities from index 9 to 8, 
+	//but since 9 > 8, returns an empty entity selection
 
 ```
 
@@ -1563,7 +1564,7 @@ $slice:=ds.Employee.all().slice(-1;-2) //tries to return entities from index 9 t
 
 
 <!-- REF EntitySelectionClass.sum().Desc -->
-## .sum( )   
+## .sum()   
 
 <!-- REF #EntitySelectionClass.sum().Syntax -->
 **.sum**( *attributePath* : Text ) : Real<!-- END REF -->
@@ -1595,11 +1596,11 @@ An error is returned if:
 #### Example 
 
 ```4d
-var $sel : cs.EmployeeSelection
-var $sum : Real
+var sel : cs.EmployeeSelection
+var sum : Real
  
-$sel:=ds.Employee.query("salary < :1";20000)
-$sum:=$sel.sum("salary")
+sel=ds.Employee.query("salary < :1",20000)
+sum=sel.sum("salary")
 ```
 
 <!-- END REF -->
@@ -1610,7 +1611,7 @@ $sum:=$sel.sum("salary")
 
 
 <!-- REF #EntitySelectionClass.toCollection().Syntax -->
-**.toCollection**( { *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer } } ) : *Collection*<br/>**.toCollection**( *filterString* : Text {; *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer }}} ) : *Collection*<br/>**.toCollection**( *filterCol* : Collection {; *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer }}} ) : *Collection*<!-- END REF -->
+**.toCollection**( { *options* : Integer { , *begin* : Integer { , *howMany* : Integer } } ) : *Collection*<br/>**.toCollection**( *filterString* : Text {, *options* : Integer { , *begin* : Integer { , *howMany* : Integer }}} ) : *Collection*<br/>**.toCollection**( *filterCol* : Collection {, *options* : Integer { , *begin* : Integer { , *howMany* : Integer }}} ) : *Collection*<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.toCollection().Params -->
 |Parameter|Type||Description|
@@ -1627,7 +1628,7 @@ $sum:=$sel.sum("salary")
 
 The `.toCollection()` function <!-- REF #EntitySelectionClass.toCollection().Summary -->creates and returns a collection where each element is an object containing a set of properties and values <!-- END REF -->corresponding to the attribute names and values for the entity selection.
 
-If no filter parameter is passed or the first parameter contains an empty string or "*", all the attributes are extracted. Attributes with [kind](DataClassAttributeClass.md#kind) property as "relatedEntity" are extracted with the simple form: an object with property \_\_KEY (primary key). Attributes with kind property as "relatedEntities" are not extracted.
+If no filter parameter is passed or the first parameter contains an empty string or `*`, all the attributes are extracted. Attributes with [kind](DataClassAttributeClass.md#kind) property as "relatedEntity" are extracted with the simple form: an object with property `\_\_KEY` (primary key). Attributes with kind property as "relatedEntities" are not extracted.
 
 Or, you can designate the entity attributes to extract using a filter parameter. You can use one of these two filters:
 
@@ -1673,17 +1674,17 @@ The following structure will be used throughout all examples of this section:
 Example without filter or options parameter:
 
 ```4d
- var $employeesCollection : Collection
- var $employees : cs.EmployeeSelection
+ var employeesCollection : Collection
+ var employees : cs.EmployeeSelection
  
- $employeesCollection:=New collection
- $employees:=ds.Employee.all()
- $employeesCollection:=$employees.toCollection()
+ employeesCollection=New collection
+ employees=ds.Employee.all()
+ employeesCollection=employees.toCollection()
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "ID": 416,
@@ -1730,17 +1731,17 @@ Returns:
 Example with options:
 
 ```4d
-var $employeesCollection : Collection
-var $employees : cs.EmployeeSelection
+var employeesCollection : Collection
+var employees : cs.EmployeeSelection
 
-$employeesCollection:=New collection
-$employees:=ds.Employee.all()
-$employeesCollection:=$employees.toCollection("";dk with primary key+dk with stamp)
+employeesCollection=New collection
+employees=ds.Employee.all()
+employeesCollection=employees.toCollection("";dk with primary key+dk with stamp)
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "__KEY": 416,
@@ -1789,21 +1790,21 @@ Returns:
 Example with slicing and filtering on properties:
 
 ```4d
-var $employeesCollection; $filter : Collection
-var $employees : cs.EmployeeSelection
+var employeesCollection, filter : Collection
+var employees : cs.EmployeeSelection
 
-$employeesCollection:=New collection
-$filter:=New collection
-$filter.push("firstName")
-$filter.push("lastName")
+employeesCollection=New collection
+filter=New collection
+filter.push("firstName")
+filter.push("lastName")
  
-$employees:=ds.Employee.all()
-$employeesCollection:=$employees.toCollection($filter;0;0;2)
+employees=ds.Employee.all()
+employeesCollection=employees.toCollection(filter,0,0,2)
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
@@ -1824,14 +1825,14 @@ Example with `relatedEntity` type with simple form:
 
 
 ```4d
-var $employeesCollection : Collection
-$employeesCollection:=New collection
-$employeesCollection:=$employees.toCollection("firstName,lastName,employer")
+var employeesCollection : Collection
+employeesCollection=New collection
+employeesCollection=employees.toCollection("firstName,lastName,employer")
 ```
 
 returns:
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
@@ -1862,15 +1863,15 @@ returns:
 Example with *filterCol* parameter:
 
 ```4d
-var $employeesCollection; $coll : Collection
-$employeesCollection:=New collection
-$coll:=New collection("firstName";"lastName")
-$employeesCollection:=$employees.toCollection($coll)
+var employeesCollection, coll : Collection
+employeesCollection=New collection
+coll=New collection("firstName","lastName")
+employeesCollection=employees.toCollection(coll)
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "firstName": "Joanna",
@@ -1888,18 +1889,18 @@ Returns:
 Example with extraction of all properties of a relatedEntity:
 
 ```4d
-var $employeesCollection; $coll : Collection
-$employeesCollection:=New collection
-$coll:=New collection
-$coll.push("firstName")
-$coll.push("lastName")
-$coll.push("employer.*")
-$employeesCollection:=$employees.toCollection($coll)
+var employeesCollection, coll : Collection
+employeesCollection=New collection
+coll=New collection
+coll.push("firstName")
+coll.push("lastName")
+coll.push("employer.*")
+employeesCollection=employees.toCollection(coll)
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
@@ -1942,12 +1943,12 @@ Returns:
 Example with extraction of some properties of a relatedEntity:
 
 ```4d
-var $employeesCollection : Collection
-$employeesCollection:=New collection
-$employeesCollection:=$employees.toCollection("firstName, lastName, employer.name")
+var employeesCollection : Collection
+employeesCollection=New collection
+employeesCollection=employees.toCollection("firstName, lastName, employer.name")
 ```
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
@@ -1978,14 +1979,14 @@ $employeesCollection:=$employees.toCollection("firstName, lastName, employer.nam
 Example with extraction of some properties of `relatedEntities`:
 
 ```4d
- var $employeesCollection : Collection
- $employeesCollection:=New collection
- $employeesCollection:=$employees.toCollection("firstName, lastName, directReports.firstName")
+ var employeesCollection : Collection
+ employeesCollection=New collection
+ employeesCollection=employees.toCollection("firstName, lastName, directReports.firstName")
 ```
 
 Returns:
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
@@ -2030,13 +2031,13 @@ Returns:
 Example with extraction of all properties of `relatedEntities`:
 
 ```4d
-var $employeesCollection : Collection
-$employeesCollection:=New collection
-$employeesCollection:=$employees.toCollection("firstName, lastName, directReports.*")
+var employeesCollection : Collection
+employeesCollection=New collection
+employeesCollection=employees.toCollection("firstName, lastName, directReports.*")
 
 ```
 
-```4d
+```json
 [
     {
         "firstName": "Gregg",
