@@ -1255,7 +1255,7 @@ employeeObject=employeeSelected.toObject()
 
 Returns:
 
-```4d
+```json
 {
     "ID": 413,
     "firstName": "Greg",
@@ -1288,7 +1288,7 @@ employeeObject=employeeSelected.toObject("",dk with primary key+dk with stamp)
 
 Returns:
 
-```4d
+```json
 {
     "__KEY": 413,
    "__STAMP": 1,
@@ -1319,7 +1319,7 @@ Expanding all the properties of `relatedEntities`:
 employeeObject=employeeSelected.toObject("directReports.*")
 ```
 
-```4d
+```json
 {
     "directReports": [
         {
@@ -1390,7 +1390,7 @@ Extracting some properties of `relatedEntities`:
  
 Returns:
 
-```4d
+```json
 {
     "firstName": "Greg",
     "directReports": [
@@ -1418,7 +1418,7 @@ Extracting a `relatedEntity` with simple form:
 
 Returns:
 
-```4d
+```json
 {
     "firstName": "Greg",
     "employer": {
@@ -1437,7 +1437,7 @@ Extracting all the properties of a `relatedEntity`:
 
 Returns:
 
-```4d
+```json
 {
     "employer": {
         "ID": 20,
@@ -1462,7 +1462,7 @@ Extracting some properties of a `relatedEntity`:
 
 Returns:
 
-```4d
+```json
 {
     "employer": {
         "name": "India Astral Secretary",
