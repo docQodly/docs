@@ -114,6 +114,7 @@ This function can only be used with entities already saved in the database. It c
  
  emp.lastName="Smith" //Updates done on emp are not done on empCloned
 
+
 ```
 
 <!-- END REF -->
@@ -1243,7 +1244,7 @@ In the *options* parameter, you can pass the `dk with primary key` and/or` dk wi
 
 The following structure will be used throughout all examples of this section:
 
-![](img/dataclassAttribute4.png)
+![](img/structure.png)
 
 
 Without filter parameter:
