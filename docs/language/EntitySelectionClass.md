@@ -13,6 +13,7 @@ Entity selections can be created from existing selections using various function
 ||
 |---|
 |[<!-- INCLUDE EntitySelectionClass.index.Syntax -->](#91index93)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.index.Summary --></p>|
+|[<!-- INCLUDE EntitySelectionClass.at().Syntax -->](#attributename)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.at().Summary --></p>|
 |[<!-- INCLUDE EntitySelectionClass.attributeName.Syntax -->](#attributename)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.attributeName.Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.add().Syntax -->](#add)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.add().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.and().Syntax -->](#and)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.and().Summary --></p>|
@@ -20,6 +21,7 @@ Entity selections can be created from existing selections using various function
 |[<!-- INCLUDE #EntitySelectionClass.contains().Syntax -->](#contains)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.contains().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.count().Syntax -->](#count)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.count().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.distinct().Syntax -->](#distinct)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.distinct().Summary --></p>|
+|[<!-- INCLUDE #EntitySelectionClass.distinctPaths().Syntax -->](#distinctPaths)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.distinctPaths().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.drop().Syntax -->](#drop)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.drop().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.extract().Syntax -->](#extract)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.extract().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.first().Syntax -->](#first)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.first().Summary --></p>|
@@ -95,6 +97,39 @@ Note that the corresponding entity is reloaded from the datastore.
 <!-- END REF -->
 
 
+<!-- REF EntitySelectionClass.at().Desc -->
+## .at()
+
+<!-- REF #EntitySelectionClass.at().Syntax -->**.at**( *index* : Integer ) : 4D.Entity <!-- END REF -->
+
+
+<!-- REF #EntitySelectionClass.at().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|index|Integer|->|Index of entity to return|
+|Result|4D.Entity |<-|The entity at that index|<!-- END REF -->
+
+
+#### Description
+
+The `.at()` function <!-- REF #EntitySelectionClass.at().Summary -->returns the entity at position *index*, allowing for positive and negative integer<!-- END REF -->. 
+
+If *index* is negative (from -1 to -n with n : length of the entity selection), the returned entity will be based on the reverse order of the entity selection.
+
+The function returns Null if *index* is beyond entity selection limits. 
+
+#### Example
+
+```4d
+var employees : cs.EmployeeSelection
+var emp1, $emp2 : cs.EmployeeEntity
+employees=ds.Employee.query("lastName = :1","H@")
+emp1=employees.at(2)  //3rd entity of the employees entity selection 
+emp2=employees.at(-3) //starting from the end, 3rd entity
+	//of the employees entity selection
+```
+
+<!-- END REF -->
 
 
 <!-- REF EntitySelectionClass.attributeName.Desc -->
@@ -507,7 +542,7 @@ Then this entity selection is updated with products and you want to share the pr
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath|Text|->|Path of attribute whose distinct values you want to get|	
-|option|Integer|->|`dk diacritical`: diacritical evaluation ("A" # "a" for example)|
+|option|Integer|->|`dk diacritical`, `dk count values`|
 |Result|Collection|<-|Collection with only distinct values|
 <!-- END REF -->
 
@@ -525,6 +560,19 @@ In the *attributePath* parameter, pass the entity attribute whose distinct value
 4.	dates
 
 You can use the `[]` notation to designate a collection when *attributePath* is a path within an object (see examples). 
+
+In the *options* parameter, you can pass one or a combination of the following constants:
+
+|Constant|Value|Comment|
+|---|---|---|
+|`dk diacritical`|8|Evaluation is case sensitive and differentiates accented characters. By default if omitted, a non-diacritical evaluation is performed|
+|`dk count values`|32|Return the count of entities for every distinct value. When this option is passed, `.distinct()` returns a collection of objects containing a pair of `{"value":*value*; "count":*count*}` properties.|
+
+:::note
+
+The `dk count values` option is only available with storage attributes of type boolean, string, number, and date. 
+
+:::
 
 By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `dk diacritical` constant in the *option* parameter.
 
@@ -548,8 +596,63 @@ You want to get a collection containing a single element per country name:
 values=ds.Employee.all().distinct("extra.nicknames[].first")
 ```
 
+You want to get the number of different job names in the company:
+
+```4d
+var jobs : Collection
+jobs=ds.Employee.all().distinct("jobName",dk count values)  
+//jobs[0]={"value":"Developer","count":17}
+//jobs[1]={"value":"Office manager","count":5}
+//jobs[2]={"value":"Accountant","count":2}
+//...
+```
+
 <!-- END REF -->
 
+
+<!-- REF EntitySelectionClass.distinctPaths().Desc -->
+## .distinctPaths()
+
+<!-- REF #EntitySelectionClass.distinctPaths().Syntax -->**.distinctPaths**( *attribute* : Text ) : Collection<!-- END REF -->
+
+
+<!-- REF #EntitySelectionClass.distinctPaths().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|attribute|Text|->|Object attribute name whose paths you want to get|
+|Result|Collection|<-|New collection with distinct paths|<!-- END REF -->
+
+
+#### Description
+
+The `.distinctPaths()` function <!-- REF #EntitySelectionClass.distinctPaths().Summary -->returns a collection of distinct paths found in the indexed object *attribute* for the entity selection<!-- END REF -->.
+
+If *attribute* is not an indexed object attribute, an error is generated.
+
+After the call, the size of the returned collection is equal to the number of distinct paths found in *attribute* for the entity selection. Paths are returned as strings including nested attributes and collections, for example "info.address.number" or "children[].birthdate". Entities with a null value in the *attribute* are not taken into account.
+
+#### Example
+
+You want to get all paths stored in a *fullData* object attribute:
+
+```4d
+var paths : Collection
+paths=ds.Employee.all().distinctPaths("fullData")
+//paths[0]="age"
+//paths[1]="Children"
+//paths[2]="Children[].age"
+//paths[3]="Children[].name"
+//paths[4]="Children.length"
+///...
+```
+
+:::note
+
+*length* is automatically added as path for nested collection properties. 
+
+:::
+
+<!-- END REF -->
 
 
 <!-- REF EntitySelectionClass.drop().Desc -->
