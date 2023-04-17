@@ -86,7 +86,7 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: '/category/language',
+            docId: 'language/basics/lang-quicktour',
             position: 'left',
             label: 'QodlyScript',
           },

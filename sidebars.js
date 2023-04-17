@@ -71,8 +71,15 @@ const sidebars = {
     },
   ],
   QodlyScript:[
-   		{ 	type: 'category',
+   		{
+			type: 'doc',
+			id: 'language/basics/lang-quicktour',
+			label: "QuickTour"
+		},
+		{ 	type: 'category',
 			label: 'QodlyScript Concepts',
+			collapsible: true,
+			collapsed: true,
 			link: {
 				type: 'generated-index',
 				title: 'QodlyScript Concepts',
@@ -81,11 +88,12 @@ const sidebars = {
 				keywords: ['language'],
 				image: '/img/docusaurus.png',
 			},
-			items: ['language/basics/lang-quicktour',
-				'language/basics/lang-variables',
+			items: ['language/basics/lang-variables',
 				'language/basics/lang-arrays',
 				{ 	type: 'category',
 					label: 'Data Types',
+					collapsible: true,
+					collapsed: true,
 					link: {
 						type: 'doc',
 						id: 'language/basics/lang-data-types',
@@ -115,6 +123,11 @@ const sidebars = {
 				'language/basics/lang-identifiers',
 				'language/basics/lang-pathnames',
 				],
+		},
+		{
+			type: 'doc',
+			id: 'language/CollectionClass',
+			label: "Collection"
 		},
 		{
 			type: 'doc',

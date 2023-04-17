@@ -11,7 +11,7 @@ title: String
 - [**Character Reference Symbols**](../concepts/lang-text.md#character-reference-symbols)
 
 
-## String Commands
+## Commands
 
 ||
 |---|

@@ -8,7 +8,7 @@ A [DataClass](../Concepts/data-model#dataclass) provides an object interface to 
 
 
 
-### Summary
+### Functions and properties
 
 ||
 |---|

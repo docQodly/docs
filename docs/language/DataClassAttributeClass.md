@@ -16,7 +16,7 @@ This code assigns to `nameAttribute` and `revenuesAttribute` references to the `
 
 > Dataclass attribute objects can be modified, but the underlying model will not be altered.
 
-### Summary
+### Functions and properties
 
 ||
 |---|

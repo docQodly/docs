@@ -8,7 +8,7 @@ An entity selection is an object containing one or more reference(s) to [entitie
 
 Entity selections can be created from existing selections using various functions of the [`DataClass` class](DataClassClass.md) such as [`.all()`](DataClassClass.md#all) or [`.query()`](DataClassClass.md#query), or functions of the `EntityClass` class itself, such as [`.and()`](#and) or [`orderBy()`](#orderby). You can also create blank entity selections using the [`dataClass.newSelection()`](DataClassClass.md#newselection) function.
 
-### Summary
+### Functions and properties
 
 ||
 |---|
@@ -1582,6 +1582,7 @@ The returned object contains the following properties:
 |ranges[].end|Integer|Last entity index in the range|
 
 If a `ranges` property contains a single entity, `start` = `end`. Index starts at 0.
+
 
 The function returns an empty collection in the `ranges` property if the original entity selection or the *selectedEntities* entity selection is empty.
 

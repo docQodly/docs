@@ -6,7 +6,7 @@ title: Entity
 An [entity](../concepts/orda/data-model#entity) is an instance of a [Dataclass](../concepts/orda/data-model.md#dataclass), like a record of the table matching the dataclass in its associated datastore. It contains the same attributes as the dataclass as well as the data values and specific properties and functions.
 
 
-### Summary
+### Functions and properties
 
 ||
 |---|
