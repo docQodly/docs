@@ -21,8 +21,8 @@ The Collection class manages [Collection](basics/lang-collection.md) type elemen
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.New collection.Syntax -->](#new-collection)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #_command_.New collection.Summary -->|
-|[<!-- INCLUDE #_command_.New shared collection.Syntax -->](#new-shared-collection)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #_command_.New shared collection.Summary -->|
+|[<!-- INCLUDE #_command_.New collection.Syntax -->](#new-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.New collection.Summary -->|
+|[<!-- INCLUDE #_command_.New shared collection.Syntax -->](#new-shared-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.New shared collection.Summary -->|
 
 
 
@@ -31,52 +31,52 @@ The Collection class manages [Collection](basics/lang-collection.md) type elemen
 
 ||
 |---|
-|[<!-- INCLUDE #collection.at().Syntax -->](#at)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.at().Summary -->|
-|[<!-- INCLUDE #collection.average().Syntax -->](#average)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.average().Summary -->|
-|[<!-- INCLUDE #collection.clear().Syntax -->](#clear)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.clear().Summary --> |
-|[<!-- INCLUDE #collection.combine().Syntax -->](#combine)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.combine().Summary --> |
-|[<!-- INCLUDE #collection.concat().Syntax -->](#concat)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.concat().Summary -->|
-|[<!-- INCLUDE #collection.copy().Syntax -->](#copy)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.copy().Summary -->|
-|[<!-- INCLUDE #collection.count().Syntax -->](#count)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.count().Summary -->|
-|[<!-- INCLUDE #collection.countValues().Syntax -->](#countvalues)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.countValues().Summary -->|
-|[<!-- INCLUDE #collection.distinct().Syntax -->](#distinct)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.distinct().Summary -->|
-|[<!-- INCLUDE #collection.equal().Syntax -->](#equal)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.equal().Summary -->|
-|[<!-- INCLUDE #collection.every().Syntax -->](#every)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.every().Summary -->|
-|[<!-- INCLUDE #collection.extract().Syntax -->](#extract)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.extract().Summary -->|
-|[<!-- INCLUDE #collection.fill().Syntax -->](#fill)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.fill().Summary -->|
-|[<!-- INCLUDE #collection.filter().Syntax -->](#filter)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.filter().Summary -->|
-|[<!-- INCLUDE #collection.find().Syntax -->](#find)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.find().Summary -->|
-|[<!-- INCLUDE #collection.findIndex().Syntax -->](#find)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.findIndex().Summary -->|
-|[<!-- INCLUDE #collection.first().Syntax -->](#first)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.first().Summary -->|
-|[<!-- INCLUDE #collection.flat().Syntax -->](#flat)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.flat().Summary -->|
-|[<!-- INCLUDE #collection.flatMap().Syntax -->](#flatMap)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.flatMap().Summary -->|
-|[<!-- INCLUDE #collection.includes().Syntax -->](#includes)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.includes().Summary -->|
-|[<!-- INCLUDE #collection.indexOf().Syntax -->](#indexof)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.indexOf().Summary -->|
-|[<!-- INCLUDE #collection.indices().Syntax -->](#indices)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.indices().Summary -->|
-|[<!-- INCLUDE #collection.insert().Syntax -->](#insert)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.insert().Summary -->|
-|[<!-- INCLUDE #collection.join().Syntax -->](#join)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.join().Summary -->|
-|[<!-- INCLUDE #collection.last().Syntax -->](#last)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.last().Summary -->|
-|[<!-- INCLUDE #collection.lastIndexOf().Syntax -->](#lastindexof)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.lastIndexOf().Summary -->|
-|[<!-- INCLUDE #collection.length.Syntax -->](#length)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.length.Summary -->|
-|[<!-- INCLUDE #collection.map().Syntax -->](#map)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.map().Summary -->|
-|[<!-- INCLUDE #collection.max().Syntax -->](#max)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.max().Summary -->|
-|[<!-- INCLUDE #collection.min().Syntax -->](#min)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.min().Summary -->|
-|[<!-- INCLUDE #collection.orderBy().Syntax -->](#orderby)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.orderBy().Summary -->|
-|[<!-- INCLUDE #collection.orderByMethod().Syntax -->](#orderbymethod)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.orderByMethod().Summary -->|
-|[<!-- INCLUDE #collection.pop().Syntax -->](#pop)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.pop().Summary -->|
-|[<!-- INCLUDE #collection.push().Syntax -->](#push)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.push().Summary -->|
-|[<!-- INCLUDE #collection.query().Syntax -->](#query)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.query().Summary -->|
-|[<!-- INCLUDE #collection.reduce().Syntax -->](#reduce)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.reduce().Summary -->|
-|[<!-- INCLUDE #collection.reduceRight().Syntax -->](#reduceRight)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.reduceRight().Summary -->|
-|[<!-- INCLUDE #collection.remove().Syntax -->](#remove)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.remove().Summary -->|
-|[<!-- INCLUDE #collection.resize().Syntax -->](#resize)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.resize().Summary -->|
-|[<!-- INCLUDE #collection.reverse().Syntax -->](#reverse)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.reverse().Summary -->|
-|[<!-- INCLUDE #collection.shift().Syntax -->](#shift)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.shift().Summary -->|
-|[<!-- INCLUDE #collection.slice().Syntax -->](#slice)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.slice().Summary -->|
-|[<!-- INCLUDE #collection.some().Syntax -->](#some)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.some().Summary -->|
-|[<!-- INCLUDE #collection.sort().Syntax -->](#sort)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.sort().Summary -->|
-|[<!-- INCLUDE #collection.sum().Syntax -->](#sum)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.sum().Summary -->|
-|[<!-- INCLUDE #collection.unshift().Syntax -->](#unshift)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #collection.unshift().Summary -->|
+|[<!-- INCLUDE #collection.at().Syntax -->](#at)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.at().Summary -->|
+|[<!-- INCLUDE #collection.average().Syntax -->](#average)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.average().Summary -->|
+|[<!-- INCLUDE #collection.clear().Syntax -->](#clear)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.clear().Summary --> |
+|[<!-- INCLUDE #collection.combine().Syntax -->](#combine)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.combine().Summary --> |
+|[<!-- INCLUDE #collection.concat().Syntax -->](#concat)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.concat().Summary -->|
+|[<!-- INCLUDE #collection.copy().Syntax -->](#copy)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.copy().Summary -->|
+|[<!-- INCLUDE #collection.count().Syntax -->](#count)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.count().Summary -->|
+|[<!-- INCLUDE #collection.countValues().Syntax -->](#countvalues)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.countValues().Summary -->|
+|[<!-- INCLUDE #collection.distinct().Syntax -->](#distinct)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.distinct().Summary -->|
+|[<!-- INCLUDE #collection.equal().Syntax -->](#equal)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.equal().Summary -->|
+|[<!-- INCLUDE #collection.every().Syntax -->](#every)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.every().Summary -->|
+|[<!-- INCLUDE #collection.extract().Syntax -->](#extract)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.extract().Summary -->|
+|[<!-- INCLUDE #collection.fill().Syntax -->](#fill)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.fill().Summary -->|
+|[<!-- INCLUDE #collection.filter().Syntax -->](#filter)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.filter().Summary -->|
+|[<!-- INCLUDE #collection.find().Syntax -->](#find)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.find().Summary -->|
+|[<!-- INCLUDE #collection.findIndex().Syntax -->](#find)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.findIndex().Summary -->|
+|[<!-- INCLUDE #collection.first().Syntax -->](#first)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.first().Summary -->|
+|[<!-- INCLUDE #collection.flat().Syntax -->](#flat)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.flat().Summary -->|
+|[<!-- INCLUDE #collection.flatMap().Syntax -->](#flatMap)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.flatMap().Summary -->|
+|[<!-- INCLUDE #collection.includes().Syntax -->](#includes)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.includes().Summary -->|
+|[<!-- INCLUDE #collection.indexOf().Syntax -->](#indexof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.indexOf().Summary -->|
+|[<!-- INCLUDE #collection.indices().Syntax -->](#indices)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.indices().Summary -->|
+|[<!-- INCLUDE #collection.insert().Syntax -->](#insert)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.insert().Summary -->|
+|[<!-- INCLUDE #collection.join().Syntax -->](#join)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.join().Summary -->|
+|[<!-- INCLUDE #collection.last().Syntax -->](#last)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.last().Summary -->|
+|[<!-- INCLUDE #collection.lastIndexOf().Syntax -->](#lastindexof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.lastIndexOf().Summary -->|
+|[<!-- INCLUDE #collection.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.length.Summary -->|
+|[<!-- INCLUDE #collection.map().Syntax -->](#map)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.map().Summary -->|
+|[<!-- INCLUDE #collection.max().Syntax -->](#max)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.max().Summary -->|
+|[<!-- INCLUDE #collection.min().Syntax -->](#min)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.min().Summary -->|
+|[<!-- INCLUDE #collection.orderBy().Syntax -->](#orderby)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.orderBy().Summary -->|
+|[<!-- INCLUDE #collection.orderByMethod().Syntax -->](#orderbymethod)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.orderByMethod().Summary -->|
+|[<!-- INCLUDE #collection.pop().Syntax -->](#pop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.pop().Summary -->|
+|[<!-- INCLUDE #collection.push().Syntax -->](#push)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.push().Summary -->|
+|[<!-- INCLUDE #collection.query().Syntax -->](#query)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.query().Summary -->|
+|[<!-- INCLUDE #collection.reduce().Syntax -->](#reduce)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reduce().Summary -->|
+|[<!-- INCLUDE #collection.reduceRight().Syntax -->](#reduceRight)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reduceRight().Summary -->|
+|[<!-- INCLUDE #collection.remove().Syntax -->](#remove)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.remove().Summary -->|
+|[<!-- INCLUDE #collection.resize().Syntax -->](#resize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.resize().Summary -->|
+|[<!-- INCLUDE #collection.reverse().Syntax -->](#reverse)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reverse().Summary -->|
+|[<!-- INCLUDE #collection.shift().Syntax -->](#shift)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.shift().Summary -->|
+|[<!-- INCLUDE #collection.slice().Syntax -->](#slice)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.slice().Summary -->|
+|[<!-- INCLUDE #collection.some().Syntax -->](#some)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.some().Summary -->|
+|[<!-- INCLUDE #collection.sort().Syntax -->](#sort)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.sort().Summary -->|
+|[<!-- INCLUDE #collection.sum().Syntax -->](#sum)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.sum().Summary -->|
+|[<!-- INCLUDE #collection.unshift().Syntax -->](#unshift)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.unshift().Summary -->|
 
 
 
