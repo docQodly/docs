@@ -1884,13 +1884,6 @@ If the collection is empty, `.min()` returns *Undefined*.
 <!-- REF collection.orderBy().Desc -->
 ## .orderBy()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.orderBy().Syntax -->**.orderBy**( ) : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection <!-- END REF -->
 
@@ -1921,20 +1914,19 @@ You can also pass a criteria parameter to define how the collection elements mus
 
 *	*pathObjects* : Collection. You can add as many objects in the *pathObjects* collection as necessary. By default, properties are sorted in ascending order ("descending" is false). Each element of the collection contains an object structured in the following way:  
 
-```4d
+```json
 {
     "propertyPath": string,
     "descending": boolean
-
 }
 ```
 
-*	*ascOrDesc* : Integer. You pass one of the following constants from the **Objects and collections** theme:
+*	*ascOrDesc* : Integer. You pass one of the following constants:
 
 	|Constant|	Type|Value|Comment|
 	|---|---|---|---|
-	|ck ascending|Longint|0|Elements are ordered in ascending order (default)|
-	|ck descending|Longint|1|Elements are ordered in descending order
+	|ck ascending|Integer|0|Elements are ordered in ascending order (default)|
+	|ck descending|Integer|1|Elements are ordered in descending order
 
 	This syntax orders scalar values in the collection only (other element types such as objects or collections are returned unordered).
 
@@ -1995,7 +1987,7 @@ Ordering a collection of objects with a property path:
 Ordering a collection of objects using a collection of criteria objects:
 
 ```4d
- var crit, c, c2 : COllection
+ var crit, c, c2 : Collection
  crit=New collection
  c=New collection
  For(vCounter,1,10)
@@ -2027,14 +2019,6 @@ Ordering with a property path:
 <!-- REF collection.orderByMethod().Desc -->
 ## .orderByMethod()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R6|Support of formula|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.orderByMethod().Syntax -->**.orderByMethod**( *formula* : 4D.Function { , ...*extraParam* : expression } ) : Collection<br/>**.orderByMethod**( *methodName* : Text { , ...*extraParam* : expression } ) : Collection<!-- END REF -->
 
@@ -2051,7 +2035,7 @@ Ordering with a property path:
 
 #### Description
 
-The `.orderByMethod()` function <!-- REF #collection.orderByMethod().Summary -->returns a new collection containing all elements of the collection in the order defined through the *formula* 4D function or *methodName* method<!-- END REF -->.
+The `.orderByMethod()` function <!-- REF #collection.orderByMethod().Summary -->returns a new collection containing all elements of the collection in the order defined through the *formula* function or *methodName* method<!-- END REF -->.
 
 This function returns a *shallow copy*, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.
 
@@ -2068,14 +2052,14 @@ In the callback, pass some code that compares two values and returns **true** if
 
 The callback receives the following parameters:
 
-- 1 (object), where:
-	- *1.value* (any type): first element value to be compared
-	- *1.value2* (any type): second element value to be compared
-	- 2...N (any type): extra parameters
+- $1 (object), where:
+	- *$1.value* (any type): first element value to be compared
+	- *$1.value2* (any type): second element value to be compared
+- $2...$N (any type): extra parameters
 
 If you used a method, it must set the following parameter:
 
-- *1.result* (boolean): **true** if *1.value < 1.value2*, **false** otherwise
+- *$1.result* (boolean): **true** if *$1.value < $1.value2*, **false** otherwise
 
 #### Example 1
 
@@ -2085,8 +2069,8 @@ You want to sort a collection of strings in numerical order rather than alphabet
  var c, c2, c3 : Collection
  c=New collection
  c.push("33","4","1111","222")
- c2=c.orderBy() //c2=["1111","222","33","4"], alphabetical order
- c3=c.orderByMethod(Formula(Num(1.value)<Num(1.value2))) // c3=["4","33","222","1111"]
+ c2=c.orderBy() //c2: ["1111","222","33","4"], alphabetical order
+ c3=c.orderByMethod(Formula(Num($1.value)<Num($1.value2))) // c3: ["4","33","222","1111"]
 ```
 
 #### Example 2
@@ -2096,8 +2080,8 @@ You want to sort a collection of strings on their length:
 ```4d
  var fruits, c2 : Collection
  fruits=New collection("Orange","Apple","Grape","pear","Banana","fig","Blackberry","Passion fruit")
- c2=fruits.orderByMethod(Formula(Length(String(1.value))>Length(String(1.value2))))
-  //c2=[Passion fruit,Blackberry,Orange,Banana,Apple,Grape,pear,fig]
+ c2=fruits.orderByMethod(Formula(Length(String($1.value))>Length(String($1.value2))))
+  //c2:[Passion fruit,Blackberry,Orange,Banana,Apple,Grape,pear,fig]
 ```
 
 #### Example 3
@@ -2120,10 +2104,10 @@ strings2=strings1.orderByMethod(Function(sortCollection),sk strict)
 The ***sortCollection*** method:
 
 ```4d
-var 1 : Object
-var 2: Integer // sort option
+var $1: Object
+var $2: Integer // sort option
 
-1.result=(Compare strings(1.value,1.value2,2)<0)
+$1.result=(Compare strings($1.value,$1.value2,2)<0)
 ```
 
 <!-- END REF -->
@@ -2134,14 +2118,6 @@ var 2: Integer // sort option
 
 <!-- REF collection.pop().Desc -->
 ## .pop()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 
 <!-- REF #collection.pop().Syntax -->**.pop()** : any <!-- END REF -->
@@ -2167,12 +2143,13 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 
 ```4d
  var stack : Collection
- stack=New collection //stack=[]
- stack.push(1,2) //stack=[1,2]
- stack.pop() //stack=[1]  Returns 2
- stack.push(New collection(4,5)) //stack=[[1,[4,5]]
- stack.pop() //stack=[1]  Returns [4,5]
- stack.pop() //stack=[]  Returns 1
+ var result : Variant
+ stack=New collection //stack:[]
+ stack.push(1,2) //[1,2]
+ result=stack.pop() //[1], returns 2
+ stack.push(New collection(4,5)) //[1,[4,5]]
+ result=stack.pop() //[1], returns [4,5]
+ result=stack.pop() //[], returns 1
 ```
 
 
@@ -2184,14 +2161,6 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 
 <!-- REF collection.push().Desc -->
 ## .push()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.push().Syntax -->**.push**( *element* : any { ,...*elementN* } ) : Collection <!-- END REF -->
 
@@ -2214,10 +2183,10 @@ The `.push()` function <!-- REF #collection.push().Summary -->appends one or mor
 
 ```4d
  var col : Collection
- col=New collection(1,2) //col=[1,2]
- col.push(3) //col=[1,2,3]
+ col=New collection(1,2) //col:[1,2]
+ col.push(3) //[1,2,3]
  col.push(6,New object("firstname","John","lastname","Smith"))
-  //col=[1,2,3,6,{firstname:John,lastname:Smith}
+  //col:[1,2,3,6,{firstname:John,lastname:Smith}
 ```
 
 
@@ -2228,10 +2197,10 @@ You want to sort the resutling collection:
 
 ```4d
  var col, sortedCol : Collection
- col=New collection(5,3,9) //col=[5,3,9]
+ col=New collection(5,3,9) //col:[5,3,9]
  sortedCol=col.push(7,50).sort()
-  //col=[5,3,9,7,50]
-  //sortedCol=[3,5,7,9,50]
+  //col:[5,3,9,7,50]
+  //sortedCol:[3,5,7,9,50]
 ```
 
 
@@ -2245,15 +2214,6 @@ You want to sort the resutling collection:
 <!-- REF collection.query().Desc -->
 ## .query()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v17 R5|Support of querySettings|
-|v16 R6|Added|
-
-</details>
-
 <!-- REF #collection.query().Syntax -->**.query**( *queryString* : Text , *...value* : any ) : Collection<br/>**.query**( *queryString* : Text , *querySettings* : Object ) : Collection <!-- END REF -->
 
 
@@ -2263,7 +2223,7 @@ You want to sort the resutling collection:
 |queryString|Text|->|Search criteria|
 |value|Mixed|->|Value(s) to compare when using placeholder(s)|
 |querySettings|Object|->|Query options: parameters, attributes|
-|Result|Collection |<-|Element(s) matching queryString in the collection|<!-- END REF -->
+|Result|Collection |<-|Element(s) matching *queryString* in the collection|<!-- END REF -->
 
 
 #### Description
@@ -2294,8 +2254,8 @@ For detailed information on how to build a query using *queryString*, *value* an
  c.push(New object("name","Adger","zc",35006))
  c.push(New object("name","Clanton","zc",35046))
  c.push(New object("name","Clanton","zc",35045))
- c2=c.query("name = :1","Cleveland") //c2=[{name:Cleveland,zc:35049}]
- c3=c.query("zc > 35040") //c3=[{name:Cleveland,zc:35049},{name:Clanton,zc:35046},{name:Clanton,zc:35045}]
+ c2=c.query("name = :1","Cleveland") //c2:[{name:Cleveland,zc:35049}]
+ c3=c.query("zc > 35040") //c3:[{name:Cleveland,zc:35049},{name:Clanton,zc:35046},{name:Clanton,zc:35045}]
 ```
 
 
@@ -2318,7 +2278,7 @@ This example returns persons whose name contains "in":
 
 ```4d
  col=c.query("name = :1","@in@")
-  //col=[{name:Winch...},{name:Sterling...}]
+  //col:[{name:Winch...},{name:Sterling...}]
 ```
 
 This example returns persons whose name does not begin with a string from a variable (entered by the user, for example):
@@ -2326,27 +2286,27 @@ This example returns persons whose name does not begin with a string from a vari
 ```4d
  col=c.query("name # :1",aString+"@")
   //if astring="W"
-  //col=[{name:Smith...},{name:Sterling...},{name:Mark...}]
+  //col:[{name:Smith...},{name:Sterling...},{name:Mark...}]
 ```
 
 This example returns persons whose age is not known (property set to null or undefined):
 
 ```4d
  col=c.query("age=null") //placeholders not allowed with "null"
-  //col=[{name:Wesson...},{name:Sterling...},{name:Mark...}]
+  //col:[{name:Wesson...},{name:Sterling...},{name:Mark...}]
 ```
 
 This example returns persons hired more than 90 days ago:
 
 ```4d
  col=c.query("dateHired < :1",(Current date-90))
-  //col=[{name:Smith...},{name:Sterling...},{name:Mark...}] if today is 01/10/2018
+  //col:[{name:Smith...},{name:Sterling...},{name:Mark...}] if today is 01/10/2018
 ```
 
 
 #### Example 3
 
-More examples of queries can be found in the `dataClass.query()` page.
+More examples of queries can be found in the [`dataClass.query()`](DataClassClass.md#query) page.
 
 <!-- END REF -->
 
@@ -2357,14 +2317,6 @@ More examples of queries can be found in the `dataClass.query()` page.
 <!-- REF collection.reduce().Desc -->
 ## .reduce()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R6|Support of formula|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.reduce().Syntax -->**.reduce**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduce**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any <!-- END REF -->
 
@@ -2391,20 +2343,20 @@ You designate the callback to be executed to evaluate collection elements using 
 - *formula* (recommended syntax), a [Formula object](FunctionClass.md) that can encapsulate any executable expressions, including functions and project methods,
 - or *methodName*, the name of a project method (text).
 
-The callback takes each collection element and performs any desired operation to accumulate the result into *1.accumulator*, which is returned in *1.value*.
+The callback takes each collection element and performs any desired operation to accumulate the result into *$1.accumulator*, which is returned in *$1.value*.
 
-You can pass the value to initialize the accumulator in *initValue*. If omitted, *1.accumulator* starts with *Undefined*.
+You can pass the value to initialize the accumulator in *initValue*. If omitted, *$1.accumulator* starts with *Undefined*.
 
 The callback receives the following parameters:
 
-*	in *1.value*: element value to be processed
-*	in *2: param*
-*	in *N...*: *paramN...*
+*	in *$1.value*: element value to be processed
+*	in *$2: param*
+*	in *$N...*: *paramN...*
 
 The callback sets the following parameter(s):
 
-*	*1.accumulator*: value to be modified by the function and which is initialized by *initValue*.
-*	*1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
+*	*$1.accumulator*: value to be modified by the function and which is initialized by *initValue*.
+*	*$1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
 
 
 #### Example 1
@@ -2413,7 +2365,7 @@ The callback sets the following parameter(s):
 ```4d
 var c : Collection
 c=New collection(5,3,5,1,3,4,4,6,2,2)
-r=c.reduce(Formula(1.accumulator*=1.value), 1)  //returns 86400
+r=c.reduce(Formula($1.accumulator*=$1.value), 1)  //returns 86400
 ```
 
 
@@ -2428,16 +2380,16 @@ This example allows reducing several collection elements to a single one:
  c.push(New collection(2,3))
  c.push(New collection(4,5))
  c.push(New collection(6,7))
- r=c.reduce(Formula(Flatten)) //r=[0,1,2,3,4,5,6,7]
+ r=c.reduce(Formula(Flatten)) //r:[0,1,2,3,4,5,6,7]
 ```
 
 With the following ***Flatten*** method:
 
 ```4d
- If(1.accumulator=Null)
-    1.accumulator=New collection
+ If($1.accumulator=Null)
+    $1.accumulator=New collection
  End if
- 1.accumulator.combine(1.value)
+ $1.accumulator.combine($1.value)
 ```
 
 <!-- END REF -->
@@ -2448,14 +2400,6 @@ With the following ***Flatten*** method:
 
 <!-- REF collection.reduceRight().Desc -->
 ## .reduceRight()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v20|Added|
-
-</details>
 
 <!-- REF #collection.reduceRight().Syntax -->**.reduceRight**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduceRight**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any <!-- END REF -->
 
@@ -2482,20 +2426,20 @@ You designate the callback to be executed to evaluate collection elements using 
 - *formula* (recommended syntax), a [Formula object](FunctionClass.md) that can encapsulate any executable expressions, including functions and project methods,
 - or *methodName*, the name of a project method (text).
 
-The callback takes each collection element and performs any desired operation to accumulate the result into *1.accumulator*, which is returned in *1.value*.
+The callback takes each collection element and performs any desired operation to accumulate the result into *$1.accumulator*, which is returned in *$1.value*.
 
-You can pass the value to initialize the accumulator in *initValue*. If omitted, *1.accumulator* starts with *Undefined*.
+You can pass the value to initialize the accumulator in *initValue*. If omitted, *$1.accumulator* starts with *Undefined*.
 
 The callback receives the following parameters:
 
-*	in *1.value*: element value to be processed
-*	in *2: param*
-*	in *N...*: *paramN...*
+*	in *$1.value*: element value to be processed
+*	in *$2: param*
+*	in *$N...*: *paramN...*
 
 The callback sets the following parameter(s):
 
-*	*1.accumulator*: value to be modified by the function and which is initialized by *initValue*.
-*	*1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
+*	*$1.accumulator*: value to be modified by the function and which is initialized by *initValue*.
+*	*$1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
 
 
 #### Example 1
@@ -2504,7 +2448,7 @@ The callback sets the following parameter(s):
 ```4d
 var c : Collection
 c=New collection(5,3,5,1,3,4,4,6,2,2)
-r=c.reduceRight(Formula(1.accumulator*=1.value), 1)  //returns 86400
+r=c.reduceRight(Formula($1.accumulator*=$1.value), 1)  //returns 86400
 
 ```
 
@@ -2522,17 +2466,17 @@ This example allows reducing several collection elements to a single one:
  c.push(New collection(2,3))
  c.push(New collection(4,5))
  c.push(New collection(6,7))
- r=c.reduceRight(Formula(Flatten)) //r=[6,7,4,5,2,3,0,1]
+ r=c.reduceRight(Formula(Flatten)) //r:[6,7,4,5,2,3,0,1]
 ```
 
 With the following ***Flatten*** method:
 
 ```4d
 	//Flatten project method
- If(1.accumulator=Null)
-    1.accumulator=New collection
+ If($1.accumulator=Null)
+    $1.accumulator=New collection
  End if
- 1.accumulator.combine(1.value)
+ $1.accumulator.combine($1.value)
 ```
 
 <!-- END REF -->
@@ -2542,13 +2486,6 @@ With the following ***Flatten*** method:
 <!-- REF collection.remove().Desc -->
 ## .remove()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.remove().Syntax -->**.remove**( *index* : Integer { , *howMany* : Integer } ) : Collection <!-- END REF -->
 
@@ -2588,10 +2525,10 @@ If you try to remove an element from an empty collection, the method does nothin
 ```4d
  var col : Collection
  col=New collection("a","b","c","d","e","f","g","h")
- col.remove(3) // col=["a","b","c","e","f","g","h"]
- col.remove(3,2) // col=["a","b","c","g","h"]
- col.remove(-8,1) // col=["b","c","g","h"]
- col.remove(-3,1) // col=["b","g","h"]
+ col.remove(3) // ["a","b","c","e","f","g","h"]
+ col.remove(3,2) // ["a","b","c","g","h"]
+ col.remove(-8,1) // ["b","c","g","h"]
+ col.remove(-3,1) // ["b","g","h"]
 ```
 
 <!-- END REF -->
@@ -2603,15 +2540,6 @@ If you try to remove an element from an empty collection, the method does nothin
 
 <!-- REF collection.resize().Desc -->
 ## .resize()
-
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 
 
@@ -2643,16 +2571,16 @@ By default, new elements are filled will **null** values. You can specify the va
 ```4d
  var c : Collection
  c=New collection
- c.resize(10) // c=[null,null,null,null,null,null,null,null,null,null]
+ c.resize(10) // c:[null,null,null,null,null,null,null,null,null,null]
 
  c=New collection
- c.resize(10,0) // c=[0,0,0,0,0,0,0,0,0,0]
+ c.resize(10,0) // c:[0,0,0,0,0,0,0,0,0,0]
 
  c=New collection(1,2,3,4,5)
- c.resize(10,New object("name","X")) //c=[1,2,3,4,5,{name:X},{name:X},{name:X},{name:X},{name:X}]
+ c.resize(10,New object("name","X")) //c:[1,2,3,4,5,{name:X},{name:X},{name:X},{name:X},{name:X}]
 
  c=New collection(1,2,3,4,5)
- c.resize(2) //c=[1,2]
+ c.resize(2) //c:[1,2]
 
 ```
 
@@ -2665,14 +2593,6 @@ By default, new elements are filled will **null** values. You can specify the va
 
 <!-- REF collection.reverse().Desc -->
 ## .reverse()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.reverse().Syntax -->**.reverse( )** : Collection <!-- END REF -->
 
@@ -2695,7 +2615,7 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 ```4d
  var c, c2 : Collection
  c=New collection(1,3,5,2,4,6)
- c2=c.reverse() //c2=[6,4,2,5,3,1]
+ c2=c.reverse() //c2:[6,4,2,5,3,1]
 ```
 
 <!-- END REF -->
@@ -2707,13 +2627,6 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 <!-- REF collection.shift().Desc -->
 ## .shift()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.shift().Syntax -->**.shift()** : any<!-- END REF -->
 
@@ -2740,8 +2653,8 @@ If the collection is empty, this method does nothing.
  var val : Variant
  c=New collection(1,2,4,5,6,7,8)
  val=c.shift()
-  // val=1
-  // c=[2,4,5,6,7,8]
+  // val:1
+  // c:[2,4,5,6,7,8]
 ```
 
 <!-- END REF -->
@@ -2754,14 +2667,6 @@ If the collection is empty, this method does nothing.
 
 <!-- REF collection.slice().Desc -->
 ## .slice()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.slice().Syntax -->**.slice**( *startFrom* : Integer { , *end* : Integer } ) : Collection<!-- END REF -->
 
@@ -2793,10 +2698,10 @@ The returned collection contains the element specified by *startFrom* and all su
 ```4d
  var c, nc : Collection
  c=New collection(1,2,3,4,5)
- nc=c.slice(0,3) //nc=[1,2,3]
- nc=c.slice(3) //nc=[4,5]
- nc=c.slice(1,-1) //nc=[2,3,4]
- nc=c.slice(-3,-2) //nc=[3]
+ nc=c.slice(0,3) //nc:[1,2,3]
+ nc=c.slice(3) //nc:[4,5]
+ nc=c.slice(1,-1) //nc:[2,3,4]
+ nc=c.slice(-3,-2) //nc:[3]
 ```
 
 <!-- END REF -->
@@ -2808,14 +2713,6 @@ The returned collection contains the element specified by *startFrom* and all su
 <!-- REF collection.some().Desc -->
 ## .some()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R6|Support of formula|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.some().Syntax -->**.some**( { *startFrom* : Integer , } *formula* : 4D.Function { , *...param* : any } ) : Boolean<br/>**.some**( { *startFrom* : Integer , } *methodName* : Text { , *...param* : any } ) : Boolean<!-- END REF -->
 
@@ -2839,19 +2736,19 @@ You designate the 4D code (callback) to be executed to evaluate collection eleme
 - *formula* (recommended syntax), a [Formula object](FunctionClass.md) that can encapsulate any executable expressions, including functions and project methods,
 - or *methodName*, the name of a project method (text).
 
-The callback is called with the parameter(s) passed in *param* (optional). The callback can perform any test, with or without the parameter(s) and must return **true** for every element fulfilling the test. It receives an `Object` in first parameter (1).
+The callback is called with the parameter(s) passed in *param* (optional). The callback can perform any test, with or without the parameter(s) and must return **true** for every element fulfilling the test. It receives an `Object` in first parameter ($1).
 
 
 The callback receives the following parameters:
 
-*	in *1.value*: element value to be processed
-*	in *2: param*
-*	in *N...*: *paramN...*
+*	in *$1.value*: element value to be processed
+*	in *$2: param*
+*	in *$N...*: *paramN...*
 
 It can set the following parameter(s):
 
-*	(mandatory if you used a method) *1.result* (boolean): **true** if the element value evaluation is successful, **false** otherwise.
-*	*1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
+*	(mandatory if you used a method) *$1.result* (boolean): **true** if the element value evaluation is successful, **false** otherwise.
+*	*$1.stop* (boolean, optional): **true** to stop the method callback. The returned value is the last calculated.
 
 In any case, at the point where `.some()` function encounters the first collection element returning true, it stops calling the callback and returns **true**.
 
@@ -2859,7 +2756,7 @@ By default, `.some()` tests the whole collection. Optionally, you can pass the i
 
 *	If *startFrom* >= the collection's length, **False** is returned, which means the collection is not tested.
 *	If *startFrom* < 0, it is considered as the offset from the end of the collection.
-*	If *startFrom* = 0, the whole collection is searched (default).
+*	If *startFrom* == 0, the whole collection is searched (default).
 
 
 #### Example
@@ -2871,14 +2768,14 @@ You want to know if at least one collection value is >0.
  var b : Boolean
  c=New collection
  c.push(-5,-3,-1,-4,-6,-2)
- b=c.some(Formula(1.value>0)) // b=false
+ b=c.some(Formula($1.value>0)) // b:false
  c.push(1)
- b=c.some(Formula(1.value>0)) // b=true
+ b=c.some(Formula($1.value>0)) // b:true
 
  c=New collection
  c.push(1,-5,-3,-1,-4,-6,-2)
- b=c.some(Formula(1.value>0)) //b=true
- b=c.some(1,Formula(1.value>0)) //b=false
+ b=c.some(Formula($1.value>0)) //b:true
+ b=c.some(1,Formula($1.value>0)) //b:false
 ```
 
 
@@ -2892,14 +2789,6 @@ You want to know if at least one collection value is >0.
 <!-- REF collection.sort().Desc -->
 ## .sort()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R6|Support of formula|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.sort().Syntax -->**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : Collection<br/>**.sort**( *methodName* : Text { , *...extraParam* : any } ) : Collection <!-- END REF -->
 
@@ -2925,14 +2814,14 @@ If you want to sort the collection elements in some other order or sort any type
 
 The callback receives the following parameters:
 
-- 1 (object), where:
-	- *1.value* (any type): first element value to be compared
-	- *1.value2* (any type): second element value to be compared
-- 2...N (any type): extra parameters
+- $1 (object), where:
+	- *$1.value* (any type): first element value to be compared
+	- *$1.value2* (any type): second element value to be compared
+- $2...N (any type): extra parameters
 
 If you used a method, you must set the folllowing parameter:
 
-- *1.result* (boolean): **true** if *1.value < 1.value2*, **false** otherwise.
+- *$1.result* (boolean): **true** if *$1.value < $1.value2*, **false** otherwise.
 
 If the collection contains elements of different types, they are first grouped by type and sorted afterwards. Types are returned in the following order:
 
@@ -2950,8 +2839,8 @@ If the collection contains elements of different types, they are first grouped b
 ```4d
  var col, col2 : Collection
  col=New collection("Tom",5,"Mary",3,"Henry",1,"Jane",4,"Artie",6,"Chip",2)
- col2=col.sort() // col2=["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
-  // col=["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
+ col2=col.sort() // col2:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
+  // col:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
 ```
 
 #### Example 2
@@ -2959,7 +2848,7 @@ If the collection contains elements of different types, they are first grouped b
 ```4d
  var col, col2 : Collection
  col=New collection(10,20)
- col2=col.push(5,3,1,4,6,2).sort() //col2=[1,2,3,4,5,6,10,20]
+ col2=col.push(5,3,1,4,6,2).sort() //col2:[1,2,3,4,5,6,10,20]
 ```
 
 #### Example 3
@@ -2968,7 +2857,7 @@ If the collection contains elements of different types, they are first grouped b
 var col, col2, col3 : Collection
 col=New collection(33,4,66,1111,222)
 col2=col.sort() //numerical sort: [4,33,66,222,1111]
-col3=col.sort(Formula(String(1.value)<String(1.value2))) //alphabetical sort: [1111,222,33,4,66]
+col3=col.sort(Formula(String($1.value)<String($1.value2))) //alphabetical sort: [1111,222,33,4,66]
 ```
 
 <!-- END REF -->
@@ -2979,13 +2868,6 @@ col3=col.sort(Formula(String(1.value)<String(1.value2))) //alphabetical sort: [1
 <!-- REF collection.sum().Desc -->
 ## .sum()
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.sum().Syntax -->**.sum**( { *propertyPath* : Text } ) : Real<!-- END REF -->
 
@@ -3030,7 +2912,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
  col.push(New object("name","Smith","salary",10000))
  col.push(New object("name","Wesson","salary",50000))
  col.push(New object("name","Gross","salary",10500,5))
- vSum=col.sum("salary") //vSum=70500,5
+ vSum=col.sum("salary") //vSum:70500,5
 ```
 
 <!-- END REF -->
@@ -3041,14 +2923,6 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 <!-- REF collection.unshift().Desc -->
 ## .unshift()
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v16 R6|Added|
-
-</details>
 
 <!-- REF #collection.unshift().Syntax -->**.unshift**( *value* : any { ,...*valueN* : any } ) : Collection<!-- END REF -->
 
@@ -3076,9 +2950,9 @@ If several values are passed, they are inserted all at once, which means that th
 ```4d
  var c : Collection
  c=New collection(1,2)
- c.unshift(4) // c=[4,1,2]
- c.unshift(5) //c=[5,4,1,2]
- c.unshift(6,7) // c=[6,7,5,4,1,2]
+ c.unshift(4) // c:[4,1,2]
+ c.unshift(5) //c:[5,4,1,2]
+ c.unshift(6,7) // c:[6,7,5,4,1,2]
 ```
 
 <!-- END REF -->
