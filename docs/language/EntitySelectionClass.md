@@ -13,7 +13,7 @@ Entity selections can be created from existing selections using various function
 ||
 |---|
 |[<!-- INCLUDE EntitySelectionClass.index.Syntax -->](#91index93)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.index.Summary --></p>|
-|[<!-- INCLUDE EntitySelectionClass.at().Syntax -->](#attributename)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.at().Summary --></p>|
+|[<!-- INCLUDE #EntitySelectionClass.at().Syntax -->](#attributename)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.at().Summary --></p>|
 |[<!-- INCLUDE EntitySelectionClass.attributeName.Syntax -->](#attributename)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE EntitySelectionClass.attributeName.Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.add().Syntax -->](#add)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.add().Summary --></p>|
 |[<!-- INCLUDE #EntitySelectionClass.and().Syntax -->](#and)<p>&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.and().Summary --></p>|
@@ -1208,6 +1208,7 @@ If the original entity selection and the parameter are not related to the same d
  
  result=employees.minus(employee) //result contains "Colin Hetrick", "Grady Harness"
 ```
+
 
 
 #### Example 2 
