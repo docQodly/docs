@@ -141,6 +141,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/CryptoKeyClass',
+			label: "CryptoKey"
+		},
+		{
+			type: 'doc',
 			id: 'language/DataClassClass',
 			label: "DataClass"
 		},
