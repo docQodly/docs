@@ -126,6 +126,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/BlobClass',
+			label: "Blob"
+		},
+		{
+			type: 'doc',
 			id: 'language/CollectionClass',
 			label: "Collection"
 		},
