@@ -233,6 +233,7 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 The `.at()` function <!-- REF #collection.at().Summary -->returns the item at position *index*, allowing for positive and negative integers<!-- END REF -->. 
 
+
 >This function does not modify the original collection.
 
 Negative integers count back from the last item in the collection.
@@ -315,7 +316,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 <!-- REF collection.clear().Desc -->
 ## .clear()
 
-<!-- REF #collection.clear().Syntax -->**.clear()** : Collection<!-- END REF -->
+<!-- REF #collection.clear().Syntax -->**.clear**() : Collection<!-- END REF -->
 
 
 <!-- REF #collection.clear().Params -->
@@ -1855,6 +1856,7 @@ The `.min()` function <!-- REF #collection.min().Summary -->returns the element 
 
 >This function does not modify the original collection.
 
+
 If the collection contains different types of values, the `.min()` function will return the minimum value within the first element type in the type list order (see [`.sort()`](#sort) description).
 
 If the collection contains objects, pass the *propertyPath* parameter to indicate the object property whose minimum value you want to get.
@@ -1885,7 +1887,7 @@ If the collection is empty, `.min()` returns *Undefined*.
 ## .orderBy()
 
 
-<!-- REF #collection.orderBy().Syntax -->**.orderBy**( ) : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection <!-- END REF -->
+<!-- REF #collection.orderBy().Syntax -->**.orderBy**() : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection <!-- END REF -->
 
 
 <!-- REF #collection.orderBy().Params -->
@@ -1941,6 +1943,7 @@ If the collection contains elements of different types, they are first grouped b
 7.	dates
 
 #### Example 1
+
 
 Ordering a collection of numbers in ascending and descending order:
 
@@ -2120,7 +2123,7 @@ $1.result=(Compare strings($1.value,$1.value2,2)<0)
 ## .pop()
 
 
-<!-- REF #collection.pop().Syntax -->**.pop()** : any <!-- END REF -->
+<!-- REF #collection.pop().Syntax -->**.pop**() : any <!-- END REF -->
 
 
 <!-- REF #collection.pop().Params -->
@@ -2227,6 +2230,7 @@ You want to sort the resutling collection:
 
 
 #### Description
+
 
 The `.query()` function <!-- REF #collection.query().Summary -->returns all elements of a collection of objects that match the search conditions <!-- END REF -->defined by *queryString* and (optionally) *value* or *querySettings*. If the original collection is a shared collection, the returned collection is also a shared collection.
 
@@ -2594,7 +2598,7 @@ By default, new elements are filled will **null** values. You can specify the va
 <!-- REF collection.reverse().Desc -->
 ## .reverse()
 
-<!-- REF #collection.reverse().Syntax -->**.reverse( )** : Collection <!-- END REF -->
+<!-- REF #collection.reverse().Syntax -->**.reverse**() : Collection <!-- END REF -->
 
 
 <!-- REF #collection.reverse().Params -->
@@ -2628,7 +2632,7 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 ## .shift()
 
 
-<!-- REF #collection.shift().Syntax -->**.shift()** : any<!-- END REF -->
+<!-- REF #collection.shift().Syntax -->**.shift**() : any<!-- END REF -->
 
 
 <!-- REF #collection.shift().Params -->
