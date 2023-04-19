@@ -161,6 +161,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/EmailObjectClass',
+			label: "Email"
+		},
+		{
+			type: 'doc',
 			id: 'language/EntityClass',
 			label: "Entity"
 		},
