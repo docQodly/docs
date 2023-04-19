@@ -131,6 +131,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/ClassClass',
+			label: "Class"
+		},
+		{
+			type: 'doc',
 			id: 'language/CollectionClass',
 			label: "Collection"
 		},
