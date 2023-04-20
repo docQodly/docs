@@ -357,7 +357,6 @@ cw=info.Copyright
 <!-- REF file.moveTo().Desc -->
 ## .moveTo()
 
-<details><summary>History</summary>
 
 
 <!--REF #FileClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } ) : 4D.File<!-- END REF -->
@@ -397,7 +396,6 @@ myFile.moveTo(DocFolder.folder("Archives"),"Infos_old.txt")
 <!-- REF file.open().Desc -->
 ## .open()
 
-<details><summary>History</summary>
 
 <!--REF #FileClass.open().Syntax -->**.open**( { *mode* : Text } ) : 4D.FileHandle<br/>**.open**( { *options* : Object } ) : 4D.FileHandle<!-- END REF -->
 
@@ -670,5 +668,5 @@ myFile.setText("Hello world")
 ```
 <!-- END REF -->
 
-<!-- INCLUDE document.size.Desc -->
 
+<!-- INCLUDE document.size.Desc -->
