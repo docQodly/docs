@@ -176,6 +176,11 @@ const sidebars = {
 		},		
 		{
 			type: 'doc',
+			id: 'language/FileClass',
+			label: "File"
+		},
+		{
+			type: 'doc',
 			id: 'language/string',
 			label: "String"
 		},
