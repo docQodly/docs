@@ -16,10 +16,10 @@ created=File("/PACKAGE/SpecialPrefs/"+Current user+".myPrefs").create()
 
 ### Pathnames
 
-`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](../basics/lang-pathnames.md) page. 
+`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
 
 
-### Command
+### Commands
 
 |[<!-- INCLUDE #_command_.File.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.File.Summary -->|
 

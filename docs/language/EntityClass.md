@@ -3,7 +3,7 @@ id: EntityClass
 title: Entity
 ---
 
-An [entity](../concepts/orda/data-model#entity) is an instance of a [Dataclass](../concepts/orda/data-model.md#dataclass), like a record of the table matching the dataclass in its associated datastore. It contains the same attributes as the dataclass as well as the data values and specific properties and functions.
+An [entity](../concepts/orda/data-model.md#entity) is an instance of a [Dataclass](../concepts/orda/data-model.md#dataclass), like a record of the table matching the dataclass in its associated datastore. It contains the same attributes as the dataclass as well as the data values and specific properties and functions.
 
 
 ### Functions and properties
@@ -342,7 +342,7 @@ vCompareResult3 (only differences on e1 touched attributes are returned)
 
 The `.drop()` function <!-- REF #EntityClass.drop().Summary -->deletes the data contained in the entity from the datastore<!-- END REF -->, from the table related to its Dataclass. Note that the entity remains in memory.
 
-In a multi-process application, the `.drop()` function is executed under an ["optimistic lock"]((../concepts/orda/entities.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
+In a multi-process application, the `.drop()` function is executed under an ["optimistic lock"](../concepts/orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
 
 By default, if the *mode* parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process in the meantime. 
 

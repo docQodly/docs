@@ -181,6 +181,21 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/FileHandleClass',
+			label: "FileHandle"
+		},
+		{
+			type: 'doc',
+			id: 'language/FolderClass',
+			label: "Folder"
+		},
+		{
+			type: 'doc',
+			id: 'language/FunctionClass',
+			label: "Function"
+		},
+		{
+			type: 'doc',
 			id: 'language/string',
 			label: "String"
 		},
