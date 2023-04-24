@@ -262,8 +262,11 @@ The `Formula from string` command <!-- REF #_command_.Formula from string.Summar
 
 This command is similar to [`Formula`](#formula), except that it handles a text-based formula. In most cases, it is recommended to use the `Formula` command. `Formula from string` should only be used when the original formula was expressed as text (e.g., stored externally in a JSON file). 
 
+:::note
 
+This command does not support the use of variables in *formulaString*. An attempt to access a variable with `Formula from string` will result in an error (-10737).
 
+:::
 
 <!-- REF FunctionClass.apply().Desc -->
 ## .apply()
