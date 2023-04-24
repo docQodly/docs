@@ -196,6 +196,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/HTTPRequestClass',
+			label: "HTTPRequest"
+		},
+		{
+			type: 'doc',
 			id: 'language/string',
 			label: "String"
 		},
