@@ -204,7 +204,11 @@ const sidebars = {
 			id: 'language/string',
 			label: "String"
 		},
-
+		{
+			type: 'doc',
+			id: 'language/UsersClass',
+			label: "Users"
+		},
   ],
 };
 
