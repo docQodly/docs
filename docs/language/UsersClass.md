@@ -78,7 +78,7 @@ The function returns a Qodly user object that can contains the following propert
 |firstname|String|First name of the user|
 |lastname|String|Last name of the user|
 
-If the user is not identified (guest mode), only the `email` property is returned.
+If the user session is in "guest" mode, only the `email` and `role` properties are returned.
 
 
 #### Example
