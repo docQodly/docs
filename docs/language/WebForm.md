@@ -136,7 +136,7 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 
 ### *.componentName*
 
-<!-- REF WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](WebFormItemClass.md)<!-- END REF -->
+<!-- REF WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](#webformitem-class)<!-- END REF -->
 
 #### Description
 
@@ -157,13 +157,13 @@ component=webform.myImage //returns the myImage component of the web form
 ```
 
 
-## WebFormItemClass
+## WebFormItem Class
 
 The `4D.WebFormItem` class allows you to handle the behavior of your webform components.
 
-`4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass.md) object returned by the `Web Form` command. 
+`4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass.md) object returned by the [`webForm`](#webform) command. 
 
-When you call the `Web Form` command, the returned `4D.WebForm` object holds as many `4D.WebFormItems` as there are components with `[server-side references](XXX)` in your webform.
+When you call the [`webForm`](#webform) command, the returned `4D.WebForm` object holds as many `4D.WebFormItems` as there are components with `[server-side references](XXX)` in your webform.
 
 For example, `WebFormObject.myImage` refers to the image component with `myImage` as server reference.
 
