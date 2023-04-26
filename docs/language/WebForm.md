@@ -96,7 +96,7 @@ myForm=webForm
 event=webEvent
 componentRef=event.caller
 
-If (event.eventType="onmouseover")  // event is onmouseover 
+If (event.eventType=="onmouseover")  // event is onmouseover 
 	myForm["helpOn_"+componentRef].show()  // show the help on "orderNumber" by showing  
 	// the text component with reference "helpOn_orderNumber" 
 Else 
@@ -148,11 +148,11 @@ The returned objects are of the [`4D.WebFormItem`](WebFormItemClass.md) class. T
 #### Example
 
 ```4d
-var webform: 4D.WebForm
+var myForm: 4D.WebForm
 var component: 4D.WebFormItem
 
-webform=Web Form //returns the web form as an object, each property is a component
-component=webform.myImage //returns the myImage component of the web form
+myForm=webForm //returns the web form as an object, each property is a component
+component=myForm.myImage //returns the myImage component of the web form
 
 ```
 

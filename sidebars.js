@@ -201,6 +201,16 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'language/IMAPTransporterClass',
+			label: "IMAPTransporter"
+		},
+		{
+			type: 'doc',
+			id: 'language/MailAttachmentClass',
+			label: "MailAttachment"
+		},
+		{
+			type: 'doc',
 			id: 'language/string',
 			label: "String"
 		},

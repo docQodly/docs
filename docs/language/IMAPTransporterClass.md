@@ -1670,7 +1670,7 @@ status=transporter.unsubscribe(name)
 If (status.success)
    info="Mailbox unsubscription successful!"
 Else
-   ino="Error: "+status.statusText
+   info="Error: "+status.statusText
 End if
 ```
 
