@@ -69,21 +69,19 @@ The `.getCurrentUser()` function <!-- REF #Users.getCurrentUser().Summary -->ret
 
 #### Qodly user object
 
-The function returns a Qodly user object that can contains the following properties:
+The function returns a Qodly user object that contains the following properties:
 
 |Property|Type|Description|
 |---|---|---|
-|email|String|Email of the user used to set their account|
+|email|String|Email of the user used to create their account|
 |role|String|Role defined in the roles and privileges of the application|
 |firstname|String|First name of the user|
 |lastname|String|Last name of the user|
 
-If the user session is in "guest" mode, only the `email` and `role` properties are returned.
-
 
 #### Example
 
-To implement the `getCurrentUser()` function in your class:
+To implement a `getCurrentUser()` function in a custom class:
 
 ```4d
 exposed Function getCurrentUser() : Object
@@ -107,7 +105,7 @@ return user
 <!--REF #Users.getAllUsers().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Collection|<-|Collection of user objects|<!-- END REF -->
+|Result|Collection|<-|Collection of Qodly user objects|<!-- END REF -->
 
 
 #### Description
@@ -122,7 +120,7 @@ The function returns a collection of [Qodly user objects](#qodly-user-object).
 
 #### Example
 
-To implement the `getAllUsers()` function in your class:
+To implement a `getAllUsers()` function in a custom class:
 
 
 ```4d

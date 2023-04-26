@@ -209,6 +209,11 @@ const sidebars = {
 			id: 'language/UsersClass',
 			label: "Users"
 		},
+		{
+			type: 'doc',
+			id: 'language/WebForm',
+			label: "WebForm"
+		},
   ],
 };
 
