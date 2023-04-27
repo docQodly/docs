@@ -50,6 +50,12 @@ myObject.myAttribute="10"
 value=$clientObj.data.address.city
 ```
 
+:::tip
+
+Starting the property name with an underscore character ("_") will exclude the property from the autocompletion features in the code editor. For example, if you declare `o._myPrivateProperty`, it will not be proposed in the code editor when you type in `"o. "`.
+
+:::
+
 :::note
 
 If you use **string notation** within square brackets, property names can contain any characters (ex: `myObject["1. First property"]`).
