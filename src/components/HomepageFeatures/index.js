@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Qodly Studio',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/qodly-studio.svg').default,
     description: (
       <>
         Create and design web business apps in an intuitive and
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: 'Qodly Server',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/qodly-server.svg').default,
     description: (
       <>
         A powerful and secured server running the QodlyScript language
@@ -25,7 +25,7 @@ const FeatureList = [
   },
   {
     title: 'Qodly Cloud',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/qodly-cloud.svg').default,
     description: (
       <>
         A dedicated infrastructure to launch and monitor
