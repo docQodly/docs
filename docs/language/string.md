@@ -15,8 +15,9 @@ title: String
 
 ||
 |---|
+|[<!-- INCLUDE #_command_.Change string.Syntax -->](#change-string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
 |[<!-- INCLUDE #_command_.Change string.Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
-|[<!-- INCLUDE #FileClass.create().Syntax -->](#create)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.create().Summary -->|
+
 
 
 ## Change string
@@ -882,7 +883,7 @@ This example compares the results obtained depending on the “current” separa
 
 ## Position
 
-<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound * : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *engthFound* : Integer , *options* : Integer ) : Integer<!-- END REF -->
+<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound * : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound* : Integer , *options* : Integer ) : Integer<!-- END REF -->
 
 <!-- REF #_command_.Position.Params -->
 |Parameter|Type||Description|
@@ -891,7 +892,6 @@ This example compares the results obtained depending on the “current” separa
 |aString|Text|->|String in which to search|
 |start|Integer|->|Position in string where search will start|
 |lengthFound|Integer|<-|Length of string found|
-|lengthFound|Integer|->|Length of string found|
 |*||->|If passed: evaluation based on character codes|
 |options|Integer|->|Search condition(s)|
 |Result|Integer|<-|Position of first occurrence|<!-- END REF -->
@@ -915,18 +915,17 @@ By default, the command makes global comparisons that take linguistic particular
 
 To modify this functioning, you can pass: 
 
-* (*`first syntax -`* * *`parameter`*) the asterisk * as the last parameter. In this case, comparisons will be based on character codes. You must pass the * parameter:
-	* If you want to take special characters into account, used for example as delimiters (`Char`(1), etc.),
-	* If the evaluation of characters must be case sensitive and take accented characters into account (a#A, a#à and so on).
-Note that in this mode, the evaluation does not handle variations in the way words are written.
+* first syntax (`*` parameter): In this case, comparisons will be based on character codes. You must pass the `*` parameter:
+	* If you want to take special characters into account, used for example as delimiters (`Char(1)`, etc.)
+	* If the evaluation of characters must be case sensitive and take accented characters into account (`a#A`, `a#à` and so on). Note that in this mode, the evaluation does not handle variations in the way words are written.
 
 		:::note
 
-		In certain cases, using the * parameter can significantly accelerate the execution of the command. 
+		In certain cases, using the `*` parameter can significantly accelerate the execution of the command. 
 
 		:::
 
-* (*`second syntax`* - *`options parameter`*) one or a combination of the following constants:
+* second syntax (`options` parameter): one or a combination of the following constants:
 
 |Constant|Value|Comment|
 |:----|:----|:----|
@@ -1032,7 +1031,7 @@ By default, the command makes global comparisons that take linguistic particular
 
 To modify this functioning, pass the asterisk * as the last parameter. In this case, comparisons will be based on character codes. You must pass the * parameter:
 
-* If you want to replace special characters, used for example as delimiters (`Char`(1), etc.),
+* If you want to replace special characters, used for example as delimiters (`Char(1)`, etc.),
 * If the replacement of characters must be case sensitive and take accented characters into account (a#A, a#à and so on).
 Note that in this mode, the evaluation does not handle variations in the way words are written.
 
