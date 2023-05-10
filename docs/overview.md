@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Overview
+title: Welcome
 ---
 
 ## Welcome to Qodly
