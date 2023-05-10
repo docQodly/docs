@@ -80,15 +80,21 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: 'concepts/server-architecture',
+            docId: '/category/studio',
             position: 'left',
-            label: 'Guides',
+            label: 'Development',
           },
 		  {
             type: 'doc',
-            docId: '/category/language',
+            docId: '/category/cloud',
             position: 'left',
-            label: 'QodlyScript',
+            label: 'Cloud',
+          },
+		 {
+            type: 'doc',
+            docId: '/category/API',
+            position: 'left',
+            label: 'API',
           },
 		  /*
           {to: '/blog', label: 'Blog', position: 'left'},

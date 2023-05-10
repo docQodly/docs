@@ -371,11 +371,6 @@ Properties are declared for new objects when you call the [`new()`](../ClassClas
 
 Property names must be compliant with [property naming rules](../basics/lang-identifiers.md#object-properties).
 
-:::tip
-
-Starting the property name with an underscore character ("_") will exclude the property from the autocompletion features in the code editor. For example, if you declare `property _myPrivateProperty` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
-
-:::
 
 The property type can be one of the following supported types:
 
@@ -387,7 +382,6 @@ The property type can be one of the following supported types:
 |`Boolean`|Boolean value|
 |`Integer`|Long integer value|
 |`Real`|Real value|
-|`Pointer`|Pointer value|
 |`Picture`|Picture value|
 |`Blob`|Scalar Blob value|
 |`Collection`|Collection value|

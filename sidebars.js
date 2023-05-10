@@ -33,16 +33,14 @@ const sidebars = {
    {
       type: 'doc',
       id: 'overview',
-      label: "Overview"
+      label: "Welcome"
     },
 	{
       type: 'doc',
       id: 'get-started',
       label: "Getting Started"
     },
-  ],
-  Guides:[
-   {
+	{
       type: 'category',
       label: 'Concepts',
 	  link: {
@@ -67,25 +65,99 @@ const sidebars = {
 						'concepts/orda/glossary',
 					],
 				},
-				],
+			],
     },
   ],
-  QodlyScript:[
-   		{ 	type: 'category',
-			label: 'QodlyScript overview',
+  
+  
+  Development:[
+  
+	{
+      type: 'category',
+      label: 'Qodly Studio',
+	  link: {
+			type: 'generated-index',
+			title: 'Qodly Studio',
+			description: 'Welcome to the Qodly Studio documentation.',
+			slug: '/category/studio',
+			keywords: ['Studio', 'Development'],
+			image: '/img/docusaurus.png',
+			},
+		items: [
+		{
+			type: 'category',
+			label: "Configuration",
+			items: ['studio/configuration/4d-settings',
+				'studio/configuration/license-usage'
+			],
+		},
+		{
+			type: 'category',
+			label: 'Model',
+			items: ['studio/model/model-overview',
+				'studio/model/model-editor-interface',
+				'studio/model/datastore-classes'
+			],
+		},
+		{
+			type: 'category',
+			label: 'Webforms',
+			items: ['studio/design-webforms/create-webform',
+				'studio/design-webforms/components',
+				'studio/design-webforms/styling',
+				'studio/design-webforms/datasources',
+				'studio/design-webforms/events/events',
+				'studio/rendering',
+			],
+		},
+		{
+			type: 'doc',
+			id: 'studio/settings',
+			label: "Settings"
+		},
+		{
+			type: 'doc',
+				id: 'studio/coding-and-debugging',
+				label: "Coding and debugging"
+		},
+		],
+	},
+	
+	{
+		type: 'category',
+		label: 'QodlyScript Reference',
+		link: {
+			type: 'generated-index',
+			title: 'QodlyScript',
+			description: 'QodlyScript Reference Guide',
+			slug: '/category/qodlyscript',
+			keywords: ['qodlyscript', 'language'],
+			image: '/img/docusaurus.png',
+			},
+		items: [
+		  		{
+			type: 'doc',
+			id: 'language/basics/lang-quicktour',
+			label: "QuickTour"
+		},
+		{ 	type: 'category',
+			label: 'Basics',
+			collapsible: true,
+			collapsed: true,
 			link: {
 				type: 'generated-index',
-				title: 'QodlyScript overview',
+				title: 'Basics',
 				description: 'Main concepts of the QodlyScript Language.',
 				slug: '/category/language',
 				keywords: ['language'],
 				image: '/img/docusaurus.png',
 			},
-			items: ['language/basics/lang-quicktour',
-				'language/basics/lang-variables',
+			items: ['language/basics/lang-variables',
 				'language/basics/lang-arrays',
 				{ 	type: 'category',
 					label: 'Data Types',
+					collapsible: true,
+					collapsed: true,
 					link: {
 						type: 'doc',
 						id: 'language/basics/lang-data-types',
@@ -116,38 +188,88 @@ const sidebars = {
 				'language/basics/lang-pathnames',
 				],
 		},
-		{
-			type: 'doc',
-			id: 'language/DataClassClass',
-			label: "DataClass"
+		{ 	type: 'category',
+			label: 'Themes & classes',
+			collapsible: true,
+			collapsed: true,
+			link: {
+				type: 'generated-index',
+				title: 'Themes & classes',
+				description: 'List of commands and functions of the QodlyScript language',
+				slug: '/category/themes',
+				keywords: ['themes','classes'],
+				image: '/img/docusaurus.png',
+			},
+			items: ['language/BlobClass',
+			'language/ClassClass',
+			'language/CollectionClass',
+			'language/CryptoKeyClass',
+			'language/DataClassClass',
+			'language/DataClassAttributeClass',
+			'language/DataStoreClass',
+			'language/EmailObjectClass',
+			'language/EntityClass',
+			'language/EntitySelectionClass',
+			'language/FileClass',
+			'language/FileHandleClass',
+			'language/FolderClass',
+			'language/FunctionClass',
+			'language/HTTPRequestClass',
+			'language/IMAPTransporterClass',
+			'language/MailAttachmentClass',
+			'language/string',
+			'language/UsersClass',
+			'language/WebForm',
+			],
 		},
-		{
-			type: 'doc',
-			id: 'language/DataClassAttributeClass',
-			label: "DataClassAttribute"
-		},
-		{
-			type: 'doc',
-			id: 'language/DataStoreClass',
-			label: "DataStore"
-		},
-		{
-			type: 'doc',
-			id: 'language/EntityClass',
-			label: "Entity"
-		},
-		{
-			type: 'doc',
-			id: 'language/EntitySelectionClass',
-			label: "EntitySelection"
-		},		
-		{
-			type: 'doc',
-			id: 'language/string',
-			label: "String"
-		},
+	],
+  },
+ ],
+		
 
+  Cloud:[
+  	{
+		type: 'category',
+		label: 'Cloud',
+		link: {
+			type: 'generated-index',
+			title: 'Cloud',
+			description: 'Qodly Cloud documentation',
+			slug: '/category/cloud',
+			image: '/img/docusaurus.png',
+			},
+		items: [
+		  		{
+					type: 'doc',
+					id: 'cloud/overview-cloud',
+					label: "Overview"
+				},
+			],
+	},
+	],
+
+
+  API:[
+	{
+		type: 'category',
+		label: 'API',
+		link: {
+			type: 'generated-index',
+			title: 'API',
+			description: 'QodlyScript REST API',
+			slug: '/category/API',
+			image: '/img/docusaurus.png',
+			},
+		items: [
+		  		{
+					type: 'doc',
+					id: 'api/overview-api',
+					label: "Overview"
+				},
+			],
+	},
   ],
-};
 
+};
+	
 module.exports = sidebars;
