@@ -146,7 +146,7 @@ const sidebars = {
 			collapsed: true,
 			link: {
 				type: 'generated-index',
-				title: 'Fundamentals',
+				title: 'Basics',
 				description: 'Main concepts of the QodlyScript Language.',
 				slug: '/category/language',
 				keywords: ['language'],
@@ -188,105 +188,39 @@ const sidebars = {
 				'language/basics/lang-pathnames',
 				],
 		},
-		{
-			type: 'doc',
-			id: 'language/BlobClass',
-			label: "Blob"
-		},
-		{
-			type: 'doc',
-			id: 'language/ClassClass',
-			label: "Class"
-		},
-		{
-			type: 'doc',
-			id: 'language/CollectionClass',
-			label: "Collection"
-		},
-		{
-			type: 'doc',
-			id: 'language/CryptoKeyClass',
-			label: "CryptoKey"
-		},
-		{
-			type: 'doc',
-			id: 'language/DataClassClass',
-			label: "DataClass"
-		},
-		{
-			type: 'doc',
-			id: 'language/DataClassAttributeClass',
-			label: "DataClassAttribute"
-		},
-		{
-			type: 'doc',
-			id: 'language/DataStoreClass',
-			label: "DataStore"
-		},
-		{
-			type: 'doc',
-			id: 'language/EmailObjectClass',
-			label: "Email"
-		},
-		{
-			type: 'doc',
-			id: 'language/EntityClass',
-			label: "Entity"
-		},
-		{
-			type: 'doc',
-			id: 'language/EntitySelectionClass',
-			label: "EntitySelection"
-		},		
-		{
-			type: 'doc',
-			id: 'language/FileClass',
-			label: "File"
-		},
-		{
-			type: 'doc',
-			id: 'language/FileHandleClass',
-			label: "FileHandle"
-		},
-		{
-			type: 'doc',
-			id: 'language/FolderClass',
-			label: "Folder"
-		},
-		{
-			type: 'doc',
-			id: 'language/FunctionClass',
-			label: "Function"
-		},
-		{
-			type: 'doc',
-			id: 'language/HTTPRequestClass',
-			label: "HTTPRequest"
-		},
-		{
-			type: 'doc',
-			id: 'language/IMAPTransporterClass',
-			label: "IMAPTransporter"
-		},
-		{
-			type: 'doc',
-			id: 'language/MailAttachmentClass',
-			label: "MailAttachment"
-		},
-		{
-			type: 'doc',
-			id: 'language/string',
-			label: "String"
-		},
-		{
-			type: 'doc',
-			id: 'language/UsersClass',
-			label: "Users"
-		},
-		{
-			type: 'doc',
-			id: 'language/WebForm',
-			label: "WebForm"
+		{ 	type: 'category',
+			label: 'Themes & classes',
+			collapsible: true,
+			collapsed: true,
+			link: {
+				type: 'generated-index',
+				title: 'Themes & classes',
+				description: 'List of commands and functions of the QodlyScript language',
+				slug: '/category/themes',
+				keywords: ['themes','classes'],
+				image: '/img/docusaurus.png',
+			},
+			items: ['language/BlobClass',
+			'language/ClassClass',
+			'language/CollectionClass',
+			'language/CryptoKeyClass',
+			'language/DataClassClass',
+			'language/DataClassAttributeClass',
+			'language/DataStoreClass',
+			'language/EmailObjectClass',
+			'language/EntityClass',
+			'language/EntitySelectionClass',
+			'language/FileClass',
+			'language/FileHandleClass',
+			'language/FolderClass',
+			'language/FunctionClass',
+			'language/HTTPRequestClass',
+			'language/IMAPTransporterClass',
+			'language/MailAttachmentClass',
+			'language/string',
+			'language/UsersClass',
+			'language/WebForm',
+			],
 		},
 	],
   },
