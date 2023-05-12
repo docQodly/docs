@@ -3,10 +3,10 @@ id: lang-quicktour
 title: A Quick Tour
 ---
 
-Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the followinbg line:
+Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the following line:
 
 ```4d  
-Web Form.setMessage("Hello, World!")
+webForm.setMessage("Hello, World!")
 ```
 
 This code will display a "Hello, World!" message at the bottom of your web form.
@@ -18,13 +18,13 @@ Data can be put into and copied out of variables, attributes, collection items..
 ```4d
 MyNumber=3 //assigns 3 to MyNumber variable  
 myEntity.size=myNumber //assigns myNumber variable to size entity attribute
-MyVar=Length("Acme") //assigns the result of the function (4) to MyVar
+MyVar=length("Acme") //assigns the result of the function (4) to MyVar
 myDate=!2023/01/21! //assigns a date literal
 myColl[2].hours=?08:12:55? //assigns a time literal
 arrDays{2}="Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
 ```
 
-You MUST distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
+You must distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
 
 For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
 
@@ -39,7 +39,7 @@ a+=2 //3
 The QodlyScript language is strongly typed, although some flexibility is allowed in many cases. You create a typed variable using the `var` keyword. For example, to create a variable of the date type, you can write:
 
 ```4d
-var MyDate : Date 
+var MyDate : date 
 ```
 
 The `var` keyword allows declaring object variables of a defined class type, for example:
@@ -56,14 +56,14 @@ A declared variable cannot change of type.
 QodlyScript commands are built-in methods to perform an action. Commands are often used with parameters, which are passed in brackets () and separated by commas `,`. Example:
 
 ```4d
-CONVERT FROM TEXT(vText,"UTF-8",vBlob)
+convertFromString(vText,"UTF-8",vBlob)
 ```
 
 Some commands are attached to collections or objects, in which case they are named functions and are used using the dot notation. For example: 
 
 ```4d
-c=New collection(1,2,3,4,5)
-nc=c.slice(0,3) //$nc=[1,2,3]  
+c=newCollection(1,2,3,4,5)
+nc=c.slice(0,3) //nc=[1,2,3]  
 
 lastEmployee=employee.last()
 ```
@@ -76,13 +76,13 @@ QodlyScript proposes an extensed set of predefined constants, whose values are a
 ```4d
 a="alpha bravo charlie"
 b="Alpha Bravo Charlie"  
-vResult=Compare strings(a,b,sk char codes) // vResult: 1
+vResult=compareStrings(a,b,sk char codes) // vResult: 1
 ```
 
 Constants can be added:
 
 ```4d
-vResult=Compare strings(a,b,sk char codes+sk case insensitive) // vResult: 0
+vResult=compareStrings(a,b,sk char codes+sk case insensitive) // vResult: 0
 ```
 
 
@@ -93,10 +93,10 @@ QodlyScript provides a large number of built-in methods (or *commands*) but also
 
 A method is composed of statements; each statement consists of one line in the method. A statement performs an action, and may be simple or complex.
 
-For example, the following line is a statement that will compress a BLOB:
+For example, the following line is a statement that will crop a picture:
 
 ```4d
-COMPRESS BLOB(vBlob,GZIP Best compression mode)
+transformPicture(vpGears,Crop,50,50,100,100))
 ```
 
 A method also contains tests and loops that control the flow of the execution. QodlyScript methods support `If...Else...End if` and `Case of...Else...End case` branching structures as well as looping structures: `While...End while`, `Repeat...Until`, `For...End for`, and `For each...End for each`:
