@@ -153,7 +153,6 @@ const sidebars = {
 				image: '/img/docusaurus.png',
 			},
 			items: ['language/basics/lang-variables',
-				'language/basics/lang-arrays',
 				{ 	type: 'category',
 					label: 'Data Types',
 					collapsible: true,
