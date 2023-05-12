@@ -74,7 +74,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'overview',
+            docId: 'qodlyHeroHandbook/intro',
             position: 'left',
             label: 'Getting Started',
           },

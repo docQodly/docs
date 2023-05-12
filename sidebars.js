@@ -30,42 +30,216 @@ const sidebars = {
    */
    
   GetStarted:[
-   {
+    {
+        type: 'category',
+        label: 'Qodly Hero Handbook',
+        link: {
+            type: 'doc',
+            id: 'qodlyHeroHandbook/intro',
+        },
+        items: [
+            'qodlyHeroHandbook/layers',
+            { 	
+                type: 'category',
+                label: 'Qodly Studio - QDroid',
+                link: {
+                    type: 'doc',
+                    id: 'qodlyHeroHandbook/qodlyStudio/intro',
+                },
+                items: [
+                    'qodlyHeroHandbook/qodlyStudio/accessingQodly',
+                    { 	
+                        type: 'category',
+                        label: 'WebForms',
+                        link: {
+                            type: 'doc',
+                            id: 'qodlyHeroHandbook/qodlyStudio/webforms/intro',
+                        },
+                        items: [
+                            { 	
+                                type: 'category',
+                                label: 'Components',
+                                link: {
+                                    type: 'doc',
+                                    id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/intro',
+                                },
+                                items: [
+                                    { 	
+                                        type: 'category',
+                                        label: 'Components',
+                                        link: {
+                                            type: 'doc',
+                                            id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/components/intro',
+                                        },
+                                        items: [
+                                            { 	
+                                                type: 'category',
+                                                label: 'Webform',
+                                                link: {
+                                                    type: 'doc',
+                                                    id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webform/intro',
+                                                },
+                                                items: [
+                                                    'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webform/propertiesPanel',
+                                                    'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webform/tooltip',
+                                                    'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webform/headerPanel',
+                                                    'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webform/contextualPanel',
+                                                ],
+                                            },
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/styleBox',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/button',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/grid',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/checkBox',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/image',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/icon',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/selectBox',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/text',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/webformLoader',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/radio',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/matrix',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/selectInput',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/textInput',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/rangeInput',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/tabs',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/dataTable',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/fileInput',
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/components/columns',
+                                        ],
+                                    },
+                                    { 	
+                                        type: 'category',
+                                        label: 'Crafted Components',
+                                        link: {
+                                            type: 'doc',
+                                            id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/craftedComponents/intro',
+                                        },
+                                        items: [
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/craftedComponents/intro',
+                                        ],
+                                    },
+                                    { 	
+                                        type: 'category',
+                                        label: 'Templates',
+                                        link: {
+                                            type: 'doc',
+                                            id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/templates/intro',
+                                        },
+                                        items: [
+                                            'qodlyHeroHandbook/qodlyStudio/webforms/components/templates/intro',
+                                        ],
+                                    },
+                                ],
+                            },
+                            { 	
+                                type: 'category',
+                                label: 'Datasources',
+                                link: {
+                                    type: 'doc',
+                                    id: 'qodlyHeroHandbook/qodlyStudio/webforms/datasources/intro',
+                                },
+                                items: [
+                                    'qodlyHeroHandbook/qodlyStudio/webforms/datasources/intro',
+                                ],
+                            },
+                            { 	
+                                type: 'category',
+                                label: 'Style library',
+                                link: {
+                                    type: 'doc',
+                                    id: 'qodlyHeroHandbook/qodlyStudio/webforms/styleLibrary/intro',
+                                },
+                                items: [
+                                    'qodlyHeroHandbook/qodlyStudio/webforms/styleLibrary/intro',
+                                ],
+                            },
+                            { 	
+                                type: 'category',
+                                label: 'Outline',
+                                link: {
+                                    type: 'doc',
+                                    id: 'qodlyHeroHandbook/qodlyStudio/webforms/outline/intro',
+                                },
+                                items: [
+                                    'qodlyHeroHandbook/qodlyStudio/webforms/outline/intro',
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            { 	
+                type: 'category',
+                label: 'Qodly Server - Fortress',
+                link: {
+                    type: 'generated-index',
+                    title: 'test',
+                    description: 'test',
+                    slug: '/qodlyServer',
+                    keywords: ['qodlyServer'],
+                    image: '/img/qodly.png',
+                },
+                items: [
+                    'qodlyHeroHandbook/qodlyServer/intro',
+                ],
+            },
+            { 	
+                type: 'category',
+                label: 'Qodly Cloud - Nimbus',
+                link: {
+                    type: 'generated-index',
+                    title: 'test',
+                    description: 'test',
+                    slug: '/qodlyCloud',
+                    keywords: ['qodlyCloud'],
+                    image: '/img/qodly.png',
+                },
+                items: [
+                    'qodlyHeroHandbook/qodlyCloud/intro',
+                ],
+            },
+        ],
+    },
+    {
+      type: 'category',
+      label: 'Concepts',
+      link: {
+            type: 'generated-index',
+            title: 'Concepts',
+            description: 'Description of the main concepts implemented in Qodly.',
+            slug: '/category/concepts',
+            keywords: ['concepts'],
+            image: '/img/docusaurus.png',
+            },
+      items: ['concepts/server-architecture','concepts/db',
+                { 	type: 'category',
+                    label: 'ORDA',
+                    link: {
+                        type: 'doc',
+                        id: 'concepts/orda/overview',
+                    },
+                    items: [
+                        'concepts/orda/data-model',
+                        'concepts/orda/orda-classes',
+                        'concepts/orda/data',
+                        'concepts/orda/glossary',
+                    ],
+                },
+            ],
+    },
+    {
+      type: 'doc',
+      id: 'materials',
+      label: "Materials"
+    }, 
+    {
       type: 'doc',
       id: 'overview',
       label: "Welcome"
     },
-	{
+    {
       type: 'doc',
       id: 'get-started',
       label: "Getting Started"
-    },
-	{
-      type: 'category',
-      label: 'Concepts',
-	  link: {
-			type: 'generated-index',
-			title: 'Concepts',
-			description: 'Description of the main concepts implemented in Qodly.',
-			slug: '/category/concepts',
-			keywords: ['concepts'],
-			image: '/img/docusaurus.png',
-			},
-      items: ['concepts/server-architecture','concepts/db',
-				{ 	type: 'category',
-					label: 'ORDA',
-					link: {
-						type: 'doc',
-						id: 'concepts/orda/overview',
-					},
-					items: [
-						'concepts/orda/data-model',
-						'concepts/orda/orda-classes',
-						'concepts/orda/data',
-						'concepts/orda/glossary',
-					],
-				},
-			],
     },
   ],
   
