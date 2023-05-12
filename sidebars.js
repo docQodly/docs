@@ -202,6 +202,7 @@ const sidebars = {
 			},
 			items: ['language/BlobClass',
 			'language/ClassClass',
+			'language/boolean',
 			'language/CollectionClass',
 			'language/CryptoKeyClass',
 			'language/DataClassClass',
