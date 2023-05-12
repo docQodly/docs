@@ -68,8 +68,12 @@ const sidebars = {
                                         type: 'category',
                                         label: 'Components',
                                         link: {
-                                            type: 'doc',
-                                            id: 'qodlyHeroHandbook/qodlyStudio/webforms/components/components/intro',
+                                            type: 'generated-index',
+                                            title: 'QDroid Incredible Components',
+                                            description: 'For web application development, the first sub-element of the Components section is highly useful, providing powerful features that simplify the process. Now, let us take a closer look at each of the available components:',
+                                            slug: '/category/components',
+                                            keywords: ['components'],
+                                            image: '/img/docusaurus.png',
                                         },
                                         items: [
                                             { 	
