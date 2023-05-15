@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "start_watch": "doc_preprocess --settings_type='start_watch'",
+	"start_watch": "doc_preprocess --settings_type='start_watch'",
     "build": "doc_preprocess && doc_preprocess --settings_type='build_versioned_docs' && doc_preprocess --settings_type='build_translate' && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -15,9 +15,8 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@4dsas/doc_preprocessing": "1.1.0",
+	"@4dsas/doc_preprocessing": "1.1.0",
     "@cmfcmf/docusaurus-search-local": "^0.11.0",
-    "@docsearch/css": "^3.3.4",
     "@docusaurus/core": "^2.3.1",
     "@docusaurus/preset-classic": "^2.3.1",
     "@mdx-js/react": "^1.6.22",
