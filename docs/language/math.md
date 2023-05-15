@@ -8,18 +8,18 @@ title: Math
 
 ## abs
 
-<!-- REF #_command_.abs.Syntax -->**abs** ( *number* : real ) : real<!-- END REF -->
+**abs** ( *number* : real ) : real
 
 
-<!-- REF #_command_.abs.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number for which to return the absolute value|
-|Result|real|<-|Absolute value of number|<!-- END REF -->
+|Result|real|<-|Absolute value of number|
 
 #### Description
 
-`abs` <!-- REF #_command_.abs.Summary -->returns the absolute (unsigned, positive) value of *number*<!-- END REF -->. If *number* is negative, it is returned as positive. If *number* is positive, it is returned unchanged.
+`abs` returns the absolute (unsigned, positive) value of *number*. If *number* is negative, it is returned as positive. If *number* is positive, it is returned unchanged.
 
 #### Example
 
@@ -33,18 +33,18 @@ vlVector=abs(-10.3)
 
 ## arctan
 
-<!-- REF #_command_.arctan.Syntax -->**arctan** ( *number* : real ) : real<!-- END REF -->
+**arctan** ( *number* : real ) : real
 
 
-<!-- REF #_command_.arctan.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Tangent for which to calculate the angle|
-|Result|real|<-|Angle in radians|<!-- END REF -->
+|Result|real|<-|Angle in radians|
 
 #### Description
 
-`arctan` <!-- REF #_command_.arctan.Summary -->returns the angle, expressed in radians, of the tangent *number*<!-- END REF -->. 
+`arctan` returns the angle, expressed in radians, of the tangent *number*. 
 
 :::note
 
@@ -69,18 +69,18 @@ The following example shows the value of Pi:
 
 ## cos
 
-<!-- REF #_command_.cos.Syntax -->**cos** ( *number* : real ) : real<!-- END REF -->
+**cos** ( *number* : real ) : real
 
 
-<!-- REF #_command_.cos.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number, in radians, whose cosine is returned|
-|Result|real|<-|Cosine of number|<!-- END REF -->
+|Result|real|<-|Cosine of number|
 
 #### Description
 
-`cos` <!-- REF #_command_.cos.Summary --> returns the cosine of *number*, where *number* is expressed in radians<!-- END REF -->. 
+`cos`  returns the cosine of *number*, where *number* is expressed in radians. 
 
 :::note
 
@@ -96,18 +96,18 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 ## dec
 
-<!-- REF #_command_.dec.Syntax -->**dec** ( *number* : real ) : real<!-- END REF -->
+**dec** ( *number* : real ) : real
 
 
-<!-- REF #_command_.dec.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number whose decimal portion is returned|
-|Result|real|<-|Decimal part of number|<!-- END REF -->
+|Result|real|<-|Decimal part of number|
 
 #### Description
 
-`dec` <!-- REF #_command_.dec.Summary -->returns the decimal (fractional) portion of *number*<!-- END REF -->. The value returned is always positive or zero.
+`dec` returns the decimal (fractional) portion of *number*. The value returned is always positive or zero.
 
 #### Example
 
@@ -126,18 +126,18 @@ The following example takes a monetary value expressed as a real number, and ext
 
 ## exp
 
-<!-- REF #_command_.exp.Syntax -->**exp** ( *number* : real ) : real<!-- END REF -->
+**exp** ( *number* : real ) : real
 
 
-<!-- REF #_command_.exp.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number to evaluate|
-|Result|real|<-|Natural log base by the power of number|<!-- END REF -->
+|Result|real|<-|Natural log base by the power of number|
 
 #### Description
 
-`exp` <!-- REF #_command_.exp.Summary -->raises the natural log base (e = 2.71828...) by the power of *number*<!-- END REF -->. `exp` is the inverse function of [`log`](#log).
+`exp` raises the natural log base (e = 2.71828...) by the power of *number*. `exp` is the inverse function of [`log`](#log).
 
 :::note
 
@@ -160,18 +160,18 @@ The following example assigns the exponential of 1 to vrE (the log of vrE is 1):
 
 ## int
 
-<!-- REF #_command_.int.Syntax -->**int** ( *number* : real ) : real<!-- END REF -->
+**int** ( *number* : real ) : real
 
 
-<!-- REF #_command_.int.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number whose integer portion is returned|
-|Result|real|<-|Integer portion of number|<!-- END REF -->
+|Result|real|<-|Integer portion of number|
 
 #### Description
 
-`int` <!-- REF #_command_.int.Summary -->returns the integer portion of *number*<!-- END REF -->. `int` truncates a negative *number* away from zero.
+`int` returns the integer portion of *number*. `int` truncates a negative *number* away from zero.
 
 #### Example
 
@@ -189,18 +189,18 @@ The following example illustrates how `int` works for both positive and negative
 
 ## log
 
-<!-- REF #_command_.log.Syntax -->**log** ( *number* : real ) : real<!-- END REF -->
+**log** ( *number* : real ) : real
 
 
-<!-- REF #_command_.log.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number for which to return the log|
-|Result|real|<-|Log of number|<!-- END REF -->
+|Result|real|<-|Log of number|
 
 #### Description
 
-`log` <!-- REF #_command_.log.Summary -->returns the natural (Napierian) log of *number*<!-- END REF -->. `log` is the inverse function of [`exp`](#exp).
+`log` returns the natural (Napierian) log of *number*. `log` is the inverse function of [`exp`](#exp).
 
 :::note
 
@@ -223,19 +223,19 @@ The following line displays 1:
 
 ## round
 
-<!-- REF #_command_.round.Syntax -->**round** ( *round* : real, *places* : integer) : real<!-- END REF -->
+**round** ( *round* : real, *places* : integer) : real
 
 
-<!-- REF #_command_.round.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |round|real|->|Number to be rounded|
 |places|integer|->|Number of decimal places used for rounding|
-|Result|real|<-|Number rounded to the number of decimal places specified by Places|<!-- END REF -->
+|Result|real|<-|Number rounded to the number of decimal places specified by Places|
 
 #### Description
 
-`round` <!-- REF #_command_.round.Summary -->returns *number* rounded to the number of decimal places specified by *places*<!-- END REF -->.
+`round` returns *number* rounded to the number of decimal places specified by *places*.
 
 If *places* is positive, *number* is rounded to *places* decimal places. If *places* is negative, *number* is rounded on the left of the decimal point.
 
@@ -260,18 +260,18 @@ The following example illustrates how `round` works with different arguments. Ea
 
 ## sin
 
-<!-- REF #_command_.sin.Syntax -->**sin** ( *number* : real ) : real <!-- END REF -->
+**sin** ( *number* : real ) : real 
 
 
-<!-- REF #_command_.sin.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number, in radians, whose sine is returned|
-|Result|real|<-|Sine of number|<!-- END REF -->
+|Result|real|<-|Sine of number|
 
 #### Description
 
-`sin` <!-- REF #_command_.sin.Summary --> returns the sine of *number*, where *number* is expressed in radians<!-- END REF -->. 
+`sin`  returns the sine of *number*, where *number* is expressed in radians. 
 
 :::note
 
@@ -287,18 +287,18 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 ## tan
 
-<!-- REF #_command_.tan.Syntax -->**tan** ( *number* : real ) : real <!-- END REF -->
+**tan** ( *number* : real ) : real 
 
 
-<!-- REF #_command_.tan.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number, in radians, whose tangent is returned|
-|Result|real|<-|Tangent of number|<!-- END REF -->
+|Result|real|<-|Tangent of number|
 
 #### Description
 
-`tan` <!-- REF #_command_.tan.Summary --> returns the tangent of *number*, where *number* is expressed in radians<!-- END REF -->. 
+`tan`  returns the tangent of *number*, where *number* is expressed in radians. 
 
 :::note
 
@@ -314,19 +314,19 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 ## trunc
 
-<!-- REF #_command_.trunc.Syntax -->**trunc** ( *number* : real, *places* : integer) : real<!-- END REF -->
+**trunc** ( *number* : real, *places* : integer) : real
 
 
-<!-- REF #_command_.trunc.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|real|->|Number to be truncated|
 |places|integer|->|Number of decimal places used for truncating|
-|Result|real|<-|Number with its decimal part truncated to the number of decimal places specified by Places|<!-- END REF -->
+|Result|real|<-|Number with its decimal part truncated to the number of decimal places specified by Places|
 
 #### Description
 
-`trunc` <!-- REF #_command_.trunc.Summary -->returns *number* with its decimal part truncated to the number of decimal places specified by *places*<!-- END REF -->. `trunc` always truncates toward negative infinity.
+`trunc` returns *number* with its decimal part truncated to the number of decimal places specified by *places*. `trunc` always truncates toward negative infinity.
 
 If *places* is positive, *number* is truncated to *places* decimal places. If *places* is negative, number is truncated on the left of the decimal point.
 

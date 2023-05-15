@@ -10,7 +10,7 @@ A [Datastore](../../concepts/orda/data-model.md#datastore) is the interface obje
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.ds.Syntax -->](#ds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.ds.Summary -->|
+|[**ds** : cs.DataStore ](#ds)&nbsp;&nbsp;&nbsp;&nbsp;returns a reference to the datastore matching the current Qodly database|
 
 
 
@@ -18,14 +18,14 @@ A [Datastore](../../concepts/orda/data-model.md#datastore) is the interface obje
 
 ||
 |---|
-|[<!-- INCLUDE #DataStoreClass.cancelTransaction().Syntax -->](#canceltransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.cancelTransaction().Summary -->|
-|[<!-- INCLUDE DataStoreClass.dataclassName.Syntax -->](#dataclassname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE DataStoreClass.dataclassName.Summary --> |
-|[<!-- INCLUDE #DataStoreClass.isAdminProtected().Syntax -->](#isadminprotected)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.isAdminProtected().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.setAdminProtection().Syntax -->](#setadminprotection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.setAdminProtection().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.startRequestLog().Syntax -->](#startrequestlog)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.startRequestLog().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.startTransaction().Syntax -->](#starttransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.startTransaction().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.stopRequestLog().Syntax -->](#stoprequestlog)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.stopRequestLog().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.validateTransaction().Syntax -->](#validatetransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.validateTransaction().Summary --> |
+|[**.cancelTransaction()**](#canceltransaction)&nbsp;&nbsp;&nbsp;&nbsp;cancels the transaction|
+|[***.dataclassName*** : 4D.DataClass](#dataclassname)&nbsp;&nbsp;&nbsp;&nbsp;contains a description of the dataclass |
+|[**.isAdminProtected()** : Boolean](#isadminprotected)&nbsp;&nbsp;&nbsp;&nbsp;returns `True` if Data Explorer access has been disabled for the working session |
+|[**.setAdminProtection**( *status* : Boolean )](#setadminprotection)&nbsp;&nbsp;&nbsp;&nbsp;allows disabling any data access on the [web admin port](https://developer.4d.com/docs/en/Admin/webAdmin.html#webadmin-settings), including for the [Data Explorer](https://developer.4d.com/docs/en/Admin/dataExplorer.html) in `WebAdmin` sessions |
+|[**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : Integer )](#startrequestlog)&nbsp;&nbsp;&nbsp;&nbsp;starts the logging of ORDA requests on the client side |
+|[**.startTransaction()**](#starttransaction)&nbsp;&nbsp;&nbsp;&nbsp;starts a transaction in the current process on the database matching the datastore to which it applies |
+|[**.stopRequestLog()**  ](#stoprequestlog)&nbsp;&nbsp;&nbsp;&nbsp;stops any logging of ORDA requests on the client side |
+|[**.validateTransaction()**  ](#validatetransaction)&nbsp;&nbsp;&nbsp;&nbsp;accepts the transaction  |
 
 
 
@@ -34,19 +34,19 @@ A [Datastore](../../concepts/orda/data-model.md#datastore) is the interface obje
 ## ds
 
 
-<!-- REF #_command_.ds.Syntax -->
-**ds** : cs.DataStore <!-- END REF -->
 
-<!-- REF #_command_.ds.Params -->
+**ds** : cs.DataStore 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result |cs.DataStore|<-|Reference to the datastore|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `ds` command <!-- REF #_command_.ds.Summary -->returns a reference to the datastore matching the current Qodly database<!-- END REF -->.
+The `ds` command returns a reference to the datastore matching the current Qodly database.
 
 The datastore is opened automatically and available directly through `ds`.
 
@@ -60,24 +60,24 @@ Using the datastore on the Qodly database:
 ```
 
 
-<!-- REF DataStoreClass.cancelTransaction().Desc -->
+
 
 ## .cancelTransaction()
 
 
-<!-- REF #DataStoreClass.cancelTransaction().Syntax -->
-**.cancelTransaction()**<!-- END REF -->
 
-<!-- REF #DataStoreClass.cancelTransaction().Params -->
+**.cancelTransaction()**
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 ||||Does not require any parameters|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.cancelTransaction()` function <!-- REF #DataStoreClass.cancelTransaction().Summary -->cancels the transaction<!-- END REF --> opened by the [`.startTransaction()`](#starttransaction) function at the corresponding level in the current process for the specified datastore.
+The `.cancelTransaction()` function cancels the transaction opened by the [`.startTransaction()`](#starttransaction) function at the corresponding level in the current process for the specified datastore.
 
 The `.cancelTransaction()` function cancels any changes made to the data during the transaction.
 
@@ -89,19 +89,19 @@ You can nest several transactions (sub-transactions). If the main transaction is
 See example for the [`.startTransaction()`](#starttransaction) function.
 
 
-<!-- END REF -->
 
 
-<!-- REF DataStoreClass.dataclassName.Desc -->
+
+
 ## *.dataclassName*
 
-<!-- REF DataStoreClass.dataclassName.Syntax -->
-***.dataclassName*** : 4D.DataClass<!-- END REF -->
+
+***.dataclassName*** : 4D.DataClass
 
 
 #### Description
 
-Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned object <!-- REF DataStoreClass.dataclassName.Summary -->contains a description of the dataclass<!-- END REF -->.
+Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned object contains a description of the dataclass.
 
 
 #### Example
@@ -118,29 +118,29 @@ Each dataclass in a datastore is available as a property of the [DataStore objec
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
 
-<!-- REF DataStoreClass.isAdminProtected().Desc -->
+
+
 ## .isAdminProtected()
 
-<!-- REF #DataStoreClass.isAdminProtected().Syntax -->
-**.isAdminProtected()** : Boolean<!-- END REF -->
 
-<!-- REF #DataStoreClass.isAdminProtected().Params -->
+**.isAdminProtected()** : Boolean
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |Result|Boolean|<-|True if the Data Explorer access is disabled, False if it is enabled (default)|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.isAdminProtected()` function <!-- REF #DataStoreClass.isAdminProtected().Summary -->returns `True` if Data Explorer access has been disabled for the working session<!-- END REF -->.
+The `.isAdminProtected()` function returns `True` if Data Explorer access has been disabled for the working session.
 
 By default, the Data Explorer access is granted for `webAdmin` sessions, but it can be disabled to prevent any data access from administrators (see the [`.setAdminProtection()`](#setadminprotection) function).
 
@@ -148,27 +148,27 @@ By default, the Data Explorer access is granted for `webAdmin` sessions, but it 
 
 [`.setAdminProtection()`](#setadminprotection)
 
-<!-- END REF -->
 
 
 
-<!-- REF DataStoreClass.setAdminProtection().Desc -->
+
+
 ## .setAdminProtection()
 
 
-<!-- REF #DataStoreClass.setAdminProtection().Syntax -->**.setAdminProtection**( *status* : Boolean )<!-- END REF -->
+**.setAdminProtection**( *status* : Boolean )
 
 
-<!-- REF #DataStoreClass.setAdminProtection().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |status|Boolean|->|True to disable Data Explorer access to data on the `webAdmin` port, False (default) to grant access|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.setAdminProtection()` function <!-- REF #DataStoreClass.setAdminProtection().Summary -->allows disabling any data access on the [web admin port](https://developer.4d.com/docs/en/Admin/webAdmin.html#webadmin-settings), including for the [Data Explorer](https://developer.4d.com/docs/en/Admin/dataExplorer.html) in `WebAdmin` sessions<!-- END REF -->.
+The `.setAdminProtection()` function allows disabling any data access on the [web admin port](https://developer.4d.com/docs/en/Admin/webAdmin.html#webadmin-settings), including for the [Data Explorer](https://developer.4d.com/docs/en/Admin/dataExplorer.html) in `WebAdmin` sessions.
 
 By default when the function is not called, access to data is always granted on the web administration port for a session with `WebAdmin` privilege using the Data Explorer. In some configurations, for example when the application server is hosted on a third-party machine, you might not want the administrator to be able to view your data, although they can edit the server configuration, including the [access key](https://developer.4d.com/docs/en/Admin/webAdmin.html#access-key) settings.
 
@@ -187,28 +187,28 @@ You create a *protectDataFile* project method to call before deployments for exa
 
 [`.isAdminProtected()`](#isadminprotected)
 
-<!-- END REF -->
 
 
-<!-- REF DataStoreClass.startRequestLog().Desc -->
+
+
 ## .startRequestLog()
 
 
-<!-- REF #DataStoreClass.startRequestLog().Syntax -->
-**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : Integer )<!-- END REF -->
+
+**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : Integer )
 
 
-<!-- REF #DataStoreClass.startRequestLog().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |file |4D.File|->|File object|
 |reqNum |Integer|->|Number of requests to keep in memory|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.startRequestLog()` function <!-- REF #DataStoreClass.startRequestLog().Summary -->starts the logging of ORDA requests on the client side<!-- END REF -->.
+The `.startRequestLog()` function starts the logging of ORDA requests on the client side.
 
 This function must be called on a remote 4D, otherwise it does nothing. It is designed for debugging purposes in client/server configurations.
 
@@ -260,28 +260,28 @@ You want to log ORDA client requests in memory:
  ALERT("The longest request lasted: "+String($log.max("duration"))+" ms")
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF DataStoreClass.startTransaction().Desc -->
+
+
 ## .startTransaction()
 
 
-<!-- REF #DataStoreClass.startTransaction().Syntax -->
-**.startTransaction()**<!-- END REF -->
 
-<!-- REF #DataStoreClass.startTransaction().Params -->
+**.startTransaction()**
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 ||||Does not require any parameters|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.startTransaction()` function <!-- REF #DataStoreClass.startTransaction().Summary -->starts a transaction in the current process on the database matching the datastore to which it applies<!-- END REF -->. Any changes made to the datastore's entities in the transaction's process are temporarily stored until the transaction is either validated or cancelled.
+The `.startTransaction()` function starts a transaction in the current process on the database matching the datastore to which it applies. Any changes made to the datastore's entities in the transaction's process are temporarily stored until the transaction is either validated or cancelled.
 
 >If this method is called on the main datastore (i.e. the datastore returned by the `ds` command), the transaction is applied to all operations performed on the main datastore and on the underlying database, thus including ORDA and classic languages.
 
@@ -323,28 +323,28 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF DataStoreClass.stopRequestLog().Desc -->
+
+
 ## .stopRequestLog()
 
-<!-- REF #DataStoreClass.stopRequestLog().Syntax -->
-**.stopRequestLog()**  <!-- END REF -->
 
-<!-- REF #DataStoreClass.stopRequestLog().Params -->
+**.stopRequestLog()**  
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 ||||Does not require any parameters|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.stopRequestLog()` function <!-- REF #DataStoreClass.stopRequestLog().Summary -->stops any logging of ORDA requests on the client side<!-- END REF --> (in file or in memory). It is particularly useful when logging in a file, since it actually closes the opened document on disk.
+The `.stopRequestLog()` function stops any logging of ORDA requests on the client side (in file or in memory). It is particularly useful when logging in a file, since it actually closes the opened document on disk.
 
 This function must be called on a remote 4D, otherwise it does nothing. It is designed for debugging purposes in client/server configurations.
 
@@ -353,28 +353,28 @@ This function must be called on a remote 4D, otherwise it does nothing. It is de
 
 See examples for [`.startRequestLog()`](#startrequestlog).
 
-<!-- END REF -->
 
 
 
 
-<!-- REF DataStoreClass.validateTransaction().Desc -->
+
+
 ## .validateTransaction()
 
 
-<!-- REF #DataStoreClass.validateTransaction().Syntax -->
-**.validateTransaction()**  <!-- END REF -->
 
-<!-- REF #DataStoreClass.validateTransaction().Params -->
+**.validateTransaction()**  
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 ||||Does not require any parameters|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.validateTransaction()` function <!-- REF #DataStoreClass.validateTransaction().Summary -->accepts the transaction <!-- END REF -->that was started with [`.startTransaction()`](#starttransaction) at the corresponding level on the specified datastore.
+The `.validateTransaction()` function accepts the transaction that was started with [`.startTransaction()`](#starttransaction) at the corresponding level on the specified datastore.
 
 The function saves the changes to the data on the datastore that occurred during the transaction.
 
@@ -385,4 +385,4 @@ You can nest several transactions (sub-transactions). If the main transaction is
 
 See example for [`.startTransaction()`](#starttransaction).
 
-<!-- END REF -->
+

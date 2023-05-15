@@ -8,18 +8,18 @@ title: Boolean
 
 ## bool
 
-<!-- REF #_command_.bool.Syntax -->**bool** ( *expression* : expression ) : boolean<!-- END REF -->
+**bool** ( *expression* : expression ) : boolean
 
 
-<!-- REF #_command_.bool.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |expression|expression|->|Expression for which to return the boolean form|
-|Result|boolean|<-|Boolean form of the expression|<!-- END REF -->
+|Result|boolean|<-|Boolean form of the expression|
 
 #### Description
 
-The `bool` command <!-- REF #_command_.bool.Summary -->returns the boolean form of the expression you passed in *expression*<!-- END REF -->.
+The `bool` command returns the boolean form of the expression you passed in *expression*.
 
 The command can return the following values, depending on the *expression* result type:
 
@@ -42,17 +42,17 @@ This command is useful when the code expects a boolean value, and when the evalu
 
 ## false
 
-<!-- REF #_command_.false.Syntax -->**false** : boolean<!-- END REF -->
+**false** : boolean
 
 
-<!-- REF #_command_.false.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|false|<!-- END REF -->
+|Result|boolean|<-|false|
 
 #### Description
 
-`false` <!-- REF #_command_.false.Summary -->returns the boolean value false<!-- END REF -->.
+`false` returns the boolean value false.
 
 #### Example
 
@@ -70,18 +70,18 @@ The following example sets the variable *vbOptions* to false:
 
 ## not
 
-<!-- REF #_command_.not.Syntax -->**not** : boolean<!-- END REF -->
+**not** : boolean
 
 
-<!-- REF #_command_.not.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aBoolean|boolean|->|Boolean value to negate|
-|Result|boolean|<-|Opposite of aBoolean|<!-- END REF -->
+|Result|boolean|<-|Opposite of aBoolean|
 
 #### Description
 
-The `not` function <!-- REF #_command_.true.Summary -->returns the negation of *aBoolean*, changing true to false or false to true<!-- END REF -->.
+The `not` function returns the negation of *aBoolean*, changing true to false or false to true.
 
 #### Example
 
@@ -101,17 +101,17 @@ This example first assigns **true** to a variable, then changes the variable val
 
 ## true
 
-<!-- REF #_command_.true.Syntax -->**true** : boolean<!-- END REF -->
+**true** : boolean
 
 
-<!-- REF #_command_.true.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|true|<!-- END REF -->
+|Result|boolean|<-|true|
 
 #### Description
 
-`true` <!-- REF #_command_.true.Summary -->returns the boolean value true<!-- END REF -->.
+`true` returns the boolean value true.
 
 #### Example
 

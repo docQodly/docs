@@ -24,61 +24,61 @@ Form.curfolder=Folder("/PACKAGE/JohnSmith")
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Folder.Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Folder.Summary -->|
+|[**Folder** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**Folder** ( *folderConstant* : Integer { , \* } ) : 4D.Folder](#folder)&nbsp;&nbsp;&nbsp;&nbsp;creates and returns a new object of the `4D.Folder` type|
 
 
 ### Functions and properties
 
 ||
 |---|
-|[<!-- INCLUDE #directory.copyTo().Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.copyTo().Summary -->|
-|[<!-- INCLUDE #FolderClass.create().Syntax -->](#create)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.create().Summary -->|
-|[<!-- INCLUDE #FolderClass.createAlias().Syntax -->](#createalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.createAlias().Summary --> |
-|[<!-- INCLUDE #directory.creationDate.Syntax -->](#creationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.creationDate.Summary -->|
-|[<!-- INCLUDE #directory.creationTime.Syntax -->](#creationtime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.creationTime.Summary -->|
-|[<!-- INCLUDE #FolderClass.delete().Syntax -->](#delete)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.delete().Summary -->|
-|[<!-- INCLUDE #directory.exists.Syntax -->](#exists)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.exists.Summary -->|
-|[<!-- INCLUDE #directory.extension.Syntax -->](#extension)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.extension.Summary -->|  
-|[<!-- INCLUDE #directory.file().Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.file().Summary -->|  
-|[<!-- INCLUDE #directory.files().Syntax -->](#files)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.files().Summary -->|  
-|[<!-- INCLUDE #directory.folder().Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folder().Summary -->|  
-|[<!-- INCLUDE #directory.folders().Syntax -->](#folders)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folders().Summary -->|  
-|[<!-- INCLUDE #directory.fullName.Syntax -->](#fullname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.fullName.Summary -->|
-|[<!-- INCLUDE #directory.getIcon().Syntax -->](#geticon)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.getIcon().Summary -->|
-|[<!-- INCLUDE #directory.hidden.Syntax -->](#hidden)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.hidden.Summary -->|
-|[<!-- INCLUDE #directory.isAlias.Syntax -->](#isalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isAlias.Summary -->|
-|[<!-- INCLUDE #directory.isFile.Syntax -->](#isfile)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isFile.Summary -->|
-|[<!-- INCLUDE #directory.isFolder.Syntax -->](#isfolder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isFolder.Summary -->|
-|[<!-- INCLUDE #directory.isPackage.Syntax -->](#ispackage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isPackage.Summary -->|
-|[<!-- INCLUDE #directory.modificationDate.Syntax -->](#modificationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.modificationDate.Summary -->|
-|[<!-- INCLUDE #directory.modificationTime.Syntax -->](#modificationtime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.modificationTime.Summary -->|
-|[<!-- INCLUDE #directory.name.Syntax -->](#name)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.name.Summary -->|
-|[<!-- INCLUDE #directory.original.Syntax -->](#original)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.original.Summary -->|
-|[<!-- INCLUDE #directory.parent.Syntax -->](#parent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.parent.Summary -->|
-|[<!-- INCLUDE #directory.path.Syntax -->](#path)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.path.Summary -->|
-|[<!-- INCLUDE #directory.platformPath.Syntax -->](#platformpath)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.platformPath.Summary -->|
-|[<!-- INCLUDE #FolderClass.moveTo().Syntax -->](#moveto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.moveTo().Summary -->|
-|[<!-- INCLUDE #FolderClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.rename().Summary -->|
+|[**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } { , *overwrite* : Integer } ) : 4D.Folder](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;copies the `Folder` object into the specified *destinationFolder*|
+|[**.create()** : Boolean](#create)&nbsp;&nbsp;&nbsp;&nbsp;creates a folder on disk according to the properties of the `Folder` object|
+|[**.createAlias**( *destinationFolder* : 4D.Folder , *aliasName* : Text { , *aliasType* : Integer } ) : 4D.File](#createalias)&nbsp;&nbsp;&nbsp;&nbsp;creates an alias (macOS) or a shortcut (Windows) |
+|[**.creationDate** : Date](#creationdate)&nbsp;&nbsp;&nbsp;&nbsp;the creation date of the folder|
+|[**.creationTime** : Time](#creationtime)&nbsp;&nbsp;&nbsp;&nbsp;the creation time of the folder|
+|[**.delete**( { *option* : Integer } )](#delete)&nbsp;&nbsp;&nbsp;&nbsp;deletes the folder|
+|[**.exists** : Boolean](#exists)&nbsp;&nbsp;&nbsp;&nbsp;true if the folder exists on disk|
+|[**.extension** : Text](#extension)&nbsp;&nbsp;&nbsp;&nbsp;returns the extension of the folder name (if any)|  
+|[**.file**( *path* : Text ) : 4D.File](#file)&nbsp;&nbsp;&nbsp;&nbsp;a `File` object inside the `Folder` object and returns its reference|  
+|[**.files**( { *options* : Integer } ) : Collection](#files)&nbsp;&nbsp;&nbsp;&nbsp;a collection of `File` objects contained in the folder|  
+|[**.folder**( *path* : Text ) : 4D.Folder](#folder)&nbsp;&nbsp;&nbsp;&nbsp;creates a `Folder` object inside the parent `Folder` object and returns its reference|  
+|[**.folders**( { *options* : Integer } ) : Collection](#folders)&nbsp;&nbsp;&nbsp;&nbsp;returns a collection of `Folder` objects contained in the parent folder|  
+|[**.fullName** : Text](#fullname)&nbsp;&nbsp;&nbsp;&nbsp;returns the full name of the folder, including its extension (if any)|
+|[**.getIcon**( { *size* : Integer } ) : Picture](#geticon)&nbsp;&nbsp;&nbsp;&nbsp;returns the icon of the folder|
+|[**.hidden** : Boolean](#hidden)&nbsp;&nbsp;&nbsp;&nbsp; true if the folder is set as "hidden" at the system level|
+|[**.isAlias** : Boolean](#isalias)&nbsp;&nbsp;&nbsp;&nbsp;always **false** for a `Folder` object|
+|[**.isFile** : Boolean](#isfile)&nbsp;&nbsp;&nbsp;&nbsp;always **false** for a folder|
+|[**.isFolder** : Boolean](#isfolder)&nbsp;&nbsp;&nbsp;&nbsp;always **true** for a folder|
+|[**.isPackage** : Boolean](#ispackage)&nbsp;&nbsp;&nbsp;&nbsp;true if the folder is a package on macOS  (and exists on disk)|
+|[**.modificationDate** : Date](#modificationdate)&nbsp;&nbsp;&nbsp;&nbsp; the date of the folder's last modification|
+|[**.modificationTime** : Time](#modificationtime)&nbsp;&nbsp;&nbsp;&nbsp;the time of the folder's last modification|
+|[**.name** : Text](#name)&nbsp;&nbsp;&nbsp;&nbsp; the name of the folder, without extension (if any)|
+|[**.original** : 4D.Folder](#original)&nbsp;&nbsp;&nbsp;&nbsp;the same Folder object as the folder|
+|[**.parent** : 4D.Folder](#parent)&nbsp;&nbsp;&nbsp;&nbsp;the parent folder object of the folder|
+|[**.path** : Text](#path)&nbsp;&nbsp;&nbsp;&nbsp;the POSIX path of the folder|
+|[**.platformPath** : Text](#platformpath)&nbsp;&nbsp;&nbsp;&nbsp;the path of the folder expressed with the current platform syntax|
+|[**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } ) : 4D.Folder](#moveto)&nbsp;&nbsp;&nbsp;&nbsp;moves or renames the `Folder` object (source folder) into the specified *destinationFolder*|
+|[**.rename**( *newName* : Text ) : 4D.Folder](#rename)&nbsp;&nbsp;&nbsp;&nbsp;renames the folder with the name you passed in *newName* and returns the renamed `Folder` object|
 
 
 ## Folder
 
 
-<!-- REF #_command_.Folder.Syntax -->**Folder** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**Folder** ( *folderConstant* : Integer { , \* } ) : 4D.Folder<!-- END REF -->
+**Folder** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**Folder** ( *folderConstant* : Integer { , \* } ) : 4D.Folder
 
 
-<!-- REF #_command_.Folder.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |path|Text|->|Folder path|
 |folderConstant|Integer|->|4D folder constant|
 |pathType|Integer|->|`fk posix path` (default) or `fk platform path`|
 |*||->|* to return folder of host database|
-|Result|4D.Folder|<-|New folder object|<!-- END REF -->
+|Result|4D.Folder|<-|New folder object|
 
 #### Description
 
-The `Folder` command <!-- REF #_command_.Folder.Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. The command accepts two syntaxes:
+The `Folder` command creates and returns a new object of the `4D.Folder` type. The command accepts two syntaxes:
 
 **Folder ( path { , pathType } { , \* } )**
 
@@ -120,33 +120,75 @@ If the command is called from a component, pass the optional `*` parameter to ge
 ## 4D.Folder.new()
 
 
-<!-- REF #4D.Folder.new().Syntax -->
-**4D.Folder.new** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**4D.Folder.new** ( *folderConstant* : Integer { , \* } ) : 4D.Folder<!-- END REF -->
+
+**4D.Folder.new** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**4D.Folder.new** ( *folderConstant* : Integer { , \* } ) : 4D.Folder
 
 
 #### Description
 
-The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. It is identical to the [`Folder`](#folder) command (shortcut).
+The `4D.Folder.new()` function creates and returns a new object of the `4D.Folder` type. It is identical to the [`Folder`](#folder) command (shortcut).
 
 > It is recommended to use the [`Folder`](#folder) shortcut command instead of `4D.Folder.new()`.
 
-<!-- INCLUDE directory.copyTo().Desc -->
+## .copyTo()
 
-<!-- REF folder.create().Desc -->
+
+**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } { , *overwrite* : Integer } ) : 4D.Folder
+
+
+
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|destinationFolder |4D.Folder |->|Destination folder|
+|newName|Text|->|Name for the copy|
+|overwrite|Integer|->|`fk overwrite` to replace existing elements|
+|Result|4D.Folder|<-|Copied file or folder|
+
+#### Description
+
+The `.copyTo()` function copies the `Folder` object into the specified *destinationFolder*.
+
+The *destinationFolder* must exist on disk, otherwise an error is generated.  
+
+By default, the folder is copied with the name of the original folder. If you want to rename the copy, pass the new name in the *newName* parameter. The new name must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned.
+
+If a folder with the same name already exists in the *destinationFolder*, by default Qodly generates an error. You can pass the `fk overwrite` constant in the *overwrite* parameter to ignore and overwrite the existing file
+
+|Constant|Value|Comment|
+|---|---|---|
+|`fk overwrite`|4|Overwrite existing elements, if any|
+
+**Returned value**
+
+The copied `Folder` object.
+
+#### Example
+
+You want to copy a Pictures *folder* from the user's Document folder to the Database folder:
+
+```4d
+var userImages, copiedImages : 4D.Folder
+userImages=Folder(fk documents folder+"/Pictures/")
+copiedImages=userImages.copyTo(Folder(fk database folder),fk overwrite)
+```
+
+
+
+
 ## .create()
 
-<!--REF #FolderClass.create().Syntax -->**.create()** : Boolean<!-- END REF -->
+**.create()** : Boolean
 
 
-<!--REF #FolderClass.create().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Boolean|<-|True if the folder was created successfully, false otherwise|<!-- END REF -->
+|Result|Boolean|<-|True if the folder was created successfully, false otherwise|
 
 
 #### Description
 
-The `.create()` function <!-- REF #FolderClass.create().Summary -->creates a folder on disk according to the properties of the `Folder` object<!-- END REF -->.
+The `.create()` function creates a folder on disk according to the properties of the `Folder` object.
 
 If necessary, the function creates the folder hierachy as described in the [platformPath](#platformpath) or [path](#path) properties. If the folder already exists on disk, the function does nothing (no error is thrown) and returns false.
 
@@ -179,25 +221,25 @@ Else
 End if
 ```
 
-<!-- END REF -->
 
-<!-- REF folder.createAlias().Desc -->
+
+
 ## .createAlias()
 
-<!--REF #FolderClass.createAlias().Syntax -->**.createAlias**( *destinationFolder* : 4D.Folder , *aliasName* : Text { , *aliasType* : Integer } ) : 4D.File<!-- END REF -->
+**.createAlias**( *destinationFolder* : 4D.Folder , *aliasName* : Text { , *aliasType* : Integer } ) : 4D.File
 
 
-<!--REF #FolderClass.createAlias().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |destinationFolder|4D.Folder|->|Destination folder for the alias or shortcut|
 |aliasName|Text|->|Name of the alias or shortcut|
 |aliasType|Integer|->|Type of the alias link|
-|Result|4D.File|<-|Alias or shortcut reference|<!-- END REF -->
+|Result|4D.File|<-|Alias or shortcut reference|
 
 #### Description
 
-The `.createAlias()` function <!-- REF #FolderClass.createAlias().Summary -->creates an alias (macOS) or a shortcut (Windows)<!-- END REF --> to the folder with the specified *aliasName* name in the folder designated by the *destinationFolder* object.
+The `.createAlias()` function creates an alias (macOS) or a shortcut (Windows) to the folder with the specified *aliasName* name in the folder designated by the *destinationFolder* object.
 
 Pass the name of the alias or shortcut to create in the *aliasName* parameter.
 
@@ -223,26 +265,48 @@ var myFolder : 4D.Folder
 myFolder=Folder("/PACKAGE/Documents/Archives/2019/January")
 aliasFile=myFolder.createAlias(Folder("/PACKAGE"),"Jan2019")
 ```
-<!-- END REF -->
-
-<!-- INCLUDE directory.creationDate.Desc -->
-
-<!-- INCLUDE directory.creationTime.Desc -->
-
-<!-- REF folder.delete().Desc -->
-## .delete()
-
-<!--REF #FolderClass.delete().Syntax -->**.delete**( { *option* : Integer } )<!-- END REF -->
 
 
-<!-- REF #FolderClass.delete().Params -->
-|Parameter|Type||Description|
-|---|----|---|---|
-|option |Integer|->|Folder deletion option|<!-- END REF -->
+## .creationDate
+
+
+**.creationDate** : Date
 
 #### Description
 
-The `.delete()` function <!-- REF #FolderClass.delete().Summary -->deletes the folder<!-- END REF -->.
+The `.creationDate` property returns the creation date of the folder.
+
+This property is **read-only**.
+
+
+
+## .creationTime
+
+
+**.creationTime** : Time
+
+#### Description
+
+The `.creationTime` property returns the creation time of the folder (expressed as a number of seconds beginning at 00:00).
+
+This property is **read-only**.
+
+
+
+
+## .delete()
+
+**.delete**( { *option* : Integer } )
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|option |Integer|->|Folder deletion option|
+
+#### Description
+
+The `.delete()` function deletes the folder.
 
 By default, for security reasons, if you omit the *option* parameter, `.delete( )` only allows empty folders to be deleted. If you want the command to be able to delete folders that are not empty, you must use the *option* parameter with one of the following constants:
 
@@ -265,55 +329,333 @@ When `Delete with contents` is passed:
 (*) Windows: -54 (Attempt to open locked file for writing)
 macOS: -45 (The file is locked or the pathname is not correct)
 
-<!-- END REF -->
 
-<!-- INCLUDE directory.exists.Desc -->
 
-<!-- INCLUDE directory.extension.Desc -->
+## .exists
 
-<!-- INCLUDE directory.file().Desc -->
 
-<!-- INCLUDE directory.files().Desc -->
+**.exists** : Boolean
 
-<!-- INCLUDE directory.folder().Desc -->
+#### Description
 
-<!-- INCLUDE directory.folders().Desc -->
+The `.exists` property returns true if the folder exists on disk, and false otherwise.
 
-<!-- INCLUDE directory.fullName.Desc -->
+This property is **read-only**.
 
-<!-- INCLUDE directory.getIcon().Desc -->
 
-<!-- INCLUDE directory.hidden.Desc -->
 
-<!-- INCLUDE directory.isAlias.Desc -->
+## .extension
 
-<!-- INCLUDE directory.isFile.Desc -->
 
-<!-- INCLUDE directory.isFolder.Desc -->
+**.extension** : Text
 
-<!-- INCLUDE directory.isPackage.Desc -->
+#### Description
 
-<!-- INCLUDE directory.modificationDate.Desc -->
+The `.extension` property returns the extension of the folder name (if any). An extension always starts with ".". The property returns an empty string if the folder name does not have an extension.
 
-<!-- INCLUDE directory.modificationTime.Desc -->
+This property is **read-only**.
 
-<!-- REF folder.moveTo().Desc -->
+
+
+## .file()
+
+**.file**( *path* : Text ) : 4D.File
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|path|Text|->|Relative POSIX file pathname|
+|Result|4D.File|<-|`File` object (null if invalid path)|
+
+#### Description
+
+The `.file()` function creates a `File` object inside the `Folder` object and returns its reference.
+
+In *path*, pass a relative POSIX path to designate the file to return. The path will be evaluated from the parent folder as root.  
+
+**Returned value**
+
+A `File` object or null if *path* is invalid.
+
+#### Example
+
+```4d
+var myPDF : 4D.File
+myPDF=Folder(fk documents folder).file("Pictures/info.pdf")
+```
+
+
+
+## .files()
+
+
+**.files**( { *options* : Integer } ) : Collection
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|options|Integer|->|File list options|
+|Result|Collection|<-|Collection of children file objects|
+
+#### Description
+
+The `.files()` function returns a collection of `File` objects contained in the folder.
+
+>Aliases or symbolic links are not resolved.
+
+By default, if you omit the *options* parameter, only the files at the first level of the folder are returned in the collection, as well as invisible files or folders. You can modify this by passing, in the *options* parameter, one or more of the following constants:
+
+|Constant| Value| Comment|
+|---|---|---|
+|`fk recursive`|1|The collection contains files of the specified folder and its subfolders|
+|`fk ignore invisible`| 8|Invisible files are not listed|
+
+**Returned value**
+
+Collection of `File` objects.
+
+#### Example 1
+
+You want to know if there are invisible files in the Database folder:
+
+```4d
+ var all, noInvisible : Collection
+ var info : Text
+ all=Folder(fk database folder).files()
+ noInvisible=Folder(fk database folder).files(fk ignore invisible)
+ If(all.length!=noInvisible.length)
+    info="Database folder contains hidden files."
+ End if
+```
+
+#### Example 2  
+
+You want to get all files that are not invisible in the Documents folder:
+
+```4d
+ var recursive : Collection
+ recursive=Folder(fk documents folder).files(fk recursive+fk ignore invisible)
+```
+
+
+
+## .folder()
+
+
+**.folder**( *path* : Text ) : 4D.Folder
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|path|Text|->|Relative POSIX file pathname|
+|Result|4D.Folder|<-|Created folder object (null if invalid *path*)|
+
+#### Description
+
+The `.folder()` function creates a `Folder` object inside the parent `Folder` object and returns its reference.
+
+In *path*, pass a relative POSIX path to designate the folder to return. The path will be evaluated from the parent folder as root.  
+
+**Returned value**
+
+A `Folder` object or null if *path* is invalid.
+
+#### Example
+
+```4d
+ var mypicts : 4D.Folder
+ mypicts=Folder(fk documents folder).folder("Pictures")
+```
+
+
+
+## .folders()
+
+
+**.folders**( { *options* : Integer } ) : Collection
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|options|Integer|->|Folder list options|
+|Result|Collection|<-|Collection of children folder objects|
+
+#### Description
+
+The `.folders()` function returns a collection of `Folder` objects contained in the parent folder.
+
+By default, if you omit the *options* parameter, only the folders at the first level of the folder are returned in the collection. You can modify this by passing, in the *options* parameter, one or more of the following constants:
+
+|Constant| Value| Comment|
+|---|---|---|
+|`fk recursive`| 1|The collection contains folders of the specified folder and its subfolders|
+|`fk ignore invisible`| 8|Invisible folders are not listed|
+
+**Returned value**
+
+Collection of `Folder` objects.
+
+#### Example
+
+You want the collection of all folders and subfolders of the database folder:
+
+```4d
+ var allFolders : Collection
+ allFolders=Folder("/PACKAGE").folders(fk recursive)
+```
+
+
+
+## .fullName
+
+**.fullName** : Text
+
+#### Description
+
+The `.fullName` property returns the full name of the folder, including its extension (if any).
+
+This property is **read-only**.
+
+
+
+## .getIcon()
+
+
+**.getIcon**( { *size* : Integer } ) : Picture
+
+
+
+|Parameter|Type||Description|
+|---|----|---|---|
+|size|Integer|->|Side length for the returned picture (pixels)|
+|Result|Picture|<-|Icon|
+
+#### Description
+
+The `.getIcon()` function returns the icon of the folder.
+
+The optional *size* parameter specifies the dimensions in pixels of the returned icon. This value actually represents the length of the side of the square containing the icon. Icons are usually defined in 32x32 pixels ("large icons") or 16x16 pixels ("small icons"). If you pass 0 or omit this parameter, the "large icon" version is returned.
+
+If the folder does not exist on disk, a default blank icon is returned.  
+
+**Returned value**
+
+Folder icon [picture](Concepts/dt_picture.md).
+
+
+
+## .hidden
+
+
+**.hidden** : Boolean
+
+#### Description
+
+The `.hidden` property returns  true if the folder is set as "hidden" at the system level, and false otherwise.
+
+This property is **read-only**.
+
+
+
+## .isAlias
+
+**.isAlias** : Boolean
+
+#### Description
+
+The `.isAlias` property returns always **false** for a `Folder` object.
+
+This property is **read-only**.
+
+
+
+## .isFile
+
+
+**.isFile** : Boolean
+
+#### Description
+
+The `.isFile` property returns always **false** for a folder.
+
+This property is **read-only**.
+
+
+
+## .isFolder
+
+
+**.isFolder** : Boolean
+
+#### Description
+
+The `.isFolder` property returns always **true** for a folder.
+
+This property is **read-only**.
+
+
+
+## .isPackage
+
+
+**.isPackage** : Boolean
+
+#### Description
+
+The `.isPackage` property returns true if the folder is a package on macOS  (and exists on disk). Otherwise, it returns false.
+
+On Windows, `.isPackage` always returns **false**.
+
+This property is **read-only**.
+
+
+
+## .modificationDate
+
+**.modificationDate** : Date
+
+#### Description
+
+The `.modificationDate` property returns  the date of the folder's last modification.
+
+This property is **read-only**.
+
+
+
+## .modificationTime
+
+
+**.modificationTime** : Time
+
+#### Description
+
+The `.modificationTime` property returns the time of the folder's last modification (expressed as a number of seconds beginning at 00:00).
+
+This property is **read-only**.
+
+
+
+
 ## .moveTo()
 
 
-<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } ) : 4D.Folder<!-- END REF -->
+**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } ) : 4D.Folder
 
 
-<!--REF #FolderClass.moveTo().Params -->
+
 |Parameter|Type||Description|
 |---|----|---|---|
 |destinationFolder|4D.Folder|->|Destination folder|
 |newName|Text|->|Full name for the moved folder|
-|Result|4D.Folder|<-|Moved folder|<!-- END REF -->
+|Result|4D.Folder|<-|Moved folder|
 
 #### Description
 
-The `.moveTo()` function <!-- REF #FolderClass.moveTo().Summary -->moves or renames the `Folder` object (source folder) into the specified *destinationFolder*<!-- END REF -->.
+The `.moveTo()` function moves or renames the `Folder` object (source folder) into the specified *destinationFolder*.
 
 The *destinationFolder* must exist on disk, otherwise an error is generated.  
 
@@ -333,33 +675,92 @@ You want to move and rename a folder:
  tomove=docs.folder("Pictures")
  tomove2=tomove.moveTo(docs.folder("Archives"),"Pic_Archives")
 ```
-<!-- END REF -->
-
-<!-- INCLUDE directory.name.Desc -->
-
-<!-- INCLUDE directory.original.Desc -->
-
-<!-- INCLUDE directory.parent.Desc -->
-
-<!-- INCLUDE directory.path.Desc -->
-
-<!-- INCLUDE directory.platformPath.Desc -->
-
-<!-- REF folder.rename().Desc -->
-## .rename()
-
-<!--REF #FolderClass.rename().Syntax -->**.rename**( *newName* : Text ) : 4D.Folder<!-- END REF -->
 
 
-<!--REF #FolderClass.rename().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|newName|Text|->|New full name for the folder|
-|Result|4D.Folder|<-|Renamed folder|<!-- END REF -->
+## .name
+
+
+**.name** : Text
 
 #### Description
 
-The `.rename()` function <!-- REF #FolderClass.rename().Summary -->renames the folder with the name you passed in *newName* and returns the renamed `Folder` object<!-- END REF -->.
+The `.name` property returns  the name of the folder, without extension (if any).
+
+This property is **read-only**.
+
+
+
+## .original
+
+
+**.original** : 4D.Folder
+
+#### Description
+
+The `.original` property returns the same Folder object as the folder.
+
+This property is **read-only**.
+
+>This property is available on folders to allow generic code to process folders or files.
+
+
+
+## .parent
+
+
+**.parent** : 4D.Folder
+
+#### Description
+
+The `.parent` property returns the parent folder object of the folder. If the path represents a system path (e.g., "/DATA/"), the system path is returned.
+
+If the folder does not have a parent (root), the null value is returned.
+
+This property is **read-only**.
+
+
+
+## .path
+
+
+**.path** : Text
+
+#### Description
+
+The `.path` property returns the POSIX path of the folder. If the path represents a filesystem (e.g., "/DATA/"), the filesystem is returned.
+
+This property is **read-only**.
+
+
+
+## .platformPath
+
+
+**.platformPath** : Text
+
+#### Description
+
+The `.platformPath` property returns the path of the folder expressed with the current platform syntax.
+
+This property is **read-only**.
+
+
+
+
+## .rename()
+
+**.rename**( *newName* : Text ) : 4D.Folder
+
+
+
+|Parameter|Type||Description|
+|---|---|---|---|
+|newName|Text|->|New full name for the folder|
+|Result|4D.Folder|<-|Renamed folder|
+
+#### Description
+
+The `.rename()` function renames the folder with the name you passed in *newName* and returns the renamed `Folder` object.
 
 The *newName* parameter must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned. If a file with the same name already exists, an error is returned.
 
@@ -373,4 +774,4 @@ The renamed `Folder` object.
  var toRename : 4D.Folder
  toRename=Folder("/RESOURCES/Pictures").rename("Images")
 ```
-<!-- END REF -->
+

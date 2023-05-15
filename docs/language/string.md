@@ -15,27 +15,27 @@ title: String
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Change string.Syntax -->](#change-string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
-|[<!-- INCLUDE #_command_.Change string.Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
+|[**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text](#change-string)&nbsp;&nbsp;&nbsp;&nbsp;changes a group of characters in *source* and returns the resulting string|
+|[**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;changes a group of characters in *source* and returns the resulting string|
 
 
 
 ## Change string
 
-<!-- REF #_command_.Change string.Syntax -->**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text<!-- END REF -->
+**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text
 
 
-<!-- REF #_command_.Change string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|Original string|
 |newChars|Text|->|New characters|
 |where|Integer|->|Where to start the changes|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|Text|<-|Resulting string|
 
 #### Description
 
-The `Change string` command <!-- REF #_command_.Change string.Summary -->changes a group of characters in *source* and returns the resulting string<!-- END REF -->. The command overlays *source*, with the characters in *newChars*, at the character described by *where*.
+The `Change string` command changes a group of characters in *source* and returns the resulting string. The command overlays *source*, with the characters in *newChars*, at the character described by *where*.
 
 If *newChars* is an empty string (""), `Change string` returns *source* unchanged. `Change string` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `Change string` returns *source*.
 
@@ -58,18 +58,18 @@ vtResult=Change string("November","Dec",1) //vtResult gets "December"
 
 ## Char
 
-<!-- REF #_command_.Char.Syntax -->**Char** ( *charCode* : Integer ) : Text<!-- END REF -->
+**Char** ( *charCode* : Integer ) : Text
 
 
-<!-- REF #_command_.Char.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |charCode|Integer|->|Character code|
-|Result|Text|<-|Character represented by the charCode|<!-- END REF -->
+|Result|Text|<-|Character represented by the charCode|
 
 #### Description
 
-The `Char` command <!-- REF #_command_.Char.Summary -->returns the character whose code is *charCode*.<!-- END REF -->. 
+The `Char` command returns the character whose code is *charCode*.. 
 
 Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 
@@ -91,18 +91,18 @@ myText ="hello"+Char(Carriage return)+"world"
 
 ## Character code
 
-<!-- REF #_command_.Character code.Syntax -->**Character code** ( *character* : String ) : Integer<!-- END REF -->
+**Character code** ( *character* : String ) : Integer
 
 
-<!-- REF #_command_.Character code.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |character|Text|->|Character for which you want to get the code|
-|Result|Integer|<-|Character code|<!-- END REF -->
+|Result|Integer|<-|Character code|
 
 #### Description
 
-The `Character code` command <!-- REF #_command_.Character code.Summary -->returns the Unicode UTF-16 code (included between 1 and 65535) of *character*<!-- END REF -->. 
+The `Character code` command returns the Unicode UTF-16 code (included between 1 and 65535) of *character*. 
 
 If there is more than one character in the string, `Character code` returns only the code of the first character.
 
@@ -183,20 +183,20 @@ The second piece of code runs faster for two reasons: it does only one character
 
 ## Compare strings
 
-<!-- REF #_command_.Compare strings.Syntax -->**Compare strings** ( *aString* : Text , *bString* : Text , *options* : Integer ) : Integer<!-- END REF -->
+**Compare strings** ( *aString* : Text , *bString* : Text , *options* : Integer ) : Integer
 
 
-<!-- REF #_command_.Compare strings.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|Text|->|String to compare|
 |bString|Text|->|String to compare|
 |options|Integer|->|Comparison rule(s)|
-|Result|Integer|<-|Result of string comparison|<!-- END REF -->
+|Result|Integer|<-|Result of string comparison|
 
 #### Description
 
-The `Compare strings` command <!-- REF #_command_.Compare strings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
+The `Compare strings` command returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.. 
 
 In the *aString* parameter, pass a *text* value.
 
@@ -306,19 +306,19 @@ For example:
 
 ## CONVERT FROM TEXT
 
-<!-- REF #_command_.CONVERT FROM TEXT.Syntax -->**CONVERT FROM TEXT** ( *4Dtext* : Text , *charSet* : Text, Integer ) : BLOB<!-- END REF -->
+**CONVERT FROM TEXT** ( *4Dtext* : Text , *charSet* : Text, Integer ) : BLOB
 
 
-<!-- REF #_command_.CONVERT FROM TEXT.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |atext|Text|->|Text expressed in current character set|
 |charSet|Text, Integer|->|Name or Number of character set|
-|Result|BLOB|<-|BLOB containing converted text|<!-- END REF -->
+|Result|BLOB|<-|BLOB containing converted text|
 
 #### Description
 
-The `CONVERT FROM TEXT` command <!-- REF #_command_.CONVERT FROM TEXT.Summary -->can be used to convert a text expressed in the current character set to a text expressed in another character set<!-- END REF -->. 
+The `CONVERT FROM TEXT` command can be used to convert a text expressed in the current character set to a text expressed in another character set. 
 
 In the *atext* parameter, pass the text to be converted. This text is expressed in the current character set (Unicode by default).
 
@@ -495,19 +495,19 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 ## Convert to text
 
-<!-- REF #_command_.Convert to text.Syntax -->**Convert to text** ( *blob* : BLOB , *charSet* : Text, Integer ) : Text<!-- END REF -->
+**Convert to text** ( *blob* : BLOB , *charSet* : Text, Integer ) : Text
 
 
-<!-- REF #_command_.Convert to text.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |blob|BLOB|->|BLOB containing text expressed in a specific character set|
 |charSet|Text, Integer|->|Name or Number of BLOB character set|
-|Result|Text|<-|Contents of BLOB expressed in 4D character set|<!-- END REF -->
+|Result|Text|<-|Contents of BLOB expressed in 4D character set|
 
 #### Description
 
-The `Convert to text` command <!-- REF #_command_.Convert to text.Summary -->converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D<!-- END REF -->. 4D uses the UTF-16 character set by default.
+The `Convert to text` command converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D. 4D uses the UTF-16 character set by default.
 
 In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (longint). For more information, please refer to the description of the [`CONVERT FROM TEXT`](#convert-from-text) command.
 
@@ -523,20 +523,20 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 ## Delete string
 
-<!-- REF #_command_.Delete string.Syntax -->**Delete string** ( *source* : Text , *where * : Integer , *numChars* : Integer ) : Text<!-- END REF -->
+**Delete string** ( *source* : Text , *where * : Integer , *numChars* : Integer ) : Text
 
 
-<!-- REF #_command_.Delete string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|String from which to delete characters|
 |where |Integer|->|First character to delete|
 |numChars|Integer|->|Number of characters to delete|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|Text|<-|Resulting string|
 
 #### Description
 
-`Delete string` <!-- REF #_command_.Delete string.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
+`Delete string` deletes *numChars* from *source*, starting at *where*, and returns the resulting string. 
 
 `Delete string` returns the same string as `*source*` when:
 
@@ -567,20 +567,20 @@ var vtResult, vtOtherVar : Text
 
 ## Insert string
 
-<!-- REF #_command_.Insert string.Syntax -->**Insert string** ( *source* : Text , *what* : Text , *where* : Integer ) : Text<!-- END REF -->
+**Insert string** ( *source* : Text , *what* : Text , *where* : Integer ) : Text
 
 
-<!-- REF #_command_.Insert string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|String in which to insert the other string|
 |what|Text|->|String to insert|
 |where|Integer|->|Where to insert|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|Text|<-|Resulting string|
 
 #### Description
 
-The `Insert string` command <!-- REF #_command_.Insert string.Summary -->inserts a string into *source* and returns the resulting string<!-- END REF -->. The command inserts the string *what* before the character at position *where*.
+The `Insert string` command inserts a string into *source* and returns the resulting string. The command inserts the string *what* before the character at position *where*.
 
 If *what* is an empty string (""), `Insert string` returns source unchanged.
 
@@ -606,18 +606,18 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 ## Length
 
-<!-- REF #_command_.Length.Syntax -->**Length** ( *string* : Text ) : Integer<!-- END REF -->
+**Length** ( *string* : Text ) : Integer
 
 
-<!-- REF #_command_.Length.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |string|Text|->|String for which to return length|
-|Result|Integer|<-|Length of string|<!-- END REF -->
+|Result|Integer|<-|Length of string|
 
 #### Description
 
-`Length` is used to find the length of a *string*. `Length` <!-- REF #_command_.Length.Summary -->returns the number of characters that are in a *string*.<!-- END REF -->. 
+`Length` is used to find the length of a *string*. `Length` returns the number of characters that are in a *string*.. 
 
 :::note
 
@@ -637,19 +637,19 @@ When you want to check whether a string contains any characters, including ignor
 
 ## Lowercase
 
-<!-- REF #_command_.Lowercase.Syntax -->**Lowercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+**Lowercase** ( *aString* : Text {, \*} ) : Text
 
 
-<!-- REF #_command_.Lowercase.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|Text|->|String to convert to lowercase|
 |*||->|If passed: keep accents|
-|Result|Text|<-|String in lowercase|<!-- END REF -->
+|Result|Text|<-|String in lowercase|
 
 #### Description
 
-`Lowercase` <!-- REF #_command_.Lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase.<!-- END REF -->. 
+`Lowercase` takes *aString* and returns the string with all alphabetic characters in lowercase.. 
 
 The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented lowercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 
@@ -686,9 +686,9 @@ This example compares the results obtained according to whether or not the * par
 
 ## Match regex
 
-<!-- REF #_command_.Match regex.Syntax -->**Match regex** ( *pattern* : Text , *aString* : Text ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer {, \*} ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer , *pos_found* : Integer , *length_found* : Integer {, \*} ) : Boolean<!-- END REF -->
+**Match regex** ( *pattern* : Text , *aString* : Text ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer {, \*} ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer , *pos_found* : Integer , *length_found* : Integer {, \*} ) : Boolean
 
-<!-- REF #_command_.Match regex.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |pattern|Text|->|Regular expression (complete equality when using two parameters only)|
@@ -697,11 +697,11 @@ This example compares the results obtained according to whether or not the * par
 |pos_found| |<-|Position of occurrence|
 |length_found| |<-|Length of occurrence|
 |*||->|If passed: only searches at position indicated|
-|Result|Boolean|<-|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
+|Result|Boolean|<-|True = search has found an occurrence; Otherwise, False|
 
 #### Description
 
-The `Match regex` <!-- REF #_command_.Match regex.Summary -->searches for the regular expression pattern in aString<!-- END REF -->, this command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called “regular expression” or “rational expression.” The regex abbreviation is commonly used to indicate these types of notations. 
+The `Match regex` searches for the regular expression pattern in aString, this command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called “regular expression” or “rational expression.” The regex abbreviation is commonly used to indicate these types of notations. 
 
 Pass the regular expression to search for in *pattern*. This consists of a set of characters used for describing a character string, using special characters.
 
@@ -798,19 +798,19 @@ In the event of an error, the command generates an error that you can intercept 
 
 ## Num
 
-<!-- REF #_command_.Num.Syntax -->**Num** ( *expression* : Text,Boolean,Integer , *separator* : Text ) : Real <!-- END REF -->
+**Num** ( *expression* : Text,Boolean,Integer , *separator* : Text ) : Real 
 
 
-<!-- REF #_command_.Num.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |expression|Text,Boolean,Integer|->|Character for which you want to get the code|
 |separator|Text|->|Character for which you want to get the code|
-|Result|Real|<-|Character code|<!-- END REF -->
+|Result|Real|<-|Character code|
 
 #### Description
 
-The `Num` command <!-- REF #_command_.Num.Summary -->returns the numeric form of the String, Boolean or numeric expression you pass in *expression*<!-- END REF -->. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
+The `Num` command returns the numeric form of the String, Boolean or numeric expression you pass in *expression*. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
 
 **String Expressions**
 
@@ -883,9 +883,9 @@ This example compares the results obtained depending on the “current” separa
 
 ## Position
 
-<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound * : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound* : Integer , *options* : Integer ) : Integer<!-- END REF -->
+**Position** ( *find* : Text , *aString* : Text , *start* : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound * : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound* : Integer , *options* : Integer ) : Integer
 
-<!-- REF #_command_.Position.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |find|Text|->|String to find|
@@ -894,11 +894,11 @@ This example compares the results obtained depending on the “current” separa
 |lengthFound|Integer|<-|Length of string found|
 |*||->|If passed: evaluation based on character codes|
 |options|Integer|->|Search condition(s)|
-|Result|Integer|<-|Position of first occurrence|<!-- END REF -->
+|Result|Integer|<-|Position of first occurrence|
 
 #### Description
 
-The `Position` <!-- REF #_command_.Position.Summary -->returns the position of the first occurrence of *find* in *aString*<!-- END REF -->. 
+The `Position` returns the position of the first occurrence of *find* in *aString*. 
 
 If *aString* does not contain *find*, it returns a zero (0).   
 
@@ -1004,10 +1004,10 @@ In the following example, you want to find all instances of a string and replace
 
 ## Replace string
 
-<!-- REF #_command_.Replace string.Syntax -->**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : Integer {, \*}) : Text<!-- END REF -->
+**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : Integer {, \*}) : Text
 
 
-<!-- REF #_command_.Replace string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|Original string|
@@ -1015,11 +1015,11 @@ In the following example, you want to find all instances of a string and replace
 |newString|Text|->|Replacement string (if empty string, occurrences are deleted)|
 |howMany|Integer|->|How many times to replace If omitted, all occurrences are replaced|
 |*||->|If passed: evaluation based on character codes|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|Text|<-|Resulting string|
 
 #### Description
 
-`Replace string` <!-- REF #_command_.Replace string.Summary -->replaces *howMany* occurrences of *oldString* in *source* with *newString*<!-- END REF -->. 
+`Replace string` replaces *howMany* occurrences of *oldString* in *source* with *newString*. 
 
 If *newString* is an empty string (""), `Replace string` deletes each occurrence of *oldString* in *source*.
 
@@ -1076,20 +1076,20 @@ The following example illustrates the use of the * parameter in the case of a di
 
 ## Split string
 
-<!-- REF #_command_.Split string.Syntax -->**Split string** ( *stringToSplit* : Text , *separator* : Text , *options* : Integer ) : Collection <!-- END REF -->
+**Split string** ( *stringToSplit* : Text , *separator* : Text , *options* : Integer ) : Collection 
 
 
-<!-- REF #_command_.Split string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |stringToSplit|Text|->|String value|
 |separator|Text|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
 |options|Integer|->|Option(s) regarding empty strings and spaces|
-|Result|Collection|<-|Collection of substrings|<!-- END REF -->
+|Result|Collection|<-|Collection of substrings|
 
 #### Description
 
-The `Split string` command <!-- REF #_command_.Split string.Summary -->returns a collection of strings, created by splitting *stringToSplit* into substrings at the boundaries specified by the *separator* parameter<!-- END REF -->. The substrings in the returned collection do not include *separator* itself.
+The `Split string` command returns a collection of strings, created by splitting *stringToSplit* into substrings at the boundaries specified by the *separator* parameter. The substrings in the returned collection do not include *separator* itself.
 
 If no *separator* is found in *stringToSplit*, `Split string` returns a collection containing a single element, *stringToSplit*. If you passed an empty string in *separator*, `Split string` returns a collection of each character of *stringToSplit*.
 
@@ -1134,20 +1134,20 @@ The *separator* parameter can be a multiple-character string:
 
 ## String
 
-<!-- REF #_command_.String.Syntax -->**String** ( *expression* : any , *format* : Text, Integer , *addTime* : Time ) : Text<!-- END REF -->
+**String** ( *expression* : any , *format* : Text, Integer , *addTime* : Time ) : Text
 
 
-<!-- REF #_command_.String.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |expression|any|->|Expression for which to return the string form (can be Real, Integer, Date, Time, Text, Boolean, Undefined, or Null)|
 |format|Text, Integer|->|Display format|
 |addTime|Time|->|Time to add on if expression is a date|
-|Result|Text|<-|String form of the expression|<!-- END REF -->
+|Result|Text|<-|String form of the expression|
 
 #### Description
 
-The `String` command <!-- REF #_command_.String.Summary --> returns the string form of the numeric, Date, Time, string or Boolean expression you pass in *expression*<!-- END REF -->. 
+The `String` command  returns the string form of the numeric, Date, Time, string or Boolean expression you pass in *expression*. 
 
 If you do not pass the optional *format* parameter, the string is returned with the appropriate default format. If you pass *format*, you can force the result string to be of a specific format.
 
@@ -1326,20 +1326,20 @@ If *expression* is evaluated to Null, the command returns the "null" string. Thi
 
 ## Substring
 
-<!-- REF #_command_.Substring.Syntax -->**Substring** ( *source* : Text , *firstChar* : Integer , *numChars* : Integer ) : Text <!-- END REF -->
+**Substring** ( *source* : Text , *firstChar* : Integer , *numChars* : Integer ) : Text 
 
 
-<!-- REF #_command_.Substring.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|String from which to get substring|
 |firstChar|Integer|->|Position of first character|
 |numChars|Integer|->|Number of characters to get|
-|Result|Text|<-|Substring of source|<!-- END REF -->
+|Result|Text|<-|Substring of source|
 
 #### Description
 
-The `Substring` command <!-- REF #_command_.Substring.Summary -->returns the portion of source defined by *firstChar* and *numChars*<!-- END REF -->. 
+The `Substring` command returns the portion of source defined by *firstChar* and *numChars*. 
 
 The *firstChar* parameter points to the first character in the string to return, and *numChars* specifies how many characters to return.
 
@@ -1396,19 +1396,19 @@ The following project method appends the paragraphs found in the text (passed as
 
 ## Uppercase 
 
-<!-- REF #_command_.Uppercase.Syntax -->**Uppercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+**Uppercase** ( *aString* : Text {, \*} ) : Text
 
 
-<!-- REF #_command_.Uppercase.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|Text|->|String to convert to uppercase|
 |*||->|If passed: keep accents|
-|Result|Text|<-|String in uppercase|<!-- END REF -->
+|Result|Text|<-|String in uppercase|
 
 #### Description
 
-`uppercase` <!-- REF #_command_.Uppercase.Summary -->takes *aString* and returns the string with all alphabetic characters in uppercase.<!-- END REF -->. 
+`uppercase` takes *aString* and returns the string with all alphabetic characters in uppercase.. 
 
 The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented uppercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 

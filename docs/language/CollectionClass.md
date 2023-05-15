@@ -21,8 +21,8 @@ The Collection class manages [Collection](basics/lang-collection.md) type elemen
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.New collection.Syntax -->](#new-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.New collection.Summary -->|
-|[<!-- INCLUDE #_command_.New shared collection.Syntax -->](#new-shared-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.New shared collection.Summary -->|
+|[**New collection** {( *...value* : any )} : Collection](#new-collection)&nbsp;&nbsp;&nbsp;&nbsp; creates a new empty or prefilled collection|
+|[**New shared collection** {( *...value* : any )} : Collection](#new-shared-collection)&nbsp;&nbsp;&nbsp;&nbsp; creates a new empty or prefilled shared collection|
 
 
 
@@ -31,71 +31,71 @@ The Collection class manages [Collection](basics/lang-collection.md) type elemen
 
 ||
 |---|
-|[<!-- INCLUDE #collection.at().Syntax -->](#at)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.at().Summary -->|
-|[<!-- INCLUDE #collection.average().Syntax -->](#average)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.average().Summary -->|
-|[<!-- INCLUDE #collection.clear().Syntax -->](#clear)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.clear().Summary --> |
-|[<!-- INCLUDE #collection.combine().Syntax -->](#combine)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.combine().Summary --> |
-|[<!-- INCLUDE #collection.concat().Syntax -->](#concat)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.concat().Summary -->|
-|[<!-- INCLUDE #collection.copy().Syntax -->](#copy)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.copy().Summary -->|
-|[<!-- INCLUDE #collection.count().Syntax -->](#count)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.count().Summary -->|
-|[<!-- INCLUDE #collection.countValues().Syntax -->](#countvalues)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.countValues().Summary -->|
-|[<!-- INCLUDE #collection.distinct().Syntax -->](#distinct)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.distinct().Summary -->|
-|[<!-- INCLUDE #collection.equal().Syntax -->](#equal)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.equal().Summary -->|
-|[<!-- INCLUDE #collection.every().Syntax -->](#every)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.every().Summary -->|
-|[<!-- INCLUDE #collection.extract().Syntax -->](#extract)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.extract().Summary -->|
-|[<!-- INCLUDE #collection.fill().Syntax -->](#fill)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.fill().Summary -->|
-|[<!-- INCLUDE #collection.filter().Syntax -->](#filter)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.filter().Summary -->|
-|[<!-- INCLUDE #collection.find().Syntax -->](#find)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.find().Summary -->|
-|[<!-- INCLUDE #collection.findIndex().Syntax -->](#find)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.findIndex().Summary -->|
-|[<!-- INCLUDE #collection.first().Syntax -->](#first)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.first().Summary -->|
-|[<!-- INCLUDE #collection.flat().Syntax -->](#flat)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.flat().Summary -->|
-|[<!-- INCLUDE #collection.flatMap().Syntax -->](#flatMap)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.flatMap().Summary -->|
-|[<!-- INCLUDE #collection.includes().Syntax -->](#includes)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.includes().Summary -->|
-|[<!-- INCLUDE #collection.indexOf().Syntax -->](#indexof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.indexOf().Summary -->|
-|[<!-- INCLUDE #collection.indices().Syntax -->](#indices)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.indices().Summary -->|
-|[<!-- INCLUDE #collection.insert().Syntax -->](#insert)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.insert().Summary -->|
-|[<!-- INCLUDE #collection.join().Syntax -->](#join)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.join().Summary -->|
-|[<!-- INCLUDE #collection.last().Syntax -->](#last)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.last().Summary -->|
-|[<!-- INCLUDE #collection.lastIndexOf().Syntax -->](#lastindexof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.lastIndexOf().Summary -->|
-|[<!-- INCLUDE #collection.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.length.Summary -->|
-|[<!-- INCLUDE #collection.map().Syntax -->](#map)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.map().Summary -->|
-|[<!-- INCLUDE #collection.max().Syntax -->](#max)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.max().Summary -->|
-|[<!-- INCLUDE #collection.min().Syntax -->](#min)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.min().Summary -->|
-|[<!-- INCLUDE #collection.orderBy().Syntax -->](#orderby)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.orderBy().Summary -->|
-|[<!-- INCLUDE #collection.orderByMethod().Syntax -->](#orderbymethod)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.orderByMethod().Summary -->|
-|[<!-- INCLUDE #collection.pop().Syntax -->](#pop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.pop().Summary -->|
-|[<!-- INCLUDE #collection.push().Syntax -->](#push)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.push().Summary -->|
-|[<!-- INCLUDE #collection.query().Syntax -->](#query)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.query().Summary -->|
-|[<!-- INCLUDE #collection.reduce().Syntax -->](#reduce)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reduce().Summary -->|
-|[<!-- INCLUDE #collection.reduceRight().Syntax -->](#reduceRight)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reduceRight().Summary -->|
-|[<!-- INCLUDE #collection.remove().Syntax -->](#remove)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.remove().Summary -->|
-|[<!-- INCLUDE #collection.resize().Syntax -->](#resize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.resize().Summary -->|
-|[<!-- INCLUDE #collection.reverse().Syntax -->](#reverse)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.reverse().Summary -->|
-|[<!-- INCLUDE #collection.shift().Syntax -->](#shift)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.shift().Summary -->|
-|[<!-- INCLUDE #collection.slice().Syntax -->](#slice)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.slice().Summary -->|
-|[<!-- INCLUDE #collection.some().Syntax -->](#some)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.some().Summary -->|
-|[<!-- INCLUDE #collection.sort().Syntax -->](#sort)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.sort().Summary -->|
-|[<!-- INCLUDE #collection.sum().Syntax -->](#sum)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.sum().Summary -->|
-|[<!-- INCLUDE #collection.unshift().Syntax -->](#unshift)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #collection.unshift().Summary -->|
+|[**.at**( *index* : Integer ) : any ](#at)&nbsp;&nbsp;&nbsp;&nbsp;returns the item at position *index*, allowing for positive and negative integers|
+|[**.average**( {*propertyPath* : Text } ) : Real](#average)&nbsp;&nbsp;&nbsp;&nbsp;returns the arithmetic mean (average) of defined values in the collection instance|
+|[**.clear**() : Collection](#clear)&nbsp;&nbsp;&nbsp;&nbsp;removes all elements from the collection instance and returns an empty collection |
+|[**.combine**( *col2* : Collection {, *index* : Integer } ) : Collection](#combine)&nbsp;&nbsp;&nbsp;&nbsp;inserts *col2* elements at the end or at the specified *index* position in the collection instance and returns the edited collection |
+|[**.concat**( *value* : any { *,...valueN* } ) : Collection](#concat)&nbsp;&nbsp;&nbsp;&nbsp;returns a new collection containing the elements of the original collection with all elements of the *value* parameter added to the end|
+|[**.copy**() : Collection<br/>**.copy**( *option* : Integer ) : Collection<br/>**.copy**( *option* : Integer , *groupWithCol* : Collection ) : Collection<br/>**.copy**( *option* : Integer , *groupWithObj* : Object ) : Collection](#copy)&nbsp;&nbsp;&nbsp;&nbsp; returns a deep copy of the collection instance|
+|[**.count**( { *propertyPath* : Text } ) : Real](#count)&nbsp;&nbsp;&nbsp;&nbsp;returns the number of non-null elements in the collection|
+|[**.countValues**( *value* : any {, *propertyPath* : Text } ) : Real](#countvalues)&nbsp;&nbsp;&nbsp;&nbsp;returns the number of times value is found in the collection|
+|[**.distinct**( {*options* : Integer} ) : Collection<br/>**.distinct**( *propertyPath* : Text {, *options* : Integer } ) : Collection](#distinct)&nbsp;&nbsp;&nbsp;&nbsp;returns a collection containing only distinct (different) values from the original collection|
+|[**.equal**( *collection2* : Collection {, *option* : Integer } ) : Boolean](#equal)&nbsp;&nbsp;&nbsp;&nbsp;compares the collection with collection2 |
+|[**.every**( { *startFrom* : Integer , } *formula* : 4D.Function { ,*...param* : any } ) : Boolean<br/>**.every**( { *startFrom* : Integer , } *methodName* : Text { ,*...param* : any } ) : Boolean](#every)&nbsp;&nbsp;&nbsp;&nbsp;returns **true** if all elements in the collection successfully passed a test implemented in the provided *formula* object or *methodName* name|
+|[**.extract**( *propertyPath* : Text { , *option* : Integer } ) : Collection<br/>**.extract**( *propertyPath* : Text ,  *targetPath* : Text  { ,...*propertyPathN* : Text ,... *targetPathN* : Text } ) : Collection](#extract)&nbsp;&nbsp;&nbsp;&nbsp;creates and returns a new collection containing *propertyPath* values extracted from the original collection of objects|
+|[**.fill**( *value* : any ) : Collection<br/>**.fill**( *value* : any ,  *startFrom*  : Integer { , *end* : Integer } ) : Collection](#fill)&nbsp;&nbsp;&nbsp;&nbsp;fills the collection with the specified *value*, optionally from *startFrom* index to *end* index, and returns the resulting collection|
+|[**.filter**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.filter**( *methodName* : Text { , *...param* : any } ) : Collection](#filter)&nbsp;&nbsp;&nbsp;&nbsp;returns a new collection containing all elements of the original collection for which the *formula* or *methodName* result is **true**|
+|[**.find**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : any<br/>**.find**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : any](#find)&nbsp;&nbsp;&nbsp;&nbsp;returns the first value in the collection for which *formula* or *methodName* result, applied on each element, returns **true**|
+|[**.findIndex**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : Integer<br/>**.findIndex**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : Integer](#find)&nbsp;&nbsp;&nbsp;&nbsp;returns the index, in the collection, of the first value for which *formula* or *methodName*, applied on each element, returns **true**|
+|[**.first**() : any ](#first)&nbsp;&nbsp;&nbsp;&nbsp;returns the first element of the collection|
+|[**.flat**( { *depth* : Integer } ) : Collection](#flat)&nbsp;&nbsp;&nbsp;&nbsp;creates a new collection with all sub-collection elements concatenated into it recursively up to the specified *depth*|
+|[**.flatMap**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.flatMap**( *methodName* : Text { , *...param* : any } ) : Collection ](#flatMap)&nbsp;&nbsp;&nbsp;&nbsp;creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1|
+|[**.includes**( *toSearch* : expression { , *startFrom* : Integer } ) : Boolean](#includes)&nbsp;&nbsp;&nbsp;&nbsp;returns True if the *toSearch* expression is found among collection elements, otherwise False|
+|[**.indexOf**(  *toSearch* : expression { , *startFrom* : Integer } ) : Integer ](#indexof)&nbsp;&nbsp;&nbsp;&nbsp;searches the *toSearch* expression among collection elements and returns the index of the first found occurrence, or -1 if it was not found|
+|[**.indices**(  *queryString* : Text { , *...value* : any } ) : Collection ](#indices)&nbsp;&nbsp;&nbsp;&nbsp;returns indexes, in the original collection, of object collection elements that match the *queryString* search conditions|
+|[**.insert**( *index* : Integer , *element* : any ) : Collection ](#insert)&nbsp;&nbsp;&nbsp;&nbsp; inserts *element* at the specified *index* position in the collection instance and returns the edited collection|
+|[**.join**( *delimiter* : Text { , *option* : Integer } ) : Text ](#join)&nbsp;&nbsp;&nbsp;&nbsp;converts all elements of the collection to strings and concatenates them using the specified *delimiter* string as separator|
+|[**.last**() : any ](#last)&nbsp;&nbsp;&nbsp;&nbsp;returns the last element of the collection|
+|[**.lastIndexOf**( *toSearch* : expression { , *startFrom* : Integer } ) : Integer ](#lastindexof)&nbsp;&nbsp;&nbsp;&nbsp;searches the *toSearch* expression among collection elements and returns the index of the last occurrence|
+|[**.length** : Integer](#length)&nbsp;&nbsp;&nbsp;&nbsp;returns the number of elements in the collection|
+|[**.map**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.map**( *methodName* : Text { , *...param* : any } ) : Collection ](#map)&nbsp;&nbsp;&nbsp;&nbsp;creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection|
+|[**.max**( { *propertyPath* : Text } ) : any ](#max)&nbsp;&nbsp;&nbsp;&nbsp;returns the element with the highest value in the collection|
+|[**.min**( { *propertyPath* : Text } ) : any ](#min)&nbsp;&nbsp;&nbsp;&nbsp;returns the element with the smallest value in the collection|
+|[**.orderBy**() : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection ](#orderby)&nbsp;&nbsp;&nbsp;&nbsp;returns a new collection containing all elements of the collection in the specified order|
+|[**.orderByMethod**( *formula* : 4D.Function { , ...*extraParam* : expression } ) : Collection<br/>**.orderByMethod**( *methodName* : Text { , ...*extraParam* : expression } ) : Collection](#orderbymethod)&nbsp;&nbsp;&nbsp;&nbsp;returns a new collection containing all elements of the collection in the order defined through the *formula* function or *methodName* method|
+|[**.pop**() : any ](#pop)&nbsp;&nbsp;&nbsp;&nbsp;removes the last element from the collection and returns it as the function result|
+|[**.push**( *element* : any { ,...*elementN* } ) : Collection ](#push)&nbsp;&nbsp;&nbsp;&nbsp;appends one or more *element*(s) to the end of the collection instance and returns the edited collection|
+|[**.query**( *queryString* : Text , *...value* : any ) : Collection<br/>**.query**( *queryString* : Text , *querySettings* : Object ) : Collection ](#query)&nbsp;&nbsp;&nbsp;&nbsp;returns all elements of a collection of objects that match the search conditions |
+|[**.reduce**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduce**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any ](#reduce)&nbsp;&nbsp;&nbsp;&nbsp;applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from left to right) to reduce it to a single value|
+|[**.reduceRight**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduceRight**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any ](#reduceRight)&nbsp;&nbsp;&nbsp;&nbsp;applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from right to left) to reduce it to a single value|
+|[**.remove**( *index* : Integer { , *howMany* : Integer } ) : Collection ](#remove)&nbsp;&nbsp;&nbsp;&nbsp;removes one or more element(s) from the specified *index* position in the collection and returns the edited collection|
+|[**.resize**( *size* : Integer { , *defaultValue* : any } ) : Collection ](#resize)&nbsp;&nbsp;&nbsp;&nbsp;sets the collection length to the specified new size and returns the resized collection|
+|[**.reverse**() : Collection ](#reverse)&nbsp;&nbsp;&nbsp;&nbsp;returns a deep copy of the collection with all its elements in reverse order|
+|[**.shift**() : any](#shift)&nbsp;&nbsp;&nbsp;&nbsp;removes the first element of the collection and returns it as the function result|
+|[**.slice**( *startFrom* : Integer { , *end* : Integer } ) : Collection](#slice)&nbsp;&nbsp;&nbsp;&nbsp;returns a portion of a collection into a new collection|
+|[**.some**( { *startFrom* : Integer , } *formula* : 4D.Function { , *...param* : any } ) : Boolean<br/>**.some**( { *startFrom* : Integer , } *methodName* : Text { , *...param* : any } ) : Boolean](#some)&nbsp;&nbsp;&nbsp;&nbsp;returns true if at least one element in the collection successfully passed a test implemented in the provided *formula* or *methodName* code|
+|[**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : Collection<br/>**.sort**( *methodName* : Text { , *...extraParam* : any } ) : Collection ](#sort)&nbsp;&nbsp;&nbsp;&nbsp;sorts the elements of the original collection and also returns the sorted collection|
+|[**.sum**( { *propertyPath* : Text } ) : Real](#sum)&nbsp;&nbsp;&nbsp;&nbsp;returns the sum for all values in the collection instance|
+|[**.unshift**( *value* : any { ,...*valueN* : any } ) : Collection](#unshift)&nbsp;&nbsp;&nbsp;&nbsp;inserts the given *value*(s) at the beginning of the collection |
 
 
 
 ## `New collection`
 
 
-<!-- REF #_command_.New collection.Syntax -->**New collection** {( *...value* : any )} : Collection<!-- END REF -->
+**New collection** {( *...value* : any )} : Collection
 
 
-<!-- REF #_command_.New collection.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|Number, Text, Date, Time, Boolean, Object, Collection, Picture|->|Collection's value(s)|
-|Result|Collection|<-|New collection|<!-- END REF -->
+|Result|Collection|<-|New collection|
 
 
 #### Description
 
-The `New collection` command <!-- REF #_command_.New collection.Summary --> creates a new empty or prefilled collection<!-- END REF --> and returns its reference.
+The `New collection` command  creates a new empty or prefilled collection and returns its reference.
 
 If you do not pass any parameters, `New collection` creates an empty collection and returns its reference.
 
@@ -158,19 +158,19 @@ You create a new collection and then add a new element:
 
 ## `New shared collection`
 
-<!-- REF #_command_.New shared collection.Syntax -->**New shared collection** {( *...value* : any )} : Collection<!-- END REF -->
+**New shared collection** {( *...value* : any )} : Collection
 
 
-<!-- REF #_command_.New shared collection.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|Number, Text, Date, Time, Boolean, Shared object, Shared collection|->|Shared collection's value(s)|
-|Result|Collection|<-|New shared collection|<!-- END REF -->
+|Result|Collection|<-|New shared collection|
 
 
 #### Description
 
-The `New shared collection` command <!-- REF #_command_.New shared collection.Summary --> creates a new empty or prefilled shared collection<!-- END REF --> and returns its reference.
+The `New shared collection` command  creates a new empty or prefilled shared collection and returns its reference.
 
 Adding an element to this collection using the assignment operator must be surrounded by the [`Use...End use`](basics/shared.md#useend-use) structure, otherwise an error is generated (this is not necessary when adding elements using functions such as [`push()`](#push) or [`map()`](#map) because they automatically trigger an internal *Use...End use*). Reading an element without a *Use...End use* structure is, however, possible.
 
@@ -216,22 +216,22 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 
 
-<!-- REF collection.at().Desc -->
+
 ## .at()
 
-<!-- REF #collection.at().Syntax -->**.at**( *index* : Integer ) : any <!-- END REF -->
+**.at**( *index* : Integer ) : any 
 
 
-<!-- REF #collection.at().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |index|Integer|->|Index of element to return|
-|Result|any |<-|The element at that index|<!-- END REF -->
+|Result|any |<-|The element at that index|
 
 
 #### Description
 
-The `.at()` function <!-- REF #collection.at().Summary -->returns the item at position *index*, allowing for positive and negative integers<!-- END REF -->. 
+The `.at()` function returns the item at position *index*, allowing for positive and negative integers. 
 
 
 >This function does not modify the original collection.
@@ -254,26 +254,26 @@ element=col.at(-2) // 40
 element=col.at(10) // undefined
 ```
 
-<!-- END REF -->
 
 
-<!-- REF collection.average().Desc -->
+
+
 ## .average()
 
-<!-- REF #collection.average().Syntax -->**.average**( {*propertyPath* : Text } ) : Real<!-- END REF -->
+**.average**( {*propertyPath* : Text } ) : Real
 
 
-<!-- REF #collection.average().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Object property path to be used for calculation|
-|Result|Real, Undefined|<-|Arithmetic mean (average) of collection values|<!-- END REF -->
+|Result|Real, Undefined|<-|Arithmetic mean (average) of collection values|
 
 
 
 #### Description
 
-The `.average()` function <!-- REF #collection.average().Summary -->returns the arithmetic mean (average) of defined values in the collection instance<!-- END REF -->.
+The `.average()` function returns the arithmetic mean (average) of defined values in the collection instance.
 
 
 
@@ -309,25 +309,25 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
  vAvg=col.average("salary") //23500
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF collection.clear().Desc -->
+
+
 ## .clear()
 
-<!-- REF #collection.clear().Syntax -->**.clear**() : Collection<!-- END REF -->
+**.clear**() : Collection
 
 
-<!-- REF #collection.clear().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|Collection|<-|Original collection with all elements removed|<!-- END REF -->
+|Result|Collection|<-|Original collection with all elements removed|
 
 
 #### Description
 
-The `.clear()` function <!-- REF #collection.clear().Summary -->removes all elements from the collection instance and returns an empty collection<!-- END REF -->.
+The `.clear()` function removes all elements from the collection instance and returns an empty collection.
 
 >This function modifies the original collection.
 
@@ -340,29 +340,29 @@ col.clear()
 //col.length: 0
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.combine().Desc -->
+
+
 ## .combine()
 
-<!-- REF #collection.combine().Syntax -->**.combine**( *col2* : Collection {, *index* : Integer } ) : Collection<!-- END REF -->
+**.combine**( *col2* : Collection {, *index* : Integer } ) : Collection
 
 
-<!-- REF #collection.combine().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |col2|Collection|->|Collection to combine|
 |index|Integer|->|Position to which insert elements to combine in collection (default=length+1)|
-|Result|Collection|<-|Original collection containing combined element(s)|<!-- END REF -->
+|Result|Collection|<-|Original collection containing combined element(s)|
 
 
 #### Description
 
-The `.combine()` function <!-- REF #collection.combine().Summary -->inserts *col2* elements at the end or at the specified *index* position in the collection instance and returns the edited collection<!-- END REF -->. Unlike the `.insert()` function, `.combine()` adds each value of *col2* in the original collection, and not as a single collection element.
+The `.combine()` function inserts *col2* elements at the end or at the specified *index* position in the collection instance and returns the edited collection. Unlike the `.insert()` function, `.combine()` adds each value of *col2* in the original collection, and not as a single collection element.
 
 >This function modifies the original collection.
 
@@ -384,28 +384,28 @@ fruits=New collection("Orange","Banana","Apple","Grape")
 c.combine(fruits,3) //[1,2,3,"Orange","Banana","Apple","Grape",4,5,6]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.concat().Desc -->
+
+
 ## .concat()
 
-<!-- REF #collection.concat().Syntax -->**.concat**( *value* : any { *,...valueN* } ) : Collection<!-- END REF -->
+**.concat**( *value* : any { *,...valueN* } ) : Collection
 
 
-<!-- REF #collection.concat().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|Number, Text, Object, Collection, Date, Time, Boolean, Picture|->|Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection|
-|Result|Collection|<-|New collection with value(s) added to the original collection|<!-- END REF -->
+|Result|Collection|<-|New collection with value(s) added to the original collection|
 
 
 #### Description
 
-The `.concat()` function <!-- REF #collection.concat().Summary -->returns a new collection containing the elements of the original collection with all elements of the *value* parameter added to the end<!-- END REF -->.
+The `.concat()` function returns a new collection containing the elements of the original collection with all elements of the *value* parameter added to the end.
 
 >This function does not modify the original collection.
 
@@ -423,29 +423,29 @@ c2=c.concat(fruits) //[1,2,3,4,5,"Orange","Banana","Apple","Grape",{"Intruder":"
 c2=c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.copy().Desc -->
+
+
 ## .copy()
 
-<!-- REF #collection.copy().Syntax -->**.copy**() : Collection<br/>**.copy**( *option* : Integer ) : Collection<br/>**.copy**( *option* : Integer , *groupWithCol* : Collection ) : Collection<br/>**.copy**( *option* : Integer , *groupWithObj* : Object ) : Collection<!-- END REF -->
+**.copy**() : Collection<br/>**.copy**( *option* : Integer ) : Collection<br/>**.copy**( *option* : Integer , *groupWithCol* : Collection ) : Collection<br/>**.copy**( *option* : Integer , *groupWithObj* : Object ) : Collection
 
 
-<!-- REF #collection.copy().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |option|Integer|->|`ck shared`: return a shared collection|
 |groupWithCol |Collection|->|Shared collection to be grouped with the resulting collection|
 |groupWithObj |Object|->|Shared object to be grouped with the resulting collection|
-|Result|Collection|<-|Deep copy of the original collection|<!-- END REF -->
+|Result|Collection|<-|Deep copy of the original collection|
 
 
 #### Description
 
-The `.copy()` function <!-- REF #collection.copy().Summary --> returns a deep copy of the collection instance<!-- END REF -->.***Deep copy*** means that objects or collections within the original collection are duplicated and do not share any reference with the returned collection.
+The `.copy()` function  returns a deep copy of the collection instance.***Deep copy*** means that objects or collections within the original collection are duplicated and do not share any reference with the returned collection.
 
 
 >This function does not modify the original collection.
@@ -523,28 +523,28 @@ End use
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.count().Desc -->
+
+
 ## .count()
 
-<!-- REF #collection.count().Syntax -->**.count**( { *propertyPath* : Text } ) : Real<!-- END REF -->
+**.count**( { *propertyPath* : Text } ) : Real
 
 
-<!-- REF #collection.count().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Object property path to be used for calculation|
-|Result|Real|<-|Number of elements in the collection|<!-- END REF -->
+|Result|Real|<-|Number of elements in the collection|
 
 
 #### Description
 
-The `.count()` function <!-- REF #collection.count().Summary -->returns the number of non-null elements in the collection<!-- END REF -->.
+The `.count()` function returns the number of non-null elements in the collection.
 
 If the collection contains objects, you can pass the *propertyPath* parameter. In this case, only elements that contain the *propertyPath* are taken into account.
 
@@ -563,30 +563,30 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.countValues().Desc -->
+
+
 ## .countValues()
 
 
-<!-- REF #collection.countValues().Syntax -->**.countValues**( *value* : any {, *propertyPath* : Text } ) : Real<!-- END REF -->
+**.countValues**( *value* : any {, *propertyPath* : Text } ) : Real
 
 
-<!-- REF #collection.countValues().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|Text, Number, Boolean, Date, Object, Collection|->|Value to count|
 |propertyPath|Text|->|Object property path to be used for calculation|
-|Result|Real|<-|Number of occurrences of the value	|<!-- END REF -->
+|Result|Real|<-|Number of occurrences of the value	|
 
 
 #### Description
 
-The `.countValues()` function <!-- REF #collection.countValues().Summary -->returns the number of times value is found in the collection<!-- END REF -->.
+The `.countValues()` function returns the number of times value is found in the collection.
 
 You can pass in *value*:
 
@@ -638,29 +638,29 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.distinct().Desc -->
+
+
 ## .distinct()
 
-<!-- REF #collection.distinct().Syntax -->**.distinct**( {*options* : Integer} ) : Collection<br/>**.distinct**( *propertyPath* : Text {, *options* : Integer } ) : Collection<!-- END REF -->
+**.distinct**( {*options* : Integer} ) : Collection<br/>**.distinct**( *propertyPath* : Text {, *options* : Integer } ) : Collection
 
 
-<!-- REF #collection.distinct().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Path of attribute whose distinct values you want to get|
 |options|Integer|->|`ck diacritical`, `ck count values`|
-|Result|Collection|<-|New collection with only distinct values|<!-- END REF -->
+|Result|Collection|<-|New collection with only distinct values|
 
 
 #### Description
 
-The `.distinct()` function <!-- REF #collection.distinct().Summary -->returns a collection containing only distinct (different) values from the original collection<!-- END REF -->.
+The `.distinct()` function returns a collection containing only distinct (different) values from the original collection.
 
 >This function does not modify the original collection.
 
@@ -692,29 +692,29 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.equal().Desc -->
+
+
 ## .equal()
 
-<!-- REF #collection.equal().Syntax -->**.equal**( *collection2* : Collection {, *option* : Integer } ) : Boolean<!-- END REF -->
+**.equal**( *collection2* : Collection {, *option* : Integer } ) : Boolean
 
 
-<!-- REF #collection.equal().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |collection2|Collection|->|Collection to compare|
 |option|Integer|->|`ck diacritical`: diacritical evaluation ("A" # "a" for example)
-|Result|Boolean|<-|True if collections are identical, false otherwise|<!-- END REF -->
+|Result|Boolean|<-|True if collections are identical, false otherwise|
 
 
 #### Description
 
-The `.equal()` function <!-- REF #collection.equal().Summary -->compares the collection with collection2 <!-- END REF -->and returns **true** if they are identical (deep comparison).
+The `.equal()` function compares the collection with collection2 and returns **true** if they are identical (deep comparison).
 
 By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `ck diacritical` constant in the option parameter.
 
@@ -743,31 +743,31 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
  b=c.equal(c2,ck diacritical) //false
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.every().Desc -->
+
+
 ## .every()
 
 
-<!-- REF #collection.every().Syntax -->**.every**( { *startFrom* : Integer , } *formula* : 4D.Function { ,*...param* : any } ) : Boolean<br/>**.every**( { *startFrom* : Integer , } *methodName* : Text { ,*...param* : any } ) : Boolean<!-- END REF -->
+**.every**( { *startFrom* : Integer , } *formula* : 4D.Function { ,*...param* : any } ) : Boolean<br/>**.every**( { *startFrom* : Integer , } *methodName* : Text { ,*...param* : any } ) : Boolean
 
 
-<!-- REF #collection.every().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |startFrom|Integer|->|Index to start the test at|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|Mixed|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|Boolean|<-|True if all elements successfully passed the test|<!-- END REF -->
+|Result|Boolean|<-|True if all elements successfully passed the test|
 
 
 #### Description
 
-The `.every()` function <!-- REF #collection.every().Summary -->returns **true** if all elements in the collection successfully passed a test implemented in the provided *formula* object or *methodName* name<!-- END REF -->.
+The `.every()` function returns **true** if all elements in the collection successfully passed a test implemented in the provided *formula* object or *methodName* name.
 
 You designate the callback to be executed to evaluate collection elements using either:
 
@@ -830,29 +830,29 @@ b=c.every(f,Is real) //b=false
 ```
 
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.extract().Desc -->
+
+
 ## .extract()
 
-<!-- REF #collection.extract().Syntax -->**.extract**( *propertyPath* : Text { , *option* : Integer } ) : Collection<br/>**.extract**( *propertyPath* : Text ,  *targetPath* : Text  { ,...*propertyPathN* : Text ,... *targetPathN* : Text } ) : Collection<!-- END REF -->
+**.extract**( *propertyPath* : Text { , *option* : Integer } ) : Collection<br/>**.extract**( *propertyPath* : Text ,  *targetPath* : Text  { ,...*propertyPathN* : Text ,... *targetPathN* : Text } ) : Collection
 
 
-<!-- REF #collection.extract().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Object property path whose values must be extracted to the new collection|
 |targetpath|Text|->|Target property path or property name|
 |option|Integer|->|`ck keep null`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
-|Result|Collection|<-|New collection containing extracted values|<!-- END REF -->
+|Result|Collection|<-|New collection containing extracted values|
 
 
 #### Description
 
-The `.extract()` function <!-- REF #collection.extract().Summary -->creates and returns a new collection containing *propertyPath* values extracted from the original collection of objects<!-- END REF -->.
+The `.extract()` function creates and returns a new collection containing *propertyPath* values extracted from the original collection of objects.
 
 >This function does not modify the original collection.
 
@@ -898,30 +898,30 @@ c2=c.extract("name","City","zc","Zip") //c2: [{Zip:35060},{City:null,Zip:35049},
 ```
 
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.fill().Desc -->
+
+
 ## .fill()
 
-<!-- REF #collection.fill().Syntax -->**.fill**( *value* : any ) : Collection<br/>**.fill**( *value* : any ,  *startFrom*  : Integer { , *end* : Integer } ) : Collection<!-- END REF -->
+**.fill**( *value* : any ) : Collection<br/>**.fill**( *value* : any ,  *startFrom*  : Integer { , *end* : Integer } ) : Collection
 
 
 
-<!-- REF #collection.fill().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|number, Text, Collection, Object, Date, Boolean|->|Filling value|
 |startFrom|Integer|->|Start index (included)|
 |end|Integer|->|End index (not included)|
-|Result|collection|<-|Original collection with filled values|<!-- END REF -->
+|Result|collection|<-|Original collection with filled values|
 
 
 #### Description
 
-The `.fill()` function <!-- REF #collection.fill().Summary -->fills the collection with the specified *value*, optionally from *startFrom* index to *end* index, and returns the resulting collection<!-- END REF -->.
+The `.fill()` function fills the collection with the specified *value*, optionally from *startFrom* index to *end* index, and returns the resulting collection.
 
 >This function modifies the original collection.
 
@@ -948,29 +948,29 @@ In case of inconsistency, the following rules apply:
 ```
 
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.filter().Desc -->
+
+
 ## .filter()
 
-<!-- REF #collection.filter().Syntax -->**.filter**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.filter**( *methodName* : Text { , *...param* : any } ) : Collection<!-- END REF -->
+**.filter**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.filter**( *methodName* : Text { , *...param* : any } ) : Collection
 
 
-<!-- REF #collection.filter().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|Collection|<-|New collection containing filtered elements (shallow copy)|<!-- END REF -->
+|Result|Collection|<-|New collection containing filtered elements (shallow copy)|
 
 
 #### Description
 
-The `.filter()` function <!-- REF #collection.filter().Summary -->returns a new collection containing all elements of the original collection for which the *formula* or *methodName* result is **true**<!-- END REF -->. This function returns a ***shallow copy***, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.
+The `.filter()` function returns a new collection containing all elements of the original collection for which the *formula* or *methodName* result is **true**. This function returns a ***shallow copy***, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.
 
 >This function does not modify the original collection.
 
@@ -1026,32 +1026,32 @@ You want to filter elements according to their value type:
   // c3=[{name:Cleveland,zc:35049},{name:Blountsville,zc:35031}]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.find().Desc -->
+
+
 ## .find()
 
 
-<!-- REF #collection.find().Syntax -->**.find**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : any<br/>**.find**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : any<!-- END REF -->
+**.find**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : any<br/>**.find**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : any
 
 
-<!-- REF #collection.find().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |startFrom|Integer|->|Index to start the search at|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|any |<-|First value found, or Undefined if not found|<!-- END REF -->
+|Result|any |<-|First value found, or Undefined if not found|
 
 
 #### Description
 
-The `.find()` function <!-- REF #collection.find().Summary -->returns the first value in the collection for which *formula* or *methodName* result, applied on each element, returns **true**<!-- END REF -->.
+The `.find()` function returns the first value in the collection for which *formula* or *methodName* result, applied on each element, returns **true**.
 
 >This function does not modify the original collection.
 
@@ -1109,32 +1109,32 @@ c.push(New object("name", "Clanton", "zc", 35045))
 c2=c.find(Formula($1.value.name==2), "Clanton")  //c2={name:Clanton,zc:35046}
 
 ```
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.findIndex().Desc -->
+
+
 ## .findIndex()
 
 
-<!-- REF #collection.findIndex().Syntax -->**.findIndex**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : Integer<br/>**.findIndex**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : Integer<!-- END REF -->
+**.findIndex**( { *startFrom* : Integer , }  *formula* : 4D.Function { , *...param* : any } ) : Integer<br/>**.findIndex**( { *startFrom* : Integer , }  *methodName* : Text { , *...param* : any } ) : Integer
 
 
-<!-- REF #collection.findIndex().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |startFrom|Integer|->|Index to start the search at|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|Integer |<-|Index of first value found, or -1 if not found|<!-- END REF -->
+|Result|Integer |<-|Index of first value found, or -1 if not found|
 
 
 #### Description
 
-The `.findIndex()` function <!-- REF #collection.findIndex().Summary -->returns the index, in the collection, of the first value for which *formula* or *methodName*, applied on each element, returns **true**<!-- END REF -->.
+The `.findIndex()` function returns the index, in the collection, of the first value for which *formula* or *methodName*, applied on each element, returns **true**.
 
 >This function does not modify the original collection.
 
@@ -1180,25 +1180,25 @@ val2=c.findIndex(Formula($1.value.name==2),"Clanton") // val2: 3
 val3=c.findIndex(val2+1,Formula($1.value.name==2),"Clanton") //val3:4
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF collection.first().Desc -->
+
+
 ## .first()
 
-<!-- REF #collection.first().Syntax -->**.first**() : any <!-- END REF -->
+**.first**() : any 
 
 
-<!-- REF #collection.first().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any|<-|First element of collection|<!-- END REF -->
+|Result|any|<-|First element of collection|
 
 
 #### Description
 
-The `.first()` function <!-- REF #collection.first().Summary -->returns the first element of the collection<!-- END REF -->.
+The `.first()` function returns the first element of the collection.
 
 
 >This function does not modify the original collection.
@@ -1218,28 +1218,28 @@ emptyCol=New collection() //empty
 // first=emptyCol[0] //would return error
 first=emptyCol.first() // returns Undefined
 ```
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.flat().Desc -->
+
+
 ## .flat()
 
 
-<!-- REF #collection.flat().Syntax -->**.flat**( { *depth* : Integer } ) : Collection<!-- END REF -->
+**.flat**( { *depth* : Integer } ) : Collection
 
 
-<!-- REF #collection.flat().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |depth|Integer |->|How deep a nested collection structure should be flattened. Default=1|
-|Result|Collection |<-|Flattened collection|<!-- END REF -->
+|Result|Collection |<-|Flattened collection|
 
 
 #### Description
 
-The `.flat()` function <!-- REF #collection.flat().Summary -->creates a new collection with all sub-collection elements concatenated into it recursively up to the specified *depth*<!-- END REF -->.
+The `.flat()` function creates a new collection with all sub-collection elements concatenated into it recursively up to the specified *depth*.
 
 By default, if the *depth* parameter is omitted, only the first level of the nested collection structure will be flattened. 
 
@@ -1267,26 +1267,26 @@ col.flat(MAXLONG)
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF collection.flatMap().Desc -->
+
+
 ## .flatMap()
 
-<!-- REF #collection.flatMap().Syntax -->**.flatMap**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.flatMap**( *methodName* : Text { , *...param* : any } ) : Collection <!-- END REF -->
+**.flatMap**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.flatMap**( *methodName* : Text { , *...param* : any } ) : Collection 
 
-<!-- REF #collection.flatMap().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|Collection |<-|Collection of transformed values and flattened by a depth of 1|<!-- END REF -->
+|Result|Collection |<-|Collection of transformed values and flattened by a depth of 1|
 
 #### Description
 
-The `.flatMap()` function <!-- REF #collection.flatMap().Summary -->creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1<!-- END REF -->. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s). 
+The `.flatMap()` function creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s). 
 
 This function is identical to a [`map()`](#map) call followed by a [`flat()`](#flat) call of depth 1.
 
@@ -1351,29 +1351,29 @@ c2=c.flatMap(f, c.sum())
   //c2: [1, 2.27, 4, 9.09,9, 20.45,10, 22.73, 20, 45.45]
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.includes().Desc -->
+
+
 ## .includes()
 
 
-<!-- REF #collection.includes().Syntax -->**.includes**( *toSearch* : expression { , *startFrom* : Integer } ) : Boolean<!-- END REF -->
+**.includes**( *toSearch* : expression { , *startFrom* : Integer } ) : Boolean
 
 
-<!-- REF #collection.includes().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |toSearch|expression|->|Expression to search in the collection|
 |startFrom|Integer|->|Index to start the search at|
-|Result|Boolean |<-|True if *toSearch* is found in the collection|<!-- END REF -->
+|Result|Boolean |<-|True if *toSearch* is found in the collection|
 
 
 #### Description
 
-The `.includes()` function <!-- REF #collection.includes().Summary -->returns True if the *toSearch* expression is found among collection elements, otherwise False<!-- END REF -->.
+The `.includes()` function returns True if the *toSearch* expression is found among collection elements, otherwise False.
 
 
 >This function does not modify the original collection.
@@ -1410,32 +1410,32 @@ Optionally, you can pass the index of collection from which to start the search 
  in=col.includes(New object("value", 10)) //False
 ```
 
-<!-- END REF -->
 
 
 
 
 
 
-<!-- REF collection.indexOf().Desc -->
+
+
 ## .indexOf()
 
 
-<!-- REF #collection.indexOf().Syntax -->**.indexOf**(  *toSearch* : expression { , *startFrom* : Integer } ) : Integer <!-- END REF -->
+**.indexOf**(  *toSearch* : expression { , *startFrom* : Integer } ) : Integer 
 
 
-<!-- REF #collection.indexOf().Params -->
+
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |toSearch|expression|->|Expression to search in the collection|
 |startFrom|Integer|->|Index to start the search at|
-|Result|Integer |<-|Index of the first occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
+|Result|Integer |<-|Index of the first occurrence of toSearch in the collection, -1 if not found|
 
 
 #### Description
 
-The `.indexOf()` function <!-- REF #collection.indexOf().Summary -->searches the *toSearch* expression among collection elements and returns the index of the first found occurrence, or -1 if it was not found<!-- END REF -->.
+The `.indexOf()` function searches the *toSearch* expression among collection elements and returns the index of the first found occurrence, or -1 if it was not found.
 
 
 >This function does not modify the original collection.
@@ -1467,28 +1467,28 @@ Optionally, you can pass the index of collection from which to start the search 
  i=col.indexOf("Hello") //i=-1
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF collection.indices().Desc -->
+
+
 ## .indices()
 
 
-<!-- REF #collection.indices().Syntax -->**.indices**(  *queryString* : Text { , *...value* : any } ) : Collection <!-- END REF -->
+**.indices**(  *queryString* : Text { , *...value* : any } ) : Collection 
 
 
-<!-- REF #collection.indices().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |queryString|Text|->|Search criteria|
 |value|any|->|Value(s) to compare when using placeholder(s)|
-|Result|Collection |<-|Element index(es) matching queryString in the collection|<!-- END REF -->
+|Result|Collection |<-|Element index(es) matching queryString in the collection|
 
 
 #### Description
 
-The `.indices()` function works exactly the same as the [`.query()`](#query) function but <!-- REF #collection.indices().Summary -->returns indexes, in the original collection, of object collection elements that match the *queryString* search conditions<!-- END REF -->, and not elements themselves. Indexes are returned in ascending order.
+The `.indices()` function works exactly the same as the [`.query()`](#query) function but returns indexes, in the original collection, of object collection elements that match the *queryString* search conditions, and not elements themselves. Indexes are returned in ascending order.
 
 >This function does not modify the original collection.
 
@@ -1516,29 +1516,29 @@ For a detailed description of the *queryString* and *value* parameters, please r
  icol=c.indices("zc > 35040") // icol: [0,3,4]
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.insert().Desc -->
+
+
 ## .insert()
 
 
-<!-- REF #collection.insert().Syntax -->**.insert**( *index* : Integer , *element* : any ) : Collection <!-- END REF -->
+**.insert**( *index* : Integer , *element* : any ) : Collection 
 
 
-<!-- REF #collection.insert().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |index|Integer|->|Where to insert the element|
 |element|any|->|Element to insert in the collection|
-|Result|Collection |<-|Original collection containing inserted element|<!-- END REF -->
+|Result|Collection |<-|Original collection containing inserted element|
 
 
 #### Description
 
-The `.insert()` function <!-- REF #collection.insert().Summary --> inserts *element* at the specified *index* position in the collection instance and returns the edited collection<!-- END REF -->.
+The `.insert()` function  inserts *element* at the specified *index* position in the collection instance and returns the edited collection.
 
 >This function modifies the original collection.
 
@@ -1562,29 +1562,29 @@ Any type of element accepted by a collection can be inserted, even another colle
  col.insert(-10,"Hi") //col:["Hi","a","b","X","Y","c","d"]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.join().Desc -->
+
+
 ## .join()
 
-<!-- REF #collection.join().Syntax -->**.join**( *delimiter* : Text { , *option* : Integer } ) : Text <!-- END REF -->
+**.join**( *delimiter* : Text { , *option* : Integer } ) : Text 
 
 
-<!-- REF #collection.join().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |delimiter|Text|->|Separator to use between elements|
 |option|Integer|->|`ck ignore null or empty`: ignore null and empty strings in the result|
-|Result|Text |<-|String containing all elements of the collection, separated by delimiter|<!-- END REF -->
+|Result|Text |<-|String containing all elements of the collection, separated by delimiter|
 
 
 #### Description
 
-The `.join()` function <!-- REF #collection.join().Summary -->converts all elements of the collection to strings and concatenates them using the specified *delimiter* string as separator<!-- END REF -->.The function returns the resulting string.
+The `.join()` function converts all elements of the collection to strings and concatenates them using the specified *delimiter* string as separator.The function returns the resulting string.
 
 >This function does not modify the original collection.
 
@@ -1601,26 +1601,26 @@ By default, null or empty elements of the collection are returned in the resulti
  t2=c.join("|",ck ignore null or empty) //1|2|3|Paris|4|5
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.last().Desc -->
+
+
 ## .last()
 
-<!-- REF #collection.last().Syntax -->**.last**() : any <!-- END REF -->
+**.last**() : any 
 
 
-<!-- REF #collection.last().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any |<-|Last element of collection|<!-- END REF -->
+|Result|any |<-|Last element of collection|
 
 
 #### Description
 
-The `.last()` function <!-- REF #collection.last().Summary -->returns the last element of the collection<!-- END REF -->.
+The `.last()` function returns the last element of the collection.
 
 
 >This function does not modify the original collection.
@@ -1642,30 +1642,30 @@ last=emptyCol.last() // returns Undefined
 
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.lastIndexOf().Desc -->
+
+
 ## .lastIndexOf()
 
 
-<!-- REF #collection.lastIndexOf().Syntax -->**.lastIndexOf**( *toSearch* : expression { , *startFrom* : Integer } ) : Integer <!-- END REF -->
+**.lastIndexOf**( *toSearch* : expression { , *startFrom* : Integer } ) : Integer 
 
 
-<!-- REF #collection.lastIndexOf().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |toSearch|expression|->|The element that is to be searched for within the collection|
 |startFrom|Integer|->|Index to start the search at|
-|Result|Integer |<-|Index of last occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
+|Result|Integer |<-|Index of last occurrence of toSearch in the collection, -1 if not found|
 
 
 #### Description
 
-The `.lastIndexOf()` function <!-- REF #collection.lastIndexOf().Summary -->searches the *toSearch* expression among collection elements and returns the index of the last occurrence<!-- END REF -->, or -1 if it was not found.
+The `.lastIndexOf()` function searches the *toSearch* expression among collection elements and returns the index of the last occurrence, or -1 if it was not found.
 
 >This function does not modify the original collection.
 
@@ -1698,22 +1698,22 @@ Optionally, you can pass the index of collection from which to start a reverse s
  pos5=col.lastIndexOf("x") //returns -1
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.length.Desc -->
+
+
 ## .length
 
 
-<!-- REF #collection.length.Syntax -->**.length** : Integer<!-- END REF -->
+**.length** : Integer
 
 
 
 #### Description
 
-The `.length` property <!-- REF #collection.length.Summary -->returns the number of elements in the collection<!-- END REF -->.
+The `.length` property returns the number of elements in the collection.
 
 The `.length` property is initialized when the collection is created. Adding or removing elements updates the length, if necessary. This property is **read-only** (you cannot use it to set the size of the collection).
 
@@ -1728,30 +1728,30 @@ The `.length` property is initialized when the collection is created. Adding or 
  vSize=col.remove(0,3).length //vSize: 2
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.map().Desc -->
+
+
 ## .map()
 
 
-<!-- REF #collection.map().Syntax -->**.map**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.map**( *methodName* : Text { , *...param* : any } ) : Collection <!-- END REF -->
+**.map**( *formula* : 4D.Function { , *...param* : any } ) : Collection<br/>**.map**( *methodName* : Text { , *...param* : any } ) : Collection 
 
 
-<!-- REF #collection.map().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|Collection |<-|Collection of transformed values|<!-- END REF -->
+|Result|Collection |<-|Collection of transformed values|
 
 
 #### Description
 
-The `.map()` function <!-- REF #collection.map().Summary -->creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection<!-- END REF -->. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s). `.map()` always returns a collection with the same size as the original collection, except if *1.stop* was used (see below).
+The `.map()` function creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s). `.map()` always returns a collection with the same size as the original collection, except if *1.stop* was used (see below).
 
 >This function does not modify the original collection.
 
@@ -1785,29 +1785,29 @@ c2=c.map(Formula(Round(($1.value/2)*100, 2)), c.sum())
   //c2: [2.27,9.09,20.45,22.73,45.45]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.max().Desc -->
+
+
 ## .max()
 
 
-<!-- REF #collection.max().Syntax -->**.max**( { *propertyPath* : Text } ) : any <!-- END REF -->
+**.max**( { *propertyPath* : Text } ) : any 
 
 
-<!-- REF #collection.max().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Object property path to be used for evaluation|
-|Result|Boolean, Text, Number, Collection, Object, Date |<-|Maximum value in the collection|<!-- END REF -->
+|Result|Boolean, Text, Number, Collection, Object, Date |<-|Maximum value in the collection|
 
 
 #### Description
 
-The `.max()` function <!-- REF #collection.max().Summary -->returns the element with the highest value in the collection<!-- END REF --> (the last element of the collection as it would be sorted in ascending order using the [`.sort()`](#sort) function).
+The `.max()` function returns the element with the highest value in the collection (the last element of the collection as it would be sorted in ascending order using the [`.sort()`](#sort) function).
 
 >This function does not modify the original collection.
 
@@ -1832,27 +1832,27 @@ If the collection is empty, `.max()` returns *Undefined*.
  maxName=col.max("name") //"Wesson"
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.min().Desc -->
+
+
 ## .min()
 
-<!-- REF #collection.min().Syntax -->**.min**( { *propertyPath* : Text } ) : any <!-- END REF -->
+**.min**( { *propertyPath* : Text } ) : any 
 
 
-<!-- REF #collection.min().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|Text|->|Object property path to be used for evaluation|
-|Result|Boolean, Text, Number, Collection, Object, Date |<-|Minimum value in the collection|<!-- END REF -->
+|Result|Boolean, Text, Number, Collection, Object, Date |<-|Minimum value in the collection|
 
 
 #### Description
 
-The `.min()` function <!-- REF #collection.min().Summary -->returns the element with the smallest value in the collection<!-- END REF --> (the first element of the collection as it would be sorted in ascending order using the [`.sort()`](#sort) function).
+The `.min()` function returns the element with the smallest value in the collection (the first element of the collection as it would be sorted in ascending order using the [`.sort()`](#sort) function).
 
 >This function does not modify the original collection.
 
@@ -1878,30 +1878,30 @@ If the collection is empty, `.min()` returns *Undefined*.
  minName=col.min("name") //"Alabama"
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.orderBy().Desc -->
+
+
 ## .orderBy()
 
 
-<!-- REF #collection.orderBy().Syntax -->**.orderBy**() : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection <!-- END REF -->
+**.orderBy**() : Collection<br/>**.orderBy**( *pathStrings* : Text ) : Collection<br/>**.orderBy**( *pathObjects* : Collection ) : Collection<br/>**.orderBy**( *ascOrDesc* : Integer ) : Collection 
 
 
-<!-- REF #collection.orderBy().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |pathStrings|Text|->|Property path(s) on which to order the collection|
 |pathObjects|Collection|->|Collection of criteria objects|
 |ascOrDesc|Integer|->|`ck ascending` or `ck descending` (scalar values)|
-|Result|Collection |<-|Ordered copy of the collection (shallow copy)|<!-- END REF -->
+|Result|Collection |<-|Ordered copy of the collection (shallow copy)|
 
 
 #### Description
 
-The `.orderBy()` function <!-- REF #collection.orderBy().Summary -->returns a new collection containing all elements of the collection in the specified order<!-- END REF -->.
+The `.orderBy()` function returns a new collection containing all elements of the collection in the specified order.
 
 This function returns a *shallow copy*, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.
 
@@ -2013,32 +2013,32 @@ Ordering with a property path:
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.orderByMethod().Desc -->
+
+
 ## .orderByMethod()
 
 
-<!-- REF #collection.orderByMethod().Syntax -->**.orderByMethod**( *formula* : 4D.Function { , ...*extraParam* : expression } ) : Collection<br/>**.orderByMethod**( *methodName* : Text { , ...*extraParam* : expression } ) : Collection<!-- END REF -->
+**.orderByMethod**( *formula* : 4D.Function { , ...*extraParam* : expression } ) : Collection<br/>**.orderByMethod**( *methodName* : Text { , ...*extraParam* : expression } ) : Collection
 
 
 
-<!-- REF #collection.orderByMethod().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |extraParam|any|->|Parameter(s) to pass |
-|Result|Collection |<-|Sorted copy of the collection (shallow copy)|<!-- END REF -->
+|Result|Collection |<-|Sorted copy of the collection (shallow copy)|
 
 
 #### Description
 
-The `.orderByMethod()` function <!-- REF #collection.orderByMethod().Summary -->returns a new collection containing all elements of the collection in the order defined through the *formula* function or *methodName* method<!-- END REF -->.
+The `.orderByMethod()` function returns a new collection containing all elements of the collection in the order defined through the *formula* function or *methodName* method.
 
 This function returns a *shallow copy*, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.
 
@@ -2113,28 +2113,28 @@ var $2: Integer // sort option
 $1.result=(Compare strings($1.value,$1.value2,2)<0)
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.pop().Desc -->
+
+
 ## .pop()
 
 
-<!-- REF #collection.pop().Syntax -->**.pop**() : any <!-- END REF -->
+**.pop**() : any 
 
 
-<!-- REF #collection.pop().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any |<-|Last element of collection|<!-- END REF -->
+|Result|any |<-|Last element of collection|
 
 
 #### Description
 
-The `.pop()` function <!-- REF #collection.pop().Summary -->removes the last element from the collection and returns it as the function result<!-- END REF -->.
+The `.pop()` function removes the last element from the collection and returns it as the function result.
 
 >This function modifies the original collection.
 
@@ -2156,28 +2156,28 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 ```
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.push().Desc -->
+
+
 ## .push()
 
-<!-- REF #collection.push().Syntax -->**.push**( *element* : any { ,...*elementN* } ) : Collection <!-- END REF -->
+**.push**( *element* : any { ,...*elementN* } ) : Collection 
 
 
-<!-- REF #collection.push().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |element|Mixed|->|Element(s) to add to the collection|
-|Result|Collection |<-|Original collection containing added elements|<!-- END REF -->
+|Result|Collection |<-|Original collection containing added elements|
 
 
 #### Description
 
-The `.push()` function <!-- REF #collection.push().Summary -->appends one or more *element*(s) to the end of the collection instance and returns the edited collection<!-- END REF -->.
+The `.push()` function appends one or more *element*(s) to the end of the collection instance and returns the edited collection.
 
 >This function modifies the original collection.
 
@@ -2208,31 +2208,31 @@ You want to sort the resutling collection:
 
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.query().Desc -->
+
+
 ## .query()
 
-<!-- REF #collection.query().Syntax -->**.query**( *queryString* : Text , *...value* : any ) : Collection<br/>**.query**( *queryString* : Text , *querySettings* : Object ) : Collection <!-- END REF -->
+**.query**( *queryString* : Text , *...value* : any ) : Collection<br/>**.query**( *queryString* : Text , *querySettings* : Object ) : Collection 
 
 
-<!-- REF #collection.query().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |queryString|Text|->|Search criteria|
 |value|Mixed|->|Value(s) to compare when using placeholder(s)|
 |querySettings|Object|->|Query options: parameters, attributes|
-|Result|Collection |<-|Element(s) matching *queryString* in the collection|<!-- END REF -->
+|Result|Collection |<-|Element(s) matching *queryString* in the collection|
 
 
 #### Description
 
 
-The `.query()` function <!-- REF #collection.query().Summary -->returns all elements of a collection of objects that match the search conditions <!-- END REF -->defined by *queryString* and (optionally) *value* or *querySettings*. If the original collection is a shared collection, the returned collection is also a shared collection.
+The `.query()` function returns all elements of a collection of objects that match the search conditions defined by *queryString* and (optionally) *value* or *querySettings*. If the original collection is a shared collection, the returned collection is also a shared collection.
 
 >This function does not modify the original collection.
 
@@ -2312,33 +2312,33 @@ This example returns persons hired more than 90 days ago:
 
 More examples of queries can be found in the [`dataClass.query()`](DataClassClass.md#query) page.
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.reduce().Desc -->
+
+
 ## .reduce()
 
 
-<!-- REF #collection.reduce().Syntax -->**.reduce**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduce**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any <!-- END REF -->
+**.reduce**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduce**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any 
 
 
-<!-- REF #collection.reduce().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |initValue |Text, Number, Object, Collection, Date, Boolean|->|Value to use as the first argument to the first call of *formula* or *methodName*|
 |param |expression|->|Parameter(s) to pass|
-|Result|Text, Number, Object, Collection, Date, Boolean |<-|Result of the accumulator value|<!-- END REF -->
+|Result|Text, Number, Object, Collection, Date, Boolean |<-|Result of the accumulator value|
 
 
 #### Description
 
 
-The `.reduce()` function <!-- REF #collection.reduce().Summary -->applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from left to right) to reduce it to a single value<!-- END REF -->.
+The `.reduce()` function applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from left to right) to reduce it to a single value.
 
 >This function does not modify the original collection.
 
@@ -2396,32 +2396,32 @@ With the following ***Flatten*** method:
  $1.accumulator.combine($1.value)
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.reduceRight().Desc -->
+
+
 ## .reduceRight()
 
-<!-- REF #collection.reduceRight().Syntax -->**.reduceRight**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduceRight**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any <!-- END REF -->
+**.reduceRight**( *formula* : 4D.Function { , *initValue* : any { , *...param* : expression }} ) : any<br/>**.reduceRight**( *methodName* : Text { , *initValue* : any { , *...param* : expression }} ) : any 
 
 
-<!-- REF #collection.reduceRight().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |initValue |Text, Number, Object, Collection, Date, Boolean|->|Value to use as the first argument to the first call of *formula* or *methodName*|
 |param |expression|->|Parameter(s) to pass|
-|Result|Text, Number, Object, Collection, Date, Boolean |<-|Result of the accumulator value|<!-- END REF -->
+|Result|Text, Number, Object, Collection, Date, Boolean |<-|Result of the accumulator value|
 
 
 #### Description
 
 
-The `.reduceRight()` function <!-- REF #collection.reduceRight().Summary -->applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from right to left) to reduce it to a single value<!-- END REF -->.
+The `.reduceRight()` function applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from right to left) to reduce it to a single value.
 
 >This function does not modify the original collection.
 
@@ -2483,28 +2483,28 @@ With the following ***Flatten*** method:
  $1.accumulator.combine($1.value)
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF collection.remove().Desc -->
+
+
 ## .remove()
 
 
-<!-- REF #collection.remove().Syntax -->**.remove**( *index* : Integer { , *howMany* : Integer } ) : Collection <!-- END REF -->
+**.remove**( *index* : Integer { , *howMany* : Integer } ) : Collection 
 
 
-<!-- REF #collection.remove().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |index |Integer|->|Element at which to start removal|
 |howMany |Integer|->|Number of elements to remove, or 1 element if omitted|
-|Result|Collection|<-|Original collection without removed element(s)|<!-- END REF -->
+|Result|Collection|<-|Original collection without removed element(s)|
 
 
 #### Description
 
-The `.remove()` function <!-- REF #collection.remove().Summary -->removes one or more element(s) from the specified *index* position in the collection and returns the edited collection<!-- END REF -->.
+The `.remove()` function removes one or more element(s) from the specified *index* position in the collection and returns the edited collection.
 
 >This function modifies the original collection.
 
@@ -2535,32 +2535,32 @@ If you try to remove an element from an empty collection, the method does nothin
  col.remove(-3,1) // ["b","g","h"]
 ```
 
-<!-- END REF -->
 
 
 
 
 
 
-<!-- REF collection.resize().Desc -->
+
+
 ## .resize()
 
 
 
-<!-- REF #collection.resize().Syntax -->**.resize**( *size* : Integer { , *defaultValue* : any } ) : Collection <!-- END REF -->
+**.resize**( *size* : Integer { , *defaultValue* : any } ) : Collection 
 
 
-<!-- REF #collection.resize().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |size |Integer|->|New size of the collection|
 |defaultValue |Number, Text, Object, Collection, Date, Boolean|->|Default value to fill new elements|
-|Result|Collection|<-|Resized original collection|<!-- END REF -->
+|Result|Collection|<-|Resized original collection|
 
 
 #### Description
 
-The `.resize()` function <!-- REF #collection.resize().Summary -->sets the collection length to the specified new size and returns the resized collection<!-- END REF -->.
+The `.resize()` function sets the collection length to the specified new size and returns the resized collection.
 
 >This function modifies the original collection.
 
@@ -2588,28 +2588,28 @@ By default, new elements are filled will **null** values. You can specify the va
 
 ```
 
-<!-- END REF -->
 
 
 
 
 
 
-<!-- REF collection.reverse().Desc -->
+
+
 ## .reverse()
 
-<!-- REF #collection.reverse().Syntax -->**.reverse**() : Collection <!-- END REF -->
+**.reverse**() : Collection 
 
 
-<!-- REF #collection.reverse().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|Collection|<-|Inverted copy of the collection|<!-- END REF -->
+|Result|Collection|<-|Inverted copy of the collection|
 
 
 #### Description
 
-The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a deep copy of the collection with all its elements in reverse order<!-- END REF -->. If the original collection is a shared collection, the returned collection is also a shared collection.
+The `.reverse()` function returns a deep copy of the collection with all its elements in reverse order. If the original collection is a shared collection, the returned collection is also a shared collection.
 
 >This function does not modify the original collection.
 
@@ -2622,28 +2622,28 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
  c2=c.reverse() //c2:[6,4,2,5,3,1]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.shift().Desc -->
+
+
 ## .shift()
 
 
-<!-- REF #collection.shift().Syntax -->**.shift**() : any<!-- END REF -->
+**.shift**() : any
 
 
-<!-- REF #collection.shift().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any|<-|First element of collection|<!-- END REF -->
+|Result|any|<-|First element of collection|
 
 
 #### Description
 
-The `.shift()` function <!-- REF #collection.shift().Summary -->removes the first element of the collection and returns it as the function result<!-- END REF -->.
+The `.shift()` function removes the first element of the collection and returns it as the function result.
 
 >This function modifies the original collection.
 
@@ -2661,7 +2661,6 @@ If the collection is empty, this method does nothing.
   // c:[2,4,5,6,7,8]
 ```
 
-<!-- END REF -->
 
 
 
@@ -2669,23 +2668,24 @@ If the collection is empty, this method does nothing.
 
 
 
-<!-- REF collection.slice().Desc -->
+
+
 ## .slice()
 
-<!-- REF #collection.slice().Syntax -->**.slice**( *startFrom* : Integer { , *end* : Integer } ) : Collection<!-- END REF -->
+**.slice**( *startFrom* : Integer { , *end* : Integer } ) : Collection
 
 
-<!-- REF #collection.slice().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |startFrom |Integer |->|Start index (included)|
 |end |Integer |->|End index (not included)|
-|Result|Collection|<-|New collection containing sliced elements (shallow copy)|<!-- END REF -->
+|Result|Collection|<-|New collection containing sliced elements (shallow copy)|
 
 
 #### Description
 
-The `.slice()` function <!-- REF #collection.slice().Summary -->returns a portion of a collection into a new collection<!-- END REF -->, selected from *startFrom* index to *end* index (end not included). This function returns a *shallow copy* of the collection. If the original collection is a shared collection, the returned collection is also a shared collection.
+The `.slice()` function returns a portion of a collection into a new collection, selected from *startFrom* index to *end* index (end not included). This function returns a *shallow copy* of the collection. If the original collection is a shared collection, the returned collection is also a shared collection.
 
 >This function does not modify the original collection.
 
@@ -2708,32 +2708,32 @@ The returned collection contains the element specified by *startFrom* and all su
  nc=c.slice(-3,-2) //nc:[3]
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.some().Desc -->
+
+
 ## .some()
 
 
-<!-- REF #collection.some().Syntax -->**.some**( { *startFrom* : Integer , } *formula* : 4D.Function { , *...param* : any } ) : Boolean<br/>**.some**( { *startFrom* : Integer , } *methodName* : Text { , *...param* : any } ) : Boolean<!-- END REF -->
+**.some**( { *startFrom* : Integer , } *formula* : 4D.Function { , *...param* : any } ) : Boolean<br/>**.some**( { *startFrom* : Integer , } *methodName* : Text { , *...param* : any } ) : Boolean
 
 
-<!-- REF #collection.some().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |startFrom |Integer |->|Index to start the test at|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |param |Mixed |->|Parameter(s) to pass|
-|Result|Boolean|<-|True if at least one element successfully passed the test|<!-- END REF -->
+|Result|Boolean|<-|True if at least one element successfully passed the test|
 
 
 #### Description
 
-The `.some()` function <!-- REF #collection.some().Summary -->returns true if at least one element in the collection successfully passed a test implemented in the provided *formula* or *methodName* code<!-- END REF -->.
+The `.some()` function returns true if at least one element in the collection successfully passed a test implemented in the provided *formula* or *methodName* code.
 
 You designate the 4D code (callback) to be executed to evaluate collection elements using either:
 
@@ -2784,31 +2784,31 @@ You want to know if at least one collection value is >0.
 
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.sort().Desc -->
+
+
 ## .sort()
 
 
-<!-- REF #collection.sort().Syntax -->**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : Collection<br/>**.sort**( *methodName* : Text { , *...extraParam* : any } ) : Collection <!-- END REF -->
+**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : Collection<br/>**.sort**( *methodName* : Text { , *...extraParam* : any } ) : Collection 
 
 
-<!-- REF #collection.sort().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formula|4D.Function|->|Formula object|
 |methodName|Text|->|Name of a method|
 |extraParam |any |->|Parameter(s) for the method|
-|Result|Collection|<-|Original collection sorted|<!-- END REF -->
+|Result|Collection|<-|Original collection sorted|
 
 
 #### Description
 
-The `.sort()` function <!-- REF #collection.sort().Summary -->sorts the elements of the original collection and also returns the sorted collection<!-- END REF --> .
+The `.sort()` function sorts the elements of the original collection and also returns the sorted collection .
 
 >This function modifies the original collection.
 
@@ -2864,28 +2864,28 @@ col2=col.sort() //numerical sort: [4,33,66,222,1111]
 col3=col.sort(Formula(String($1.value)<String($1.value2))) //alphabetical sort: [1111,222,33,4,66]
 ```
 
-<!-- END REF -->
 
 
 
 
-<!-- REF collection.sum().Desc -->
+
+
 ## .sum()
 
 
-<!-- REF #collection.sum().Syntax -->**.sum**( { *propertyPath* : Text } ) : Real<!-- END REF -->
+**.sum**( { *propertyPath* : Text } ) : Real
 
 
-<!-- REF #collection.sum().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath |Text |->|Object property path to be used for calculation|
-|Result|Real|<-|Sum of collection values|<!-- END REF -->
+|Result|Real|<-|Sum of collection values|
 
 
 #### Description
 
-The `.sum()` function <!-- REF #collection.sum().Summary -->returns the sum for all values in the collection instance<!-- END REF -->.
+The `.sum()` function returns the sum for all values in the collection instance.
 
 Only numerical elements are taken into account for the calculation (other element types are ignored).
 
@@ -2919,29 +2919,29 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
  vSum=col.sum("salary") //vSum:70500,5
 ```
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF collection.unshift().Desc -->
+
+
 ## .unshift()
 
-<!-- REF #collection.unshift().Syntax -->**.unshift**( *value* : any { ,...*valueN* : any } ) : Collection<!-- END REF -->
+**.unshift**( *value* : any { ,...*valueN* : any } ) : Collection
 
 
-<!-- REF #collection.unshift().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value |Text, Number, Object, Collection, Date |->|Value(s) to insert at the beginning of the collection|
 |Result|Real|<-|Collection containing added element(s)
-|<!-- END REF -->
+|
 
 
 #### Description
 
-The `.unshift()` function <!-- REF #collection.unshift().Summary -->inserts the given *value*(s) at the beginning of the collection <!-- END REF -->and returns the modified collection.
+The `.unshift()` function inserts the given *value*(s) at the beginning of the collection and returns the modified collection.
 
 >This function modifies the original collection.
 
@@ -2959,4 +2959,4 @@ If several values are passed, they are inserted all at once, which means that th
  c.unshift(6,7) // c:[6,7,5,4,1,2]
 ```
 
-<!-- END REF -->
+

@@ -32,31 +32,31 @@ ASSERT(status.success)
 
 ||
 |---|
-|[<!-- INCLUDE #4D.CryptoKey.new().Syntax -->](#4dcryptokeynew)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #4D.CryptoKey.new().Summary -->|
-|[<!-- INCLUDE #CryptoKey.curve.Syntax -->](#curve)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.curve.Summary --> |
-|[<!-- INCLUDE #CryptoKey.decrypt().Syntax -->](#decrypt)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.decrypt().Summary -->|
-|[<!-- INCLUDE #CryptoKey.encrypt().Syntax -->](#encrypt)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.encrypt().Summary -->|
-|[<!-- INCLUDE #CryptoKey.getPrivateKey().Syntax -->](#getprivatekey)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.getPrivateKey().Summary -->|
-|[<!-- INCLUDE #CryptoKey.getPublicKey().Syntax -->](#getpublickey)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.getPublicKey().Summary -->|
-|[<!-- INCLUDE #CryptoKey.sign().Syntax -->](#sign)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.sign().Summary --> |
-|[<!-- INCLUDE #CryptoKey.size.Syntax -->](#size)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.size.Summary --> |
-|[<!-- INCLUDE #CryptoKey.type.Syntax -->](#type)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.type.Summary --> |
-|[<!-- INCLUDE #CryptoKey.verify().Syntax -->](#verify)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #CryptoKey.verify().Summary -->|
+|[**4D.CryptoKey.new**( *settings* : Object ) : 4D.CryptoKey](#4dcryptokeynew)&nbsp;&nbsp;&nbsp;&nbsp;creates a new `4D.CryptoKey` object encapsulating an encryption key pair|
+|[**.curve** : Text](#curve)&nbsp;&nbsp;&nbsp;&nbsp;normalised curve name of the key |
+|[**.decrypt**( *message* : Text , *options* : Object ) : Object](#decrypt)&nbsp;&nbsp;&nbsp;&nbsp;decrypts the *message* parameter using the **private** key|
+|[**.encrypt**( *message* : Text , *options* : Object ) : Text](#encrypt)&nbsp;&nbsp;&nbsp;&nbsp;encrypts the *message* parameter using the **public** key|
+|[**.getPrivateKey**() : Text](#getprivatekey)&nbsp;&nbsp;&nbsp;&nbsp;returns the private key of the `CryptoKey` object|
+|[**.getPublicKey**() : Text](#getpublickey)&nbsp;&nbsp;&nbsp;&nbsp;returns the public key of the `CryptoKey` object|
+|[.**sign** (*message* : Text , *options* : Text) : Text](#sign)&nbsp;&nbsp;&nbsp;&nbsp;signs the utf8 representation of a *message* string |
+|[**.size** : Integer](#size)&nbsp;&nbsp;&nbsp;&nbsp;the size of the key in bits |
+|[**.type** : Text](#type)&nbsp;&nbsp;&nbsp;&nbsp;name of the key type - "RSA", "ECDSA", "PEM"  |
+|[**.verify**( *message* : Text , *signature* : Text , *options* : Object) : object](#verify)&nbsp;&nbsp;&nbsp;&nbsp;verifies the base64 signature against the utf8 representation of *message*|
 
 ## 4D.CryptoKey.new()
 
 
-<!-- REF #4D.CryptoKey.new().Syntax -->
-**4D.CryptoKey.new**( *settings* : Object ) : 4D.CryptoKey<!-- END REF -->
+
+**4D.CryptoKey.new**( *settings* : Object ) : 4D.CryptoKey
 
 
-<!-- REF #4D.CryptoKey.new().Params -->
+
 |Parameter|Type||Description|
 |---|---|----|---|
 |settings|Object|->|Settings to generate or load a key pair|
-|result|4D.CryptoKey|<-|Object encapsulating an encryption key pair|<!-- END REF -->
+|result|4D.CryptoKey|<-|Object encapsulating an encryption key pair|
 
-The `4D.CryptoKey.new()` function <!-- REF #4D.CryptoKey.new().Summary -->creates a new `4D.CryptoKey` object encapsulating an encryption key pair<!-- END REF -->, based upon the *settings* object parameter. It allows to generate a new RSA or ECDSA key, or to load an existing key pair from a PEM definition.
+The `4D.CryptoKey.new()` function creates a new `4D.CryptoKey` object encapsulating an encryption key pair, based upon the *settings* object parameter. It allows to generate a new RSA or ECDSA key, or to load an existing key pair from a PEM definition.
 
 #### *settings*
 
@@ -72,31 +72,31 @@ The `4D.CryptoKey.new()` function <!-- REF #4D.CryptoKey.new().Summary -->create
 
 The returned `CryptoKey` object encapsulates an encryption key pair. It is a shared object and can therefore be used by multiple processes simultaneously.
 
-<!-- REF CryptoKey.curve -->
+
 ## .curve
 
-<!-- REF #CryptoKey.curve.Syntax -->**.curve** : Text<!-- END REF -->
+**.curve** : Text
 
 
-Defined only for ECDSA keys: the <!-- REF #CryptoKey.curve.Summary -->normalised curve name of the key<!-- END REF -->. Usually "prime256v1" for ES256 (default), "secp384r1" for ES384, "secp521r1" for ES512.
-<!-- END REF -->
+Defined only for ECDSA keys: the normalised curve name of the key. Usually "prime256v1" for ES256 (default), "secp384r1" for ES384, "secp521r1" for ES512.
 
-<!-- REF CryptoKey.decrypt().Desc -->
+
+
 ## .decrypt()
 
 
-<!-- REF #CryptoKey.decrypt().Syntax -->
-**.decrypt**( *message* : Text , *options* : Object ) : Object<!-- END REF -->
+
+**.decrypt**( *message* : Text , *options* : Object ) : Object
 
 
-<!-- REF #CryptoKey.decrypt().Params -->
+
 |Parameter|Type||Description|
 |---|---|----|---|
 |message|Text|->|Message string to be decoded using `options.encodingEncrypted` and decrypted.|  
 |options|Object|->|Decoding options|
-|Result|Object|<-|Status|<!-- END REF -->
+|Result|Object|<-|Status|
 
-The `.decrypt()` function <!-- REF #CryptoKey.decrypt().Summary -->decrypts the *message* parameter using the **private** key<!-- END REF -->. The algorithm used depends on the type of the key.
+The `.decrypt()` function decrypts the *message* parameter using the **private** key. The algorithm used depends on the type of the key.
 
 The key must be a RSA key, the algorithm is RSA-OAEP (see [RFC 3447](https://tools.ietf.org/html/rfc3447)).
 
@@ -119,24 +119,24 @@ The function returns a status object with `success` property set to `true` if th
 |errors|collection|If `success` is `false`, may contain a collection of errors|
 
 In case the *message* couldn't be decrypted because it was not encrypted with the same key or algorithm, the `status` object being returned contains an error collection in `status.errors`.
-<!-- END REF -->
 
-<!-- REF CryptoKey.encrypt().Desc -->
+
+
 ## .encrypt()
 
 
-<!-- REF #CryptoKey.encrypt().Syntax -->
-**.encrypt**( *message* : Text , *options* : Object ) : Text<!-- END REF -->
+
+**.encrypt**( *message* : Text , *options* : Object ) : Text
 
 
-<!-- REF #CryptoKey.encrypt().Params -->
+
 |Parameter|Type||Description|
 |---|---|----|---|
 |message|Text|->|Message string to be encoded using `options.encodingDecrypted` and encrypted.|  
 |options|Object|->|Encoding options|
-|Result|Text|<-|Message encrypted and encoded using the `options.encodingEncrypted`|<!-- END REF -->
+|Result|Text|<-|Message encrypted and encoded using the `options.encodingEncrypted`|
 
-The `.encrypt()` function <!-- REF #CryptoKey.encrypt().Summary -->encrypts the *message* parameter using the **public** key<!-- END REF -->. The algorithm used depends on the type of the key.
+The `.encrypt()` function encrypts the *message* parameter using the **public** key. The algorithm used depends on the type of the key.
 
 The key must be a RSA key, the algorithm is RSA-OAEP (see [RFC 3447](https://tools.ietf.org/html/rfc3447)).
 
@@ -151,78 +151,78 @@ The key must be a RSA key, the algorithm is RSA-OAEP (see [RFC 3447](https://too
 #### *Result*
 
 The returned value is an encrypted message.
-<!-- END REF -->
 
-<!-- REF CryptoKey.getPrivateKey().Desc -->
+
+
 ## .getPrivateKey()
 
 
-<!-- REF #CryptoKey.getPrivateKey().Syntax -->
-**.getPrivateKey**() : Text<!-- END REF -->
+
+**.getPrivateKey**() : Text
 
 
-<!-- REF #CryptoKey.getPrivateKey().Params -->
+
 |Parameter|Type||Description|
 |---|---|----|---|
-|Result|Text|<-|Private key in PEM format|<!-- END REF -->
+|Result|Text|<-|Private key in PEM format|
 
-The `.getPrivateKey()` function  <!-- REF #CryptoKey.getPrivateKey().Summary -->returns the private key of the `CryptoKey` object<!-- END REF --> in PEM format, or an empty string if none is available.
+The `.getPrivateKey()` function  returns the private key of the `CryptoKey` object in PEM format, or an empty string if none is available.
 
 #### *Result*
 
 
 
 The returned value is the private key.
-<!-- END REF -->
 
-<!-- REF CryptoKey.getPublicKey().Desc -->
+
+
 ## .getPublicKey()
 
 
-<!-- REF #CryptoKey.getPublicKey().Syntax -->
-**.getPublicKey**() : Text<!-- END REF -->
+
+**.getPublicKey**() : Text
 
 
-<!-- REF #CryptoKey.getPublicKey().Params -->
+
 |Parameter|Type||Description|
 |---|----|---|---|
-|Result|Text|<-|Public key in PEM format|<!-- END REF -->
+|Result|Text|<-|Public key in PEM format|
 
-The `.getPublicKey()` function <!-- REF #CryptoKey.getPublicKey().Summary -->returns the public key of the `CryptoKey` object<!-- END REF --> in PEM format, or an empty string if none is available.
+The `.getPublicKey()` function returns the public key of the `CryptoKey` object in PEM format, or an empty string if none is available.
 
 #### *Result*
 
 The returned value is the public key.
-<!-- END REF -->
+
 
 ---
-<!-- REF CryptoKey.pem.Desc -->
+
 ## .pem
 
 
-<!-- REF #CryptoKey.pem.Syntax -->
-**.pem** : Text<!-- END REF -->
+
+**.pem** : Text
 
 
-<!-- REF #CryptoKey.pem.Summary -->
-PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it. <!-- END REF -->
+
+PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it. 
 
 
-<!-- REF CryptoKey.sign().Desc -->
+
 ## .sign()
 
 
-<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : Text , *options* : Text) : Text<!-- END REF -->
+.**sign** (*message* : Text , *options* : Text) : Text
 
 
-<!-- REF #CryptoKey.sign().Params -->
+
 |Parameter|Type||Description|
 |---|----|---|---|
 |message|Text|->|Message string to sign|  
 |options|Object|->|Signing options|
-|Result|Text|<-|Signature in Base64 or Base64URL representation, depending on "encoding" option|<!-- END REF -->
+|Result|Text|<-|Signature in Base64 or Base64URL representation, depending on "encoding" option|
 
-The `.sign()` function <!-- REF #CryptoKey.sign().Summary -->signs the utf8 representation of a *message* string<!-- END REF --> using the `CryptoKey` object keys and provided *options*. It returns its signature in base64 or base64URL format, depending on the value of the `options.encoding` attribute you passed.
+The `.sign()` function signs the utf8 representation of a *message* string using the `CryptoKey` object keys and provided *options*. It returns its signature in base64 or base64URL format, depending on the value of the `options.encoding` attribute you passed.
 
 The `CryptoKey` must contain a valid **private** key.
 
@@ -238,27 +238,27 @@ The `CryptoKey` must contain a valid **private** key.
 #### *Result*
 
 The utf8 representation of the *message* string.
-<!-- END REF -->
 
-<!-- REF CryptoKey.size -->
+
+
 ## .size
-<!-- END REF -->
 
 
-<!-- REF #CryptoKey.size.Syntax -->**.size** : Integer<!-- END REF -->
+
+**.size** : Integer
 
 
-Defined only for RSA keys: <!-- REF #CryptoKey.size.Summary -->the size of the key in bits<!-- END REF -->. Typically 2048 (default).
+Defined only for RSA keys: the size of the key in bits. Typically 2048 (default).
 
-<!-- REF CryptoKey.type -->
+
 ## .type
-<!-- END REF -->
 
 
-<!-- REF #CryptoKey.type.Syntax -->**.type** : Text<!-- END REF -->
+
+**.type** : Text
 
 
-Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "ECDSA", "PEM" <!-- END REF -->. 
+Contains the name of the key type - "RSA", "ECDSA", "PEM" . 
 
 
 - "RSA": an RSA key pair, using `settings.size` as [.size](#size).
@@ -267,24 +267,24 @@ Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "
 
 
 
-<!-- REF CryptoKey.verify().Desc -->
+
 ## .verify()
 
 
-<!-- REF #CryptoKey.verify().Syntax -->
-**.verify**( *message* : Text , *signature* : Text , *options* : Object) : object<!-- END REF -->
+
+**.verify**( *message* : Text , *signature* : Text , *options* : Object) : object
 
 
-<!-- REF #CryptoKey.verify().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |message|Text|->|Message string that was used to produce the signature|  
 |signature|Text|->|Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value|
 |options|Object|->|Signing options|
-|Result|Object|<-|Status of the verification|<!-- END REF -->
+|Result|Object|<-|Status of the verification|
 
 
-The `.verify()` function <!-- REF #CryptoKey.verify().Summary -->verifies the base64 signature against the utf8 representation of *message*<!-- END REF --> using the `CryptoKey` object keys and provided *options*.
+The `.verify()` function verifies the base64 signature against the utf8 representation of *message* using the `CryptoKey` object keys and provided *options*.
 
 The `CryptoKey` must contain a valid **public** key.
 
@@ -305,4 +305,4 @@ In case the signature couldn't be verified because it was not signed with the sa
 |Property|Type|Description|
 |---|---|---|
 |success|boolean|True if the signature matches the message|
-|errors|collection|If `success` is `false`, may contain a collection of errors|<!-- END REF -->
+|errors|collection|If `success` is `false`, may contain a collection of errors|

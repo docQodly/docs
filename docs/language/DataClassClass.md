@@ -12,33 +12,33 @@ A [DataClass](../Concepts/data-model#dataclass) provides an object interface to 
 
 ||
 |---|
-|[<!-- INCLUDE #DataClassClass.all().Syntax -->](#all)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.all().Summary -->|
-|[<!-- INCLUDE #DataClassClass.fromCollection().Syntax -->](#fromcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.fromCollection().Summary --> |
-|[<!-- INCLUDE #DataClassClass.get().Syntax -->](#get)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.get().Summary --> |
-|[<!-- INCLUDE #DataClassClass.getCount().Syntax -->](#getcount)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.getCount().Summary --> |
-|[<!-- INCLUDE #DataClassClass.getDataStore().Syntax -->](#getdatastore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.getDataStore().Summary -->|
-|[<!-- INCLUDE #DataClassClass.getInfo().Syntax -->](#getinfo)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.getInfo().Summary -->|
-|[<!-- INCLUDE #DataClassClass.new().Syntax -->](#new)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.new().Summary --> |
-|[<!-- INCLUDE #DataClassClass.newSelection().Syntax -->](#newselection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.newSelection().Summary --> |
-|[<!-- INCLUDE #DataClassClass.query().Syntax -->](#query)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.query().Summary --> |
+|[**.all**() : 4D.EntitySelection](#all)&nbsp;&nbsp;&nbsp;&nbsp;queries the datastore to find all the entities related to the dataclass and returns them as an entity selection|
+|[**.fromCollection**( *objectCol* : Collection ) : 4D.EntitySelection](#fromcollection)&nbsp;&nbsp;&nbsp;&nbsp;updates or creates entities in the dataclass according to the *objectCol* collection of objects, and returns the corresponding entity selection |
+|[**.get**( *primaryKey* : Integer ) : 4D.Entity<br/>**.get**( *primaryKey* : Text ) : 4D.Entity](#get)&nbsp;&nbsp;&nbsp;&nbsp;queries the dataclass to retrieve the entity matching the *primaryKey* parameter |
+|[**.getCount()** : Integer ](#getcount)&nbsp;&nbsp;&nbsp;&nbsp; returns the number of entities in a dataclass |
+|[**.getDataStore()** : cs.DataStore](#getdatastore)&nbsp;&nbsp;&nbsp;&nbsp;returns the datastore for the specified dataclass|
+|[**.getInfo()** : Object ](#getinfo)&nbsp;&nbsp;&nbsp;&nbsp;returns an object providing information about the dataclass|
+|[**.new()** : 4D.Entity ](#new)&nbsp;&nbsp;&nbsp;&nbsp;creates in memory and returns a new blank entity related to the Dataclass |
+|[**.newSelection**( { *keepOrder* : Integer } ) : 4D.EntitySelection ](#newselection)&nbsp;&nbsp;&nbsp;&nbsp;creates a new, blank, non-shareable entity selection, related to the dataclass, in memory |
+|[**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { , *querySettings* : Object } ) : 4D.EntitySelection ](#query)&nbsp;&nbsp;&nbsp;&nbsp;searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s) |
 
 
-<!-- REF DataClassClass.all().Desc -->
+
 ## .all() 
 
-<!-- REF #DataClassClass.all().Syntax -->
-**.all**() : 4D.EntitySelection<!-- END REF -->
 
-<!-- REF #DataClassClass.all().Params -->
+**.all**() : 4D.EntitySelection
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |Result|4D.EntitySelection|<-|References on all entities related to the Dataclass|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.all()` function <!-- REF #DataClassClass.all().Summary -->queries the datastore to find all the entities related to the dataclass and returns them as an entity selection<!-- END REF -->. 
+The `.all()` function queries the datastore to find all the entities related to the dataclass and returns them as an entity selection. 
 
 The entities are returned in the default order, which is initially the order in which they were created. Note however that, if entities have been deleted and new ones added, the default order does not reflect the creation order anymore.
 
@@ -55,29 +55,29 @@ Lazy loading is applied.
 ```
 
 
-<!-- END REF -->
 
 
 
-<!-- REF DataClassClass.fromCollection().Desc -->
+
+
 ## .fromCollection() 
 
 
-<!-- REF #DataClassClass.fromCollection().Syntax -->
-**.fromCollection**( *objectCol* : Collection ) : 4D.EntitySelection<!-- END REF -->
+
+**.fromCollection**( *objectCol* : Collection ) : 4D.EntitySelection
 
 
-<!-- REF #DataClassClass.fromCollection().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |objectCol |Collection|->|Collection of objects to be mapped with entities|
 |Result|4D.EntitySelection|<-|Entity selection filled from the collection|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.fromCollection()` function <!-- REF #DataClassClass.fromCollection().Summary -->updates or creates entities in the dataclass according to the *objectCol* collection of objects, and returns the corresponding entity selection<!-- END REF -->.  
+The `.fromCollection()` function updates or creates entities in the dataclass according to the *objectCol* collection of objects, and returns the corresponding entity selection.  
 
 In the *objectCol* parameter, pass a collection of objects to create new or update existing entities of the dataclass. The property names must be the same as attribute names in the dataclass. If a property name does not exist in the dataclass, it is ignored. If an attribute value is not defined in the collection, its value is null.
 
@@ -239,26 +239,26 @@ In this example, the first entity will be created and saved but the second will 
 
 [**.toCollection()**](EntitySelectionClass.md#tocollection)
 
-<!-- END REF -->
 
 
-<!-- REF DataClassClass.get().Desc -->
+
+
 ## .get()   
 
-<!-- REF #DataClassClass.get().Syntax -->
-**.get**( *primaryKey* : Integer ) : 4D.Entity<br/>**.get**( *primaryKey* : Text ) : 4D.Entity<!-- END REF -->
+
+**.get**( *primaryKey* : Integer ) : 4D.Entity<br/>**.get**( *primaryKey* : Text ) : 4D.Entity
 
 
-<!-- REF #DataClassClass.get().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |primaryKey |Integer OR Text|->|Primary key value of the entity to retrieve|
 |Result|4D.Entity|<-|Entity matching the designated primary key|
-<!-- END REF -->
+
 
 #### Description
 
-The `.get()` function <!-- REF #DataClassClass.get().Summary -->queries the dataclass to retrieve the entity matching the *primaryKey* parameter<!-- END REF -->. 
+The `.get()` function queries the dataclass to retrieve the entity matching the *primaryKey* parameter. 
 
 In *primaryKey*, pass the primary key value of the entity to retrieve. The value type must match the primary key type set in the datastore (Integer or Text). You can also make sure that the primary key value is always returned as Text by using the [`.getKey()`](EntityClass.md#getkey) function with the `dk key as string` parameter.
 
@@ -277,24 +277,24 @@ Lazy loading is applied, which means that related data is loaded from disk only 
 ```
 
 
-<!-- END REF -->
 
 
-<!-- REF DataClassClass.getCount.Desc -->
+
+
 ## .getCount()
 
-<!-- REF #DataClassClass.getCount().Syntax -->
-**.getCount()** : Integer <!-- END REF -->
 
-<!-- REF #DataClassClass.getCount().Params -->
+**.getCount()** : Integer 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |result|Integer|<-|Number of entities in the dataclass|
-<!-- END REF -->
+
 
 #### Description
 
-The `.getCount()` function <!-- REF #DataClassClass.getCount().Summary --> returns the number of entities in a dataclass<!-- END REF -->.
+The `.getCount()` function  returns the number of entities in a dataclass.
 
 If this function is used within a transaction, entities created during the transaction will be taken into account.
 
@@ -305,26 +305,26 @@ var number : Integer
 number=ds.Persons.getCount() 
 ```
 
-<!-- END REF -->
 
 
-<!-- REF DataClassClass.getDataStore().Desc -->
+
+
 ## .getDataStore()
 
 
-<!-- REF #DataClassClass.getDataStore().Syntax -->
-**.getDataStore()** : cs.DataStore<!-- END REF -->
 
-<!-- REF #DataClassClass.getDataStore().Params -->
+**.getDataStore()** : cs.DataStore
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |Result|cs.DataStore|<-|Datastore of the dataclass|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.getDataStore()` function <!-- REF #DataClassClass.getDataStore().Summary -->returns the datastore for the specified dataclass<!-- END REF -->.
+The `.getDataStore()` function returns the datastore for the specified dataclass.
 
 The main datastore is returned by the `ds` command. 
 
@@ -349,27 +349,27 @@ The `SearchDuplicate` project method searches for duplicated values in any datac
  duplicates=dataStore[dataClassName].query("name=:1",pet.name)
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF DataClassClass.getInfo().Desc -->
+
+
 ## .getInfo()
 
 
-<!-- REF #DataClassClass.getInfo().Syntax -->
-**.getInfo()** : Object <!-- END REF -->
 
-<!-- REF #DataClassClass.getInfo().Params -->
+**.getInfo()** : Object 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|Object|<-|Information on the dataclass|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns an object providing information about the dataclass<!-- END REF -->. This function is useful for setting up generic code.
+The `.getInfo()` function returns an object providing information about the dataclass. This function is useful for setting up generic code.
 
 **Returned object**
 
@@ -418,26 +418,26 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
  dataClassAttribute=ds.Employee[pk] //If needed the attribute matching the primary key is accessible
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF DataClassClass.new().Desc -->
+
+
 ## .new()
 
-<!-- REF #DataClassClass.new().Syntax -->
-**.new()** : 4D.Entity <!-- END REF -->
 
-<!-- REF #DataClassClass.new().Params -->
+**.new()** : 4D.Entity 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|4D.Entity|<-|New entity matching the Dataclass|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.new()` function <!-- REF #DataClassClass.new().Summary -->creates in memory and returns a new blank entity related to the Dataclass<!-- END REF -->. 
+The `.new()` function creates in memory and returns a new blank entity related to the Dataclass. 
 
 The entity object is created in memory and is not saved in the database until the [`.save()`](EntityClass.md#save) function is called. If the entity is deleted before being saved, it cannot be recovered.
 
@@ -455,29 +455,29 @@ This example creates a new entity in the "Log" Dataclass and records information
  entity.save() //save the entity
 ```
  
-<!-- END REF -->
 
 
 
 
-<!-- REF DataClassClass.newSelection().Desc -->
+
+
 ## .newSelection()
 
 
-<!-- REF #DataClassClass.newSelection().Syntax -->
-**.newSelection**( { *keepOrder* : Integer } ) : 4D.EntitySelection <!-- END REF -->
 
-<!-- REF #DataClassClass.newSelection().Params -->
+**.newSelection**( { *keepOrder* : Integer } ) : 4D.EntitySelection 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |keepOrder |Integer |-> |`dk keep ordered`: creates an ordered entity selection,<br/>`dk non ordered`: creates an unordered entity selection (default if omitted) |
 |Result|4D.EntitySelection|<-|New blank entity selection related to the dataclass|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.newSelection( )` function <!-- REF #DataClassClass.newSelection().Summary -->creates a new, blank, non-shareable entity selection, related to the dataclass, in memory<!-- END REF -->. 
+The `.newSelection( )` function creates a new, blank, non-shareable entity selection, related to the dataclass, in memory. 
 
 If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../ORDA/data-model#ordered-or-unordered-entity-selection).
 
@@ -494,17 +494,17 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ```
  
 
-<!-- END REF -->
 
 
 
-<!-- REF DataClassClass.query().Desc -->
+
+
 ## .query()
 
-<!-- REF #DataClassClass.query().Syntax -->
-**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { , *querySettings* : Object } ) : 4D.EntitySelection <!-- END REF -->
 
-<!-- REF #DataClassClass.query().Params -->
+**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { , *querySettings* : Object } ) : 4D.EntitySelection 
+
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |queryString |Text |-> |Search criteria as string|
@@ -512,12 +512,12 @@ When created, the entity selection does not contain any entities (`mySelection.l
 |value|any|->|Value(s) to use for indexed placeholder(s)|
 |querySettings|Object|->|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
 |Result|4D.EntitySelection|<-|New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
-<!-- END REF -->
+
 
 
 #### Description
 
-The `.query()` function <!-- REF #DataClassClass.query().Summary -->searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s)<!-- END REF -->, for all the entities in the dataclass, and returns a new object of type `EntitySelection` containing all the entities that are found. Lazy loading is applied.
+The `.query()` function searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s), for all the entities in the dataclass, and returns a new object of type `EntitySelection` containing all the entities that are found. Lazy loading is applied.
 
 If no matching entities are found, an empty `EntitySelection` is returned.
 
@@ -1098,4 +1098,4 @@ We want to disallow formulas, for example when the user enters their query:
 #### See also
 
 [`.query()`](EntitySelectionClass.md#query) for entity selections
-<!-- END REF -->
+

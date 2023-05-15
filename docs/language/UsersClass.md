@@ -25,47 +25,47 @@ usersInterface=cs.Qodly.Users.new()
 
 ||
 |---|
-|[<!-- INCLUDE #cs.Qodly.Users.new().Syntax -->](#csqodlyusersnew)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #cs.Qodly.Users.new().Summary -->|
-|[<!-- INCLUDE #Users.getCurrentUser().Syntax -->](#getcurrentuser)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.getCurrentUser().Summary -->|
-|[<!-- INCLUDE #Users.getAllUsers().Syntax -->](#getallusers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.getAllUsers().Summary -->|
+|[**cs.Qodly.Users.new**() : cs.Qodly.Users](#csqodlyusersnew)&nbsp;&nbsp;&nbsp;&nbsp;creates and returns a new object of the `cs.Qodly.Users` type|
+|[**.getCurrentUser**() : Object](#getcurrentuser)&nbsp;&nbsp;&nbsp;&nbsp;returns an object containing all information on the current Qodly user|
+|[**.getAllUsers**() : Collection](#getallusers)&nbsp;&nbsp;&nbsp;&nbsp;returns a collection of all Qodly users (objects) currently connected to the application|
 
 
 ## cs.Qodly.Users.new()
 
-<!-- REF #cs.Qodly.Users.new().Syntax -->**cs.Qodly.Users.new**() : cs.Qodly.Users<!-- END REF -->
+**cs.Qodly.Users.new**() : cs.Qodly.Users
 
 
-<!-- REF #cs.Qodly.Users.new().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|cs.Qodly.Users|<-|Users component object|<!-- END REF -->
+|Result|cs.Qodly.Users|<-|Users component object|
 
 #### Description
 
-The `cs.Qodly.Users.new()` function <!-- REF #cs.Qodly.Users.new().Summary -->creates and returns a new object of the `cs.Qodly.Users` type<!-- END REF -->. The returned object will then be used to call user information functions.
-
-
-<!-- END REF -->
+The `cs.Qodly.Users.new()` function creates and returns a new object of the `cs.Qodly.Users` type. The returned object will then be used to call user information functions.
 
 
 
 
 
-<!-- REF Users.getCurrentUser().Desc -->
+
+
+
+
 ## .getCurrentUser()
 
-<!--REF #Users.getCurrentUser().Syntax -->**.getCurrentUser**() : Object<!-- END REF -->
+**.getCurrentUser**() : Object
 
 
-<!--REF #UserClass.getCurrentUser().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Object|<-|Current Qodly user information|<!-- END REF -->
+|Result|Object|<-|Current Qodly user information|
 
 
 #### Description
 
-The `.getCurrentUser()` function <!-- REF #Users.getCurrentUser().Summary -->returns an object containing all information on the current Qodly user<!-- END REF -->.
+The `.getCurrentUser()` function returns an object containing all information on the current Qodly user.
 
 #### Qodly user object
 
@@ -94,23 +94,23 @@ user=usersInterface.getCurrentUser()
 return user
 ```
 
-<!-- END REF -->
 
-<!-- REF Users.getAllUsers().Desc -->
+
+
 ## .getAllUsers()
 
-<!--REF #Users.getAllUsers().Syntax -->**.getAllUsers**() : Collection<!-- END REF -->
+**.getAllUsers**() : Collection
 
 
-<!--REF #Users.getAllUsers().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Collection|<-|Collection of Qodly user objects|<!-- END REF -->
+|Result|Collection|<-|Collection of Qodly user objects|
 
 
 #### Description
 
-The `.getAllUsers()` function <!-- REF #Users.getAllUsers().Summary -->returns a collection of all Qodly users (objects) currently connected to the application<!-- END REF -->.
+The `.getAllUsers()` function returns a collection of all Qodly users (objects) currently connected to the application.
 
 
 **Returned value**
@@ -135,4 +135,4 @@ users=usersInterface.getAllUsers()
 return users
 ```
 
-<!-- END REF -->
+

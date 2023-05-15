@@ -8,21 +8,21 @@ title: Date and Time
 
 ## addToDate
 
-<!-- REF #_command_.addToDate.Syntax -->**addToDate** ( *aDate* : date , *years* : integer , *months* : integer , *days * : integer) : date<!-- END REF -->
+**addToDate** ( *aDate* : date , *years* : integer , *months* : integer , *days * : integer) : date
 
 
-<!-- REF #_command_.addToDate.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date to which to add days, months, and years|
 |years|integer|->|Number of years to add to the date|
 |months|integer|->|Number of months to add to the date|
 |days|integer|->|Number of days to add to the date|
-|Result|date|<-|Resulting date|<!-- END REF -->
+|Result|date|<-|Resulting date|
 
 #### Description
 
-The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *months*, and *days* to the date you pass in *aDate*, then returns the result<!-- END REF -->. 
+The `addToDate` command adds *years*, *months*, and *days* to the date you pass in *aDate*, then returns the result. 
 
 `addToDate` allows you to quickly add months and years without having to deal with the number of days per month or leap years (as you would when using the + date operator).
 
@@ -44,18 +44,18 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
 
 ## dayNumber
 
-<!-- REF #_command_.dayNumber.Syntax -->**dayNumber** ( *aDate* : date ) : integer<!-- END REF -->
+**dayNumber** ( *aDate* : date ) : integer
 
 
-<!-- REF #_command_.dayNumber.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the number|
-|Result|integer|<-|Number representing the weekday on which date falls|<!-- END REF -->
+|Result|integer|<-|Number representing the weekday on which date falls|
 
 #### Description
 
-The `dayNumber` command <!-- REF #_command_.dayNumber.Summary -->returns a number representing the weekday on which *aDate* falls<!-- END REF -->. 
+The `dayNumber` command returns a number representing the weekday on which *aDate* falls. 
 
 :::note
 
@@ -113,18 +113,18 @@ The following example is a function that returns the current day as a string:
 
 ## dayOf
 
-<!-- REF #_command_.dayOf.Syntax -->**dayOf** ( *aDate* : date ) : integer<!-- END REF -->
+**dayOf** ( *aDate* : date ) : integer
 
 
-<!-- REF #_command_.dayOf.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the day|
-|Result|integer|<-|Day of the month of date|<!-- END REF -->
+|Result|integer|<-|Day of the month of date|
 
 #### Description
 
-The `dayOf` command <!-- REF #_command_.dayOf.Summary -->returns the day of the month of *aDate*<!-- END REF -->. 
+The `dayOf` command returns the day of the month of *aDate*. 
 
 :::note
 
@@ -156,18 +156,18 @@ See the example for the [`currentDate`](#currentDate) command.
 
 ## monthOf
 
-<!-- REF #_command_.monthOf.Syntax -->**monthOf** ( *aDate* : date ) : integer<!-- END REF -->
+**monthOf** ( *aDate* : date ) : integer
 
 
-<!-- REF #_command_.monthOf.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the month|
-|Result|integer|<-|Number indicating the month of date|<!-- END REF -->
+|Result|integer|<-|Number indicating the month of date|
 
 #### Description
 
-The `monthOf` command <!-- REF #_command_.monthOf.Summary -->returns the month of *aDate*<!-- END REF -->. 
+The `monthOf` command returns the month of *aDate*. 
 
 :::note
 
@@ -214,18 +214,18 @@ See the example for the [`currentDate`](#currentDate) command.
 
 ## time
 
-<!-- REF #_command_.time.Syntax -->**time** ( *timeValue * : string, integer ) : time <!-- END REF -->
+**time** ( *timeValue * : string, integer ) : time 
 
 
-<!-- REF #_command_.time.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |timeValue|string, integer|->|Value to return as a time|
-|Result|time|<-|Time specified by timeValue|<!-- END REF -->
+|Result|time|<-|Time specified by timeValue|
 
 #### Description
 
-The `time` command <!-- REF #_command_.time.Summary --> returns a time expression equivalent to the time specified in the *timeValue* parameter<!-- END REF -->. 
+The `time` command  returns a time expression equivalent to the time specified in the *timeValue* parameter. 
 
 The *timeValue* parameter can contain either:
 
@@ -267,18 +267,18 @@ You can express any numerical value as a time:
 
 ## timeString
 
-<!-- REF #_command_.timeString.Syntax -->**timeString** ( *seconds* : integer, time ) : string<!-- END REF -->
+**timeString** ( *seconds* : integer, time ) : string
 
 
-<!-- REF #_command_.timeString.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |seconds|integer, time|->|Seconds from midnight|
-|Result|string|<-|Time as a string in 24-hour format|<!-- END REF -->
+|Result|string|<-|Time as a string in 24-hour format|
 
 #### Description
 
-The `timeString` command <!-- REF #_command_.timeString.Summary -->returns the string form of the time expression you pass in *seconds*<!-- END REF -->. 
+The `timeString` command returns the string form of the time expression you pass in *seconds*. 
 
 If you go beyond the number of seconds in a day (86,400), `timeString` continues to add hours, minutes, and seconds. For example, `timeString` (86401) returns 24:00:01.
 
@@ -304,18 +304,18 @@ The following example displays an alert box with the message, “46800 seconds i
 
 ## yearOf
 
-<!-- REF #_command_.yearOf.Syntax -->**yearOf** ( *aDate* : date ) : integer<!-- END REF -->
+**yearOf** ( *aDate* : date ) : integer
 
 
-<!-- REF #_command_.yearOf.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the year|
-|Result|integer|<-|Number indicating the year of date|<!-- END REF -->
+|Result|integer|<-|Number indicating the year of date|
 
 #### Description
 
-The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *aDate*<!-- END REF -->. 
+The `yearOf` command returns the year of *aDate*. 
 
 #### Example 1
 

@@ -102,8 +102,8 @@ Parameters are received within the method, in the order they are specified in th
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Formula.Syntax -->](#formula)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Formula.Summary -->|
-|[<!-- INCLUDE #_command_.Formula from string.Syntax -->](#formula-from-string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Formula from string.Summary --> |
+|[**Formula** ( *formulaExp* : Expression ) : 4D.Function](#formula)&nbsp;&nbsp;&nbsp;&nbsp;creates a `4D Function` object based upon the *formulaExp* expression|
+|[**Formula from string**( *formulaString* : Text ) : 4D.Function](#formula-from-string)&nbsp;&nbsp;&nbsp;&nbsp;creates a `4D.Function` object based upon *formulaString* |
 
 
 ### Functions and properties
@@ -111,9 +111,9 @@ Parameters are received within the method, in the order they are specified in th
 
 ||
 |---|
-|[<!-- INCLUDE #FunctionClass.apply().Syntax -->](#apply)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FunctionClass.apply().Summary -->|
-|[<!-- INCLUDE #FunctionClass.call().Syntax -->](#call)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FunctionClass.call().Summary --> |
-|[<!-- INCLUDE #FunctionClass.source.Syntax -->](#source)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FunctionClass.source.Summary --> |
+|[**.apply**() : any<br/>**.apply**( *thisObj* : Object { , *formulaParams* : Collection } ) : any](#apply)&nbsp;&nbsp;&nbsp;&nbsp;executes the `formula` object to which it is applied and returns the resulting value|
+|[**.call**() : any<br/>**.call**( *thisObj* : Object { , ...*params* : any } ) : any](#call)&nbsp;&nbsp;&nbsp;&nbsp;executes the `formula` object to which it is applied and returns the resulting value |
+|[**.source** : Text ](#source)&nbsp;&nbsp;&nbsp;&nbsp;contains the source expression of the `formula` as text |
 
 
 
@@ -121,19 +121,19 @@ Parameters are received within the method, in the order they are specified in th
 ## Formula
 
 
-<!-- REF #_command_.Formula.Syntax -->**Formula** ( *formulaExp* : Expression ) : 4D.Function<!-- END REF -->
+**Formula** ( *formulaExp* : Expression ) : 4D.Function
 
 
-<!-- REF #_command_.Formula.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formulaExp|Expression|->|Formula to be returned as object|
-|Result|4D.Function|<-|Native function encapsulating the formula|<!-- END REF -->
+|Result|4D.Function|<-|Native function encapsulating the formula|
 
 
 #### Description
 
-The `Formula` command <!-- REF #_command_.Formula.Summary -->creates a `4D Function` object based upon the *formulaExp* expression<!-- END REF -->. *formulaExp* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
+The `Formula` command creates a `4D Function` object based upon the *formulaExp* expression. *formulaExp* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
 
 The returned formula can be called with:
 
@@ -246,19 +246,19 @@ Calling a formula using object notation:
 
 ## Formula from string
 
-<!-- REF #_command_.Formula from string.Syntax -->**Formula from string**( *formulaString* : Text ) : 4D.Function<!-- END REF -->
+**Formula from string**( *formulaString* : Text ) : 4D.Function
 
 
-<!-- REF #_command_.Formula from string.Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |formulaString|Text|->|Text formula to be returned as object|
-|Result|4D.Function|<-|Native object encapsulating the formula|<!-- END REF -->
+|Result|4D.Function|<-|Native object encapsulating the formula|
 
 
 #### Description
 
-The `Formula from string` command <!-- REF #_command_.Formula from string.Summary -->creates a `4D.Function` object based upon *formulaString*<!-- END REF -->. The *formulaString* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
+The `Formula from string` command creates a `4D.Function` object based upon *formulaString*. The *formulaString* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
 
 This command is similar to [`Formula`](#formula), except that it handles a text-based formula. In most cases, it is recommended to use the `Formula` command. `Formula from string` should only be used when the original formula was expressed as text (e.g., stored externally in a JSON file). 
 
@@ -268,23 +268,23 @@ This command does not support the use of variables in *formulaString*. An attemp
 
 :::
 
-<!-- REF FunctionClass.apply().Desc -->
+
 ## .apply()
 
-<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : Object { , *formulaParams* : Collection } ) : any<!-- END REF -->
+**.apply**() : any<br/>**.apply**( *thisObj* : Object { , *formulaParams* : Collection } ) : any
 
 
-<!-- REF #FunctionClass.apply().Params -->
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |thisObj|Object|->|Object to be returned by the This command in the formula|
 |formulaParams |Collection|->|Collection of values to be passed as $1...$n when `formula` is executed|
-|Result|any|<-|Value from formula execution|<!-- END REF -->
+|Result|any|<-|Value from formula execution|
 
 
 #### Description
 
-The `.apply()` function <!-- REF #FunctionClass.apply().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `Formula` or `Formula from string` commands.
+The `.apply()` function executes the `formula` object to which it is applied and returns the resulting value. The formula object can be created using the `Formula` or `Formula from string` commands.
 
 
 In the *thisObj* parameter, you can pass a reference to the object to be used as `This` within the formula.
@@ -319,27 +319,27 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
  calc.apply(robot) // robot={name:Robot,price:543,quantity:2,total:1086}
 ```
 
-<!-- END REF -->
 
 
-<!-- REF FunctionClass.call().Desc -->
+
+
 ## .call()
 
 
-<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : Object { , ...*params* : any } ) : any<!-- END REF -->
+**.call**() : any<br/>**.call**( *thisObj* : Object { , ...*params* : any } ) : any
 
 
-<!-- REF #FunctionClass.call().Params -->
+
 |Parameter|Type||Description|
 |---|---|---|---|
 |thisObj|Object|->|Object to be returned by the This command in the formula|
 |params |any|->|Value(s) to be passed as $1...$n when formula is executed|
-|Result|any|<-|Value from formula execution|<!-- END REF -->
+|Result|any|<-|Value from formula execution|
 
 
 #### Description
 
-The `.call()` function <!-- REF #FunctionClass.call().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `Formula` or `Formula from string` commands.
+The `.call()` function executes the `formula` object to which it is applied and returns the resulting value. The formula object can be created using the `Formula` or `Formula from string` commands.
 
 In the *thisObj* parameter, you can pass a reference to the object to be used as `This` within the formula.
 
@@ -367,19 +367,19 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
  result=f.call(o) // returns 100
 ```
 
-<!-- END REF -->
 
 
 
-<!-- REF FunctionClass.source.Desc -->
+
+
 ## .source
 
-<!-- REF #FunctionClass.source.Syntax -->**.source** : Text <!-- END REF -->
+**.source** : Text 
 
 
 #### Description
 
-The `.source` property <!-- REF #FunctionClass.source.Summary -->contains the source expression of the `formula` as text<!-- END REF -->.
+The `.source` property contains the source expression of the `formula` as text.
 
 This property is **read-only**.
 
@@ -394,4 +394,4 @@ This property is **read-only**.
 
 
 
-<!-- END REF -->
+

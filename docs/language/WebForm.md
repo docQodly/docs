@@ -11,8 +11,8 @@ Qodly proposes several commands and functions allowing to handle your webform co
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.webEvent.Syntax -->](#webevent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webEvent.Summary -->|
-|[<!-- INCLUDE #_command_.webForm.Syntax -->](#webform)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webForm.Summary -->|
+|[**webEvent** : Object](#webevent)&nbsp;&nbsp;&nbsp;&nbsp;returns an object with information on a triggered event linked to a webform component|
+|[**webForm** : 4D.WebForm](#webform)&nbsp;&nbsp;&nbsp;&nbsp; returns a `4D.WebForm` object that references a webform|
 
 
 
@@ -20,28 +20,28 @@ Qodly proposes several commands and functions allowing to handle your webform co
 
 ||
 |---|
-|[<!-- INCLUDE WebFormClass.componentName.Syntax -->](#componentname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE WebFormClass.componentName.Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.hide().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.show().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
+|[***.componentName*** : [4D.WebFormItem](#webformitem-class)](#componentname)&nbsp;&nbsp;&nbsp;&nbsp;objects that are available directly as properties|
+|[**.hide**()](#hide)&nbsp;&nbsp;&nbsp;&nbsp;hides the component|
+|[**.show**()](#show)&nbsp;&nbsp;&nbsp;&nbsp;makes the component visible|
+|[**.addCSSClass**(*className* : Text)](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;adds the class specified in *className* to the component|
+|[**.removeCSSClass**(*className*: Text)](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;removes the class specified in *className* from the component|
 
 
 
 ## webEvent
 
-<!-- REF #_command_.webEvent.Syntax -->
-**webEvent** : Object<!-- END REF -->
 
-<!-- REF #_command_.webEvent.Params -->
+**webEvent** : Object
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |Result|Object|<-| Object
-<!-- END REF -->
+
 
 #### Description
 
-**webEvent** <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a webform component<!-- END REF -->.
+**webEvent** returns an object with information on a triggered event linked to a webform component.
 
 The function must be called in the context of a web form handled by the Qodly web server
 
@@ -107,24 +107,24 @@ End if
 
 ## webForm
 
-<!-- REF #_command_.webForm.Syntax -->
-**webForm** : 4D.WebForm<!-- END REF -->
 
-<!-- REF #_command_.webForm.Params -->
+**webForm** : 4D.WebForm
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |Result|4D.WebForm|<-|New `WebForm` object
-<!-- END REF -->
+
 
 #### Description
 
-The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object that references a webform<!-- END REF -->.
+The `webForm` command  returns a `4D.WebForm` object that references a webform.
 
 Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
 
 The command returns `Null` if it is called in a request that does not originate from Qodly Studio.
 
-<!-- END REF -->
+
 
 
 ## WebForm Class
@@ -132,15 +132,15 @@ The command returns `Null` if it is called in a request that does not originate 
 The `4D.WebForm` class object provides an interface that allows you to handle your webform components. `4D.WebForm` objects are instantiated with the [webForm](#webform) command.
 
 
-<!-- REF WebFormClass.componentName.Desc -->
+
 
 ### *.componentName*
 
-<!-- REF WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](#webformitem-class)<!-- END REF -->
+***.componentName*** : [4D.WebFormItem](#webformitem-class)
 
 #### Description
 
-The components of webforms are <!-- REF WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these webforms.
+The components of webforms are objects that are available directly as properties of these webforms.
 
 The returned objects are of the [`4D.WebFormItem`](WebFormItemClass.md) class. These objects have functions that you can use to manage your components dynamically.
 
@@ -170,12 +170,12 @@ For example, `WebFormObject.myImage` refers to the image component with `myImage
 
 ### .hide()
 
-<!-- REF #WebFormItemClass.hide().Syntax -->
-**.hide**()<!-- END REF -->
+
+**.hide**()
 
 #### Description
 
-The **.hide**() function <!-- REF #WebFormItemClass.hide().Summary -->hides the component<!-- END REF -->.
+The **.hide**() function hides the component.
 
 #### Example
 
@@ -199,43 +199,43 @@ myComponent.hide() // Hide the component that has "myImage" as server reference
 
 ### .show()
 
-<!-- REF #WebFormItemClass.show().Syntax -->
-**.show**()<!-- END REF -->
+
+**.show**()
 
 #### Description
 
-The **.show()** function <!-- REF #WebFormItemClass.show().Summary -->makes the component visible<!-- END REF -->. If the component was already visible, the function does nothing.
+The **.show()** function makes the component visible. If the component was already visible, the function does nothing.
 
 
 ### .addCSSClass()
 
-<!-- REF #WebFormItemClass.addCSSClass().Syntax -->
-**.addCSSClass**(*className* : Text)<!-- END REF -->
 
-<!-- REF #WebFormItemClass.addCSSClass().Params -->
+**.addCSSClass**(*className* : Text)
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |className|Text|->|Name of the CSS class to add to the component|
-<!-- END REF -->
+
 
 #### Description
 
-The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -->adds the class specified in *className* to the component<!-- END REF -->.
+The **.addCSSClass** function adds the class specified in *className* to the component.
 
 
 ### .removeCSSClass()
 
 
-<!-- REF #WebFormItemClass.removeCSSClass().Syntax -->
-**.removeCSSClass**(*className*: Text)<!-- END REF -->
 
-<!-- REF #WebFormItemClass.removeCSSClass().Params -->
+**.removeCSSClass**(*className*: Text)
+
+
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |className|Text|->|Name of the CSS class to remove from the component|
-<!-- END REF -->
+
 
 #### Description
 
-The **.removeCSSClass()** function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
+The **.removeCSSClass()** function removes the class specified in *className* from the component.
 
