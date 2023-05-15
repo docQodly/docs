@@ -12,7 +12,7 @@ A blob is loaded into memory in its entirety. A blob variable is held and exists
 Using the QodlyScript language, there are two ways to handle a blob:
 
 - **as a scalar value**: a blob can be stored in a blob variable or attribute and altered.
-- **as an object (`4D.Blob`)**: a `4D.Blob` is a blob object. You can encapsulate a blob or part of it in a `4D.Blob` without altering the original blob. This method is called [boxing](<https://en.wikipedia.org/wiki/Object_type_(object-oriented_programming)#Boxing>). For more info on how to instantiate a `4D.Blob`, see [Blobs](blob.md).
+- **as an object (`4D.Blob`)**: a `4D.Blob` is a blob object. You can encapsulate a blob or part of it in a `4D.Blob` without altering the original blob. This method is called [boxing](<https://en.wikipedia.org/wiki/Object_type_(object-oriented_programming)#Boxing>). For more info on how to instantiate a `4D.Blob`, see [Blob class](../BlobClass.md).
 
 Each blob type has its advantages. Use the following table to determine which one suits your needs:
 
@@ -36,60 +36,39 @@ You cannot use operators on blobs.
 
 ## Checking if a variable holds a scalar blob or a `4D.Blob`
 
-Use the [`Value type`](XXX) command to determine if a value is of type Blob or Object.
-To check that an object is a blob object (`4D.Blob`), use [`OB instance of`](XXX):
+Use the [`Value type`](../Language.md#value-type) command to determine if a value is of type Blob or Object.
+To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../Objects.md):
 
 ```4d
-var myBlob: Blob
+var myBlob: blob
 var myBlobObject: 4D.Blob
-var is4DBlob: Boolean
-var type: Number
+var is4DBlob: boolean
+var type: integer
 myBlobObject=4D.Blob.new()
 
-type=Value type(myblobObject) // 38 (object)
-is4DBlob=OB Instance of(myblobObject,4D.Blob)  //True
+type=valueType(myblobObject) // 38 (object)
+is4DBlob=instanceOf(myblobObject,4D.Blob) //True
 ```
 
 ## Passing blobs as parameters
 
-You can pass a scalar blob or a `4D.Blob` to any QuodlyScript command that takes a blob as a parameter:
+You can pass a scalar blob or a `4D.Blob` to any QodlyScript command that takes a blob as a parameter:
 
 ```4d
-var myBlob: 4D.Blob
-var myText: Text
-CONVERT FROM TEXT("Hello, World!", "UTF-8", myBlob)
-myText=BLOB to text(myBlob , UTF8 text without length )
+var myBlob, myNewBlob: 4D.Blob
+var myString: string
+convertFromString("Hello, World!", "UTF-8", myBlob)
+myString=convertToText(myBlob,"UTF-8")
+ //myString contains "Hello, World!"
+myNewBlob=myBlob.slice(0,5)
+myString=convertToText(myNewBlob,"UTF-8")
+ //myString contains "Hello"
 ```
-
-Some commands alter the original blob, and thus do not support the `4D.Blob` type:
-
-- [DELETE FROM BLOB](XXX)
-- [INSERT IN BLOB](XXX)
-- [INTEGER TO BLOB](XXX)
-- [LONGINT TO BLOB](XXX)
-- [REAL TO BLOB](XXX)
-- [SET BLOB SIZE](XXX)
-- [TEXT TO BLOB](XXX)
-- [VARIABLE TO BLOB](XXX)
 
 
 You can pass blobs and blob objects (`4D.Blob`) to methods. Keep in mind that unlike blob objects, which are passed by reference, scalar blobs are duplicated in memory when passed to methods.
 
 
-## Assigning a blob variable to another
-
-You can assign a Blob variable to another:
-
-**Example:**
-
-```4d
-// Declare two variables of type Blob
- var vBlobA, vBlobB : Blob
-// Set the size of the first blob to 10K
- SET BLOB SIZE(vBlobA,10*1024)
-// Assign the first blob to the second one
- vBlobB=vBlobA
-```
 
 ## Automatic conversion of blob type
 
@@ -97,19 +76,19 @@ QodlyScript automatically converts scalar blobs to blob objects, and vice versa,
 
 ```4d
 // Create a variable of type Blob and an object variable
-var myBlob: Blob
-var myObject : Object
+var myBlob: blob
+var myObject : object
 
 // Assign that blob to a property of myObject named "blob"
-myObject=New object("blob",myBlob)
+myObject=newObject("blob",myBlob)
 
 // The blob stored in myBlob is automatically converted to a 4D.Blob
-var type : Boolean
-type=OB Instance of(myObject.blob,4D.Blob)  //True
+var type : boolean
+type=instanceOf(myObject.blob,4D.Blob)  //true
 
-// Conversion from 4D.Blob to Blob
+// Conversion from 4D.Blob to blob
 myBlob=myObject.blob
-type=Value type(myBlob) // Blob
+type=valueType(myBlob) // blob
 ```
 
 :::note
@@ -118,31 +97,20 @@ When converting a `4D.Blob` to a scalar blob, if the size of the `4D.Blob` excee
 
 :::
 
-## Modifying a scalar blob
-
-Unlike blob objects, scalar blobs can be altered. For example:
-
-```4d
-var myBlob : Blob
-SET BLOB SIZE (myBlob,16*1024)
-```
 
 ## Individually accessing bytes in a blob
 
 #### Accessing a scalar blob's bytes
 
-You can access individual bytes of a scalar blob using curly brackets `{}`. Within a blob, bytes are numbered from 0 to N-1, where N is the size of the BLOB:
+You can access individual bytes of a scalar blob using curly brackets `{}`. Within a blob, bytes are numbered from 0 to N-1, where N is the size of the blob:
 
 ```4d
   // Declare a variable of type Blob
- var vBlob : Blob
-  // Set the size of the blob to 256 bytes
- SET BLOB SIZE(vBlob,256)
-  // The following code loops through the blob to set each byte to zero
- var vByte : Integer
- For(vByte,0,BLOB size(vBlob)-1)
-    vBlob{vByte}=0
- End for
+var myBlob : blob
+var byte : integer
+convertFromText("Hello, World!", "UTF-8", myBlob)
+byte=myBlob{1} //101 (character code for "e")
+
 ```
 
 Since you can address all the bytes of a blob individually, you can store whatever you want in a Blob variable or attribute.
@@ -152,12 +120,22 @@ Since you can address all the bytes of a blob individually, you can store whatev
 Use square brackets `[]` to directly access a specific byte in a `4D.Blob`
 
 ```4d
-var myBlob: 4D.Blob
-var myText: Text
-var byte: Integer
-CONVERT FROM TEXT("Hello, World!","UTF-8",myBlob)
-myText=BLOB to text (myBlob,UTF8 text without length)
-byte=myBlob[5]
+var myBlob : 4D.Blob
+var byte : integer
+convertFromText("Hello, World!", "UTF-8", myBlob)
+byte=myBlob[1] //101 
 ```
 
 Since a `4D.Blob` cannot be altered, you can read the bytes of a `4D.Blob` using this syntax, but not modify them.
+
+## Modifying a scalar blob
+
+Unlike blob objects, scalar blobs can be altered. For example:
+
+```4d
+var myBlob : blob
+var myString : string
+convertFromText("Hello, World!", "UTF-8", myBlob)
+myBlob{1}=characterCode("A") //replace the 1st byte
+myString=convertToText(myBlob,"UTF-8") //HAllo, World!
+```

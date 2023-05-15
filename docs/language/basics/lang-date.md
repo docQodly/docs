@@ -4,14 +4,14 @@ title: Date
 ---
 
 
-A Date type attribute, variable or expression can be in the range of 1/1/100 to 12/31/32,767.
+A **date** type attribute, variable or expression can be in the range of 1/1/100 to 12/31/32,767.
 
 :::info
 
 In Qodly, a date can be stored in two data types:
 
-- a date type, expressed in the `yyyy-mm-dd` format, for example '2023-12-05'
-- an ISO date format string, expressed in the following format: 'yyyy-mm-ddThh:mm:ss.sssZ' (e.g., "2023-12-05T23:00:00.000Z" for december 5, 2023 in the Central European Timezone). `sss` represents the milliseconds and can be between 0 to 999. 
+- a **date type**, expressed in the `yyyy-mm-dd` format, for example '2023-12-05'
+- an **ISO date format string**, expressed in the following format: `yyyy-mm-ddThh:mm:ss.sssZ` (e.g., "2023-12-05T23:00:00.000Z" for december 5, 2023 in the Central European Timezone). `sss` represents the milliseconds and can be between 0 to 999. 
 
 You can select the data type for a Date attribute in your model. This page describes the handling of the **date type**.
 
