@@ -33,7 +33,7 @@ A null date is specified by *!00-00-00!*.
 
 :::note
 
-Qodly accepts two-digit years to be entered. A two-digit year is assumed to be in the 20th or 21st century based on whether it is greater or less than 30, unless this default setting has been changed using the `SET DEFAULT CENTURY` command.
+Qodly accepts two-digit years to be entered. A two-digit year is assumed to be in the 20th or 21st century based on whether it is greater or less than 30.
 
 :::
 
@@ -45,15 +45,15 @@ Qodly accepts two-digit years to be entered. A two-digit year is assumed to be i
 |Date difference	|Date – Date	|Number	|!2023-01-20! - !2023-01-01!	|19|
 |Day addition	|Date + Number	|Date	|!2023-01-20! + 9	|!2023-01-29!|
 |Day subtraction	|Date – Number	|Date	|!2023-01-20! - 9	|!2023-01-11!|
-|Equality	|Date == Date	|Boolean	|!2023-01-01! == !2023-01-01!	|True|
-		||	||!2023-01-20! == !2023-01-01!	|False|
-|Inequality	|Date != Date	|Boolean	|!2023-01-20! != !2023-01-01!	|True|
-			||||!2023-01-20! != !2023-01-20!	|False|
-|Greater than	|Date > Date	|Boolean	|!2023-01-20! > !2023-01-01!	|True|
-			||||!2023-01-20! > !2023-01-20!	|False|
-|Less than	|Date < Date	|Boolean	|!2023-01-01! < !2023-01-20!	|True|
-			||||!2023-01-20! < !2023-01-20!	|False|
-|Greater than or equal to	|Date >= Date	|Boolean	|!2023-01-20! >=!2023-01-01!	|True|
-			||||!2023-01-01!>=!2023-01-20!	|False|
-|Less than or equal to	|Date <= Date	|Boolean	|!2023-01-01!<=!2023-01-20!|	True|
-		||||	!2023-01-20!<=!2023-01-01!|	False|
+|Equality	|Date == Date	|Boolean	|!2023-01-01! == !2023-01-01!	|true|
+		||	||!2023-01-20! == !2023-01-01!	|false|
+|Inequality	|Date != Date	|Boolean	|!2023-01-20! != !2023-01-01!	|true|
+			||||!2023-01-20! != !2023-01-20!	|false|
+|Greater than	|Date > Date	|Boolean	|!2023-01-20! > !2023-01-01!	|true|
+			||||!2023-01-20! > !2023-01-20!	|false|
+|Less than	|Date < Date	|Boolean	|!2023-01-01! < !2023-01-20!	|true|
+			||||!2023-01-20! < !2023-01-20!	|false|
+|Greater than or equal to	|Date >= Date	|Boolean	|!2023-01-20! >=!2023-01-01!	|true|
+			||||!2023-01-01!>=!2023-01-20!	|false|
+|Less than or equal to	|Date <= Date	|Boolean	|!2023-01-01!<=!2023-01-20!|	true|
+		||||	!2023-01-20!<=!2023-01-01!|	false|

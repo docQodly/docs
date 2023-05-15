@@ -3,13 +3,13 @@ id: lang-object
 title: Object
 ---
 
-Variables, attributes or expressions of the Object type can contain various types of data. The structure of QodlyScript objects is based on the classic principle of "property/value" pairs. The syntax of these objects is based on JSON notation: 
+Variables, attributes or expressions of the object type can contain various types of data. The structure of QodlyScript objects is based on the classic principle of "property/value" pairs. The syntax of these objects is based on JSON notation: 
 
 - A property name is always a text, for example "Name". It must follow [specific rules](lang-identifiers.md#object-properties).
 
 - A property value can be of the following type:
-	- number (Real, Integer, etc.)
-	- text
+	- number (real, integer)
+	- string
 	- null
 	- boolean
 	- date (date type or ISO date format string)
@@ -17,7 +17,7 @@ Variables, attributes or expressions of the Object type can contain various type
 	- picture(2)
 	- collection
 
-(1)ORDA objects such as [entities](ORDA/dsMapping.md#entity) or [entity selections](ORDA/dsMapping.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**. 
+(1)ORDA objects such as [entities](../../concepts/orda/data-model.md#entity) or [entity selections](../../concepts/orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**. 
 
 (2)When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]". 
 
@@ -27,27 +27,91 @@ Attribute names are case-sensitive.
 
 :::
 
-You manage Object type variables, atributes or expressions using the [object notation](#syntax-basics) or the commands such as `OB Instance of`. 
+You manage object type variables, attributes or expressions using the [object notation](#syntax-basics) or the commands such as `instanceOf`. 
 
 Each property value accessed through the object notation is considered an expression. You can use such values wherever expressions are expected. 
 
-## Initialization 
+## Instantiation 
 
-Objects must have been initialized, for example using the `New object` command, otherwise trying to read or modify their properties will generate a syntax error.
+Objects must have been instantiated, otherwise trying to read or modify their properties will generate a syntax error.
 
-Example:
+Object instantiation can be done in one of the following ways:
+
+- using the [`newObject`](../object.md#newobject) command,
+- using the `{}` operator.
+
+:::info
+
+Several commands and functions return objects, for example [`jsonParse`](../json.md#jsonparse) or [`file`](../FileClass.md#file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
+
+:::
+
+
+### `newObject` command
+
+The [`newObject`](../object.md#newobject) command creates a new empty or prefilled object and returns its reference.
+
+Examples:
 
 ```4d
- var obVar : Object //creation of an object type variable
- obVar=New object //initialization of the object and assignment to the variable
+ var obVar : object //declaration of an object type variable
+ obVar=newObject //instantiation and assignment to the variable
+ 
+ var obFilled : object 
+ obFilled=newObject("name","Smith","age",42) //instantiation and assignment of a prefilled object
 ```
+
+
+### `{}` operator
+
+The `{}` operator allows you to create an **object literal**. An object literal is a semi-column separated list of zero or more pairs of property names and associated values of an object, enclosed in curly braces (`{}`). The object literal syntax creates empty or filled objects.
+
+Since any property value is considered an expression, you can create sub-objects using `{}` in property values. You can also create and reference **collection literals**.
+
+Examples:
+
+```4d
+ var o, o2, o3 : object //declaration of object variables
+ o = {} // instantiation of an empty object 
+ o2 = {a: "foo", b: 42, c: {}, d: (toto) ? true : false } // instantiation of an object
+    // with properties {"a":"foo","b":42,"c":{},"d":false})
+
+    // same properties using variables
+ var a : string
+ var b : integer
+ var c : object
+ a="foo"
+ b=42
+ c={}
+ o3={ a:a, b:b, c:c } // {"a":"foo",b":42,"c":{}}
+```
+
+
+You can mix the `newObject` and literal syntaxes:
+
+```4d
+var o : object
+var result : string
+o:={\
+    ob1: {age: 42}, \
+    ob2: newObject("message", "Hello"), \
+    form1: formula(return this.ob1.age+10), \
+    form2 : formula(return $1+" World")), \
+    col: [1, 2, 3, 4, 5, 6]\
+    }
+
+o.form1()  //52
+result=o.form2(o.ob2.message)  // Hello World
+col:=o.col[5] //6
+```
+
 
 ### Regular or shared object  
 
 You can create two types of objects:
 
-- regular (non-shared) objects, using the `New object` command. These objects can be edited without any specific access control but cannot be shared between processes. 
-- shared objects, using the `New shared object` command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`Use...End use`](lang-shared.md#useend-use) structures.
+- regular (non-shared) objects, using the `newObject` command or object literal syntax (`{}`). These objects can be edited without any specific access control but cannot be shared between processes. 
+- shared objects, using the [`newSharedObject`](../object.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
 
 
 ## Syntax basics
