@@ -6,6 +6,16 @@ title: Date and Time
 
 ## Date and Time Commands
 
+||
+|---|
+|[<!-- INCLUDE #_command_.addToDate.Syntax -->](#addToDate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.addToDate.Summary -->|
+|[<!-- INCLUDE #_command_.dayNumber.Syntax -->](#dayNumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayNumber.Summary -->|
+|[<!-- INCLUDE #_command_.dayOf.Syntax -->](#dayOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayOf.Summary -->|
+|[<!-- INCLUDE #_command_.monthOf.Syntax -->](#monthOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
+|[<!-- INCLUDE #_command_.time.Syntax -->](#time)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.time.Summary -->|
+|[<!-- INCLUDE #_command_.timeString.Syntax -->](#timeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timeString.Summary -->|
+|[<!-- INCLUDE #_command_.yearOf.Syntax -->](#yearOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
+
 ## addToDate
 
 <!-- REF #_command_.addToDate.Syntax -->**addToDate** ( *aDate* : date , *years* : integer , *months* : integer , *days * : integer) : date<!-- END REF -->
@@ -238,17 +248,7 @@ If the *timeValue* expression evaluates to undefined, `time` returns an empty ti
 
 :::
 
-
-#### Example 1
-
-The following example displays an alert box with the message, “46800 seconds is 13:00:00.”
-
-```4d
- ALERT("46800 seconds is "+Time string(46800))
- 
-```
-
-#### Example 2
+#### Example
 
 You can express any numerical value as a time:
 
@@ -290,10 +290,11 @@ If you need the string form of a time expression in a variety of formats, use [`
 
 #### Example
 
-The following example displays an alert box with the message, “46800 seconds is 13:00:00.”
+In the following example we assign the folowing string “46800 seconds is 13:00:00.” to a string variable.
 
 ```4d
- ALERT("46800 seconds is "+timeString(46800))
+ var vTimeString : string
+ vTimeString="46800 seconds is "+timeString(46800)
  
 ```
 

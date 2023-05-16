@@ -5,6 +5,19 @@ title: Math
 
 ## Math Commands
 
+||
+|---|
+|[<!-- INCLUDE #_command_.abs.Syntax -->](#abs)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.abs.Summary -->|
+|[<!-- INCLUDE #_command_.arctan.Syntax -->](#arctan)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.arctan.Summary -->|
+|[<!-- INCLUDE #_command_.cos.Syntax -->](#cos)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.cos.Summary -->|
+|[<!-- INCLUDE #_command_.dec.Syntax -->](#dec)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dec.Summary -->|
+|[<!-- INCLUDE #_command_.exp.Syntax -->](#exp)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.exp.Summary -->|
+|[<!-- INCLUDE #_command_.int.Syntax -->](#int)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.int.Summary -->|
+|[<!-- INCLUDE #_command_.log.Syntax -->](#log)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.log.Summary -->|
+|[<!-- INCLUDE #_command_.round.Syntax -->](#round)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.round.Summary -->|
+|[<!-- INCLUDE #_command_.sin.Syntax -->](#sin)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.sin.Summary -->|
+|[<!-- INCLUDE #_command_.tan.Syntax -->](#tan)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.tan.Summary -->|
+|[<!-- INCLUDE #_command_.trunc.Syntax -->](#trunc)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.trunc.Summary -->|
 
 ## abs
 
@@ -54,10 +67,9 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 #### Example
 
-The following example shows the value of Pi:
-
 ```4d
- ALERT("Pi is equal to: "+String(Arctan(1)*4))
+	var vPi : string
+ vPi="Pi is equal to: "+string(arctan(1)*4)
 
 ```
 
@@ -210,10 +222,9 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 #### Example
 
-The following line displays 1:
-
 ```4d
- ALERT(String(Log(Exp(1)))
+ var vLog : string
+ vLog=string(log(exp(1))
  
 ```
 

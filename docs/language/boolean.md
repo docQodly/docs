@@ -5,6 +5,12 @@ title: Boolean
 
 ## Boolean Commands
 
+||
+|---|
+|[<!-- INCLUDE #_command_.bool.Syntax -->](#bool)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.bool.Summary -->|
+|[<!-- INCLUDE #_command_.false.Syntax -->](#false)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.false.Summary -->|
+|[<!-- INCLUDE #_command_.not.Syntax -->](#not)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.not.Summary -->|
+|[<!-- INCLUDE #_command_.true.Syntax -->](#true)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.true.Summary -->|
 
 ## bool
 

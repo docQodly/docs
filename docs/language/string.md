@@ -11,107 +11,123 @@ title: String
 - [**Character Reference Symbols**](../concepts/lang-text.md#character-reference-symbols)
 
 
-## Commands
+## String Commands
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Change string.Syntax -->](#change-string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
-|[<!-- INCLUDE #_command_.Change string.Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Change string.Summary -->|
+|[<!-- INCLUDE #_command_.changeString.Syntax -->](#changeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.changeString.Summary -->|
+|[<!-- INCLUDE #_command_.char.Syntax -->](#char)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.char.Summary -->|
+|[<!-- INCLUDE #_command_.characterCode.Syntax -->](#characterCode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.characterCode.Summary -->|
+|[<!-- INCLUDE #_command_.compareStrings.Syntax -->](#compareStrings)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
+|[<!-- INCLUDE #_command_.convertFromString.Syntax -->](#convertFromString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
+|[<!-- INCLUDE #_command_.convertToString.Syntax -->](#convertToString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertToString.Summary -->|
+|[<!-- INCLUDE #_command_.deleteString.Syntax -->](#deleteString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
+|[<!-- INCLUDE #_command_.insertString.Syntax -->](#insertString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.insertString.Summary -->|
+|[<!-- INCLUDE #_command_.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.length.Summary -->|
+|[<!-- INCLUDE #_command_.lowercase.Syntax -->](#lowercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lowercase.Summary -->|
+|[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchRegex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
+|[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
+|[<!-- INCLUDE #_command_.position.Syntax -->](#position)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.position.Summary -->|
+|[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replaceString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
+|[<!-- INCLUDE #_command_.splitString.Syntax -->](#splitString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.splitString.Summary -->|
+|[<!-- INCLUDE #_command_.string.Syntax -->](#string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.string.Summary -->|
+|[<!-- INCLUDE #_command_.substring.Syntax -->](#substring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.substring.Summary -->|
+|[<!-- INCLUDE #_command_.uppercase.Syntax -->](#uppercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.uppercase.Summary -->|
 
 
 
-## Change string
+## changeString
 
-<!-- REF #_command_.Change string.Syntax -->**Change string** ( *source* : Text , *newChars* : Text , *where* : Integer ) : Text<!-- END REF -->
+<!-- REF #_command_.changeString.Syntax -->**changeString** ( *source* : string , *newChars* : string , *where* : integer ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.Change string.Params -->
+<!-- REF #_command_.changeString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|Text|->|Original string|
-|newChars|Text|->|New characters|
-|where|Integer|->|Where to start the changes|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|source|string|->|Original string|
+|newChars|string|->|New characters|
+|where|integer|->|Where to start the changes|
+|Result|string|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-The `Change string` command <!-- REF #_command_.Change string.Summary -->changes a group of characters in *source* and returns the resulting string<!-- END REF -->. The command overlays *source*, with the characters in *newChars*, at the character described by *where*.
+The `changeString` command <!-- REF #_command_.changeString.Summary -->changes a group of characters in *source* and returns the resulting string<!-- END REF -->. The command overlays *source*, with the characters in *newChars*, at the character described by *where*.
 
-If *newChars* is an empty string (""), `Change string` returns *source* unchanged. `Change string` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `Change string` returns *source*.
+If *newChars* is an empty string (""), `changeString` returns *source* unchanged. `changeString` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `changeString` returns *source*.
 
-`Change string` is different from [`Insert string`](#insert-string) in that it overwrites characters instead of inserting them.
+`changeString` is different from [`Insert string`](#insert-string) in that it overwrites characters instead of inserting them.
 
 #### Example
 
 ```4d
-var vtResult : Text
-vtResult=Change string("Acme","CME",2) //vtResult gets "ACME"
-vtResult=Change string("November","Dec",1) //vtResult gets "December"
+var vtResult : string
+vtResult=changeString("Acme","CME",2) //vtResult gets "ACME"
+vtResult=changeString("November","Dec",1) //vtResult gets "December"
 
 ```
 
 #### See also
 
-[`Delete string`](#delete-string)<br/>
+[`deleteString`](#deletestring)<br/>
 [`Insert string`](#insert-string)<br/>
 [`Replace string`](#replace-string)
 
-## Char
+## char
 
-<!-- REF #_command_.Char.Syntax -->**Char** ( *charCode* : Integer ) : Text<!-- END REF -->
+<!-- REF #_command_.char.Syntax -->**char** ( *charCode* : integer ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.Char.Params -->
+<!-- REF #_command_.char.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|charCode|Integer|->|Character code|
-|Result|Text|<-|Character represented by the charCode|<!-- END REF -->
+|charCode|integer|->|Character code|
+|Result|string|<-|Character represented by the charCode|<!-- END REF -->
 
 #### Description
 
-The `Char` command <!-- REF #_command_.Char.Summary -->returns the character whose code is *charCode*.<!-- END REF -->. 
+The `char` command <!-- REF #_command_.char.Summary -->returns the character whose code is *charCode*<!-- END REF -->. 
 
 Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 
-**Tip:** In editing a method, the command `Char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the Method editor.
+**Tip:** In editing a method, the command `char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the Method editor.
 
 
 #### Example
 
 ```4d
 
-var myText : Text
-myText ="hello"+Char(Carriage return)+"world"
+var myText : string
+myText ="hello"+char(Carriage return)+"world"
 ```
 
 #### See also
 
-[`Character code`](#character-code)<br/>
+[`characterCode`](#charactercode)<br/>
 [`Character Reference Symbols`](../basics/lang-text#character-reference-symbols)
 
-## Character code
+## characterCode
 
-<!-- REF #_command_.Character code.Syntax -->**Character code** ( *character* : String ) : Integer<!-- END REF -->
+<!-- REF #_command_.characterCode.Syntax -->**characterCode** ( *character* : String ) : integer<!-- END REF -->
 
 
-<!-- REF #_command_.Character code.Params -->
+<!-- REF #_command_.characterCode.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|character|Text|->|Character for which you want to get the code|
-|Result|Integer|<-|Character code|<!-- END REF -->
+|character|string|->|Character for which you want to get the code|
+|Result|integer|<-|Character code|<!-- END REF -->
 
 #### Description
 
-The `Character code` command <!-- REF #_command_.Character code.Summary -->returns the Unicode UTF-16 code (included between 1 and 65535) of *character*<!-- END REF -->. 
+The `characterCode` command <!-- REF #_command_.characterCode.Summary -->returns the Unicode UTF-16 code (included between 1 and 65535) of *character*<!-- END REF -->. 
 
-If there is more than one character in the string, `Character code` returns only the code of the first character.
+If there is more than one character in the string, `characterCode` returns only the code of the first character.
 
-The [`Char`](#char) function is the counterpart of `Character code`. It returns the character that the UTF-16 code represents.
+The [`char`](#char) function is the counterpart of `characterCode`. It returns the character that the UTF-16 code represents.
 
 
 #### Example 1
 
-Uppercase and lowercase characters are considered equal within a comparison. You can use Character code to differentiate between uppercase and lowercase characters. Thus, this line returns True:
+Uppercase and lowercase characters are considered equal within a comparison. You can use characterCode to differentiate between uppercase and lowercase characters. Thus, this line returns True:
 
 ```4d
 ("A"=="a")
@@ -121,7 +137,7 @@ Uppercase and lowercase characters are considered equal within a comparison. You
 On the other hand, this line returns False:
 
 ```4d
- (Character code("A")==Character code("a"))
+ (characterCode("A")==characterCode("a"))
 
 ```
 
@@ -130,8 +146,8 @@ On the other hand, this line returns False:
 This example returns the code of the first character of the string "ABC":
 
 ```4d
- var GetCode : Integer
- GetCode=Character code("ABC") //GetCode gets 65, the character code of A
+ var GetCode : integer
+ GetCode=characterCode("ABC") //GetCode gets 65, the characterCode of A
 
 ```
 
@@ -140,8 +156,8 @@ This example returns the code of the first character of the string "ABC":
 The following example tests for carriage returns and tabs:
 
 ```4d
- var vlChar : Integer
- var vtText : Text
+ var vlChar : integer
+ var vtText : string
  for(vlChar,1,Length(vtText))
     case of
        :(vtText[[vlChar]]==Char(Carriage return))
@@ -158,10 +174,10 @@ The following example tests for carriage returns and tabs:
 When executed multiple times on large texts, this test will run faster when compiled if it is written this way:
 
 ```4d
- var vlChar, vlCode  : Integer
- var vtText : Text
+ var vlChar, vlCode  : integer
+ var vtText : string
  for(vlChar,1,Length(vtText))
-    vlCode=Character code(vtText[[vlChar]])
+    vlCode=characterCode(vtText[[vlChar]])
     case of
        :(vlCode==Carriage return)
   //do something
@@ -174,33 +190,33 @@ When executed multiple times on large texts, this test will run faster when comp
 
 ```
 
-The second piece of code runs faster for two reasons: it does only one character reference by iteration and uses LongInt comparisons instead of string comparisons to test for carriage returns and tabs. Use this technique when working with common codes such as CR and TAB
+The second piece of code runs faster for two reasons: it does only one character reference by iteration and uses integer comparisons instead of string comparisons to test for carriage returns and tabs. Use this technique when working with common codes such as CR and TAB
 
 #### See also
 
-[`Char`](#char)<br/>
+[`char`](#char)<br/>
 [`Character Reference Symbols`](#character-reference-symbols)
 
-## Compare strings
+## compareStrings
 
-<!-- REF #_command_.Compare strings.Syntax -->**Compare strings** ( *aString* : Text , *bString* : Text , *options* : Integer ) : Integer<!-- END REF -->
+<!-- REF #_command_.Compare strings.Syntax -->**Compare strings** ( *aString* : string , *bString* : string , *options* : integer ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.Compare strings.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|Text|->|String to compare|
-|bString|Text|->|String to compare|
-|options|Integer|->|Comparison rule(s)|
-|Result|Integer|<-|Result of string comparison|<!-- END REF -->
+|aString|string|->|String to compare|
+|bString|string|->|String to compare|
+|options|integer|->|Comparison rule(s)|
+|Result|integer|<-|Result of string comparison|<!-- END REF -->
 
 #### Description
 
 The `Compare strings` command <!-- REF #_command_.Compare strings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
 
-In the *aString* parameter, pass a *text* value.
+In the *aString* parameter, pass a *string* value.
 
-In the *bString* parameter, pass a *text* value to be compared to *aString*.
+In the *bString* parameter, pass a *string* value to be compared to *aString*.
 
 By default, `Compare strings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants: 
 
@@ -221,7 +237,7 @@ You cannot use the @ wildcard character with `Compare strings`. For example, if 
 
 **Returned value**
 
-The command returns the following longint values:
+The command returns the following integer values:
 
 |Value |Description|
 |:----|:----|
@@ -234,8 +250,8 @@ The command returns the following longint values:
 You want to compare the following strings:
 
 ```4d
- var string1, string2 : Text
- var myResult : Integer
+ var string1, string2 : string
+ var myResult : integer
  string1="alpha Bravo charlie Delta Echo Fox-Trot"
  string2="Alpha Bravo Charlie Delta Echo Fox-Trot"
  
@@ -254,7 +270,7 @@ You want to compare the following strings:
 The following examples illustrate the specific impact of options in **Japanese data language context**:
 
 ```4d
- var myResult : Integer
+ var myResult : integer
 //default is kana insensitive
  myResult=Compare strings("イロハ","いろは") // equal
  myResult=Compare strings("イロハ","いろは",sk strict)      // not equal
@@ -263,7 +279,7 @@ The following examples illustrate the specific impact of options in **Japanese d
 ```
 
 ```4d
- var myResult : Integer
+ var myResult : integer
 //default is case insensitive
  myResult=Compare strings("さつき","さっき") // equal
  myResult=Compare strings("さつき","さっき",sk strict) // not equal
@@ -272,7 +288,7 @@ The following examples illustrate the specific impact of options in **Japanese d
 ```
 
 ```4d
- var myResult : Integer
+ var myResult : integer
  //default is diacritic sensitive when the data language is set to Japanese (different to all other languages)
  myResult=Compare strings("ete","été") // equal in non-Japanese data language
  myResult=Compare strings("ete","été") // not equal in Japanese data language
@@ -292,7 +308,7 @@ For example:
 
 
 ```4d
- var myResult : Integer
+ var myResult : integer
  myResult=Compare strings("いすず","いすゞ") // equal if setting is disabled
  myResult=Compare strings("いすず","いすゞ") // not equal if setting is enabled
  myResult=Compare strings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
@@ -304,16 +320,16 @@ For example:
 
 [`Position`](#position)
 
-## CONVERT FROM TEXT
+## convertFromString
 
-<!-- REF #_command_.CONVERT FROM TEXT.Syntax -->**CONVERT FROM TEXT** ( *4Dtext* : Text , *charSet* : Text, Integer ) : BLOB<!-- END REF -->
+<!-- REF #_command_.CONVERT FROM TEXT.Syntax -->**CONVERT FROM TEXT** ( *4Dtext* : Text , *charSet* : Text, integer ) : BLOB<!-- END REF -->
 
 
 <!-- REF #_command_.CONVERT FROM TEXT.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |atext|Text|->|Text expressed in current character set|
-|charSet|Text, Integer|->|Name or Number of character set|
+|charSet|Text, integer|->|Name or Number of character set|
 |Result|BLOB|<-|BLOB containing converted text|<!-- END REF -->
 
 #### Description
@@ -493,23 +509,23 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 [`Convert to text`](#convert-to-text)
 
-## Convert to text
+## convertToString
 
-<!-- REF #_command_.Convert to text.Syntax -->**Convert to text** ( *blob* : BLOB , *charSet* : Text, Integer ) : Text<!-- END REF -->
+<!-- REF #_command_.Convert to text.Syntax -->**Convert to text** ( *blob* : BLOB , *charSet* : Text, integer ) : Text<!-- END REF -->
 
 
 <!-- REF #_command_.Convert to text.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |blob|BLOB|->|BLOB containing text expressed in a specific character set|
-|charSet|Text, Integer|->|Name or Number of BLOB character set|
+|charSet|Text, integer|->|Name or Number of BLOB character set|
 |Result|Text|<-|Contents of BLOB expressed in 4D character set|<!-- END REF -->
 
 #### Description
 
 The `Convert to text` command <!-- REF #_command_.Convert to text.Summary -->converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D<!-- END REF -->. 4D uses the UTF-16 character set by default.
 
-In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (longint). For more information, please refer to the description of the [`CONVERT FROM TEXT`](#convert-from-text) command.
+In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`CONVERT FROM TEXT`](#convert-from-text) command.
 
 `Convert to text` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), 4D attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and 4D uses the character set that it defines instead of the one specified.
 
@@ -521,24 +537,24 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 [`CONVERT FROM TEXT`](#convert-from-text)
 
-## Delete string
+## deleteString
 
-<!-- REF #_command_.Delete string.Syntax -->**Delete string** ( *source* : Text , *where * : Integer , *numChars* : Integer ) : Text<!-- END REF -->
+<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : Text , *where * : integer , *numChars* : integer ) : Text<!-- END REF -->
 
 
-<!-- REF #_command_.Delete string.Params -->
+<!-- REF #_command_.deleteString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|String from which to delete characters|
-|where |Integer|->|First character to delete|
-|numChars|Integer|->|Number of characters to delete|
+|where |integer|->|First character to delete|
+|numChars|integer|->|Number of characters to delete|
 |Result|Text|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-`Delete string` <!-- REF #_command_.Delete string.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
+`deleteString` <!-- REF #_command_.deleteString.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
 
-`Delete string` returns the same string as `*source*` when:
+`deleteString` returns the same string as `*source*` when:
 
 * *source* is an empty string
 * *where* is greater than the length of *source*
@@ -552,22 +568,22 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 
 ```4d
 var vtResult, vtOtherVar : Text
- vtResult=Delete string("Lamborghini",6,6) // vtResult gets "Lambo"
- vtResult=Delete string("Indentation",6,2) // vtResult gets "Indention"
- vtResult=Delete string(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
+ vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
+ vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
+ vtResult=deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
  
 ```
 
 #### See also
 
-[`Change string`](#change-string)<br/>
+[`changeString`](#changestring)<br/>
 [`Insert string`](#insert-string)<br/>
 [`Replace string`](#replace-string)
 
 
-## Insert string
+## insertString
 
-<!-- REF #_command_.Insert string.Syntax -->**Insert string** ( *source* : Text , *what* : Text , *where* : Integer ) : Text<!-- END REF -->
+<!-- REF #_command_.Insert string.Syntax -->**Insert string** ( *source* : Text , *what* : Text , *where* : integer ) : Text<!-- END REF -->
 
 
 <!-- REF #_command_.Insert string.Params -->
@@ -575,7 +591,7 @@ var vtResult, vtOtherVar : Text
 |---------|--- |:---:|------|
 |source|Text|->|String in which to insert the other string|
 |what|Text|->|String to insert|
-|where|Integer|->|Where to insert|
+|where|integer|->|Where to insert|
 |Result|Text|<-|Resulting string|<!-- END REF -->
 
 #### Description
@@ -586,7 +602,7 @@ If *what* is an empty string (""), `Insert string` returns source unchanged.
 
 If *where* is greater than the length of *source*, then *what* is appended to *source*. If *where* is less than one (1), then *what* is inserted before *source*.
 
-`Insert string` is different from [`Change string`](#change-string) in that it inserts characters instead of overwriting them.
+`Insert string` is different from [`changeString`](#changestring) in that it inserts characters instead of overwriting them.
 
 #### Example
 
@@ -600,20 +616,20 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 #### See also
 
-[`Change string`](#change-string)<br/>
-[`Delete string`](#delete-string)<br/>
+[`changeString`](#changestring)<br/>
+[`deleteString`](#deletestring)<br/>
 [`Replace string`](#replace-string)
 
-## Length
+## length
 
-<!-- REF #_command_.Length.Syntax -->**Length** ( *string* : Text ) : Integer<!-- END REF -->
+<!-- REF #_command_.Length.Syntax -->**Length** ( *string* : Text ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.Length.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |string|Text|->|String for which to return length|
-|Result|Integer|<-|Length of string|<!-- END REF -->
+|Result|integer|<-|Length of string|<!-- END REF -->
 
 #### Description
 
@@ -635,12 +651,12 @@ When you want to check whether a string contains any characters, including ignor
 ```
 
 
-## Lowercase
+## lowercase
 
-<!-- REF #_command_.Lowercase.Syntax -->**Lowercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+<!-- REF #_command_.lowercase.Syntax -->**lowercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
 
 
-<!-- REF #_command_.Lowercase.Params -->
+<!-- REF #_command_.lowercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|Text|->|String to convert to lowercase|
@@ -649,7 +665,7 @@ When you want to check whether a string contains any characters, including ignor
 
 #### Description
 
-`Lowercase` <!-- REF #_command_.Lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase.<!-- END REF -->. 
+`lowercase` <!-- REF #_command_.lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase.<!-- END REF -->. 
 
 The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented lowercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 
@@ -662,9 +678,9 @@ The following project method capitalizes the string or text received as paramete
   //Caps ( String ) -> String
   //Caps ( Any text  ) -> Capitalized text
  #declare (myText : Text) -> myCapText : Text
- myCapText=Lowercase(myText)
+ myCapText=lowercase(myText)
  if(Length(myCapText)>0)
-    myCapText[[1]]==Uppercase(myCapText[[1]])
+    myCapText[[1]]==uppercase(myCapText[[1]])
  end if
 
 ```
@@ -675,25 +691,25 @@ This example compares the results obtained according to whether or not the * par
 
 ```4d
  var thestring : Text 
- thestring=Lowercase("DÉJÀ VU") // thestring is "deja vu"
- thestring=Lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
+ thestring=lowercase("DÉJÀ VU") // thestring is "deja vu"
+ thestring=lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
 
 ```
 
 #### See also
 
-[`Uppercase`](#Uppercase)
+[`uppercase`](#uppercase)
 
-## Match regex
+## matchRegex
 
-<!-- REF #_command_.Match regex.Syntax -->**Match regex** ( *pattern* : Text , *aString* : Text ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer {, \*} ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : Integer , *pos_found* : Integer , *length_found* : Integer {, \*} ) : Boolean<!-- END REF -->
+<!-- REF #_command_.Match regex.Syntax -->**Match regex** ( *pattern* : Text , *aString* : Text ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : integer {, \*} ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : integer , *pos_found* : integer , *length_found* : integer {, \*} ) : Boolean<!-- END REF -->
 
 <!-- REF #_command_.Match regex.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |pattern|Text|->|Regular expression (complete equality when using two parameters only)|
 |aString|Text|->|String in which search will be done|
-|start|Integer|->|Position in aString where search will start|
+|start|integer|->|Position in aString where search will start|
 |pos_found| |<-|Position of occurrence|
 |length_found| |<-|Length of occurrence|
 |*||->|If passed: only searches at position indicated|
@@ -731,7 +747,7 @@ vfound=Match regex(pattern, mytext, start, pos_found, length_found)
 
 ```4d
  #declare (myText : Text)
- var start : Integer
+ var start : integer
  var vfound : Boolean
  start=1
  repeat
@@ -755,7 +771,7 @@ vfound=Match regex( pattern,mytext, start, pos_found_array, length_found_array)
 
 ```4d
  #declare (myText : Text)
- var start : Integer
+ var start : integer
  var vfound : Boolean
  var group1, group2 : Text
  ARRAY LONGINT(pos_found_array,0)
@@ -774,7 +790,7 @@ Search limiting the comparison of the pattern to the position indicated:
 Add a star to the end of one of the two previous syntaxes.
 
 ```4d
- var start, pos_found, length_found : Integer
+ var start, pos_found, length_found : integer
  var vfound : Text
 
  vfound=Match regex("a.b","---a-b---",1,pos_found,length_found)
@@ -796,31 +812,31 @@ The positions and lengths returned are only meaningful in Unicode mode or if the
 
 In the event of an error, the command generates an error that you can intercept via a method installed by the ON ERR CALL command.
 
-## Num
+## num
 
-<!-- REF #_command_.Num.Syntax -->**Num** ( *expression* : Text,Boolean,Integer , *separator* : Text ) : Real <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : Text,Boolean,integer , *separator* : Text ) : Real <!-- END REF -->
 
 
-<!-- REF #_command_.Num.Params -->
+<!-- REF #_command_.num.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|Text,Boolean,Integer|->|Character for which you want to get the code|
+|expression|Text,Boolean,integer|->|Character for which you want to get the code|
 |separator|Text|->|Character for which you want to get the code|
 |Result|Real|<-|Character code|<!-- END REF -->
 
 #### Description
 
-The `Num` command <!-- REF #_command_.Num.Summary -->returns the numeric form of the String, Boolean or numeric expression you pass in *expression*<!-- END REF -->. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
+The `num` command <!-- REF #_command_.num.Summary -->returns the numeric form of the String, Boolean or numeric expression you pass in *expression*<!-- END REF -->. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
 
 **String Expressions**
 
-If *expression* consists only of one or more alphabetic characters, `Num` returns a zero. If *expression* includes alphabetic and numeric characters, the command ignores the alphabetic characters. Thus, it transforms the string "a1b2c3" into the number 123.
+If *expression* consists only of one or more alphabetic characters, `num` returns a zero. If *expression* includes alphabetic and numeric characters, the command ignores the alphabetic characters. Thus, it transforms the string "a1b2c3" into the number 123.
 
-There are three reserved characters that `Num` treats specially: the decimal separator as defined in the system (if the *separator* parameter is not passed), the hyphen “-”, and “e” or “E”. These characters are interpreted as numeric format characters.
+There are three reserved characters that `num` treats specially: the decimal separator as defined in the system (if the *separator* parameter is not passed), the hyphen “-”, and “e” or “E”. These characters are interpreted as numeric format characters.
 
 * The decimal separator is interpreted as a decimal place and must appear embedded in a numeric string. By default, the command uses the decimal separator set by the operating system. You can modify this character using the *separator* parameter (see below).
-* The hyphen causes the number or exponent to be negative. The hyphen must appear before any negative numeric characters or after the “e” for an exponent. Except for the “e” character, if a hyphen is embedded in a numeric string, the portion of the string after the hyphen is ignored. For example, `Num`("123-456") returns 123, but `Num`("-9") returns -9.
-* The e or E causes any numeric characters to its right to be interpreted as the power of an exponent. The “e” must be embedded in a numeric string. Thus, `Num`("123e–2") returns 1.23.
+* The hyphen causes the number or exponent to be negative. The hyphen must appear before any negative numeric characters or after the “e” for an exponent. Except for the “e” character, if a hyphen is embedded in a numeric string, the portion of the string after the hyphen is ignored. For example, `num`("123-456") returns 123, but `num`("-9") returns -9.
+* The e or E causes any numeric characters to its right to be interpreted as the power of an exponent. The “e” must be embedded in a numeric string. Thus, `num`("123e–2") returns 1.23.
 Note that when the string includes more than one "e", conversion might give different results under Mac OS and under Windows.
 
 The *separator* parameter designates a custom decimal separator for evaluating the *expression*. When the string to be evaluated is expressed with a decimal separator different from the system operator, the command returns an incorrect result. The *separator* parameter can be used in this case to obtain a correct evaluation. When this parameter is passed, the command does not take the system decimal separator into account. You can pass one or more characters.
@@ -833,11 +849,11 @@ The GET SYSTEM FORMAT command can be used to find out the current decimal separa
 
 **Boolean Expressions**
 
-If you pass a Boolean expression, `Num` returns 1 if the expression is True; otherwise, it returns 0 (zero).
+If you pass a Boolean expression, `num` returns 1 if the expression is True; otherwise, it returns 0 (zero).
 
 **Numeric Expressions**
 
-If you pass a numeric expression in the *expression* parameter, `Num` returns the value passed in the *expression* parameter as is. This can be useful more particularly in the case of generic programming using pointers.
+If you pass a numeric expression in the *expression* parameter, `num` returns the value passed in the *expression* parameter as is. This can be useful more particularly in the case of generic programming using pointers.
 
 **Undefined Expressions**
 
@@ -846,16 +862,16 @@ If *expression* evaluates to undefined, the command returns 0 (zero). This is us
 
 #### Example 1
 
-The following example illustrates how `Num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
+The following example illustrates how `num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
 
 ```4d
  var vResult : Real
- vResult=Num("ABCD") // vResult gets 0
- vResult=Num("A1B2C3") // vResult gets 123
- vResult=Num("123") // vResult gets 123
- vResult=Num("123.4") // vResult gets 123.4
- vResult=Num("–123") // vResult gets –123
- vResult=Num("–123e2") // vResult gets –12300
+ vResult=num("ABCD") // vResult gets 0
+ vResult=num("A1B2C3") // vResult gets 123
+ vResult=num("123") // vResult gets 123
+ vResult=num("123.4") // vResult gets 123.4
+ vResult=num("–123") // vResult gets –123
+ vResult=num("–123e2") // vResult gets –12300
 
 ```
 
@@ -867,9 +883,9 @@ This example compares the results obtained depending on the “current” separa
  var thestring : Text
  var thenum : Real
  thestring="33,333.33"
- thenum=Num(thestring)
+ thenum=num(thestring)
   // by default, thenum equals 33,33333 on a French system
- thenum=Num(thestring,".")
+ thenum=num(thestring,".")
   // thenum will be correctly evaluated regardless of the system
   // for example, 33 333,33 on a French system
 
@@ -881,20 +897,20 @@ This example compares the results obtained depending on the “current” separa
 [`GET SYSTEM FORMAT`](#get-system-format)<br/>
 [`String`](#string)
 
-## Position
+## position
 
-<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound * : Integer {, \*} ) : Integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : Integer , *lengthFound* : Integer , *options* : Integer ) : Integer<!-- END REF -->
+<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : integer {, \*} ) : integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : integer , *lengthFound * : integer {, \*} ) : integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
 
 <!-- REF #_command_.Position.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |find|Text|->|String to find|
 |aString|Text|->|String in which to search|
-|start|Integer|->|Position in string where search will start|
-|lengthFound|Integer|<-|Length of string found|
+|start|integer|->|Position in string where search will start|
+|lengthFound|integer|<-|Length of string found|
 |*||->|If passed: evaluation based on character codes|
-|options|Integer|->|Search condition(s)|
-|Result|Integer|<-|Position of first occurrence|<!-- END REF -->
+|options|integer|->|Search condition(s)|
+|Result|integer|<-|Position of first occurrence|<!-- END REF -->
 
 #### Description
 
@@ -948,7 +964,7 @@ You cannot use the @ wildcard character with `Position`. For example, if you pas
 This example illustrates the use of Position. The results, described in the comments, are assigned to the variable vlResult.
 
 ```4d
- var length, vlResult : Integer
+ var length, vlResult : integer
  var vtText1, vtText2  : Text
  vlResult=Position("ll","Willow") // vlResult gets 3
  vlResult=Position(vtText1,vtText2) // Returns first occurrence of vtText1 in vtText2
@@ -965,7 +981,7 @@ This example illustrates the use of Position. The results, described in the comm
 In the following example, the lengthFound parameter can be used to search for all the occurrences of "aegis" in a text, regardless of how it is written:
 
 ```4d
- var start, lengthfound, vlResult : Integer
+ var start, lengthfound, vlResult : integer
  var myText : Text
  start=1
  repeat
@@ -980,7 +996,7 @@ In the following example, the lengthFound parameter can be used to search for al
 In the following example, you want to find all instances of a string and replace it:
 
 ```4d
- var lengthFound, find, replace, option, p  : Integer
+ var lengthFound, find, replace, option, p  : integer
  var myText : Text
  myText="Hello Joelle et joel!"
  find="joel"
@@ -1002,9 +1018,9 @@ In the following example, you want to find all instances of a string and replace
 [`Compare strings`](#compare-strings)<br/>
 [`Substring`](#substring)
 
-## Replace string
+## replaceString
 
-<!-- REF #_command_.Replace string.Syntax -->**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : Integer {, \*}) : Text<!-- END REF -->
+<!-- REF #_command_.Replace string.Syntax -->**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : integer {, \*}) : Text<!-- END REF -->
 
 
 <!-- REF #_command_.Replace string.Params -->
@@ -1013,7 +1029,7 @@ In the following example, you want to find all instances of a string and replace
 |source|Text|->|Original string|
 |oldString|Text|->|Characters to replace|
 |newString|Text|->|Replacement string (if empty string, occurrences are deleted)|
-|howMany|Integer|->|How many times to replace If omitted, all occurrences are replaced|
+|howMany|integer|->|How many times to replace If omitted, all occurrences are replaced|
 |*||->|If passed: evaluation based on character codes|
 |Result|Text|<-|Resulting string|<!-- END REF -->
 
@@ -1070,13 +1086,13 @@ The following example illustrates the use of the * parameter in the case of a di
 
 #### See also
 
-[`Change string`](#change-string)<br/>
-[`Delete string`](#delete-string)<br/>
+[`changeString`](#changestring)<br/>
+[`deleteString`](#deletestring)<br/>
 [`Insert string`](#insert-string)
 
-## Split string
+## splitString
 
-<!-- REF #_command_.Split string.Syntax -->**Split string** ( *stringToSplit* : Text , *separator* : Text , *options* : Integer ) : Collection <!-- END REF -->
+<!-- REF #_command_.Split string.Syntax -->**Split string** ( *stringToSplit* : Text , *separator* : Text , *options* : integer ) : Collection <!-- END REF -->
 
 
 <!-- REF #_command_.Split string.Params -->
@@ -1084,7 +1100,7 @@ The following example illustrates the use of the * parameter in the case of a di
 |---------|--- |:---:|------|
 |stringToSplit|Text|->|String value|
 |separator|Text|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
-|options|Integer|->|Option(s) regarding empty strings and spaces|
+|options|integer|->|Option(s) regarding empty strings and spaces|
 |Result|Collection|<-|Collection of substrings|<!-- END REF -->
 
 #### Description
@@ -1097,8 +1113,8 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 |Constant|Type|Value|Comment|
 |---------|--- |---|------|
-|sk ignore empty strings|Integer|1|Remove empty strings from the resulting collection (they are ignored)|
-|sk trim spaces|Integer|2|Trim space characters at the beginning and end of substrings|
+|sk ignore empty strings|integer|1|Remove empty strings from the resulting collection (they are ignored)|
+|sk trim spaces|integer|2|Trim space characters at the beginning and end of substrings|
 
 #### Example 1
 
@@ -1132,16 +1148,16 @@ The *separator* parameter can be a multiple-character string:
 [`collection.join( )`](#collection.join)<br/>
 [`TEXT TO ARRAY`](#text-to-array)
 
-## String
+## string
 
-<!-- REF #_command_.String.Syntax -->**String** ( *expression* : any , *format* : Text, Integer , *addTime* : Time ) : Text<!-- END REF -->
+<!-- REF #_command_.String.Syntax -->**String** ( *expression* : any , *format* : Text, integer , *addTime* : Time ) : Text<!-- END REF -->
 
 
 <!-- REF #_command_.String.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be Real, Integer, Date, Time, Text, Boolean, Undefined, or Null)|
-|format|Text, Integer|->|Display format|
+|expression|any|->|Expression for which to return the string form (can be Real, integer, Date, Time, Text, Boolean, Undefined, or Null)|
+|format|Text, integer|->|Display format|
 |addTime|Time|->|Time to add on if expression is a date|
 |Result|Text|<-|String form of the expression|<!-- END REF -->
 
@@ -1155,7 +1171,7 @@ The optional *addTime* parameter adds a time to a date in a combined format. It 
 
 **Numeric Expressions**
 
-If *expression* is a numeric expression (Real, Integer, Long Integer), you can pass an optional string format. Following are some examples:
+If *expression* is a numeric expression (Real, integer, Long integer), you can pass an optional string format. Following are some examples:
 
 |Example|Result|Comments|
 |:----|:----|:----|
@@ -1172,9 +1188,9 @@ If *expression* is a numeric expression (Real, Integer, Long Integer), you can p
 |String(0 ?+ 14;"&x")|0x4000|
 |String(0 ?+ 14;"&$")|$4000|
 |String(50.3;"&xml")|50.3|Always "." as decimal separator|
-|String(Num(1=1);"True;;False")|True|
-|String(Num(1=2);"True;;False")|False|
-|String(Log(-1))| |Undefined number|
+|String(num(1=1);"True;;False")|True|
+|String(num(1=2);"True;;False")|False|
+|String(log(-1))| |Undefined number|
 |String(1/0)|INF|Positive infinite number|
 |String(-1/0)|-INF|Negative infinite number|
 
@@ -1193,17 +1209,17 @@ In this case, you can also pass a time in the *addTime* parameter. This paramete
 
 |Constant|Type|Value|Comment|
 |:----|:----|:----|:----|
-|Blank if null date|Longint|100|- instead of 0|
-|Date RFC 1123|Longint|10| |
-|Internal date abbreviated|Longint|6|Feb 18, 2023|
-|Internal date long|Longint|5|February 18, 2023|
-|Internal date short|Longint|7|02/18/2023|
-|Internal date short special|Longint|4|02/18/23 (but 02/18/1896 or 02/18/2096)|
-|ISO Date|Longint|8|2023-02-18T00:00:00|
-|ISO Date GMT|Longint|9|2023-02-18T16:11:53Z|
-|System date abbreviated|Longint|2|Sat, February 18, 2023|
-|System date long|Longint|3|Saturday, February 18, 2023|
-|System date short|Longint|1|02/18/2023|
+|Blank if null date|integer|100|- instead of 0|
+|Date RFC 1123|integer|10| |
+|Internal date abbreviated|integer|6|Feb 18, 2023|
+|Internal date long|integer|5|February 18, 2023|
+|Internal date short|integer|7|02/18/2023|
+|Internal date short special|integer|4|02/18/23 (but 02/18/1896 or 02/18/2096)|
+|ISO Date|integer|8|2023-02-18T00:00:00|
+|ISO Date GMT|integer|9|2023-02-18T16:11:53Z|
+|System date abbreviated|integer|2|Sat, February 18, 2023|
+|System date long|integer|3|Saturday, February 18, 2023|
+|System date short|integer|1|02/18/2023|
 
 :::note
 
@@ -1271,18 +1287,18 @@ If *expression* is a Time expression, the string is returned using the default *
 
 |Constant|Type|Value|Comment|
 |:----|:----|:----|:----|
-|Blank if null time|Longint|100| instead of 0|
-|HH MM|Longint|2|01:02|
-|HH MM AM PM|Longint|5|01:02|
-|HH MM SS|Longint|1|01:02:03|
-|Hour min|Longint|4|1 hour 2 minutes|
-|Hour min sec|Longint|3|1 hour 2 minutes 3 seconds|
-|ISO time|Longint|8|0000-00-00T01:02:03|
-|Min sec|Longint|7|62 minutes 3 seconds|
-|MM SS|Longint|6|62:03:00|
-|System time long|Longint|11|1:02:03 AM HNEC (Mac only)|
-|System time long abbreviated|Longint|10|1•02•03 AM (Mac only)|
-|System time short|Longint|9|01:02:03|
+|Blank if null time|integer|100| instead of 0|
+|HH MM|integer|2|01:02|
+|HH MM AM PM|integer|5|01:02|
+|HH MM SS|integer|1|01:02:03|
+|Hour min|integer|4|1 hour 2 minutes|
+|Hour min sec|integer|3|1 hour 2 minutes 3 seconds|
+|ISO time|integer|8|0000-00-00T01:02:03|
+|Min sec|integer|7|62 minutes 3 seconds|
+|MM SS|integer|6|62:03:00|
+|System time long|integer|11|1:02:03 AM HNEC (Mac only)|
+|System time long abbreviated|integer|10|1•02•03 AM (Mac only)|
+|System time short|integer|9|01:02:03|
 
 Notes:
 
@@ -1320,21 +1336,21 @@ If *expression* is evaluated to Null, the command returns the "null" string. Thi
 
 [`Bool`](#bool)<br/>
 [`Date`](#date)<br/>
-[`Num`](#num)<br/>
+[`num`](#num)<br/>
 [`Time string`](#time-string)<br/>
 [`Timestamp`](#timestamp)
 
-## Substring
+## substring
 
-<!-- REF #_command_.Substring.Syntax -->**Substring** ( *source* : Text , *firstChar* : Integer , *numChars* : Integer ) : Text <!-- END REF -->
+<!-- REF #_command_.Substring.Syntax -->**Substring** ( *source* : Text , *firstChar* : integer , *numChars* : integer ) : Text <!-- END REF -->
 
 
 <!-- REF #_command_.Substring.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |source|Text|->|String from which to get substring|
-|firstChar|Integer|->|Position of first character|
-|numChars|Integer|->|Number of characters to get|
+|firstChar|integer|->|Position of first character|
+|numChars|integer|->|Number of characters to get|
 |Result|Text|<-|Substring of source|<!-- END REF -->
 
 #### Description
@@ -1373,7 +1389,7 @@ The following project method appends the paragraphs found in the text (passed as
   // EXTRACT PARAGRAPHS ( Text to parse , -> Array of ¶s )
  
  #declare (myText : Text, myPointer : Pointer ) 
- var vlElem, vlPos : Integer
+ var vlElem, vlPos : integer
  
  vlElem=Size of array(myPointer->)
  repeat
@@ -1394,12 +1410,12 @@ The following project method appends the paragraphs found in the text (passed as
 
 [`Position`](#position)
 
-## Uppercase 
+## uppercase 
 
-<!-- REF #_command_.Uppercase.Syntax -->**Uppercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
 
 
-<!-- REF #_command_.Uppercase.Params -->
+<!-- REF #_command_.uppercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|Text|->|String to convert to uppercase|
@@ -1408,7 +1424,7 @@ The following project method appends the paragraphs found in the text (passed as
 
 #### Description
 
-`uppercase` <!-- REF #_command_.Uppercase.Summary -->takes *aString* and returns the string with all alphabetic characters in uppercase.<!-- END REF -->. 
+`uppercase` <!-- REF #_command_.uppercase.Summary -->takes *aString* and returns the string with all alphabetic characters in uppercase.<!-- END REF -->. 
 
 The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented uppercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 
@@ -1418,19 +1434,15 @@ This example compares the results obtained according to whether or not the * par
 
 ```4d
  var thestring : Text 
- thestring=Uppercase("hélène") // thestring is "HELENE"
- thestring=Uppercase("hélène",*) // thestring is "HÉLÈNE"
+ thestring=uppercase("hélène") // thestring is "HELENE"
+ thestring=uppercase("hélène",*) // thestring is "HÉLÈNE"
 
 ```
 
 #### Example 2
 
-See the example for [`Lowercase`](#Lowercase).
+See the example for [`lowercase`](#lowercase).
 
 #### See also
 
-[`Lowercase`](#Lowercase)
-
-
-
-
+[`lowercase`](#lowercase)
