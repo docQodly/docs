@@ -37,3 +37,17 @@
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
+.column-left {
+  float: left;
+}
+
+.column-right {
+  float: right;
+}
+
+/* Clear floats to ensure proper layout */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -6,11 +6,11 @@ hide_title: true
 
 <br />
 
-Greetings, fellow web warriors! It's my pleasure to introduce myself - I am **<span style={{color:'#B174E5'}}>QDLER</span>**, the creator of **<span style={{color:'#B174E5'}}>Qodly</span>** and the new hero of the cloud computing world. I, along with my revolutionary hybrid low-code platform, am on a mission to save the web business application world from stagnation and bring it to new heights of productivity and efficiency. 
+Greetings, fellow web warriors! It's my pleasure to introduce myself - I am <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDLER</span>, the creator of <span style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly</span> and the new hero of the cloud computing world. I, along with my revolutionary hybrid low-code platform, am on a mission to save the web business application world from stagnation and bring it to new heights of productivity and efficiency. 
 
 <br />
 
-Have you ever dreamt of a tool that can create web business apps quickly and efficiently? Look no further, because **<span  style={{color:'#B174E5'}}>Qodly</span>** - a three-layered force - can make that dream a reality. My **<span  style={{color:'#B174E5'}}>Studio</span>**, **<span  style={{color:'#B174E5'}}>Server</span>**, and **<span style={{color:'#B174E5'}}>Cloud</span>** all work together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time. Don't believe me? Try it for yourself and witness the magic of **<span  style={{color:'#B174E5'}}>Qodly</span>**.
+Have you ever dreamt of a tool that can create web business apps quickly and efficiently? Look no further, because <span  style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly</span> - a three-layered force - can make that dream a reality. My <span  style={{color:'#B174E5',fontWeight: 'bold'}}>Studio</span>, <span  style={{color:'#B174E5',fontWeight: 'bold'}}>Server</span>, and <span style={{color:'#B174E5',fontWeight: 'bold'}}>Cloud</span> all work together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time. Don't believe me? Try it for yourself and witness the magic of <span  style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly</span>.
 
 <br />
 
