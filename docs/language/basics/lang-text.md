@@ -1,9 +1,9 @@
 ---
 id: lang-text
-title: Text
+title: String
 ---
 
-A text (or string) value is an attribute, variable, or expression that may contain from 0 to 2 GB of text.
+A string (or text) value is an attribute, variable, or expression that may contain from 0 to 2 GB of text.
 
 
 ## Literals
@@ -22,7 +22,7 @@ An empty string is specified by two quotation marks with nothing between them ("
 
 The QodlyScript language allows you to use escape sequences (also called escape characters). An escape sequence is a sequence of characters that can be used to replace a "special" character.
 
-The sequence consists of a backslash `\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the entry "Character(Tab)".
+The sequence consists of a backslash `\`, followed by a character. For instance, `\t` is an escape sequence for the **Tab** character. Escape sequences facilitate the entry of special characters: the previous example (`\t`) replaces the code entry `character(Tab)`.
 
 In QodlyScript, the following escape sequences can be used:
 
@@ -69,8 +69,8 @@ In the following example, the **Carriage return** character (escape sequence `\r
 ## String comparisons
 
 - Strings are compared on a character-by-character basis (except in the case of searching by [keywords](#keywords), see below).
-- When strings are compared, the case of the characters is ignored; thus, `"a"=="A"` returns `TRUE`.
-- When strings are compared, diacritical characters are ignored. For example, the following expressions return `TRUE`:
+- When strings are compared, the case of the characters is ignored; thus, `"a"=="A"` returns `true`.
+- When strings are compared, diacritical characters are ignored. For example, the following expressions return `true`:
 
 ```4d
      "n"=="ñ"
@@ -79,10 +79,10 @@ In the following example, the **Carriage return** character (escape sequence `\r
       // and so on
 ```
 
-To test if the case of two characters is different or to take diacritical characters into account, compare their character codes. For example, the following expression returns `FALSE`:
+To test if the case of two characters is different or to take diacritical characters into account, compare their character codes. For example, the following expression returns `false`:
 
 ```4d
-Character code("A")==Character code("a") // false because 65 is not equal to 97
+characterCode("A")==characterCode("a") // false because 65 is not equal to 97
 ```
 
 
@@ -91,7 +91,7 @@ Character code("A")==Character code("a") // false because 65 is not equal to 97
 The QodlyScript supports **@** as a wildcard character. This character can be used in any string comparison to match any number of characters. For example, the following expression is `true`:
 
 ```4d
-"abcdefghij"=="abc@" //true
+	"abcdefghij"=="abc@" //true
 ```
 
 The wildcard character must be used within the second operand (the string on the right side) in order to match any number of characters. The following expression is `false`, because the `@` is considered only as one character in the first operand:
@@ -113,7 +113,7 @@ The wildcard means "one or more characters or nothing". The following expression
 On the other hand, whatever the case, a string comparison with two consecutive wildcards will always return `false`:
 
 ```4d
-"abcdefghij"=="abc@@fg" //false
+	"abcdefghij"=="abc@@fg" //false
 ```
 
 When the comparison operator is or contains a `<` or `>` symbol, only comparison with a single wildcard located at the end of the operand is supported:
@@ -123,29 +123,29 @@ When the comparison operator is or contains a `<` or `>` symbol, only comparison
      "abcd"<="abc@ef" //Not a valid comparison
 ```
 
-If you want to execute comparisons or queries using `@` as a character (and not as a wildcard), you need to use the `Character code(At sign)` instruction. Imagine, for example, that you want to know if a string ends with the `@` character. The following expression (if `vsValue` is not empty) is always `true`:
+If you want to execute comparisons or queries using `@` as a character (and not as a wildcard), you need to use the `characterCode(At sign)` instruction. Imagine, for example, that you want to know if a string ends with the `@` character. The following expression (if `vsValue` is not empty) is always `true`:
 
 ```4d
-(vsValue[[Length(vsValue)]]=="@") //always true
+(vsValue[[length(vsValue)]]=="@") //always true
 ```
 
 The following expression will be evaluated correctly:
 
 ```4d
-(Character code(vsValue[[Length(vsValue)]])!=64)  
+(characterCode(vsValue[[length(vsValue)]])!=64)  
 ```
 
 
 ### Keywords
 
-Unlike other string comparisons, searching by keywords looks for "words" in "texts": words are considered both individually and as a whole. The **%** operator always returns `False` if the query concerns several words or only part of a word (for example, a syllable). The "words" are character strings surrounded by "separators", which are spaces and punctuation characters and dashes. An apostrophe, like in "Today's", is usually considered as part of the word, but will be ignored in certain cases (see the rules below). Numbers can be searched for because they are evaluated as a whole (including decimal symbols). Other symbols (currency, temperature, and so on) will be ignored.
+Unlike other string comparisons, searching by keywords looks for "words" in "texts": words are considered both individually and as a whole. The **%** operator always returns `false` if the query concerns several words or only part of a word (for example, a syllable). The "words" are character strings surrounded by "separators", which are spaces, punctuation characters, and dashes. An apostrophe, like in "Today's", is usually considered as part of the word, but will be ignored in certain cases (see the rules below). Numbers can be searched for because they are evaluated as a whole (including decimal symbols). Other symbols (currency, temperature, and so on) will be ignored.
 
 ```4d
-     "Alpha Bravo Charlie"%"Bravo" // Returns True
-     "Alpha Bravo Charlie"%"vo" // Returns False
-     "Alpha Bravo Charlie"%"Alpha Bravo" // Returns False
-     "Alpha,Bravo,Charlie"%"Alpha" // Returns True
-     "Software and Computers"%"comput@" // Returns True
+     "Alpha Bravo Charlie"%"Bravo" // true
+     "Alpha Bravo Charlie"%"vo" // false
+     "Alpha Bravo Charlie"%"Alpha Bravo" // false
+     "Alpha,Bravo,Charlie"%"Alpha" // true
+     "Software and Computers"%"comput@" // true
 ```
 
 :::note
@@ -156,7 +156,7 @@ QodlyScript uses the ICU library for comparing strings (using `<>==!=` operators
 
 ## String functions
 
-QodlyScript provides several functions such as [`Replace string`](string.md#replace-string) or [`Substring`](string.md#substring) to handle text values. For more information, see the [**String**](string.md) chapter.
+QodlyScript provides several functions such as [`replaceString`](../string.md#replace-string) or [`substring`](../string.md#substring) to handle string values. For more information, see the [**String**](string.md) chapter.
 
 
 ## Character Reference Symbols  
@@ -165,14 +165,14 @@ The character reference symbols: `[[...]]`
 
 These symbols are used to refer to a single character within a string. This syntax allows you to individually address the characters of a text variable or attribute.
 
-If the character reference symbols appear on the left side of the assignment operator (`=`), a character is assigned to the referenced position in the string. For example, if `vsName` is not an empty string, the following line sets the first character of `vsName` to uppercase:
+If the character reference symbols appear on the left side of the assignment operator (`=`), a character is assigned to the referenced position in the string. For example, the following line sets the first character of `vsName` to uppercase:
 
 ```4d  
-var vsName : Text
+var vsName : string
 vsName = "hello"
 if(vsName!="")
-    vsName[[1]]=Uppercase(vsName[[1]])
-end if  
+    vsName[[1]]=uppercase(vsName[[1]])
+end  
 //"Hello"
 ```
 
@@ -181,19 +181,19 @@ Otherwise, if the character reference symbols appear within an expression, they 
 ```4d
 //The following example tests if the last character of vtText is an At sign "@"
  if(vtText!="")
-    if(Character code(Substring(vtText,Length(vtText),1))==At sign)
+    if(characterCode(substring(vtText,length(vtText),1))==At sign)
   //...
-    end if
- end if
+    end
+ end
 ```
 
 ```4d 
   //Using the character reference syntax, you would write in a simpler manner:
  if(vtText!="")
-    if(Character code(vtText[[Length(vtText)]])==At sign)
+    if(characterCode(vtText[[length(vtText)]])==At sign)
   // ...
-    end if
- end if
+    end
+ end
 ```
 
 ### Example
@@ -203,24 +203,24 @@ The following method capitalizes the first character of each word of the text re
 ```4d
   //Capitalize_text ( Source text ) -> Capitalized text
  
- #declare (source : Text) -> capitalized : Text
- var vlLen,vlChar : Integer
+ declare (source : string) -> capitalized : string
+ var vlLen,vlChar : integer
  capitalized=source
- vlLen:=Length(capitalized)
+ vlLen=length(capitalized)
  if(vlLen>0)
-    capitalized[[1]]=Uppercase(capitalized[[1]])
+    capitalized[[1]]=uppercase(capitalized[[1]])
     for(vlChar,1,vlLen-1)
-       if(Position(capitalized[[vlChar]]," !&()-{}:;<>?/,.=+*")>0)
-          capitalized[[vlChar+1]]=Uppercase(capitalized[[vlChar+1]])
-       end if
-    end for
- end if
+       if(position(capitalized[[vlChar]]," !&()-{}:;<>?/,.=+*")>0)
+          capitalized[[vlChar+1]]=uppercase(capitalized[[vlChar+1]])
+       end
+    end
+ end
 ```
 
 For example, the line:
 
 ```4d
-var cap : Text
+var cap : string
 cap=Capitalize_text("hello, my name is jane doe and i'm running for president!")
 //cap: "Hello, My Name Is Jane Doe And I'm Running For President!"
 ```

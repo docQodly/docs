@@ -3,24 +3,28 @@ id: lang-picture
 title: Picture
 ---
 
-A Picture attribute, variable or expression can be any valid image. In general, this includes any picture that can be put on the pasteboard or read from the disk using commands such as `READ PICTURE FILE`. 
+A Picture attribute, variable or expression can be any valid image. In general, this includes any picture that can be put on the pasteboard or read from a file. 
 
 QodlyScript uses native APIs to encode (write) and decode (read) picture. These implementations provide access to numerous native formats. 
 
-QodlyScript supports metadata in pictures. Two commands, `SET PICTURE METADATA` and `GET PICTURE METADATA`, let you benefit from metadata in your developments.
+QodlyScript supports metadata in pictures. Two commands, [`setPictureMetadata`](../picture.md#setpicturemetadata) and [`getPictureMetadata`](../picture.md#getpicturemetadata), let you benefit from metadata in your developments.
 
 ## Picture Codec IDs  
 
-QodlyScript supports natively a basic set of picture formats, such as .jpeg, .png, or .svg. 
+QodlyScript supports natively a set of picture formats. A picture format is defined through a *codecID*. Several [picture management commands](picture.md) can receive a *codecID* as a parameter. 
 
-Picture formats recognized by QodlyScript are returned by the `PICTURE CODEC LIST` command as picture Codec IDs. They can be returned in the following forms:
+The following codec IDs are supported:
 
-*	As an extension (for example ".gif")
-*	As a MIME type (for example "image/jpeg")
+- .jpg
+- .png
+- .bmp
+- .gif
+- .tif
+- .emf
+- .svg
+- .pdf
 
-The form returned for each format will depend on the way the Codec is recorded at the system level. Note that the list of available codecs for reading and writing can be different since encoding codecs may require specific licenses.
 
-Most of the [picture management commands](picture.md) can receive a Codec ID as a parameter. It is therefore imperative to use the system ID returned by the `PICTURE CODEC LIST` command.
 
 
 ## Picture operators
@@ -40,10 +44,10 @@ Most of the [picture management commands](picture.md) can receive a Codec ID as 
 
 :::note Notes
 
-- In order to use the | operator, Pict1 and Pict2 must have exactly the same dimension. If both pictures are a different size, the operation Pict1 | Pict2 produces a blank picture.
-- The `COMBINE PICTURES` command can be used to superimpose pictures while keeping the characteristics of each source picture in the resulting picture.
-- Additional operations can be performed on pictures using the `TRANSFORM PICTURE` command.
-- There is no comparison operators on pictures, however 4D proposes the `Equal picture` command to compare two pictures.
+- In order to use the `|` operator, Pict1 and Pict2 must have exactly the same dimension. If both pictures are a different size, the operation Pict1 | Pict2 produces a blank picture.
+- The [`combinePictures`](../picture.md#combinePicture) command can be used to superimpose pictures while keeping the characteristics of each source picture in the resulting picture.
+- Additional operations can be performed on pictures using the [`transformPicture`](../picture.md#transformPicture) command.
+- There is no comparison operators on pictures, however QodlyScript proposes the [`equalPicture`](../picture.md#equalPicture) command to compare two pictures.
 
 ::: 
 

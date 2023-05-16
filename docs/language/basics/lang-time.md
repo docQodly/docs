@@ -57,26 +57,27 @@ A null time is specified by ?00:00:00?
 
 To obtain a time expression from an expression that combines a time expression with a number, use the commands `Time` and `Time string`.
 
-You can combine expressions of the time and number types using the `Time` or `Current time` functions:
+You can combine expressions of the time and number types using the `time` or `currentTime` commands:
 
 ```4d
 	//The following line assigns to vlSeconds the number of seconds   
 	//that will be elapsed between midnight and one hour from now
-vlSeconds=Current time+3600
+var vlSeconds, vhSoon : time
+vlSeconds=currentTime+3600
 	//The following line assigns to $vHSoon the time it will be in one hour
-vhSoon=Time(Current time+3600)
+vhSoon=time(currentTime+3600)
 ```
 
 The second line could be written in a simpler way:
 
 ```4d
-  // The following line assigns to $vHSoon the time it will be in one hour
- vhSoon=Current time+?01:00:00?
+  // The following line assigns to vHSoon the time it will be in one hour
+ vhSoon=currentTime+?01:00:00?
 ```
 
 ### Example 2
 
-The Modulo operator can be used, more specifically, to add times that take the 24-hour format into account:
+The Modulo operator (`%`) can be used, more specifically, to add times that take the 24-hour format into account:
 
 ```4d
 t1=?23:00:00? // It is 23:00 hours

@@ -236,7 +236,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
      var o : object
      if(o.a) // false
      end
-     case of
+     switch
         :(o.a) // false
      end
 ```
