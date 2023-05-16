@@ -5,8 +5,8 @@ title: Number
 
 Number is a generic term that stands for:
 
-- Real variable or expression. The range for the Real data type is ±1.7e±308 (13 significant digits).
-- Integer attribute, variable or expression. The range for the Integer data type (4-byte Long integer) is -2^31..(2^31)-1.
+- Real variable or expression. The range for the real data type is ±1.7e±308 (13 significant digits).
+- Integer attribute, variable or expression. The range for the integer data type (4-byte Long integer) is -2^31..(2^31)-1.
 
 You can assign any number data type to another; Qodly does the conversion, truncating or rounding if necessary. However, when values are out of range, the conversion will not return a valid value. You can mix number data types in expressions.
 
@@ -40,18 +40,18 @@ Negative numbers are specified with the minus sign (-). For example:
 |Longint division |Number \ Number |Number |5 \ 2 |2|
 |Modulo |Number % Number |Number |5 % 2 |1|
 |Exponentiation |Number ^ Number |Number |2 ^ 3| 8|
-|Equality |Number == Number |Boolean |10 == 10 |True|
-   ||||10 == 11| False|
-|Inequality |Number != Number |Boolean |10 != 11 |True|
-   ||||10 != 10 |False|
-|Greater than |Number > Number |Boolean |11 > 10 |True|
-   ||||10 > 11 |False|
-|Less than |Number < Number |Boolean |10 < 11 |True|
-  |||| 11 < 10 |False|
-|Greater than or equal to |Number >= Number |Boolean |11 >= 10 |True|
-   ||||10 >= 11 |False|
-|Less than or equal to |Number <= Number |Boolean |10 <= 11 |True|
-  |||| 11 <= 10 |False|
+|Equality |Number == Number |Boolean |10 == 10 |true|
+   ||||10 == 11| false|
+|Inequality |Number != Number |Boolean |10 != 11 |true|
+   ||||10 != 10 |false|
+|Greater than |Number > Number |Boolean |11 > 10 |true|
+   ||||10 > 11 |false|
+|Less than |Number < Number |Boolean |10 < 11 |true|
+  |||| 11 < 10 |false|
+|Greater than or equal to |Number >= Number |Boolean |11 >= 10 |true|
+   ||||10 >= 11 |false|
+|Less than or equal to |Number <= Number |Boolean |10 <= 11 |true|
+  |||| 11 <= 10 |false|
 
 The modulo operator % divides the first number by the second number and returns a whole number remainder. Here are some examples:
 
@@ -61,8 +61,8 @@ The modulo operator % divides the first number by the second number and returns 
 
 :::caution
 
-- The modulo operator % returns significant values with numbers that are in the Integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the `Mod` command.
-- The longint division operator \ returns significant values with integer numbers only.
+- The modulo operator `%` returns significant values with numbers that are in the integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the [`mod`](../maths.md) command.
+- The longint division operator `\` returns significant values with integer numbers only.
 
 :::
 
@@ -88,24 +88,24 @@ Parentheses can be nested inside other sets of parentheses. Be sure that each le
 
 ## Bitwise operators
 
-The bitwise operators operates on **Long Integer** expressions or values. If you pass a Real value to a bitwise operator, Qodly evaluates the value as a Long Integer value before calculating the expression that uses the bitwise operator.
+The bitwise operators operates on **integer** expressions or values. If you pass a real value to a bitwise operator, Qodly evaluates the value as a integer value before calculating the expression that uses the bitwise operator.
 
-While using the bitwise operators, you must think about a Long Integer value as an array of 32 bits. The bits are numbered from 0 to 31, from right to left.
+While using the bitwise operators, you must think about an integer value as an array of 32 bits. The bits are numbered from 0 to 31, from right to left.
 
-Because each bit can equal 0 or 1, you can also think about a Long Integer value as a value where you can store 32 Boolean values. A bit equal to 1 means **True** and a bit equal to 0 means **False**.
+Because each bit can equal 0 or 1, you can also think about an integer value as a value where you can store 32 boolean values. A bit equal to 1 means **true** and a bit equal to 0 means **false**.
 
-An expression that uses a bitwise operator returns a Long Integer value, except for the Bit Test operator, where the expression returns a Boolean value. The following table lists the bitwise operators and their syntax:
+An expression that uses a bitwise operator returns an integer value, except for the Bit Test operator, where the expression returns a boolean value. The following table lists the bitwise operators and their syntax:
 
 |Operation|Operator|Syntax|Returns|
 |---|---|---|---|
-|Bitwise AND|&|Long & Long|Long|
-|Bitwise OR (inclusive)|&#124;|Long &#124; Long|Long|
-|Bitwise OR (exclusive)|^&#124;|Long ^&#124; Long|Long|
-|Left Bit Shift|<<|Long << Long|Long (see note 1)|
-|Right Bit Shift|>>|Long >> Long|Long (see note 1)|
-|Bit Set|?+|Long ?+ Long|Long (see note 2)|
-|Bit Clear|?-|Long ?- Long|Long (see note 2)|
-|Bit Test|??|Long ?? Long|Boolean (see note 2)|
+|Bitwise AND|&|integer & integer|integer|
+|Bitwise OR (inclusive)|&#124;|integer &#124; integer|integer|
+|Bitwise OR (exclusive)|^&#124;|integer ^&#124; integer|integer|
+|Left Bit Shift|<<|integer << integer|integer (see note 1)|
+|Right Bit Shift|>>|integer >> integer|integer (see note 1)|
+|Bit Set|?+|integer ?+ integer|integer (see note 2)|
+|Bit Clear|?-|integer ?- integer|integer (see note 2)|
+|Bit Test|??|integer ?? integer|boolean (see note 2)|
 
 #### Notes
 
@@ -123,7 +123,7 @@ The following table lists the bitwise operators and their effects:
 |Right Bit Shift|The resulting value is set to the first operand value, then the resulting bits are shifted to the right by the number of position indicated by the second operand. The bits on the right are lost and the new bits on the left are set to 0.**Note:** Taking into account only positive values, shifting to the right by N bits is the same as dividing by 2^N.|
 |Bit Set|The resulting value is set to the first operand value, then the resulting bit, whose number is indicated by the second operand, is set to 1. The other bits are left unchanged.|
 |Bit Clear|The resulting value is set to the first operand value, then the resulting bit, whose number is indicated by the second operand, is set to 0. The other bits are left unchanged.|
-|Bit Test|Returns True if, in the first operand, the bit whose number is indicated by the second operand is equal to 1. Returns False if, in the first operand, the bit whose number is indicated by the second operand is equal to 0.|
+|Bit Test|Returns true if, in the first operand, the bit whose number is indicated by the second operand is equal to 1. Returns false if, in the first operand, the bit whose number is indicated by the second operand is equal to 0.|
 
 ### Examples
 

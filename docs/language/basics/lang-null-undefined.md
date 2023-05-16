@@ -9,7 +9,7 @@ Null and Undefined are data types that handle cases where the value of an expres
 
 Null is a special data type with only one possible value: **null**. This value is returned by an expression that does not contain any value.
 
-In the QodlyScript language and for object attribute properties, null values are managed through the `Null` function. This function can be used with the following expressions for setting or comparing the null value:
+In the QodlyScript language and for object attribute properties, null values are managed through the `null` function. This function can be used with the following expressions for setting or comparing the **null** value:
 
 - object attributes
 - collection elements
@@ -17,7 +17,7 @@ In the QodlyScript language and for object attribute properties, null values are
 
 ## Undefined
 
-Undefined is not actually a data type. It denotes a variable that has not yet been defined. A user function can return an undefined value if, within the method, the function result is assigned an undefined expression (an expression calculated with at least one undefined variable). An attribute cannot be undefined (the `Undefined` command always returns False for an attribute). A variant variable has **undefined** as default value.
+Undefined is not actually a data type. It denotes a variable that has not yet been defined. A user function can return an undefined value if, within the method, the function result is assigned an undefined expression (an expression calculated with at least one undefined variable). An attribute cannot be **undefined** (the `undefined` command always returns false for an attribute). A variant variable has **undefined** as default value.
 
 
 ## Null operators
@@ -25,12 +25,12 @@ Undefined is not actually a data type. It denotes a variable that has not yet be
 
 |Operation |Syntax |Returns |Expression |Value|
 |---|---|---|---|---|
-|Equality |Null `==` Null |Boolean |a.nullProp `==` b.nullProp |True|
-|  |Null `==` Undefined |Boolean|a.nullProp `==` b.undefinedProp |True|
-|  |Null `==` *scalar value* |Boolean|a.nullProp `==` 42 |False|
-|Inequality |Null `!=` Null |Boolean |a.nullProp `!=` b.nullProp |False|
-|  |Null `!=` Undefined |Boolean|a.nullProp `!=` b.undefinedProp |False|
-|  |Null `!=` *scalar value*|Boolean|a.nullProp `!=` 42 |True|
+|Equality |null `==` null |Boolean |a.nullProp `==` b.nullProp |true|
+|  |null `==` undefined |Boolean|a.nullProp `==` b.undefinedProp |true|
+|  |null `==` *scalar value* |Boolean|a.nullProp `==` 42 |false|
+|Inequality |null `!=` null |Boolean |a.nullProp `!=` b.nullProp |false|
+|  |null `!=` undefined |Boolean|a.nullProp `!=` b.undefinedProp |false|
+|  |null `!=` *scalar value*|Boolean|a.nullProp `!=` 42 |true|
 
 *scalar values* are values of type string, date, time, boolean, number, or blob. When declared, their [default value](lang-data-types.md) is neither undefined nor null. Other types (picture, object, collection) have undefined or null default value. Ex:
 
@@ -44,7 +44,7 @@ var text : Text
 
 :::info
 
-Comparisons with Greater than (`>`), Less than (`<`), Greater than or equal to (`>=`), and Less than or equal to (`<=`) operators are not supported with Null values and return an error.
+Comparisons with Greater than (`>`), Less than (`<`), Greater than or equal to (`>=`), and Less than or equal to (`<=`) operators are not supported with null values and return an error.
 
 :::
 
@@ -53,57 +53,57 @@ Comparisons with Greater than (`>`), Less than (`<`), Greater than or equal to (
 
 |Operation |Syntax |Returns |Expression |Value|
 |---|---|---|---|---|
-|Equality |Undefined `==` Undefined |Boolean|a.undefinedProp `==` b.undefinedProp |True|
-| |Undefined `==` Null |Boolean |a.undefinedProp `==` c.nullProp |True|
-| |Undefined `==` *other values*  |Boolean|a.undefinedProp `==` 42 |False|
-|Inequality |Undefined `!=` Undefined |Boolean|a.undefinedProp `!=` b.undefinedProp |False|
-|  |Undefined `!=` Null |Boolean|a.undefinedProp `!=` b.nullProp |False|
-|  |Undefined `!=` *other values* |Boolean|a.undefinedProp `!=` 42 |True|
-|Greater than |Undefined `>` string, Date, Time, Boolean, number |Boolean  |a.undefinedProp `>` "abc" |False|
-|Less than |Undefined `<` string, Date, Time, Boolean, number |Boolean  |a.undefinedProp `<` "abc" |False|
-|Greater than or equal to |Undefined `>=` string, Date, Time, Boolean, number |Boolean  |a.undefinedProp `>=` "abc" |False|
-|Less than or equal to |Undefined `<=` string, Date, Time, Boolean, number |Boolean  |a.undefinedProp `<=` "abc" |False|
+|Equality |undefined `==` undefined |Boolean|a.undefinedProp `==` b.undefinedProp |true|
+| |undefined `==` null |Boolean |a.undefinedProp `==` c.nullProp |true|
+| |undefined `==` *other values*  |Boolean|a.undefinedProp `==` 42 |false|
+|Inequality |undefined `!=` undefined |Boolean|a.undefinedProp `!=` b.undefinedProp |false|
+|  |undefined `!=` null |Boolean|a.undefinedProp `!=` b.nullProp |false|
+|  |undefined `!=` *other values* |Boolean|a.undefinedProp `!=` 42 |true|
+|Greater than |undefined `>` string, date, time, boolean, number |Boolean  |a.undefinedProp `>` "abc" |false|
+|Less than |undefined `<` string, date, time, boolean, number |Boolean  |a.undefinedProp `<` "abc" |false|
+|Greater than or equal to |undefined `>=` string, date, time, boolean, number |Boolean  |a.undefinedProp `>=` "abc" |false|
+|Less than or equal to |undefined `<=` string, date, time, boolean, number |Boolean  |a.undefinedProp `<=` "abc" |false|
 
-*other values* are expressions of any type with a value neither Undefined nor Null. 
+*other values* are expressions of any type with a value neither **undefined** nor **null**. 
 
 :::info
 
-Comparisons of Undefined values with Pointer, Picture, Blob, Object, Collection, Undefined or Null values using Greater than (`>`), Less than (`<`), Greater than or equal to (`>=`), and Less than or equal to (`<=`) operators are not supported and return an error.
+Comparisons of `undefined` values with picture, blob, object, collection, undefined or null values using Greater than (`>`), Less than (`<`), Greater than or equal to (`>=`), and Less than or equal to (`<=`) operators are not supported and return an error.
 
 :::
 
 ## Examples 
 
-Here are the different results of the `Undefined` command as well as the `Null` command with object properties, depending on the context:
+Here are the different results of the `undefined` command as well as the `null` command with object properties, depending on the context:
 
 ```4d
-var vEmp : Object
-var result : Boolean
-vEmp=New object
+var vEmp : object
+var result : boolean
+vEmp=newObject
 vEmp.name="Smith"
 
-vEmp.children=Null
+vEmp.children=null
  
-result=Undefined(vEmp.name) //False
+result=undefined(vEmp.name) //False
 result=(vEmp.name==Null) //False
  
 result=Undefined(vEmp.children) //False
-result=(vEmp.children==Null) //True
+result=(vEmp.children==null) //True
  
-result=Undefined(vEmp.parent) //True
-result=(vEmp.parent==Null) //True
+result=undefined(vEmp.parent) //True
+result=(vEmp.parent==null) //True
 ```
 
 Examples of comparison results with undefined and null values:
 
 ```4d
-var result : Boolean
-var vObj : Object
-var vVar : Variant
+var result : boolean
+var vObj : object
+var vVar : variant
 
-vObj=New object
-vObj.null=Null
-//note that $vVar is not assigned 
+vObj=newObject
+vObj.null=null
+//note that vVar is not assigned 
 
 result=(vObj.undefined==42) //False
 result=(vObj.undefined==vObj.null) //True

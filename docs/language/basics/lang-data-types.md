@@ -12,24 +12,25 @@ Although they are usually equivalent, some data types available at the datastore
 
 |Data Types	|Variable declaration|Datastore support (type)|Default value|
 |---|----|---|
-|[BLOB](lang-blob.md)	|`var Blob`|blob|`Blob size`==0|
+|[BLOB](lang-blob.md)	|`var blob`|blob|0 byte|
 ||`var 4D.Blob`|object|null|
-|[Boolean](lang-boolean.md)	|`var Boolean`|bool|False|
-|[Collection](lang-collection.md)	|`var Collection`|-|null|
-|[Date](lang-date.md)|`var Date`|date|00-00-00|
+|[Boolean](lang-boolean.md)	|`var boolean`|bool|false|
+|[Collection](lang-collection.md)	|`var collection`|-|null|
+|[Date](lang-date.md)|`var date`|date|00-00-00|
 |[Null](lang-null.md)	|-	|-|null|
-|[Number](lang-number.md)|`var Integer`, `var Real`|number|0|
-|[Object](lang-object.md)	|`var Object`|object|null|
-|[Picture](lang-picture.md)	|`var Picture`|image|`Picture size`==0|
-|[String](lang-text.md)	|`var Text`|string|""|
-|[Time](lang-time.md) |`var Time`|number|00:00:00|
+|[Number](lang-number.md)|`var integer`, `var real`|number|0|
+|[Object](lang-object.md)	|`var object`|object|null|
+|[Picture](lang-picture.md)	|`var picture`|image|`pictureSize`==0|
+|[String](lang-text.md)	|`var string`|string|""|
+|[Time](lang-time.md) |`var time`|number|00:00:00|
 |[Undefined](lang-undefined.md)	|-	|-|undefined|
-|[Variant](lang-variant.md)(1)	|`var Variant`|-|undefined|
-|[Array](lang-arrays.md)(2)|`ARRAY BLOB`, `ARRAY DATE`, etc.|-|-|
+|[Variant](lang-variant.md)	|`var variant`|-|undefined|
 
-(1) Variant is actually not a *data* type but a *variable* type that can contain a value of any other data type. 
+:::note
 
-(2) Arrays are series of variables of the same data type. 
+Variant is actually not a *data* type but a *variable* type that can contain a value of any other data type. 
+
+:::
 
 
 
