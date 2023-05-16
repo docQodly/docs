@@ -5,7 +5,7 @@ title: Operators
 
 An operator is a symbol or a group of symbols that you use to check, modify, or combine values. You are already familiar with many operators. For example, `1 + 2` uses the addition (or plus sign) operator to add two numbers together, and the result is 3. Comparison operators, like = or >, let you compare two or more values. 
 
-The Qodly language supports the operators you may already know from other languages like C or JavaScript. The assignment operator is `=` and the equal to operator is `==`. [Basic operators](#basic-operators) such as arithmetic operators (+, -, *, /, %...) and comparison operators (=, >, >=...) can be used with numbers, but also with boolean, text, date, time, pointer, or picture data types. Like JavaScript, the Qodly language supports the concept of [truthy and falsy values](#truthy-and-falsy), which in use in [short-cicrcuit operators](#short-circuit-operators). 
+The QodlyScript language supports the operators you may already know from other languages like C or JavaScript. The assignment operator is `=` and the equal to operator is `==`. [Basic operators](#basic-operators) such as arithmetic operators (+, -, *, /, %...) and comparison operators (=, >, >=...) can be used with numbers, but also with boolean, text, date, time, or picture data types. Like JavaScript, the Qodly language supports the concept of [truthy and falsy values](#truthy-and-falsy), which in use in [short-cicrcuit operators](#short-circuit-operators). 
 
 
 ## Terminology
@@ -13,7 +13,7 @@ The Qodly language supports the operators you may already know from other langua
 The Qodly language supports **binary** and **ternary** operators:
 
 - binary operators operate on two targets (such as `2 + 3`) and appear in between their two targets.
-- ternary operators operate on three targets. Like C, Qodly has only one ternary operator, the [ternary conditional operator](#ternary-operator) (`a ? b : c`).
+- ternary operators operate on three targets. Like C, QodlyScript has only one ternary operator, the [ternary conditional operator](#ternary-operator) (`a ? b : c`).
 
 The values that operators affect are operands. In the expression `1 + 2`, the + symbol is a binary operator and its two operands are the values 1 and 2.
 
@@ -26,8 +26,8 @@ The **assignment operator** (`a=b`) initializes or updates the value of `a` with
 ```4d
 myNumber=3 //assigns 3 to myNumber variable  
 myDate=!2023/01/21! //assigns a date literal
-myLength=Length("Acme") //assigns the result of the command (4) to myLength
-col=New collection //col is initialized with an empty collection
+myLength=length("Acme") //assigns the result of the command (4) to myLength
+col=newCollection //col is initialized with an empty collection
 ```
 
 > Do NOT confuse the assignment operator `=` with the equality comparison operator `==`.
@@ -35,23 +35,22 @@ col=New collection //col is initialized with an empty collection
 
 ## Basic operators
 
-Operator results depend on the **data types** they are applied to. Qodly supports different operators on scalar data types. They are described with the data types, in the following sections:
+Operator results depend on the **data types** they are applied to. QodlyScript supports different operators on scalar data types. They are described with the data types, in the following sections:
 
-- [**Logical operators**](dt_boolean.md#logical-operators) (on **boolean** expressions)
-- [**Date operators**](dt_date.md#date-operators)
-- [**Time operators**](dt_time.md#time-operators)
-- [**Number operators**](dt_number.md#number-operators)
-- [**Bitwise operators**](dt_number.md#bitwise-operators) (on **integer** expressions)
-- [**Picture operators**](dt_picture.md#picture-operators)
-- [**Pointer operators**](dt_pointer.md#pointer-operators)
-- [**String operators**](dt_string.md#string-operators)
-- [**Null operators**](dt_null_undefined.md#null-operators)
-- [**Undefined operators**](dt_null_undefined.md#undefined-operators)
+- [**Logical operators**](lang-boolean.md#logical-operators) (on **boolean** expressions)
+- [**Date operators**](lang-date.md#date-operators)
+- [**Time operators**](lang-time.md#time-operators)
+- [**Number operators**](lang-number.md#number-operators)
+- [**Bitwise operators**](lang-number.md#bitwise-operators) (on **integer** expressions)
+- [**Picture operators**](lang-picture.md#picture-operators)
+- [**String operators**](lang-string.md#string-operators)
+- [**Null operators**](lang-null-undefined.md#null-operators)
+- [**Undefined operators**](lang-null-undefined.md#undefined-operators)
 
 
 ## Compound assignment operators
 
-Qodly provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+=`):
+QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+=`):
 
 ```4d
 a=1 
@@ -86,11 +85,11 @@ The following compound assignment operators are supported:
 ||Time *= Number |Number |`t1*=5 //t1=t1*5`|
 ||Picture *= Number|Picture|`p1*=5 //p1=p1*5 (resize p1 by 5)`|
 
-These operators apply on any [assignable expressions](quick-tour.md#assignable-vs-non-assignable-expressions) (except pictures as object properties or collection elements).
+These operators apply on any [assignable expressions](lang-expressions.md#assignable-vs-non-assignable-expressions) (except pictures as object properties or collection elements).
 
 The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+=1` the `getPointer` method is called only once.
 
-> [Character indexing in text](dt_string.md#character-reference-symbols) and [byte indexing in blob](dt_blob.md#accessing-a-scalar-blobs-bytes) do not support these operators.
+> [Character indexing in text](lang-text.md#character-reference-symbols) and [byte indexing in blob](lang-blob.md#accessing-a-scalar-blobs-bytes) do not support these operators.
 > 
 #### Examples
 
@@ -133,7 +132,7 @@ t2*=2 // t2="HelloHello"
 
 The **&&** and **||** operators are **short circuit operators**. A short circuit operator is one that doesn't necessarily evaluate all of its operands. 
 
-The difference with the single [**&** and **|** boolean operators](dt_boolean.md#logical-operators) is that the short-circuit operators **&&** and **||** don't return a boolean value. They evaluate expressions as [truthy or falsy](#truthy-and-falsy), then return one of the expressions.
+The difference with the single [**&** and **|** boolean operators](lang-boolean.md#logical-operators) is that the short-circuit operators **&&** and **||** do not return a boolean value. They evaluate expressions as [truthy or falsy](#truthy-and-falsy), then return one of the expressions.
 
 ### Short-circuit AND operator (&&)
 
@@ -155,11 +154,11 @@ The following table summarizes the different cases for the **&&** operator:
 #### Example 1 
 
 ```4d
-var v : Variant
+var v : variant
 
 v="Hello" && "World" //"World"
-v=False && 0 // False
-v=0 && False // False
+v=false && 0 // false
+v=0 && false // false
 v=5 && !00-00-00! // 00/00/00
 v=5 && 10 && "hello" //"hello"
 ```
@@ -173,33 +172,26 @@ To calculate the tax, you multiply the price by the tax rate, which may not have
 So you can write this: 
 
 ```4d
-var tax : Variant
+var tax : variant
 
 tax=item.taxRate && (item.price*item.taxRate)
 ```
 
-`tax` will be NULL if taxRate is NULL (or undefined), otherwise it will store the result of the calculation.
+*tax* will be `null` if *taxRate* is `null` (or `undefined`), otherwise it will store the result of the calculation.
 
 #### Example 3
 
 Short-circuit operators are useful in tests such as:
 
 ```4d
-If((myObject#Null) && (myObject.value>10))
+if((myObject!=null) && (myObject.value>10))
 	//code
-End if
+end
 ```
 
-If myObject is Null, the second argument is not executed, thus no error is thrown.
+If myObject is `null`, the second argument is not executed, thus no error is thrown.
 
 ### Short-circuit OR operator (||)
-
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v19 R4|Added
-</details>
 
 The || operator returns the value of one of the specified operands. The expression is evaluated left to right and tested for possible "short-circuit" evaluation using the following rule:
 
@@ -220,10 +212,10 @@ The following table summarizes the different cases and the value returned for th
 
 #### Example 1
 
-Say you have a table called Employee. Some employees have entered a phone number, and others haven't. This means that `emp.phone` could be NULL, and you cannot assign NULL to a Text variable. But you can write the following:
+Say you have a dataclass named Employee. Some employees have entered a phone number, and others haven't. This means that `emp.phone` could be null, and you cannot assign null to a string variable. But you can write the following:
 
 ```4d
-var phone : Text
+var phone : string
 
 phone=emp.phone || "n/a"
 ```
@@ -232,12 +224,12 @@ In which case `phone` will store either a phone number or the "n/a" string.
 
 #### Example 2
 
-Given a table called Person with a *name* field, as well as a *maiden name* field for married women.
+Given a dataclass named Person with a *name* attribute, as well as a *maidenName* attribute for married women.
 
 The following example checks if there is a maiden name and stores it in a variable, otherwise it simply stores the person's name:
 
 ```4d
-var name: Text
+var name: string
 
 name=person.maidenName || person.name
 ```
@@ -251,7 +243,7 @@ This means that `a || b && c` is evaluated as `(a || b) && c`.
 
 ## Ternary operator
 
-The ternary conditional operator allows you to write one-line conditional expressions. For example, it can replace a full sequence of [If…Else](./cf_branching.md#ifelseend-if) statements.
+The ternary conditional operator allows you to write one-line conditional expressions. For example, it can replace a full sequence of [if…else](lang-control-flow.md#ifelseend) statements.
 
 It takes three operands in the following order: 
 
@@ -271,13 +263,13 @@ The syntax is as follows:
 #### A simple example
 
 ```4d
-var age : Integer
-var beverage : Text
+var age : integer
+var beverage : string
 
 age=26
 beverage=(age>=21) ? "Beer" : "Juice"
 
-ALERT(beverage) // "Beer"
+// beverage : "Beer"
 ```
 
 #### Handling data from a table
@@ -285,7 +277,7 @@ ALERT(beverage) // "Beer"
 This example stores a person's full name in a variable, and handles the case when no first name or last name has been specified:
 
 ```4d
-var fullname : Text
+var fullname : string
 
 // If one of the names is missing, store the one that exists, otherwise store an empty string
 fullname=(person.firstname && person.lastname) ? (person.firstname+" "+person.lastname) : (person.lastname || person.firstname) || ""
@@ -293,29 +285,28 @@ fullname=(person.firstname && person.lastname) ? (person.firstname+" "+person.la
 
 ## Truthy and falsy
 
-As well as a type, each value also has an inherent Boolean value, generally known as either **truthy** or **falsy**. 
+As well as a type, each value also has an inherent boolean value, generally known as either **truthy** or **falsy**. 
 
 > **truthy** and **falsy** values are only evaluated by [short-circuit](#short-circuit-operators) and [ternary](#ternary-operator) operators.
 
 The following values are **falsy**:
 
 * false
-* Null
+* null
 * undefined
-* Null object
-* Null collection
-* Null pointer
-* Null picture
-* Null date !00-00-00!
+* null object
+* null collection
+* null picture
+* null date !00-00-00!
 * "" - Empty strings
 * [] - Empty collections
 * {} - Empty objects
 
 All other values are considered **truthy**, including:
 
-* 0 - numeric zero (Integer or otherwise)
+* 0 - numeric zero (integer or otherwise)
 
-In Qodly, **truthy** and **falsy** evaluation reflects the **usability** of a value, which means that a truthy value exists and can be processed by the code without generating errors or unexpected results. The rationale behind this is to provide a convenient way to handle *undefined* and *null* values in objects and collections, so that a reduced number of [If…Else](./cf_branching.md#ifelseend-if) statements are necessary to avoid runtime errors.
+In QodlyScript, **truthy** and **falsy** evaluation reflects the **usability** of a value, which means that a truthy value exists and can be processed by the code without generating errors or unexpected results. The rationale behind this is to provide a convenient way to handle *undefined* and *null* values in objects and collections, so that a reduced number of [if…else](lang-control-flow.md#if-else-end) statements are necessary to avoid runtime errors.
 
 For example, when you use a [short-circuit OR operator](#short-circuit-or-operator-):
 
