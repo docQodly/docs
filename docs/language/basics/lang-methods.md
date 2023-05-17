@@ -8,7 +8,7 @@ A method is basically a piece of code that executes one or several action(s). Qo
 
 ## Defining and Calling Methods
 
-You give a method a [name](identifiers.md#methods) that usually identifies what it does, and this name is used to call the method wherever it is needed. 
+You give a method a [name](lang-identifiers.md#methods) that usually identifies what it does, and this name is used to call the method wherever it is needed. 
 
 Once a method is created, it becomes part of the language of the project. 
 
@@ -17,13 +17,13 @@ A method is executed when its name is called, with or without [parameters](lang-
 ```4d
 //methodA
 //methodA calls methodB with one parameter
-var t : Text
+var t : string
 t=methodB("world") //t == "hello world"
 ```
 
 ```4d
 //methodB
-#DECLARE (param : Text)
+declare (param : string)
 return ("hello " + param)
 ```
 
@@ -46,11 +46,11 @@ The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.
 You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
 
 ```4d
-str=String("hello world!")
+str=string("hello world!")
 ```
 
 ```4d
-str=String("hello"+\
+str=string("hello"+\
 " world"+\
 +"!")
 ```
@@ -72,11 +72,11 @@ Insert `//` at the beginning of a line or after a statement to add a single line
 
 ```4d
 //This is a comment
-for($vCounter,1,100) //Starting loop
+for(vCounter,1,100) //Starting loop
   //comment
   //comment
   //comment
-end for
+end
 ```
 
 #### Inline or multiline comments (`/*comment*/`)
@@ -86,7 +86,7 @@ Surround contents with `/*` ... `*/` characters to create inline comments or mul
 - **Inline comments** can be inserted anywhere in the code. Example:
 
 ```4d
-for /* inline comment */ ($vCounter,1,100)
+for /* inline comment */ (vCounter,1,100)
 	...
 end for
 ```
@@ -94,7 +94,7 @@ end for
 - **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the QodlyScript code editor supports block collapsing). Example:
 
 ```4d
-for ($vCounter,1,100)
+for (vCounter,1,100)
 /*
 comments  
 	/* 
@@ -102,7 +102,7 @@ comments
 	*/
 */
 ...
-end for
+end
 ```
 
 
@@ -111,20 +111,20 @@ end for
 
 You can encapsulate your methods in **formula** objects and call them from your objects.
 
-The `Formula` and `Formula from string` commands allow you to create formula objects that you can encapsulate in object properties. It allows you to implement custom object methods.
+The [`formula`](../FunctionClass.md#formula) and [`formulaFromString`](../FunctionClass.md#formulafromstring) commands allow you to create formula objects that you can encapsulate in object properties. It allows you to implement custom object methods.
 
 To execute a method stored in an object property, use the **()** operator after the property name. For example:
 
 ```4d
 //three_days_later
-return (Current date+3)
+return (currentDate+3)
 ```
 
 Then `three_days_later` can be encapsulated in any object and called:
 
 ```4d
-var o : Object
-o=New object("threeDays";Formula(three_days_later))
+var o : object
+o=newObject("threeDays";formula(three_days_later))
 o.threeDays() //returns the date in three days
 ```
 
@@ -134,40 +134,40 @@ Syntax with brackets is also supported:
 o["threeDays"]() //returns the date in three days
 ```
 
-You can also [pass parameters](parameters.md) to your formula when you call it by using special variables `$1`, `$2`… `$N`. They will be received in their sequence order in the formula code. Use `$0` in the formula code to return a value.
+You can also [pass parameters](lang-parameters.md) to your formula when you call it by using special variables `$1`, `$2`… `$N`. They will be received in their sequence order in the formula code. Use `$0` in the formula code to return a value.
 
 ```4d
 //fullName method
-var $0,$1,$2 : Text
+var $0,$1,$2 : string
 $0=$1+" "+$2
 ```
 
 Encapsulate `fullName` in an object:
 
 ```4d
-var o : Object
-o=New object("full_name",Formula(fullName))
-result=o.full_name("John";"Smith") 
+var o : object
+o=newObject("full_name",formula(fullName))
+result=o.full_name("John","Smith") 
 //result = "John Smith"
-//equivalent to result=fullName("param1";"param2")
+//equivalent to result=fullName("param1","param2")
 ```
 
-Combined with the `This`function, such object methods allow writing powerful generic code. For example:
+Combined with the [`this`](../language.md#this) keyword, such object methods allow writing powerful generic code. For example:
 
 ```4d
 //fullName2 method
-var $0 : Text
-$0=This.firstName+" "+This.lastName
+var $0 : string
+$0=this.firstName+" "+this.lastName
 ```
 
 Then the method acts like a new, calculated attribute that can be added to other attributes:
 
 ```4d
-var o : Object
-o=New object("firstName","Jim","lastName","Wesson")
-o.fullName=Formula(fullName2) //add the method  
+var o : object
+o=newObject("firstName","Jim","lastName","Wesson")
+o.fullName=formula(fullName2) //add the method  
 
-result=o.fullName() 
+result=o.fullName2() 
 //result = "Jim Wesson"
 ```
 
@@ -184,13 +184,6 @@ Methods can call themselves. For example:
 - The method A may call the method B which may call A, so A will call B again and so on.
 - A method can call itself.
 
-This is called recursion. The Qodly language fully supports recursion.
+This is called recursion. The QodlyScript language fully supports recursion.
 
 
-Process Methods
-A process method is a project method that is called when a process is started. The process lasts only as long as the process method continues to execute, except if it is a Worker process. Note that a menu method attached to a menu command with Start a New Process property is also the process method for the newly started process.
-
-
-## Process Methods
-
-A process method is a method that is called when a process is started with the `New process` command for example. The process lasts only as long as the process method continues to execute, except if it is a Worker process. 

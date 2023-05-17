@@ -11,8 +11,7 @@ Expressions are made up of almost all the other parts of the language: commands,
 
 Expressions rarely "stand alone". There are several places in QodlyScript where an expression can be used by itself. It includes:
 
-- Formula API (apply formula, query with formula, order by formula)
-- The `EXECUTE FORMULA` command
+- Formula API (`apply()`, `query()` with formula, `orderByFormula()`...)
 - Web forms, where an expression can be used as a data source for most of components
 - Debugger where the value of expressions can be checked
 
@@ -51,10 +50,10 @@ In QodlyScript, expressions can be **assignable**. An expression is assignable w
 ```4d  
 //myVar variable is assignable, you can write:  
 myVar="Hello" //assign "Hello" to myVar
-//Form.pageNumber is assignable, you can write:  
-Form.pageNumber=10 //assign 10 to Form.pageNumber
-//Form.pageTotal-Form.pageNumber is not assignable:
-Form.pageTotal-Form.pageNumber=10 //error, non-assignable
+//form.pageNumber is assignable, you can write:  
+form.pageNumber=10 //assign 10 to form.pageNumber
+//form.pageTotal-form.pageNumber is not assignable:
+form.pageTotal-form.pageNumber=10 //error, non-assignable
 ```
 
 In general, expressions that use an operator are non-assignable. For example, `entity.firstName+" "+entity.lastName` is not assignable. 

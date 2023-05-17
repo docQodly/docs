@@ -6,32 +6,32 @@ title: Classes
 
 ## Overview
 
-The Qodly language supports the concept of **classes**. In a programming language, using a class allows you to define an object behaviour with associated properties and functions.
+The QodlyScript language supports the concept of **classes**. In a programming language, using a class allows you to define an object behaviour with associated properties and functions.
 
-Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#class-constructor) and [computed](#function-get-and-function-set)).
+Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#property) and [computed](#function-get-and-function-set)).
 
-> The class model in Qodly is similar to classes in JavaScript, and based on a chain of prototypes.
+> The class model in QodlyScript is similar to classes in JavaScript, and based on a chain of prototypes.
 
 For example, you could create a `Person` class with the following definition:
 
 ```4d  
 //Class: Person.4qm
-Class constructor(firstname : Text, lastname : Text)
- This.firstName=firstname
- This.lastName=lastname
+ constructor(firstname : string, lastname : string)
+ this.firstName=firstname
+ this.lastName=lastname
 
-Function get fullName() -> fullName : Text
- fullName=This.firstName+" "+This.lastName
+function get fullName() -> fullName : string
+ fullName=this.firstName+" "+this.lastName
  
-Function sayHello() -> welcome : Text
- welcome="Hello "+This.fullName
+function sayHello() -> welcome : string
+ welcome="Hello "+this.fullName
 ```
 
 In a method, creating a "Person":
 
 ```
 var person : cs.Person //object of Person class  
-var hello : Text
+var hello : string
 person=cs.Person.new("John","Doe")
 //person:{firstName: "John", lastName: "Doe", fullName: "John Doe"}
 hello=person.sayHello() //"Hello John Doe"
@@ -43,12 +43,12 @@ A user class in Qodly is defined by a specific [method](methods.md) file (.4qm),
 
 When naming classes, you should keep in mind the following rules:
 
-- A [class name](identifiers.md#classes) must be compliant with [property naming rules](identifiers.md#object-properties).
+- A [class name](lang-identifiers.md#classes) must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 - Class names are case sensitive.
 - Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
 
 
-For example, if you want to define a class named "Polygon", you need to create the following file:
+For example, a class named "Polygon" will be based upon the following file:
 
 Project folder
  Project
@@ -71,7 +71,7 @@ Available classes are accessible from their class stores. Two class stores are a
 |---|---|---|---|
 |classStore|object|<-|User class store for the project|
 
-The `cs` command returns the user class store for the current project. It returns all user classes [defined](#class-definition) in the opened project. By default, only project [ORDA classes](ORDA/ordaClasses.md) are available.
+The `cs` command returns the user class store for the current project. It returns all user classes [defined](#class-definition) in the opened project. By default, only project [ORDA classes](../../concepts/orda/orda-classes.md) are available.
 
 #### Example
 
@@ -89,106 +89,107 @@ instance=cs.myClass.new()
 |---|---|---|---|
 |classStore|object|<-|4D class store|
 
-The `4D` command returns the class store for available built-in Qodly classes. It provides access to specific APIs such as [CryptoKey](API/CryptoKeyClass.md).
+The `4D` command returns the class store for available built-in QodlyScript classes. It provides access to specific classes such as [CryptoKey](../CryptoKeyClass.md).
 
 #### Example
 
 You want to create a new key in the `CryptoKey` class:
 
 ```4d
-key=4D.CryptoKey.new(New object("type","ECDSA","curve","prime256v1"))
+key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 ```
 
 ## Class object
 
-When a class is [defined](#class-definition) in the project, it is loaded in the Qodly language environment. A class is an object itself, of ["Class" class](API/ClassClass.md). A class object has the following properties and function:
+When a class is [defined](#class-definition) in the project, it is loaded in the QodlyScript language environment. A class is an object itself, of ["Class" class](../ClassClass.md). A class object has the following properties and function:
 
-- [`name`](API/ClassClass.md#name) string
-- [`superclass`](API/ClassClass.md#superclass) object (null if none)
-- [`new()`](API/ClassClass.md#new) function, allowing to instantiate class objects.
+- [`name`](../ClassClass.md#name) string
+- [`superclass`](../ClassClass.md#superclass) object (null if none)
+- [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects.
 
 In addition, a class object can reference a [`constructor`](#class-constructor) object (optional).
 
-A class object is a [shared object](shared.md) and can therefore be accessed from different processes simultaneously.
+A class object is a [shared object](lang-shared.md) and can therefore be accessed from different processes simultaneously.
 
 ### Inheritance
 
-If a class inherits from another class (i.e. the [Class extends](classes.md#class-extends-classname) keyword is used in its definition), the parent class is its [`superclass`](API/ClassClass.md#superclass).
+If a class inherits from another class (i.e. the [extends](#extends-classname) keyword is used in its definition), the parent class is its [`superclass`](../ClassClass.md#superclass).
 
-When Qodly does not find a function or a property in a class, it searches it in its [`superclass`](API/ClassClass.md#superclass); if not found, Qodly continues searching in the superclass of the superclass, and so on until there is no more superclass (all objects inherit from the "Object" superclass).
+When QodlyScript does not find a function or a property in a class, it searches it in its [`superclass`](../ClassClass.md#superclass); if not found, QodlyScript continues searching in the superclass of the superclass, and so on until there is no more superclass (all objects inherit from the "4D.Object" superclass).
 
 ## Class keywords
 
-Specific Qodly keywords can be used in class definitions:
+Specific QodlyScript keywords can be used in class definitions:
 
-- `Function <Name>` to define class functions of the objects.
-- `Function get <Name>` and `Function set <Name>` to define computed properties of the objects.
-- `Class constructor` to define static properties of the objects.
-- `Class extends <ClassName>` to define inheritance.
+- `function <Name>` to define class functions of the objects.
+- `function get <Name>` and `function set <Name>` to define computed properties of the objects.
+- `constructor` to define static properties of the objects.
+- `property` to define static properties of the objects with a type.
+- `extends <ClassName>` to define inheritance.
 
 :::info
 
-[ORDA data model classes](../../concepts/orda/orda-classes.md) support additional keywords such as `exposed` and `Alias`. 
+[ORDA data model classes](../../concepts/orda/orda-classes.md) support additional keywords such as `exposed` and `alias`. 
 
 :::
 
 
 
-### `Function`
+### `function`
 
 #### Syntax
 
 ```4d
-Function <name>({parameterName : type, ...}){->parameterName : type}
+function <name>({parameterName : type, ...}){->parameterName : type}
 // code
 ```
 
-Class functions are specific properties of the class. They are objects of the [4D.Function](API/FunctionClass.md#about-4dfunction-objects) class.
+Class functions are specific properties of the class. They are objects of the [4D.Function](../FunctionClass.md) class.
 
-In the class definition file, function declarations use the `Function` keyword, and the name of the function. The function name must be compliant with [property naming rules](Concepts/identifiers.md#object-properties).
+In the class definition file, function declarations use the `function` keyword, and the name of the function. The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
 :::tip
 
-Starting the function name with an underscore character ("_") will exclude the function from the autocompletion features in the code editor. For example, if you declare `Function _myPrivateFunction` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
+Starting a function name with an underscore character ("_") will exclude the function from the autocompletion features in the code editor. For example, if you declare `function _myPrivateFunction` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
 
 :::
 
 Immediately following the function name, [parameters](#parameters) for the function can be declared with an assigned name and data type, including the return parameter (optional). For example:
 
 ```4d
-Function computeArea(width : Integer , height : Integer)-> area : Integer
+function computeArea(width : integer , height : integer)-> area : integer
 ```
 
-Within a class function, the `This` command is used as the object instance. For example:
+Within a class function, the `this` command is used as the object instance. For example:
 
 ```4d  
-Function setFullname(firstname : Text, lastname : Text)
- This.firstName=firstname
- This.lastName=lastname
+function setFullname(firstname : string, lastname : string)
+ this.firstName=firstname
+ this.lastName=lastname
 
-Function getFullname()->fullname : Text
- fullname=This.firstName+" "+Uppercase(This.lastName)
+function getFullname()->fullname : string
+ fullname=this.firstName+" "+uppercase(this.lastName)
 ```
   
-For a class function, the `Current method name` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
+For a class function, the `currentMethodName` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
 
-In the application code, class functions are called as member methods of the object instance and can receive [parameters](#class-function-parameters) if any. The following syntaxes are supported:
+In the application code, class functions are called as member methods of the object instance and can receive [parameters](#parameters) if any. The following syntaxes are supported:
 
 - use of the `()` operator. For example, `myObject.methodName("hello")`
 - use of a "4D.Function" class member method:
-  - [`apply()`](API/FunctionClass.md#apply)
-  - [`call()`](API/FunctionClass.md#call)
+  - [`apply()`](../FunctionClass.md#apply)
+  - [`call()`](../FunctionClass.md#call)
  
 
 #### Parameters
 
-Function parameters are declared using the parameter name and the parameter type, separated by a colon (:). The parameter name must be compliant with [property naming rules](Concepts/identifiers.md#object-properties). Multiple parameters (and types) are separated by commas (,).
+Function parameters are declared using the parameter name and the parameter type, separated by a colon (:). The parameter name must be compliant with [property naming rules](lang-identifiers.md#object-properties). Multiple parameters (and types) are separated by commas (,).
 
 ```4d  
-Function add(x, y : Variant, z : Integer, xy : Object)
+function add(x, y : variant, z : integer, xy : object)
 ```
 
-If the type is not stated, the parameter will be defined as `Variant`.
+If the type is not stated, the parameter will be defined as `variant`.
 
 
 #### Return value
@@ -196,14 +197,14 @@ If the type is not stated, the parameter will be defined as `Variant`.
 You declare the return parameter (optional) by adding an arrow (`->`) and the return parameter definition after the input parameter(s) list, or a colon (`:`) and the return parameter type only. For example:
 
 ```4d
-Function add(x : Variant, y : Integer)->result : Integer
+function add(x : variant, y : integer)->result : integer
  result=x+y
 ```
 
-You can also declare the return parameter by adding only `: type` and use the [`return expression`](parameters.md#return-expression) (it will also end the function execution). For example:
+You can also declare the return parameter by adding only `: type` and use the [`return expression`](lang-parameters.md#return-expression) (it will also end the function execution). For example:
 
 ```4d
-Function add(x : Variant, y : Integer): Integer
+function add(x : variant, y : integer): integer
  // some code
  return x+y
 ```
@@ -212,21 +213,21 @@ Function add(x : Variant, y : Integer): Integer
 
 ```4d
 // Class: Rectangle
-Class constructor(width : Integer, height : Integer)
- This.name="Rectangle"
- This.height=height
- This.width=width
+constructor(width : integer, height : integer)
+ this.name="Rectangle"
+ this.height=height
+ this.width=width
 
 // Function definition
-Function getArea()->result : Integer
- result=(This.height)*(This.width)
+function getArea()->result : integer
+ result=(this.height)*(this.width)
 ```
 
 ```4d
 // In a project method
 
 var rect : cs.Rectangle
-var area : Real
+var area : real
 
 rect=cs.Rectangle.new(50,100)  
 area=rect.getArea() //5000
@@ -234,51 +235,51 @@ area=rect.getArea() //5000
 
 #### Example 2
 
-This example uses the [`return expression`](parameters.md#return-expression):
+This example uses the [`return expression`](lang-parameters.md#return-expression):
 
 ```4d
-Function getRectArea(width : Integer, height : Integer) : Integer
- If (width > 0 && height > 0)
+function getRectArea(width : integer, height : integer) : integer
+ if (width > 0 && height > 0)
   return width * height
- Else
+ else
   return 0
- End if
+ end
 ```
 
-### `Function get` and `Function set`
+### `function get` and `function set`
 
 #### Syntax
 
 ```4d
-Function get <name>()->result : type
+function get <name>()->result : type
 // code
 ```
 
 ```4d
-Function set <name>(parameterName : type)
+function set <name>(parameterName : type)
 // code
 ```
 
-`Function get` and `Function set` are accessors defining **computed properties** in the class. A computed property is a named property with a data type that masks a calculation. When a computed property value is accessed, Qodly substitutes the corresponding accessor's code:
+`function get` and `function set` are accessors defining **computed properties** in the class. A computed property is a named property with a data type that masks a calculation. When a computed property value is accessed, QodlyScript substitutes the corresponding accessor's code:
 
-- when the property is read, the `Function get` is executed,
-- when the property is written, the `Function set` is executed.
+- when the property is read, the `function get` is executed,
+- when the property is written, the `function set` is executed.
 
 If the property is not accessed, the code never executes.
 
 Computed properties are designed to handle data that do not necessary need to be kept in memory. They are usually based upon persistent properties. For example, if a class object contains as persistent property the *gross price* and the *VAT rate*, the *net price* could be handled by a computed property.
 
-In the class definition file, computed property declarations use the `Function get` (the *getter*) and `Function set` (the *setter*) keywords, followed by the name of the property. The name must be compliant with [property naming rules](Concepts/identifiers.md#object-properties).
+In the class definition file, computed property declarations use the `function get` (the *getter*) and `function set` (the *setter*) keywords, followed by the name of the property. The name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
-`Function get` returns a value of the property type and `Function set` takes a parameter of the property type. Both arguments must comply with standard [function parameters](#parameters).
+`function get` returns a value of the property type and `function set` takes a parameter of the property type. Both arguments must comply with standard [function parameters](#parameters).
 
-When both functions are defined, the computed property is **read-write**. If only a `Function get` is defined, the computed property is **read-only**. In this case, an error is returned if the code tries to modify the property. If only a `Function set` is defined, Qodly returns *undefined* when the property is read.
+When both functions are defined, the computed property is **read-write**. If only a `function get` is defined, the computed property is **read-only**. In this case, an error is returned if the code tries to modify the property. If only a `function set` is defined, QodlyScript returns *undefined* when the property is read.
 
-The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](dt_object.md).
+The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](lang-object.md).
 
 :::info
 
-Assigning *undefined* to an object property clears its value while preserving its type. In order to do that, the `Function get` is first called to retrieve the value type, then the `Function set` is called with an empty value of that type.
+Assigning *undefined* to an object property clears its value while preserving its type. In order to do that, the `function get` is first called to retrieve the value type, then the `function set` is called with an empty value of that type.
 
 :::
 
@@ -287,17 +288,17 @@ Assigning *undefined* to an object property clears its value while preserving it
 ```4d  
 //Class: Person.4qm
 
-Class constructor(firstname : Text, lastname : Text)
- This.firstName=firstname
- This.lastName=lastname
+constructor(firstname : string, lastname : string)
+ this.firstName=firstname
+ this.lastName=lastname
 
-Function get fullName() -> fullName : Text
- fullName=This.firstName+" "+This.lastName
+function get fullName() -> fullName : string
+ fullName=this.firstName+" "+this.lastName
 
-Function set fullName( fullName : Text )
- p=Position(" ", fullName)
- This.firstName=Substring(fullName, 1; p-1)
- This.lastName=Substring(fullName, p+1)
+function set fullName( fullName : string )
+ p=position(" ", fullName)
+ this.firstName=substring(fullName, 1; p-1)
+ this.lastName=substring(fullName, p+1)
 ```
 
 ```4d
@@ -309,33 +310,33 @@ person.fullName="John Smith" // Function set fullName() is called
 #### Example 2
 
 ```4d
-Function get fullAddress()->result : Object
+function get fullAddress()->result : object
  
- result=New object
+ result=newObject
  
- result.fullName=This.fullName
- result.address=This.address
- result.zipCode=This.zipCode
- result.city=This.city
- result.state=This.state
- result.country=This.country 
+ result.fullName=this.fullName
+ result.address=this.address
+ result.zipCode=this.zipCode
+ result.city=this.city
+ result.state=this.state
+ result.country=this.country 
 ```
 
-### `Class Constructor`
+### `constructor`
 
 #### Syntax
 
 ```4d
 // Class: MyClass
-Class Constructor({parameterName : type, ...})
+constructor({parameterName : type, ...})
 // code
 ```
 
-A class constructor function, which can accept [parameters](#parameters), can be used to create and initialize objects of the user class.
+A class constructor function, which accepts optional [parameters](#parameters), can be used to create and initialize objects of the user class.
 
 When you call the [`new()`](../ClassClass.md#new) function, the class constructor is called with the parameters optionally passed to the `new()` function.
 
-There can only be one constructor function in a class (otherwise an error is returned). A constructor can use the [`Super`](#super) keyword to call the constructor of the super class.
+There can only be one constructor function in a class (otherwise an error is returned). A constructor can use the [`super`](#super) keyword to call the constructor of the super class.
 
 You can create and type instance properties inside the constructor (see example). Alternatively, if your instance properties' values do not depend on parameters passed to the constructor, you can define them using the [`property`](#property) keyword.
 
@@ -344,8 +345,8 @@ You can create and type instance properties inside the constructor (see example)
 ```4d
 // Class: MyClass
 // Class constructor of MyClass
-Class Constructor (name : Text)
- This.name=name
+constructor (name : string)
+ this.name=name
 ```
 
 ```4d
@@ -369,30 +370,30 @@ Declaring class properties enhances code editor suggestions, type-ahead features
 
 Properties are declared for new objects when you call the [`new()`](../ClassClass.md#new) function, however they are not automatically added to objects (they are only added when they are assigned a value).
 
-Property names must be compliant with [property naming rules](../basics/lang-identifiers.md#object-properties).
+Property names must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
 
 The property type can be one of the following supported types:
 
 |propertyType|Contents|
 |---|---|
-|`Text`|Text value|
-|`Date`|Date value|
-|`Time`|Time value|
-|`Boolean`|Boolean value|
-|`Integer`|Long integer value|
-|`Real`|Real value|
-|`Picture`|Picture value|
-|`Blob`|Scalar Blob value|
-|`Collection`|Collection value|
-|`Variant`|Variant value|
-|`Object`|Object with default class (4D.Object)|
+|`text`|Text value|
+|`date`|Date value|
+|`time`|Time value|
+|`boolean`|Boolean value|
+|`integer`|Long integer value|
+|`real`|Real value|
+|`picture`|Picture value|
+|`blob`|Scalar Blob value|
+|`collection`|Collection value|
+|`variant`|Variant value|
+|`object`|Object with default class (4D.Object)|
 |`4D.<className>`|Object of the 4D class name|
 |`cs.<className>`|Object of the user class name|
 
 :::info
 
-The `property` keyword can only be used in class methods and outside any `Function` block.
+The `property` keyword can only be used in class methods and outside any `function` block.
 
 :::
 
@@ -402,40 +403,40 @@ The `property` keyword can only be used in class methods and outside any `Functi
 ```4d
 // Class: MyClass
 
-property name : Text
-property age : Integer
+property name : string
+property age : integer
 ```
 
 In a method:
 
 ```4d
 var o : cs.MyClass
-o=cs.MyClass.new() //$o:{}
-o.name="John" //$o:{"name":"John"}
+o=cs.MyClass.new() //o:{}
+o.name="John" //o:{"name":"John"}
 o.age="Smith"  //error with check syntax
 ```
 
-### `Class extends <ClassName>`
+### `extends <ClassName>`
 
 #### Syntax
 
 ```4d
 // Class: ChildClass
-Class extends <ParentClass>
+extends <ParentClass>
 ```
 
-The `Class extends` keyword is used in class declaration to create a user class which is a child of another user class. The child class inherits all functions of the parent class.
+The `extends` keyword is used in class declaration to create a user class which is a child of another user class. The child class inherits all functions of the parent class.
 
 Class extension must respect the following rules:
 
-- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../ORDA/ordaClasses.md) which are extended by default for user classes).
-- A user class cannot extend a user class from another project or component.
+- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../../concepts/orda/orda-classes.md) which are extended by default for user classes).
+- A user class cannot extend a user class from another project.
 - A user class cannot extend itself.
 - It is not possible to extend classes in a circular way (i.e. "a" extends "b" that extends "a").
 
 Breaking such a rule is not detected by the code editor or the interpreter, only the `check syntax` will throw an error in this case.
 
-An extended class can call the constructor of its parent class using the [`Super`](#super) command.
+An extended class can call the constructor of its parent class using the [`super`](#super) command.
 
 #### Example
 
@@ -446,29 +447,29 @@ This example creates a class called `Square` from a class called `Polygon`.
 
 //path: Classes/Square.4dm 
 
-Class extends Polygon
+extends Polygon
 
-Class constructor (side : Integer)
+constructor (side : integer)
  
  // It calls the parent class's constructor with lengths
  // provided for the Polygon's width and height
- Super(side,side)
- // In derived classes, Super must be called 
- // before you can use 'This'
- This.name="Square"
+ super(side,side)
+ // In derived classes, super must be called 
+ // before you can use 'this'
+ this.name="Square"
 
 
 
- Function getArea() -> result : Integer
-  result:=This.height*This.width
+ function getArea() -> result : integer
+  result:=this.height*this.width
 ```
 
-### `Super`
+### `super`
 
 #### Syntax
 
 ```4d
-Super {( param{,...,paramN} )} {-> Object}
+super {( param{,...,paramN} )} {-> object}
 ```
 
 |Parameter|Type||Description|  
@@ -476,76 +477,76 @@ Super {( param{,...,paramN} )} {-> Object}
 |param|Mixed|->|Parameter(s) to pass to the parent constructor|
 |Result|Object|<-|Object's parent|
 
-The `Super` keyword allows calls to the `superclass`, i.e. the parent class.
+The `super` keyword allows calls to the `superclass`, i.e. the parent class.
 
-`Super` serves two different purposes:
+`super` serves two different purposes:
 
-1. Inside a [constructor code](#class-constructor), `Super` is a command that allows to call the constructor of the superclass. When used in a constructor, the `Super` command appears alone and must be used before the `This` keyword is used.
+1. Inside a [constructor code](#constructor), `super` is a command that allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used before the `this` keyword is used.
 
 - If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid.
-- If the `This` command is called on an object whose superclasses have not been constructed, error -10743 is generated.
-- If `Super` is called out of an object scope, or on an object whose superclass constructor has already been called, error -10746 is generated.
+- If the `this` command is called on an object whose superclasses have not been constructed, error -10743 is generated.
+- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error -10746 is generated.
  
 ```4d
 // inside myClass constructor
-var text1, text2 : Text
-Super(text1) //calls superclass constructor with a text param
-This.param=text2 // use second param
+var text1, text2 : string
+super(text1) //calls superclass constructor with a text param
+this.param=text2 // use second param
 ```
 
-2. Inside a [class member function](#class-function), `Super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
+2. Inside a [class member function](#class-function), `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
 
 ```4d
-Super.doSomething(42) //calls "doSomething" function  
+super.doSomething(42) //calls "doSomething" function  
 //declared in superclasses
 ```
 
 #### Example 1
 
-This example illustrates the use of `Super` in a class constructor. The command is called to avoid duplicating the constructor parts that are common between `Rectangle` and `Square` classes.
+This example illustrates the use of `super` in a class constructor. The command is called to avoid duplicating the constructor parts that are common between `Rectangle` and `Square` classes.
 
 ```4d
 // Class: Rectangle
-Class constructor(width : Integer, height : Integer)
- This.name="Rectangle"
- This.height=height
- This.width=width
+constructor(width : integer, height : integer)
+ this.name="Rectangle"
+ this.height=height
+ this.width=width
 
  
-Function sayName()
- return "Hi, I am a "+This.name+"."
+function sayName()
+ return "Hi, I am a "+this.name+"."
  
 
-Function getArea() -> area : Integer
- area=(This.height)*(This.width)
+function getArea() -> area : integer
+ area=(this.height)*(this.width)
 ```
 
 ```4d
 //Class: Square
  
-Class extends Rectangle
+extends Rectangle
  
-Class constructor (side : Integer)
+constructor (side : integer)
  
  // It calls the parent class's constructor with lengths
  // provided for the Rectangle's width and height
- Super(side;side)
- // In derived classes, Super must be called before you
- // can use 'This'
- This.name="Square"
+ super(side;side)
+ // In derived classes, super must be called before you
+ // can use 'this'
+ this.name="Square"
 
-Function getArea() -> area : Integer
- area=This.height*This.width
+function getArea() -> area : integer
+ area=this.height*this.width
 ```
 
 #### Example 2
 
-This example illustrates the use of `Super` in a class member method. You created the `Rectangle` class with a function:
+This example illustrates the use of `super` in a class member method. You created the `Rectangle` class with a function:
 
 ```4d
 //Class: Rectangle
  
-Function nbSides() -> sides : Text
+function nbSides() -> sides : string
  sides="I have 4 sides"
 ```
 
@@ -554,54 +555,54 @@ You also created the `Square` class with a function calling the superclass funct
 ```4d
 //Class: Square
  
-Class extends Rectangle
+extends Rectangle
  
-Function description() -> sides:Text
- sides=Super.nbSides()+" which are all equal"
+function description() -> sides:string
+ sides=super.nbSides()+" which are all equal"
 ```
 
 Then you can write in a method:
 
 ```4d
-var square : Object
-var message : Text
+var square : object
+var message : string
 square=cs.Square.new()
 message=square.description() //I have 4 sides which are all equal
 ```
 
-### `This`
+### `this`
 
 #### Syntax
 
 ```4d
-This -> Object
+this -> object
 ```
 
 |Parameter|Type||Description|  
 |---|---|---|---| 
 |Result|object|<-|Current object|
 
-The `This` keyword returns a reference to the currently processed object. 
+The `this` keyword returns a reference to the currently processed object. 
 
-In most cases, the value of `This` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
+In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-When a formula is called as a member method of an object, its `This` is set to the object the method is called on. For example:
+When a formula is called as a member method of an object, its `this` is set to the object the method is called on. For example:
 
 ```4d
-o=New object("prop",42,"f",Formula(This.prop))
-val:=o.f() //42
+o=newObject("prop",42,"f",formula(this.prop))
+val=o.f() //42
 ```
 
-When a [class constructor](#class-constructor) function is used (with the [`new()`](API/ClassClass.md#new) function), its `This` is bound to the new object being constructed.
+When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
 
 ```4d
 //Class: ob
   
-Class Constructor  
+constructor  
  
- // Create properties on This as
+ // Create properties on this as
  // desired by assigning to them
- This.a=42 
+ this.a=42 
 ```
 
 ```4d
@@ -610,15 +611,15 @@ o=cs.ob.new()
 val=o.a //42
 ```
 
-> When calling the superclass constructor in a constructor using the [Super](#super) keyword, keep in mind that `This` must not be called before the superclass constructor, otherwise an error is generated. See [this example](#example-1).
+> When calling the superclass constructor in a constructor using the [super](#super) keyword, keep in mind that `this` must not be called before the superclass constructor, otherwise an error is generated. See [this example](#example-1).
 
-In any cases, `This` refers to the object the method was called on, as if the method were on the object.
+In any cases, `this` refers to the object the method was called on, as if the method were on the object.
 
 ```4d
 //Class: ob
   
-Function f()
- return This.a+This.b
+function f()
+ return this.a+this.b
 ```
 
 Then you can write in a project method:
@@ -631,20 +632,20 @@ val=o.f() //8
 
 ```
 
-In this example, the object assigned to the variable $o doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of o, its `This` refers to o.
+In this example, the object assigned to the variable o doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of o, its `this` refers to o.
 
 ## Class commands
 
-Several commands of the Qodly language allows you to handle class features.
+Several commands of the QodlyScript language allows you to handle class features.
 
-### `OB Class`
+### `objectClass`
 
-#### `OB Class ( object ) -> Object | Null`
+#### `objectClass ( object ) -> object | null`
 
-`OB Class` returns the class of the object passed in parameter.
+`objectClass` returns the class of the object passed in parameter.
 
-### `OB Instance of`
+### `instanceOf`
 
-#### `OB Instance of ( object ; class ) -> Boolean`
+#### `instanceOf ( object , class ) -> boolean`
 
-`OB Instance of` returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
+`instanceOf` returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
