@@ -6,7 +6,7 @@ hide_title: true
 
 <br />
 
-<div class="clearfix">
+<div class="columnsTitle">
     <div class="column-left" style={{width: '7%'}}>
         <div class="fileInputComponentSVG"></div>
     </div>

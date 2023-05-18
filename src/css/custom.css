@@ -44,12 +44,16 @@
 .column-right {
   float: right;
 }
-.clearfix {
+.columnsTitle{
   height: fit-content;
   align-items: center;
   display: flex;
 }
-
+.columnsText{
+  content: "";
+  display: table;
+  clear: both;
+}
 /* ************* components SVGs ************* */
 
 .selectBoxComponentSVG{
