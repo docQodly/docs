@@ -8,7 +8,7 @@ hide_title: true
 
 <div class="clearfix">
     <div class="column-left" style={{width: '7%'}}>
-        <div class="dataTable"></div>
+        <div class="dataTableComponentSVG"></div>
     </div>
     <div class="column-right" style={{width: '93%'}}>
         <h2 style={{color:'#B174E5',margin:'0'}}>Data Table</h2>
