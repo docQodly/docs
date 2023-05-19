@@ -15,7 +15,7 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
 <br />
 
 <div class="columnsText">
-    <div class="column-left" style={{width: '60%'}}>
+    <div class="column-left" style={{width: '70%'}}>
         <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9312; &nbsp; CSS</span>: The CSS class contains styles that are applied to the component, encompassing font sizes, colors, and layout styles, which influence its appearance and layout. You can refer to the <a href="/qodlyHeroHandbook/qodlyStudio/webforms/styleLibrary/intro">Style Library</a> for more information and available style options.
         <br />
         <br />
@@ -42,7 +42,7 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
         <br />
         <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9320; &nbsp; Border radius</span>: The border radius feature enables you to determine the curvature or roundness of the component's corners. By adjusting this attribute, you can create various shapes and styles, adding aesthetic appeal to the component's design.
     </div>
-    <div class="column-right" style={{width: '30%'}}>
+    <div class="column-right" style={{width: '20%'}}>
         <img alt="explorer" src={require('./img/propertiesPanel.png').default} style={{borderRadius: '6px'}} />
     </div>
 </div>
@@ -75,5 +75,4 @@ In essence, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties pa
     </div>
 </div>
 
----
 
