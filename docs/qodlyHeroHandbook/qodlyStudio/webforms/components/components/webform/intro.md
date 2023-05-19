@@ -23,7 +23,19 @@ As I strode purposefully towards <span style={{color:'#B174E5',fontWeight: 'bold
 Similar to how <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span> is the guiding force, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component serves as the cornerstone, encapsulating all other elements. It empowers me to fashion a visually striking and interactive homepage.
 
 With unwavering determination, I commanded <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>, proclaiming:
-> 🗣️<span>&nbsp;</span> _QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team._
+
+<div class="chat">
+    <div class="chat_box"></div>
+    <div class="chat_box"> <span style={{color:'#B174E5',fontWeight: 'bold'}}> 🗣️ QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team.</span></div>
+    <div class="chat_box">
+        <div class="chat_boxDot">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="phone"></div>
+</div>
 
 <br />
 

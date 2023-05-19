@@ -37,6 +37,7 @@
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
+/* *************************** */
 /* for columns */
 .column-left {
   float: left;
@@ -54,8 +55,10 @@
   display: table;
   clear: both;
 }
-/* ************* components SVGs ************* */
+/* *************************** */
 
+/* *************************** */
+/* ************* components SVGs ************* */
 .selectBoxComponentSVG{
   width: 45px;
   height: 45px;
@@ -73,7 +76,7 @@
 .tabsComponentSVG{
   width: 45px;
   height: 45px;
-  background-image: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='%23B174E5' stroke-width='0' viewBox='0 0 24 24' class='h-6 w-6' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23B174E5'  d='M0 0h24v24H0z'%3E%3C/path%3E%3Cpath d='M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h10v4h8v10z'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='%23B174E5' stroke-width='0' viewBox='0 0 24 24' class='h-6 w-6' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' d='M0 0h24v24H0z'%3E%3C/path%3E%3Cpath d='M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h10v4h8v10z'%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -94,7 +97,7 @@
 .dataTableComponentSVG{
   width: 45px;
   height: 45px;
-  background-image: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='%23B174E5' stroke-width='0' viewBox='0 0 24 24' class='h-6 w-6' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' d='M0 0h24v24H0z'%3E%3C/path%3E%3Cpath d='M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h10v4h8v10z'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23B174E5' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6'%3E%3Cpath d='M17.833 19H6.167A1.166 1.166 0 015 17.833V6.167A1.167 1.167 0 016.167 5h11.666A1.166 1.166 0 0119 6.167v11.666A1.167 1.167 0 0117.833 19zM12.5 14.134v3.5h4.666a.583.583 0 00.584-.584v-2.916H12.5zm-6.25 0v2.916a.583.583 0 00.583.584H11.5v-3.5H6.25zm6.25-4.505v3.5h5.25v-3.5H12.5zm-6.25 0v3.5h5.25v-3.5H6.25zm.583-3.635a.583.583 0 00-.583.583v1.75h11.5v-1.75a.583.583 0 00-.584-.583H6.833z' fill='%23B174E5'%3E%3C/path%3E%3C/svg%3E");   
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -184,3 +187,127 @@
 }
 /* *************************** */
 
+
+/* *************************** */
+/* chatbox */
+.chat {
+  height: 15.125em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* chatbox bubbles */
+.chat_box {
+  margin-bottom: 1em;
+  width: 5.25em;
+  height: 2.375em;
+  border-radius: 2.375em;
+  position: relative;
+}
+.chat_box:nth-child(1),
+.chat_box:nth-child(3) {
+  width: 100%;
+  height: 2.375em;
+  border-radius: 2.375em;
+  position: relative;
+}
+.chat_box:nth-child(1) {
+  background: linear-gradient(transparent, #B174E5 80%);
+}
+.chat_box:nth-child(3) {
+  background-color: #B174E5;
+}
+.chat_box:nth-child(1)::after,
+.chat_box:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  bottom: -0.375em;
+  height: 0.875em;
+  width: 0.75em;
+  background-color: inherit;
+  left: 0.438em;
+  border-radius: 0 0 1em 0.1em;
+}
+.chat_box:nth-child(1)::after {
+  background-color: #B174E5;
+}
+.chat_box:nth-child(2) {
+  width: 5.25em;
+  height: 2.375em;
+  border-radius: 2.375em;
+  position: relative;
+  background-color: #fff;
+  border-color: #B174E5;
+  border-style: double;
+  color: black;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+}
+.chat_box:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  bottom: -0.375em;
+  height: 0.875em;
+  width: 0.75em;
+  background-color: inherit;
+  left: 0.438em;
+  border-radius: 0 0 1em 0.1em;
+}
+/* chat dot typing animation */
+.chat_boxDot {
+  text-align: center;
+  color: white;
+}
+.chat_boxDot span {
+  display: inline-block;
+  background-color: currentColor;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-right: 5px;
+  animation-name: bob;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  margin-top: 15px;
+}
+.chat_boxDot span:nth-child(1) {
+  animation-delay: -1s;
+}
+.chat_boxDot span:nth-child(2) {
+  animation-delay: -0.85s;
+}
+.chat_boxDot span:nth-child(3) {
+  animation-delay: -0.7s;
+  margin-right: 0;
+}
+@keyframes bob {
+  10% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+/* phone case */
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  width: 8.375em;
+  height: 1.25em;
+  border-radius: 1.25em;
+  background-color: #B174E5;
+
+}
+.phone::after {
+  content: "";
+  width: 1.5em;
+  height: 0.375em;
+  border-radius: 0.375em;
+  background-color: white;
+}
+
+/* *************************** */
