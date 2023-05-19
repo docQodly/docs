@@ -24,9 +24,9 @@ Similar to how <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span> 
 
 With unwavering determination, I commanded <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>, proclaiming:
 
-<div class="chat">
+<div class="chatDialogue">
     <div class="chat_box"></div>
-    <div class="chat_box"> <span style={{color:'#B174E5',fontWeight: 'bold'}}> 🗣️ QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team.</span></div>
+    <div class="chat_box"> <span style={{color: 'transparent',textShadow: '0 0 0 #B174E5'}}>🗣️</span><span style={{color:'#B174E5',fontWeight: 'bold'}}>  QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team.</span></div>
     <div class="chat_box">
         <div class="chat_boxDot">
             <span></span>
@@ -67,7 +67,7 @@ As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>W
 
 <br />
 
-#### <span style={{color:'#B174E5'}}>&#9312;</span> <span>&nbsp;</span> <u>Tooltip & Breadcrumbs</u>
+#### <span style={{color:'#B174E5'}}>&#9312; &nbsp; <u>Tooltip & Breadcrumbs</u> </span>
 
 <div class="columnsText">
     <div class="column-left" style={{width: '70%'}}>
@@ -97,7 +97,7 @@ As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>W
 
 <br />
 
-#### <span style={{color:'#B174E5'}}>&#9313;</span> <span>&nbsp;</span> <u>Header Panel</u>
+#### <span style={{color:'#B174E5'}}>&#9313; &nbsp; <u>Header Panel</u> </span>
 
 
 <div class="columnsText">
@@ -118,7 +118,7 @@ As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>W
 <br />
 
 
-#### <span style={{color:'#B174E5'}}>&#9314;</span> <span>&nbsp;</span> <u>Contextual Panel</u>
+#### <span style={{color:'#B174E5'}}>&#9314; &nbsp; <u>Contextual Panel</u> </span>
 
 
 <div class="columnsText">
@@ -164,7 +164,6 @@ Below is the completed code for this section:
 
 :::tip Completed code for this section.
 :::
-
 
 
 
