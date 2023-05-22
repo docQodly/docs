@@ -13,7 +13,7 @@ The Users class allows you to get information about users of your Qodly applicat
 
 To use the Users class functions, you must instantiate a Qodly users interface object using the [`cs.Qodly.Users.new()`](#csqodlyusersnew) constructor. For example:
 
-```4d
+```qs
 	//instantiate the Users interface
 var usersInterface : cs.Qodly.Users
 usersInterface=cs.Qodly.Users.new()
@@ -83,7 +83,7 @@ The function returns a Qodly user object that contains the following properties:
 
 To implement a `getCurrentUser()` function in a custom class:
 
-```4d
+```qs
 exposed Function getCurrentUser() : Object
 
     var user : Object
@@ -123,7 +123,7 @@ The function returns a collection of [Qodly user objects](#qodly-user-object).
 To implement a `getAllUsers()` function in a custom class:
 
 
-```4d
+```qs
 exposed Function getAllUsers() : Collection
    
     var users:Collection

@@ -9,7 +9,7 @@ ORDA allows you to create high-level class functions above the data model. This 
 
 For example, you could create a `getNextWithHigherSalary()` function in the `cs.EmployeeEntity` class to return employees with a salary higher than the selected one. It would be as simple as calling:
 
-```4d
+```qs
 nextHigh=ds.Employee.get(1).getNextWithHigherSalary()
 ```
 
@@ -60,7 +60,7 @@ You can create functions in the DataStore class that will be available through t
 
 #### Example
 
-```4d  
+```qs  
 // cs.DataStore class
 
 Class extends DataStoreImplementation
@@ -72,7 +72,7 @@ exposed Function getDesc
 
 This function can then be called:
 
-```4d
+```qs
 desc=ds.getDesc() //"Database exposing..."
 ```
 
@@ -90,7 +90,7 @@ Each dataclass offers a DataClass class in the `cs` class store.
 
 #### Example 1
 
-```4d
+```qs
 // cs.Company class
 
 
@@ -106,7 +106,7 @@ Function GetBestOnes() : cs.CompanySelection
 
 Then you can get an entity selection of the "best" companies by executing: 
 
-```4d
+```qs
 	var best : cs.CompanySelection
 	best=ds.Company.GetBestOnes()
 ```
@@ -127,7 +127,7 @@ Zipcodes are used as primary keys of the *ZipCode* table. The many-to-one relati
 
 The `City Class` provides an API:
 
-```4d  
+```qs  
 // cs.City class
 
 Class extends DataClass
@@ -145,7 +145,7 @@ exposed Function getCityName(zipcode : Integer) -> result : Text
 
 The application can use the API to get the city matching a zip code:
 
-```4d
+```qs
 city=ds.City.getCityName(zipcode)
 
 ```
@@ -162,7 +162,7 @@ Each dataclass offers an EntitySelection class in the `cs` class store.
 
 #### Example
 
-```4d
+```qs
 // cs.EmployeeSelection class
 
 
@@ -177,7 +177,7 @@ Function withSalaryGreaterThanAverage() -> result : Object
 
 Then you can get employees with a salary greater than the average in any entity selection by executing: 
 
-```4d
+```qs
 moreThanAvg=ds.Company.all().employees.withSalaryGreaterThanAverage()
 ```
 
@@ -212,7 +212,7 @@ For information, please refer to the [Alias attributes](#alias-attributes) secti
 #### Example
 
 
-```4d
+```qs
 // cs.CityEntity class
 
 Class extends Entity
@@ -228,7 +228,7 @@ result=This.getPopulation()>50000
 
 Then you can call this code: 
 
-```4d
+```qs
 var city : Object
 var message : Text
 
@@ -285,7 +285,7 @@ ORDA computed attributes are not [**exposed**](#exposed-vs-non-exposed-functions
 
 #### Syntax
 
-```4d
+```qs
 {exposed} Function get <attributeName>({event : Object}) -> result : type
 // code
 ```
@@ -316,7 +316,7 @@ The *event* parameter contains the following properties:
 
 - *fullName* computed attribute:
 
-```4d
+```qs
 Function get fullName(event : Object)-> fullName : Text
 
   case of 	
@@ -333,7 +333,7 @@ Function get fullName(event : Object)-> fullName : Text
 
 - A computed attribute can be based upon an entity related attribute:
 
-```4d
+```qs
 Function get bigBoss(event : Object)-> result: cs.EmployeeEntity
 	result=This.manager.manager
     
@@ -341,7 +341,7 @@ Function get bigBoss(event : Object)-> result: cs.EmployeeEntity
 
 - A computed attribute can be based upon an entity selection related attribute:
 
-```4d
+```qs
 Function get coWorkers(event : Object)-> result: cs.EmployeeSelection
     if (This.manager==Null)
         result=ds.Employee.newSelection()
@@ -354,7 +354,7 @@ Function get coWorkers(event : Object)-> result: cs.EmployeeSelection
 
 #### Syntax
 
-```4d
+```qs
 Function set <attributeName>(value : type {, event : Object})
 // code
 ```
@@ -374,7 +374,7 @@ The *event* parameter contains the following properties:
 
 #### Example
 
-```4d
+```qs
 Function set fullName(value : Text , event : Object)
 	var p : Integer
     p=Position(" ",$value) 		
@@ -388,7 +388,7 @@ Function set fullName(value : Text , event : Object)
 
 #### Syntax
 
-```4d
+```qs
 Function query <attributeName>(event : Object)
 Function query <attributeName>(event : Object) -> result : Text
 Function query <attributeName>(event : Object) -> result : Object
@@ -435,7 +435,7 @@ The *event* parameter contains the following properties:
 
 - Query on the *fullName* computed attribute. 
 
-```4d
+```qs
 Function query fullName(event : Object)->result : Object
 
 	var fullname, firstname, lastname, myQuery : Text
@@ -478,13 +478,13 @@ Function query fullName(event : Object)->result : Object
 
 Calling code, for example:
 
-```4d
+```qs
 emps=ds.Employee.query("fullName = :1", "Flora Pionsin")
 ```
 
 - This function handles queries on the *age* computed attribute and returns an object with parameters:
 
-```4d
+```qs
 Function query age(event : Object)->result : Object
 	
 	var operator, myQuery : Text
@@ -525,7 +525,7 @@ Function query age(event : Object)->result : Object
 
 Calling code, for example:
 
-```4d
+```qs
 // people aged between 20 and 21 years (-1 day)
 twenty=people.query("age = 20")  // calls the "==" case
 
@@ -539,7 +539,7 @@ twentyToday=people.query("age === 20") // equivalent to people.query("age is 20"
 
 #### Syntax
 
-```4d
+```qs
 Function orderBy <attributeName>(event : Object)
 Function orderBy <attributeName>(event : Object)-> result : Text
 
@@ -576,7 +576,7 @@ You can return the `orderBy` string either in the `event.result` object property
 
 You can write conditional code:
 
-```4d
+```qs
 Function orderBy fullName(event : Object)-> result : Text
     if (event.descending==True)
         result="firstName desc, lastName desc" 
@@ -587,7 +587,7 @@ Function orderBy fullName(event : Object)-> result : Text
 
 You can also write compact code:
 
-```4d
+```qs
 Function orderBy fullName(event : Object)-> result : Text
 	result="firstName "+event.operator+", "lastName "+event.operator
 
@@ -595,7 +595,7 @@ Function orderBy fullName(event : Object)-> result : Text
 
 Conditional code is necessary in some cases:
 
-```4d
+```qs
 Function orderBy age(event : Object)-> result : Text
     if (event.descending==True)
         result="birthday asc" 
@@ -682,7 +682,7 @@ Considering the following model:
 
 In the Teacher dataclass, an alias attribute returns all students of a teacher:
 
-```4d
+```qs
 // cs.TeacherEntity class
 
 Class extends Entity
@@ -692,7 +692,7 @@ Alias students courses.student //relatedEntities
 
 In the Student dataclass, an alias attribute returns all teachers of a student:
 
-```4d
+```qs
 // cs.StudentEntity class
 
 Class extends Entity
@@ -707,7 +707,7 @@ In the Course dataclass:
 - an alias attribute returns the student name
 
 
-```4d
+```qs
 // cs.CourseEntity class
 
 Class extends Entity
@@ -720,7 +720,7 @@ Exposed Alias studentName student.name //scalar value
 
 You can then execute the following queries:
 
-```4d
+```qs
 // Find course named "Archaeology"
 ds.Course.query("courseName == :1";"Archaeology")
 
@@ -745,7 +745,7 @@ ds.Teacher.query("students.name == :1","Martin")
 
 You can also edit the value of the *courseName* alias:
 
-```4d
+```qs
 // Rename a course using its alias attribute
 arch=ds.Course.query("courseName == :1","Archaeology")
 arch.courseName="Archaeology II"
@@ -763,7 +763,7 @@ A function that is not exposed is not available from web requests and cannot be 
 
 To allow a data model class function to be called by a remote request, you must explicitly declare it using the `exposed` keyword. The formal syntax is:
 
-```4d  
+```qs  
 // declare an exposed function
 exposed Function <functionName>   
 ```
@@ -778,7 +778,7 @@ The `exposed` keyword can only be used with Data model class functions. If used 
 
 You want an exposed function to use a private function in a dataclass class:
 
-```4d
+```qs
 Class extends DataClass
 
 //Public function
@@ -801,7 +801,7 @@ id=...
 
 When the code is called:
 
-```4d
+```qs
 var student , status : Object
 var id : Integer
 

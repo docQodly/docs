@@ -38,7 +38,7 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
 
 #### Example
 
-```4d
+```qs
  var vdInOneYear, vdNextMonth, vdTomorrow : date
 
   // This line calculates the date in one year, same day
@@ -95,7 +95,7 @@ Qodly provides the following predefined constants:
 
 The following example is a function that returns the current day as a string:
 
-```4d
+```qs
  var viDay : integer
  viDay=dayNumber(currentDate) // viDay gets the current day number
  switch
@@ -147,7 +147,7 @@ The `dayOf` command <!-- REF #_command_.dayOf.Summary -->returns the day of the 
 
 The following example illustrates the use of `dayOf`. The results are assigned to the variable *vResult*. The comments describe what is put in *vResult*:
 
-```4d
+```qs
  var vResult : integer
  vResult=dayOf(!12/25/92!) // vResult gets 25
  vResult=dayOf(currentDate) // vResult gets day of current date
@@ -206,7 +206,7 @@ To compare the value returned by this function, Qodly provides the following pre
 
 The following example illustrates the use of `monthOf`. The results are assigned to the variable *vResult*. The comments describe what is put in *vResult*:
 
-```4d
+```qs
  var vResult : integer
  vResult=monthOf(!12/25/92!) // vResult gets 12
  vResult=monthOf(currentDate) // vResult gets month of current date
@@ -252,7 +252,7 @@ If the *timeValue* expression evaluates to undefined, `time` returns an empty ti
 
 You can express any numerical value as a time:
 
-```4d
+```qs
  var vTime : time
  vTime=time(10000)
   //vTime is 02:46:40
@@ -292,7 +292,7 @@ If you need the string form of a time expression in a variety of formats, use [`
 
 In the following example we assign the folowing string “46800 seconds is 13:00:00.” to a string variable.
 
-```4d
+```qs
  var vTimeString : string
  vTimeString="46800 seconds is "+timeString(46800)
  
@@ -322,7 +322,7 @@ The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *
 
 The following example illustrates the use of `yearOf`. The results are assigned to the variable *vResult*:
 
-```4d
+```qs
  var vResult : integer
  vResult=yearOf(!12/25/92!) // vResult gets 1992
  vResult=yearOf(!12/25/1992!) // vResult gets 1992

@@ -9,7 +9,7 @@ You'll often find that you need to pass data to your methods and functions. This
 
 **Parameters** (or **arguments**) are pieces of data that a method or a class function needs in order to perform its task. The terms *parameter* and *argument* are used interchangeably throughout this manual. Parameters are also passed to built-in QodlyScript commands. In this example, the name "pCounter" is an argument to the `killWorker` built-in command:
 
-```4d
+```qs
 killWorker("pCounter") //Terminates execution of pCounter worker
 ```
 
@@ -21,7 +21,7 @@ area=o.getArea(50,100)
 
 Or, if a method named `Do_Something` accepts three parameters, a call to the method might look like this:
 
-```4d
+```qs
 Do_Something(withThis,andThat,thisWay)
 ```
 
@@ -29,7 +29,7 @@ The input parameters are separated by commas (,).
 
 The same principles are used when methods are executed through dedicated commands, for example:
 
-```4d
+```qs
 callWorker("myWorker","workerMethod","Hello",vName)  
 //pass the "Hello" string and vName variable as parameters to the workerMethod  
 //in the context of the myWorker worker
@@ -37,7 +37,7 @@ callWorker("myWorker","workerMethod","Hello",vName)
 
 Data can also be **returned** from methods and class functions. For example, the following line is a statement that uses the built-in command, `length`, to return the length of a string. The statement puts the value returned by `length` in a variable called *MyLength*. Here is the statement:
 
-```4d
+```qs
 MyLength=length("How did I get here?")
 ```
 
@@ -62,11 +62,11 @@ Inside called methods or class functions, parameter values are assigned to varia
 
 Examples:
 
-```4d
+```qs
 function getArea(width : integer, height : integer) -> area : integer
 ```
 
-```4d  
+```qs  
  //myProjectMethod
 declare (i :integer) -> myResult : object
 ```
@@ -82,13 +82,13 @@ The following rules apply:
 
 For example, when you call a `getArea()` function with two parameters: 
 
-```4d
+```qs
 area=o.getArea(50,100)
 ```
 
 In the class function code, the value of each parameter is copied into the corresponding declared parameter:
 
-```4d    
+```qs    
 // Class: Polygon
 function getArea(width : integer, height : integer)-> area : integer
 	area=width*height
@@ -101,13 +101,13 @@ function getArea(width : integer, height : integer)-> area : integer
 
 You declare the return parameter of a function by adding an arrow (->) and the parameter definition after the input parameter(s) list. For example:
 
-```4d
+```qs
 function add(x : variant, y : integer) -> result : integer
 ```
  
 You can also declare the return parameter only by adding `: type`, in which case it can be handled by a [return statement](#return-expression). For example: 
 
-```4d
+```qs
 function add(x : variant, y : integer): integer
 	return (x+y)
 ```
@@ -119,7 +119,7 @@ function add(x : variant, y : integer): integer
 
 For parameters and returned values, you can use the same data types as those which are [supported by the `var` keyword](lang-variables.md#declaring-variables), including class objects. For example:
 
-```4d
+```qs
 function saveToFile(entity : cs.ShapesEntity, myFile : 4D.File)
 ```
 
@@ -132,7 +132,7 @@ You can use parameters in formulas made of single-line statements (i.e. not call
 
 For example, you can write:
 
-```4d
+```qs
 var f : object
 f=newObject
 f.welcome=formula(uppercase($1+", "+$2+"!"))
@@ -147,7 +147,7 @@ The `return` statement ends function or method execution and can be used to retu
 
 For example, the following function returns the square of its argument, x, where x is a number.
 
-```4d
+```qs
 function square(x : integer) 
    return x * x
 ```
@@ -162,7 +162,7 @@ Internally, `return x` executes `returnValue=x`, and returns to the caller. If `
 The `return` statement can be used along with the standard syntax for [returned values](#returned-value) (the returned value must be of the declared type). However, note that it ends immediately the code execution. For example:
 
 
-```4d
+```qs
 function getValue -> v : integer
 	v=10
 	return 20
@@ -188,7 +188,7 @@ For example, consider a method that adds values and returns the sum formatted ac
 
 Here is the method, named `MySum`:
 
-```4d
+```qs
 //MySum
 declare (format : string) -> result : string
 toSum=0
@@ -200,14 +200,14 @@ result=string(toSum,format)
 
 The method's parameters must be passed in the correct order, first the format and then a variable number of values:
 
-```4d
+```qs
 Result=MySum("##0.00",125,2,33.5,24) //"182.70"
 Result=MySum("000",1,2,200) //"203"
 ```
 
 Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`Count parameters`] command. For example:
 
-```4d
+```qs
 //foo method
 #DECLARE(p1: Text, p2 : Text, p3 : Date)
 var myLog : Text
@@ -218,7 +218,7 @@ End for
 
 This method can be called:
 
-```4d
+```qs
 foo("hello","world",!01/01/2023!,42,?12:00:00?) //extra parameters are passed
 ```
 
@@ -230,12 +230,12 @@ foo("hello","world",!01/01/2023!,42,?12:00:00?) //extra parameters are passed
 
 Calling a parameter with an wrong type is an [error](lang-errors.md) that prevents correct execution. For example, if you write the following methods:
 
-```4d
+```qs
 // method1
 declare(value : string)
 ```
 
-```4d
+```qs
 // method2
 method1(42) //wrong type, string expected
 ```
@@ -250,7 +250,7 @@ Using objects as parameters allow you to handle **named parameters**. This progr
 
 For example, using the `CreatePerson` method:
 
-```4d
+```qs
   //CreatePerson
 var person : object
 person=newObject("name","Smith","age",40)
@@ -259,7 +259,7 @@ ChangeAge(person)
 
 In the `ChangeAge` method you can write:
 
-```4d
+```qs
   //ChangeAge
 declare (param : object)
 var result : string
@@ -274,7 +274,7 @@ This provides a powerful way to define [optional parameters](#optional-parameter
 
 In the `ChangeAge` method above, both age and name properties are mandatory and would produce errors if they were missing. To avoid this case, you can just write:
 
-```4d
+```qs
   //ChangeAge
 declare (param : object)
 var result : string
@@ -285,7 +285,7 @@ Then both parameters are optional; if they are not filled, the result will be " 
 
 Finally, with named parameters, maintaining or refactoring applications is very simple and safe. Imagine you later realize that adding 10 years is not always appropriate. You need another parameter to set how many years to add. You write:
 
-```4d
+```qs
 person={"name":"Smith","aAge":40,"toAdd":10}
 ChangeAge(person)
 
@@ -309,20 +309,20 @@ With named variables, any parameter can be optional. In the above example, all p
 
 In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string { , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
 
-```4d
+```qs
 firstnames=ds.Teachers.all().extract("firstname") //1 parameter
 addresses=ds.Teachers.all().extract("address",ck keep null) //2 parameters
 ```
 
 QodlyScript methods and functions also accept such optional parameters. You can declare any number of parameters. If you call a method or function with less parameters than declared, missing parameters are processed as default values in the called code, [according to their type](lang-data-types.md#default-values). For example:
 
-```4d
+```qs
 // "concate" function of myClass
 function concate (param1 : string , param2 : string)-> result : string
 result=param1+" "+param2
 ```
 
-```4d
+```qs
   // Calling method
 class=cs.myClass.new()
 class.concate("Hello") // "Hello "
@@ -337,7 +337,7 @@ You can also call a method or function with more parameters than declared. They 
 
 Using the `countParameters` command from within the called method, you can detect the actual number of parameters and perform different operations depending on what you have received. For example:
 
-```4d
+```qs
 // Append_Text Method
 // Append_Text ( string { , 4D.File } )
  
@@ -354,7 +354,7 @@ end
 ```
 After this method has been added to your project, you can write:
 
-```4d  
+```qs  
 Append_Text(vt1) //do only action1
 Append_Text(vt1,vt2) //do action1 and action3
 Append_Text(vt1,"",vobj) //do action1 and action2
@@ -371,7 +371,7 @@ When optional parameters are needed in your methods, you might also consider usi
 
 When you pass a parameter, QodlyScript always evaluates the parameter expression in the context of the calling method and sets the **resulting value** to the declared parameters in the called class function or method. The declared parameters are not the actual variables or expressions passed by the calling method; they only contain the values that have been passed. Since its scope is local, if the value of a parameter is modified in the class function/method, it does not change the value in the calling method. For example:
 
-```4d
+```qs
 	//Here is some code from the method myMethod
 var myVar, result : string
 myVar="williams"
@@ -389,7 +389,7 @@ In some cases, you might want that the method `Do_Something` change the value of
 
 1. Rather than passing a string variable to the method, you pass an object variable containing the string value as a property. Since [object parameters are passed by **reference**](#particular-cases-objects-and-collections), the value will always be the same in all contexts:
 
-```4d
+```qs
 	//Here is some code from the method myMethod
 var myVar : object
 var result : text
@@ -405,7 +405,7 @@ result=uppercase(param.name) //WILLIAMS
 
 2. Rather than having the method `Do_Something` "doing something," you can rewrite the method so it returns a value. Thus you would write:
 
-```4d
+```qs
 	//Here is some code from the method myMethod
 var myVar, result : string
 myVar="williams"
@@ -428,7 +428,7 @@ Consequently, when using such data types as parameters, they do not contain *val
 
 For example, consider the `CreatePerson` method that creates an object and sends it as a parameter:
 
-```4d
+```qs
   //CreatePerson
 var person : object
 person:=newObject("Name","Smith","Age",40)
@@ -438,7 +438,7 @@ person.Age //50
 
 The `ChangeAge` method adds 10 to the Age attribute of the received object
 
-```4d
+```qs
   //ChangeAge
 declare (person : object)
 person.Age=person.Age+10

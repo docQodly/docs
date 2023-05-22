@@ -10,7 +10,7 @@ The Collection class manages [Collection](basics/lang-collection.md) type elemen
 
 ### Example
 
-```4d
+```qs
  var c : Collection //declaration of collection type variable
  c=New collection //initialization of the collection and assignment to the variable
  c.push("Hello",42,{o : "World"}) // c contains [Hello,42,{"o":"World"}]
@@ -105,7 +105,7 @@ Optionally, you can prefill the new collection by passing one or several *value*
 
 Otherwise, you can add or modify elements subsequently through assignment. For example:
 
-```4d
+```qs
  myCol[10]="My new element"
 ```
 
@@ -124,7 +124,7 @@ You must pay attention to the following conversion issues:
 
 You want to create a new empty collection and assign it to a collection variable:
 
-```4d
+```qs
  var myCol : Collection
  myCol=New collection
   //myCol: []
@@ -134,7 +134,7 @@ You want to create a new empty collection and assign it to a collection variable
 
 You want to create a prefilled collection:
 
-```4d
+```qs
  var filledColl : Collection
  filledColl=New collection(33,"mike","november",Current date)
   //filledColl:[33,"mike","november","2023-04-28T00:00:00.000Z"]
@@ -144,7 +144,7 @@ You want to create a prefilled collection:
 
 You create a new collection and then add a new element:
 
-```4d
+```qs
  var coll : Collection
  coll=New collection("a","b","c")
   //coll:["a","b","c"]
@@ -206,7 +206,7 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 #### Example
 
-```4d
+```qs
  mySharedCol=New shared collection("alpha","omega")
  Use(mySharedCol)
     mySharedCol[1]="beta"
@@ -244,7 +244,7 @@ The function returns Undefined if *index* is beyond collection limits.
 
 
 
-```4d
+```qs
 var col : Collection 
 col=New collection(10, 20, 30, 40, 50)
 element=col.at(0) // 10
@@ -290,7 +290,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 #### Example 1
 
-```4d
+```qs
  var col : Collection
  var vAvg : Integer
  col=New collection(10,20,"Monday",True,6)
@@ -299,7 +299,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 #### Example 2
 
-```4d
+```qs
  var col : Collection
  var vAvg : Integer
  col=New collection
@@ -333,7 +333,7 @@ The `.clear()` function <!-- REF #collection.clear().Summary -->removes all elem
 
 #### Example
 
-```4d
+```qs
 var col : Collection
 col=New collection(1,2,5)
 col.clear()
@@ -377,7 +377,7 @@ By default, *col2* elements are added at the end of the orginal collection. You 
 
 #### Example
 
-```4d
+```qs
 var c, fruits : Collection
 c=New collection(1,2,3,4,5,6)
 fruits=New collection("Orange","Banana","Apple","Grape")
@@ -414,7 +414,7 @@ If *value* is a collection, all its elements are added as new elements at the en
 
 #### Example
 
-```4d
+```qs
 var c,c2, fruits : Collection
 c=New collection(1,2,3,4,5)
 fruits=New collection("Orange","Banana","Apple","Grape")
@@ -468,7 +468,7 @@ Datastore, dataclass, and entity objects are not copiable. If `.copy()` is calle
 
 We want to copy the *lastnames* regular (non shared) collection into the *sharedObject* shared object. To do this, we must create a shared copy of the collection (*sharedLastnames*).
 
-```4d
+```qs
 var sharedObject : Object
 var lastnames,sharedLastnames : Collection
 var text : Text
@@ -491,7 +491,7 @@ End use
 
 We want to combine *sharedColl1* and *sharedColl2*. Since they belong to different shared groups, a direct combination would result in an error. Therefore, we must make a shared copy of *sharedColl1* and designate *sharedColl2* as a shared group for the copy.
 
-```4d
+```qs
 var sharedColl1,sharedColl2,copyColl : Collection
 
 sharedColl1=New shared collection(New shared object("lastname","Smith"))
@@ -508,7 +508,7 @@ sharedColl2=New shared collection(New shared object("lastname","Brown"))
 
 We have a regular collection (*lastnames*) and we want to put it in the **Storage** of the application. To do this, we must create a shared copy beforehand (*sharedLastnames*).
 
-```4d
+```qs
 var lastnames,sharedLastnames : Collection
 var text : Text
 
@@ -550,7 +550,7 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 
 #### Example
 
-```4d
+```qs
  var col : Collection
  var count1,count2 : Real
  col=New collection(20,30,Null,40)
@@ -602,7 +602,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 
 #### Example 1
 
-```4d
+```qs
  var col : Collection
  var vCount : Integer
  col=New collection(1,2,5,5,5,3,6,4)
@@ -612,7 +612,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 
 #### Example 2
 
-```4d
+```qs
  var col : Collection
  var vCount : Integer
  col=New collection
@@ -627,7 +627,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 
 #### Example 3
 
-```4d
+```qs
  var numbers, letters : Collection
  var vCount : Integer
 
@@ -678,7 +678,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 #### Examples
 
-```4d
+```qs
  var c, c2, c3 : Collection
  c=New collection
  c.push("a","b","c","A","B","c","b","b")
@@ -722,7 +722,7 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
 
 #### Example
 
-```4d
+```qs
  var c, c2 : Collection
  var b : Boolean
 
@@ -798,7 +798,7 @@ By default, `.every()` tests the whole collection. Optionally, you can pass in *
 
 #### Example 1
 
-```4d
+```qs
 var c : Collection  
 var b : Boolean
 var f : 4D.Function
@@ -815,7 +815,7 @@ b=c.every(f) //returns false
 
 This example tests that all elements of a collection are of the real type:
 
-```4d
+```qs
 var c : Collection
 var b : Boolean
 var f : 4D.Function
@@ -868,7 +868,7 @@ The contents of the returned collection depends on the *targetPath* parameter:
 
 #### Example 1
 
-```4d
+```qs
 var c : Collection
 c=New collection
 c.push(New object("name","Cleveland"))
@@ -883,7 +883,7 @@ c2=c.extract("name",ck keep null) //c2: [Cleveland,null,Blountsville,null]
 #### Example 2
 
 
-```4d
+```qs
 var c : Collection
 c=New collection
 c.push(New object("zc",35060))
@@ -938,7 +938,7 @@ In case of inconsistency, the following rules apply:
 
 #### Example
 
-```4d
+```qs
  var c : Collection
  c=New collection(1,2,3,"Lemon",Null,"",4,5)
  c.fill("2") // c:[2,2,2,2,2,2,2,2]
@@ -1002,7 +1002,7 @@ When using *methodName* as callback, and if the method does not return any value
 
 You want to get the collection of text elements whose length is smaller than 6:
 
-```4d
+```qs
 var col,colNew : Collection
 col=New collection("hello","world","red horse",66,"tim","san jose","miami")
 colNew=col.filter(Formula((Value type($1.value)==Is text) && (Length($1.value)<2)), 6)
@@ -1013,7 +1013,7 @@ colNew=col.filter(Formula((Value type($1.value)==Is text) && (Length($1.value)<2
 
 You want to filter elements according to their value type:
 
-```4d
+```qs
  var c,c2,c3 : Collection
  var f : 4D.Function
 
@@ -1086,7 +1086,7 @@ By default, `.find()` searches in the whole collection. Optionally, you can pass
 
 You want to get the first text element with a length smaller than 5:
 
-```4d
+```qs
 var col : Collection
 col=New collection("hello","world",4,"red horse","tim","san jose")
 value=col.find(Formula((Value type($1.value)==Is text) && (Length($1.value)<2)), 5) //value: "tim"
@@ -1096,7 +1096,7 @@ value=col.find(Formula((Value type($1.value)==Is text) && (Length($1.value)<2)),
 
 You want to find a city name within a collection:
 
-```4d
+```qs
 var c : Collection
 var c2 : Object
 c=New collection
@@ -1167,7 +1167,7 @@ By default, `.findIndex()` searches in the whole collection. Optionally, you can
 
 You want to find the position of the first city name within a collection:
 
-```4d
+```qs
 var c : Collection
 var val2,val3 : Integer
 c=New collection
@@ -1208,7 +1208,7 @@ The function returns Undefined if the collection is empty.
 #### Example
 
 
-```4d
+```qs
 var col, emptyCol : Collection
 var first : Variant
 col=New collection(10, 20, 30, "hello", 50)
@@ -1249,7 +1249,7 @@ By default, if the *depth* parameter is omitted, only the first level of the nes
 #### Example
 
 
-```4d
+```qs
 col=New collection(1, 2, New collection(3, 4))
 col.flat()
 // [1, 2, 3, 4]
@@ -1314,7 +1314,7 @@ It can set the following parameter(s):
 
 #### Example 1
 
-```4d
+```qs
 var col , result : Collection
 col=New collection(1, 2, 3, 4)
 
@@ -1342,7 +1342,7 @@ result=col.flatMap(Formula(Split string($1.value, " ")))
 
 You want to compute the percentage of each value in the collection to the total:
 
-```4d
+```qs
 var c, c2 : Collection
 var f : 4D.Function
 c=New collection(1, 4, 9, 10, 20)
@@ -1396,7 +1396,7 @@ Optionally, you can pass the index of collection from which to start the search 
 
 
 
-```4d
+```qs
  var col : Collection
  var in : Boolean
  var obj : Object
@@ -1457,7 +1457,7 @@ Optionally, you can pass the index of collection from which to start the search 
 
 #### Example
 
-```4d
+```qs
  var col : Collection
  var i : Integer
  col=New collection(1,2,"Henry",5,3,"Albert",6,4,"Alan",5)
@@ -1494,7 +1494,7 @@ The `.indices()` function works exactly the same as the [`.query()`](#query) fun
 
 The *queryString* parameter uses the following syntax:
 
-```4d
+```qs
 propertyPath comparator value {logicalOperator propertyPath comparator value}
 ```
 
@@ -1503,7 +1503,7 @@ For a detailed description of the *queryString* and *value* parameters, please r
 #### Example
 
 
-```4d
+```qs
  var c, icol : Collection
  c=New collection
  c.push(New object("name","Cleveland","zc",35049))
@@ -1554,7 +1554,7 @@ Any type of element accepted by a collection can be inserted, even another colle
 
 #### Example
 
-```4d
+```qs
  var col : Collection
  col=New collection("a","b","c","d") //col:["a","b","c","d"]
  col.insert(2,"X") //col:["a","b","X","c","d"]
@@ -1593,7 +1593,7 @@ By default, null or empty elements of the collection are returned in the resulti
 #### Example
 
 
-```4d
+```qs
  var c : Collection
  var t1,t2 : Text
  c=New collection(1,2,3,"Paris",Null,"",4,5)
@@ -1630,7 +1630,7 @@ The function returns Undefined if the collection is empty.
 #### Example
 
 
-```4d
+```qs
 var col, emptyCol : Collection
 var last : Variant
 col=New collection(10, 20, 30, "hello", 50)
@@ -1687,7 +1687,7 @@ Optionally, you can pass the index of collection from which to start a reverse s
 #### Example
 
 
-```4d
+```qs
  var col : Collection
  var pos1,pos2,pos3,pos4,pos5 : Integer
  col=Split string("a,b,c,d,e,f,g,h,i,j,e,k,e",",") //col.length: 13
@@ -1720,7 +1720,7 @@ The `.length` property is initialized when the collection is created. Adding or 
 #### Example
 
 
-```4d
+```qs
  var col : Collection //col.length initialized to 0
  var vSize : Integer
  col=New collection("one","two","three") //col.length updated to 3
@@ -1778,7 +1778,7 @@ It can set the following parameter(s):
 #### Example
 
 
-```4d
+```qs
 var c, c2 : Collection
 c=New collection(1, 4, 9, 10, 20)
 c2=c.map(Formula(Round(($1.value/2)*100, 2)), c.sum())
@@ -1820,7 +1820,7 @@ If the collection is empty, `.max()` returns *Undefined*.
 #### Example
 
 
-```4d
+```qs
  var col : Collection
  var max, maxSal, maxName : Variant
  col=New collection(200,150,55)
@@ -1866,7 +1866,7 @@ If the collection is empty, `.min()` returns *Undefined*.
 #### Example
 
 
-```4d
+```qs
  var col : Collection
  var min, minSal, minName : Variant
  col=New collection(200,150,55)
@@ -1947,7 +1947,7 @@ If the collection contains elements of different types, they are first grouped b
 
 Ordering a collection of numbers in ascending and descending order:
 
-```4d
+```qs
  var c, c2, c3 : Collection
  c=New collection
  For(vCounter,1,10)
@@ -1962,7 +1962,7 @@ Ordering a collection of numbers in ascending and descending order:
 
 Ordering a collection of objects based on a text formula with property names:
 
-```4d
+```qs
  var c, c2 : Collection
  c=New collection
  For(vCounter,1,10)
@@ -1975,7 +1975,7 @@ Ordering a collection of objects based on a text formula with property names:
 
 Ordering a collection of objects with a property path:
 
-```4d
+```qs
  var c, c2 : Collection
  c=New collection
  c.push(New object("name","Cleveland","phones",New object("p1","01","p2","02")))
@@ -1989,7 +1989,7 @@ Ordering a collection of objects with a property path:
 
 Ordering a collection of objects using a collection of criteria objects:
 
-```4d
+```qs
  var crit, c, c2 : Collection
  crit=New collection
  c=New collection
@@ -2003,7 +2003,7 @@ Ordering a collection of objects using a collection of criteria objects:
 
 Ordering with a property path:
 
-```4d
+```qs
  var crit, c, c2 : Collection
  c=New collection
  c.push(New object("name","Cleveland","phones",New object("p1","01","p2","02")))
@@ -2068,7 +2068,7 @@ If you used a method, it must set the following parameter:
 
 You want to sort a collection of strings in numerical order rather than alphabetical order:
 
-```4d
+```qs
  var c, c2, c3 : Collection
  c=New collection
  c.push("33","4","1111","222")
@@ -2080,7 +2080,7 @@ You want to sort a collection of strings in numerical order rather than alphabet
 
 You want to sort a collection of strings on their length:
 
-```4d
+```qs
  var fruits, c2 : Collection
  fruits=New collection("Orange","Apple","Grape","pear","Banana","fig","Blackberry","Passion fruit")
  c2=fruits.orderByMethod(Formula(Length(String($1.value))>Length(String($1.value2))))
@@ -2091,7 +2091,7 @@ You want to sort a collection of strings on their length:
 
 You want to sort a collection by character code or language:
 
-```4d
+```qs
 var strings1, strings2 : Collection
 strings1=New collection("Alpha","Charlie","alpha","bravo","Bravo","charlie")
 
@@ -2106,7 +2106,7 @@ strings2=strings1.orderByMethod(Function(sortCollection),sk strict)
 
 The ***sortCollection*** method:
 
-```4d
+```qs
 var $1: Object
 var $2: Integer // sort option
 
@@ -2144,7 +2144,7 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 
 `.pop()`, used in conjunction with [`.push()`](#push), can be used to implement a first-in, last-out stack feature:
 
-```4d
+```qs
  var stack : Collection
  var result : Variant
  stack=New collection //stack:[]
@@ -2184,7 +2184,7 @@ The `.push()` function <!-- REF #collection.push().Summary -->appends one or mor
 
 #### Example 1
 
-```4d
+```qs
  var col : Collection
  col=New collection(1,2) //col:[1,2]
  col.push(3) //[1,2,3]
@@ -2198,7 +2198,7 @@ The `.push()` function <!-- REF #collection.push().Summary -->appends one or mor
 
 You want to sort the resutling collection:
 
-```4d
+```qs
  var col, sortedCol : Collection
  col=New collection(5,3,9) //col:[5,3,9]
  sortedCol=col.push(7,50).sort()
@@ -2238,7 +2238,7 @@ The `.query()` function <!-- REF #collection.query().Summary -->returns all elem
 
 The *queryString* parameter uses the following syntax:
 
-```4d
+```qs
 propertyPath comparator value {logicalOperator propertyPath comparator value}
 ```
 
@@ -2250,7 +2250,7 @@ For detailed information on how to build a query using *queryString*, *value* an
 
 
 
-```4d
+```qs
  var c, c2, c3 : Collection
  c=New collection
  c.push(New object("name","Cleveland","zc",35049))
@@ -2267,7 +2267,7 @@ For detailed information on how to build a query using *queryString*, *value* an
 
 
 
-```4d
+```qs
  var c : Collection
  c=New collection
  c.push(New object("name","Smith","dateHired",!22-05-2002!,"age",45))
@@ -2280,14 +2280,14 @@ For detailed information on how to build a query using *queryString*, *value* an
 
 This example returns persons whose name contains "in":
 
-```4d
+```qs
  col=c.query("name = :1","@in@")
   //col:[{name:Winch...},{name:Sterling...}]
 ```
 
 This example returns persons whose name does not begin with a string from a variable (entered by the user, for example):
 
-```4d
+```qs
  col=c.query("name # :1",aString+"@")
   //if astring="W"
   //col:[{name:Smith...},{name:Sterling...},{name:Mark...}]
@@ -2295,14 +2295,14 @@ This example returns persons whose name does not begin with a string from a vari
 
 This example returns persons whose age is not known (property set to null or undefined):
 
-```4d
+```qs
  col=c.query("age=null") //placeholders not allowed with "null"
   //col:[{name:Wesson...},{name:Sterling...},{name:Mark...}]
 ```
 
 This example returns persons hired more than 90 days ago:
 
-```4d
+```qs
  col=c.query("dateHired < :1",(Current date-90))
   //col:[{name:Smith...},{name:Sterling...},{name:Mark...}] if today is 01/10/2018
 ```
@@ -2366,7 +2366,7 @@ The callback sets the following parameter(s):
 #### Example 1
 
 
-```4d
+```qs
 var c : Collection
 c=New collection(5,3,5,1,3,4,4,6,2,2)
 r=c.reduce(Formula($1.accumulator*=$1.value), 1)  //returns 86400
@@ -2377,7 +2377,7 @@ r=c.reduce(Formula($1.accumulator*=$1.value), 1)  //returns 86400
 
 This example allows reducing several collection elements to a single one:
 
-```4d
+```qs
  var c,r : Collection
  c=New collection
  c.push(New collection(0,1))
@@ -2389,7 +2389,7 @@ This example allows reducing several collection elements to a single one:
 
 With the following ***Flatten*** method:
 
-```4d
+```qs
  If($1.accumulator=Null)
     $1.accumulator=New collection
  End if
@@ -2449,7 +2449,7 @@ The callback sets the following parameter(s):
 #### Example 1
 
 
-```4d
+```qs
 var c : Collection
 c=New collection(5,3,5,1,3,4,4,6,2,2)
 r=c.reduceRight(Formula($1.accumulator*=$1.value), 1)  //returns 86400
@@ -2463,7 +2463,7 @@ r=c.reduceRight(Formula($1.accumulator*=$1.value), 1)  //returns 86400
 
 This example allows reducing several collection elements to a single one:
 
-```4d
+```qs
  var c,r : Collection
  c=New collection
  c.push(New collection(0,1))
@@ -2475,7 +2475,7 @@ This example allows reducing several collection elements to a single one:
 
 With the following ***Flatten*** method:
 
-```4d
+```qs
 	//Flatten project method
  If($1.accumulator=Null)
     $1.accumulator=New collection
@@ -2526,7 +2526,7 @@ If you try to remove an element from an empty collection, the method does nothin
 #### Example
 
 
-```4d
+```qs
  var col : Collection
  col=New collection("a","b","c","d","e","f","g","h")
  col.remove(3) // ["a","b","c","e","f","g","h"]
@@ -2572,7 +2572,7 @@ By default, new elements are filled will **null** values. You can specify the va
 #### Example
 
 
-```4d
+```qs
  var c : Collection
  c=New collection
  c.resize(10) // c:[null,null,null,null,null,null,null,null,null,null]
@@ -2616,7 +2616,7 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 #### Example
 
 
-```4d
+```qs
  var c, c2 : Collection
  c=New collection(1,3,5,2,4,6)
  c2=c.reverse() //c2:[6,4,2,5,3,1]
@@ -2652,7 +2652,7 @@ If the collection is empty, this method does nothing.
 #### Example
 
 
-```4d
+```qs
  var c : Collection
  var val : Variant
  c=New collection(1,2,4,5,6,7,8)
@@ -2699,7 +2699,7 @@ The returned collection contains the element specified by *startFrom* and all su
 #### Example
 
 
-```4d
+```qs
  var c, nc : Collection
  c=New collection(1,2,3,4,5)
  nc=c.slice(0,3) //nc:[1,2,3]
@@ -2767,7 +2767,7 @@ By default, `.some()` tests the whole collection. Optionally, you can pass the i
 
 You want to know if at least one collection value is >0.
 
-```4d
+```qs
  var c : Collection
  var b : Boolean
  c=New collection
@@ -2840,7 +2840,7 @@ If the collection contains elements of different types, they are first grouped b
 #### Example 1
 
 
-```4d
+```qs
  var col, col2 : Collection
  col=New collection("Tom",5,"Mary",3,"Henry",1,"Jane",4,"Artie",6,"Chip",2)
  col2=col.sort() // col2:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
@@ -2849,7 +2849,7 @@ If the collection contains elements of different types, they are first grouped b
 
 #### Example 2
 
-```4d
+```qs
  var col, col2 : Collection
  col=New collection(10,20)
  col2=col.push(5,3,1,4,6,2).sort() //col2:[1,2,3,4,5,6,10,20]
@@ -2857,7 +2857,7 @@ If the collection contains elements of different types, they are first grouped b
 
 #### Example 3
 
-```4d
+```qs
 var col, col2, col3 : Collection
 col=New collection(33,4,66,1111,222)
 col2=col.sort() //numerical sort: [4,33,66,222,1111]
@@ -2900,7 +2900,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 #### Example 1
 
 
-```4d
+```qs
  var col : Collection
  var vSum : Real
  col=New collection(10,20,"Monday",True,2)
@@ -2909,7 +2909,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 #### Example 2
 
-```4d
+```qs
  var col : Collection
  var vSum : Real
  col=New collection
@@ -2951,7 +2951,7 @@ If several values are passed, they are inserted all at once, which means that th
 #### Example
 
 
-```4d
+```qs
  var c : Collection
  c=New collection(1,2)
  c.unshift(4) // c:[4,1,2]

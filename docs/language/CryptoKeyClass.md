@@ -12,10 +12,10 @@ This class is available from the `4D` class store.
 
 The following sample code signs and verifies a message using a new ECDSA key pair, for example in order to make a ES256 JSON Web token.
 
-```4d
+```qs
  // Generate a new ECDSA key pair
 var key : 4D.CryptoKey
-key=4D.CryptoKey.new(New object("type","ECDSA","curve","prime256v1"))
+key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 
   // Get signature as base64
 var message, signature : Text

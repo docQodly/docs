@@ -147,7 +147,7 @@ This property is **read-only**.
 
 **Example**  
 
-```4d
+```qs
  myFile=File("C:\\Documents\\Archives\\ReadMe.txt",fk platform path)
  If(myFile.isWritable)
     myNewFile=myFile.setText("Added text")
@@ -310,7 +310,7 @@ The copied `File` object.
 
 You want to copy a picture *file* from the user's document folder to the application folder:
 
-```4d
+```qs
 var source, copy : Object
 source=Folder(fk documents folder).file("Pictures/photo.png")
 copy=source.copyTo(Folder("/PACKAGE"),fk overwrite)
@@ -342,7 +342,7 @@ A `4D.Blob` object.
 
 To save a document's contents in a `Blob` attribute:
 
-```4d
+```qs
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
@@ -431,7 +431,7 @@ Text of the file.
 
 Given the following text document (fields are separated by tabs):
 
-```4d
+```qs
 id name price vat
 3 thé 1.06€ 19.6
 2 café 1.05€ 19.6
@@ -439,7 +439,7 @@ id name price vat
 
 When you execute this code:
 
-```4d
+```qs
  var 
  myFile=Folder(fk documents folder).file("Billing.txt") //UTF-8 by default
  txt=myFile.getText()
@@ -453,7 +453,7 @@ with `\t` (tab) as separator and `\r\n` (CRLF) as line delimiter.
 
 Here is another example with the same file, but a different line delimiter:
 
-```4d
+```qs
  txt=myFile.getText("UTF-8", Document with LF)
 ```
 

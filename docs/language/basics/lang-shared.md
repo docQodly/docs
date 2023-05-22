@@ -33,7 +33,7 @@ Modifications can be applied to shared objects and shared collections:
 
 However, all modification instructions in a shared object or collection must be surrounded by the `use...end` keywords, otherwise an error is generated.
 
-```4d
+```qs
 s_obj=newSharedObject("prop1","alpha")
 use(s_obj)
    s_obj.prop1="omega"
@@ -79,7 +79,7 @@ For more information, refer to the [`storage` command description](../object.md#
 
 The formal syntax of the `use...end` structure is:
 
-```4d
+```qs
  use(Shared_object_or_Shared_collection)
     statement(s)
  end
@@ -107,7 +107,7 @@ If a function of the [collection class](../CollectionClass.md) modifies a shared
 
 The following examples highlight specific rules when handling shared groups:
 
-```4d
+```qs
  ob1=newSharedObject
  ob2=newSharedObject
  use(ob1)

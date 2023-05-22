@@ -19,7 +19,7 @@ Entity attributes are directly available as properties of the entity object. For
 
 For example, we want to create a new entity in the "Employee" dataclass in the current datastore with "John" and "Dupont" assigned to the firstname and name attributes:
 
-```4d
+```qs
 var myEntity : cs.EmployeeEntity
 myEntity=ds.Employee.new() //Create a new object of the entity type
 myEntity.name="Dupont" //assign 'Dupont' to the 'name' attribute
@@ -34,7 +34,7 @@ An entity contains a reference to a database record. Different entities can refe
 
 If you execute the following code:
 
-```4d
+```qs
  var e1, e2 : cs.EmployeeEntity
  e1=ds.Employee.get(1) //access the employee with ID 1
  e2=e1
@@ -49,7 +49,7 @@ This is illustrated by the following graphic:
 
 Now if you execute:
 
-```4d
+```qs
  var e1,e2 : cs.EmployeeEntity
  e1=ds.Employee.get(1)
  e2=ds.Employee.get(1)
@@ -67,7 +67,7 @@ Note however that entities refer to the same record. In all cases, if you call t
 
 In fact, `$e1` and `$e2` are not the entity itself, but a reference to the entity. It means that you can pass them directly to any function or method, and it will act like a pointer. For example:
 
-```4d
+```qs
  For each(entity,selection)
     do_Capitalize(entity)
  End for each
@@ -75,7 +75,7 @@ In fact, `$e1` and `$e2` are not the entity itself, but a reference to the entit
  
 And the *do_Capitalize* method is:
 
-```4d
+```qs
  #DECLARE (entity : cs.EmployeeEntity)
  var name : Text
  name=entity.lastname
@@ -99,7 +99,7 @@ Entity attributes store or reference data and map corresponding fields in the co
 
 For example, to set a storage attribute:
 
-```4d
+```qs
  entity=ds.Employee.get(1) //get employee attribute with ID 1
  name=entity.lastname //get the employee name, e.g. "Smith"
  entity.lastname="Jones" //set the employee name
@@ -113,7 +113,7 @@ Accessing a related attribute depends on the attribute [`kind`](../../language/D
 
 You can access data through the related object(s):
 
-```4d
+```qs
  var entity : cs.CompanyEntity
  var entitySel : cs.ProjectSelection
  entity=ds.Project.all().first().theClient //get the Company entity associated to the project
@@ -126,7 +126,7 @@ Note that both *theClient* and *companyProjects* in the above example are primar
 
 Each employee can be a manager and can have a manager. To get the manager of the manager of an employee, you can simply write:
 
-```4d
+```qs
  var myEmp : cs.EmployeeEntity
  var manLev2 : Text
  myEmp=ds.Employee.get(50)
@@ -148,7 +148,7 @@ In this example, an entity in the "Employee" dataclass contains an object of typ
 
 To assign a value directly to the "employer" attribute, you must pass an existing entity from the "Company" dataclass. For example:
 
-```4d
+```qs
  var emp : cs.EmployeeEntity
  emp=ds.Employee.new() // create an employee
  emp.lastname="Smith" // assign a value to an attribute
@@ -158,7 +158,7 @@ To assign a value directly to the "employer" attribute, you must pass an existin
 
 ORDA provides an additional facility for entering a relation attribute for a "many" entity related to a "one" entity: you pass the primary key of the "one" entity directly when assigning a value to the relation attribute. For this to work, you pass data of type Number or Text (the primary key value) to the relation attribute. ORDA then automatically takes care of searching for the corresponding entity in the dataclass. For example:
 
-```4d
+```qs
  var emp : cs.EmployeeEntity
  emp=ds.Employee.new()
  emp.lastname="Wesson"
@@ -206,7 +206,7 @@ An entity selection is usually unordered, but it can be ordered (see [Ordered or
 
 All storage attributes (text, number, boolean, date) are available as properties of entity selections as well as of entities. When used in conjunction with an entity selection, a scalar attribute returns a collection of scalar values. For example:
 
-```4d
+```qs
  var locals : cs.PersonSelection
  var localEmails : Collection
  locals=ds.Person.query("city = :1","San Jose") //entity selection of person
@@ -219,7 +219,7 @@ In addition to the variety of ways you can query, you can also use relation attr
 
 ![](img/structure6.png)
 
-```4d
+```qs
  var myParts : cs.PartSelection
  var myInvoices : cs.InvoiceSelection
  myParts=ds.Part.query("ID < 100") //Return parts with ID less than 100
@@ -266,7 +266,7 @@ A new entity selection is **shareable** in the following cases:
 
 Example: 
 
-```4d
+```qs
 var myComp : cs.CompanyEntity
 var employees : cs.EmployeeSelection
 myComp=ds.Company.get(2) //myComp does not belong to an entity selection
@@ -280,7 +280,7 @@ A new entity selection is **alterable** in the following cases:
 
 Example:
 
-```4d
+```qs
 var toModify : cs.CompanySelection
 toModify=ds.Company.all().copy() //toModify is alterable
 ```
@@ -296,7 +296,7 @@ A new entity selection **inherits** from the original entity selection nature in
 
 Examples:
  
-```4d
+```qs
 var highSal , lowSal : cs.EmployeeSelection
 var comp, comp2 : cs.CompanySelection
 highSal=ds.Employee.query("salary >= :1"; 1000000)   
@@ -313,7 +313,7 @@ comp2=lowSal.employer //comp2 is alterable because lowSal is alterable
 
 You work with two entity selections that you want to pass to a worker process so that it can send mails to appropriate persons:
 
-```4d
+```qs
 
 var paid,unpaid : cs.InvoicesSelection
 //We get entity selections for paid and unpaid invoices
@@ -327,7 +327,7 @@ CALL WORKER("mailing"; "sendMails", $paid; $unpaid)
 
 The `sendMails` method:
 
-```4d 
+```qs 
 
  #DECLARE (paid : cs.InvoicesSelection, unpaid : cs.InvoicesSelection)
  var invoice : cs.InvoicesEntity
@@ -394,7 +394,7 @@ The following diagram illustrates optimistic locking:
 
 This can also be illustrated by the following code:
 
-```4d
+```qs
  person1=ds.Person.get(1) //Reference to entity
  person2=ds.Person.get(1) //Other reference to same entity
  person1.name="Bill"

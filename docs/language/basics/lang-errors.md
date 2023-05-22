@@ -3,12 +3,12 @@ id: lang-errors
 title: Error handling
 ---
 
-Error handling is the process of anticipating and responding to errors that might occur in your application. Qodly provides a comprehensive support for catching and reporting errors at runtime, as well as for investigating their conditions. 
+Error handling is the process of anticipating and responding to errors that might occur in your application. Qodly provides a comprehensive support for catching and reporting errors at runtime, as well as for investigating their conditions.
 
 Error handling meets two main needs:
 
 - finding out and fixing potential errors and bugs in your code during the development phase,
-- catching and recovering from unexpected errors in deployed applications; in particular, you can replace system error messages with you own interface. 
+- catching and recovering from unexpected errors in deployed applications; in particular, you can replace system error messages with you own interface.
 
 
 ## Error or status
@@ -20,7 +20,7 @@ Other "unpredictable" errors include write error, network failure, or in general
 
 ## Installing an error-handling method
 
-In Quodly, all errors can be caught and handled by specific methods, named **error-handling** (or **error-catching**) methods. 
+In Quodly, all errors can be caught and handled by specific methods, named **error-handling** (or **error-catching**) methods.
 
 Once installed, error handlers are automatically called in case of error in the Qodly application. A different error handler can be called depending on the execution context (see below).  
 
@@ -62,7 +62,7 @@ onErrCall("IO_Errors",ek local) //Installs a local error-handling method
 onErrCall("globalHandler",ek global) //Installs a global error-handling method
 ```
 
-You can install a global error handler that will serve as "fallback" and specific local error handlers for certain processes. 
+You can install a global error handler that will serve as "fallback" and specific local error handlers for certain processes.
 
 You can define a single error-catching method for the whole application or different methods per application module. However, only one method can be installed per execution context and per project. When an error occurs, only one method is called.
 
@@ -70,9 +70,9 @@ You can define a single error-catching method for the whole application or diffe
 ### Handling errors within the method
 
 Within a custom error method, you can use several commands that will help you identifying the error:
-  
-- the [`lastErrors`](../interruptions.md#lasterrors) command that returns a collection of the current stack of errors that occurred in the Qodly application. 
-- the [`callChain`](../language.md#callchain) command that returns a collection of objects describing each step of the method call chain within the current process. 
+
+- the [`lastErrors`](../interruptions.md#lasterrors) command that returns a collection of the current stack of errors that occurred in the Qodly application.
+- the [`callChain`](../language.md#callchain) command that returns a collection of objects describing each step of the method call chain within the current process.
 
 
 #### Example
@@ -109,5 +109,3 @@ if (errNum==-43)
 end
 onErrCall("")
 ```
-
-

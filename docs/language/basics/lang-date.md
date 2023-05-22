@@ -22,7 +22,7 @@ You can select the data type for a Date attribute in your model. This page descr
 
 A date literal constant is enclosed by exclamation marks (!…!). A date must be structured using the ISO format (!YYYY-MM-DD!). Here are some examples of date constants:
 
-```4d
+```qs
 !1976-01-01!
 !2004-09-29!
 !2023-12-31!

@@ -18,7 +18,7 @@ The [Formula](#formula) and [Formula from string](#formula-from-string) commands
 
 Formula objects can be encapsulated in object properties:
 
-```4d
+```qs
  var f : 4D.Function
  f=New object
  f.comp=Formula(1+2)
@@ -26,25 +26,25 @@ Formula objects can be encapsulated in object properties:
 
 This property is an "object function", i.e. a function which is bound to its parent object. To execute a function stored in an object property, use the **()** operator after the property name, such as:
 
-```4d
+```qs
  f.comp() //returns 3
 ```
 
 Syntax with brackets is also supported:
 
-```4d
+```qs
  f["comp"]() //returns 3
 ```
 
 Note that, even if it does not have parameters (see below), an object function to be executed must be called with () parenthesis. Calling only the object property will return a new reference to the formula (and will not execute it):
 
-```4d
+```qs
  o=f.comp //returns the formula object in o
 ```
 
 You can also execute a function using the [`apply()`](#apply) and [`call()`](#call) functions:
 
-```4d
+```qs
  f.comp.apply() //returns 3
 ```
 
@@ -54,7 +54,7 @@ You can pass parameters to your formulas using sequentially numbered "$" variabl
 
  For example, you can write:
 
-```4d
+```qs
 
  var f : Object
  f=New object
@@ -64,7 +64,7 @@ You can pass parameters to your formulas using sequentially numbered "$" variabl
 
 Or using the [.call()](#call) function:
 
-```4d
+```qs
  var f : 4D.Function
  var r : Integer
  f=Formula($1+$2)
@@ -76,7 +76,7 @@ Or using the [.call()](#call) function:
 
 For more convenience, when the formula is made of a single method, parameters can be omitted in the formula object initialization. They can just be passed when the formula is called. For example:
 
-```4d
+```qs
  var f : 4D.Function
  var t : Text
 
@@ -140,7 +140,7 @@ The returned formula can be called with:
 *	[`.call()`](#call) or [`.apply()`](#apply) functions, or
 *	object notation syntax (see [formula object](#formula-object)).
 
-```4d
+```qs
  var f : 4D.Function
  f=Formula(1+2)
  o=New object("myFormula",f)
@@ -164,7 +164,7 @@ The object created by `Formula` can be saved, for example, in a datastore attrib
 
 A simple formula:
 
-```4d
+```qs
  var f : 4D.Function
  f=Formula(1+2)
 
@@ -178,7 +178,7 @@ A simple formula:
 
 A formula using variables:
 
-```4d
+```qs
  var value : Integer
 
  value=10
@@ -193,7 +193,7 @@ A formula using variables:
 
 A simple formula using parameters:
 
-```4d
+```qs
  o=New object("f",Formula($1+$2))
  result=o.f(10,20) //returns 30
 ```
@@ -203,7 +203,7 @@ A simple formula using parameters:
 
 A formula using a project method with parameters:
 
-```4d
+```qs
  o=New object("f",Formula(myMethod))
  result=o.f("param1","param2") // equivalent to result=myMethod("param1","param2")
 ```
@@ -213,7 +213,7 @@ A formula using a project method with parameters:
 
 Using `This`:
 
-```4d
+```qs
  o=New object("fullName",Formula(This.firstName+" "+This.lastName))
  o.firstName="John"
  o.lastName="Smith"
@@ -224,7 +224,7 @@ Using `This`:
 
 Calling a formula using object notation:
 
-```4d
+```qs
  var feta, robot : Object
  var calc : 4D.Function
  robot=New object("name","Robot","price",543,"quantity",2)
@@ -296,7 +296,7 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 
 #### Example 1
 
-```4d
+```qs
  var f : 4D.Function
  f=Formula($1+$2+$3)
 
@@ -307,7 +307,7 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 
 #### Example 2
 
-```4d
+```qs
  var calc : 4D.Function
  var feta, robot : Object
  robot=New object("name","Robot","price",543,"quantity",2)
@@ -349,7 +349,7 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
 
 #### Example 1
 
-```4d
+```qs
  var f : 4D.Function
  var result : Text
  f=Formula(Uppercase($1))
@@ -358,7 +358,7 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
 
 #### Example 2
 
-```4d
+```qs
  var f : 4D.Function
  var o : Object
  var result : Integer
@@ -385,7 +385,7 @@ This property is **read-only**.
 
 #### Example
 
-```4d
+```qs
  var of : 4D.Function
  var tf : Text
  of=Formula(String(Current time,HH MM AM PM))

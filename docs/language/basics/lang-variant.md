@@ -22,7 +22,7 @@ A variant type variable can contain a value of the following data types:
 
 A same variant variable can be assigned contents of different types. Unlike regular variable types, the variant variable content type is different from the variant variable type itself. For example:
 
-```4d
+```qs
 var variant : variant
 
 variant="hello world"
@@ -36,7 +36,7 @@ vtypeVal=valueType(variant) // 1 (Is real)
 
 You can use variant variables wherever variables are expected, you only need to make sure than the variable content data type is of the expected type. When accessing variant variables, only their current value is taken into account. For example:
 
-```4d
+```qs
 var v,v2,t,t2 : Variant
 v="hello world"
 v2=v //assign variable to another variable
@@ -47,7 +47,7 @@ t2=type(v2) // 2 (Is text)
 
 Variant can be used to declare method parameters that can be of various types. In this case, you can build your code by testing the parameter value type, for example:
 
-```4d
+```qs
 declare (param : variant)
 switch
 : (valueType(param)==Is longint)

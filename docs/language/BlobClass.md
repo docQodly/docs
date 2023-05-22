@@ -62,7 +62,7 @@ The `end` parameter is an index into the blob indicating the first byte that wil
 
 #### Example
 
-```4d
+```qs
 var myBlob, myNewBlob : 4D.Blob
 var is4DBlob : Boolean
 var myString : Text

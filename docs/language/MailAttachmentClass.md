@@ -111,7 +111,7 @@ By default, if the *disposition* parameter is omitted:
 
 You want to send an email with a file as an attachment and an image embedded in the HTML body:
 
-```4d
+```qs
 var attachment : 4D.File
 var email,server : Object
 var transporter : 4D.SMTPTransporter

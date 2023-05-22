@@ -171,7 +171,7 @@ If necessary, the function creates the folder hierachy as described in the [plat
 
 Creation of a preferences file in the database folder:
 
-```4d
+```qs
  var created : Boolean
  created=File("/PACKAGE/SpecialPrefs/"+Current user+".myPrefs").create()
 ```
@@ -215,7 +215,7 @@ A `4D.File` object with the `isAlias` property set to **true**.
 
 You want to create an alias to a file in your database folder:
 
-```4d
+```qs
  myFile=Folder(fk documents folder).file("Archives/ReadMe.txt")
  aliasFile=myFile.createAlias(File("/PACKAGE"),"ReadMe")
 ```
@@ -250,7 +250,7 @@ If the file does not exist on disk, the function does nothing (no error is gener
 
 You want to delete a specific file in the database folder:
 
-```4d
+```qs
  var tempo : 4D.File
  var info : Text
  tempo=File("/PACKAGE/SpecialPrefs/"+Current user+".prefs")
@@ -311,7 +311,7 @@ The xml file contents is parsed and keys are returned as properties of the objec
 
 #### Example
 
-```4d
+```qs
  // extract copyright info of application .exe file (windows)
 var exeFile : 4D.File
 var info : Object
@@ -384,7 +384,7 @@ The moved `File` object.
 
 #### Example
 
-```4d
+```qs
 DocFolder=Folder(fk documents folder)
 myFile=DocFolder.file("Current/Infos.txt")
 myFile.moveTo(DocFolder.folder("Archives"),"Infos_old.txt")
@@ -447,7 +447,7 @@ The `.breakModeRead` and `.breakModeWrite` indicate the processing to apply to e
 
 You want to create a file handle for reading the "ReadMe.txt" file:
 
-```4d
+```qs
 var f : 4D.File
 var fhandle : 4D.FileHandle
 
@@ -494,7 +494,7 @@ The renamed `File` object.
 
 You want to rename "ReadMe.txt" in "ReadMe_new.txt":
 
-```4d
+```qs
  toRename=File("/SOURCES/ReadMe.txt")
  newName=toRename.rename(toRename.name+"_new"+toRename.extension)
 ```
@@ -552,7 +552,7 @@ If a key set in the *info* parameter is already defined in the .plist file, its 
 
 #### Example
 
-```4d
+```qs
   // set copyright, version and icon of a .exe file (Windows)
 var exeFile, iconFile : 4D.File
 var info : Object
@@ -565,7 +565,7 @@ info.WinIcon=iconFile.path
 exeFile.setAppInfo(info)
 ```
 
-```4d
+```qs
   // set some keys in an info.plist file (all platforms)
 var infoPlistFile : 4D.File
 var info : Object
@@ -600,7 +600,7 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
 
 #### Example
 
-```4d
+```qs
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
@@ -661,7 +661,7 @@ By default, when you omit the *breakMode* parameter, line breaks are processed i
 
 #### Example
 
-```4d
+```qs
 var myFile : 4D.File
 myFile=File("/SOURCES/Hello.txt")
 myFile.setText("Hello world")

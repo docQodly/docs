@@ -23,7 +23,7 @@ The values that operators affect are operands. In the expression `1 + 2`, the + 
 
 The **assignment operator** (`a=b`) initializes or updates the value of `a` with the value of `b`:
 
-```4d
+```qs
 myNumber=3 //assigns 3 to myNumber variable  
 myDate=!2023/01/21! //assigns a date literal
 myLength=length("Acme") //assigns the result of the command (4) to myLength
@@ -52,7 +52,7 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 
 QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+=`):
 
-```4d
+```qs
 a=1 
 a+=2 // a=3
 ```
@@ -93,7 +93,7 @@ The operation "source `operator` value" is not strictly equivalent to "source = 
 > 
 #### Examples
 
-```4d
+```qs
 // Addition
 x=2
 x+=5 //x=7
@@ -153,7 +153,7 @@ The following table summarizes the different cases for the **&&** operator:
 
 #### Example 1 
 
-```4d
+```qs
 var v : variant
 
 v="Hello" && "World" //"World"
@@ -171,7 +171,7 @@ To calculate the tax, you multiply the price by the tax rate, which may not have
 
 So you can write this: 
 
-```4d
+```qs
 var tax : variant
 
 tax=item.taxRate && (item.price*item.taxRate)
@@ -183,7 +183,7 @@ tax=item.taxRate && (item.price*item.taxRate)
 
 Short-circuit operators are useful in tests such as:
 
-```4d
+```qs
 if((myObject!=null) && (myObject.value>10))
 	//code
 end
@@ -214,7 +214,7 @@ The following table summarizes the different cases and the value returned for th
 
 Say you have a dataclass named Employee. Some employees have entered a phone number, and others haven't. This means that `emp.phone` could be null, and you cannot assign null to a string variable. But you can write the following:
 
-```4d
+```qs
 var phone : string
 
 phone=emp.phone || "n/a"
@@ -228,7 +228,7 @@ Given a dataclass named Person with a *name* attribute, as well as a *maidenName
 
 The following example checks if there is a maiden name and stores it in a variable, otherwise it simply stores the person's name:
 
-```4d
+```qs
 var name: string
 
 name=person.maidenName || person.name
@@ -262,7 +262,7 @@ The syntax is as follows:
 
 #### A simple example
 
-```4d
+```qs
 var age : integer
 var beverage : string
 
@@ -276,7 +276,7 @@ beverage=(age>=21) ? "Beer" : "Juice"
 
 This example stores a person's full name in a variable, and handles the case when no first name or last name has been specified:
 
-```4d
+```qs
 var fullname : string
 
 // If one of the names is missing, store the one that exists, otherwise store an empty string
@@ -310,7 +310,7 @@ In QodlyScript, **truthy** and **falsy** evaluation reflects the **usability** o
 
 For example, when you use a [short-circuit OR operator](#short-circuit-or-operator-):
 
-```4d
+```qs
 value=object.value || defaultValue
 ```
 
@@ -318,6 +318,6 @@ value=object.value || defaultValue
 
 Regarding values representing collections, objects, or strings, "empty" values are considered **falsy**. It is handy when you want to assign a default value whenever an empty one is encountered.
 
-```4d
+```qs
 phone=emp.phone || "n/a"
 ```

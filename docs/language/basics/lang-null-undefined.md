@@ -34,7 +34,7 @@ Undefined is not actually a data type. It denotes a variable that has not yet be
 
 *scalar values* are values of type string, date, time, boolean, number, or blob. When declared, their [default value](lang-data-types.md) is neither undefined nor null. Other types (picture, object, collection) have undefined or null default value. Ex:
 
-```4d
+```qs
 var object : Object
 var text : Text
 
@@ -76,7 +76,7 @@ Comparisons of `undefined` values with picture, blob, object, collection, undefi
 
 Here are the different results of the `undefined` command as well as the `null` command with object properties, depending on the context:
 
-```4d
+```qs
 var vEmp : object
 var result : boolean
 vEmp=newObject
@@ -96,7 +96,7 @@ result=(vEmp.parent==null) //True
 
 Examples of comparison results with undefined and null values:
 
-```4d
+```qs
 var result : boolean
 var vObj : object
 var vVar : variant

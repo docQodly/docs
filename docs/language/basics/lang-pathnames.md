@@ -19,7 +19,7 @@ QodlyScript accepts several `filesystem` pathnames that designate specific folde
 - Independence: You can move your solution from one place to another regardless of the environment, without having to worry about paths,
 - Security: No code can access elements located above the file system root on the disk (sandboxing).
 
-The following filesystem pathnames are supported: 
+The following filesystem pathnames are supported:
 
 |filesystem|Designates|
 |---|---|
@@ -82,11 +82,11 @@ The flexibility of file and folder functions offers you various possibilities fo
 
 ```qs
 f=folder(fk data folder).folder("archive/jan2023")
- 
+
 f2=folder("/DATA/archive/jan2023").file("total.txt")
- 
+
 f3=folder("/DATA/archive/jan2023")
- 
+
 f4=file("/DATA/info.txt")
- 
+
 ```

@@ -39,6 +39,26 @@ The command can return the following values, depending on the *any* result type:
 
 This command is useful when the code expects a boolean value, and when the evaluation of the expression could result in a different type (e.g. if it evaluates to **null** or **undefined**).
 
+#### Example 1
+
+```4d
+var result : boolean
+result=bool(1)  //true
+result=bool(0)  //false
+result=bool("hello")  //false
+
+```
+
+#### Example 2
+
+```4d
+var o : object
+o={test: 42}
+result=bool(o.test)  //true
+result=bool(o.otherTest)  //false
+
+```
+
 #### See also
 
 [`date`](../dateandtime#date)<br/>
@@ -64,7 +84,7 @@ This command is useful when the code expects a boolean value, and when the evalu
 
 The following example sets the variable *vbOptions* to false:
 
-```4d
+```qs
  var vbOptions : boolean
  vbOptions=false
 ```
@@ -93,7 +113,7 @@ The `not` function <!-- REF #_command_.true.Summary -->returns the negation of *
 
 This example first assigns **true** to a variable, then changes the variable value to **false**, and then back to **true**.
 
-```4d
+```qs
  var vResult : boolean
  vResult=true // vResult is set to true
  vResult=not(vResult) // vResult is set to false
@@ -123,7 +143,7 @@ This example first assigns **true** to a variable, then changes the variable val
 
 The following example sets the variable *vbOptions* to true:
 
-```4d
+```qs
  var vbOptions : boolean
  vbOptions=true
 ```

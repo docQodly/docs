@@ -59,7 +59,7 @@ If `.new()` is called on a non-existing class, an error is returned.
 
 To create a new instance of the Person class:
 
-```4d
+```qs
 var person : cs.Person  
 person=cs.Person.new() //create the new instance  
 //person contains functions of the class
@@ -67,7 +67,7 @@ person=cs.Person.new() //create the new instance
 
 To create a new instance of the Person class with parameters:
 
-```4d
+```qs
 //Class: Person.4dm
 Class constructor(firstname : Text, lastname : Text, age : Integer)
 	This.firstName=firstname
@@ -75,7 +75,7 @@ Class constructor(firstname : Text, lastname : Text, age : Integer)
 	This.age=age
 ```
 
-```4d
+```qs
 //In a method
 var person : cs.Person  
 person=cs.Person.new("John","Doe",40)  
@@ -105,7 +105,7 @@ This property is **read-only**.
 
 #### Examples
 
-```4d
+```qs
 var sup: Variant
 sup=4D.File.superclass //Document
 sup=4D.Document.superclass //Object

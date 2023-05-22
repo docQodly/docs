@@ -120,9 +120,9 @@ The name of a variable can be up to 31 characters.
 Examples:
 
 ```qs
-for(vlRecord,1,100) 
-vs_My_String="Hello there" 
-var _vAge : integer 
-if(bValidate==1) 
+for(vlRecord,1,100)
+vs_My_String="Hello there"
+var _vAge : integer
+if(bValidate==1)
 vlProcessID=currentProcess()
 ```

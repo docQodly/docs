@@ -69,7 +69,7 @@ The attribute value type depends on the attribute [kind](DataClassAttributeClass
 
 #### Example
 
-```4d
+```qs
  var myEntity : cs.EmployeeEntity
  myEntity=ds.Employee.new() //Create a new entity
  myEntity.name="Dupont" // assign 'Dupont' to the 'name' attribute
@@ -107,7 +107,7 @@ This function can only be used with entities already saved in the database. It c
 
 #### Example 
 
-```4d
+```qs
  var emp, empCloned : cs.EmployeeEntity
  emp=ds.Employee.get(672)
  empCloned=emp.clone()
@@ -165,7 +165,7 @@ If one of the compared entities is **Null**, an error is raised.
 #### Example 1
 
 
-```4d
+```qs
  var diff1, diff2 : Collection
  var employee, clone : cs.EmployeeEntity
  employee=ds.Employee.query("ID=1001").first()
@@ -180,7 +180,7 @@ If one of the compared entities is **Null**, an error is raised.
 
 diff1:
 
-```4d
+```qs
 [
     {
         "attributeName": "firstName",
@@ -216,7 +216,7 @@ diff2:
 
 #### Example 2
 
-```4d
+```qs
  var vCompareResult1, vCompareResult2, vCompareResult3, attributesToInspect : Collection
  var e1, e2 : cs.EmployeeEntity
  var c : cs.CompanyEntity
@@ -245,7 +245,7 @@ diff2:
 
 vCompareResult1 (all differences are returned):
 
-```4d
+```qs
 [
     {
         "attributeName": "firstName",
@@ -277,7 +277,7 @@ vCompareResult1 (all differences are returned):
 
 vCompareResult2 (only differences on attributesToInspect are returned)
 
-```4d
+```qs
 [
     {
         "attributeName": "firstName",
@@ -294,7 +294,7 @@ vCompareResult2 (only differences on attributesToInspect are returned)
 
 vCompareResult3 (only differences on e1 touched attributes are returned)
 
-```4d
+```qs
 [
     {
         "attributeName": "firstName",
@@ -387,7 +387,7 @@ The object returned by `.drop( )` contains the following properties:
 
 Example without `dk force drop if stamp changed` option:
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var status : Object
@@ -407,7 +407,7 @@ Example without `dk force drop if stamp changed` option:
 
 Example with `dk force drop if stamp changed` option:
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var status : Object
@@ -449,7 +449,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 
 #### Example   
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee, firstEmployee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
@@ -495,7 +495,7 @@ The mapping between the object and the entity is done on the attribute names:
 
 With the following *o* object:
 
-```4d
+```qs
 {
     "firstName": "Mary",
     "lastName": "Smith",
@@ -511,7 +511,7 @@ With the following *o* object:
 The following code will create an entity with manager and employer related entities.
 
 
-```4d
+```qs
  var o : Object
  var entity : cs.EmpEntity
 
@@ -523,7 +523,7 @@ The following code will create an entity with manager and employer related entit
 
 You could also use a related entity given as an object:
 
-```4d
+```qs
 
 {
     "firstName": "Marie",
@@ -568,7 +568,7 @@ The `.getDataClass()` function <!-- REF #EntityClass.getDataClass().Summary -->r
 
 The following generic code duplicates any entity:
 
-```4d
+```qs
   //duplicate_entity method 
   //duplicate_entity(entity) 
   
@@ -612,7 +612,7 @@ Primary keys can be numbers (Integer) or strings. You can "force" the returned p
 #### Example   
 
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : Text
@@ -647,7 +647,7 @@ If the entity does not belong to an entity selection, the function returns Null.
 #### Example   
 
 
-```4d
+```qs
  var emp : cs.EmployeeEntity
  var employees, employees2 : cs.EmployeeSelection
  var info : Text
@@ -692,7 +692,7 @@ For a new entity (never saved), the function returns 0. To know if an entity has
 #### Example   
 
 
-```4d
+```qs
  var entity : cs.EmployeeEntity
  var stamp : Integer
  
@@ -739,7 +739,7 @@ The resulting value is included between 0 and the length of the entity selection
 #### Example   
 
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : Text
@@ -777,7 +777,7 @@ The `.isNew()` function <!-- REF #EntityClass.isNew().Summary --> returns True i
 #### Example   
 
 
-```4d
+```qs
  var emp : cs.EmployeeEntity
  var info : Text
  
@@ -814,7 +814,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 #### Example   
 
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee, lastEmployee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
@@ -898,7 +898,7 @@ The object returned by `.lock()` contains the following properties:
 
 Example with error:
 
-```4d
+```qs
  var employee : cs.EmployeeEntity
  var status : Object
  var info : Text
@@ -917,7 +917,7 @@ Example with error:
 
 Example with `dk reload if stamp changed` option:
 
-```4d
+```qs
  var employee : cs.EmployeeEntity
  var status : Object
  var info : Text
@@ -958,7 +958,7 @@ If there is no valid next entity in the entity selection (i.e. you are on the la
 
 #### Example   
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee, nextEmployee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
@@ -993,7 +993,7 @@ If there is no valid previous entity in the entity selection (i.e. you are on th
 
 #### Example   
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee, previousEmployee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
@@ -1042,7 +1042,7 @@ The object returned by `.reload()` contains the following properties:
 
 #### Example   
 
-```4d
+```qs
  var employee : cs.EmployeeEntity
  var employees : cs.EmployeeSelection
  var result : Object
@@ -1134,7 +1134,7 @@ The following values can be returned in the `status` and `statusText` properties
 
 Creating a new entity:
 
-```4d
+```qs
  var status : Object
  var employee : cs.EmployeeEntity
  var info : Text
@@ -1151,7 +1151,7 @@ Creating a new entity:
 
 Updating an entity without `dk auto merge` option:
 
-```4d
+```qs
  var status : Object
  var employee : cs.EmployeeEntity
  var employees : cs.EmployeeSelection
@@ -1171,7 +1171,7 @@ Updating an entity without `dk auto merge` option:
 
 Updating an entity with `dk auto merge` option:
 
-```4d
+```qs
  var status : Object
 
  var employee : cs.EmployeeEntity
@@ -1249,7 +1249,7 @@ The following structure will be used throughout all examples of this section:
 
 Without filter parameter:
 
-```4d
+```qs
 employeeObject=employeeSelected.toObject()
 ```
 
@@ -1282,7 +1282,7 @@ Returns:
 
 Extracting the primary key and the stamp:
 
-```4d
+```qs
 employeeObject=employeeSelected.toObject("",dk with primary key+dk with stamp)
 ```
 
@@ -1315,7 +1315,7 @@ Returns:
 
 Expanding all the properties of `relatedEntities`:
 
-```4d
+```qs
 employeeObject=employeeSelected.toObject("directReports.*")
 ```
 
@@ -1384,7 +1384,7 @@ employeeObject=employeeSelected.toObject("directReports.*")
 
 Extracting some properties of `relatedEntities`:
 
-```4d
+```qs
  employeeObject=employeeSelected.toObject("firstName, directReports.lastName")
 ```
  
@@ -1411,7 +1411,7 @@ Returns:
 
 Extracting a `relatedEntity` with simple form:
 
-```4d
+```qs
  coll=New collection("firstName","employer")
  employeeObject=employeeSelected.toObject(coll)
 ```
@@ -1431,7 +1431,7 @@ Returns:
 
 Extracting all the properties of a `relatedEntity`:
 
-```4d
+```qs
  employeeObject=employeeSelected.toObject("employer.*")
 ```
 
@@ -1453,7 +1453,7 @@ Returns:
 
 Extracting some properties of a `relatedEntity`:
 
-```4d
+```qs
  col=New collection
  col.push("employer.name")
  col.push("employer.revenues")
@@ -1499,7 +1499,7 @@ This function returns False for a new entity that has just been created (with [`
 
 In this example, we check to see if it is necessary to save the entity: 
 
-```4d
+```qs
  var emp : cs.EmployeeEntity
  emp=ds.Employee.get(672)
  emp.firstName=emp.firstName //Even if updated with the same value, the attribute is marked as touched
@@ -1537,7 +1537,7 @@ If no entity attribute has been touched, the method returns an empty collection.
 #### Example 1  
 
 
-```4d
+```qs
  var touchedAttributes : Collection
  var emp : cs.EmployeeEntity
  
@@ -1553,7 +1553,7 @@ If no entity attribute has been touched, the method returns an empty collection.
 #### Example 2  
 
 
-```4d
+```qs
  var touchedAttributes : Collection
  var emp : cs.EmployeeEntity
  var company : cs.CompanyEntity
@@ -1603,7 +1603,7 @@ A record is automatically unlocked when it is no longer referenced by any entiti
 
 >When a record is locked, it must be unlocked from the locking process and on the entity reference which put the lock. For example:
 
-```4d
+```qs
  e1=ds.Emp.all()[0]
  e2=ds.Emp.all()[0]
  res=e1.lock() //res.success=true
@@ -1621,7 +1621,7 @@ The object returned by `.unlock()` contains the following property:
 
 #### Example  
 
-```4d
+```qs
  var employee : cs.EmployeeEntity
  var status : Object
  var info : Text

@@ -23,7 +23,7 @@ When handled through the code, the datastore is an object, returned by the [`ds`
 
 The datastore object itself cannot be copied as an object:
 
-```4d 
+```qs 
 mydatastore=OB Copy(ds) //returns null
 ```
 
@@ -31,7 +31,7 @@ mydatastore=OB Copy(ds) //returns null
 The datastore properties are however enumerable:
 
 
-```4d 
+```qs 
  ARRAY TEXT(prop,0)
  OB GET PROPERTY NAMES(ds,prop)
   //prop contains the names of all the dataclasses
@@ -51,7 +51,7 @@ For example, consider the following database table:
 
 The `Company` [dataclass](#dataclass) is available in the `ds` datastore. You can write:
 
-```4d 
+```qs 
 var compClass : cs.Company //declares a compClass object variable of the Company class
 compClass=ds.Company //assigns the Company dataclass reference to compClass
 ```
@@ -68,7 +68,7 @@ The dataclass offers an abstraction of the physical database and allows handling
 
 The dataclass object itself cannot be copied as an object:
 
-```4d 
+```qs 
 mydataclass=OB Copy(ds.Employee) //returns null
 ```
 
@@ -85,7 +85,7 @@ OB GET PROPERTY NAMES(ds.Employee,prop)
 
 Basically, dataclass properties are attribute objects describing the underlying fields or relations. For example:
 
-```4d 
+```qs 
  var nameAttribute, revenuesAttribute : Object
  nameAttribute=ds.Company.name //reference to class attribute
  revenuesAttribute=ds.Company["revenues"] //alternate way to reference
@@ -119,7 +119,7 @@ In addition, the following relation attributes will also be automatically availa
 
 All dataclass attributes are exposed as properties of the dataclass:
 
-```4d  
+```qs  
 	// Company available attributes
 ds.Company.companyProjects  //relatedEntities
 ds.Company.discount  
@@ -153,7 +153,7 @@ However, an entity also contains data correlated to the datastore. The purpose o
 
 For example, to create an entity:
 
-```4d
+```qs
  var status : Object
  var employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
 
@@ -165,13 +165,13 @@ For example, to create an entity:
 
 The entity object itself cannot be copied as an object:
 
-```4d
+```qs
  myentity=OB Copy(ds.Employee.get(1)) //returns null
 ```
 
 The entity properties are however enumerable:
 
-```4d
+```qs
  ARRAY TEXT($prop,0)
  OB GET PROPERTY NAMES(ds.Employee.get(1),prop)
   //prop contains the names of all the entity attributes
@@ -184,20 +184,20 @@ An entity selection is an object containing one or more reference(s) to entities
 
 Example:
 
-```4d
+```qs
 var e : cs.EmployeeSelection //declares a e object variable of the EmployeeSelection class type
 e=ds.Employee.all() //assigns the resulting entity selection reference to the e variable
 ``` 
 
 The entity selection object itself cannot be copied as an object:
 
-```4d
+```qs
  myentitysel=OB Copy(ds.Employee.all()) //returns null
 ``` 
  
 The entity selection properties are however enumerable:
 
-```4d
+```qs
  ARRAY TEXT(prop,0)
  OB GET PROPERTY NAMES(ds.Employee.all();prop)
   //prop contains the names of the entity selection properties

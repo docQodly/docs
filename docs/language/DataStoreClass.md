@@ -55,7 +55,7 @@ The datastore is opened automatically and available directly through `ds`.
 
 Using the datastore on the Qodly database:
 
-```4d
+```qs
  result=ds.Employee.query("firstName = :1","S@")
 ```
 
@@ -107,7 +107,7 @@ Each dataclass in a datastore is available as a property of the [DataStore objec
 #### Example
 
 
-```4d
+```qs
  var emp : cs.Employee
  var sel : cs.EmployeeSelection
  emp=ds.Employee //emp contains the Employee dataclass
@@ -179,7 +179,7 @@ In this case, you can call this function to disable the data access from Data Ex
 
 You create a *protectDataFile* project method to call before deployments for example:
 
-```4d
+```qs
  ds.setAdminProtection(True) //Disables the Data Explorer data access
 ```
 
@@ -229,7 +229,7 @@ For a description of the ORDA request log format, please refer to the [**ORDA cl
 
 You want to log ORDA client requests in a file and use the log sequence number:
 
-```4d
+```qs
  var $file : 4D.File
  var $e : cs.PersonsEntity
 
@@ -246,7 +246,7 @@ You want to log ORDA client requests in a file and use the log sequence number:
 
 You want to log ORDA client requests in memory:
 
-```4d
+```qs
  var $es : cs.PersonsSelection
  var $log : Collection
 
@@ -291,7 +291,7 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 #### Example
 
 
-```4d
+```qs
  var $connect; $status : Object
  var $person : cs.PersonsEntity
  var $ds : cs.DataStore

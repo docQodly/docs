@@ -11,7 +11,7 @@ title: Folder
 
 The following example creates a "JohnSmith" folder object:
 
-```4d
+```qs
 Form.curfolder=Folder("/PACKAGE/JohnSmith")
 ```
 
@@ -159,7 +159,7 @@ If necessary, the function creates the folder hierachy as described in the [plat
 
 Create an empty folder in the database folder:
 
-```4d
+```qs
 var created : Boolean
 created=Folder("/PACKAGE/SpecialPrefs").create()
 ```
@@ -168,7 +168,7 @@ created=Folder("/PACKAGE/SpecialPrefs").create()
 
 Creation of the "/Archives2019/January/" folder in the database folder:
 
-```4d
+```qs
 var newFolder : 4D.Folder
 var info : Text
 newFolder=Folder("/PACKAGE/Archives2019/January")
@@ -218,7 +218,7 @@ A `4D.File` object with the `isAlias` property set to **true**.
 
 You want to create an alias to an archive folder in your database folder:
 
-```4d
+```qs
 var myFolder : 4D.Folder
 myFolder=Folder("/PACKAGE/Documents/Archives/2019/January")
 aliasFile=myFolder.createAlias(Folder("/PACKAGE"),"Jan2019")
@@ -327,7 +327,7 @@ The moved `Folder` object.
 
 You want to move and rename a folder:
 
-```4d
+```qs
  var tomove, tomove2, docs : 4D.Folder
  docs=Folder(fk documents folder)
  tomove=docs.folder("Pictures")
@@ -369,7 +369,7 @@ The renamed `Folder` object.
 
 #### Example
 
-```4d
+```qs
  var toRename : 4D.Folder
  toRename=Folder("/RESOURCES/Pictures").rename("Images")
 ```

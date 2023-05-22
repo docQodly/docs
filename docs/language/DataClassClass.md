@@ -49,7 +49,7 @@ Lazy loading is applied.
 
 #### Example 
 
-```4d
+```qs
  var allEmp : cs.EmployeeSelection
  allEmp=ds.Employee.all()
 ```
@@ -115,7 +115,7 @@ If a \_\_STAMP attribute is given, a check is performed with the stamp in the da
 
 We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given and exists:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp : Object
  var employees : cs.EmployeeSelection
@@ -135,7 +135,7 @@ We want to update an existing entity. The \_\_NEW property is not given, the emp
 
 We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given with the \_\_KEY attribute and exists:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp : Object
  var employees : cs.EmployeeSelection
@@ -155,7 +155,7 @@ We want to update an existing entity. The \_\_NEW property is not given, the emp
 
 We want to simply create a new entity from a collection:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp : Object
  var employees : cs.EmployeeSelection
@@ -172,7 +172,7 @@ We want to simply create a new entity from a collection:
 
 We want to create an entity. The \_\_NEW property is True, the employee primary key is not given:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp : Object
  var employees : cs.EmployeeSelection
@@ -193,7 +193,7 @@ We want to create an entity. The \_\_NEW property is True, the employee primary 
 
 We want to create an entity. The \_\_NEW property is omitted, the employee primary key is given and does not exist:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp : Object
  var employees : cs.EmployeeSelection
@@ -211,7 +211,7 @@ We want to create an entity. The \_\_NEW property is omitted, the employee prima
 
 In this example, the first entity will be created and saved but the second will fail since they both use the same primary key:
 
-```4d
+```qs
  var empsCollection : Collection
  var emp, $emp2 : Object
  var employees : cs.EmployeeSelection
@@ -269,7 +269,7 @@ Lazy loading is applied, which means that related data is loaded from disk only 
 
 #### Example
 
-```4d
+```qs
  var entity : cs.EmployeeEntity  
  var entity2 : cs.InvoiceEntity
  entity=ds.Employee.get(167) // return the entity whose primary key value is 167
@@ -300,7 +300,7 @@ If this function is used within a transaction, entities created during the trans
 
 #### Example 
 
-```4d
+```qs
 var number : Integer
 number=ds.Persons.getCount() 
 ```
@@ -332,13 +332,13 @@ The main datastore is returned by the `ds` command.
 
 The `SearchDuplicate` project method searches for duplicated values in any dataclass.
 
-```4d
+```qs
  var pet : cs.CatsEntity
  pet=ds.Cats.all().first() //get an entity
  SearchDuplicate(pet,"Dogs")
 ```
 
-```4d
+```qs
   // SearchDuplicate method
   // SearchDuplicate(entity_to_search,dataclass_name)
    
@@ -383,7 +383,7 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
 
 #### Example 1 
 
-```4d 
+```qs 
  #declare (entity : Object)  
  var status : Object
  var info : Text
@@ -398,7 +398,7 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
  
 #### Example 2  
 
-```4d
+```qs
  var settings : Object
  var es : cs.ClientsSelection
  
@@ -410,7 +410,7 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
  
 #### Example 3 
 
-```4d 
+```qs 
  var pk : Text
  var dataClassAttribute : Object
  
@@ -448,7 +448,7 @@ All attributes of the entity are initialized with the **null** value. If the pri
 
 This example creates a new entity in the "Log" Dataclass and records information in the "info" attribute:
 
-```4d 
+```qs 
  var entity : cs.LogEntity
  entity=ds.Log.new() //create a reference
  entity.info="New entry" //store some information
@@ -487,7 +487,7 @@ When created, the entity selection does not contain any entities (`mySelection.l
 #### Example
 
 
-```4d 
+```qs 
  var USelection,OSelection : cs.EmployeeSelection
  USelection=ds.Employee.newSelection() //create an unordered empty entity selection
  OSelection=ds.Employee.newSelection(dk keep ordered) //create an ordered empty entity selection
@@ -623,7 +623,7 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 
 1.	It prevents malicious code insertion: if you directly use user-filled variables within the query string, a user could modifiy the query conditions by entering additional query arguments. For example, imagine a query string like:
  
-	```4d
+	```qs
 	 vquery="status = 'public' & name = "+myname //user enters their name
 	 result=col.query(vquery)
 	```
@@ -632,7 +632,7 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 
 	When using placeholders, overriding security conditions is not possible:
 
-	```4d
+	```qs
 	 result=col.query("status='public' & name=:1",myname)
 	```
 
@@ -642,7 +642,7 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
  
 3.	It allows the use of variables or expressions in query arguments. Examples:
 
-	```4d
+	```qs
  	result=col.query("address.city = :1 & name =:2",city,myVar+"@")
 	result2=col.query("company.name = :1","John's Pizzas")
 	``` 
@@ -651,13 +651,13 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 
 When you look for null values, you cannot use the placeholder syntax because the query engine considers null as an unexpected comparison value. For example, if you execute the following query:
 
-```4d
+```qs
 vSingles=ds.Person.query("spouse = :1",Null) // will NOT work
 ```
 
 You will not get the expected result because the null value will be evaluated by Qodly as an error resulting from the parameter evaluation (for example, an attribute coming from another query). For these kinds of queries, you must use the direct query syntax:
 
-```4d
+```qs
 vSingles=ds.Person.query("spouse = null") //correct syntax
 ``` 
 
@@ -691,7 +691,7 @@ ds.People.places:
 
 You want to find people with a "home" location kind in the city "paris". If you write:
 
-```4d
+```qs
 ds.People.query("places.locations[].kind= :1 and places.locations[].city= :2","home","paris")
 ```
 
@@ -704,7 +704,7 @@ If you want to only get entities where matching arguments are in the same collec
 
 With the above entities, if you write:
 
-```4d
+```qs
 ds.People.query("places.locations[a].kind= :1 and places.locations[a].city= :2","home","paris")
 ```
 
@@ -720,7 +720,7 @@ ORDA offers a special syntax to facilitate queries in many-to-many relations. In
 
 Imagine that you want to search all movies in which *both* actor A and actor B have a role. If you write a simple query using an `AND` operator, it will not work:
 
-```4d
+```qs
 // invalid code
 es=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor.lastName = :2","Hanks","Ryan")  
 // es is empty
@@ -729,14 +729,14 @@ Basically, the issue is related to the internal logic of the query: you cannot s
 
 To make it possible to perform such queries, ORDA allows a special syntax: you just need to add a *class index* between **{}** in all additional relation attributes used in the string:
 
-```4d
+```qs
 "relationAttribute.attribute = :1 AND relationAttribute{x}.attribute = :2 [AND relationAttribute{y}.attribute...]"
 ```
 **{x}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
 
 In our example, it would be:
 
-```4d
+```qs
 // valid code
 es=ds.Movie.query("roles.actor.lastName = :1 AND roles.actor{2}.lastName = :2","Hanks","Ryan")  
 // es contains movies (You've Got Mail, Sleepless in Seattle, Joe Versus the Volcano)
@@ -764,7 +764,7 @@ Any *formula* called by the `query()` class function can receive parameters:
 
 This small code shows the principles of how parameter are passed to methods:
 
-```4d
+```qs
  settings=New object("args",New object("exclude","-")) //args object to pass parameters
  es=ds.Students.query("eval(checkName($1.exclude))",$settings) //args is received in $1
 ```
@@ -792,7 +792,7 @@ The information recorded in `queryPlan`/`queryPath` include the query type (inde
 
 For example, if you execute the following query:
 
-```4d
+```qs
  sel=ds.Employee.query("salary < :1 and employer.name = :2 or employer.revenues > :3",\  
  50000,"Lima West Kilo",10000000,New object("queryPath",True,"queryPlan",True))
 ```
@@ -823,44 +823,44 @@ This section provides various examples of queries.
 
 Query on a string:
 
-```4d
+```qs
 entitySelection=ds.Customer.query("firstName = 'S@'")
 ```
 
 Query with a NOT statement:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("not(firstName=Kim)")
 ```
 
 Queries with dates:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("birthDate > :1","1970-01-01")
 entitySelection=ds.Employee.query("birthDate <= :1",Current date-10950)
 ```
 
 Query with indexed placeholders for values:
 
-```4d
+```qs
 entitySelection=ds.Customer.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@")
 ```
 
 Query with indexed placeholders for values on a related dataclass:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("lastName = :1 and manager.lastName = :2","M@","S@")
 ```
 
 Query with indexed placeholder including a descending order by statement:
 
-```4d
+```qs
 entitySelection=ds.Student.query("nationality = :1 order by campus.name desc, lastname","French")
 ```
 
 Query with named placeholders for values:
 
-```4d
+```qs
 var querySettings : Object
 var managedCustomers : cs.CustomerSelection
 querySettings=New object
@@ -870,7 +870,7 @@ managedCustomers=ds.Customer.query("salesperson.userId = :userId and name = :ext
 
 Query that uses both named and indexed placeholders for values:
 
-```4d
+```qs
 var querySettings : Object
 var managedCustomers : cs.CustomerSelection
 querySettings.parameters=New object("userId",1234)
@@ -879,7 +879,7 @@ managedCustomers=ds.Customer.query("salesperson.userId = :userId and name=:1","S
 
 Query with queryPlan and queryPath objects:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@",New object("queryPlan",True,"queryPath",True))
  
   //you can then get these properties in the resulting entity selection
@@ -890,19 +890,19 @@ queryPath=entitySelection.queryPath
 
 Query with an attribute path of Collection type:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[].name = :1","horsebackriding")
 ```
 
 Query with an attribute path of Collection type and linked attributes:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and extraInfo.hobbies[a].level=:2","horsebackriding",2)
 ```
 
 Query with an attribute path of Collection type and multiple linked attributes:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
 	extraInfo.hobbies[a].level = :2 and extraInfo.hobbies[b].name = :3 and
 	extraInfo.hobbies[b].level = :4","horsebackriding",2,"Tennis",5)
@@ -910,25 +910,25 @@ entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
 
 Query with an attribute path of Object type:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("extra.eyeColor = :1","blue")
 ```
 
 Query with an IN statement:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("firstName in :1",New collection("Kim","Dixie"))
 ```
 
 Query with a NOT (IN) statement:
 
-```4d
+```qs
 entitySelection=ds.Employee.query("not (firstName in :1)",New collection("John","Jane"))
 ```
 
 Query with indexed placeholders for attributes:
 
-```4d
+```qs
 var es : cs.EmployeeSelection
 es=ds.Employee.query(":1 = 1234 and :2 = 'Smith'","salesperson.userId","name")
   //salesperson is a related entity
@@ -936,7 +936,7 @@ es=ds.Employee.query(":1 = 1234 and :2 = 'Smith'","salesperson.userId","name")
 
 Query with indexed placeholders for attributes and named placeholders for values: 
 
-```4d
+```qs
 var es : cs.EmployeeSelection
 var querySettings : Object
 querySettings=New object
@@ -948,7 +948,7 @@ es=ds.Customer.query(":1 = 1234 and :2 = :customerName","salesperson.userId","na
 Query with indexed placeholders for attributes and values: 
 
 
-```4d
+```qs
 var es : cs.EmployeeSelection
 es=ds.Clients.query(":1 = 1234 and :2 = :3","salesperson.userId","name","Smith")
   //salesperson is a related entity
@@ -962,7 +962,7 @@ Given an Employee dataclass with 2 entities:
 
 Entity 1:
 
-```4d
+```qs
 name: "Marie"
 number: 46
 softwares:{
@@ -974,7 +974,7 @@ softwares:{
 
 Entity 2:
 
-```4d
+```qs
 name: "Sophie"
 number: 47
 softwares:{
@@ -986,7 +986,7 @@ softwares:{
 
 Query with named placeholders for attributes:
 
-```4d
+```qs
  var querySettings : Object
  var es : cs.EmployeeSelection
  querySettings=New object
@@ -997,7 +997,7 @@ Query with named placeholders for attributes:
 
 Query with named placeholders for attributes and values: 
 
-```4d
+```qs
  var querySettings : Object
  var es : cs.EmployeeSelection
  var name : Text
@@ -1019,14 +1019,14 @@ These examples illustrate the various ways to use formulas with or without param
 
 The formula is given as text with `eval()` in the *queryString* parameter:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  es=ds.Students.query("eval(length(This.lastname) >=30) and nationality='French'")
 ```
 
 The formula is given as a `Formula` object through a placeholder:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  var aform : Object
  aform=Formula(Length(This.lastname)>=30)
@@ -1035,7 +1035,7 @@ The formula is given as a `Formula` object through a placeholder:
 
 Only a `Formula` object is given as criteria:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  var aform : Object
  aform=Formula(Length(This.lastname)>=30)
@@ -1044,7 +1044,7 @@ Only a `Formula` object is given as criteria:
 
 Several formulas can be applied:
 
-```4d
+```qs
  #declare(formula1 : 4D.Function) -> result : cs.StudentsSelection
  var formula2 : 4D.Function
  formula2=Formula(Length(This.firstname)>=30)
@@ -1054,7 +1054,7 @@ Several formulas can be applied:
 
 A text formula in *queryString* receives a parameter:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  var settings : Object
  settings=New object()
@@ -1062,7 +1062,7 @@ A text formula in *queryString* receives a parameter:
  es=ds.Students.query("eval(checkName($1.filter)) and nationality=:1","French",settings)
 ```
 
-```4d
+```qs
   //checkName method
  #declare(exclude : Text) -> result : Boolean
  result=(Position(exclude,This.lastname)=0)
@@ -1070,7 +1070,7 @@ A text formula in *queryString* receives a parameter:
 
 Using the same **checkName** method, a `Formula` object as placeholder receives a parameter:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  var settings : Object
  var aformula : 4D.Function
@@ -1084,7 +1084,7 @@ Using the same **checkName** method, a `Formula` object as placeholder receives 
 
 We want to disallow formulas, for example when the user enters their query:
 
-```4d
+```qs
  var es : cs.StudentsSelection
  var settings : Object
  var queryString : Text

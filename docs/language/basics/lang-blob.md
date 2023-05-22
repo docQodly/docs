@@ -39,7 +39,7 @@ You cannot use operators on blobs.
 Use the [`Value type`](../Language.md#value-type) command to determine if a value is of type Blob or Object.
 To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../Objects.md):
 
-```4d
+```qs
 var myBlob: blob
 var myBlobObject: 4D.Blob
 var is4DBlob: boolean
@@ -54,7 +54,7 @@ is4DBlob=instanceOf(myblobObject,4D.Blob) //True
 
 You can pass a scalar blob or a `4D.Blob` to any QodlyScript command that takes a blob as a parameter:
 
-```4d
+```qs
 var myBlob, myNewBlob: 4D.Blob
 var myString: string
 convertFromString("Hello, World!", "UTF-8", myBlob)
@@ -74,7 +74,7 @@ You can pass blobs and blob objects (`4D.Blob`) to methods. Keep in mind that un
 
 QodlyScript automatically converts scalar blobs to blob objects, and vice versa, when they're assigned to each other. For example:
 
-```4d
+```qs
 // Create a variable of type Blob and an object variable
 var myBlob: blob
 var myObject : object
@@ -104,7 +104,7 @@ When converting a `4D.Blob` to a scalar blob, if the size of the `4D.Blob` excee
 
 You can access individual bytes of a scalar blob using curly brackets `{}`. Within a blob, bytes are numbered from 0 to N-1, where N is the size of the blob:
 
-```4d
+```qs
   // Declare a variable of type Blob
 var myBlob : blob
 var byte : integer
@@ -119,7 +119,7 @@ Since you can address all the bytes of a blob individually, you can store whatev
 
 Use square brackets `[]` to directly access a specific byte in a `4D.Blob`
 
-```4d
+```qs
 var myBlob : 4D.Blob
 var byte : integer
 convertFromText("Hello, World!", "UTF-8", myBlob)
@@ -132,7 +132,7 @@ Since a `4D.Blob` cannot be altered, you can read the bytes of a `4D.Blob` using
 
 Unlike blob objects, scalar blobs can be altered. For example:
 
-```4d
+```qs
 var myBlob : blob
 var myString : string
 convertFromText("Hello, World!", "UTF-8", myBlob)

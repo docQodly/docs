@@ -18,7 +18,7 @@ A time literal constant is ordered hour:minute:second, with a colon (:) setting 
 
 Here are some examples of time literals:
 
-```4d
+```qs
 ?00:00:00? ` midnight
 ?09:30:00? ` 9:30 am
 ?13:01:59? ` 1 pm, 1 minute, and 59 seconds
@@ -59,7 +59,7 @@ To obtain a time expression from an expression that combines a time expression w
 
 You can combine expressions of the time and number types using the `time` or `currentTime` commands:
 
-```4d
+```qs
 	//The following line assigns to vlSeconds the number of seconds   
 	//that will be elapsed between midnight and one hour from now
 var vlSeconds, vhSoon : time
@@ -70,7 +70,7 @@ vhSoon=time(currentTime+3600)
 
 The second line could be written in a simpler way:
 
-```4d
+```qs
   // The following line assigns to vHSoon the time it will be in one hour
  vhSoon=currentTime+?01:00:00?
 ```
@@ -79,7 +79,7 @@ The second line could be written in a simpler way:
 
 The Modulo operator (`%`) can be used, more specifically, to add times that take the 24-hour format into account:
 
-```4d
+```qs
 t1=?23:00:00? // It is 23:00 hours
   // We want to add 2 and a half hours
 t2=t1+?02:30:00? // With a simple addition, t2 is ?25:30:00?
