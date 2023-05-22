@@ -69,10 +69,10 @@ To create a new instance of the Person class with parameters:
 
 ```qs
 //Class: Person.4dm
-Class constructor(firstname : Text, lastname : Text, age : Integer)
-	This.firstName=firstname
-	This.lastName=lastname
-	This.age=age
+constructor(firstname : string, lastname : string, age : integer)
+	this.firstName=firstname
+	this.lastName=lastname
+	this.age=age
 ```
 
 ```qs
@@ -106,13 +106,13 @@ This property is **read-only**.
 #### Examples
 
 ```qs
-var sup: Variant
+var sup: variant
 sup=4D.File.superclass //Document
 sup=4D.Document.superclass //Object
 sup=4D.Object.superclass //null
 
 // If you created a MyFile class  
-// with `Class extends File`
+// with `extends File`
 sup=cs.MyFile.superclass //File
 
 ```

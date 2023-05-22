@@ -34,7 +34,7 @@ If the `blob` parameter is omitted, the method returns an empty 4D.Blob.
 
 ## .size
 
-<!-- REF #Blob.size.Syntax -->**.size** : Real<!-- END REF -->
+<!-- REF #Blob.size.Syntax -->**.size** : real<!-- END REF -->
 
 #### Description
 
@@ -48,8 +48,8 @@ The `.size` property <!-- REF #Blob.size.Summary -->returns the size of a `4D.Bl
 <!-- REF #Blob.slice().Params -->
 | Parameter | Type ||Description |
 | --------- | ------- | :-: | --- |
-| start| Real    | ->  | index of the first byte to include in the new `4D.Blob`.               |
-| end| Real    | ->  | index of the first byte that will not be included in the new `4D.Blob` |
+| start| real    | ->  | index of the first byte to include in the new `4D.Blob`.               |
+| end| real    | ->  | index of the first byte that will not be included in the new `4D.Blob` |
 | Result| 4D.Blob | <-  | New `4D.Blob`|<!-- END REF -->
 
 #### Description
@@ -64,19 +64,19 @@ The `end` parameter is an index into the blob indicating the first byte that wil
 
 ```qs
 var myBlob, myNewBlob : 4D.Blob
-var is4DBlob : Boolean
-var myString : Text
+var is4DBlob : boolean
+var myString : string
 
 // Store text in a 4D.Blob
-CONVERT FROM TEXT("Hello, World!", "UTF-8", myBlob)
-is4DBlob=OB Instance of(myBlob, 4D.Blob);   //True
+convertFromString("Hello, World!", "UTF-8", myBlob)
+is4DBlob=instanceOf(myBlob, 4D.Blob);   //True
 
-myString=Convert to text(myBlob, "UTF-8")
+myString=convertToString(myBlob, "UTF-8")
 // myString contains "Hello, World!"
 
 // Create a new 4D.Blob from myBlob
-myNewBlob=myBlob.slice(0, 5)
+myNewBlob=myBlob.slice(0,5)
 
-myString=Convert to text(myNewBlob, "UTF-8")
+myString=convertToString(myNewBlob, "UTF-8")
 // myString contains "Hello"
 ```

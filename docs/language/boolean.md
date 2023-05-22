@@ -3,7 +3,7 @@ id: boolean
 title: Boolean
 ---
 
-## Boolean Commands
+### Commands
 
 ||
 |---|
@@ -27,7 +27,7 @@ title: Boolean
 
 The `bool` command <!-- REF #_command_.bool.Summary -->returns the boolean form of the expression you passed in *any*<!-- END REF -->.
 
-The command can return the following values, depending on the *any* result type:
+The command can return the following values, depending on the *expression* result type:
 
 |Expression result type|Return of the bool command|
 |:----|:----|
@@ -39,19 +39,14 @@ The command can return the following values, depending on the *any* result type:
 
 This command is useful when the code expects a boolean value, and when the evaluation of the expression could result in a different type (e.g. if it evaluates to **null** or **undefined**).
 
-#### Example 1
+#### Examples
 
-```4d
+```qs
 var result : boolean
 result=bool(1)  //true
 result=bool(0)  //false
 result=bool("hello")  //false
 
-```
-
-#### Example 2
-
-```4d
 var o : object
 o={test: 42}
 result=bool(o.test)  //true
@@ -61,10 +56,10 @@ result=bool(o.otherTest)  //false
 
 #### See also
 
-[`date`](../dateandtime#date)<br/>
-[`num`](../string#num)<br/>
-[`string`](../string#string)<br/>
-[`time`](../dateandtime#time)
+[`date`](dateandtime.md#date)<br/>
+[`num`](string.md#num)<br/>
+[`string`](string.md#string)<br/>
+[`time`](dateandtime.md#time)
 
 ## false
 
