@@ -343,11 +343,11 @@ Typically, you will not need to use this command to change the default epsilon v
 
 :::
 
-<Admonition type="info" title="important">
-  <p>
-Changing the epsilon only affects real comparison for equality. It has no effect on other real computations nor on the display of real values.
-  </p>
-</Admonition>
+:::caution 
+
+Changing the epsilon only affects real comparison for equality. It has no effect on other real computations nor on the display of real values. 
+
+:::
 
 :::note
 
