@@ -18,17 +18,18 @@ Prism.languages["qs"] = {
     },
   
     'keyword': {
-            pattern: /\b(?:Begin SQL|This|End SQL|For each|Class extends|Class constructor|End for each|If|Else|End if|Case of|End case|DECLARE|For|End for|Use|End use|While|End while|Repeat|Until|Function|var|property|exposed|local|return|break|continue)\b/,
+        pattern: /\b(this|forEach|extends|constructor|end|if|else|switch|declare|for|use|while|repeat|until|function|var|property|exposed|local|return|break|continue)\b/,
+        
     },
     
     'builtin': [
       {
-        pattern: /(: )(4D|Integer|Text|Real|Picture|Pointer|Boolean|Time|Date|Blob|Object|Collection|Variant|cs)/,
+        pattern: /(: ?)\b(4D|integer|string|real|picture|pointer|boolean|time|date|blob|object|collection|variant|cs)\b/,
         lookbehind : true
       }
     ],
         // Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-      'memberFunction': {
+    'memberFunction': {
       pattern : /(\.)#?[_$a-zA-Z0-9\xA0-\uFFFF]+(?=\()/,
       greedy: true,
       alias: 'function'
@@ -44,7 +45,7 @@ Prism.languages["qs"] = {
     }
     ],
     'constant': {
-      pattern: /\b(?:Null)\b/,
+      pattern: /\b(?:null)\b/,
     },
     'property': {
       pattern : /(\.)[_$a-zA-Z0-9\xA0-\uFFFF]+/,
@@ -54,7 +55,7 @@ Prism.languages["qs"] = {
     {
       pattern:/([_$a-zA-Z0-9\xA0-\uFFFF]+)/
     },
-    'boolean': /\b(?:True|False)\b/,
+    'boolean': /\b(?:true|false)\b/,
   
     'number': /\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?(?!D)/,
     'operator': /:=|->|[!?:#\-+*\/%&|^!=<>]=?|\?\?=?|\?\.?|[~:]|\*\|/,
