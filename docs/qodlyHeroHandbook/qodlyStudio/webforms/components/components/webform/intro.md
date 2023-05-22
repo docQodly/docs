@@ -3,6 +3,7 @@ id: intro
 title: 'Webform'
 hide_title: true
 ---
+import Column from '@site/src/components/Column'
 
 <br />
 
@@ -57,14 +58,15 @@ As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>W
 
 #### <span style={{color:'#B174E5'}}>&#9312;</span> <span>&nbsp;</span> <u>Tooltip & Breadcrumbs</u>
 
-<div class="clearfix">
-    <div class="column-left" style={{width: '60%'}}>
-        The first tool we'll talk about as we embark on this journey of exploring webform components is the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Tooltip</span>. It's a smart and intuitive feature that offers a range of actions to choose from.
-    </div>
-    <div class="column-right" style={{width: '30%'}}>
-        <img alt="explorer" src={require('./img/tooltip.png').default} style={{borderRadius: '6px'}} />
-    </div>
-</div>
+
+<Column.List>
+	<Column.Item width="80%">
+		The first tool we'll talk about as we embark on this journey of exploring webform components is the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Tooltip</span>. It's a smart and intuitive feature that offers a range of actions to choose from.
+	</Column.Item>
+	<Column.Item width="10%">
+		<img alt="explorer" src={require('./img/tooltip.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 <br />
 
