@@ -39,6 +39,26 @@ The command can return the following values, depending on the *any* result type:
 
 This command is useful when the code expects a boolean value, and when the evaluation of the expression could result in a different type (e.g. if it evaluates to **null** or **undefined**).
 
+#### Example 1
+
+```4d
+var result : boolean
+result=bool(1)  //true
+result=bool(0)  //false
+result=bool("hello")  //false
+
+```
+
+#### Example 2
+
+```4d
+var o : object
+o={test: 42}
+result=bool(o.test)  //true
+result=bool(o.otherTest)  //false
+
+```
+
 #### See also
 
 [`date`](../dateandtime#date)<br/>
