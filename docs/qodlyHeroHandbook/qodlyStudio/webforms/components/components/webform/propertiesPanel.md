@@ -3,6 +3,7 @@ id: propertiesPanel
 title: 'Properties Panel'
 hide_title: true
 ---
+import Column from '@site/src/components/Column'
 
 <br />
 
@@ -14,8 +15,8 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
 
 <br />
 
-<div class="columnsText">
-    <div class="column-left" style={{width: '70%'}}>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="70%">
         <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9312; &nbsp; CSS</span>: The CSS class contains styles that are applied to the component, encompassing font sizes, colors, and layout styles, which influence its appearance and layout. You can refer to the <a href="/qodlyHeroHandbook/qodlyStudio/webforms/styleLibrary/intro">Style Library</a> for more information and available style options.
         <br />
         <br />
@@ -41,11 +42,11 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
         <br />
         <br />
         <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9320; &nbsp; Border radius</span>: The border radius feature enables you to determine the curvature or roundness of the component's corners. By adjusting this attribute, you can create various shapes and styles, adding aesthetic appeal to the component's design.
-    </div>
-    <div class="column-right" style={{width: '20%'}}>
+	</Column.Item>
+	<Column.Item width="20%">
         <img alt="explorer" src={require('./img/propertiesPanel.png').default} style={{borderRadius: '6px'}} />
-    </div>
-</div>
+	</Column.Item>
+</Column.List>
 
 <br />
 <br />
@@ -55,24 +56,28 @@ In essence, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties pa
 <br />
 
 
-<div class="columnsText">
-    <div class="column-left" style={{width: '60%'}}>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
         The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span> properties contains a <code>Server Side</code> field, which displays a reference to the component on the server side. This reference is like the component's address, allowing developers to access the component from anywhere in the application. These properties can be used to dynamically change the content of the website without any manual intervention, making it truly interactive by responding to user actions in real-time.
-        <br />
-        <br />
-        <br />
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br />
+<br />
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
         The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span> properties contains other options/fields as well, depending on the component at hand. For instance: <br />
         - The <code>DataSource</code> field allows developers to define the source of data for the component to iterate on.<br />
         - While the <code>Selected Element</code> field allows them to specify which element in the component is selected. <br />
-        - The <code>Iterate field</code> is available for developers to loop through that same set of data.
-    </div>
-    <div class="column-right" style={{width: '30%'}}>
-        <img alt="explorer" src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
-        <br />
-        <br />
-        <br />
+        - The <code>Iterate field</code> is available for developers to loop through that same set of data.	</Column.Item>
+	<Column.Item width="30%">
         <img alt="explorer" src={require('./img/dataAccessProperties.png').default} style={{borderRadius: '6px'}} />
-    </div>
-</div>
+	</Column.Item>
+</Column.List>
+
 
 

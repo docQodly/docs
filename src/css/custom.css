@@ -34,25 +34,6 @@
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
-/* *************************** */
-/* for columns */
-.column-left {
-  float: left;
-}
-.column-right {
-  float: right;
-}
-.columnsTitle{
-  height: fit-content;
-  align-items: center;
-  display: flex;
-}
-.columnsText{
-  content: "";
-  display: table;
-  clear: both;
-}
-/* *************************** */
 
 /* *************************** */
 /* ************* components SVGs ************* */
@@ -204,7 +185,6 @@
 }
 .chat_box:nth-child(1),
 .chat_box:nth-child(3) {
-  width: 100%;
   height: 2.375em;
   border-radius: 2.375em;
   position: relative;
