@@ -11,9 +11,6 @@ If non-Roman characters are used in the names of the identifiers, their maximum 
 
 :::
 
-## Arrays
-
-Array names follow the same rules as [variables](#variables).
 
 ## Classes
 
@@ -21,7 +18,13 @@ The name of a class can contain up to 31 characters.
 
 A class name must be compliant with standard [property naming rules](#object-properties) for dot notation.
 
-> Giving the same name to a user class and a [dataclass](#dataclass) is not recommended, in order to prevent any conflict.
+
+:::warning
+
+Giving the same name to a user class and a [dataclass](#dataclass) is not recommended, in order to prevent any conflict.
+
+:::
+
 
 ## Functions
 
@@ -39,13 +42,13 @@ The name of an object property (also called object *attribute*) can contain up t
 
 Object properties can reference scalar values, ORDA elements, class functions, other objects, etc. Whatever their nature, object property names must follow the following rules **if you want to use the dot notation**:
 
-- A property name must begin with a letter, an underscore, or a dollar "$".
-- Thereafter, the name can include any letter, digit, the underscore character ("_"), or the dollar character ("$").
+- A property name must begin with a letter, an underscore "_", or a dollar "$".
+- Thereafter, the name can include any letter, digit, underscore, or dollar character.
 - Property names are case sensitive.
 
 Examples:
 
-```4d
+```qs
 myObject.myAttribute="10"
 value=$clientObj.data.address.city
 ```
@@ -70,10 +73,10 @@ Parameter names follow the same rules as [variable names](#variables).
 
 Examples:
 
-```4d
-Function getArea(width : Integer, height : Integer)-> area : Integer
+```qs
+function getArea(width : integer, height : integer)-> area : integer
 
-#Declare (i : Integer , param : Date) -> myResult : Object
+declare (i : integer , param : date) -> myResult : object
 ```
 
 ## Methods
@@ -81,25 +84,23 @@ Function getArea(width : Integer, height : Integer)-> area : Integer
 The name of a method contains up to 31 characters.
 
 - A method name must begin with a letter, a digit, or an underscore
-- Thereafter, the name can include any letter or digit, the underscore character ("_"), or the space character.
-- Do not use reserved names, i.e. QodlyScript command names (`Date`, `Time`, etc), keywords (`if`, `for`, etc.), or constant names (`Euro`, `Black`, `Friday`, etc.).
+- Thereafter, the name can include any letter or digit, an underscore, or the space character.
+- Do not use reserved names, i.e. QodlyScript command names (`date`, `time`, etc.), keywords (`if`, `for`, etc.), or constant names (`euro`, `black`, `friday`, etc.).
 - Method names are case insensitive.
-
-It is a good programming technique to adopt the same naming convention as the one used by Qodly for built-in methods. Use uppercase characters for naming your methods; however if a method returns a value, capitalize the first character of its name. By doing so, when you reopen a project for maintenance after a few months, you will already know if a method returns a result by simply looking at its name in the Explorer.
 
 Examples:
 
-```4d
-if(new client)
-DELETE DUPLICATED VALUES
-Formula(increase_salaries)
+```qs
+if(newClient)
+_delete_duplicated_values
+formula(increase2)
 ```
 
 :::note
 
-When you call a method, you just type its name. However, some QodlyScript built-in commands, such as `ON EVENT CALL`, expect the name of a method as a string when a method parameter is passed. For example:
+When you call a method, you just type its name. However, some QodlyScript built-in commands, such as `.collection.orderByMethod`, expect the name of a method as a string when a method parameter is passed. For example:
 
-```4d
+```qs
  //This collection function accepts a method name
 strings2=strings1.orderByMethod("sortCollection",sk strict)
 ```
@@ -112,16 +113,16 @@ strings2=strings1.orderByMethod("sortCollection",sk strict)
 The name of a variable can be up to 31 characters.
 
 - A variable name must begin with a [Unicode](https://developer.mozilla.org/en-US/docs/Glossary/Unicode) letter or an underscore.
-- Thereafter, the name can include any letter or digit or the underscore character ("_").
-- Do not use reserved names, i.e. 4D command names (`Date`, `Time`, etc), keywords (`If`, `For`, etc.), or constant names (`Euro`, `Black`, `Friday`, etc.).
+- Thereafter, the name can include any letter or digit, or underscore.
+- Do not use reserved names, i.e. command names (`date`, `time`, etc), keywords (`if`, `for`, etc.), or constant names (`euro`, `black`, `friday`, etc.).
 - Variable names are case insensitive.
 
 Examples:
 
-```4d
+```qs
 for(vlRecord,1,100) 
 vs_My_String="Hello there" 
-var _vAge : Integer 
+var _vAge : integer 
 if(bValidate==1) 
-vlProcessID:=Current process()
+vlProcessID=currentProcess()
 ```

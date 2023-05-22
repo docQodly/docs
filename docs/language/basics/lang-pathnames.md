@@ -3,10 +3,10 @@ id: lang-pathnames
 title: Pathnames
 ---
 
-File and folder functions, properties, and commands allow you to handle files and folders as objects. This makes file and folder management powerful and flexible. For example, to create a new file in the current user's Documents folder, you can write:
+File and folder functions, properties, and commands allow you to handle files and folders as objects. This makes file and folder management powerful and flexible. For example, to create a new file in the resources folder, you can write:
 
-```4d
-ok=Folder(fk documents folder).file("Archives/JohnQ.prefs").create()
+```qs
+ok=Folder(fk resources folder).file("Archives/JohnQ.prefs").create()
 ```
 
 In addition, file and folder objects support `fileSystems`, which provide contextual path to main application folders.
@@ -14,7 +14,7 @@ In addition, file and folder objects support `fileSystems`, which provide contex
 
 ## Filesystem pathnames
 
-Qodly accepts several `filesystem` pathnames that designate specific folders. Filesystem pathnames are useful for two main reasons:
+QodlyScript accepts several `filesystem` pathnames that designate specific folders. Filesystem pathnames are useful for two main reasons:
 
 - Independence: You can move your solution from one place to another regardless of the environment, without having to worry about paths,
 - Security: No code can access elements located above the file system root on the disk (sandboxing).
@@ -36,41 +36,41 @@ QodlyScript uses the POSIX syntax. With this syntax:
 - absolute pathnames start with a "/"
 - to move up one folder in a relative path, use "../" in front of the pathname (for security, you cannot move up the filesystem).
 
-In POSIX syntax, you will generally use `filesystem` pathnames with [`File`](../API/FileClass.md#file) and [`Folder`](../API/FolderClass.md#folder) commands, for example:
+In POSIX syntax, you will generally use `filesystem` pathnames with [`file`](../language/FileClass.md#file) and [`Folder`](../language/FolderClass.md#folder) commands, for example:
 
-```4d
-pathFile=File("/DATA/Archives/file 2.txt")
-pathFolder=Folder("/RESOURCES/Pictures")
+```qs
+pathFile=file("/DATA/Archives/file 2.txt")
+pathFolder=folder("/SOURCES/Pictures")
 ```
 
 
 ## Absolute and relative pathnames
 
-### `File` and `Folder` constructors
+### `file` and `folder` constructors
 
-[`File`](../API/FileClass.md#file) and [`Folder`](../API/FolderClass.md#folder) commands only accept **absolute pathnames**. Relative pathnames are not supported and will return errors. For example, the following code is not allowed:
+[`file`](../language/FileClass.md#file) and [`Folder`](../language/FolderClass.md#folder) commands only accept **absolute pathnames**. Relative pathnames are not supported and will return errors. For example, the following code is not allowed:
 
-```4d
+```qs
 	//ERROR
-ko=Folder("myFolder").create() //relative pathname with constructor
+ko=folder("myFolder").create() //relative pathname with constructor
 ```
 
-If you want to handle files or folders in various locations (project folder, system folders, etc.), you must use `filesystems` (see above). For example, you can write:
+If you want to handle files or folders in various locations (project folder, system folders, etc.), you must use [`filesystems`](#filesystem-pathnames). For example, you can write:
 
-```4d
-okFolder=Folder("/PACKAGE/myFolder").create() //folder created at the structure level
-okFile=File("/DATA/Prefs/tempo.txt").create() //file created in the data folder
+```qs
+okFolder=folder("/PACKAGE/myFolder").create() //folder created at the project level
+okFile=file("/DATA/Prefs/tempo.txt").create() //file created in the data folder
 ```
 
 ### `.file()` and `.folder()` folder functions
 
-Functions of folder objects such as [`folder.file()`](../API/FolderClass.md#file) and [`folder.folder()`](../API/FolderClass.md#folder-1) expect relative POSIX pathnames. For example:
+Functions of folder objects such as [`folder.file()`](../language/FolderClass.md#file) and [`folder.folder()`](../language/FolderClass.md#folder-1) expect relative POSIX pathnames. For example:
 
-```4d
-  //to reference a "Picture" folder within the user documents folder
-userImages:=Folder(fk documents folder).folder("Pictures")
-  //to create a folder on the desktop
-ok:=Folder(fk desktop folder).folder("myFolder").create()
+```qs
+  //to reference a "Picture" folder within the ressources folder
+userImages=folder(fk resources folder).folder("Pictures")
+  //to create a folder in the home folder of the user
+ok=folder(fk home folder).folder("myFolder").create()
 ```
 
 Absolute pathnames are not supported and will return errors.
@@ -80,13 +80,13 @@ Absolute pathnames are not supported and will return errors.
 
 The flexibility of file and folder functions offers you various possibilities for handling files and folders, like in the following examples:
 
-```4d
-f=Folder(fk desktop folder).folder("archive/jan2023")
+```qs
+f=folder(fk data folder).folder("archive/jan2023")
  
-f2=Folder("/DATA/archive/jan2023").file("total.txt")
+f2=folder("/DATA/archive/jan2023").file("total.txt")
  
-f3=Folder("/DATA/archive/jan2023")
+f3=folder("/DATA/archive/jan2023")
  
-f4=File("/DATA/info.txt")
+f4=file("/DATA/info.txt")
  
 ```

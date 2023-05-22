@@ -446,7 +446,7 @@ Here is the equivalent `repeat...until` loop:
 
 ```4d
  i=1 //Initialize the counter
- Repeat
+ repeat
   //Do something
     i=i+1 //Need to increment the counter
  until(i==100) //Loop 100 times
@@ -708,22 +708,38 @@ The `return` statement can be used to [return a value](parameters.md#return-expr
 
 #### Example
 
-```4d
-var message : Text
-var i : Integer
+```qs
+var message : string
+var i : integer
 
-while (True) //infinite loop
+while (true) //infinite loop
 	i=i+1
-	message+=String(i)+"A\r"  // until 5
+	message+=string(i)+"A\r"  // until 5
 	logConsole(message)
 	if (i==5)
 		return //stops the loop
 	end if 
-	message+=String(i)+"B\r"  // until 4
+	message+=string(i)+"B\r"  // until 4
 	logConsole(message)
 end while 
-message+=String(i)+"C\r"  //never executed 
+message+=string(i)+"C\r"  //never executed 
 logConsole(message)
+
+```
+
+The *logConsole* method:
+
+```4d
+declare (log : string)
+var f : 4D.File
+var fhandle : 4D.FileHandle
+f=Folder(Database folder).file("console.txt")
+
+fhandle=f.open("write")
+fhandle.writeLine(log)
+```
+
+In the *console.txt* file:
 
 // 1A
 // 1B
@@ -734,6 +750,3 @@ logConsole(message)
 // 4A
 // 4B
 // 5A
-
-```
-
