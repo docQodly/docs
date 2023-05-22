@@ -14,20 +14,20 @@ title: Boolean
 
 ## bool
 
-<!-- REF #_command_.bool.Syntax -->**bool** ( *expression* : expression ) : boolean<!-- END REF -->
+<!-- REF #_command_.bool.Syntax -->**bool** ( *expression* : any ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.bool.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|expression|->|Expression for which to return the boolean form|
+|expression|any|->|Expression for which to return the boolean form|
 |Result|boolean|<-|Boolean form of the expression|<!-- END REF -->
 
 #### Description
 
-The `bool` command <!-- REF #_command_.bool.Summary -->returns the boolean form of the expression you passed in *expression*<!-- END REF -->.
+The `bool` command <!-- REF #_command_.bool.Summary -->returns the boolean form of the expression you passed in *any*<!-- END REF -->.
 
-The command can return the following values, depending on the *expression* result type:
+The command can return the following values, depending on the *any* result type:
 
 |Expression result type|Return of the bool command|
 |:----|:----|
@@ -76,7 +76,7 @@ The following example sets the variable *vbOptions* to false:
 
 ## not
 
-<!-- REF #_command_.not.Syntax -->**not** : boolean<!-- END REF -->
+<!-- REF #_command_.not.Syntax -->**not** ( *aBoolean* : boolean ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.not.Params -->

@@ -232,6 +232,36 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 [`exp`](#exp)
 
+## mod
+
+<!-- REF #_command_.mod.Syntax -->**mod** ( *number1* : integer, *number2* : integer) : real<!-- END REF -->
+
+
+<!-- REF #_command_.mod.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|number1|integer|->|Number to divide|
+|number2|integer|->|Number to divide by|
+|Result|real|<-|Returns the remainder|<!-- END REF -->
+
+#### Description
+
+`log` <!-- REF #_command_.mod.Summary -->returns the natural (Napierian) log of *number*<!-- END REF -->. `log` is the inverse function of [`exp`](#exp).
+
+:::note
+
+Qodly provides the predefined constant *e number* (2.71828...).
+
+:::
+
+#### Example
+
+```4d
+ var vLog : string
+ vLog=string(log(exp(1))
+ 
+```
+
 ## round
 
 <!-- REF #_command_.round.Syntax -->**round** ( *round* : real, *places* : integer) : real<!-- END REF -->
@@ -295,6 +325,46 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 [`arctan`](#arctan)<br/>
 [`cos`](#cos)<br/>
 [`tan`](#tan)
+
+## squareRoot
+
+<!-- REF #_command_.squareRoot.Syntax -->**squareRoot** ( *number* : real) : real<!-- END REF -->
+
+
+<!-- REF #_command_.squareRoot.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|number|real|->|Number whose square root is calculated|
+|Result|real|<-|Square root of the number|<!-- END REF -->
+
+#### Description
+
+`round` <!-- REF #_command_.squareRoot.Summary -->returns the square root of *number*<!-- END REF -->.
+
+#### Example 1
+
+The following exemple assigns the value 1.414213562373 to the variable vrSquareRootOfTwo.
+
+```4d
+ var vrSquareRootOfTwo : real
+ vrSquareRootOfTwo=squareRoot(2)
+ 
+```
+
+#### Example 2
+
+The following method returns the hypotenuse of the right triangle whose two legs are passed as parameters:
+
+```4d
+  // Hypotenuse method
+  // Hypotenuse ( real ; real ) -> real
+  // Hypotenuse ( legA ; legB ) -> Hypotenuse
+ C_REAL($0;$1;$2)
+ $0:=Square root(($1^2)+($2^2)
+ 
+```
+
+For instance, Hypotenuse (4;3) returns 5.
 
 ## tan
 

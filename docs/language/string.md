@@ -29,7 +29,7 @@ title: String
 |[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
 |[<!-- INCLUDE #_command_.position.Syntax -->](#position)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.position.Summary -->|
 |[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replaceString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
-|[<!-- INCLUDE #_command_.splitString.Syntax -->](#splitString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.splitString.Summary -->|
+|[<!-- INCLUDE #_command_.splitString.Syntax -->](#splitstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.splitString.Summary -->|
 |[<!-- INCLUDE #_command_.string.Syntax -->](#string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.string.Summary -->|
 |[<!-- INCLUDE #_command_.substring.Syntax -->](#substring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.substring.Summary -->|
 |[<!-- INCLUDE #_command_.uppercase.Syntax -->](#uppercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.uppercase.Summary -->|
@@ -55,7 +55,7 @@ The `changeString` command <!-- REF #_command_.changeString.Summary -->changes a
 
 If *newChars* is an empty string (""), `changeString` returns *source* unchanged. `changeString` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `changeString` returns *source*.
 
-`changeString` is different from [`Insert string`](#insert-string) in that it overwrites characters instead of inserting them.
+`changeString` is different from [`insertString`](#insertstring) in that it overwrites characters instead of inserting them.
 
 #### Example
 
@@ -69,8 +69,8 @@ vtResult=changeString("November","Dec",1) //vtResult gets "December"
 #### See also
 
 [`deleteString`](#deletestring)<br/>
-[`Insert string`](#insert-string)<br/>
-[`Replace string`](#replace-string)
+[`insertString`](#insertstring)<br/>
+[`replaceString`](#replacestring)
 
 ## char
 
@@ -97,7 +97,7 @@ Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 ```4d
 
 var myText : string
-myText ="hello"+char(Carriage return)+"world"
+myText ="hello"+char(carriageReturn)+"world"
 ```
 
 #### See also
@@ -158,11 +158,11 @@ The following example tests for carriage returns and tabs:
 ```4d
  var vlChar : integer
  var vtText : string
- for(vlChar,1,Length(vtText))
+ for(vlChar,1,length(vtText))
     case of
-       :(vtText[[vlChar]]==Char(Carriage return))
+       :(vtText[[vlChar]]==char(Carriage return))
   //do something
-       :(vtText[[vlChar]]==Char(Tab))
+       :(vtText[[vlChar]]==char(Tab))
   // do something else
        :(...)
   //...
@@ -176,7 +176,7 @@ When executed multiple times on large texts, this test will run faster when comp
 ```4d
  var vlChar, vlCode  : integer
  var vtText : string
- for(vlChar,1,Length(vtText))
+ for(vlChar,1,length(vtText))
     vlCode=characterCode(vtText[[vlChar]])
     case of
        :(vlCode==Carriage return)
@@ -199,10 +199,10 @@ The second piece of code runs faster for two reasons: it does only one character
 
 ## compareStrings
 
-<!-- REF #_command_.Compare strings.Syntax -->**Compare strings** ( *aString* : string , *bString* : string , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string , *options* : integer ) : integer<!-- END REF -->
 
 
-<!-- REF #_command_.Compare strings.Params -->
+<!-- REF #_command_.compareStrings.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|string|->|String to compare|
@@ -212,26 +212,26 @@ The second piece of code runs faster for two reasons: it does only one character
 
 #### Description
 
-The `Compare strings` command <!-- REF #_command_.Compare strings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
+The `compareStrings` command <!-- REF #_command_.compareStrings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
 
 In the *aString* parameter, pass a *string* value.
 
 In the *bString* parameter, pass a *string* value to be compared to *aString*.
 
-By default, `Compare strings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants: 
+By default, `compareStrings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants: 
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, 4D string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`Position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, 4D string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
 |sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`Position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in 4D is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`Compare strings`](#compare-strings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
+|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in 4D is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
 |sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in 4D. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`Compare strings`](#compare-strings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`Position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
+|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in 4D. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
 
 :::caution
 
-You cannot use the @ wildcard character with `Compare strings`. For example, if you pass "*abc@*" in *aString* or *bString* the command will actually evaluate the "*abc@*" string and not an "abc" string plus any character.
+You cannot use the @ wildcard character with `compareStrings`. For example, if you pass "*abc@*" in *aString* or *bString* the command will actually evaluate the "*abc@*" string and not an "abc" string plus any character.
 
 :::
 
@@ -256,11 +256,11 @@ You want to compare the following strings:
  string2="Alpha Bravo Charlie Delta Echo Fox-Trot"
  
   //compare the strings using the character code
- myResult=Compare strings(string1,string2,sk char codes)
+ myResult=compareStrings(string1,string2,sk char codes)
   // myResult = 1
  
   //compare the strings using the character code but ignoring any capitalization
- myResult=Compare strings(string1,string2,sk char codes+sk case insensitive)
+ myResult=compareStrings(string1,string2,sk char codes+sk case insensitive)
   // myResult = 0
  
 ```
@@ -272,35 +272,35 @@ The following examples illustrate the specific impact of options in **Japanese d
 ```4d
  var myResult : integer
 //default is kana insensitive
- myResult=Compare strings("イロハ","いろは") // equal
- myResult=Compare strings("イロハ","いろは",sk strict)      // not equal
- result=Compare strings("イロハ","いろは",sk kana insensitive) // equal
+ myResult=compareStrings("イロハ","いろは") // equal
+ myResult=compareStrings("イロハ","いろは",sk strict)      // not equal
+ result=compareStrings("イロハ","いろは",sk kana insensitive) // equal
  
 ```
 
 ```4d
  var myResult : integer
 //default is case insensitive
- myResult=Compare strings("さつき","さっき") // equal
- myResult=Compare strings("さつき","さっき",sk strict) // not equal
- myResult=Compare strings("さつき","さっき",sk case insensitive) // equal
+ myResult=compareStrings("さつき","さっき") // equal
+ myResult=compareStrings("さつき","さっき",sk strict) // not equal
+ myResult=compareStrings("さつき","さっき",sk case insensitive) // equal
  
 ```
 
 ```4d
  var myResult : integer
  //default is diacritic sensitive when the data language is set to Japanese (different to all other languages)
- myResult=Compare strings("ete","été") // equal in non-Japanese data language
- myResult=Compare strings("ete","été") // not equal in Japanese data language
- myResult=Compare strings("うがい","うかい") // not equal
- myResult=Compare strings("うがい","うかい",sk strict) // not equal
- myResult=Compare strings("うがい","うかい",sk diacritic insensitive) // equal
+ myResult=compareStrings("ete","été") // equal in non-Japanese data language
+ myResult=compareStrings("ete","été") // not equal in Japanese data language
+ myResult=compareStrings("うがい","うかい") // not equal
+ myResult=compareStrings("うがい","うかい",sk strict) // not equal
+ myResult=compareStrings("うがい","うかい",sk diacritic insensitive) // equal
  
 ```
 
 :::note
 
-The "Sorting order appropriate for searching" setting has an impact on the `Compare strings` command. In particular, the "Katakana-Hiragana Prolonged Sound Mark" or "長音記号" will be interpreted differently. The setting also has an impact on "Japanese Iteration Marks" such as "ゝ" or "ゞ". 
+The "Sorting order appropriate for searching" setting has an impact on the `compareStrings` command. In particular, the "Katakana-Hiragana Prolonged Sound Mark" or "長音記号" will be interpreted differently. The setting also has an impact on "Japanese Iteration Marks" such as "ゝ" or "ゞ". 
 
 :::
 
@@ -309,38 +309,38 @@ For example:
 
 ```4d
  var myResult : integer
- myResult=Compare strings("いすず","いすゞ") // equal if setting is disabled
- myResult=Compare strings("いすず","いすゞ") // not equal if setting is enabled
- myResult=Compare strings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
- myResult=Compare strings("ラーメン",&NBSP,"ﾗｰﾒﾝ") // not equal if setting is disabled
+ myResult=compareStrings("いすず","いすゞ") // equal if setting is disabled
+ myResult=compareStrings("いすず","いすゞ") // not equal if setting is enabled
+ myResult=compareStrings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
+ myResult=compareStrings("ラーメン",&NBSP,"ﾗｰﾒﾝ") // not equal if setting is disabled
  
 ```
 
 #### See also
 
-[`Position`](#position)
+[`position`](#position)
 
 ## convertFromString
 
-<!-- REF #_command_.CONVERT FROM TEXT.Syntax -->**CONVERT FROM TEXT** ( *4Dtext* : Text , *charSet* : Text, integer ) : BLOB<!-- END REF -->
+<!-- REF #_command_.convertFromString.Syntax -->**convertFromString** ( *4Dtext* : string , *charSet* : string, integer ) : BLOB<!-- END REF -->
 
 
-<!-- REF #_command_.CONVERT FROM TEXT.Params -->
+<!-- REF #_command_.convertFromString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|atext|Text|->|Text expressed in current character set|
-|charSet|Text, integer|->|Name or Number of character set|
-|Result|BLOB|<-|BLOB containing converted text|<!-- END REF -->
+|aString|string|->|string expressed in current character set|
+|charSet|string, integer|->|Name or Number of character set|
+|Result|BLOB|<-|BLOB containing converted string|<!-- END REF -->
 
 #### Description
 
-The `CONVERT FROM TEXT` command <!-- REF #_command_.CONVERT FROM TEXT.Summary -->can be used to convert a text expressed in the current character set to a text expressed in another character set<!-- END REF -->. 
+The `convertFromString` command <!-- REF #_command_.convertFromString.Summary -->can be used to convert a string expressed in the current character set to a string expressed in another character set<!-- END REF -->. 
 
-In the *atext* parameter, pass the text to be converted. This text is expressed in the current character set (Unicode by default).
+In the *aString* parameter, pass the text to be converted. This text is expressed in the current character set (Unicode by default).
 
 In *charSet*, pass the character set to be used for the conversion. You can pass a string containing the standard name of the set (for example “ISO-8859-1” or “UTF-8”), or its MIBEnum identifier.
 
-Here is a list of character sets supported by the CONVERT FROM TEXT and [`Convert to text`](#convert-to-text) commands:
+Here is a list of character sets supported by the convertFromString and [`convertToString`](#converttostring) commands:
 
 |MIBEnum|Name(s)|
 |:----|:----|
@@ -499,7 +499,7 @@ Several rows have the same MIBEnum identifier because a character set can have m
 
 For more information about the names of character sets, please refer to the following address: *http://www.iana.org/assignments/character-sets*
 
-After execution of the command, the converted text will be returned in the *convertedBLOB* BLOB. This BLOB can be read by the [`Convert to text`](#convert-to-text) command.
+After execution of the command, the converted text will be returned in the *convertedBLOB* BLOB. This BLOB can be read by the [`convertToString`](#converttostring) command.
 
 #### System variables and sets
 
@@ -507,27 +507,27 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 #### See also
 
-[`Convert to text`](#convert-to-text)
+[`convertToString`](#converttostring)
 
 ## convertToString
 
-<!-- REF #_command_.Convert to text.Syntax -->**Convert to text** ( *blob* : BLOB , *charSet* : Text, integer ) : Text<!-- END REF -->
+<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *blob* : BLOB , *charSet* : string, integer ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.Convert to text.Params -->
+<!-- REF #_command_.convertToString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |blob|BLOB|->|BLOB containing text expressed in a specific character set|
-|charSet|Text, integer|->|Name or Number of BLOB character set|
-|Result|Text|<-|Contents of BLOB expressed in 4D character set|<!-- END REF -->
+|charSet|string, integer|->|Name or Number of BLOB character set|
+|Result|string|<-|Contents of BLOB expressed in 4D character set|<!-- END REF -->
 
 #### Description
 
-The `Convert to text` command <!-- REF #_command_.Convert to text.Summary -->converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D<!-- END REF -->. 4D uses the UTF-16 character set by default.
+The `convertToString` command <!-- REF #_command_.convertToString.Summary -->converts the text contained in the *blob* parameter and returns it in text expressed in the character set of 4D<!-- END REF -->. 4D uses the UTF-16 character set by default.
 
-In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`CONVERT FROM TEXT`](#convert-from-text) command.
+In *charSet*, pass the character set of the text contained in *blob*, which will be used for the conversion. If the BLOB contains text copied from within 4D, then the BLOB’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`convertFromString`](#convertfromstring) command.
 
-`Convert to text` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), 4D attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and 4D uses the character set that it defines instead of the one specified.
+`convertToString` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), 4D attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and 4D uses the character set that it defines instead of the one specified.
 
 #### System variables and sets
 
@@ -535,20 +535,20 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 #### See also
 
-[`CONVERT FROM TEXT`](#convert-from-text)
+[`convertFromString`](#convertfromstring)
 
 ## deleteString
 
-<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : Text , *where * : integer , *numChars* : integer ) : Text<!-- END REF -->
+<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : string , *where * : integer , *numChars* : integer ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.deleteString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|Text|->|String from which to delete characters|
+|source|string|->|String from which to delete characters|
 |where |integer|->|First character to delete|
 |numChars|integer|->|Number of characters to delete|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|string|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
@@ -567,7 +567,7 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 #### Example
 
 ```4d
-var vtResult, vtOtherVar : Text
+var vtResult, vtOtherVar : string
  vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
  vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
  vtResult=deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
@@ -577,40 +577,40 @@ var vtResult, vtOtherVar : Text
 #### See also
 
 [`changeString`](#changestring)<br/>
-[`Insert string`](#insert-string)<br/>
-[`Replace string`](#replace-string)
+[`insertString`](#insertstring)<br/>
+[`replaceString`](#replacestring)
 
 
 ## insertString
 
-<!-- REF #_command_.Insert string.Syntax -->**Insert string** ( *source* : Text , *what* : Text , *where* : integer ) : Text<!-- END REF -->
+<!-- REF #_command_.insertString.Syntax -->**insertString** ( *source* : string , *what* : string , *where* : integer ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.Insert string.Params -->
+<!-- REF #_command_.insertString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|Text|->|String in which to insert the other string|
-|what|Text|->|String to insert|
+|source|string|->|String in which to insert the other string|
+|what|string|->|String to insert|
 |where|integer|->|Where to insert|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|string|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-The `Insert string` command <!-- REF #_command_.Insert string.Summary -->inserts a string into *source* and returns the resulting string<!-- END REF -->. The command inserts the string *what* before the character at position *where*.
+The `insertString` command <!-- REF #_command_.insertString.Summary -->inserts a string into *source* and returns the resulting string<!-- END REF -->. The command inserts the string *what* before the character at position *where*.
 
-If *what* is an empty string (""), `Insert string` returns source unchanged.
+If *what* is an empty string (""), `insertString` returns source unchanged.
 
 If *where* is greater than the length of *source*, then *what* is appended to *source*. If *where* is less than one (1), then *what* is inserted before *source*.
 
-`Insert string` is different from [`changeString`](#changestring) in that it inserts characters instead of overwriting them.
+`insertString` is different from [`changeString`](#changestring) in that it inserts characters instead of overwriting them.
 
 #### Example
 
 ```4d
- var vtResult : Text
- vtResult=Insert string("The tree"," green",4) // vtResult gets "The green  tree"
- vtResult=Insert string("Shut","o",3) // vtResult gets "Shout"
- vtResult=Insert string("Indention","ta",6) // vtResult gets "Indentation"
+ var vtResult : string
+ vtResult=insertString("The tree"," green",4) // vtResult gets "The green  tree"
+ vtResult=insertString("Shut","o",3) // vtResult gets "Shout"
+ vtResult=insertString("Indention","ta",6) // vtResult gets "Indentation"
  
 ```
 
@@ -618,50 +618,50 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 [`changeString`](#changestring)<br/>
 [`deleteString`](#deletestring)<br/>
-[`Replace string`](#replace-string)
+[`replaceString`](#replacestring)
 
 ## length
 
-<!-- REF #_command_.Length.Syntax -->**Length** ( *string* : Text ) : integer<!-- END REF -->
+<!-- REF #_command_.length.Syntax -->**length** ( *aString* : string ) : integer<!-- END REF -->
 
 
-<!-- REF #_command_.Length.Params -->
+<!-- REF #_command_.length.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|string|Text|->|String for which to return length|
+|aString|string|->|String for which to return length|
 |Result|integer|<-|Length of string|<!-- END REF -->
 
 #### Description
 
-`Length` is used to find the length of a *string*. `Length` <!-- REF #_command_.Length.Summary -->returns the number of characters that are in a *string*.<!-- END REF -->. 
+`length` is used to find the length of a *aString*. `length` <!-- REF #_command_.length.Summary -->returns the number of characters that are in a *aString*.<!-- END REF -->. 
 
 :::note
 
-When you want to check whether a string contains any characters, including ignorable characters, you must use the test If(Length(vtAnyText)=0) rather than If(vtAnyText=""). If the string contains for example Char(1), which is an ignorable character, Length(vtAnyText) does return 1 but vtAnyText="" returns True.
+When you want to check whether a string contains any characters, including ignorable characters, you must use the test If(length(vtAnyText)=0) rather than If(vtAnyText=""). If the string contains for example Char(1), which is an ignorable character, length(vtAnyText) does return 1 but vtAnyText="" returns True.
 
 :::
 
 #### Example
 
 ```4d
- var vtResult : Text
- vlResult=Length("Topaz") // vlResult gets 5
- vlResult=Length("Citizen") // vlResult gets 7
+ var vtResult : string
+ vlResult=length("Topaz") // vlResult gets 5
+ vlResult=length("Citizen") // vlResult gets 7
  
 ```
 
 
 ## lowercase
 
-<!-- REF #_command_.lowercase.Syntax -->**lowercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+<!-- REF #_command_.lowercase.Syntax -->**lowercase** ( *aString* : string {, \*} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.lowercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|Text|->|String to convert to lowercase|
+|aString|string|->|String to convert to lowercase|
 |*||->|If passed: keep accents|
-|Result|Text|<-|String in lowercase|<!-- END REF -->
+|Result|string|<-|String in lowercase|<!-- END REF -->
 
 #### Description
 
@@ -679,7 +679,7 @@ The following project method capitalizes the string or text received as paramete
   //Caps ( Any text  ) -> Capitalized text
  #declare (myText : Text) -> myCapText : Text
  myCapText=lowercase(myText)
- if(Length(myCapText)>0)
+ if(length(myCapText)>0)
     myCapText[[1]]==uppercase(myCapText[[1]])
  end if
 
@@ -690,7 +690,7 @@ The following project method capitalizes the string or text received as paramete
 This example compares the results obtained according to whether or not the * parameter has been passed:
 
 ```4d
- var thestring : Text 
+ var thestring : string 
  thestring=lowercase("DÉJÀ VU") // thestring is "deja vu"
  thestring=lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
 
@@ -702,9 +702,9 @@ This example compares the results obtained according to whether or not the * par
 
 ## matchRegex
 
-<!-- REF #_command_.Match regex.Syntax -->**Match regex** ( *pattern* : Text , *aString* : Text ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : integer {, \*} ) : Boolean <br/>**Match regex** ( *pattern* : Text , *aString* : Text , *start* : integer , *pos_found* : integer , *length_found* : integer {, \*} ) : Boolean<!-- END REF -->
+<!-- REF #_command_.matchRegex.Syntax -->**matchRegex** ( *pattern* : string , *aString* : string ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer {, \*} ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer , *pos_found* : integer , *length_found* : integer {, \*} ) : boolean<!-- END REF -->
 
-<!-- REF #_command_.Match regex.Params -->
+<!-- REF #_command_.matchRegex.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |pattern|Text|->|Regular expression (complete equality when using two parameters only)|
@@ -713,11 +713,11 @@ This example compares the results obtained according to whether or not the * par
 |pos_found| |<-|Position of occurrence|
 |length_found| |<-|Length of occurrence|
 |*||->|If passed: only searches at position indicated|
-|Result|Boolean|<-|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
+|Result|boolean|<-|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
 
 #### Description
 
-The `Match regex` <!-- REF #_command_.Match regex.Summary -->searches for the regular expression pattern in aString<!-- END REF -->, this command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called “regular expression” or “rational expression.” The regex abbreviation is commonly used to indicate these types of notations. 
+The `matchRegex` <!-- REF #_command_.matchRegex.Summary -->searches for the regular expression pattern in aString<!-- END REF -->, this command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called “regular expression” or “rational expression.” The regex abbreviation is commonly used to indicate these types of notations. 
 
 Pass the regular expression to search for in *pattern*. This consists of a set of characters used for describing a character string, using special characters.
 
@@ -742,18 +742,18 @@ https://unicode-org.github.io/icu/userguide/strings/regexp.html#regular-expressi
 Search in text by position:
 
 ```4d
-vfound=Match regex(pattern, mytext, start, pos_found, length_found)
+vfound=matchRegex(pattern, mytext, start, pos_found, length_found)
 ```
 
 ```4d
- #declare (myText : Text)
+ #declare (myText : string)
  var start : integer
- var vfound : Boolean
+ var vfound : boolean
  start=1
  repeat
-    vfound=Match regex("<.*>",myText,start,pos_found,length_found)
+    vfound=matchRegex("<.*>",myText,start,pos_found,length_found)
     if(vfound)
-       ALERT(Substring(myText,pos_found,length_found))
+       ALERT(substring(myText,pos_found,length_found))
        start=pos_found+length_found
     end if
  until(Not(vfound))
@@ -765,21 +765,21 @@ vfound=Match regex(pattern, mytext, start, pos_found, length_found)
 Search with support of “capture groups” via parentheses. ( ) are used to specify groups in the regexes:
 
 ```4d
-vfound=Match regex( pattern,mytext, start, pos_found_array, length_found_array)
+vfound=matchRegex( pattern,mytext, start, pos_found_array, length_found_array)
 ```
 
 
 ```4d
- #declare (myText : Text)
+ #declare (myText : string)
  var start : integer
- var vfound : Boolean
- var group1, group2 : Text
+ var vfound : boolean
+ var group1, group2 : string
  ARRAY LONGINT(pos_found_array,0)
  ARRAY LONGINT(length_found_array,0)
- vfound=Match regex("(.*)stuff(.*)",myText,1,pos_found_array,length_found_array)
+ vfound=matchRegex("(.*)stuff(.*)",myText,1,pos_found_array,length_found_array)
  if(vfound)
-    group1=Substring(myText,pos_found_array{1},length_found_array{1})
-    group2=Substring(myText,pos_found_array{2},length_found_array{2})
+    group1=substring(myText,pos_found_array{1},length_found_array{1})
+    group2=substring(myText,pos_found_array{2},length_found_array{2})
  end if
 
 ```
@@ -791,13 +791,13 @@ Add a star to the end of one of the two previous syntaxes.
 
 ```4d
  var start, pos_found, length_found : integer
- var vfound : Text
+ var vfound : string
 
- vfound=Match regex("a.b","---a-b---",1,pos_found,length_found)
+ vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found)
   // returns True
- vfound=Match regex("a.b","---a-b---",1,pos_found,length_found,*)
+ vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found,*)
   // returns False
- vfound=Match regex("a.b","---a-b---",4,pos_found,length_found,*)
+ vfound=matchRegex("a.b","---a-b---",4,pos_found,length_found,*)
   // returns True
 
 ```
@@ -814,19 +814,19 @@ In the event of an error, the command generates an error that you can intercept 
 
 ## num
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : Text,Boolean,integer , *separator* : Text ) : Real <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string,boolean,integer , *separator* : string ) : real <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|Text,Boolean,integer|->|Character for which you want to get the code|
-|separator|Text|->|Character for which you want to get the code|
-|Result|Real|<-|Character code|<!-- END REF -->
+|expression|string,boolean,integer|->|Character for which you want to get the code|
+|separator|string|->|Character for which you want to get the code|
+|Result|real|<-|Character code|<!-- END REF -->
 
 #### Description
 
-The `num` command <!-- REF #_command_.num.Summary -->returns the numeric form of the String, Boolean or numeric expression you pass in *expression*<!-- END REF -->. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
+The `num` command <!-- REF #_command_.num.Summary -->returns the numeric form of the string, boolean or numeric expression you pass in *expression*<!-- END REF -->. The optional *separator* parameter designates a decimal separator for evaluating string type expressions.
 
 **String Expressions**
 
@@ -849,7 +849,7 @@ The GET SYSTEM FORMAT command can be used to find out the current decimal separa
 
 **Boolean Expressions**
 
-If you pass a Boolean expression, `num` returns 1 if the expression is True; otherwise, it returns 0 (zero).
+If you pass a boolean expression, `num` returns 1 if the expression is True; otherwise, it returns 0 (zero).
 
 **Numeric Expressions**
 
@@ -865,7 +865,7 @@ If *expression* evaluates to undefined, the command returns 0 (zero). This is us
 The following example illustrates how `num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
 
 ```4d
- var vResult : Real
+ var vResult : real
  vResult=num("ABCD") // vResult gets 0
  vResult=num("A1B2C3") // vResult gets 123
  vResult=num("123") // vResult gets 123
@@ -880,8 +880,8 @@ The following example illustrates how `num` works when passed a string argument.
 This example compares the results obtained depending on the “current” separator:
 
 ```4d
- var thestring : Text
- var thenum : Real
+ var thestring : string
+ var thenum : real
  thestring="33,333.33"
  thenum=num(thestring)
   // by default, thenum equals 33,33333 on a French system
@@ -893,15 +893,15 @@ This example compares the results obtained depending on the “current” separa
 
 #### See also
 
-[`Bool`](#bool)<br/>
+[`bool`](#bool)<br/>
 [`GET SYSTEM FORMAT`](#get-system-format)<br/>
-[`String`](#string)
+[`string`](#string)
 
 ## position
 
-<!-- REF #_command_.Position.Syntax -->**Position** ( *find* : Text , *aString* : Text , *start* : integer {, \*} ) : integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : integer , *lengthFound * : integer {, \*} ) : integer <br/>**Position** ( *find* : Text , *aString* : Text , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
 
-<!-- REF #_command_.Position.Params -->
+<!-- REF #_command_.position.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |find|Text|->|String to find|
@@ -914,13 +914,13 @@ This example compares the results obtained depending on the “current” separa
 
 #### Description
 
-The `Position` <!-- REF #_command_.Position.Summary -->returns the position of the first occurrence of *find* in *aString*<!-- END REF -->. 
+The `position` <!-- REF #_command_.position.Summary -->returns the position of the first occurrence of *find* in *aString*<!-- END REF -->. 
 
 If *aString* does not contain *find*, it returns a zero (0).   
 
-If `Position` locates an occurrence of *find*, it returns the position of the first character of the occurrence in *aString*.
+If `position` locates an occurrence of *find*, it returns the position of the first character of the occurrence in *aString*.
 
-If you ask for the position of an empty string within an empty string, `Position` returns zero (0). 
+If you ask for the position of an empty string within an empty string, `position` returns zero (0). 
 
 By default, the search begins at the first character of *aString*. The *start* parameter can be used to specify the character where the search will begin in *aString*. 
 
@@ -945,34 +945,34 @@ To modify this functioning, you can pass:
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, 4D string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`Position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, 4D string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
 |sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`Position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in 4D is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`Compare strings`](#compare-strings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
+|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in 4D is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
 |sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk whole word|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk case insensitive</u><span>&nbsp;</span>([`Position`](#position)<span>&nbsp;</span>command only)</li><li><u>sk diacritic insensitive</u><span>&nbsp;</span>([`Position`](#position)<span>&nbsp;</span>command only)</li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in 4D. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`Compare strings`](#compare-strings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`Position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
+|sk whole word|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk case insensitive</u><span>&nbsp;</span>([`position`](#position)<span>&nbsp;</span>command only)</li><li><u>sk diacritic insensitive</u><span>&nbsp;</span>([`position`](#position)<span>&nbsp;</span>command only)</li></ul>|
+|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in 4D. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
 
 :::caution
 
-You cannot use the @ wildcard character with `Position`. For example, if you pass "*abc@*" in *find*, the command will actually evaluate the "*abc@*" string and not an "abc" plus any character.
+You cannot use the @ wildcard character with `position`. For example, if you pass "*abc@*" in *find*, the command will actually evaluate the "*abc@*" string and not an "abc" plus any character.
 
 :::
 
 #### Example 1
 
-This example illustrates the use of Position. The results, described in the comments, are assigned to the variable vlResult.
+This example illustrates the use of position. The results, described in the comments, are assigned to the variable vlResult.
 
 ```4d
  var length, vlResult : integer
- var vtText1, vtText2  : Text
- vlResult=Position("ll","Willow") // vlResult gets 3
- vlResult=Position(vtText1,vtText2) // Returns first occurrence of vtText1 in vtText2
- vlResult=Position("day","Today is the first day",1) // vlResult gets 3
- vlResult=Position("day","Today is the first day",4) // vlResult gets 20
- vlResult=Position("DAY","Today is the first day",1,*) // vlResult gets 0
+ var vtText1, vtText2  : string
+ vlResult=position("ll","Willow") // vlResult gets 3
+ vlResult=position(vtText1,vtText2) // Returns first occurrence of vtText1 in vtText2
+ vlResult=position("day","Today is the first day",1) // vlResult gets 3
+ vlResult=position("day","Today is the first day",4) // vlResult gets 20
+ vlResult=position("DAY","Today is the first day",1,*) // vlResult gets 0
  
- vlResult=Position("œ","Bœuf",1,length) // vlResult =2, length = 1
+ vlResult=position("œ","Bœuf",1,length) // vlResult =2, length = 1
 
 ```
 
@@ -982,10 +982,10 @@ In the following example, the lengthFound parameter can be used to search for al
 
 ```4d
  var start, lengthfound, vlResult : integer
- var myText : Text
+ var myText : string
  start=1
  repeat
-    vlResult=Position("aegis",myText,start,lengthfound)
+    vlResult=position("aegis",myText,start,lengthfound)
     start=start+lengthfound
  until(vlResult==0)
 
@@ -997,7 +997,7 @@ In the following example, you want to find all instances of a string and replace
 
 ```4d
  var lengthFound, find, replace, option, p  : integer
- var myText : Text
+ var myText : string
  myText="Hello Joelle et joel!"
  find="joel"
  replace="Joël"
@@ -1005,9 +1005,9 @@ In the following example, you want to find all instances of a string and replace
  
  p=0
  repeat
-    p=Position(find,myText,p+1,lengthFound,option)
+    p=position(find,myText,p+1,lengthFound,option)
     if(p>0)
-       myText=Substring(myText,1,p-1)+replace+Substring(myText,p+lengthFound)
+       myText=substring(myText,1,p-1)+replace+substring(myText,p+lengthFound)
     end if
  until(p<=0) //result: myText -> Hello Joëlle and Joël!
 
@@ -1015,33 +1015,33 @@ In the following example, you want to find all instances of a string and replace
 
 #### See also
 
-[`Compare strings`](#compare-strings)<br/>
-[`Substring`](#substring)
+[`compareStrings`](#comparestrings)<br/>
+[`substring`](#substring)
 
 ## replaceString
 
-<!-- REF #_command_.Replace string.Syntax -->**Replace string** ( *source* : Text , *oldString* : Text , *newString* : Text , *howMany* : integer {, \*}) : Text<!-- END REF -->
+<!-- REF #_command_.replaceString.Syntax -->**replaceString** ( *source* : string , *oldString* : string , *newString* : string , *howMany* : integer {, \*}) : string<!-- END REF -->
 
 
-<!-- REF #_command_.Replace string.Params -->
+<!-- REF #_command_.replaceString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|Text|->|Original string|
-|oldString|Text|->|Characters to replace|
-|newString|Text|->|Replacement string (if empty string, occurrences are deleted)|
+|source|string|->|Original string|
+|oldString|string|->|Characters to replace|
+|newString|string|->|Replacement string (if empty string, occurrences are deleted)|
 |howMany|integer|->|How many times to replace If omitted, all occurrences are replaced|
 |*||->|If passed: evaluation based on character codes|
 |Result|Text|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
-`Replace string` <!-- REF #_command_.Replace string.Summary -->replaces *howMany* occurrences of *oldString* in *source* with *newString*<!-- END REF -->. 
+`replaceString` <!-- REF #_command_.replaceString.Summary -->replaces *howMany* occurrences of *oldString* in *source* with *newString*<!-- END REF -->. 
 
-If *newString* is an empty string (""), `Replace string` deletes each occurrence of *oldString* in *source*.
+If *newString* is an empty string (""), `replaceString` deletes each occurrence of *oldString* in *source*.
 
-If *howMany* is specified, `Replace string` will replace only the number of occurrences of *oldString* specified, starting at the first character of *source*. If *howMany* is not specified, then all occurrences of *oldString* are replaced.
+If *howMany* is specified, `replaceString` will replace only the number of occurrences of *oldString* specified, starting at the first character of *source*. If *howMany* is not specified, then all occurrences of *oldString* are replaced.
 
-If *oldString* is an empty string, `Replace string` returns the unchanged *source*.
+If *oldString* is an empty string, `replaceString` returns the unchanged *source*.
 
 By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a=A, a=à and so on) and does not take "ignorable" characters such as characters whose code < 9 into account (Unicode specification).
 
@@ -1053,13 +1053,13 @@ Note that in this mode, the evaluation does not handle variations in the way wor
 
 #### Example 1
 
-The following example illustrates the use of `Replace string`. The results, described in the comments, are assigned to the variable *vtResult*.
+The following example illustrates the use of `replaceString`. The results, described in the comments, are assigned to the variable *vtResult*.
 
 ```4d
- var vtResult, vtOtherVar : Text
- vtResult=Replace string("Willow"," ll","d") // Result gets "Widow"
- vtResult=Replace string("Shout","o","") // Result gets "Shut"
- vtResult=Replace string(vtOtherVar,Char(Tab),",",*) // Replaces all tabs in vtOtherVar with commas
+ var vtResult, vtOtherVar : string
+ vtResult=replaceString("Willow"," ll","d") // Result gets "Widow"
+ vtResult=replaceString("Shout","o","") // Result gets "Shut"
+ vtResult=replaceString(vtOtherVar,Char(Tab),",",*) // Replaces all tabs in vtOtherVar with commas
 
 ```
 
@@ -1068,8 +1068,8 @@ The following example illustrates the use of `Replace string`. The results, desc
 The following example eliminates CRs and TABs from the text in *vtResult*:
 
 ```4d
- var vtResult : Text
- vtResult=Replace string(Replace string(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
+ var vtResult : string
+ vtResult=replaceString(replaceString(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
 
 ```
 
@@ -1078,9 +1078,9 @@ The following example eliminates CRs and TABs from the text in *vtResult*:
 The following example illustrates the use of the * parameter in the case of a diacritical evaluation:
 
 ```4d
- var vtResult : Text
- vtResult=Replace string("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
- vtResult=Replace string("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
+ var vtResult : string
+ vtResult=replaceString("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
+ vtResult=replaceString("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
 
 ```
 
@@ -1088,26 +1088,26 @@ The following example illustrates the use of the * parameter in the case of a di
 
 [`changeString`](#changestring)<br/>
 [`deleteString`](#deletestring)<br/>
-[`Insert string`](#insert-string)
+[`insertString`](#insertstring)
 
 ## splitString
 
-<!-- REF #_command_.Split string.Syntax -->**Split string** ( *stringToSplit* : Text , *separator* : Text , *options* : integer ) : Collection <!-- END REF -->
+<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string , *options* : integer ) : collection <!-- END REF -->
 
 
-<!-- REF #_command_.Split string.Params -->
+<!-- REF #_command_.splitString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |stringToSplit|Text|->|String value|
 |separator|Text|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
 |options|integer|->|Option(s) regarding empty strings and spaces|
-|Result|Collection|<-|Collection of substrings|<!-- END REF -->
+|Result|collection|<-|Collection of substrings|<!-- END REF -->
 
 #### Description
 
-The `Split string` command <!-- REF #_command_.Split string.Summary -->returns a collection of strings, created by splitting *stringToSplit* into substrings at the boundaries specified by the *separator* parameter<!-- END REF -->. The substrings in the returned collection do not include *separator* itself.
+The `splitString` command <!-- REF #_command_.splitString.Summary -->returns a collection of strings, created by splitting *stringToSplit* into substrings at the boundaries specified by the *separator* parameter<!-- END REF -->. The substrings in the returned collection do not include *separator* itself.
 
-If no *separator* is found in *stringToSplit*, `Split string` returns a collection containing a single element, *stringToSplit*. If you passed an empty string in *separator*, `Split string` returns a collection of each character of *stringToSplit*.
+If no *separator* is found in *stringToSplit*, `splitString` returns a collection containing a single element, *stringToSplit*. If you passed an empty string in *separator*, `splitString` returns a collection of each character of *stringToSplit*.
 
 In the *options* parameter, you can pass one or a combination of the following constants:
 
@@ -1119,14 +1119,14 @@ In the *options* parameter, you can pass one or a combination of the following c
 #### Example 1
 
 ```4d
- var myText : Text
- var myCol : Collection 
+ var myText : string
+ var myCol : collection 
  col=New collection
  
  myText="John,Doe,120 jefferson st.,Riverside,, NJ, 08075"
- myCol=Split string(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
- myCol=Split string(myText,",",sk ignore empty strings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
- myCol=Split string(myText,",",sk ignore empty strings+sk trim spaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
+ myCol=splitString(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
+ myCol=splitString(myText,",",sk ignore empty strings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
+ myCol=splitString(myText,",",sk ignore empty strings+sk trim spaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
  
 ```
 
@@ -1135,10 +1135,10 @@ In the *options* parameter, you can pass one or a combination of the following c
 The *separator* parameter can be a multiple-character string:
 
 ```4d
- var myText : Text
- var myCol : Collection
+ var myText : string
+ var myCol : collection
  myText="Name<tab>Smith<tab>age<tab>40"
- myCol=Split string(myText,"<tab>")
+ myCol=splitString(myText,"<tab>")
   //myCol=["Name","Smith","age","40"]
  
 ```
@@ -1150,20 +1150,20 @@ The *separator* parameter can be a multiple-character string:
 
 ## string
 
-<!-- REF #_command_.String.Syntax -->**String** ( *expression* : any , *format* : Text, integer , *addTime* : Time ) : Text<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : any , *format* : string, integer , *addTime* : time ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.String.Params -->
+<!-- REF #_command_.string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be Real, integer, Date, Time, Text, Boolean, Undefined, or Null)|
-|format|Text, integer|->|Display format|
-|addTime|Time|->|Time to add on if expression is a date|
-|Result|Text|<-|String form of the expression|<!-- END REF -->
+|expression|any|->|Expression for which to return the string form (can be real, integer, date, time, string, boolean, undefined, or null)|
+|format|string, integer|->|Display format|
+|addTime|time|->|Time to add on if expression is a date|
+|Result|string|<-|String form of the expression|<!-- END REF -->
 
 #### Description
 
-The `String` command <!-- REF #_command_.String.Summary --> returns the string form of the numeric, Date, Time, string or Boolean expression you pass in *expression*<!-- END REF -->. 
+The `string` command <!-- REF #_command_.string.Summary --> returns the string form of the numeric, date, time, string or boolean expression you pass in *expression*<!-- END REF -->. 
 
 If you do not pass the optional *format* parameter, the string is returned with the appropriate default format. If you pass *format*, you can force the result string to be of a specific format.
 
@@ -1171,38 +1171,38 @@ The optional *addTime* parameter adds a time to a date in a combined format. It 
 
 **Numeric Expressions**
 
-If *expression* is a numeric expression (Real, integer, Long integer), you can pass an optional string format. Following are some examples:
+If *expression* is a numeric expression (real, integer, Long integer), you can pass an optional string format. Following are some examples:
 
 |Example|Result|Comments|
 |:----|:----|:----|
-|String(2^15)|32768|Default format|
-|String(2^15;"###,##0 Inhabitants")|32,768 Inhabitants|
-|String(1/3;"##0.00000")|0.33333|
-|String(1/3)|0.3333333333333|Default format|
-|String(Arctan(1)*4)|3.14159265359|Default format|
-|String(Arctan(1)*4;"##0.00")|3.14|
-|String(-1;"&x")|0xFFFFFFFF|
-|String(-1;"&$")|$FFFFFFFF|
-|String(0 ?+ 7;"&x")|0x0080|
-|String(0 ?+ 7;"&$")|$80|
-|String(0 ?+ 14;"&x")|0x4000|
-|String(0 ?+ 14;"&$")|$4000|
-|String(50.3;"&xml")|50.3|Always "." as decimal separator|
-|String(num(1=1);"True;;False")|True|
-|String(num(1=2);"True;;False")|False|
-|String(log(-1))| |Undefined number|
-|String(1/0)|INF|Positive infinite number|
-|String(-1/0)|-INF|Negative infinite number|
+|string(2^15)|32768|Default format|
+|string(2^15;"###,##0 Inhabitants")|32,768 Inhabitants|
+|string(1/3;"##0.00000")|0.33333|
+|string(1/3)|0.3333333333333|Default format|
+|string(Arctan(1)*4)|3.14159265359|Default format|
+|string(Arctan(1)*4;"##0.00")|3.14|
+|string(-1;"&x")|0xFFFFFFFF|
+|string(-1;"&$")|$FFFFFFFF|
+|string(0 ?+ 7;"&x")|0x0080|
+|string(0 ?+ 7;"&$")|$80|
+|string(0 ?+ 14;"&x")|0x4000|
+|string(0 ?+ 14;"&$")|$4000|
+|string(50.3;"&xml")|50.3|Always "." as decimal separator|
+|string(num(1=1);"True;;False")|True|
+|string(num(1=2);"True;;False")|False|
+|string(log(-1))| |Undefined number|
+|string(1/0)|INF|Positive infinite number|
+|string(-1/0)|-INF|Negative infinite number|
 
 :::note
 
-The `String` function is not compatible with "Integer 64 bits" type fields in compiled mode.
+The `string` function is not compatible with "Integer 64 bits" type fields in compiled mode.
 
 :::
 
 **Date Expressions**
 
-If *expression* is a Date expression, the string is returned using the default format specified in the system.
+If *expression* is a date expression, the string is returned using the default format specified in the system.
 In the *format* parameter, you can pass one of the constants described below.
 
 In this case, you can also pass a time in the *addTime* parameter. This parameter lets you combine a date with a time so that you can generate time stamps in compliance with current standards (`ISO Date GMT` and `Date RFC 1123` constants). These formats are particularly useful in the context of XML and Web processing. The *addTime* parameter can only be used when the *expression* parameter is a date. 
@@ -1230,10 +1230,10 @@ Formats can vary depending on system settings.
 Here are a few examples of simple formats (assuming that the current date is 02/18/2023):
 
 ```4d
- var vtResult : Text
- vsResult=String(Current date) //vsResult gets "02/18/23"
- vsResult=String(Current date,Internal date long) // vsResult gets "February 18, 2023"
- vsResult=String(Current date,ISO Date GMT) // vsResult gets "2023-02-18T00:00:00" in France
+ var vtResult : string
+ vsResult=string(currentDate) //vsResult gets "02/18/23"
+ vsResult=string(currentDate,Internal date long) // vsResult gets "February 18, 2023"
+ vsResult=string(currentDate,ISO Date GMT) // vsResult gets "2023-02-18T00:00:00" in France
 
 ```
 
@@ -1242,8 +1242,8 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 * The `ISO Date GMT` format corresponds to the ISO8601 standard, containing a date and a time expressed with respect to the time zone (GMT).
 
 	 ```4d
-	 var mydate : Text
-	 mydate=String(Current date,ISO Date GMT,Current time) // returns, for instance, 2023-02-18T16:11:53Z
+	 var mydate : string
+	 mydate=string(currentDate,ISO Date GMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
 	
 	```
 
@@ -1251,39 +1251,39 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 If you do not pass the *addTime* parameter, the command returns the date at midnight (local time) expressed in GMT time, which may cause the date to be moved forward or back depending on the local time zone:
 
 	```4d
-	 var mydate : Text
-	 mydate=String(!18/02/2023!,ISO Date GMT) // returns 2023-02-17T22:00:00Z in France
+	 var mydate : string
+	 mydate=string(!18/02/2023!,ISO Date GMT) // returns 2023-02-17T22:00:00Z in France
 	
 	```
 
 * The `ISO Date` format is similar to the `ISO Date GMT`, except that it expresses the date and time without respect to the time zone. Note that since this format does not comply with the ISO8601 standard, its use should be reserved for very specific purposes.
 
 	```4d
-	 var mydate : Text
-	 mydate=String(!18/02/2023!,ISO Date) // returns 2023-02-18T00:00:00 regardless of the time zone
-     mydate=String(Current date,ISO Date,Current time) // returns 2023-02-18T18:11:53
+	 var mydate : string
+	 mydate=string(!18/02/2023!,ISO Date) // returns 2023-02-18T00:00:00 regardless of the time zone
+     mydate=string(currentDate,ISO Date,currentTime) // returns 2023-02-18T18:11:53
 	
 	```
  
 * The `Date RFC 1123` format formats a date/time combination according to the standard defined by RFC 822 and 1123. You need this format for example to set the expiration date for cookies in an HTTP header.
 
 	```4d
-	 var mydate : Text
-	 mydate=String(Current date,Date RFC 1123,Current time) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
+	 var mydate : string
+	 mydate=string(currentDate,Date RFC 1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
 	
 	```
 
 	The time expressed takes the time zone into account (GMT zone). If you only pass a date, the command returns the date at midnight (local time) expressed in GMT time which may cause the date to be moved forward or back depending on the local time zone:
 	
 	```4d
-	 var mydate : Text
-	 mydate=String(Current date,Date RFC 1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
+	 var mydate : string
+	 mydate=string(currentDate,Date RFC 1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
 	
 	```
 
 **Time Expressions**
 
-If *expression* is a Time expression, the string is returned using the default **HH:MM:SS** format. In the format parameter, you can pass one of the following constants:
+If *expression* is a time expression, the string is returned using the default **HH:MM:SS** format. In the format parameter, you can pass one of the following constants:
 
 |Constant|Type|Value|Comment|
 |:----|:----|:----|:----|
@@ -1308,20 +1308,20 @@ Notes:
 These examples assume that the current time is 5:30 PM and 45 seconds:
 
 ```4d
-	 var vsResult : Text
-	 vsResult=String(Current time) // $vsResult gets "17:30:45"
- 	 vsResult=String(Current time,Hour Min Sec) // $vsResult gets "17 hours 30 minutes 45 seconds"
+	 var vsResult : string
+	 vsResult=string(currentTime) // $vsResult gets "17:30:45"
+ 	 vsResult=string(currentTime,Hour Min Sec) // $vsResult gets "17 hours 30 minutes 45 seconds"
 	
 ```
 
 **String Expressions**
 
-If *expression* is of the String or Text type, the command returns the same value as the one passed in the parameter. This can be useful more particularly in generic programming using pointers.
+If *expression* is of the string type, the command returns the same value as the one passed in the parameter. This can be useful more particularly in generic programming using pointers.
 In this case, the *format* parameter, if passed, is ignored.
 
 **Boolean Expressions**
 
-If *expression* is of the Boolean type, the command returns the string “True” or “False” in the language of the application.
+If *expression* is of the boolean type, the command returns the string “True” or “False” in the language of the application.
 In this case, the *format* parameter, if passed, is ignored.
 
 **Undefined Expressions** 
@@ -1330,36 +1330,36 @@ If *expression* is evaluated to undefined, the command returns an empty string. 
 
 **Null Expressions**
 
-If *expression* is evaluated to Null, the command returns the "null" string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be null.
+If *expression* is evaluated to null, the command returns the "null" string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be null.
 
 #### See also
 
-[`Bool`](#bool)<br/>
-[`Date`](#date)<br/>
+[`bool`](#bool)<br/>
+[`date`](#date)<br/>
 [`num`](#num)<br/>
-[`Time string`](#time-string)<br/>
-[`Timestamp`](#timestamp)
+[`timeString`](#timestring)<br/>
+[`timeStamp`](#timestamp)
 
 ## substring
 
-<!-- REF #_command_.Substring.Syntax -->**Substring** ( *source* : Text , *firstChar* : integer , *numChars* : integer ) : Text <!-- END REF -->
+<!-- REF #_command_.substring.Syntax -->**substring** ( *source* : string , *firstChar* : integer , *numChars* : integer ) : string <!-- END REF -->
 
 
-<!-- REF #_command_.Substring.Params -->
+<!-- REF #_command_.substring.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|Text|->|String from which to get substring|
+|source|string|->|String from which to get substring|
 |firstChar|integer|->|Position of first character|
 |numChars|integer|->|Number of characters to get|
-|Result|Text|<-|Substring of source|<!-- END REF -->
+|Result|string|<-|Substring of source|<!-- END REF -->
 
 #### Description
 
-The `Substring` command <!-- REF #_command_.Substring.Summary -->returns the portion of source defined by *firstChar* and *numChars*<!-- END REF -->. 
+The `substring` command <!-- REF #_command_.substring.Summary -->returns the portion of source defined by *firstChar* and *numChars*<!-- END REF -->. 
 
 The *firstChar* parameter points to the first character in the string to return, and *numChars* specifies how many characters to return.
 
-If *firstChar* plus *numChars* is greater than the number of characters in the string, or if *numChars* is not specified, `Substring` returns the last character(s) in the string, starting with the character specified by *firstChar*. If *firstChar* is greater than the number of characters in the string, `Substring` returns an empty string ("").
+If *firstChar* plus *numChars* is greater than the number of characters in the string, or if *numChars* is not specified, `substring` returns the last character(s) in the string, starting with the character specified by *firstChar*. If *firstChar* is greater than the number of characters in the string, `substring` returns an empty string ("").
 
 :::caution
 
@@ -1369,13 +1369,13 @@ When you use this command in a multi-style context, you need to convert any Wind
 
 #### Example 1
 
-This example illustrates the use of Substring. The results, described in the comments, are assigned to the variable vsResult.
+This example illustrates the use of `substring`. The results, described in the comments, are assigned to the variable vsResult.
 
 ```4d
- var vsResult : Text
- vsResult=Substring("08/04/62",4,2) // vsResult gets "04"
- vsResult=Substring("Emergency",1,6) // vsResult gets "Emerge"
- vsResult=Substring(var,2) // vsResult gets all characters except the first
+ var vsResult : string
+ vsResult=substring("08/04/62",4,2) // vsResult gets "04"
+ vsResult=substring("Emergency",1,6) // vsResult gets "Emerge"
+ vsResult=substring(var,2) // vsResult gets all characters except the first
  
 ```
 
@@ -1385,20 +1385,20 @@ The following project method appends the paragraphs found in the text (passed as
 
 ```4d
   // EXTRACT PARAGRAPHS
-  // EXTRACT PARAGRAPHS ( text , Pointer )
-  // EXTRACT PARAGRAPHS ( Text to parse , -> Array of ¶s )
+  // EXTRACT PARAGRAPHS ( string , Pointer )
+  // EXTRACT PARAGRAPHS ( string to parse , -> Array of ¶s )
  
- #declare (myText : Text, myPointer : Pointer ) 
+ #declare (myText : string, myPointer : Pointer ) 
  var vlElem, vlPos : integer
  
  vlElem=Size of array(myPointer->)
  repeat
     vlElem=vlElem+1
     INSERT IN ARRAY(myPointer->,vlElem)
-    vlPos=Position(Char(Carriage return),$1)
+    vlPos=position(char(Carriage return),$1)
     if(vlPos>0)
-       myPointer->{vlElem}=Substring(myText,1,vlPos-1)
-       myText=Substring(myText,vlPos+1)
+       myPointer->{vlElem}=substring(myText,1,vlPos-1)
+       myText=substring(myText,vlPos+1)
     else
        myPointer->{vlElem}=myText
     end if
@@ -1408,19 +1408,19 @@ The following project method appends the paragraphs found in the text (passed as
 
 #### See also
 
-[`Position`](#position)
+[`position`](#position)
 
 ## uppercase 
 
-<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : Text {, \*} ) : Text<!-- END REF -->
+<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : string {, \*} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.uppercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|Text|->|String to convert to uppercase|
+|aString|string|->|String to convert to uppercase|
 |*||->|If passed: keep accents|
-|Result|Text|<-|String in uppercase|<!-- END REF -->
+|Result|string|<-|String in uppercase|<!-- END REF -->
 
 #### Description
 
@@ -1433,7 +1433,7 @@ The optional * parameter, if passed, indicates that any accented characters pres
 This example compares the results obtained according to whether or not the * parameter has been passed:
 
 ```4d
- var thestring : Text 
+ var thestring : string 
  thestring=uppercase("hélène") // thestring is "HELENE"
  thestring=uppercase("hélène",*) // thestring is "HÉLÈNE"
 
