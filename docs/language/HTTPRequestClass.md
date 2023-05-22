@@ -12,7 +12,7 @@ The `HTTPRequest` class is available from the `4D` class store. You create and s
 
 Create a `MyHttpRequestOptions` class for the request options:
 
-```4d
+```qs
 Class constructor(method : Text, headers : Object, body : Text)
 	This.method=method
 	This.headers=headers
@@ -27,7 +27,7 @@ Function onError(request : 4D.HTTPRequest, event : Object)
 
 You can now create your request:
 
-```4d
+```qs
 var headers : Object
 headers=New object()
 headers["field1"]="value1"

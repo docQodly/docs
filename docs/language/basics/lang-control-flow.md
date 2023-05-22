@@ -26,18 +26,18 @@ QodlyScript allows you to embed programming structures up to a "depth" of 512 le
 ## if...else...end
 
 The formal syntax of the `if...else...end` control flow structure is:
-
-```4d
+a
+```qs
  if(Boolean_Expression)
     statement(s)
  else
     statement(s)
- end
+ 
 ```
 
 Note that the `else` part is optional; you can write:
 
-```4d
+```qs
  if(Boolean_Expression)
     statement(s)
  end
@@ -47,7 +47,7 @@ The `if...else...end` structure lets your method choose between two actions, dep
 
 Note that the Boolean expression is always fully evaluated. Consider in particular the following test:
 
-```4d
+```qs
  if(MethodA && MethodB)
     ...
  end
@@ -55,7 +55,7 @@ Note that the Boolean expression is always fully evaluated. Consider in particul
 
 The expression is true only if both methods are true. However, even if *MethodA* returns false, QodlyScript will still evaluate *MethodB*, which is a useless waste of time. In this case, it is more interesting to use a structure like:
 
-```4d
+```qs
  if(MethodA)
     if(MethodB)
        ...
@@ -73,7 +73,7 @@ The [ternary operator](operators.md#ternary-operator) allows writing one-line co
 
 #### Example 
 
-```4d
+```qs
 if (event.eventType=="onmouseover") 
 	webForm["helpOn_"+componentRef].show() 
 else 
@@ -85,7 +85,7 @@ end
 
 Branching can be performed without statements to be executed in one case or the other. When developing an algorithm or a specialized application, nothing prevents you from writing:
 
-```4d
+```qs
  if(Boolean_Expression)
  else
     statement(s)
@@ -94,7 +94,7 @@ Branching can be performed without statements to be executed in one case or the 
 ```
 or:
 
-```4d
+```qs
  if(Boolean_Expression)
     statement(s)
  else
@@ -108,7 +108,7 @@ or:
 
 The formal syntax of the `switch...else...end` control flow structure is:
 
-```4d
+```qs
  switch
     :(Boolean_Expression)
        statement(s)
@@ -127,7 +127,7 @@ The formal syntax of the `switch...else...end` control flow structure is:
 
 Note that the `else` part is optional; you can write:
 
-```4d
+```qs
  switch
     :(Boolean_Expression)
        statement(s)
@@ -146,7 +146,7 @@ As with the `if...else...end` structure, the `switch...else...end` structure als
 
 Each Boolean expression is prefaced by a colon (`:`). This combination of the colon and the Boolean expression is called a case. For example, the following line is a case:
 
-```4d
+```qs
 :(bValidate==1)
 ```
 
@@ -158,7 +158,7 @@ You can include an `else` statement after the last case. If all of the cases are
 
 This example tests a numeric variable and writes a corresponding text:
 
-```4d
+```qs
  switch
     :(vResult==1) //Test if the number is 1
        vText="One." 
@@ -173,7 +173,7 @@ This example tests a numeric variable and writes a corresponding text:
 
 For comparison, here is the `if...else...end` version of the same code:
 
-```4d
+```qs
  if(vResult==1) //Test if the number is 1
     vText="One."
  else
@@ -193,7 +193,7 @@ Remember that with a `switch...else...end` structure, only the first true case i
 
 Consequently, when you want to implement hierarchical tests, you should make sure the condition statements that are lower in the hierarchical scheme appear first in the test sequence. For example, the test for the presence of condition1 covers the test for the presence of condition1 && condition2 and should therefore be located last in the test sequence. For example, the following code will never see its last condition detected:
 
-```4d
+```qs
  switch
     :(vResult==1)
        ... //statement(s)
@@ -204,7 +204,7 @@ Consequently, when you want to implement hierarchical tests, you should make sur
 
 In the code above, the presence of the second condition is not detected since the test "vResult==1" branches off the code before any further testing. For the code to operate properly, you can write it as follows:
 
-```4d
+```qs
  switch
     :((vResult==1) && (vCondition != 2)) //this case will be detected first
        ... //statement(s)
@@ -219,7 +219,7 @@ Also, if you want to implement hierarchical testing, you may consider using hier
 
 Branching can be performed without statements to be executed in one case or another. When developing an algorithm or a specialized application, nothing prevents you from writing:
 
-```4d
+```qs
  switch
     :(Boolean_Expression)
     :(Boolean_Expression)
@@ -234,7 +234,7 @@ Branching can be performed without statements to be executed in one case or anot
 
 or:
 
-```4d
+```qs
  switch
     :(Boolean_Expression)
     :(Boolean_Expression)
@@ -248,7 +248,7 @@ or:
 ```
 
 or:
-```4d
+```qs
  switch
     else
        statement(s)
@@ -261,7 +261,7 @@ or:
 
 The formal syntax of the `while...end` control flow structure is:
 
-```4d
+```qs
  while(Boolean_Expression)
  	statement(s)
     {break}  
@@ -277,7 +277,7 @@ It is common to initialize the value tested in the Boolean expression immediatel
 
 The Boolean expression must be set by something inside the loop or else the loop will continue forever. The following loop continues forever because *NeverStop* is always true:
 
-```4d
+```qs
  NeverStop=true
  while(NeverStop)
  end
@@ -287,7 +287,7 @@ If you find yourself in such a situation, where a method is executing uncontroll
 
 #### Example
 
-```4d
+```qs
  var index : integer  
  var result : string
  index = 0
@@ -302,7 +302,7 @@ If you find yourself in such a situation, where a method is executing uncontroll
 
 The formal syntax of the `repeat...until` control flow structure is:
 
-```4d
+```qs
 repeat
 	statement(s)
     {break}  
@@ -319,7 +319,7 @@ The `break` and `continue` statements are [described below](#break-and-continue)
 
 Compare the following example with the example for the `while...end` loop. 
 
-```4d
+```qs
  var index : integer  
  var result : string
  index = 0
@@ -334,7 +334,7 @@ Compare the following example with the example for the `while...end` loop.
 
 The formal syntax of the `for...end` control flow structure is:
 
-```4d
+```qs
 for(Counter_Variable,Start_Expression,End_Expression{,Increment_Expression})
    statement(s)
     {break}  
@@ -365,7 +365,7 @@ The `break` and `continue` statements are [described below](#break-and-continue)
 
 1. The following example executes 100 iterations:
 
-```4d
+```qs
  for(vCounter,1,100)
   //Do something
  end
@@ -373,7 +373,7 @@ The `break` and `continue` statements are [described below](#break-and-continue)
 
 2. The following example goes through all the characters of the string vtSomeText:
 
-```4d
+```qs
  for(vlChar,1,length(vtSomeText))
   //Do something with the character if it is a TAB
     if(characterCode(vtSomeText[[vlChar]])=Tab)
@@ -392,7 +392,7 @@ In some cases, you may want to have a loop whose counter variable is decreasing 
 
 3. The following example executes 100 iterations:
 
-```4d
+```qs
  for(vCounter,100,1,-1)
   //Do something
  end
@@ -400,7 +400,7 @@ In some cases, you may want to have a loop whose counter variable is decreasing 
 
 4. The following example goes through all the characters of the string vtSomeText:
 
-```4d
+```qs
  for(vlChar,length(vtSomeText),1,-1)
   //Do something with the character if it is a TAB
     if(characterCode(vtSomeText[[vlChar]])=Tab)
@@ -416,7 +416,7 @@ If you need to, you can use an *Increment_Expression* (positive or negative) who
 
 5. The following loop addresses only the even items:
 
-```4d
+```qs
  for(vCounter,2,vTotal,2)
   //Do something
  end
@@ -426,7 +426,7 @@ If you need to, you can use an *Increment_Expression* (positive or negative) who
 
 Let's go back to the first `for...end` example. The following example executes 100 iterations:
 
-```4d
+```qs
  for(vCounter,1,100)
   //Do something
  end
@@ -434,7 +434,7 @@ Let's go back to the first `for...end` example. The following example executes 1
 
 It is interesting to see how the `while...end` loop and `repeat...until` loop would perform the same action. Here is the equivalent `while...end` loop:
 
-```4d
+```qs
  i=1 //Initialize the counter
  while(i<=100) //Loop 100 times
   //Do something
@@ -444,7 +444,7 @@ It is interesting to see how the `while...end` loop and `repeat...until` loop wo
 
 Here is the equivalent `repeat...until` loop:
 
-```4d
+```qs
  i=1 //Initialize the counter
  Repeat
   //Do something
@@ -464,7 +464,7 @@ The `for...end` loop is usually faster than the `while...end` and `repeat...unti
 
 The formal syntax of the `forEach...end` control flow structure is:
 
-```4d
+```qs
  forEach(Current_Item,Expression{,begin{,end}}){until|while}(Boolean_Expression)}
     statement(s)
     {break}  
@@ -512,7 +512,7 @@ At each loop iteration, the *Current_Item* variable is automatically filled with
 
 You want to compute some statistics for a collection of numbers:
 
-```4d
+```qs
  var nums : collection
  nums=newCollection(10,5001,6665,33,1,42,7850)
  var item,vEven,vOdd,vUnder,vOver : integer
@@ -551,7 +551,7 @@ Keep in mind that any modifications applied on the current entity must be saved 
 
 You want to raise the salary of all British employees in an entity selection:
 
-```4d
+```qs
  var emp : object
  forEach(emp,ds.Employees.query("country='UK'"))
     emp.salary=emp.salary*1.03
@@ -569,7 +569,7 @@ The properties of the object are processed according to their order of creation.
 
 You want to switch the names to uppercase in the following object:
 
-```4d
+```qs
 {
     "firstname": "gregory",
     "lastname": "badikora",
@@ -578,7 +578,7 @@ You want to switch the names to uppercase in the following object:
 ```
 You can write:
 
-```4d
+```qs
  forEach(property,vObject)
     if(valueType(vObject[property])==Is text)
        vObject[property]=uppercase(vObject[property])
@@ -619,7 +619,7 @@ For example:
 
 #### Example
 
-```4d
+```qs
  var col,col2 : Collection
  col=newCollection("a","b","c","d","e")
  col2=newCollection(1,2,3)
@@ -645,7 +645,7 @@ You can pass either keyword depending on your needs:
 
 #### Example 
 
-```4d
+```qs
  colNum=newCollection(1,2,3,4,5,6,7,8,9,10)
  var total : integer
  total=0
@@ -674,7 +674,7 @@ If the `break` statement is inside a nested loop (loop inside another loop), the
 
 #### Example
 
-```4d
+```qs
 for (vCounter,1,100)
 	if (vValue-vCounter==0) //if a condition becomes true
 		break //end of the for loop
@@ -686,7 +686,7 @@ end
 
 The `continue` statement terminates execution of the statements in the current iteration of the current loop, and continues execution of the loop with the next iteration.
 
-```4d
+```qs
 var text : string
 for (i, 0, 9)
 	if (i==3)
@@ -708,7 +708,7 @@ The `return` statement can be used to [return a value](parameters.md#return-expr
 
 #### Example
 
-```4d
+```qs
 var message : Text
 var i : Integer
 

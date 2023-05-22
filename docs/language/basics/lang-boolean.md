@@ -13,7 +13,7 @@ QuodlyScript provides the Boolean functions `true`, `false`, and `not`.
 
 This example sets a boolean variable based on the value of a numeric variable. It returns `true` in `myBoolean` if the `myVar` value is set to 1 and `false` otherwise.
 
-```4d
+```qs
 var myBoolean : boolean
 var myVar : integer
 if(myVar==1)
@@ -25,7 +25,7 @@ end if
 
 This example can be simplified into one line.
 
-```4d
+```qs
 myBoolean=(myButton==1)
 ```
 
@@ -70,7 +70,7 @@ The following is the truth table for the OR logical operator:
 
 If you need to calculate the exclusive disjunction between *expr1* and *expr2*, evaluate:
 
-```4d
+```qs
  (expr1|expr2) & not(expr1 & expr2)  
 ```
 

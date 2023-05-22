@@ -88,7 +88,7 @@ In the above image:
 * The component has an `onmouseover` event attached to it
 * The exposed function `help` attached to the `onmouseover` event contains the following code: 
 
-```4d
+```qs
 var event : Object
 var myForm : 4D.WebForm
 
@@ -147,7 +147,7 @@ The returned objects are of the [`4D.WebFormItem`](WebFormItemClass.md) class. T
 
 #### Example
 
-```4d
+```qs
 var myForm: 4D.WebForm
 var component: 4D.WebFormItem
 
@@ -184,7 +184,7 @@ To call a function that hides an image when the user clicks a button:
 1. Select the image component on the canvas, and enter a server-side reference in the Properties Panel > Server Side, for example "myImage".
 2. Create an exposed function named `isHidden` that contains the following code:
 
-```4d 
+```qs 
 exposed Function isHidden()
 
 var myComponent: 4D.WebFormItem

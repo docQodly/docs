@@ -84,7 +84,7 @@ result=bool(o.otherTest)  //false
 
 The following example sets the variable *vbOptions* to false:
 
-```4d
+```qs
  var vbOptions : boolean
  vbOptions=false
 ```
@@ -113,7 +113,7 @@ The `not` function <!-- REF #_command_.true.Summary -->returns the negation of *
 
 This example first assigns **true** to a variable, then changes the variable value to **false**, and then back to **true**.
 
-```4d
+```qs
  var vResult : boolean
  vResult=true // vResult is set to true
  vResult=not(vResult) // vResult is set to false
@@ -143,7 +143,7 @@ This example first assigns **true** to a variable, then changes the variable val
 
 The following example sets the variable *vbOptions* to true:
 
-```4d
+```qs
  var vbOptions : boolean
  vbOptions=true
 ```

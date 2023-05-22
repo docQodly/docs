@@ -18,7 +18,7 @@ Thanks to the Qodly object *refcounting*, a file handle is automatically deleted
 
 ### Example
 
-```4d
+```qs
 var f : 4D.File
 var fhandle : 4D.FileHandle
 f=File("/PACKAGE/example.txt")

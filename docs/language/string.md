@@ -59,7 +59,7 @@ If *newChars* is an empty string (""), `changeString` returns *source* unchanged
 
 #### Example
 
-```4d
+```qs
 var vtResult : string
 vtResult=changeString("Acme","CME",2) //vtResult gets "ACME"
 vtResult=changeString("November","Dec",1) //vtResult gets "December"
@@ -94,7 +94,7 @@ Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 
 #### Example
 
-```4d
+```qs
 
 var myText : string
 myText ="hello"+char(carriageReturn)+"world"
@@ -129,14 +129,14 @@ The [`char`](#char) function is the counterpart of `characterCode`. It returns t
 
 Uppercase and lowercase characters are considered equal within a comparison. You can use characterCode to differentiate between uppercase and lowercase characters. Thus, this line returns True:
 
-```4d
+```qs
 ("A"=="a")
 
 ```
 
 On the other hand, this line returns False:
 
-```4d
+```qs
  (characterCode("A")==characterCode("a"))
 
 ```
@@ -145,7 +145,7 @@ On the other hand, this line returns False:
 
 This example returns the code of the first character of the string "ABC":
 
-```4d
+```qs
  var GetCode : integer
  GetCode=characterCode("ABC") //GetCode gets 65, the characterCode of A
 
@@ -155,7 +155,7 @@ This example returns the code of the first character of the string "ABC":
 
 The following example tests for carriage returns and tabs:
 
-```4d
+```qs
  var vlChar : integer
  var vtText : string
  for(vlChar,1,length(vtText))
@@ -173,7 +173,7 @@ The following example tests for carriage returns and tabs:
 
 When executed multiple times on large texts, this test will run faster when compiled if it is written this way:
 
-```4d
+```qs
  var vlChar, vlCode  : integer
  var vtText : string
  for(vlChar,1,length(vtText))
@@ -249,7 +249,7 @@ The command returns the following integer values:
 
 You want to compare the following strings:
 
-```4d
+```qs
  var string1, string2 : string
  var myResult : integer
  string1="alpha Bravo charlie Delta Echo Fox-Trot"
@@ -269,7 +269,7 @@ You want to compare the following strings:
 
 The following examples illustrate the specific impact of options in **Japanese data language context**:
 
-```4d
+```qs
  var myResult : integer
 //default is kana insensitive
  myResult=compareStrings("イロハ","いろは") // equal
@@ -278,7 +278,7 @@ The following examples illustrate the specific impact of options in **Japanese d
  
 ```
 
-```4d
+```qs
  var myResult : integer
 //default is case insensitive
  myResult=compareStrings("さつき","さっき") // equal
@@ -287,7 +287,7 @@ The following examples illustrate the specific impact of options in **Japanese d
  
 ```
 
-```4d
+```qs
  var myResult : integer
  //default is diacritic sensitive when the data language is set to Japanese (different to all other languages)
  myResult=compareStrings("ete","été") // equal in non-Japanese data language
@@ -307,7 +307,7 @@ The "Sorting order appropriate for searching" setting has an impact on the `comp
 For example:
 
 
-```4d
+```qs
  var myResult : integer
  myResult=compareStrings("いすず","いすゞ") // equal if setting is disabled
  myResult=compareStrings("いすず","いすゞ") // not equal if setting is enabled
@@ -566,7 +566,7 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 
 #### Example
 
-```4d
+```qs
 var vtResult, vtOtherVar : string
  vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
  vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
@@ -606,7 +606,7 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 #### Example
 
-```4d
+```qs
  var vtResult : string
  vtResult=insertString("The tree"," green",4) // vtResult gets "The green  tree"
  vtResult=insertString("Shut","o",3) // vtResult gets "Shout"
@@ -643,7 +643,7 @@ When you want to check whether a string contains any characters, including ignor
 
 #### Example
 
-```4d
+```qs
  var vtResult : string
  vlResult=length("Topaz") // vlResult gets 5
  vlResult=length("Citizen") // vlResult gets 7
@@ -673,7 +673,7 @@ The optional * parameter, if passed, indicates that any accented characters pres
 
 The following project method capitalizes the string or text received as parameter. For instance, Caps ("john") would return "John".
 
-```4d
+```qs
   //Caps project method
   //Caps ( String ) -> String
   //Caps ( Any text  ) -> Capitalized text
@@ -689,7 +689,7 @@ The following project method capitalizes the string or text received as paramete
 
 This example compares the results obtained according to whether or not the * parameter has been passed:
 
-```4d
+```qs
  var thestring : string 
  thestring=lowercase("DÉJÀ VU") // thestring is "deja vu"
  thestring=lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
@@ -741,11 +741,11 @@ https://unicode-org.github.io/icu/userguide/strings/regexp.html#regular-expressi
 
 Search in text by position:
 
-```4d
+```qs
 vfound=matchRegex(pattern, mytext, start, pos_found, length_found)
 ```
 
-```4d
+```qs
  #declare (myText : string)
  var start : integer
  var vfound : boolean
@@ -764,12 +764,12 @@ vfound=matchRegex(pattern, mytext, start, pos_found, length_found)
 
 Search with support of “capture groups” via parentheses. ( ) are used to specify groups in the regexes:
 
-```4d
+```qs
 vfound=matchRegex( pattern,mytext, start, pos_found_array, length_found_array)
 ```
 
 
-```4d
+```qs
  #declare (myText : string)
  var start : integer
  var vfound : boolean
@@ -789,7 +789,7 @@ vfound=matchRegex( pattern,mytext, start, pos_found_array, length_found_array)
 Search limiting the comparison of the pattern to the position indicated:
 Add a star to the end of one of the two previous syntaxes.
 
-```4d
+```qs
  var start, pos_found, length_found : integer
  var vfound : string
 
@@ -864,7 +864,7 @@ If *expression* evaluates to undefined, the command returns 0 (zero). This is us
 
 The following example illustrates how `num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
 
-```4d
+```qs
  var vResult : real
  vResult=num("ABCD") // vResult gets 0
  vResult=num("A1B2C3") // vResult gets 123
@@ -879,7 +879,7 @@ The following example illustrates how `num` works when passed a string argument.
 
 This example compares the results obtained depending on the “current” separator:
 
-```4d
+```qs
  var thestring : string
  var thenum : real
  thestring="33,333.33"
@@ -963,7 +963,7 @@ You cannot use the @ wildcard character with `position`. For example, if you pas
 
 This example illustrates the use of position. The results, described in the comments, are assigned to the variable vlResult.
 
-```4d
+```qs
  var length, vlResult : integer
  var vtText1, vtText2  : string
  vlResult=position("ll","Willow") // vlResult gets 3
@@ -980,7 +980,7 @@ This example illustrates the use of position. The results, described in the comm
 
 In the following example, the lengthFound parameter can be used to search for all the occurrences of "aegis" in a text, regardless of how it is written:
 
-```4d
+```qs
  var start, lengthfound, vlResult : integer
  var myText : string
  start=1
@@ -995,7 +995,7 @@ In the following example, the lengthFound parameter can be used to search for al
 
 In the following example, you want to find all instances of a string and replace it:
 
-```4d
+```qs
  var lengthFound, find, replace, option, p  : integer
  var myText : string
  myText="Hello Joelle et joel!"
@@ -1055,7 +1055,7 @@ Note that in this mode, the evaluation does not handle variations in the way wor
 
 The following example illustrates the use of `replaceString`. The results, described in the comments, are assigned to the variable *vtResult*.
 
-```4d
+```qs
  var vtResult, vtOtherVar : string
  vtResult=replaceString("Willow"," ll","d") // Result gets "Widow"
  vtResult=replaceString("Shout","o","") // Result gets "Shut"
@@ -1067,7 +1067,7 @@ The following example illustrates the use of `replaceString`. The results, descr
 
 The following example eliminates CRs and TABs from the text in *vtResult*:
 
-```4d
+```qs
  var vtResult : string
  vtResult=replaceString(replaceString(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
 
@@ -1077,7 +1077,7 @@ The following example eliminates CRs and TABs from the text in *vtResult*:
 
 The following example illustrates the use of the * parameter in the case of a diacritical evaluation:
 
-```4d
+```qs
  var vtResult : string
  vtResult=replaceString("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
  vtResult=replaceString("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
@@ -1118,7 +1118,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 #### Example 1
 
-```4d
+```qs
  var myText : string
  var myCol : collection 
  col=New collection
@@ -1134,7 +1134,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 The *separator* parameter can be a multiple-character string:
 
-```4d
+```qs
  var myText : string
  var myCol : collection
  myText="Name<tab>Smith<tab>age<tab>40"
@@ -1229,7 +1229,7 @@ Formats can vary depending on system settings.
 
 Here are a few examples of simple formats (assuming that the current date is 02/18/2023):
 
-```4d
+```qs
  var vtResult : string
  vsResult=string(currentDate) //vsResult gets "02/18/23"
  vsResult=string(currentDate,Internal date long) // vsResult gets "February 18, 2023"
@@ -1241,7 +1241,7 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 
 * The `ISO Date GMT` format corresponds to the ISO8601 standard, containing a date and a time expressed with respect to the time zone (GMT).
 
-	 ```4d
+	 ```qs
 	 var mydate : string
 	 mydate=string(currentDate,ISO Date GMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
 	
@@ -1250,7 +1250,7 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 	Note that the "Z" character at the end indicates the GMT format.
 If you do not pass the *addTime* parameter, the command returns the date at midnight (local time) expressed in GMT time, which may cause the date to be moved forward or back depending on the local time zone:
 
-	```4d
+	```qs
 	 var mydate : string
 	 mydate=string(!18/02/2023!,ISO Date GMT) // returns 2023-02-17T22:00:00Z in France
 	
@@ -1258,7 +1258,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 * The `ISO Date` format is similar to the `ISO Date GMT`, except that it expresses the date and time without respect to the time zone. Note that since this format does not comply with the ISO8601 standard, its use should be reserved for very specific purposes.
 
-	```4d
+	```qs
 	 var mydate : string
 	 mydate=string(!18/02/2023!,ISO Date) // returns 2023-02-18T00:00:00 regardless of the time zone
      mydate=string(currentDate,ISO Date,currentTime) // returns 2023-02-18T18:11:53
@@ -1267,7 +1267,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
  
 * The `Date RFC 1123` format formats a date/time combination according to the standard defined by RFC 822 and 1123. You need this format for example to set the expiration date for cookies in an HTTP header.
 
-	```4d
+	```qs
 	 var mydate : string
 	 mydate=string(currentDate,Date RFC 1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
 	
@@ -1275,7 +1275,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 	The time expressed takes the time zone into account (GMT zone). If you only pass a date, the command returns the date at midnight (local time) expressed in GMT time which may cause the date to be moved forward or back depending on the local time zone:
 	
-	```4d
+	```qs
 	 var mydate : string
 	 mydate=string(currentDate,Date RFC 1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
 	
@@ -1307,7 +1307,7 @@ Notes:
 
 These examples assume that the current time is 5:30 PM and 45 seconds:
 
-```4d
+```qs
 	 var vsResult : string
 	 vsResult=string(currentTime) // $vsResult gets "17:30:45"
  	 vsResult=string(currentTime,Hour Min Sec) // $vsResult gets "17 hours 30 minutes 45 seconds"
@@ -1371,7 +1371,7 @@ When you use this command in a multi-style context, you need to convert any Wind
 
 This example illustrates the use of `substring`. The results, described in the comments, are assigned to the variable vsResult.
 
-```4d
+```qs
  var vsResult : string
  vsResult=substring("08/04/62",4,2) // vsResult gets "04"
  vsResult=substring("Emergency",1,6) // vsResult gets "Emerge"
@@ -1383,7 +1383,7 @@ This example illustrates the use of `substring`. The results, described in the c
 
 The following project method appends the paragraphs found in the text (passed as first parameter) to a string or text array (the pointer of which is passed as second parameter):
 
-```4d
+```qs
   // EXTRACT PARAGRAPHS
   // EXTRACT PARAGRAPHS ( string , Pointer )
   // EXTRACT PARAGRAPHS ( string to parse , -> Array of ¶s )
@@ -1432,7 +1432,7 @@ The optional * parameter, if passed, indicates that any accented characters pres
 
 This example compares the results obtained according to whether or not the * parameter has been passed:
 
-```4d
+```qs
  var thestring : string 
  thestring=uppercase("hélène") // thestring is "HELENE"
  thestring=uppercase("hélène",*) // thestring is "HÉLÈNE"

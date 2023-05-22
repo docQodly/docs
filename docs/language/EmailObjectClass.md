@@ -140,7 +140,7 @@ Pass in *mimeBlob* or *mimeText* a valid MIME document to convert. It can be pro
 
 You want to load a mail template saved as MIME in a text document and send an email:
 
-```4d
+```qs
 var mime: Blob
 var mail,server,transporter,status: Object
 
@@ -192,7 +192,7 @@ If the *options* parameter is omitted, the mail mode UTF8 configuration is used 
 
 #### Example
 
-```4d
+```qs
 var mail: Object
 var mime: Text
 mail=New object
@@ -393,7 +393,7 @@ Reserved keywords:
 
 #### Example
 
-```4d
+```qs
  mail.keywords["flagged"]=True
  mail.keywords["qodly"]=True
 ```

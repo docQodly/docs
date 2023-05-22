@@ -19,17 +19,17 @@ You create an array with one of the array declaration commands. Each array decla
 
 The following line of code creates (declares) an Integer array of 10 elements:
 
-```4d
+```qs
  ARRAY INTEGER(aiAnArray,10)
 ```
 
 Then, the following code resizes that same array to 20 elements:
-```4d
+```qs
 ARRAY INTEGER(aiAnArray,20)
 ```
 
 Then, the following code resizes that same array to no elements:
-```4d
+```qs
 ARRAY INTEGER(aiAnArray,0)
 ```
 
@@ -37,7 +37,7 @@ ARRAY INTEGER(aiAnArray,0)
 
 You reference the elements in an array by using curly braces ({…}). A number is used within the braces to address a particular element; this number is called the element number. The following lines put five names into the array called *atNames* and then write them in a text variable, separated by /:
 
-```4d
+```qs
  var vText : Text
  ARRAY TEXT(atNames;5)
  atNames{1}="Richard"
@@ -61,7 +61,7 @@ Unlike text or string variables, you cannot assign one array to another. To copy
 
 An array always has an element zero. There is no restriction in using it with the language, except that it is not included in the array size. You can set or get the value of the element zero of an array:
 
-```4d
+```qs
 ARRAY TEXT(atName,2)
 atName{0}="Array of names"
 atName{1}="Smith" 
@@ -74,7 +74,7 @@ atName{2}="Wesson"
 
 Each of the array declaration commands can create or resize one-dimensional or two-dimensional arrays. Example:
 
-```4d
+```qs
  ARRAY TEXT(atTopics,100,50) // Creates a text array composed of 100 rows of 50 columns
 ```
 

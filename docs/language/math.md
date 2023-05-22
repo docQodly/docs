@@ -38,7 +38,7 @@ title: Math
 
 The following example returns the absolute value of –10.3, which is 10.3:
 
-```4d
+```qs
 var vlVector : real
 vlVector=abs(-10.3)
 
@@ -67,7 +67,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 #### Example
 
-```4d
+```qs
 	var vPi : string
  vPi="Pi is equal to: "+string(arctan(1)*4)
 
@@ -125,7 +125,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 The following example takes a monetary value expressed as a real number, and extracts the dollar part and the cents part. If *vrAmount* is 7.31, then *vlDollars* is set to 7 and *vlCents* is set to 31:
 
-```4d
+```qs
  var vlDollars, vlCents, vrAmount : real
  vlDollars=int(vrAmount) //Get the dollars
  vlCents=dec(vrAmount)*100 // Get the fractional part
@@ -161,7 +161,7 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 The following example assigns the exponential of 1 to vrE (the log of vrE is 1):
 
-```4d
+```qs
  var vrE : real
  vrE=exp(1) // vrE gets 2.17828...
 ```
@@ -189,7 +189,7 @@ The following example assigns the exponential of 1 to vrE (the log of vrE is 1):
 
 The following example illustrates how `int` works for both positive and negative numbers. Note that the decimal portion of the number is removed:
 
-```4d
+```qs
  var vlResult : real
  vlResult=int(123.4) // vlResult gets 123
  vlResult=int(-123.4) // vlResult gets –124
@@ -222,7 +222,7 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 #### Example
 
-```4d
+```qs
  var vLog : string
  vLog=string(log(exp(1))
  
@@ -256,7 +256,7 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 #### Example
 
-```4d
+```qs
  var vLog : string
  vLog=string(log(exp(1))
  
@@ -286,7 +286,7 @@ If the digit following places is 5 though 9, `round` rounds toward positive infi
 
 The following example illustrates how `round` works with different arguments. Each line assigns a number to the *vlResult* variable. The comments describe the results:
 
-```4d
+```qs
  var vlResult : real
  vlResult=round(16.857,2) // vlResult gets 16.86
  vlResult=round(32345.67,-3) // vlResult gets 32000
@@ -345,7 +345,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 The following exemple assigns the value 1.414213562373 to the variable vrSquareRootOfTwo.
 
-```4d
+```qs
  var vrSquareRootOfTwo : real
  vrSquareRootOfTwo=squareRoot(2)
  
@@ -355,7 +355,7 @@ The following exemple assigns the value 1.414213562373 to the variable vrSquareR
 
 The following method returns the hypotenuse of the right triangle whose two legs are passed as parameters:
 
-```4d
+```qs
   // Hypotenuse method
   // Hypotenuse ( real ; real ) -> real
   // Hypotenuse ( legA ; legB ) -> Hypotenuse
@@ -415,7 +415,7 @@ If *places* is positive, *number* is truncated to *places* decimal places. If *p
 
 The following example illustrates how `trunc` works with different arguments. Each line assigns a number to the *vlResult* variable. The comments describe the results:
 
-```4d
+```qs
  var vlResult : real
  vlResult=trunc(216.897,1) // vlResult gets 216.8
  vlResult=trunc(216.897,-1) // vlResult gets 210

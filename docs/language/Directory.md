@@ -318,7 +318,7 @@ The copied `Folder` object.
 
 You want to copy a Pictures *folder* from the user's Document folder to the Database folder:
 
-```4d
+```qs
 var userImages, copiedImages : 4D.Folder
 userImages=Folder(fk documents folder+"/Pictures/")
 copiedImages=userImages.copyTo(Folder(fk database folder),fk overwrite)
@@ -352,7 +352,7 @@ A `File` object or null if *path* is invalid.
 
 #### Example
 
-```4d
+```qs
 var myPDF : 4D.File
 myPDF=Folder(fk documents folder).file("Pictures/info.pdf")
 ```
@@ -395,7 +395,7 @@ Collection of `File` objects.
 
 You want to know if there are invisible files in the Database folder:
 
-```4d
+```qs
  var all, noInvisible : Collection
  var info : Text
  all=Folder(fk database folder).files()
@@ -409,7 +409,7 @@ You want to know if there are invisible files in the Database folder:
 
 You want to get all files that are not invisible in the Documents folder:
 
-```4d
+```qs
  var recursive : Collection
  recursive=Folder(fk documents folder).files(fk recursive+fk ignore invisible)
 ```
@@ -443,7 +443,7 @@ A `Folder` object or null if *path* is invalid.
 
 #### Example
 
-```4d
+```qs
  var mypicts : 4D.Folder
  mypicts=Folder(fk documents folder).folder("Pictures")
 ```
@@ -484,7 +484,7 @@ Collection of `Folder` objects.
 
 You want the collection of all folders and subfolders of the database folder:
 
-```4d
+```qs
  var allFolders : Collection
  allFolders=Folder("/PACKAGE").folders(fk recursive)
 ```

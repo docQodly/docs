@@ -15,7 +15,7 @@ You can assign any number data type to another; Qodly does the conversion, trunc
 
 A numeric literal constant is written as a real number with a period (.) as decimal separator. Here are some examples of numeric constants:
 
-```4d
+```qs
 27
 123.76
 0.0076
@@ -23,7 +23,7 @@ A numeric literal constant is written as a real number with a period (.) as deci
 
 Negative numbers are specified with the minus sign (-). For example:
 
-```4d
+```qs
 -27
 -123.76
 -0.0076
@@ -70,7 +70,7 @@ The modulo operator % divides the first number by the second number and returns 
 
 The order in which an expression is evaluated is called precedence. Qodly has a strict left-to-right precedence, in which algebraic order is not observed. For example:
 
-```4d
+```qs
  3+4*5
 ```
 
@@ -78,7 +78,7 @@ returns 35, because the expression is evaluated as 3 + 4, yielding 7, which is t
 
 To override the left-to-right precedence, you MUST use parentheses. For example:
 
-```4d
+```qs
  3+(4*5)
 ```
 

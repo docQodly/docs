@@ -14,14 +14,14 @@ Once a method is created, it becomes part of the language of the project.
 
 A method is executed when its name is called, with or without [parameters](lang-parameters.md), by another code. For example:
 
-```4d
+```qs
 //methodA
 //methodA calls methodB with one parameter
 var t : string
 t=methodB("world") //t == "hello world"
 ```
 
-```4d
+```qs
 //methodB
 declare (param : string)
 return ("hello " + param)
@@ -45,11 +45,11 @@ The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.
 
 You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
 
-```4d
+```qs
 str=string("hello world!")
 ```
 
-```4d
+```qs
 str=string("hello"+\
 " world"+\
 +"!")
@@ -70,7 +70,7 @@ Both styles of comments can be used simultaneously.
 
 Insert `//` at the beginning of a line or after a statement to add a single line comment. Example: 
 
-```4d
+```qs
 //This is a comment
 for(vCounter,1,100) //Starting loop
   //comment
@@ -85,7 +85,7 @@ Surround contents with `/*` ... `*/` characters to create inline comments or mul
 
 - **Inline comments** can be inserted anywhere in the code. Example:
 
-```4d
+```qs
 for /* inline comment */ (vCounter,1,100)
 	...
 end for
@@ -93,7 +93,7 @@ end for
 
 - **Multiline comment blocks** allows commenting an unlimited number of lines. Comment blocks can be nested (useful since the QodlyScript code editor supports block collapsing). Example:
 
-```4d
+```qs
 for (vCounter,1,100)
 /*
 comments  
@@ -115,14 +115,14 @@ The [`formula`](../FunctionClass.md#formula) and [`formulaFromString`](../Functi
 
 To execute a method stored in an object property, use the **()** operator after the property name. For example:
 
-```4d
+```qs
 //three_days_later
 return (currentDate+3)
 ```
 
 Then `three_days_later` can be encapsulated in any object and called:
 
-```4d
+```qs
 var o : object
 o=newObject("threeDays";formula(three_days_later))
 o.threeDays() //returns the date in three days
@@ -130,13 +130,13 @@ o.threeDays() //returns the date in three days
 
 Syntax with brackets is also supported:
 
-```4d
+```qs
 o["threeDays"]() //returns the date in three days
 ```
 
 You can also [pass parameters](lang-parameters.md) to your formula when you call it by using special variables `$1`, `$2`… `$N`. They will be received in their sequence order in the formula code. Use `$0` in the formula code to return a value.
 
-```4d
+```qs
 //fullName method
 var $0,$1,$2 : string
 $0=$1+" "+$2
@@ -144,7 +144,7 @@ $0=$1+" "+$2
 
 Encapsulate `fullName` in an object:
 
-```4d
+```qs
 var o : object
 o=newObject("full_name",formula(fullName))
 result=o.full_name("John","Smith") 
@@ -154,7 +154,7 @@ result=o.full_name("John","Smith")
 
 Combined with the [`this`](../language.md#this) keyword, such object methods allow writing powerful generic code. For example:
 
-```4d
+```qs
 //fullName2 method
 var $0 : string
 $0=this.firstName+" "+this.lastName
@@ -162,7 +162,7 @@ $0=this.firstName+" "+this.lastName
 
 Then the method acts like a new, calculated attribute that can be added to other attributes:
 
-```4d
+```qs
 var o : object
 o=newObject("firstName","Jim","lastName","Wesson")
 o.fullName=formula(fullName2) //add the method  
@@ -173,7 +173,7 @@ result=o.fullName2()
 
 Note that, even if it does not have parameters, an object method to be executed must be called with `()` parenthesis. Calling only the object property will return a new reference to the formula (and will not execute it):
 
-```4d
+```qs
 o=f.message //returns the formula object in o
 ```
 

@@ -82,7 +82,7 @@ CRUD (*Create, Read, Update, Delete*) operations in the Qodly Database are execu
 
 For example, to create and save a new entity, you just have to write:
 
-```4d
+```qs
  employee=ds.Employee.new() //create an entity in the Employee dataclass
  employee.firstName="Mary" //update some attributes
  employee.lastName="Smith"
@@ -91,7 +91,7 @@ For example, to create and save a new entity, you just have to write:
 
 To get or delete entities, you can just write:
 
-```4d
+```qs
  employees=ds.Employee.query("lastName=:1";"Smith") //query employees
  employee=employees.first() //get the entity
  status=employee.drop() //delete the entity
@@ -173,7 +173,7 @@ Queries can include placeholders. A placeholder is a parameter that you insert i
 
 For example:
 
-```4d
+```qs
 result=col.query("address.city = :1 & name =:2";city;myVar+"@")
 result2=col.query("company.name = :1";"John's Pizzas")
 ```

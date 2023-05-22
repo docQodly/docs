@@ -83,7 +83,7 @@ In the image below:
 
 To display results corresponding to the text typed in the **Input** component, we need a `search` function that performs a query:
 
-```4d
+```qs
 exposed Function search($search : Text)->$result : cs.StudentsSelection
 	
 $search:="@"+$search+"@"
@@ -120,7 +120,7 @@ When the end-user clicks the button, the `employees` datasource is updated, trig
 
 The `displayValue` function returns text according to the number of entities: 
 
-```4d 
+```qs 
 exposed function displayValue() -> $result : Text
 $result:="The table now displays " + String(This.length) + " entries"
 ```

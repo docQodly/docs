@@ -95,7 +95,7 @@ The function returns an [**IMAP transporter object**](#imap-transporter-object).
 
 #### Example
 
-```4d
+```qs
 server=New object
 server.host="imap.gmail.com" //Mandatory
 server.port=993
@@ -192,7 +192,7 @@ The function returns an object describing the IMAP status:
 
 #### Example
 
-```4d
+```qs
 var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : Object
 
@@ -272,7 +272,7 @@ The function returns an object describing the IMAP status:
 
 To save an email in the Drafts mailbox:
 
-```4d
+```qs
 var imap : 4D.IMAPTransporter
 var settings, status, msg: Object
 
@@ -357,7 +357,7 @@ The function returns an object describing the IMAP status:
 
 To copy a selection of messages:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
@@ -384,7 +384,7 @@ To copy a selection of messages:
 
 To copy all messages in the current mailbox:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var transporter : 4D.IMAPTransporter
 
@@ -448,7 +448,7 @@ The function returns an object describing the IMAP status:
 
 To create a new "Invoices" mailbox:
 
-```4d
+```qs
  var info : Text
  var transporter : 4D.IMAPTransporter
  var options, status : Object
@@ -513,7 +513,7 @@ The function returns an object describing the IMAP status:
 
 To delete a selection of messages:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
@@ -540,7 +540,7 @@ To delete a selection of messages:
 
 To delete all messages in the current mailbox:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var transporter : 4D.IMAPTransporter
 
@@ -602,7 +602,7 @@ The function returns an object describing the IMAP status:
 
 To delete the "Nova Orion Industries" child mailbox from the "Bills" mailbox hierarchy:
 
-```4d
+```qs
 var pw, name, info : text
 var options, status : object
 var transporter : 4D.IMAPTransporter
@@ -660,7 +660,7 @@ The function returns an object describing the IMAP status:
 
 #### Example
 
-```4d
+```qs
 var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : Object
 var ids : Collection
@@ -722,7 +722,7 @@ The `boxInfo` object returned contains the following properties:
 
 #### Example
 
-```4d
+```qs
  var transporter : 4D.IMAPTransporter
  var boxInfo : Object
  var info : Text
@@ -775,7 +775,7 @@ If the account does not contain any mailboxes, an empty collection is returned.
 
 #### Example
 
-```4d
+```qs
  var transporter : 4D.IMAPTransporter
  var boxList : Collection
  var info, split : Text
@@ -870,7 +870,7 @@ The optional *options* parameter allows you pass an object defining additional i
 
 You want to get the message with ID = 1:
 
-```4d
+```qs
  var server : Object
  var info, mail, boxInfo : Variant
  var transporter : 4D.IMAPTransporter
@@ -958,7 +958,7 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 You want to retrieve the 20 most recent emails without changing their "seen" status:
 
-```4d
+```qs
  var server,boxInfo,result : Object
  var transporter : 4D.IMAPTransporter
 
@@ -1025,7 +1025,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 
 #### Example
 
-```4d
+```qs
  var server : Object
  var boxInfo : Variant
  var blob : Blob
@@ -1098,7 +1098,7 @@ The function returns an object describing the IMAP status:
 
 To move a selection of messages:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
@@ -1125,7 +1125,7 @@ To move a selection of messages:
 
 To move all messages in the current mailbox:
 
-```4d
+```qs
  var server,boxInfo,status : Object
  var transporter : 4D.IMAPTransporter
 
@@ -1174,7 +1174,7 @@ The function returns a collection of strings (unique IDs).
 
 #### Example
 
-```4d
+```qs
  var transporter : 4D.IMAPTransporter
  var server,boxInfo,status : Object
  var mailIds : Collection
@@ -1259,7 +1259,7 @@ The function returns an object describing the IMAP status:
 
 #### Example
 
-```4d
+```qs
 var options,boxInfo,status : Object
 var transporter : 4D.IMAPTransporter
 
@@ -1322,7 +1322,7 @@ The function returns an object describing the IMAP status:
 
 To to rename your "Invoices mailbox to "Bills":
 
-```4d
+```qs
 var options, status : object
 var transporter : 4D.IMAPTransporter
 var info : Text
@@ -1540,7 +1540,7 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 
 #### Example
 
-```4d
+```qs
  var server, boxinfo : Object
  server=New object
  server.host="imap.gmail.com" //Mandatory
@@ -1589,7 +1589,7 @@ The function returns an object describing the IMAP status:
 
 To subscribe to the "Atlas Corp" mailbox in the "Bills" hierarchy:
 
-```4d
+```qs
 var name, info : text
 var options, status : object
 var transporter : 4D.IMAPTransporter
@@ -1650,7 +1650,7 @@ The function returns an object describing the IMAP status:
 
 To unsubscribe from the "Atlas Corp” mailbox in the "Bills" hierarchy:
 
-```4d
+```qs
 var info, name : text
 var options, status : object
 var transporter : 4D.IMAPTransporter

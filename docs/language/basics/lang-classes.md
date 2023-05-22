@@ -14,7 +14,7 @@ Once a user class is defined, you can **instantiate** objects of this class anyw
 
 For example, you could create a `Person` class with the following definition:
 
-```4d  
+```qs  
 //Class: Person.4qm
  constructor(firstname : string, lastname : string)
  this.firstName=firstname
@@ -77,7 +77,7 @@ The `cs` command returns the user class store for the current project. It return
 
 You want to create a new instance of an object of `myClass`:
 
-```4d
+```qs
 instance=cs.myClass.new()
 ```
 
@@ -95,7 +95,7 @@ The `4D` command returns the class store for available built-in QodlyScript clas
 
 You want to create a new key in the `CryptoKey` class:
 
-```4d
+```qs
 key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 ```
 
@@ -139,7 +139,7 @@ Specific QodlyScript keywords can be used in class definitions:
 
 #### Syntax
 
-```4d
+```qs
 function <name>({parameterName : type, ...}){->parameterName : type}
 // code
 ```
@@ -156,13 +156,13 @@ Starting a function name with an underscore character ("_") will exclude the fun
 
 Immediately following the function name, [parameters](#parameters) for the function can be declared with an assigned name and data type, including the return parameter (optional). For example:
 
-```4d
+```qs
 function computeArea(width : integer , height : integer)-> area : integer
 ```
 
 Within a class function, the `this` command is used as the object instance. For example:
 
-```4d  
+```qs  
 function setFullname(firstname : string, lastname : string)
  this.firstName=firstname
  this.lastName=lastname
@@ -185,7 +185,7 @@ In the application code, class functions are called as member methods of the obj
 
 Function parameters are declared using the parameter name and the parameter type, separated by a colon (:). The parameter name must be compliant with [property naming rules](lang-identifiers.md#object-properties). Multiple parameters (and types) are separated by commas (,).
 
-```4d  
+```qs  
 function add(x, y : variant, z : integer, xy : object)
 ```
 
@@ -196,14 +196,14 @@ If the type is not stated, the parameter will be defined as `variant`.
 
 You declare the return parameter (optional) by adding an arrow (`->`) and the return parameter definition after the input parameter(s) list, or a colon (`:`) and the return parameter type only. For example:
 
-```4d
+```qs
 function add(x : variant, y : integer)->result : integer
  result=x+y
 ```
 
 You can also declare the return parameter by adding only `: type` and use the [`return expression`](lang-parameters.md#return-expression) (it will also end the function execution). For example:
 
-```4d
+```qs
 function add(x : variant, y : integer): integer
  // some code
  return x+y
@@ -211,7 +211,7 @@ function add(x : variant, y : integer): integer
 
 #### Example 1
 
-```4d
+```qs
 // Class: Rectangle
 constructor(width : integer, height : integer)
  this.name="Rectangle"
@@ -223,7 +223,7 @@ function getArea()->result : integer
  result=(this.height)*(this.width)
 ```
 
-```4d
+```qs
 // In a project method
 
 var rect : cs.Rectangle
@@ -237,7 +237,7 @@ area=rect.getArea() //5000
 
 This example uses the [`return expression`](lang-parameters.md#return-expression):
 
-```4d
+```qs
 function getRectArea(width : integer, height : integer) : integer
  if (width > 0 && height > 0)
   return width * height
@@ -250,12 +250,12 @@ function getRectArea(width : integer, height : integer) : integer
 
 #### Syntax
 
-```4d
+```qs
 function get <name>()->result : type
 // code
 ```
 
-```4d
+```qs
 function set <name>(parameterName : type)
 // code
 ```
@@ -285,7 +285,7 @@ Assigning *undefined* to an object property clears its value while preserving it
 
 #### Example 1
 
-```4d  
+```qs  
 //Class: Person.4qm
 
 constructor(firstname : string, lastname : string)
@@ -301,7 +301,7 @@ function set fullName( fullName : string )
  this.lastName=substring(fullName, p+1)
 ```
 
-```4d
+```qs
 //in a method
 fullName=person.fullName // Function get fullName() is called
 person.fullName="John Smith" // Function set fullName() is called
@@ -309,7 +309,7 @@ person.fullName="John Smith" // Function set fullName() is called
 
 #### Example 2
 
-```4d
+```qs
 function get fullAddress()->result : object
  
  result=newObject
@@ -326,7 +326,7 @@ function get fullAddress()->result : object
 
 #### Syntax
 
-```4d
+```qs
 // Class: MyClass
 constructor({parameterName : type, ...})
 // code
@@ -342,14 +342,14 @@ You can create and type instance properties inside the constructor (see example)
 
 #### Example
 
-```4d
+```qs
 // Class: MyClass
 // Class constructor of MyClass
 constructor (name : string)
  this.name=name
 ```
 
-```4d
+```qs
 // in a method
 // you can instantiate an object
 var o : cs.MyClass
@@ -400,7 +400,7 @@ The `property` keyword can only be used in class methods and outside any `functi
 
 #### Example
 
-```4d
+```qs
 // Class: MyClass
 
 property name : string
@@ -409,7 +409,7 @@ property age : integer
 
 In a method:
 
-```4d
+```qs
 var o : cs.MyClass
 o=cs.MyClass.new() //o:{}
 o.name="John" //o:{"name":"John"}
@@ -420,7 +420,7 @@ o.age="Smith"  //error with check syntax
 
 #### Syntax
 
-```4d
+```qs
 // Class: ChildClass
 extends <ParentClass>
 ```
@@ -442,7 +442,7 @@ An extended class can call the constructor of its parent class using the [`super
 
 This example creates a class called `Square` from a class called `Polygon`.
 
-```4d
+```qs
 //Class: Square
 
 //path: Classes/Square.4dm 
@@ -468,7 +468,7 @@ constructor (side : integer)
 
 #### Syntax
 
-```4d
+```qs
 super {( param{,...,paramN} )} {-> object}
 ```
 
@@ -487,7 +487,7 @@ The `super` keyword allows calls to the `superclass`, i.e. the parent class.
 - If the `this` command is called on an object whose superclasses have not been constructed, error -10743 is generated.
 - If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error -10746 is generated.
  
-```4d
+```qs
 // inside myClass constructor
 var text1, text2 : string
 super(text1) //calls superclass constructor with a text param
@@ -496,7 +496,7 @@ this.param=text2 // use second param
 
 2. Inside a [class member function](#class-function), `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
 
-```4d
+```qs
 super.doSomething(42) //calls "doSomething" function  
 //declared in superclasses
 ```
@@ -505,7 +505,7 @@ super.doSomething(42) //calls "doSomething" function
 
 This example illustrates the use of `super` in a class constructor. The command is called to avoid duplicating the constructor parts that are common between `Rectangle` and `Square` classes.
 
-```4d
+```qs
 // Class: Rectangle
 constructor(width : integer, height : integer)
  this.name="Rectangle"
@@ -521,7 +521,7 @@ function getArea() -> area : integer
  area=(this.height)*(this.width)
 ```
 
-```4d
+```qs
 //Class: Square
  
 extends Rectangle
@@ -543,7 +543,7 @@ function getArea() -> area : integer
 
 This example illustrates the use of `super` in a class member method. You created the `Rectangle` class with a function:
 
-```4d
+```qs
 //Class: Rectangle
  
 function nbSides() -> sides : string
@@ -552,7 +552,7 @@ function nbSides() -> sides : string
 
 You also created the `Square` class with a function calling the superclass function:
 
-```4d
+```qs
 //Class: Square
  
 extends Rectangle
@@ -563,7 +563,7 @@ function description() -> sides:string
 
 Then you can write in a method:
 
-```4d
+```qs
 var square : object
 var message : string
 square=cs.Square.new()
@@ -574,7 +574,7 @@ message=square.description() //I have 4 sides which are all equal
 
 #### Syntax
 
-```4d
+```qs
 this -> object
 ```
 
@@ -588,14 +588,14 @@ In most cases, the value of `this` is determined by how a function is called. It
 
 When a formula is called as a member method of an object, its `this` is set to the object the method is called on. For example:
 
-```4d
+```qs
 o=newObject("prop",42,"f",formula(this.prop))
 val=o.f() //42
 ```
 
 When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
 
-```4d
+```qs
 //Class: ob
   
 constructor  
@@ -605,7 +605,7 @@ constructor
  this.a=42 
 ```
 
-```4d
+```qs
 // in a method  
 o=cs.ob.new()
 val=o.a //42
@@ -615,7 +615,7 @@ val=o.a //42
 
 In any cases, `this` refers to the object the method was called on, as if the method were on the object.
 
-```4d
+```qs
 //Class: ob
   
 function f()
@@ -624,7 +624,7 @@ function f()
 
 Then you can write in a project method:
 
-```4d
+```qs
 o=cs.ob.new()
 o.a=5
 o.b=3

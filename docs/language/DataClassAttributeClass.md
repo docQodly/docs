@@ -5,7 +5,7 @@ title: DataClassAttribute
 
 Dataclass attributes are available as properties of their respective classes. For example:
 
-```4d
+```qs
  nameAttribute=ds.Company.name //reference to class attribute
  revenuesAttribute=ds.Company["revenues"] //alternate way
 ```
@@ -207,7 +207,7 @@ Given the following dataclass and relation:
 
 ![](img/structure4.png)
 
-```4d
+```qs
  var attKind : Text
  attKind=ds.Employee.lastname.kind //"storage"
  attKind=ds.Employee.manager.kind //"relatedEntity"
@@ -255,7 +255,7 @@ The `.name` property <!-- REF DataClassAttributeClass.name.Summary -->returns th
 
 #### Example
 
-```4d
+```qs
  var attName : Text
  attName=ds.Employee.lastname.name //attName="lastname"
 ```
@@ -305,7 +305,7 @@ Given the following tables and relations:
 
 
 
-```4d
+```qs
  var relClass1, relClassN : Text
  relClass1=ds.Employee.employer.relatedDataClass //relClass1="Company"
  relClassN=ds.Employee.directReports.relatedDataClass //relClassN="Employee"

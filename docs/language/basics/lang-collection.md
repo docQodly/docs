@@ -9,13 +9,13 @@ Collection type variables are managed using [object notation](lang-object.md#syn
 
 To access a collection element, you need to pass the element number inside square brackets:
 
-```4d
+```qs
 collectionRef[expression]
 ```
 
 You can pass any valid expression which returns a positive integer in *expression*. Examples:
 
-```4d
+```qs
  myCollection[5]  //access to 6th element of the collection
  myCollection[myVar]
 ```
@@ -28,14 +28,14 @@ Collection elements are numbered from 0.
 
 You can assign a value to a collection element or get a collection element value:
 
-```4d
+```qs
  myCol[10]="My new element"
  myVar=myCol[0]
 ```
 
 If you assign an element's index that surpasses the last existing element of the collection, the collection is automatically resized and all new intermediary elements are assigned a null value:
 
-```4d
+```qs
  var myCol : collection
  myCol=newCollection("A","B")
  myCol[5]="Z"
@@ -65,7 +65,7 @@ The [`newCollection`](../CollectionClass.md#newcollection) command creates a new
 
 Examples:
 
-```4d
+```qs
  var colVar : collection //creation of collection type variable
   //instantiation of the collection and assignment to the variable
  colVar=newCollection 
@@ -86,7 +86,7 @@ If an element is undefined, it will appear as Null in the collection.
 
 Examples:
 
-```4d
+```qs
 var col1,col2,users : collection
 col1=[] //empty collection
 col2=[1,2,3,4,5,6] //collection of numbers
@@ -118,14 +118,14 @@ Qodly collection references benefit from dedicated class functions. Collection f
 
 For example:
 
-```4d
+```qs
 newCol=col.copy() //deep copy of col to newCol
 col.push(10,100) //add 10 and 100 to the collection
 ```
 
 Some functions return the original collection after modification, so that you can run the calls in a sequence:
 
-```4d
+```qs
  col=newCollection(5,20)
  col2=col.push(10,100).sort() //col2==[5,10,20,100]
 ```

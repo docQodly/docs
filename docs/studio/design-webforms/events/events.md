@@ -83,7 +83,7 @@ In the image below:
 
 To display results corresponding to the text typed in the **Input** component, we need a `search` function that performs a query:
 
-```4d
+```qs
 exposed Function search($search : Text)->$result : cs.StudentsSelection
 	
 $search:="@"+$search+"@"

@@ -45,7 +45,7 @@ Object properties can reference scalar values, ORDA elements, class functions, o
 
 Examples:
 
-```4d
+```qs
 myObject.myAttribute="10"
 value=$clientObj.data.address.city
 ```
@@ -70,7 +70,7 @@ Parameter names follow the same rules as [variable names](#variables).
 
 Examples:
 
-```4d
+```qs
 Function getArea(width : Integer, height : Integer)-> area : Integer
 
 #Declare (i : Integer , param : Date) -> myResult : Object
@@ -89,7 +89,7 @@ It is a good programming technique to adopt the same naming convention as the on
 
 Examples:
 
-```4d
+```qs
 if(new client)
 DELETE DUPLICATED VALUES
 Formula(increase_salaries)
@@ -99,7 +99,7 @@ Formula(increase_salaries)
 
 When you call a method, you just type its name. However, some QodlyScript built-in commands, such as `ON EVENT CALL`, expect the name of a method as a string when a method parameter is passed. For example:
 
-```4d
+```qs
  //This collection function accepts a method name
 strings2=strings1.orderByMethod("sortCollection",sk strict)
 ```
@@ -118,7 +118,7 @@ The name of a variable can be up to 31 characters.
 
 Examples:
 
-```4d
+```qs
 for(vlRecord,1,100) 
 vs_My_String="Hello there" 
 var _vAge : Integer 

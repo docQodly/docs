@@ -26,19 +26,19 @@ Once installed, error handlers are automatically called in case of error in the 
 
 To *install* an error-handling method, you just need to call the [`ON ERR CALL`](XXX) command with the method name and (optionnally) scope as parameters. For example:
 
-```4d
+```qs
 ON ERR CALL("IO_Errors",ek local) //Installs a local error-handling method
 ```
 
 To stop catching errors for an execution context and give back hand, call `ON ERR CALL` with an empty string:
 
-```4d
+```qs
 ON ERR CALL("",ek local) //gives back control for the local process
 ```
 
 The  [`Method called on error`](XXX) command allows you to know the name of the method installed by `ON ERR CALL` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
 
-```4d
+```qs
  var methCurrent :  Text
  methCurrent=Method called on error(ek local)
  ON ERR CALL("NewMethod",ek local)
@@ -57,7 +57,7 @@ An error-handling method can be set for different execution contexts:
 
 Examples:
 
-```4d
+```qs
 ON ERR CALL("IO_Errors",ek local) //Installs a local error-handling method
 ON ERR CALL("globalHandler",ek global) //Installs a global error-handling method
 ```
@@ -86,14 +86,14 @@ Within a custom error method, you have access to several pieces of information t
 
 Here is a simple error-handling system:
 
-```4d
+```qs
 //installing the error handling method
  ON ERR CALL("errorMethod")
  //... executing code
  ON ERR CALL("") //giving control back to 4D
 ```
 
-```4d
+```qs
 // errorMethod project method  
 var errText : Text
 if(Error#1006) //this is not a user interruption
@@ -105,7 +105,7 @@ end if
 
 If you mainly want the standard error messages to be hidden, you can install an empty error-handling method. The `Error` system variable can be tested in any method, i.e. outside of the error-handling method:
 
-```4d
+```qs
 ON ERR CALL("emptyMethod") //emptyMethod exists but is empty
 var errText : Text
 if (Error=-43)

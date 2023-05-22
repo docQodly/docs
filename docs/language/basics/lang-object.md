@@ -53,7 +53,7 @@ The [`newObject`](../object.md#newobject) command creates a new empty or prefill
 
 Examples:
 
-```4d
+```qs
  var obVar : object //declaration of an object type variable
  obVar=newObject //instantiation and assignment to the variable
  
@@ -70,7 +70,7 @@ Since any property value is considered an expression, you can create sub-objects
 
 Examples:
 
-```4d
+```qs
  var o, o2, o3 : object //declaration of object variables
  o = {} // instantiation of an empty object 
  o2 = {a: "foo", b: 42, c: {}, d: (toto) ? true : false } // instantiation of an object
@@ -89,7 +89,7 @@ Examples:
 
 You can mix the `newObject` and literal syntaxes:
 
-```4d
+```qs
 var o : object
 var result : string
 o = {\
@@ -127,7 +127,7 @@ With object notation, object properties can be accessed in two ways:
 
 Example:
 
-```4d
+```qs
      employee.name="Smith"
 ```
 
@@ -136,7 +136,7 @@ Example:
 
 Examples:
 
-```4d
+```qs
      vName=employee["name"]
      //or also:
      property="name"
@@ -145,7 +145,7 @@ Examples:
 
 Since an object property value can be an object or a collection, object notation accepts a sequence of symbols to access sub-properties, for example:
 
-```4d
+```qs
  vAge=employee.children[2].age
 ```
 
@@ -154,7 +154,7 @@ Object notation is available on any language element that can contains or return
 - **Objects** themselves (stored in variables, attributes, object properties, or collection elements).
     Examples:
     
-```4d
+```qs
      age=myObjVar.employee.age //variable
      addr=myEntity.data_obj.address //attribute
      city=addr.city //property of an object
@@ -163,14 +163,14 @@ Object notation is available on any language element that can contains or return
 - **QuodlyScript commands** that return objects.
     Example:
     
-```4d
+```qs
      storage.mydata.prop2=10
 ```
     
 - **Methods** that return objects.
     Example:
     
-```4d
+```qs
       //myMethod1
      declare -> result : object
      result=newObject("a",10,"b",20)
@@ -182,7 +182,7 @@ Object notation is available on any language element that can contains or return
 - **Collections**
     Example:
     
-```4d
+```qs
      myColl.length //size of the collection
 ```
 
@@ -191,7 +191,7 @@ Object notation is available on any language element that can contains or return
 
 When using the object notation, the **null** value is supported though the `null` command. This command can be used to assign or compare the null value to object properties or collection elements, for example:
 
-```4d
+```qs
  myObject.address.zip=null
  if(myColl[2]==null)
 ```
@@ -204,7 +204,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 - Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](../variable.md#clearvariable) with them:
 
-```4d
+```qs
      var o : object
      var val : integer
      val=10 //val:10
@@ -214,14 +214,14 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 - Reading the **length** property of an undefined collection produces 0:
 
-```4d
+```qs
      var c : collection //variable created but no collection is instanciated
      size=c.length //size = 0
 ```
 
 - An undefined value passed as parameter to a project method is automatically converted to 0 or "" according to the declared parameter type.
 
-```4d
+```qs
      var o : object
      mymethod(o.a) //pass an undefined parameter
      
@@ -232,7 +232,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 - A condition expression is automatically converted to `false` when evaluating to `undefined` with the `if` and `case of` keywords:
 
-```4d
+```qs
      var o : object
      if(o.a) // false
      end
@@ -251,7 +251,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
  - time: 0 (number of ms)
  - undefined, null: no change
 
-```4d
+```qs
      var o : object
      o=newObject("a",2)
      o.a=o.b //o.a=0
@@ -261,7 +261,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 When expressions of a given type are expected in your code, you can make sure they have the correct type even when evaluated to `undefined` by surrounding them with the appropriate QodlyScript cast command: `string`, `num`, `date`, `time`, `bool`. These commands return an empty value of the specified type when the expression evaluates to `undefined`. For example:
 
-```4d
+```qs
  myString=lowercase(string(o.a.b)) //make sure you get a string value even if undefined
   //to avoid errors in the code
 ```
@@ -271,7 +271,7 @@ When expressions of a given type are expected in your code, you can make sure th
 
 - Writing and reading objects:
 
-```4d
+```qs
   // Using newObject
  var myObj : object //declares an object variable 
  myObj=newObject //instanciates object and assigns to the variable
@@ -287,7 +287,7 @@ When expressions of a given type are expected in your code, you can make sure th
 
 - Create a property and assign values, including objects:
 
-```4d
+```qs
  var Emp : object
  Emp=newObject
  Emp.city="London" //creates the city property and sets its value to "London"
@@ -298,13 +298,13 @@ When expressions of a given type are expected in your code, you can make sure th
 
 - Get a value in a sub-object:
 
-```4d
+```qs
  vCity=Emp.city //"Paris"
  vPhone=Emp.phone.home //"0011223344"
 ```
 - You can access properties as strings using the `[]` operator 
 
-```4d
+```qs
  Emp["city"]="Berlin" //modifies the city property
   //this can be useful for creating properties through variables
  var addr : string

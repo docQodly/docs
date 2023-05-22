@@ -10,7 +10,7 @@ A string (or text) value is an attribute, variable, or expression that may conta
 
 A string literal is enclosed in double, straight quotation marks ("..."). Here are some examples of string literals:
 
-```4d
+```qs
 "Add Profile"
 "No entities found."
 "Invoice"
@@ -72,7 +72,7 @@ In the following example, the **Carriage return** character (escape sequence `\r
 - When strings are compared, the case of the characters is ignored; thus, `"a"=="A"` returns `true`.
 - When strings are compared, diacritical characters are ignored. For example, the following expressions return `true`:
 
-```4d
+```qs
      "n"=="ñ"
      "n"=="Ñ"
      "A"=="å"
@@ -81,7 +81,7 @@ In the following example, the **Carriage return** character (escape sequence `\r
 
 To test if the case of two characters is different or to take diacritical characters into account, compare their character codes. For example, the following expression returns `false`:
 
-```4d
+```qs
 characterCode("A")==characterCode("a") // false because 65 is not equal to 97
 ```
 
@@ -90,19 +90,19 @@ characterCode("A")==characterCode("a") // false because 65 is not equal to 97
 
 The QodlyScript supports **@** as a wildcard character. This character can be used in any string comparison to match any number of characters. For example, the following expression is `true`:
 
-```4d
+```qs
 	"abcdefghij"=="abc@" //true
 ```
 
 The wildcard character must be used within the second operand (the string on the right side) in order to match any number of characters. The following expression is `false`, because the `@` is considered only as one character in the first operand:
 
-```4d
+```qs
     "abc@"=="abcdefghij" //false
 ```
 
 The wildcard means "one or more characters or nothing". The following expressions are `true`:
 
-```4d
+```qs
      "abcdefghij"=="abcdefghij@" //true
      "abcdefghij"=="@abcdefghij" //true
      "abcdefghij"=="abcd@efghij" //true
@@ -112,26 +112,26 @@ The wildcard means "one or more characters or nothing". The following expression
 
 On the other hand, whatever the case, a string comparison with two consecutive wildcards will always return `false`:
 
-```4d
+```qs
 	"abcdefghij"=="abc@@fg" //false
 ```
 
 When the comparison operator is or contains a `<` or `>` symbol, only comparison with a single wildcard located at the end of the operand is supported:
 
-```4d
+```qs
      "abcd"<="abc@" // Valid comparison
      "abcd"<="abc@ef" //Not a valid comparison
 ```
 
 If you want to execute comparisons or queries using `@` as a character (and not as a wildcard), you need to use the `characterCode(At sign)` instruction. Imagine, for example, that you want to know if a string ends with the `@` character. The following expression (if `vsValue` is not empty) is always `true`:
 
-```4d
+```qs
 (vsValue[[length(vsValue)]]=="@") //always true
 ```
 
 The following expression will be evaluated correctly:
 
-```4d
+```qs
 (characterCode(vsValue[[length(vsValue)]])!=64)  
 ```
 
@@ -140,7 +140,7 @@ The following expression will be evaluated correctly:
 
 Unlike other string comparisons, searching by keywords looks for "words" in "texts": words are considered both individually and as a whole. The **%** operator always returns `false` if the query concerns several words or only part of a word (for example, a syllable). The "words" are character strings surrounded by "separators", which are spaces, punctuation characters, and dashes. An apostrophe, like in "Today's", is usually considered as part of the word, but will be ignored in certain cases (see the rules below). Numbers can be searched for because they are evaluated as a whole (including decimal symbols). Other symbols (currency, temperature, and so on) will be ignored.
 
-```4d
+```qs
      "Alpha Bravo Charlie"%"Bravo" // true
      "Alpha Bravo Charlie"%"vo" // false
      "Alpha Bravo Charlie"%"Alpha Bravo" // false
@@ -167,7 +167,7 @@ These symbols are used to refer to a single character within a string. This synt
 
 If the character reference symbols appear on the left side of the assignment operator (`=`), a character is assigned to the referenced position in the string. For example, the following line sets the first character of `vsName` to uppercase:
 
-```4d  
+```qs  
 var vsName : string
 vsName = "hello"
 if(vsName!="")
@@ -178,7 +178,7 @@ end
 
 Otherwise, if the character reference symbols appear within an expression, they return the character (to which they refer) as a 1-character string. For example:
 
-```4d
+```qs
 //The following example tests if the last character of vtText is an At sign "@"
  if(vtText!="")
     if(characterCode(substring(vtText,length(vtText),1))==At sign)
@@ -187,7 +187,7 @@ Otherwise, if the character reference symbols appear within an expression, they 
  end
 ```
 
-```4d 
+```qs 
   //Using the character reference syntax, you would write in a simpler manner:
  if(vtText!="")
     if(characterCode(vtText[[length(vtText)]])==At sign)
@@ -200,7 +200,7 @@ Otherwise, if the character reference symbols appear within an expression, they 
 
 The following method capitalizes the first character of each word of the text received as parameter and returns the resulting capitalized text:
 
-```4d
+```qs
   //Capitalize_text ( Source text ) -> Capitalized text
  
  declare (source : string) -> capitalized : string
@@ -219,7 +219,7 @@ The following method capitalizes the first character of each word of the text re
 
 For example, the line:
 
-```4d
+```qs
 var cap : string
 cap=Capitalize_text("hello, my name is jane doe and i'm running for president!")
 //cap: "Hello, My Name Is Jane Doe And I'm Running For President!"

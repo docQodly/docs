@@ -54,7 +54,7 @@ The following codec IDs are supported:
 ### Examples
 
 Horizontal concatenation
-```4d
+```qs
  circle+rectangle //Place the rectangle to the right of the circle
  rectangle+circle //Place the circle to the right of the rectangle
 ```
@@ -62,7 +62,7 @@ Horizontal concatenation
 ![](img/concatHor2.en.png)
 
 Vertical concatenation
-```4d
+```qs
  circle/rectangle //Place the rectangle under the circle
  rectangle/circle //Place the circle under the rectangle
 ```
@@ -70,19 +70,19 @@ Vertical concatenation
 ![](img/concatVer2.en.png)
 
 Exclusive superimposition
-```4d
+```qs
 Pict3=Pict1 & Pict2 // Superimposes Pict2 on top of  Pict1
 ```
 ![](img/superimpoExc.fr.png)
 
 Inclusive superimposition
-```4d
+```qs
 Pict3=Pict1|Pict2 // Recovers resulting mask from superimposing two pictures of the same size
 ```
 ![](img/superimpoInc.fr.png)
 
 Horizontal move
-```4d
+```qs
 rectangle+50 //Move the rectangle 50 pixels to the right
 rectangle-50 //Move the rectangle 50 pixels to the left
 ```
@@ -90,7 +90,7 @@ rectangle-50 //Move the rectangle 50 pixels to the left
 
 Vertical move
 
-```4d
+```qs
 rectangle/50 //Move the rectangle down by 50 pixels
 rectangle/-20 //Move the rectangle up by 20 pixels
 ```
@@ -99,7 +99,7 @@ rectangle/-20 //Move the rectangle up by 20 pixels
 
 Resize
 
-```4d
+```qs
 rectangle*1.5 //The rectangle becomes 50% bigger
 rectangle*0.5 //The rectangle becomes 50% smaller
 ```
@@ -107,7 +107,7 @@ rectangle*0.5 //The rectangle becomes 50% smaller
 
 Horizontal scaling
 
-```4d
+```qs
 circle*+3 //The circle becomes 3 times wider
 circle*+0.25 //The circle's width becomes a quarter of what it was
 ```
@@ -116,7 +116,7 @@ circle*+0.25 //The circle's width becomes a quarter of what it was
 
 Vertical scaling
 
-```4d
+```qs
 circle*|2 //The circle becomes twice as tall
 circle*|0.25 //The circle's height becomes a quarter of what it was
 ```

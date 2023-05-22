@@ -70,7 +70,7 @@ Note that the corresponding entity is reloaded from the datastore.
 
 `EntitySelection[index]` is a [non assignable expression](basics/lang-expressions.md#assignable-vs-non-assignable-expressions), which means that it cannot be used as en editable entity reference with functions like [`.lock()`](EntityClass.md#lock) or [`.save()`](EntityClass.md#save). To work with the corresponding entity, you need to assign the returned expression to an assignable expression, such as a variable. Examples:
 
-```4d
+```qs
  sel=ds.Employee.all() //create the entity selection
   //invalid statements:
  result=sel[0].lock() //will NOT work
@@ -87,7 +87,7 @@ Note that the corresponding entity is reloaded from the datastore.
 #### Example   
 
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@")
@@ -120,7 +120,7 @@ The function returns Null if *index* is beyond entity selection limits.
 
 #### Example
 
-```4d
+```qs
 var employees : cs.EmployeeSelection
 var emp1, $emp2 : cs.EmployeeEntity
 employees=ds.Employee.query("lastName = :1","H@")
@@ -168,7 +168,7 @@ Projection of storage values:
 
 
 
-```4d
+```qs
  var firstNames : Collection
  entitySelection=ds.Employee.all()
  firstNames=entitySelection.firstName // firstName type is string
@@ -188,7 +188,7 @@ The resulting collection is a collection of strings, for example:
 
 Projection of related entity:
 
-```4d
+```qs
  var es, entitySelection : cs.EmployeeSelection
  entitySelection=ds.Employee.all()
  es=entitySelection.employer // employer is related to a Company dataClass
@@ -200,7 +200,7 @@ The resulting object is an entity selection of Company with duplications removed
  
 Projection of related entities:
 
-```4d
+```qs
  var es : cs.EmployeeSelection
  es=ds.Employee.all().directReports // directReports is related to Employee dataclass
 ```
@@ -248,7 +248,7 @@ An error occurs if *entity* and the entity selection are not related to the same
 
 #### Example 1
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  employees=ds.Employee.newSelection()
@@ -262,7 +262,7 @@ An error occurs if *entity* and the entity selection are not related to the same
 
 Calls to the function can be chained:
 
-```4d
+```qs
  var sel : cs.ProductSelection
  var p1,p2,p3 : cs.ProductEntity
 
@@ -314,7 +314,7 @@ If the original entity selection and the parameter are not related to the same d
 #### Example 1
 
 
-```4d
+```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@")   
@@ -332,7 +332,7 @@ If the original entity selection and the parameter are not related to the same d
 
 We want to have a selection of employees named "Jones" who live in New York:
 
-```4d
+```qs
  var sel1, sel2, sel3 : cs.EmployeeSelection
  sel1=ds.Employee.query("name=:1","Jones")
  sel2=ds.Employee.query("city=:1","New York")
@@ -382,7 +382,7 @@ An error is returned if:
  
 We want to obtain a list of employees whose salary is higher than the average salary:
 
-```4d
+```qs
  var averageSalary : Real
  var moreThanAv : cs.EmployeeSelection
  averageSalary=ds.Employee.all().average("salary")
@@ -416,7 +416,7 @@ If *entity* and the entity selection do not belong to the same dataclass, an err
 
 #### Example   
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : Text
@@ -464,7 +464,7 @@ An error is returned if:
 
 We want to find out the total number of employees for a company without counting any whose job title has not been specified:
 
-```4d
+```qs
  var sel : cs.EmployeeSelection
  var count : Real
  
@@ -502,7 +502,7 @@ By default, if the *option* parameter is omitted, the function returns a new, [a
 
 You create a new, empty entity selection of products when the form is loaded:
 
-```4d
+```qs
  Case of
     :(Form event code==On Load)
        Form.products=ds.Products.newSelection()
@@ -512,7 +512,7 @@ You create a new, empty entity selection of products when the form is loaded:
 
 Then this entity selection is updated with products and you want to share the products between several processes. You copy the Form.products entity selection as a shareable one:
 
-```4d
+```qs
  ...
   // The Form.products entity selection is updated
  Form.products.add(Form.selectedProduct)
@@ -585,20 +585,20 @@ An error is returned if:
 
 You want to get a collection containing a single element per country name:
 
-```4d
+```qs
  var countries : Collection
  countries=ds.Employee.all().distinct("address.country")
 ```
 
 `nicknames` is a collection and `extra` is an object attribute:
 
-```4d
+```qs
 values=ds.Employee.all().distinct("extra.nicknames[].first")
 ```
 
 You want to get the number of different job names in the company:
 
-```4d
+```qs
 var jobs : Collection
 jobs=ds.Employee.all().distinct("jobName",dk count values)  
 //jobs[0]={"value":"Developer","count":17}
@@ -635,7 +635,7 @@ After the call, the size of the returned collection is equal to the number of di
 
 You want to get all paths stored in a *fullData* object attribute:
 
-```4d
+```qs
 var paths : Collection
 paths=ds.Employee.all().distinctPaths("fullData")
 //paths[0]="age"
@@ -685,7 +685,7 @@ If a locked entity is encountered during the execution of `.drop()`, it is not r
 
 Example without the `dk stop dropping on first error` option:
 
-```4d
+```qs
  var employees, notDropped : cs.EmployeeSelection
  var info : Text
  employees=ds.Employee.query("firstName=:1","S@")
@@ -699,7 +699,7 @@ Example without the `dk stop dropping on first error` option:
 
 Example with the `dk stop dropping on first error` option:
 
-```4d
+```qs
  var employees, notDropped : cs.EmployeeSelection
  var info : Text
  employees=ds.Employee.query("firstName=:1","S@")
@@ -777,7 +777,7 @@ Given the following table and relation:
 
 ![](img/entityselection.png)
 
-```4d
+```qs
  var firstnames, addresses, mailing, teachers : Collection
   //
   //
@@ -834,14 +834,14 @@ The `.first()` function <!-- REF #EntitySelectionClass.first().Summary -->return
 
 The result of this function is similar to:
 
-```4d
+```qs
  entity=entitySel[0]
 ```
 
 There is, however, a difference between both statements when the selection is empty:
 
 
-```4d
+```qs
  var entitySel : cs.EmpSelection
  var entity : cs.EmpEntity
  entitySel=ds.Emp.query("lastName = :1","Nonexistentname") //no matching entity
@@ -853,7 +853,7 @@ There is, however, a difference between both statements when the selection is em
 #### Example   
 
 
-```4d
+```qs
  var entitySelection : cs.EmpSelection
  var entity : cs.EmpEntity
  entitySelection=ds.Emp.query("salary > :1",100000)
@@ -891,7 +891,7 @@ This function is mainly useful in the context of generic code.
 
 The following generic code duplicates all entities of the entity selection:
 
-```4d
+```qs
   //duplicate_entities method
   //duplicate_entities($entity_selection)
  
@@ -934,7 +934,7 @@ For more information, please refer to the [Shareable or alterable entity selecti
 
 You want to display `Form.products` in a form component to allow the user to add new products. You want to make sure it is alterable so that the user can add new products without error:
 
-```4d
+```qs
 If (Not(Form.products.isAlterable()))
     Form.products=Form.products.copy()
 End if
@@ -975,7 +975,7 @@ For more information, please refer to the [Ordered or unordered entity selection
 #### Example   
 
 
-```4d
+```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var isOrdered : Boolean
@@ -1018,7 +1018,7 @@ The `.last()` function <!-- REF #EntitySelectionClass.last().Summary -->returns 
 
 The result of this function is similar to:
 
-```4d
+```qs
  entity=entitySel[length-1]
 ```
 
@@ -1028,7 +1028,7 @@ If the entity selection is empty, the function returns Null.
 #### Example   
 
 
-```4d
+```qs
  var entitySelection : cs.EmpSelection
  var entity : cs.EmpEntity
  entitySelection=ds.Emp.query("salary < :1",50000)
@@ -1058,7 +1058,7 @@ Entity selections always have a `.length` property.
 
 #### Example 
 
-```4d
+```qs
  var vSize : Integer
  var info : Text
  vSize=ds.Employee.query("gender = :1","male").length
@@ -1111,7 +1111,7 @@ An error is returned if:
 
 We want to find the highest salary among all the female employees:
 
-```4d
+```qs
  var sel : cs.EmpSelection
  var maxSalary : Real
  sel=ds.Employee.query("gender = :1","female")
@@ -1153,7 +1153,7 @@ An error is returned if:
 
 In this example, we want to find the lowest salary among all the female employees:
 
-```4d
+```qs
  var sel : cs.EmpSelection
  var minSalary : Real
  sel=ds.Employee.query("gender = :1","female")
@@ -1196,7 +1196,7 @@ If the original entity selection and the parameter are not related to the same d
 
 #### Example 1 
 
-```4d
+```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  
@@ -1215,7 +1215,7 @@ If the original entity selection and the parameter are not related to the same d
 
 We want to have a selection of female employees named "Jones" who live in New York :
 
-```4d
+```qs
  var sel1, sel2, sel3 : cs.EmployeeSelection
  sel1=ds.Employee.query("name =:1","Jones")
  sel2=ds.Employee.query("city=:1","New York")
@@ -1257,7 +1257,7 @@ If the original entity selection and the parameter are not related to the same d
 
 #### Example 1  
 
-```4d
+```qs
  var employees1, employees2, result : cs.EmployeeSelection
  employees1=ds.Employee.query("lastName = :1","H@") //Returns "Colin Hetrick","Grady Harness"
  employees2=ds.Employee.query("firstName = :1","C@") //Returns "Colin Hetrick", "Cath Kidston"
@@ -1266,7 +1266,7 @@ If the original entity selection and the parameter are not related to the same d
 
 #### Example 2  
 
-```4d
+```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  employees=ds.Employee.query("lastName = :1","H@") // Returns "Colin Hetrick","Grady Harness", "Sherlock Holmes"
@@ -1303,7 +1303,7 @@ You must use a criteria parameter to define how the entities must be sorted. Two
 
 *	*pathString* (Text): this parameter contains a formula made of 1 to X attribute paths and (optionally) sort orders, separated by commas. The syntax is:
 
-```4d
+```qs
 "attributePath1 {desc or asc}, attributePath2 {desc or asc},..."
 ```
 
@@ -1327,7 +1327,7 @@ You can add as many objects in the criteria collection as necessary.
 #### Example
 
 
-```4d
+```qs
 // order by formula
  sortedEntitySelection=entitySelection.orderBy("firstName asc, salary desc")
  sortedEntitySelection=entitySelection.orderBy("firstName")
@@ -1395,7 +1395,7 @@ You can pass parameter(s) to the formula using the `args` property (object) of t
 
 Sorting students using a formula provided as text:
 
-```4d
+```qs
  var es1, es2 : cs.StudentsSelection
  es1=ds.Students.query("nationality=:1","French")
  es2=es1.orderByFormula("length(this.lastname)") //ascending by default
@@ -1404,7 +1404,7 @@ Sorting students using a formula provided as text:
 
 Same sort order but using a formula object:
 
-```4d
+```qs
  var es1, es2 : cs.StudentsSelection
  var vFormula : Object
  es1=ds.Students.query("nationality=:1","French")
@@ -1420,7 +1420,7 @@ A formula is given as a formula object with parameters; `settings.args` object i
 
 In this example, the "marks" object field in the **Students** dataClass contains students' grades for each subject. A single formula object is used to compute a student's average grade with different coefficients for schoolA and schoolB.
 
-```4d
+```qs
  var es1, es2 : cs.StudentsSelection
  var vFormula, schoolA, schoolB : Object
  es1=ds.Students.query("nationality=:1","French")
@@ -1439,7 +1439,7 @@ In this example, the "marks" object field in the **Students** dataClass contains
  es2=es1.entitySelection.orderByFormula(vFormula,dk descending,schoolB)
 ```
 
-```4d
+```qs
   //
   // computeAverage method
   // -----------------------------
@@ -1496,7 +1496,7 @@ For detailed information on how to build a query using *queryString*, *value*, a
 #### Example 1  
 
 
-```4d
+```qs
  var entitySelectionTemp : cs.EmployeeSelection
  entitySelectionTemp=ds.Employee.query("lastName = :1","M@")
  Form.emps=entitySelectionTemp.query("manager.lastName = :1","S@")
@@ -1589,7 +1589,7 @@ The function returns an empty collection in the `ranges` property if the origina
 
 #### Example
 
-```4d
+```qs
 var invoices, cashSel, creditSel : cs.InvoicesSelection
 var result1, result2 : Object
 
@@ -1647,7 +1647,7 @@ If the entity selection contains entities that were dropped in the meantime, the
 
 You want to get a selection of the first 9 entities of the entity selection:
 
-```4d
+```qs
 var sel, sliced : cs.EmployeeSelection
 sel=ds.Employee.query("salary > :1",50000)
 sliced=sel.slice(0,9) //
@@ -1658,7 +1658,7 @@ sliced=sel.slice(0,9) //
 
 Assuming we have ds.Employee.all().length = 10
 
-```4d
+```qs
 var slice : cs.EmployeeSelection
 slice=ds.Employee.all().slice(-1,-2) //tries to return entities from index 9 to 8, 
 	//but since 9 > 8, returns an empty entity selection
@@ -1700,7 +1700,7 @@ An error is returned if:
 
 #### Example 
 
-```4d
+```qs
 var sel : cs.EmployeeSelection
 var sum : Real
  
@@ -1778,7 +1778,7 @@ The following structure will be used throughout all examples of this section:
 
 Example without filter or options parameter:
 
-```4d
+```qs
  var employeesCollection : Collection
  var employees : cs.EmployeeSelection
  
@@ -1835,7 +1835,7 @@ Returns:
 
 Example with options:
 
-```4d
+```qs
 var employeesCollection : Collection
 var employees : cs.EmployeeSelection
 
@@ -1894,7 +1894,7 @@ Returns:
 
 Example with slicing and filtering on properties:
 
-```4d
+```qs
 var employeesCollection, filter : Collection
 var employees : cs.EmployeeSelection
 
@@ -1929,7 +1929,7 @@ Returns:
 Example with `relatedEntity` type with simple form:
 
 
-```4d
+```qs
 var employeesCollection : Collection
 employeesCollection=New collection
 employeesCollection=employees.toCollection("firstName,lastName,employer")
@@ -1967,7 +1967,7 @@ returns:
 
 Example with *filterCol* parameter:
 
-```4d
+```qs
 var employeesCollection, coll : Collection
 employeesCollection=New collection
 coll=New collection("firstName","lastName")
@@ -1993,7 +1993,7 @@ Returns:
 
 Example with extraction of all properties of a relatedEntity:
 
-```4d
+```qs
 var employeesCollection, coll : Collection
 employeesCollection=New collection
 coll=New collection
@@ -2047,7 +2047,7 @@ Returns:
 
 Example with extraction of some properties of a relatedEntity:
 
-```4d
+```qs
 var employeesCollection : Collection
 employeesCollection=New collection
 employeesCollection=employees.toCollection("firstName, lastName, employer.name")
@@ -2083,7 +2083,7 @@ employeesCollection=employees.toCollection("firstName, lastName, employer.name")
 
 Example with extraction of some properties of `relatedEntities`:
 
-```4d
+```qs
  var employeesCollection : Collection
  employeesCollection=New collection
  employeesCollection=employees.toCollection("firstName, lastName, directReports.firstName")
@@ -2135,7 +2135,7 @@ Returns:
 
 Example with extraction of all properties of `relatedEntities`:
 
-```4d
+```qs
 var employeesCollection : Collection
 employeesCollection=New collection
 employeesCollection=employees.toCollection("firstName, lastName, directReports.*")

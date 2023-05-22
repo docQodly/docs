@@ -5,7 +5,7 @@ title: A Quick Tour
 
 Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the following line:
 
-```4d  
+```qs  
 webForm.setMessage("Hello, World!")
 ```
 
@@ -15,7 +15,7 @@ This code will display a "Hello, World!" message at the bottom of your web form.
 
 Data can be put into and copied out of variables, attributes, collection items... Putting data into a variable is called assigning the data to the variable and is done with the assignment operator (=). The assignment operator is also used to assign data to attributes, collection items, etc.
 
-```4d
+```qs
 MyNumber=3 //assigns 3 to MyNumber variable  
 myEntity.size=myNumber //assigns myNumber variable to size entity attribute
 MyVar=length("Acme") //assigns the result of the function (4) to MyVar
@@ -28,7 +28,7 @@ You must distinguish the assignment operator = from the other operators. Rather 
 
 For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
 
-```4d
+```qs
 a=1 //1
 a+=2 //3
 ```
@@ -38,13 +38,13 @@ a+=2 //3
 
 The QodlyScript language is strongly typed, although some flexibility is allowed in many cases. You create a typed variable using the `var` keyword. For example, to create a variable of the date type, you can write:
 
-```4d
+```qs
 var MyDate : date 
 ```
 
 The `var` keyword allows declaring object variables of a defined class type, for example:
 
-```4d
+```qs
 var myPerson : cs.Person 
 //variable of the Person user class
 ```
@@ -55,13 +55,13 @@ A declared variable cannot change of type.
 
 QodlyScript commands are built-in methods to perform an action. Commands are often used with parameters, which are passed in brackets () and separated by commas `,`. Example:
 
-```4d
+```qs
 convertFromString(vText,"UTF-8",vBlob)
 ```
 
 Some commands are attached to collections or objects, in which case they are named functions and are used using the dot notation. For example: 
 
-```4d
+```qs
 c=newCollection(1,2,3,4,5)
 nc=c.slice(0,3) //nc=[1,2,3]  
 
@@ -73,7 +73,7 @@ lastEmployee=employee.last()
 
 QodlyScript proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `sk char codes` is a constant (value 1). 
 
-```4d
+```qs
 a="alpha bravo charlie"
 b="Alpha Bravo Charlie"  
 vResult=compareStrings(a,b,sk char codes) // vResult: 1
@@ -81,7 +81,7 @@ vResult=compareStrings(a,b,sk char codes) // vResult: 1
 
 Constants can be added:
 
-```4d
+```qs
 vResult=compareStrings(a,b,sk char codes+sk case insensitive) // vResult: 0
 ```
 
@@ -95,7 +95,7 @@ A method is composed of statements; each statement consists of one line in the m
 
 For example, the following line is a statement that will crop a picture:
 
-```4d
+```qs
 transformPicture(vpGears,Crop,50,50,100,100))
 ```
 
@@ -103,7 +103,7 @@ A method also contains tests and loops that control the flow of the execution. Q
 
 The following example goes through all the characters of the text *vtSomeText*:
 
-```4d
+```qs
 for(vlChar,1,length(vtSomeText))
 	//Do something with the character if it is a TAB
 
@@ -118,7 +118,7 @@ A method can call another method with or without parameters (arguments). The par
 
 When you call a method, you just type its name:
 
-```4d
+```qs
 myText="hello"
 myText=Do_Something(myText) //Call the Do_Something method
 file("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
@@ -139,7 +139,7 @@ However, when using QodlyScript it is important that you do not mix different da
 
 There are cases in which you need to store data as one type and use it as another type. The language contains a full complement of commands that let you convert from one data type to another. For example, you may need to create a part number that starts with a number and ends with characters such as "abc". In this case, you might write:
 
-```4d
+```qs
 myEntity.Product.partNumber=string(number)+"abc"
 ```
 
@@ -151,19 +151,19 @@ The data types are fully defined in the section [Data Types](lang-data-types.md)
 
 You can handle objects and collections using the object notation to get or to set their values. For example:
 
-```4d
+```qs
 employee.name="Smith"
 ```
 
 You can also use a string within square brackets, for example:
 
-```4d
+```qs
 vName=employee["name"]
 ```
 
 Since an object property value can be an object or a collection, object notation accepts a sequence of symbols to access sub-properties, for example:
 
-```4d
+```qs
 vAge=employee.children[2].age
 ```
 
@@ -177,7 +177,7 @@ f.add() //returns 3
 
 To access a collection element, you have to pass the element number embedded in square brackets:
 
-```4d
+```qs
 var myColl : collection
 myColl=newCollection("A","B",1,2,currentTime)
 myColl[3] //access to 4th element of the collection
@@ -189,14 +189,14 @@ The QodlyScript language supports classes.
 
 You can create a class named "myClass" for example. To instantiate an object of this class in a method, call the class from the user *class store* (`cs`) and use the `new()` member function. You can pass parameters.
 
-```4d  
+```qs  
 // in a QodlyScript method
 o=cs.myClass.new() 
 ```
 
 In the `myClass` class method, use the `function <methodName>` statement to define the *methodName* class member function. A class member function can receive and return parameters like any method, and use `this` as the object instance. 
 
-```4d  
+```qs  
 //in the myClass definition
 function hello -> welcome : string
   welcome="Hello "+this.who
@@ -204,7 +204,7 @@ function hello -> welcome : string
 
 To execute a class member function, just use the `()` operator on the member function of the object instance. 
 
-```4d
+```qs
 o=cs.myClass.new()
 o.who="World"
 message=o.myClass.hello()  
@@ -213,7 +213,7 @@ message=o.myClass.hello()
 
 Optionally, use the `constructor` and `property` keywords to declare properties for the object.
 
-```4d  
+```qs  
 //in the Rectangle class
 constructor(height : integer, width : integer)
  this.height=height
@@ -225,7 +225,7 @@ constructor(height : integer, width : integer)
 
 A class can extend another class by using `extends <ClassName>`. Superclasses can be called using the `super` command. For example:
 
-```4d  
+```qs  
 //in the Square class
 extends Rectangle
  

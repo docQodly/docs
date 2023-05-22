@@ -5,7 +5,7 @@ title: Pathnames
 
 File and folder functions, properties, and commands allow you to handle files and folders as objects. This makes file and folder management powerful and flexible. For example, to create a new file in the current user's Documents folder, you can write:
 
-```4d
+```qs
 ok=Folder(fk documents folder).file("Archives/JohnQ.prefs").create()
 ```
 
@@ -38,7 +38,7 @@ QodlyScript uses the POSIX syntax. With this syntax:
 
 In POSIX syntax, you will generally use `filesystem` pathnames with [`File`](../API/FileClass.md#file) and [`Folder`](../API/FolderClass.md#folder) commands, for example:
 
-```4d
+```qs
 pathFile=File("/DATA/Archives/file 2.txt")
 pathFolder=Folder("/RESOURCES/Pictures")
 ```
@@ -50,14 +50,14 @@ pathFolder=Folder("/RESOURCES/Pictures")
 
 [`File`](../API/FileClass.md#file) and [`Folder`](../API/FolderClass.md#folder) commands only accept **absolute pathnames**. Relative pathnames are not supported and will return errors. For example, the following code is not allowed:
 
-```4d
+```qs
 	//ERROR
 ko=Folder("myFolder").create() //relative pathname with constructor
 ```
 
 If you want to handle files or folders in various locations (project folder, system folders, etc.), you must use `filesystems` (see above). For example, you can write:
 
-```4d
+```qs
 okFolder=Folder("/PACKAGE/myFolder").create() //folder created at the structure level
 okFile=File("/DATA/Prefs/tempo.txt").create() //file created in the data folder
 ```
@@ -66,7 +66,7 @@ okFile=File("/DATA/Prefs/tempo.txt").create() //file created in the data folder
 
 Functions of folder objects such as [`folder.file()`](../API/FolderClass.md#file) and [`folder.folder()`](../API/FolderClass.md#folder-1) expect relative POSIX pathnames. For example:
 
-```4d
+```qs
   //to reference a "Picture" folder within the user documents folder
 userImages:=Folder(fk documents folder).folder("Pictures")
   //to create a folder on the desktop
@@ -80,7 +80,7 @@ Absolute pathnames are not supported and will return errors.
 
 The flexibility of file and folder functions offers you various possibilities for handling files and folders, like in the following examples:
 
-```4d
+```qs
 f=Folder(fk desktop folder).folder("archive/jan2023")
  
 f2=Folder("/DATA/archive/jan2023").file("total.txt")
