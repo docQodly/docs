@@ -41,7 +41,7 @@ This command is useful when the code expects a boolean value, and when the evalu
 
 #### Example 1
 
-```4d
+```qs
 var result : boolean
 result=bool(1)  //true
 result=bool(0)  //false
@@ -51,7 +51,7 @@ result=bool("hello")  //false
 
 #### Example 2
 
-```4d
+```qs
 var o : object
 o={test: 42}
 result=bool(o.test)  //true
