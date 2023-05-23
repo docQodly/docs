@@ -4,7 +4,7 @@ title: DataClass
 ---
 
 
-A [DataClass](../Concepts/data-model#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../basics/data-model#datastore). 
+A [DataClass](../concepts/orda/data-model.md#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../concepts/orda/data-model.md#datastore). 
 
 
 
@@ -64,13 +64,13 @@ Lazy loading is applied.
 
 
 <!-- REF #DataClassClass.fromCollection().Syntax -->
-**.fromCollection**( *objectCol* : Collection ) : 4D.EntitySelection<!-- END REF -->
+**.fromCollection**( *objectCol* : collection ) : 4D.EntitySelection<!-- END REF -->
 
 
 <!-- REF #DataClassClass.fromCollection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|objectCol |Collection|->|Collection of objects to be mapped with entities|
+|objectCol |collection|->|collection of objects to be mapped with entities|
 |Result|4D.EntitySelection|<-|Entity selection filled from the collection|
 <!-- END REF -->
 
@@ -108,7 +108,7 @@ The nested objects featuring related entities must contain a "\_\_KEY" property 
 
 **Stamp**
 
-If a \_\_STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned ("Given stamp does not match current one for record# XX of table XXXX"). For more information, see [Entity locking](../Concepts/data#entity-locking).
+If a \_\_STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned ("Given stamp does not match current one for record# XX of table XXXX"). For more information, see [Entity locking](../concepts/orda/data.md#entity-locking).
 
 
 #### Example 1
@@ -116,16 +116,16 @@ If a \_\_STAMP attribute is given, a check is performed with the stamp in the da
 We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given and exists:
 
 ```qs
- var empsCollection : Collection
- var emp : Object
+ var empsCollection : collection
+ var emp : object
  var employees : cs.EmployeeSelection
  
- empsCollection=New collection
- emp=New object
+ empsCollection=newCollection()
+ emp=newObject()
  emp.ID=668 //Existing PK in Employee table
  emp.firstName="Arthur"
  emp.lastName="Martin"
- emp.employer=New object("ID";121) //Existing PK in the related dataClass Company
+ emp.employer=newObject("ID",121) //Existing PK in the related dataClass Company
   // For this employee, we can change the Company by using another existing PK in the related dataClass Company
  empsCollection.push(emp)
  employees=ds.Employee.fromCollection(empsCollection)
@@ -136,16 +136,16 @@ We want to update an existing entity. The \_\_NEW property is not given, the emp
 We want to update an existing entity. The \_\_NEW property is not given, the employee primary key is given with the \_\_KEY attribute and exists:
 
 ```qs
- var empsCollection : Collection
- var emp : Object
+ var empsCollection : collection
+ var emp : object
  var employees : cs.EmployeeSelection
  
- empsCollection=New collection
- emp=New object
+ empsCollection=newCollection
+ emp=newObject
  emp.__KEY=1720 //Existing PK in Employee table
  emp.firstName="John"
  emp.lastName="Boorman"
- emp.employer=New object("ID";121) //Existing PK in the related dataClass Company
+ emp.employer=newObject("ID";121) //Existing PK in the related dataClass Company
   // For this employee, we can change the Company by using another existing PK in the related dataClass Company
  empsCollection.push(emp)
  employees=ds.Employee.fromCollection(empsCollection)
@@ -156,12 +156,12 @@ We want to update an existing entity. The \_\_NEW property is not given, the emp
 We want to simply create a new entity from a collection:
 
 ```qs
- var empsCollection : Collection
- var emp : Object
+ var empsCollection : collection
+ var emp : object
  var employees : cs.EmployeeSelection
  
- empsCollection=New collection
- emp=New object
+ empsCollection=newCollection
+ emp=newObject
  emp.firstName="Victor"
  emp.lastName="Hugo"
  empsCollection.push(emp)
@@ -173,15 +173,15 @@ We want to simply create a new entity from a collection:
 We want to create an entity. The \_\_NEW property is True, the employee primary key is not given:
 
 ```qs
- var empsCollection : Collection
- var emp : Object
+ var empsCollection : collection
+ var emp : object
  var employees : cs.EmployeeSelection
  
- empsCollection:=New collection
- emp=New object
+ empsCollection:=newCollection
+ emp=newObject
  emp.firstName="Mary"
  emp.lastName="Smith"
- emp.employer=New object("__KEY";121) //Existing PK in the related dataClass Company
+ emp.employer=newObject("__KEY";121) //Existing PK in the related dataClass Company
  emp.__NEW=True
  empsCollection.push(emp)
  employees=ds.Employee.fromCollection(empsCollection)
@@ -194,12 +194,12 @@ We want to create an entity. The \_\_NEW property is True, the employee primary 
 We want to create an entity. The \_\_NEW property is omitted, the employee primary key is given and does not exist:
 
 ```qs
- var empsCollection : Collection
- var emp : Object
+ var empsCollection : collection
+ var emp : object
  var employees : cs.EmployeeSelection
  
- empsCollection=New collection
- emp=New object
+ empsCollection=newCollection
+ emp=newObject
  emp.ID=10000 //Unexisting primary key
  emp.firstName="Françoise"
  emp.lastName="Sagan"
@@ -212,19 +212,19 @@ We want to create an entity. The \_\_NEW property is omitted, the employee prima
 In this example, the first entity will be created and saved but the second will fail since they both use the same primary key:
 
 ```qs
- var empsCollection : Collection
- var emp, $emp2 : Object
+ var empsCollection : collection
+ var emp, $emp2 : object
  var employees : cs.EmployeeSelection
  
- empsCollection=New collection
- emp=New object
+ empsCollection=newCollection
+ emp=newObject
  emp.ID=10001 // Unexisting primary key
  emp.firstName="Simone"
  emp.lastName="Martin"
  emp.__NEW=True
  empsCollection.push(emp)
  
- emp2=New object
+ emp2=newObject
  emp2.ID=10001 // Same primary key, already existing
  emp2.firstName="Marc"
  emp2.lastName="Smith"
@@ -342,8 +342,8 @@ The `SearchDuplicate` project method searches for duplicated values in any datac
   // SearchDuplicate method
   // SearchDuplicate(entity_to_search,dataclass_name)
    
- #declare (pet : Object , dataClassName : Text)
- var dataStore,duplicates : Object  
+ #declare (pet : object , dataClassName : Text)
+ var dataStore,duplicates : object  
  
  dataStore=pet.getDataClass().getDataStore()
  duplicates=dataStore[dataClassName].query("name=:1",pet.name)
@@ -358,12 +358,12 @@ The `SearchDuplicate` project method searches for duplicated values in any datac
 
 
 <!-- REF #DataClassClass.getInfo().Syntax -->
-**.getInfo()** : Object <!-- END REF -->
+**.getInfo()** : object <!-- END REF -->
 
 <!-- REF #DataClassClass.getInfo().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Object|<-|Information on the dataclass|
+|Result|object|<-|Information on the dataclass|
 <!-- END REF -->
 
 
@@ -384,8 +384,8 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
 #### Example 1 
 
 ```qs 
- #declare (entity : Object)  
- var status : Object
+ #declare (entity : object)  
+ var status : object
  var info : Text
  
  computeEmployeeNumber(entity) //do some actions on entity
@@ -399,12 +399,12 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
 #### Example 2  
 
 ```qs
- var settings : Object
+ var settings : object
  var es : cs.ClientsSelection
  
- settings=New object
- settings.parameters=New object("receivedIds",getIds())
- settings.attributes=New object("pk",ds.Clients.getInfo().primaryKey)
+ settings=newObject
+ settings.parameters=newObject("receivedIds",getIds())
+ settings.attributes=newObject("pk",ds.Clients.getInfo().primaryKey)
  es=ds.Clients.query(":pk in :receivedIds",settings)
 ```
  
@@ -412,7 +412,7 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
 
 ```qs 
  var pk : Text
- var dataClassAttribute : Object
+ var dataClassAttribute : object
  
  pk=ds.Employee.getInfo().primaryKey
  dataClassAttribute=ds.Employee[pk] //If needed the attribute matching the primary key is accessible
@@ -502,15 +502,15 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ## .query()
 
 <!-- REF #DataClassClass.query().Syntax -->
-**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : Object } ) : 4D.EntitySelection <br/>**.query**( *formula* : Object { , *querySettings* : Object } ) : 4D.EntitySelection <!-- END REF -->
+**.query**( *queryString* : Text { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection <!-- END REF -->
 
 <!-- REF #DataClassClass.query().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |queryString |Text |-> |Search criteria as string|
-|formula |Object |-> |Search criteria as formula object|
+|formula |object |-> |Search criteria as formula object|
 |value|any|->|Value(s) to use for indexed placeholder(s)|
-|querySettings|Object|->|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
+|querySettings|object|->|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
 |Result|4D.EntitySelection|<-|New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
 <!-- END REF -->
 
@@ -533,14 +533,14 @@ attributePath|formula comparator value
 
 where:
 
-*	**attributePath**: path of attribute on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `Collection`, \[ ] notation is used to handle all the occurences (for example "children\[ ].age"). You can also use a **placeholder** (see below).
+*	**attributePath**: path of attribute on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `collection`, \[ ] notation is used to handle all the occurences (for example "children\[ ].age"). You can also use a **placeholder** (see below).
 
 	>*You cannot use directly attributes whose name contains special characters such as ".", "\[ ]", or "=", ">", "#"..., because they will be incorrectly evaluated in the query string. If you need to query on such attributes, you must consider using placeholders, which allow an extended range of characters in attribute paths (see* **Using placeholders** *below).* 
 
-*	**formula**: a valid formula passed as `Text` or `Object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `This` object.  
+*	**formula**: a valid formula passed as `Text` or `object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `This` object.  
 
 	*	**Text**: the formula string must be preceeded by the `eval( )` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(This.lastname) >=30)"*
-	*	**Object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`Formula`] or [`Formula from string`] command. 
+	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`Formula`] or [`Formula from string`] command. 
 
 	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators. 
 	>* If the formula is not the only search criteria, the query engine optimizer could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.   
@@ -765,7 +765,7 @@ Any *formula* called by the `query()` class function can receive parameters:
 This small code shows the principles of how parameter are passed to methods:
 
 ```qs
- settings=New object("args",New object("exclude","-")) //args object to pass parameters
+ settings=newObject("args",newObject("exclude","-")) //args object to pass parameters
  es=ds.Students.query("eval(checkName($1.exclude))",$settings) //args is received in $1
 ```
 
@@ -779,9 +779,9 @@ In the *querySettings* parameter, you can pass an object containing additional o
 
 |Property|	Type|	Description|
 |---|---|---|
-|parameters|Object|**Named placeholders for values** used in the *queryString* or *formula*. Values are expressed as property / value pairs, where property is the placeholder name inserted for a value in the *queryString* or *formula* (":placeholder") and value is the value to compare. You can mix indexed placeholders (values directly passed in value parameters) and named placeholder values in the same query.|
-|attributes|Object|**Named placeholders for attribute paths** used in the *queryString* or *formula*. Attributes are expressed as property / value pairs, where property is the placeholder name inserted for an attribute path in the *queryString* or *formula* (":placeholder"), and value can be a string or a collection of strings. Each value is a path that can designate either a scalar or a related attribute of the dataclass or a property in an object field of the dataclass<p><table><tr><th>Type</th><th>Description</th></tr><tr><td>String</td><td>attributePath expressed using the dot notation, e.g. "name" or "user.address.zipCode"</td></tr><tr><td>Collection of strings</td><td>Each string of the collection represents a level of attributePath, e.g. \["name"] or \["user","address","zipCode"]. Using a collection allows querying on attributes with names that are not compliant with dot notation, e.g. \["4Dv17.1","en/fr"]</td></tr></table></p>You can mix indexed placeholders (values directly passed in *value* parameters) and named placeholder values in the same query.|
-|args|Object|Parameter(s) to pass to formulas, if any. The **args** object will be received in $1 within formulas and thus its values will be available through *$1.property* (see example 3).| 
+|parameters|object|**Named placeholders for values** used in the *queryString* or *formula*. Values are expressed as property / value pairs, where property is the placeholder name inserted for a value in the *queryString* or *formula* (":placeholder") and value is the value to compare. You can mix indexed placeholders (values directly passed in value parameters) and named placeholder values in the same query.|
+|attributes|object|**Named placeholders for attribute paths** used in the *queryString* or *formula*. Attributes are expressed as property / value pairs, where property is the placeholder name inserted for an attribute path in the *queryString* or *formula* (":placeholder"), and value can be a string or a collection of strings. Each value is a path that can designate either a scalar or a related attribute of the dataclass or a property in an object field of the dataclass<p><table><tr><th>Type</th><th>Description</th></tr><tr><td>String</td><td>attributePath expressed using the dot notation, e.g. "name" or "user.address.zipCode"</td></tr><tr><td>collection of strings</td><td>Each string of the collection represents a level of attributePath, e.g. \["name"] or \["user","address","zipCode"]. Using a collection allows querying on attributes with names that are not compliant with dot notation, e.g. \["4Dv17.1","en/fr"]</td></tr></table></p>You can mix indexed placeholders (values directly passed in *value* parameters) and named placeholder values in the same query.|
+|args|object|Parameter(s) to pass to formulas, if any. The **args** object will be received in $1 within formulas and thus its values will be available through *$1.property* (see example 3).| 
 |allowFormulas|	Boolean|True to allow the formula calls in the query (default). Pass false to disallow formula execution. If set to false and `query()` is given a formula, an error is sent (1278 - Formula not allowed in this member method).|
 |queryPlan|	Boolean	|In the resulting entity selection, returns or does not return the detailed description of the query just before it is executed, i.e. the planned query. The returned property is an object that includes each planned query and subquery (in the case of a complex query). This option is useful during the development phase of an application. It is usually used in conjunction with queryPath. Default if omitted: false. **Note**: This property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
 |queryPath|Boolean|	In the resulting entity selection, returns or does not return the detailed description of the query as it is actually performed. The returned property is an object that contains the actual path used for the query (usually identical to that of the queryPlan, but may differ if the engine manages to optimize the query), as well as the processing time and the number of records found. This option is useful during the development phase of an application. Default if omitted: false. **Note**: This property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
@@ -794,7 +794,7 @@ For example, if you execute the following query:
 
 ```qs
  sel=ds.Employee.query("salary < :1 and employer.name = :2 or employer.revenues > :3",\  
- 50000,"Lima West Kilo",10000000,New object("queryPath",True,"queryPlan",True))
+ 50000,"Lima West Kilo",10000000,newObject("queryPath",True,"queryPlan",True))
 ```
 
 queryPlan:
@@ -861,46 +861,46 @@ entitySelection=ds.Student.query("nationality = :1 order by campus.name desc, la
 Query with named placeholders for values:
 
 ```qs
-var querySettings : Object
+var querySettings : object
 var managedCustomers : cs.CustomerSelection
-querySettings=New object
-querySettings.parameters=New object("userId",1234,"extraInfo",New object("name","Smith"))
+querySettings=newObject
+querySettings.parameters=newObject("userId",1234,"extraInfo",newObject("name","Smith"))
 managedCustomers=ds.Customer.query("salesperson.userId = :userId and name = :extraInfo.name",querySettings)
 ```
 
 Query that uses both named and indexed placeholders for values:
 
 ```qs
-var querySettings : Object
+var querySettings : object
 var managedCustomers : cs.CustomerSelection
-querySettings.parameters=New object("userId",1234)
+querySettings.parameters=newObject("userId",1234)
 managedCustomers=ds.Customer.query("salesperson.userId = :userId and name=:1","Smith",querySettings)
 ```
 
 Query with queryPlan and queryPath objects:
 
 ```qs
-entitySelection=ds.Employee.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@",New object("queryPlan",True,"queryPath",True))
+entitySelection=ds.Employee.query("(firstName = :1 or firstName = :2) and (lastName = :3 or lastName = :4)","D@","R@","S@","K@",newObject("queryPlan",True,"queryPath",True))
  
   //you can then get these properties in the resulting entity selection
-var queryPlan, queryPath : Object
+var queryPlan, queryPath : object
 queryPlan=entitySelection.queryPlan
 queryPath=entitySelection.queryPath
 ```
 
-Query with an attribute path of Collection type:
+Query with an attribute path of collection type:
 
 ```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[].name = :1","horsebackriding")
 ```
 
-Query with an attribute path of Collection type and linked attributes:
+Query with an attribute path of collection type and linked attributes:
 
 ```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and extraInfo.hobbies[a].level=:2","horsebackriding",2)
 ```
 
-Query with an attribute path of Collection type and multiple linked attributes:
+Query with an attribute path of collection type and multiple linked attributes:
 
 ```qs
 entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
@@ -908,7 +908,7 @@ entitySelection=ds.Employee.query("extraInfo.hobbies[a].name = :1 and
 	extraInfo.hobbies[b].level = :4","horsebackriding",2,"Tennis",5)
 ```
 
-Query with an attribute path of Object type:
+Query with an attribute path of object type:
 
 ```qs
 entitySelection=ds.Employee.query("extra.eyeColor = :1","blue")
@@ -917,13 +917,13 @@ entitySelection=ds.Employee.query("extra.eyeColor = :1","blue")
 Query with an IN statement:
 
 ```qs
-entitySelection=ds.Employee.query("firstName in :1",New collection("Kim","Dixie"))
+entitySelection=ds.Employee.query("firstName in :1",newCollection("Kim","Dixie"))
 ```
 
 Query with a NOT (IN) statement:
 
 ```qs
-entitySelection=ds.Employee.query("not (firstName in :1)",New collection("John","Jane"))
+entitySelection=ds.Employee.query("not (firstName in :1)",newCollection("John","Jane"))
 ```
 
 Query with indexed placeholders for attributes:
@@ -938,9 +938,9 @@ Query with indexed placeholders for attributes and named placeholders for values
 
 ```qs
 var es : cs.EmployeeSelection
-var querySettings : Object
-querySettings=New object
-querySettings.parameters=New object("customerName","Smith")
+var querySettings : object
+querySettings=newObject
+querySettings.parameters=newObject("customerName","Smith")
 es=ds.Customer.query(":1 = 1234 and :2 = :customerName","salesperson.userId","name",querySettings)
   //salesperson is a related entity
 ```
@@ -987,10 +987,10 @@ softwares:{
 Query with named placeholders for attributes:
 
 ```qs
- var querySettings : Object
+ var querySettings : object
  var es : cs.EmployeeSelection
- querySettings=New object
- querySettings.attributes=New object("attName","name","attWord",New collection("softwares","Word 10.2"))
+ querySettings=newObject
+ querySettings.attributes=newObject("attName","name","attWord",newCollection("softwares","Word 10.2"))
  es=ds.Employee.query(":attName = 'Marie' and :attWord = 'Installed'",querySettings)
   //es.length=1 (Employee Marie)
 ```
@@ -998,17 +998,17 @@ Query with named placeholders for attributes:
 Query with named placeholders for attributes and values: 
 
 ```qs
- var querySettings : Object
+ var querySettings : object
  var es : cs.EmployeeSelection
  var name : Text
- querySettings=New object
+ querySettings=newObject
   //Named placeholders for values
   //The user is asked for a name
  name=Request("Please enter the name to search:")
  If(OK=1)
-    querySettings.parameters=New object("givenName",name)
+    querySettings.parameters=newObject("givenName",name)
   //Named placeholders for attribute paths
-    querySettings.attributes=New object("attName","name")
+    querySettings.attributes=newObject("attName","name")
     es=ds.Employee.query(":attName= :givenName",querySettings)
  End if
 ```
@@ -1028,7 +1028,7 @@ The formula is given as a `Formula` object through a placeholder:
 
 ```qs
  var es : cs.StudentsSelection
- var aform : Object
+ var aform : object
  aform=Formula(Length(This.lastname)>=30)
  es=ds.Students.query(":1 and nationality='French'",aform)
 ```
@@ -1037,7 +1037,7 @@ Only a `Formula` object is given as criteria:
 
 ```qs
  var es : cs.StudentsSelection
- var aform : Object
+ var aform : object
  aform=Formula(Length(This.lastname)>=30)
  es:=ds.Students.query(aform)
 ```
@@ -1056,9 +1056,9 @@ A text formula in *queryString* receives a parameter:
 
 ```qs
  var es : cs.StudentsSelection
- var settings : Object
- settings=New object()
- settings.args=New object("filter";"-")
+ var settings : object
+ settings=newObject()
+ settings.args=newObject("filter";"-")
  es=ds.Students.query("eval(checkName($1.filter)) and nationality=:1","French",settings)
 ```
 
@@ -1072,11 +1072,11 @@ Using the same **checkName** method, a `Formula` object as placeholder receives 
 
 ```qs
  var es : cs.StudentsSelection
- var settings : Object
+ var settings : object
  var aformula : 4D.Function
  aformula=Formula(checkName($1.filter))
- settings=New object()
- settings.args=New object("filter","-")
+ settings=newObject()
+ settings.args=newObject("filter","-")
  es=ds.Students.query(":1 and nationality=:2",aformula,"French",settings)
  settings.args.filter="*" // change the parameters without updating the aformula object
  es=ds.Students.query(":1 and nationality=:2",aformula,"French",settings)
@@ -1086,11 +1086,11 @@ We want to disallow formulas, for example when the user enters their query:
 
 ```qs
  var es : cs.StudentsSelection
- var settings : Object
+ var settings : object
  var queryString : Text
  queryString=Request("Enter your query:")
  if(OK=1)
-    settings=New object("allowFormulas",False)
+    settings=newObject("allowFormulas",False)
     es=ds.Students.query(queryString,settings) //An error is raised if queryString contains a formula
  end if
 ``` 
