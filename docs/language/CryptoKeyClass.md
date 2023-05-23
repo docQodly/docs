@@ -15,17 +15,17 @@ The following sample code signs and verifies a message using a new ECDSA key pai
 ```qs
  // Generate a new ECDSA key pair
 var key : 4D.CryptoKey
-key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
+key=4D.CryptoKey.new(newobject("type","ECDSA","curve","prime256v1"))
 
   // Get signature as base64
 var message, signature : string
 message="hello world"
-signature=key.sign(message,New object("hash","SHA256"))
+signature=key.sign(message,newobject("hash","SHA256"))
 
   // Verify signature
-var status : Object
-status=key.verify(message,signature,New object("hash","SHA256"))
-ASSERT(status.success)
+var status : object
+status=key.verify(message,signature,newobject("hash","SHA256"))
+assert(status.success)
 ```
 
 ### Functions and properties
@@ -47,14 +47,14 @@ ASSERT(status.success)
 
 
 <!-- REF #4D.CryptoKey.new().Syntax -->
-**4D.CryptoKey.new**( *settings* : Object ) : 4D.CryptoKey<!-- END REF -->
+**4D.CryptoKey.new**( *settings* : object ) : 4D.CryptoKey<!-- END REF -->
 
 
 <!-- REF #4D.CryptoKey.new().Params -->
 |Parameter|Type||Description|
 |---|---|----|---|
-|settings|Object|->|Settings to generate or load a key pair|
-|result|4D.CryptoKey|<-|Object encapsulating an encryption key pair|<!-- END REF -->
+|settings|object|->|Settings to generate or load a key pair|
+|result|4D.CryptoKey|<-|object encapsulating an encryption key pair|<!-- END REF -->
 
 The `4D.CryptoKey.new()` function <!-- REF #4D.CryptoKey.new().Summary -->creates a new `4D.CryptoKey` object encapsulating an encryption key pair<!-- END REF -->, based upon the *settings* object parameter. It allows to generate a new RSA or ECDSA key, or to load an existing key pair from a PEM definition.
 
@@ -62,9 +62,9 @@ The `4D.CryptoKey.new()` function <!-- REF #4D.CryptoKey.new().Summary -->create
 
 |Property|Type|Description|
 |---|---|---|
-|[type](#type)|text|Defines the type of the key to create: <li>"RSA": generates a RSA key pair, using [.size](#size) as size.</li><li>"ECDSA": generates an Elliptic Curve Digital Signature Algorithm key pair, using [.curve](#curve) as curve. Note that ECDSA keys cannot be used for encryption but only for signature.</li><li>"PEM": loads a key pair definition in PEM format, using [.pem](#pem).</li>|
-|[curve](#curve)|text|Name of ECDSA curve|
-|[pem](#pem)|text|PEM definition of an encryption key to load|
+|[type](#type)|string|Defines the type of the key to create: <li>"RSA": generates a RSA key pair, using [.size](#size) as size.</li><li>"ECDSA": generates an Elliptic Curve Digital Signature Algorithm key pair, using [.curve](#curve) as curve. Note that ECDSA keys cannot be used for encryption but only for signature.</li><li>"PEM": loads a key pair definition in PEM format, using [.pem](#pem).</li>|
+|[curve](#curve)|string|Name of ECDSA curve|
+|[pem](#pem)|string|PEM definition of an encryption key to load|
 |[size](#size)|integer|Size of RSA key in bits|
 
 
@@ -75,7 +75,7 @@ The returned `CryptoKey` object encapsulates an encryption key pair. It is a sha
 <!-- REF CryptoKey.curve -->
 ## .curve
 
-<!-- REF #CryptoKey.curve.Syntax -->**.curve** : Text<!-- END REF -->
+<!-- REF #CryptoKey.curve.Syntax -->**.curve** : string<!-- END REF -->
 
 
 Defined only for ECDSA keys: the <!-- REF #CryptoKey.curve.Summary -->normalised curve name of the key<!-- END REF -->. Usually "prime256v1" for ES256 (default), "secp384r1" for ES384, "secp521r1" for ES512.
@@ -86,15 +86,15 @@ Defined only for ECDSA keys: the <!-- REF #CryptoKey.curve.Summary -->normalised
 
 
 <!-- REF #CryptoKey.decrypt().Syntax -->
-**.decrypt**( *message* : Text , *options* : Object ) : Object<!-- END REF -->
+**.decrypt**( *message* : string , *options* : object ) : object<!-- END REF -->
 
 
 <!-- REF #CryptoKey.decrypt().Params -->
 |Parameter|Type||Description|
 |---|---|----|---|
-|message|Text|->|Message string to be decoded using `options.encodingEncrypted` and decrypted.|  
-|options|Object|->|Decoding options|
-|Result|Object|<-|Status|<!-- END REF -->
+|message|string|->|Message string to be decoded using `options.encodingEncrypted` and decrypted.|  
+|options|object|->|Decoding options|
+|Result|object|<-|Status|<!-- END REF -->
 
 The `.decrypt()` function <!-- REF #CryptoKey.decrypt().Summary -->decrypts the *message* parameter using the **private** key<!-- END REF -->. The algorithm used depends on the type of the key.
 
@@ -104,9 +104,9 @@ The key must be a RSA key, the algorithm is RSA-OAEP (see [RFC 3447](https://too
 
 |Property|Type|Description|
 |---|---|---|
-|hash|text|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". |
-|encodingEncrypted|text|Encoding used to convert the `message` parameter into the binary representation to decrypt. Can be "Base64" or "Base64URL". Default is "Base64".|
-|encodingDecrypted|text|Encoding used to convert the binary decrypted message into the result string. Can be "UTF-8", "Base64", or "Base64URL". Default is "UTF-8".|
+|hash|string|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". |
+|encodingEncrypted|string|Encoding used to convert the `message` parameter into the binary representation to decrypt. Can be "Base64" or "Base64URL". Default is "Base64".|
+|encodingDecrypted|string|Encoding used to convert the binary decrypted message into the result string. Can be "UTF-8", "Base64", or "Base64URL". Default is "UTF-8".|
 
 #### *Result*
 
@@ -115,7 +115,7 @@ The function returns a status object with `success` property set to `true` if th
 |Property|Type|Description|
 |---|---|---|
 |success|boolean|True if the message has been successfully decrypted|
-|result|text|Message decrypted and decoded using the `options.encodingDecrypted`|
+|result|string|Message decrypted and decoded using the `options.encodingDecrypted`|
 |errors|collection|If `success` is `false`, may contain a collection of errors|
 
 In case the *message* couldn't be decrypted because it was not encrypted with the same key or algorithm, the `status` object being returned contains an error collection in `status.errors`.
@@ -126,15 +126,15 @@ In case the *message* couldn't be decrypted because it was not encrypted with th
 
 
 <!-- REF #CryptoKey.encrypt().Syntax -->
-**.encrypt**( *message* : Text , *options* : Object ) : Text<!-- END REF -->
+**.encrypt**( *message* : string , *options* : object ) : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.encrypt().Params -->
 |Parameter|Type||Description|
 |---|---|----|---|
-|message|Text|->|Message string to be encoded using `options.encodingDecrypted` and encrypted.|  
-|options|Object|->|Encoding options|
-|Result|Text|<-|Message encrypted and encoded using the `options.encodingEncrypted`|<!-- END REF -->
+|message|string|->|Message string to be encoded using `options.encodingDecrypted` and encrypted.|  
+|options|object|->|Encoding options|
+|Result|string|<-|Message encrypted and encoded using the `options.encodingEncrypted`|<!-- END REF -->
 
 The `.encrypt()` function <!-- REF #CryptoKey.encrypt().Summary -->encrypts the *message* parameter using the **public** key<!-- END REF -->. The algorithm used depends on the type of the key.
 
@@ -144,9 +144,9 @@ The key must be a RSA key, the algorithm is RSA-OAEP (see [RFC 3447](https://too
 
 |Property|Type|Description|
 |---|---|---|
-|hash|text|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". |
-|encodingEncrypted|text|Encoding used to convert the binary encrypted message into the result string. Can be "Base64", or "Base64URL". Default is "Base64".|
-|encodingDecrypted|text|Encoding used to convert the `message` parameter into the binary representation to encrypt. Can be "UTF-8", "Base64", or "Base64URL". Default is "UTF-8".|
+|hash|string|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". |
+|encodingEncrypted|string|Encoding used to convert the binary encrypted message into the result string. Can be "Base64", or "Base64URL". Default is "Base64".|
+|encodingDecrypted|string|Encoding used to convert the `message` parameter into the binary representation to encrypt. Can be "UTF-8", "Base64", or "Base64URL". Default is "UTF-8".|
 
 #### *Result*
 
@@ -158,18 +158,17 @@ The returned value is an encrypted message.
 
 
 <!-- REF #CryptoKey.getPrivateKey().Syntax -->
-**.getPrivateKey**() : Text<!-- END REF -->
+**.getPrivateKey**() : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.getPrivateKey().Params -->
 |Parameter|Type||Description|
 |---|---|----|---|
-|Result|Text|<-|Private key in PEM format|<!-- END REF -->
+|Result|string|<-|Private key in PEM format|<!-- END REF -->
 
 The `.getPrivateKey()` function  <!-- REF #CryptoKey.getPrivateKey().Summary -->returns the private key of the `CryptoKey` object<!-- END REF --> in PEM format, or an empty string if none is available.
 
 #### *Result*
-
 
 
 The returned value is the private key.
@@ -180,13 +179,13 @@ The returned value is the private key.
 
 
 <!-- REF #CryptoKey.getPublicKey().Syntax -->
-**.getPublicKey**() : Text<!-- END REF -->
+**.getPublicKey**() : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.getPublicKey().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|Result|Text|<-|Public key in PEM format|<!-- END REF -->
+|Result|string|<-|Public key in PEM format|<!-- END REF -->
 
 The `.getPublicKey()` function <!-- REF #CryptoKey.getPublicKey().Summary -->returns the public key of the `CryptoKey` object<!-- END REF --> in PEM format, or an empty string if none is available.
 
@@ -201,7 +200,7 @@ The returned value is the public key.
 
 
 <!-- REF #CryptoKey.pem.Syntax -->
-**.pem** : Text<!-- END REF -->
+**.pem** : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.pem.Summary -->
@@ -212,15 +211,15 @@ PEM definition of an encryption key to load. If the key is a private key, the RS
 ## .sign()
 
 
-<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : Text , *options* : Text) : Text<!-- END REF -->
+<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : string) : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.sign().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|message|Text|->|Message string to sign|  
-|options|Object|->|Signing options|
-|Result|Text|<-|Signature in Base64 or Base64URL representation, depending on "encoding" option|<!-- END REF -->
+|message|string|->|Message string to sign|  
+|options|object|->|Signing options|
+|Result|string|<-|Signature in Base64 or Base64URL representation, depending on "encoding" option|<!-- END REF -->
 
 The `.sign()` function <!-- REF #CryptoKey.sign().Summary -->signs the utf8 representation of a *message* string<!-- END REF --> using the `CryptoKey` object keys and provided *options*. It returns its signature in base64 or base64URL format, depending on the value of the `options.encoding` attribute you passed.
 
@@ -230,10 +229,10 @@ The `CryptoKey` must contain a valid **private** key.
 
 |Property|Type|Description|
 |---|---|---|
-|hash|text|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". When used to produce a JWT, the hash size must match the PS@, ES@, RS@, or PS@ algorithm size|
-|encodingEncrypted|text|Encoding used to convert the binary encrypted message into the result string. Can be "Base64", or "Base64URL". Default is "Base64".|
+|hash|string|Digest algorithm to use. For example: "SHA256", "SHA384", or "SHA512". When used to produce a JWT, the hash size must match the PS@, ES@, RS@, or PS@ algorithm size|
+|encodingEncrypted|string|Encoding used to convert the binary encrypted message into the result string. Can be "Base64", or "Base64URL". Default is "Base64".|
 |pss|boolean|Use Probabilistic Signature Scheme (PSS). Ignored if the key is not an RSA key. Pass `true` when producing a JWT for PS@ algorithm|
-|encoding|text|ERepresentation to be used for result signature. Possible values: "Base64" or "Base64URL". Default is "Base64".|
+|encoding|string|Representation to be used for result signature. Possible values: "Base64" or "Base64URL". Default is "Base64".|
 
 #### *Result*
 
@@ -245,7 +244,7 @@ The utf8 representation of the *message* string.
 <!-- END REF -->
 
 
-<!-- REF #CryptoKey.size.Syntax -->**.size** : Integer<!-- END REF -->
+<!-- REF #CryptoKey.size.Syntax -->**.size** : integer<!-- END REF -->
 
 
 Defined only for RSA keys: <!-- REF #CryptoKey.size.Summary -->the size of the key in bits<!-- END REF -->. Typically 2048 (default).
@@ -255,7 +254,7 @@ Defined only for RSA keys: <!-- REF #CryptoKey.size.Summary -->the size of the k
 <!-- END REF -->
 
 
-<!-- REF #CryptoKey.type.Syntax -->**.type** : Text<!-- END REF -->
+<!-- REF #CryptoKey.type.Syntax -->**.type** : string<!-- END REF -->
 
 
 Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "ECDSA", "PEM" <!-- END REF -->. 
@@ -272,16 +271,16 @@ Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "
 
 
 <!-- REF #CryptoKey.verify().Syntax -->
-**.verify**( *message* : Text , *signature* : Text , *options* : Object) : object<!-- END REF -->
+**.verify**( *message* : string , *signature* : string , *options* : object) : object<!-- END REF -->
 
 
 <!-- REF #CryptoKey.verify().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|message|Text|->|Message string that was used to produce the signature|  
-|signature|Text|->|Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value|
-|options|Object|->|Signing options|
-|Result|Object|<-|Status of the verification|<!-- END REF -->
+|message|string|->|Message string that was used to produce the signature|  
+|signature|string|->|Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value|
+|options|object|->|Signing options|
+|Result|object|<-|Status of the verification|<!-- END REF -->
 
 
 The `.verify()` function <!-- REF #CryptoKey.verify().Summary -->verifies the base64 signature against the utf8 representation of *message*<!-- END REF --> using the `CryptoKey` object keys and provided *options*.
