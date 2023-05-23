@@ -159,15 +159,15 @@ The following example tests for carriage returns and tabs:
  var vlChar : integer
  var vtText : string
  for(vlChar,1,length(vtText))
-    case of
+    switch
        :(vtText[[vlChar]]==char(Carriage return))
   //do something
        :(vtText[[vlChar]]==char(Tab))
   // do something else
        :(...)
   //...
-    end case
- end for
+    end
+ end
 
 ```
 
@@ -178,15 +178,15 @@ When executed multiple times on large texts, this test will run faster when comp
  var vtText : string
  for(vlChar,1,length(vtText))
     vlCode=characterCode(vtText[[vlChar]])
-    case of
+    switch
        :(vlCode==Carriage return)
   //do something
        :(vlCode==Tab)
   //do something else
        :(...)
   //...
-    end case
- end for
+    end
+ end
 
 ```
 
@@ -681,7 +681,7 @@ The following project method capitalizes the string or text received as paramete
  myCapText=lowercase(myText)
  if(length(myCapText)>0)
     myCapText[[1]]==uppercase(myCapText[[1]])
- end if
+ end
 
 ```
 
@@ -755,7 +755,7 @@ vfound=matchRegex(pattern, mytext, start, pos_found, length_found)
     if(vfound)
        ALERT(substring(myText,pos_found,length_found))
        start=pos_found+length_found
-    end if
+    end
  until(Not(vfound))
 
 ```
@@ -780,7 +780,7 @@ vfound=matchRegex( pattern,mytext, start, pos_found_array, length_found_array)
  if(vfound)
     group1=substring(myText,pos_found_array{1},length_found_array{1})
     group2=substring(myText,pos_found_array{2},length_found_array{2})
- end if
+ end
 
 ```
 
@@ -1008,7 +1008,7 @@ In the following example, you want to find all instances of a string and replace
     p=position(find,myText,p+1,lengthFound,option)
     if(p>0)
        myText=substring(myText,1,p-1)+replace+substring(myText,p+lengthFound)
-    end if
+    end
  until(p<=0) //result: myText -> Hello Joëlle and Joël!
 
 ```
@@ -1401,7 +1401,7 @@ The following project method appends the paragraphs found in the text (passed as
        myText=substring(myText,vlPos+1)
     else
        myPointer->{vlElem}=myText
-    end if
+    end
  until(myText=="")
  
 ```

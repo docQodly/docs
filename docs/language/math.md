@@ -14,8 +14,12 @@ title: Math
 |[<!-- INCLUDE #_command_.exp.Syntax -->](#exp)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.exp.Summary -->|
 |[<!-- INCLUDE #_command_.int.Syntax -->](#int)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.int.Summary -->|
 |[<!-- INCLUDE #_command_.log.Syntax -->](#log)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.log.Summary -->|
+|[<!-- INCLUDE #_command_.mod.Syntax -->](#mod)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mod.Summary -->|
+|[<!-- INCLUDE #_command_.random.Syntax -->](#random)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.random.Summary -->|
 |[<!-- INCLUDE #_command_.round.Syntax -->](#round)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.round.Summary -->|
+|[<!-- INCLUDE #_command_.setRealComparisonLevel.Syntax -->](#setRealComparisonLevel)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setRealComparisonLevel.Summary -->|
 |[<!-- INCLUDE #_command_.sin.Syntax -->](#sin)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.sin.Summary -->|
+|[<!-- INCLUDE #_command_.squareRoot.Syntax -->](#squareRoot)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.squareRoot.Summary -->|
 |[<!-- INCLUDE #_command_.tan.Syntax -->](#tan)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.tan.Summary -->|
 |[<!-- INCLUDE #_command_.trunc.Syntax -->](#trunc)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.trunc.Summary -->|
 
@@ -246,19 +250,31 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 #### Description
 
-`log` <!-- REF #_command_.mod.Summary -->returns the natural (Napierian) log of *number*<!-- END REF -->. `log` is the inverse function of [`exp`](#exp).
+The `mod` command <!-- REF #_command_.mod.Summary -->returns the remainder of the integer division of *number1* by *number2*<!-- END REF -->.
 
-:::note
+Notes:
 
-Qodly provides the predefined constant *e number* (2.71828...).
+* `mod` accepts integer and real expressions. However, if *number1* or *number2* are real numbers, the numbers are first rounded and then `mod` is calculated.
+
+* Be careful when using `mod` with real numbers of a large size (above 2^31) since, in this case, its operation may reach the limits of the calculation capacities of standard processors.
+
+You can also use the % operator to calculate the remainder.
+
+:::caution
+
+The % operator returns valid results with integer expressions. To calculate the modulo of real values, you must use the `mod` command.
 
 :::
 
 #### Example
 
+The following example illustrates how the `mod` function works with different arguments. Each line assigns a number to the vlResult variable. The comments describe the results:
+
 ```qs
- var vLog : string
- vLog=string(log(exp(1))
+ var vlResult : real
+ vlResult=mod(3,2) // vlResult gets 1
+ vlResult=mod(4,2) // vlResult gets 0
+ vlResult=mod(3.5,2) // vlResult gets 0
  
 ```
 
@@ -270,7 +286,7 @@ Qodly provides the predefined constant *e number* (2.71828...).
 <!-- REF #_command_.round.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|round|real|->|Number to be rounded|
+|aRound|real|->|Number to be rounded|
 |places|integer|->|Number of decimal places used for rounding|
 |Result|real|<-|Number rounded to the number of decimal places specified by Places|<!-- END REF -->
 
@@ -298,6 +314,82 @@ The following example illustrates how `round` works with different arguments. Ea
 #### See also
 
 [`trunc`](#trunc)
+
+## random
+
+<!-- REF #_command_.random.Syntax -->**random**: integer<!-- END REF -->
+
+
+<!-- REF #_command_.random.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Random number|<!-- END REF -->
+
+#### Description
+
+`random` <!-- REF #_command_.random.Summary -->returns a random integer value between 0 and 32,767 (inclusive)<!-- END REF -->.
+
+To define a range of integers from which the random value will be chosen, use this formula:
+
+```qs
+ (random%(vEnd-vStart+1))+vStart
+ 
+```
+
+The value *vStart* is the first number in the range, and the value *vEnd* is the last.
+
+#### Example
+
+The following example assigns a random integer between 10 and 30 to the *vlResult* variable:
+
+```qs
+ var vlResult : integer
+ vlResult=(random%21)+10
+ 
+```
+
+## setRealComparisonLevel
+
+<!-- REF #_command_.setRealComparisonLevel.Syntax -->**setRealComparisonLevel** : real<!-- END REF -->
+
+
+<!-- REF #_command_.setRealComparisonLevel.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|real|<-|Epsilon value for real equality comparisons|<!-- END REF -->
+
+#### Description
+
+The `setRealComparisonLevel` command <!-- REF #_command_.setRealComparisonLevel.Summary -->sets the epsilon value used by Qodly to compare real values and expressions for equality<!-- END REF -->.
+
+A computer always performs approximative real computations; therefore, testing real numbers for equality should take this approximation into account. Qodly does this when comparing real numbers by testing whether or not the difference between the two numbers exceeds a certain value. This value is called the epsilon and works this way:
+
+Given two real numbers a and b, if abs(a-b) is greater than the epsilon, the numbers are considered not equal; otherwise, the numbers are considered equal.
+
+By default, Qodly, sets the epsilon value to 10 power minus 6 (10^-6). Please note that the epsilon value should always be positive. Examples:
+
+* 0.00001=0.00002 returns false, because the difference 0.00001 is greater than 10^-6.
+* 0.000001=0.000002 returns true, because the difference 0.000001 is not greater than 10^-6.
+* 0.000001=0.000003 returns false, because the difference 0.000002 is greater than 10^-6.
+
+Using `setRealComparisonLevel`, you can increase or decrease the epsilon value as you require.
+
+:::caution
+
+Typically, you will not need to use this command to change the default epsilon value.
+
+:::
+
+:::caution 
+
+Changing the epsilon only affects real comparison for equality. It has no effect on other real computations nor on the display of real values. 
+
+:::
+
+:::note
+
+The `setRealComparisonLevel` command has no effect on queries and sorts performed with fields of the Real type. It only applies the Qodly language.
+:::
 
 ## sin
 
@@ -341,7 +433,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 `round` <!-- REF #_command_.squareRoot.Summary -->returns the square root of *number*<!-- END REF -->.
 
-#### Example 1
+#### Example
 
 The following exemple assigns the value 1.414213562373 to the variable vrSquareRootOfTwo.
 
@@ -350,21 +442,6 @@ The following exemple assigns the value 1.414213562373 to the variable vrSquareR
  vrSquareRootOfTwo=squareRoot(2)
  
 ```
-
-#### Example 2
-
-The following method returns the hypotenuse of the right triangle whose two legs are passed as parameters:
-
-```qs
-  // Hypotenuse method
-  // Hypotenuse ( real ; real ) -> real
-  // Hypotenuse ( legA ; legB ) -> Hypotenuse
- C_REAL($0;$1;$2)
- $0:=Square root(($1^2)+($2^2)
- 
-```
-
-For instance, Hypotenuse (4;3) returns 5.
 
 ## tan
 
