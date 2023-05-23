@@ -12,7 +12,7 @@ The collection class manages [collection](basics/lang-collection.md) type elemen
 
 ```qs
  var c : collection //declaration of collection type variable
- c=newCollection //initialization of the collection and assignment to the variable
+ c=newCollection() //initialization of the collection and assignment to the variable
  c.push("Hello",42,{o : "World"}) // c contains [Hello,42,{"o":"World"}]
 ```
 
@@ -126,7 +126,7 @@ You want to create a new empty collection and assign it to a collection variable
 
 ```qs
  var myCol : collection
- myCol=newCollection
+ myCol=newCollection()
   //myCol: []
 ```
 
@@ -172,11 +172,11 @@ You create a new collection and then add a new element:
 
 The `newSharedcollection` command <!-- REF #_command_.newSharedcollection.Summary --> creates a new empty or prefilled shared collection<!-- END REF --> and returns its reference.
 
-Adding an element to this collection using the assignment operator must be surrounded by the [`use...end`](../basics/shared.md#useend) structure, otherwise an error is generated (this is not necessary when adding elements using functions such as [`push()`](#push) or [`map()`](#map) because they automatically trigger an internal *use...end*). Reading an element without a *use...end* structure is, however, possible.
+Adding an element to this collection using the assignment operator must be surrounded by the [`use...end`](../basics/lang-shared.md#useend) structure, otherwise an error is generated (this is not necessary when adding elements using functions such as [`push()`](#push) or [`map()`](#map) because they automatically trigger an internal *use...end*). Reading an element without a *use...end* structure is, however, possible.
 
 :::info
 
-For more information on shared collections, please refer to the [Shared objects and collections](../basics/shared.md) page.
+For more information on shared collections, please refer to the [Shared objects and collections](../basics/lang-shared.md) page.
 
 :::
 
@@ -303,7 +303,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vAvg : integer
- col=newCollection
+ col=newCollection()
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Gross","salary",10500))
@@ -616,7 +616,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 ```qs
  var col : collection
  var vCount : integer
- col=newCollection
+ col=newCollection()
  col.push(newObject("name","Smith","age",5))
  col.push(newObject("name","Wesson","age",2))
  col.push(newObject("name","Jones","age",3))
@@ -681,7 +681,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection
+ c=newCollection()
  c.push("a","b","c","A","B","c","b","b")
  c.push(newObject("size",1))
  c.push(newObject("size",3))
@@ -805,7 +805,7 @@ var b : boolean
 var f : 4D.Function
 
 f=formula($1.value>0)
-c=newCollection
+c=newCollection()
 c.push(5,3,1,4,6,2)
 b=c.every(f) //returns true
 c.push(-1)
@@ -822,7 +822,7 @@ var b : boolean
 var f : 4D.Function
 
 f=formula(valueType($1.value)==$2
-c=newCollection
+c=newCollection()
 c.push(5,3,1,4,6,2)
 b=c.every(f,Is real) //b=true
 c=c.push(newObject("name","Cleveland","zc",35049))
@@ -848,7 +848,7 @@ b=c.every(f,Is real) //b=false
 |propertyPath|string|->|Object property path whose values must be extracted to the new collection|
 |targetpath|string|->|Target property path or property name|
 |option|integer|->|`ck keep null`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
-|Result|collection|<-|newCollection containing extracted values|<!-- END REF -->
+|Result|collection|<-|new collection containing extracted values|<!-- END REF -->
 
 
 #### Description
@@ -871,7 +871,7 @@ The contents of the returned collection depends on the *targetPath* parameter:
 
 ```qs
 var c : collection
-c=newCollection
+c=newCollection()
 c.push(newObject("name","Cleveland"))
 c.push(newObject("zip",5321))
 c.push(newObject("name","Blountsville"))
@@ -886,7 +886,7 @@ c2=c.extract("name",ck keep null) //c2: [Cleveland,null,Blountsville,null]
 
 ```qs
 var c : collection
-c=newCollection
+c=newCollection()
 c.push(newObject("zc",35060))
 c.push(newObject("name",null,"zc",35049))
 c.push(newObject("name","Cleveland","zc",35049))
@@ -966,7 +966,7 @@ In case of inconsistency, the following rules apply:
 |formula|4D.Function|->|formula object|
 |methodName|string|->|Name of a method|
 |param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|collection|<-|newCollection containing filtered elements (shallow copy)|<!-- END REF -->
+|Result|collection|<-|new collection containing filtered elements (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -1100,7 +1100,7 @@ You want to find a city name within a collection:
 ```qs
 var c : collection
 var c2 : object
-c=newCollection
+c=newCollection()
 c.push(newObject("name", "Cleveland", "zc", 35049))
 c.push(newObject("name", "Blountsville", "zc", 35031))
 c.push(newObject("name", "Adger", "zc", 35006))
@@ -1171,7 +1171,7 @@ You want to find the position of the first city name within a collection:
 ```qs
 var c : collection
 var val2,val3 : integer
-c=newCollection
+c=newCollection()
 c.push(newObject("name","Cleveland","zc",35049))
 c.push(newObject("name","Blountsville","zc",35031))
 c.push(newObject("name","Adger","zc",35006))
@@ -1506,7 +1506,7 @@ For a detailed description of the *queryString* and *value* parameters, please r
 
 ```qs
  var c, icol : collection
- c=newCollection
+ c=newCollection()
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
 
@@ -1950,7 +1950,7 @@ Ordering a collection of numbers in ascending and descending order:
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection
+ c=newCollection()
  for(vCounter,1,10)
     c.push(Random)
  end
@@ -1965,7 +1965,7 @@ Ordering a collection of objects based on a text formula with property names:
 
 ```qs
  var c, c2 : collection
- c=newCollection
+ c=newCollection()
  for(vCounter,1,10)
     c.push(newObject("id",vCounter,"value",random))
  end
@@ -1978,7 +1978,7 @@ Ordering a collection of objects with a property path:
 
 ```qs
  var c, c2 : collection
- c=newCollection
+ c=newCollection()
  c.push(newObject("name","Cleveland","phones",newObject("p1","01","p2","02")))
  c.push(newObject("name","Blountsville","phones",newObject("p1","00","p2","03")))
 
@@ -1992,8 +1992,8 @@ Ordering a collection of objects using a collection of criteria objects:
 
 ```qs
  var crit, c, c2 : collection
- crit=newCollection
- c=newCollection
+ crit=newCollection()
+ c=newCollection()
  for(vCounter,1,10)
     c.push(newObject("id",vCounter,"value",random))
  end
@@ -2006,7 +2006,7 @@ Ordering with a property path:
 
 ```qs
  var crit, c, c2 : collection
- c=newCollection
+ c=newCollection()
  c.push(newObject("name","Cleveland","phones",newObject("p1","01","p2","02")))
  c.push(newObject("name","Blountsville","phones",newObject("p1","00","p2","03")))
  crit=newCollection(newObject("propertyPath","phones.p2","descending",true))
@@ -2071,7 +2071,7 @@ You want to sort a collection of strings in numerical order rather than alphabet
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection
+ c=newCollection()
  c.push("33","4","1111","222")
  c2=c.orderBy() //c2: ["1111","222","33","4"], alphabetical order
  c3=c.orderByMethod(formula(num($1.value)<num($1.value2))) // c3: ["4","33","222","1111"]
@@ -2148,7 +2148,7 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 ```qs
  var stack : collection
  var result : variant
- stack=newCollection //stack:[]
+ stack=newCollection() //stack:[]
  stack.push(1,2) //[1,2]
  result=stack.pop() //[1], returns 2
  stack.push(newCollection(4,5)) //[1,[4,5]]
@@ -2258,7 +2258,7 @@ Formulas are not supported by the `collection.query()` function, neither in the 
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection
+ c=newCollection()
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
  c.push(newObject("name","Adger","zc",35006))
@@ -2275,7 +2275,7 @@ Formulas are not supported by the `collection.query()` function, neither in the 
 
 ```qs
  var c : collection
- c=newCollection
+ c=newCollection()
  c.push(newObject("name","Smith","dateHired",!22-05-2002!,"age",45))
  c.push(newObject("name","Wesson","dateHired",!30-11-2017!))
  c.push(newObject("name","Winch","dateHired",!16-05-2018!,"age",36))
@@ -2384,7 +2384,7 @@ This example allows reducing several collection elements to a single one:
 
 ```qs
  var c,r : collection
- c=newCollection
+ c=newCollection()
  c.push(newCollection(0,1))
  c.push(newCollection(2,3))
  c.push(newCollection(4,5))
@@ -2396,7 +2396,7 @@ With the following ***Flatten*** method:
 
 ```qs
  if($1.accumulator=null)
-    $1.accumulator=newCollection
+    $1.accumulator=newCollection()
  end
  $1.accumulator.combine($1.value)
 ```
@@ -2470,7 +2470,7 @@ This example allows reducing several collection elements to a single one:
 
 ```qs
  var c,r : collection
- c=newCollection
+ c=newCollection()
  c.push(newCollection(0,1))
  c.push(newCollection(2,3))
  c.push(newCollection(4,5))
@@ -2483,7 +2483,7 @@ With the following ***Flatten*** method:
 ```qs
 	//Flatten project method
  if($1.accumulator=null)
-    $1.accumulator=newCollection
+    $1.accumulator=newCollection()
  end
  $1.accumulator.combine($1.value)
 ```
@@ -2579,10 +2579,10 @@ By default, new elements are filled will **null** values. You can specify the va
 
 ```qs
  var c : collection
- c=newCollection
+ c=newCollection()
  c.resize(10) // c:[null,null,null,null,null,null,null,null,null,null]
 
- c=newCollection
+ c=newCollection()
  c.resize(10,0) // c:[0,0,0,0,0,0,0,0,0,0]
 
  c=newCollection(1,2,3,4,5)
@@ -2685,7 +2685,7 @@ If the collection is empty, this function does nothing.
 |---------|--- |:---:|------|
 |startFrom |integer |->|Start index (included)|
 |end |integer |->|End index (not included)|
-|Result|collection|<-|newCollection containing sliced elements (shallow copy)|<!-- END REF -->
+|Result|collection|<-|new collection containing sliced elements (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -2775,13 +2775,13 @@ You want to know if at least one collection value is >0.
 ```qs
  var c : collection
  var b : boolean
- c=newCollection
+ c=newCollection()
  c.push(-5,-3,-1,-4,-6,-2)
  b=c.some(formula($1.value>0)) // b:false
  c.push(1)
  b=c.some(formula($1.value>0)) // b:true
 
- c=newCollection
+ c=newCollection()
  c.push(1,-5,-3,-1,-4,-6,-2)
  b=c.some(formula($1.value>0)) //b:true
  b=c.some(1,formula($1.value>0)) //b:false
@@ -2917,7 +2917,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vSum : real
- col=newCollection
+ col=newCollection()
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Gross","salary",10500,5))
