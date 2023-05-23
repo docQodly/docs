@@ -3,18 +3,18 @@ id: styleBox
 title: 'Stylebox'
 hide_title: true
 ---
+import Column from '@site/src/components/Column'
 
 <br />
 
-<div class="columnsTitle">
-    <div class="column-left" style={{width: '7%'}}>
+<Column.List align="center">
+	<Column.Item width="7%">
         <div class="styleBoxComponentSVG"></div>
-    </div>
-    <div class="column-right" style={{width: '93%'}}>
+	</Column.Item>
+	<Column.Item>
         <h2 style={{color:'#B174E5',margin:'0'}}>Style Box</h2>
-    </div>
-</div>
-
+	</Column.Item>
+</Column.List>
 
 <br />
 
