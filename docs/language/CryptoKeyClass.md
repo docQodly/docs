@@ -18,7 +18,7 @@ var key : 4D.CryptoKey
 key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 
   // Get signature as base64
-var message, signature : Text
+var message, signature : string
 message="hello world"
 signature=key.sign(message,New object("hash","SHA256"))
 
