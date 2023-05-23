@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
+
+export const useMediaQuery = (query) => {
+  const mediaMatch = window.matchMedia(query);
+  const [matches, setMatches] = useState(mediaMatch.matches);
+
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    mediaMatch.onchange = handler;
+    return () => mediaMatch.onchange = null;
+  });
+  return matches;
+};
 
 export function List({ children, align = 'start', justifyContent = 'start' }) {
   return <div className={clsx("flex flex-col lg:flex-row flex-wrap", {
@@ -17,7 +29,8 @@ export function List({ children, align = 'start', justifyContent = 'start' }) {
 }
 
 export function Item({ children, width }) {
-  return <div className={clsx({"flex-1": !width})} style={{ width }}>{children}</div>;
+  const isMobile = useMediaQuery('(max-width: 1024px)');
+  return <div className={clsx({"flex-1": !width})} style={isMobile ? {}: { width }}>{children}</div>;
 }
 
 export default {
