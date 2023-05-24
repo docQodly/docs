@@ -36,8 +36,8 @@ You cannot use operators on blobs.
 
 ## Checking if a variable holds a scalar blob or a `4D.Blob`
 
-Use the [`Value type`](../Language.md#value-type) command to determine if a value is of type Blob or Object.
-To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../Objects.md):
+Use the [`valueType`](../language.md#valuetype) command to determine if a value is of type Blob or Object.
+To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../object.md):
 
 ```qs
 var myBlob: blob

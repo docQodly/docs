@@ -1,10 +1,10 @@
 ---
 id: CollectionClass
-title: collection
+title: Collection
 ---
 
 
-The collection class manages [collection](basics/lang-collection.md) type elements.
+The Collection class manages [collection](basics/lang-collection.md) type elements.
 
 
 
@@ -2076,6 +2076,7 @@ You want to sort a collection of strings in numerical order rather than alphabet
  c2=c.orderBy() //c2: ["1111","222","33","4"], alphabetical order
  c3=c.orderByMethod(formula(num($1.value)<num($1.value2))) // c3: ["4","33","222","1111"]
 ```
+
 
 #### Example 2
 

@@ -382,7 +382,6 @@ const sidebars = {
 			'language/CollectionClass',
 			'language/CryptoKeyClass',
 			'language/DataClassClass',
-			'language/DataClassAttributeClass',
 			'language/DataStoreClass',
 			'language/dateandtime',
 			'language/EmailObjectClass',

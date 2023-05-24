@@ -4,6 +4,7 @@ title: DataClass
 ---
 
 
+
 A [DataClass](../concepts/orda/data-model.md#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../concepts/orda/data-model.md#datastore). 
 
 
@@ -13,6 +14,7 @@ A [DataClass](../concepts/orda/data-model.md#dataclass) provides an object inter
 ||
 |---|
 |[<!-- INCLUDE #DataClassClass.all().Syntax -->](#all)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.all().Summary -->|
+|[<!-- INCLUDE DataClassClass.attributeName.Syntax -->](#attributename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE DataClassClass.attributeName.Summary --> |
 |[<!-- INCLUDE #DataClassClass.fromCollection().Syntax -->](#fromcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.fromCollection().Summary --> |
 |[<!-- INCLUDE #DataClassClass.get().Syntax -->](#get)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.get().Summary --> |
 |[<!-- INCLUDE #DataClassClass.getCount().Syntax -->](#getcount)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataClassClass.getCount().Summary --> |
@@ -56,6 +58,82 @@ Lazy loading is applied.
 
 
 <!-- END REF -->
+
+<!-- REF DataClassClass.attributeName.Desc -->
+## .*attributeName*
+
+
+<!-- REF DataClassClass.attributeName.Syntax -->***.attributeName*** : object<!-- END REF -->
+
+#### Description
+
+The attributes of dataclasses are <!-- REF DataClassClass.attributeName.Summary -->objects that are available directly as properties<!-- END REF --> of these classes.
+
+The returned objects have properties that you can read to get information about your dataclass attributes.
+
+>Dataclass attribute objects can be modified, but the underlying model will not be altered.
+
+#### Returned object
+
+Returned attribute objects contain the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|autoFilled|boolean|True if the attribute value is automatically filled by Qodly. Corresponds to the **autosequence** model attribute property. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
+|exposed|boolean|True if the attribute is exposed in REST|
+|fieldNumber|integer|Internal Qodly database field number of the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
+|fieldType|integer|Qodly database field type of the attribute. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": corresponding Qodly database field type, see [`valueType`](language.md#valuetype)</li><li>if `.kind`="relatedEntity": 38 (`is object`)</li><li>if `.kind`="relatedEntities": 42 (`is collection`)</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
+|indexed|boolean|True if there is a B-tree or a Cluster B-tree index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
+|inverseName|string|Name of the attribute which is at the other side of the relation. Returned only when `.kind`="relatedEntity" or "relatedEntities".|
+|keywordIndexed|boolean|True if there is a keyword index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
+|kind|string|Category of the attribute. Possible values:<li>"storage": storage (or scalar) attribute, i.e. attribute storing a value, not a reference to another attribute</li><li>"calculated": computed attribute, i.e. defined through a [`get` function](../concepts/orda/orda-classes#function-get-attributename).</li><li>"relatedEntity": N -> 1 relation attribute (reference to an entity)</li><li>"relatedEntities": 1 -> N relation attribute (reference to an entity selection)</li>|
+|mandatory|boolean|True if null value input is rejected for the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
+|name|string|Name of the attribute as string|
+|readOnly|boolean|True if the attribute is read-only. For example, computed attributes without [`set` function](../basics/orda/orda-classes#function-set-attributename) are read-only.|
+|relatedDataClass|string|Name of the dataclass related to the attribute. Returned only when `.kind`="relatedEntity" or "relatedEntities".|
+|type|string|Conceptual value type of the attribute, useful for generic programming. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": "blob", "bool", "date", "image", "number", "object", or "string". "number" is returned for any numeric types including duration; "string" is returned for uuid, string and text attribute types; "blob" attributes are [blob objects](../basics/lang-blob.md).</li><li>if `.kind`="relatedEntity": related dataClass name</li><li>if `.kind`="relatedEntities": related dataClass name + "Selection" suffix</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
+|unique|boolean|True if the attribute value must be unique. Not returned if `.kind` = "relatedEntity" or "relatedEntities".|
+
+:::tip
+
+For generic programming, use `bool(attributeName.property)` or `num(attributeName.property)` or `string(attributeName.property)` (depending on the property type) to get a valid value even if the property is not returned. 
+
+:::
+
+#### Example 1
+
+```qs
+salary=ds.Employee.salary //returns the salary attribute in the Employee dataclass
+compCity=ds.Company["city"] //returns the city attribute in the Company dataclass
+```
+
+#### Example 2
+
+Considering the following database structure:
+
+![](img/structure.png)
+
+```qs
+var firstnameAtt,employerAtt,employeesAtt : object
+
+ firstnameAtt=ds.Employee.firstName
+  //{name:firstName,kind:storage,fieldType:0,type:string,fieldNumber:2,indexed:true,
+  //keyWordIndexed:false,autoFilled:false,mandatory:false,unique:false}
+
+ employerAtt=ds.Employee.employer
+  //{name:employer,kind:relatedEntity,relatedDataClass:Company,
+  //fieldType:38,type:Company,inverseName:employees}
+  //38=Is object
+
+ employeesAtt=ds.Company.employees
+  //{name:employees,kind:relatedEntities,relatedDataClass:Employee,
+  //fieldType:42,type:EmployeeSelection,inverseName:employer}
+  //42=Is collection
+```
+
+
+<!-- END REF -->
+
 
 
 
