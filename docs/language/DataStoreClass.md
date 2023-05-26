@@ -3,7 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../../concepts/orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
+A [Datastore](../concepts/orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
 
 
 ### Commands
@@ -66,7 +66,7 @@ Using the datastore on the Qodly database:
 
 
 <!-- REF #DataStoreClass.cancelTransaction().Syntax -->
-**.cancelTransaction()**<!-- END REF -->
+**.cancelTransaction**()<!-- END REF -->
 
 <!-- REF #DataStoreClass.cancelTransaction().Params -->
 |Parameter|Type||Description|
@@ -101,7 +101,7 @@ See example for the [`.startTransaction()`](#starttransaction) function.
 
 #### Description
 
-Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned object <!-- REF DataStoreClass.dataclassName.Summary -->contains a description of the dataclass<!-- END REF -->.
+Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned cs.object contains <!-- REF DataStoreClass.dataclassName.Summary -->all attributes of the dataclass as objects<!-- END REF -->.
 
 
 #### Example
@@ -129,18 +129,18 @@ Each dataclass in a datastore is available as a property of the [DataStore objec
 ## .isAdminProtected()
 
 <!-- REF #DataStoreClass.isAdminProtected().Syntax -->
-**.isAdminProtected()** : Boolean<!-- END REF -->
+**.isAdminProtected**() : boolean<!-- END REF -->
 
 <!-- REF #DataStoreClass.isAdminProtected().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|Boolean|<-|True if the Data Explorer access is disabled, False if it is enabled (default)|
+|Result|boolean|<-|true if the Data Explorer access is disabled, false if it is enabled (default)|
 <!-- END REF -->
 
 
 #### Description
 
-The `.isAdminProtected()` function <!-- REF #DataStoreClass.isAdminProtected().Summary -->returns `True` if Data Explorer access has been disabled for the working session<!-- END REF -->.
+The `.isAdminProtected()` function <!-- REF #DataStoreClass.isAdminProtected().Summary -->returns `true` if Data Explorer access has been disabled for the working session<!-- END REF -->.
 
 By default, the Data Explorer access is granted for `webAdmin` sessions, but it can be disabled to prevent any data access from administrators (see the [`.setAdminProtection()`](#setadminprotection) function).
 
@@ -156,13 +156,13 @@ By default, the Data Explorer access is granted for `webAdmin` sessions, but it 
 ## .setAdminProtection()
 
 
-<!-- REF #DataStoreClass.setAdminProtection().Syntax -->**.setAdminProtection**( *status* : Boolean )<!-- END REF -->
+<!-- REF #DataStoreClass.setAdminProtection().Syntax -->**.setAdminProtection**( *status* : boolean )<!-- END REF -->
 
 
 <!-- REF #DataStoreClass.setAdminProtection().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|status|Boolean|->|True to disable Data Explorer access to data on the `webAdmin` port, False (default) to grant access|
+|status|boolean|->|true to disable Data Explorer access to data on the `webAdmin` port, false (default) to grant access|
 <!-- END REF -->
 
 
@@ -180,7 +180,7 @@ In this case, you can call this function to disable the data access from Data Ex
 You create a *protectDataFile* project method to call before deployments for example:
 
 ```qs
- ds.setAdminProtection(True) //Disables the Data Explorer data access
+ ds.setAdminProtection(true) //Disables the Data Explorer data access
 ```
 
 #### See also
@@ -195,14 +195,14 @@ You create a *protectDataFile* project method to call before deployments for exa
 
 
 <!-- REF #DataStoreClass.startRequestLog().Syntax -->
-**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : Integer )<!-- END REF -->
+**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : integer )<!-- END REF -->
 
 
 <!-- REF #DataStoreClass.startRequestLog().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |file |4D.File|->|File object|
-|reqNum |Integer|->|Number of requests to keep in memory|
+|reqNum |integer|->|Number of requests to keep in memory|
 <!-- END REF -->
 
 
@@ -270,7 +270,7 @@ You want to log ORDA client requests in memory:
 
 
 <!-- REF #DataStoreClass.startTransaction().Syntax -->
-**.startTransaction()**<!-- END REF -->
+**.startTransaction**()<!-- END REF -->
 
 <!-- REF #DataStoreClass.startTransaction().Params -->
 |Parameter|Type||Description|
@@ -283,7 +283,7 @@ You want to log ORDA client requests in memory:
 
 The `.startTransaction()` function <!-- REF #DataStoreClass.startTransaction().Summary -->starts a transaction in the current process on the database matching the datastore to which it applies<!-- END REF -->. Any changes made to the datastore's entities in the transaction's process are temporarily stored until the transaction is either validated or cancelled.
 
->If this method is called on the main datastore (i.e. the datastore returned by the `ds` command), the transaction is applied to all operations performed on the main datastore and on the underlying database, thus including ORDA and classic languages.
+>If this method is called on the main datastore (i.e. the datastore returned by the `ds` command), the transaction is applied to all operations performed on the main datastore and on the underlying database.
 
 You can nest several transactions (sub-transactions). Each transaction or sub-transaction must eventually be cancelled or validated. Note that if the main transaction is cancelled, all of its sub-transactions are also cancelled even if they were validated individually using the `.validateTransaction()` function.
 
@@ -292,34 +292,26 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 
 
 ```qs
- var $connect; $status : Object
- var $person : cs.PersonsEntity
- var $ds : cs.DataStore
- var $choice : Text
- var $error : Boolean
+ var connect,status : object
+ var person : cs.PersonsEntity
+ var ds : cs.DataStore
+ var choice : string
+ var error : boolean
 
- Case of
-    :($choice="local")
-       $ds:=ds
-    :($choice="remote")
-       $connect:=New object("hostname";"111.222.3.4:8044")
-       $ds:=Open datastore($connect;"myRemoteDS")
- End case
+ ds.startTransaction()
+ person=ds.Persons.query("lastname==:1","Peters").first()
 
- $ds.startTransaction()
- $person:=$ds.Persons.query("lastname=:1";"Peters").first()
-
- If($person#Null)
-    $person.lastname:="Smith"
-    $status:=$person.save()
- End if
+ if(person!=null)
+    person.lastname="Smith"
+    status=person.save()
+ end
  ...
  ...
- If($error)
-    $ds.cancelTransaction()
- Else
-    $ds.validateTransaction()
- End if
+ if(lastErrors[0].errCode!=0)
+    ds.cancelTransaction()
+ else
+    ds.validateTransaction()
+ end
 ```
 
 
@@ -333,7 +325,7 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 ## .stopRequestLog()
 
 <!-- REF #DataStoreClass.stopRequestLog().Syntax -->
-**.stopRequestLog()**  <!-- END REF -->
+**.stopRequestLog**()  <!-- END REF -->
 
 <!-- REF #DataStoreClass.stopRequestLog().Params -->
 |Parameter|Type||Description|
@@ -344,9 +336,7 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 
 #### Description
 
-The `.stopRequestLog()` function <!-- REF #DataStoreClass.stopRequestLog().Summary -->stops any logging of ORDA requests on the client side<!-- END REF --> (in file or in memory). It is particularly useful when logging in a file, since it actually closes the opened document on disk.
-
-This function must be called on a remote 4D, otherwise it does nothing. It is designed for debugging purposes in client/server configurations.
+The `.stopRequestLog()` function <!-- REF #DataStoreClass.stopRequestLog().Summary -->stops any logging of ORDA requests<!-- END REF -->. It is particularly useful when logging in a file, since it actually closes the opened document on disk.
 
 
 #### Example
@@ -363,7 +353,7 @@ See examples for [`.startRequestLog()`](#startrequestlog).
 
 
 <!-- REF #DataStoreClass.validateTransaction().Syntax -->
-**.validateTransaction()**  <!-- END REF -->
+**.validateTransaction**() <!-- END REF -->
 
 <!-- REF #DataStoreClass.validateTransaction().Params -->
 |Parameter|Type||Description|
@@ -374,9 +364,9 @@ See examples for [`.startRequestLog()`](#startrequestlog).
 
 #### Description
 
-The `.validateTransaction()` function <!-- REF #DataStoreClass.validateTransaction().Summary -->accepts the transaction <!-- END REF -->that was started with [`.startTransaction()`](#starttransaction) at the corresponding level on the specified datastore.
+The `.validateTransaction()` function <!-- REF #DataStoreClass.validateTransaction().Summary -->accepts the transaction <!-- END REF -->that was started with [`.startTransaction()`](#starttransaction) at the corresponding level.
 
-The function saves the changes to the data on the datastore that occurred during the transaction.
+The function saves the changes to the data that occurred during the transaction.
 
 You can nest several transactions (sub-transactions). If the main transaction is cancelled, all of its sub-transactions are also cancelled, even if they were validated individually using this function.
 
