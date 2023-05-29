@@ -52,6 +52,94 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
  
 ```
 
+## date
+
+<!-- REF #_command_.date.Syntax -->**date** ( *expression* : string, date ) : date<!-- END REF -->
+
+
+<!-- REF #_command_.date.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|expression|string, date|->|String representing the date to be returned or Date expression|
+|Result|date|<-|Date expression|<!-- END REF -->
+
+#### Description
+
+The `date` command <!-- REF #_command_.date.Summary -->evaluates *expression* and returns a date<!-- END REF -->. 
+
+##### ISO date format
+The string must be formatted as follows: "YYYY-MM-DDTHH:MM:SS", for example "2013-11-20T10:20:00". In this case, `date` evaluates the *expression* parameter correctly, regardless of the current language settings. Decimal seconds, preceded by a period, are supported (e.g.: "2013-11-20T10:20:00.9854").
+If the *expression* format does not precisely fit this ISO format, the date is evaluated as a short date format based on the regional settings of the system.
+
+##### Regional settings
+When the *expression* does not match the ISO format, the regional settings defined in the operating system for a short date are used for the evaluation. For example, in the US version, by default the date must be in the order MM/DD/YY (month, day, year). The month and day can be one or two digits. The year can be two or four digits. If the year is two digits, then `date` considers whether the date belongs to the 21st or 20th century based on the value entered. By default, the pivotal value is 30:
+
+* If the value is greater than or equal to 30, Qodly considers the century to be the 20th and adds 19 to the beginning of the value.
+* If the value is less than 30, Qodly considers the century to be the 21st and adds 20 to the beginning of the value.
+* If you pass an invalid date (such as "13/35/94" or "aa/12/94") in expression, Date returns an empty date (00/00/00). It is your responsibility to verify that expression is a valid date.
+* If the expression evaluates to undefined, Date returns an empty date (00/00/00). This is useful when you expect the result to be a date, even if it can be undefined (e.g. an object attribute).
+
+##### Date type expression
+If *expression* is of date type, `date` returns the date passed in the parameter 'as is'. This is particularly useful in the context of generic programming using pointers or object attributes.
+
+#### Example 1
+
+The following example uses a request box to prompt the user for a date. The string entered by the user is converted to a date and stored in the *reqDate* variable:
+
+```qs
+ var vdRequestedDate : date
+ vdRequestedDate=date(request("Please enter the date:";string(currentDate)))
+ if(OK==1)
+  // Do something with the date now stored in vdRequestedDate
+ end
+ 
+```
+
+#### Example 2
+
+The following examples show various cases:
+
+```qs
+ var vdDate, vdDate2, vdDate3 : date
+ vdDate=date("12/25/94") //returns 12/25/94 on a US system
+ vdDate2=date("40/40/94") //00/00/00
+ vdDate3=date("It was the 6/30, we were in 2016") //06/30/16
+ 
+```
+
+#### Example 3
+
+`date` evaluation based on a date in ISO format
+
+```qs
+ var vDate : date
+ var vtDateISO : string
+ vtDateISO="2013-06-05T20:00:00"
+ vDate=date(vtDateISO)
+  //vDate represents June 5th, 2013 regardless of the system language
+ 
+```
+
+#### Example 4
+
+You want to get a date from an object attribute, whatever the current attribute date storage option:
+
+```qs
+ var vDate : date
+ var myObj : object
+ if(valueType(myObj.myDate)==Is date) //it's stored as date, no need to convert
+    vDate=myObj.myDate
+ else //it's stored as string
+    vDate=date(myObj.myDate)
+ end
+ 
+```
+
+#### See also
+
+[`bool`](boolean.md#bool)<br/>
+[`string`](string.md#string)
+
 ## dayNumber
 
 <!-- REF #_command_.dayNumber.Syntax -->**dayNumber** ( *aDate* : date ) : integer<!-- END REF -->
@@ -284,7 +372,7 @@ If you go beyond the number of seconds in a day (86,400), `timeString` continues
 
 :::note
 
-If you need the string form of a time expression in a variety of formats, use [`string`](../string#string).
+If you need the string form of a time expression in a variety of formats, use [`string`](string.md#string).
 
 :::
 
@@ -300,7 +388,7 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 
 #### See also
 
-[`string`](../string#string)<br/>
+[`string`](string.md#string)<br/>
 [`time`](#time)
 
 ## yearOf
