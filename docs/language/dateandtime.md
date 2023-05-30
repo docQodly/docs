@@ -86,17 +86,13 @@ If you write an application for the international market, you may need to know i
 The following project method allows you to do so:
 
 ```qs
- var  vdDate : date
- var vsMonth, vsDay, vsDay, sYear, sDay : integer
- vOK
- vlPos : integer
- vsMDY : string
- 
   // Sys date format global function
   // Sys date format -> String
   // Sys date format -> Default 4D data format
- 
- C_STRING(31,0,vsDate,vsMDY,vsMonth,sDay,sYear)
+  
+ var  vdDate : date
+ var vsDate, vsDay, vsMonth, vsYear, vsMDY, myResult : string
+ var vlPos : integer
  
   // Get a Date value where the month, day and year values are all different
  vdDate=currentDate
@@ -111,41 +107,41 @@ The following project method allows you to do so:
        vOK=1
     end
  until(vOK==1)
- 0="" // Initialize function result
+ myResult="" // Initialize function result
  vsDate=string(vdDate)
  vlPos=position("/",vsDate) // Find the first / separator in the string ../../..
  vsMDY=substring(vsDate,1,vlPos-1) // Extract the first digits from the date
  vsDate=substring(vsDate,vlPos+1) // Eliminate the first digits as well as the first / separator
  switch
     :(vsMDY==vsMonth) // The digits express the month
-       0="MM"
+       myResult="MM"
     :(vsMDY==vsDay) // The digits express the day
-       0="DD"
+       myResult="DD"
     :(vsMDY==vsYear) // The digits express the year
-       0="YYYY"
+       myResult="YYYY"
  end
- 0=0+"/" // Start building the function result
+ myResult=myResult+"/" // Start building the function result
  vlPos=position("/",vsDate) // Find the second separator in the string ../..
  vsMDY=substring(vsDate,1,vlPos-1) // Extract the next digits from the date
  vsDate=substring(vsDate,vlPos+1) // Reduce the string to the last digits from the date
  switch
     :(vsMDY==vsMonth) // The digits express the month
-       0=0+"MM"
+       myResult=myResult+"MM"
     :(vsMDY==vsDay) // The digits express the day
-       0=0+"DD"
+       myResult=myResult+"DD"
     :(vsMDY==vsYear) // The digits express the year
-       0=0+"YYYY"
+       myResult=myResult+"YYYY"
  end
- 0=0+"/" // Pursue building the function result
+ myResult=myResult+"/" // Pursue building the function result
  switch
-    :($vsDate=$vsMonth) // The digits express the month
-       0=0+"MM"
+    :(vsDate==vsMonth) // The digits express the month
+       myResult=myResult+"MM"
     :(vsDate==vsDay) // The digits express the day
-       0=0+"DD"
+       myResult=myResult+"DD"
     :(vsDate==vsYear) // The digits express the year
-       0=0+"YYYY"
+       myResult=myResult+"YYYY"
  end
-  // At this point $0 is equal to MM/DD/YYYY or DD/MM/YYYY or...
+  // At this point myResult is equal to MM/DD/YYYY or DD/MM/YYYY or...
  
 ```
 
@@ -239,30 +235,21 @@ If *expression* is of date type, `date` returns the date passed in the parameter
 
 #### Example 1
 
-The following example uses a request box to prompt the user for a date. The string entered by the user is converted to a date and stored in the *reqDate* variable:
+The following examples show various cases:
 
 ```qs
- var vdRequestedDate : date
- vdRequestedDate=date(request("Please enter the date:";string(currentDate)))
- if(OK==1)
-  // Do something with the date now stored in vdRequestedDate
- end
+ var vdDate, vdDate2, vdDate3, vdDate4, vdDate5 : date
+ var vobj : object
+ vdDate=date("12/25/94") //returns 12/25/94 on a US system
+ vdDate2=date("40/40/94") //00/00/00
+ vdDate3=date("It was the 6/30, we were in 2016") //06/30/16
+ vobj=newObject("expDate","2020-11-17T00:00:00.0000")
+ vdDate4=date(vobj.expDate) //11/17/20
+ vdDate5=date(vobj.creationDate) //00/00/00
  
 ```
 
 #### Example 2
-
-The following examples show various cases:
-
-```qs
- var vdDate, vdDate2, vdDate3 : date
- vdDate=date("12/25/94") //returns 12/25/94 on a US system
- vdDate2=date("40/40/94") //00/00/00
- vdDate3=date("It was the 6/30, we were in 2016") //06/30/16
- 
-```
-
-#### Example 3
 
 `date` evaluation based on a date in ISO format
 
@@ -275,7 +262,7 @@ The following examples show various cases:
  
 ```
 
-#### Example 4
+#### Example 3
 
 You want to get a date from an object attribute, whatever the current attribute date storage option:
 
@@ -340,22 +327,23 @@ The following example is a function that returns the current day as a string:
 
 ```qs
  var viDay : integer
+ var myResult: stirng
  viDay=dayNumber(currentDate) // viDay gets the current day number
  switch
     :(viDay==1)
-       $0="Sunday"
+       myResult="Sunday"
     :(viDay==2)
-       $0="Monday"
+       myResult="Monday"
     :(viDay==3)
-       $0="Tuesday"
+       myResult="Tuesday"
     :(viDay==4)
-       $0="Wednesday"
+       myResult="Wednesday"
     :(viDay==5)
-       $0="Thursday"
+       myResult="Thursday"
     :(viDay==6)
-       $0:="Friday"
+       myResult="Friday"
     :(viDay==7)
-       $0="Saturday"
+       myResult="Saturday"
  end
  
 ```
@@ -424,23 +412,6 @@ See the example for the [`currentDate`](#currentDate) command.
 The returned value is a signed integer, up to 2^31 (around 2 billion milliseconds or 24 days). When the machine has been running for more than 24 days, the number becomes negative.
 
 The purpose of the command is to measure short periods of time with a high precision. A 24-day range is more than large enough for comparisons, but you need to be careful. When comparing values, always work with the difference between two values. Never compare the values directly since one could be negative and the other positive.
-
-#### Example
-
-The following code waits up to 5 seconds for a locked record to become unlocked or it ends:
-
-```qs
- var starttime, waittime : integer
- if(Locked([Table_1]))
-    starttime=milliseconds
-    repeat
-       DELAY PROCESS(currentProcess,15)
-       LOAD RECORD([Table_1])
-       waittime=milliseconds-starttime
-    until(not(Locked([Table_1]))|(Process aborted)|($waittime>5000)) //wait 5 seconds max
- end
- 
-```
 
 :::note
 
@@ -623,21 +594,18 @@ This function is not suitable for timing purposes; you should use [`milliseconds
 You can use `timestamp` in a log file to know precisely when the events occurred. As shown below, you may have several operations occurring during the same second:
 
 ```qs
- var vhDocRef, logWithTimestamp : string
- vhDocRef=appendDocument("TimestampProject.log")
- logWithTimestamp=timestamp+char(Tab)+"log with timestamp"+char(Carriage return)
- sendPacket(vhDocRef,string(logWithTimestamp))
+var logWithTimestamp : string
+var myFile : 4D.File
+ 
+myFile=file("/LOGS/TimestampProject.log")
+logWithTimestamp=timestamp+char(Tab)+"log with timestamp"+char(Carriage return)
+myFile.setContent(logWithTimestamp)
  
 ```
 
 Result:
 ```
 2016-12-12T13:31:29.477Z   Log with timestamp
-2016-12-12T13:31:29.478Z   Connection of user1
-2016-12-12T13:31:29.486Z   ERROR - Exception of type 'System exception'
-2016-12-12T13:31:29.492Z   Click on button1684
-2016-12-12T13:31:29.502Z   [SP_HELP- 1 rows] Command processed
-2016-12-12T13:31:29.512Z   [SP_HELP- 5 rows] Result set fetched
  
 ```
 
