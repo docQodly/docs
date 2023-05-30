@@ -34,7 +34,7 @@ As soon as you enter the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Qodl
 
 <br />
 
-<span style={{color:'#B174E5'}}>&#9312; &nbsp;</span> First, we have the mighty <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webforms</span>, which are versatile containers where you can design the user interface of your application using drag-and-drop components like buttons, grids, and style boxes to create your desired layout.
+<span style={{color:'#B174E5'}}>&#9312; &nbsp;</span> First, we have the mighty <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webforms</span>, which are versatile containers where you can design the user interface of your application using drag-and-drop components like buttons and styleboxes to create your desired layout.
 
 :::tip [See WebForms documentation for more information.](webforms/intro)
 :::

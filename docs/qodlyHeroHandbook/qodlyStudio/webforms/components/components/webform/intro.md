@@ -4,6 +4,7 @@ title: 'Webform'
 hide_title: true
 ---
 import Column from '@site/src/components/Column'
+import Dialog from '@site/src/components/Dialog'
 
 <br />
 
@@ -24,18 +25,14 @@ As I strode purposefully towards <span style={{color:'#B174E5',fontWeight: 'bold
 Similar to how <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span> is the guiding force, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component serves as the cornerstone, encapsulating all other elements. It empowers me to fashion a visually striking and interactive homepage.
 
 With unwavering determination, I commanded <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>, proclaiming:
-<div class="chatDialogue">
-    <div class="chat_box"></div>
-    <div class="chat_box"> <span style={{color: 'transparent',textShadow: '0 0 0 #B174E5'}}>🗣️</span><span style={{color:'#B174E5',fontWeight: 'bold'}}>  QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team.</span></div>
-    <div class="chat_box">
-        <div class="chat_boxDot">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <div class="phone"></div>
-</div>
+<Dialog.ChatDialogue>
+	<Dialog.ChatBox />
+	<Dialog.ChatBox
+		content=" QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team."
+	/>
+	<Dialog.ChatBox isTyping={true} />
+	<Dialog.Phone />
+</Dialog.ChatDialogue>
 
 <br />
 
