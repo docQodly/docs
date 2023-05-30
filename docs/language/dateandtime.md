@@ -52,6 +52,161 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
  
 ```
 
+## currentDate
+
+<!-- REF #_command_.currentDate.Syntax -->**currentDate** ( 	* : operator ) : date<!-- END REF -->
+
+
+<!-- REF #_command_.currentDate.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|*|operator|->|Returns the current date from the server|
+|Result|date|<-|Current date|<!-- END REF -->
+
+#### Description
+
+The `currentDate` command <!-- REF #_command_.currentDate.Summary --> returns the current date as kept by the system clock<!-- END REF -->.
+
+If you use the asterisk (*) parameter when executing this function on a Qodly Client machine, it returns the current date from the server.
+
+#### Example 1
+
+In the following example we assign the the current date to a string variable:
+
+```qs
+ var vCurrentDate : string
+ vCurrentDate="The date is "+string(currentDate)+"."
+ 
+```
+
+#### Example
+
+If you write an application for the international market, you may need to know if the version of 4D that you run works with dates formatted as MM/DD/YYYY (US version) or DD/MM/YYYY (French version). This is useful to know for customizing data entry fields.
+
+The following project method allows you to do so:
+
+```qs
+ var  vdDate : date
+ var vsMonth, vsDay, vsDay, sYear, sDay : integer
+ vOK
+ vlPos : integer
+ vsMDY : string
+ 
+  // Sys date format global function
+  // Sys date format -> String
+  // Sys date format -> Default 4D data format
+ 
+ C_STRING(31,0,vsDate,vsMDY,vsMonth,sDay,sYear)
+ 
+  // Get a Date value where the month, day and year values are all different
+ vdDate=currentDate
+ repeat
+    vsMonth=string(monthOf(vdDate))
+    vsDay=string(dayOf(vdDate))
+    vsDay=string(yearOf(vdDate)%100)
+    if((vsMonth==vsDay)|(vsMonth==vsYear)|(vsDay==vsYear))
+       vOK=0
+       vdDate=vdDate+1
+    else
+       vOK=1
+    end
+ until(vOK==1)
+ 0="" // Initialize function result
+ vsDate=string(vdDate)
+ vlPos=position("/",vsDate) // Find the first / separator in the string ../../..
+ vsMDY=substring(vsDate,1,vlPos-1) // Extract the first digits from the date
+ vsDate=substring(vsDate,vlPos+1) // Eliminate the first digits as well as the first / separator
+ switch
+    :(vsMDY==vsMonth) // The digits express the month
+       0="MM"
+    :(vsMDY==vsDay) // The digits express the day
+       0="DD"
+    :(vsMDY==vsYear) // The digits express the year
+       0="YYYY"
+ end
+ 0=0+"/" // Start building the function result
+ vlPos=position("/",vsDate) // Find the second separator in the string ../..
+ vsMDY=substring(vsDate,1,vlPos-1) // Extract the next digits from the date
+ vsDate=substring(vsDate,vlPos+1) // Reduce the string to the last digits from the date
+ switch
+    :(vsMDY==vsMonth) // The digits express the month
+       0=0+"MM"
+    :(vsMDY==vsDay) // The digits express the day
+       0=0+"DD"
+    :(vsMDY==vsYear) // The digits express the year
+       0=0+"YYYY"
+ end
+ 0=0+"/" // Pursue building the function result
+ switch
+    :($vsDate=$vsMonth) // The digits express the month
+       0=0+"MM"
+    :(vsDate==vsDay) // The digits express the day
+       0=0+"DD"
+    :(vsDate==vsYear) // The digits express the year
+       0=0+"YYYY"
+ end
+  // At this point $0 is equal to MM/DD/YYYY or DD/MM/YYYY or...
+ 
+```
+
+#### See also
+
+[`dayOf`](#dayOf)<br/>
+[`monthOf`](#monthOf)<br/>
+[`yearOf`](#yearOf)
+
+## currentTime
+
+<!-- REF #_command_.currentTime.Syntax -->**currentTime** ( 	* : operator ) : time<!-- END REF -->
+
+
+<!-- REF #_command_.currentTime.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|*|operator|->|Returns the current time from the server|
+|Result|time|<-|Current time|<!-- END REF -->
+
+#### Description
+
+The `currentTime` command <!-- REF #_command_.currentTime.Summary --> returns the current time from the system clock<!-- END REF -->.
+
+The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md#string) or [`timeString`](#timeString) to obtain the string form of the time expression returned by `currentTime`.
+
+If you use the asterisk (*) parameter when executing this function on a Qodly Client machine, it returns the current date from the server.
+
+#### Example 1
+
+The following example shows you how to time the length of an operation. Here, *LongOperation* is a method that needs to be timed:
+
+```qs
+ var vhStartTime, vhEndTime : time
+ var  vCurrentTime : string
+  vhStartTime=((currentDate-!1980-01-01!)*86400)+currentTime //Save the start time, seconds after 1.1.1980
+ LongOperation //Perform the operation
+ vhEndTime=((currentDate-!1980-01-01!)*86400)+currentTime
+ vCurrentTime="The operation took "+string(vhEndTime-vhStartTime)+" seconds." //how long it took
+ 
+```
+
+#### Example
+
+The following example extracts the hours, minutes, and seconds from the current time:
+
+```qs
+ var  vhNow : time
+ var  vCurrentTime : string
+ vhNow=currentTime
+ vCurrentTime="Current hour is: "+string(vhNow\3600)
+ vCurrentTime="Current minute is: "+string((vhNow\60)%60)
+ vCurrentTime="Current second is: "+string(vhNow%60)
+ 
+```
+
+#### See also
+
+[`milliseconds`](#milliseconds)<br/>
+[`string`](string.md#string)
+
 ## date
 
 <!-- REF #_command_.date.Syntax -->**date** ( *expression* : string, date ) : date<!-- END REF -->
@@ -252,6 +407,56 @@ See the example for the [`currentDate`](#currentDate) command.
 [`monthOf`](#monthOf)<br/>
 [`yearOf`](#yearOf)
 
+## milliseconds
+
+<!-- REF #_command_.milliseconds.Syntax -->**milliseconds** : integer<!-- END REF -->
+
+
+<!-- REF #_command_.milliseconds.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Number of milliseconds elasped since the machine was started|<!-- END REF -->
+
+#### Description
+
+`milliseconds` <!-- REF #_command_.milliseconds.Summary -->returns the number of milliseconds (1000th of a second) elapsed since the machine was started<!-- END REF -->.
+
+The returned value is a signed integer, up to 2^31 (around 2 billion milliseconds or 24 days). When the machine has been running for more than 24 days, the number becomes negative.
+
+The purpose of the command is to measure short periods of time with a high precision. A 24-day range is more than large enough for comparisons, but you need to be careful. When comparing values, always work with the difference between two values. Never compare the values directly since one could be negative and the other positive.
+
+#### Example
+
+The following code waits up to 5 seconds for a locked record to become unlocked or it ends:
+
+```qs
+ var starttime, waittime : integer
+ if(Locked([Table_1]))
+    starttime=milliseconds
+    repeat
+       DELAY PROCESS(currentProcess,15)
+       LOAD RECORD([Table_1])
+       waittime=milliseconds-starttime
+    until(not(Locked([Table_1]))|(Process aborted)|($waittime>5000)) //wait 5 seconds max
+ end
+ 
+```
+
+:::note
+
+Always compare the difference between two calls of Milliseconds as shown above, never compare directly, e.g.:
+```qs
+ (milliseconds>(starttime+5000)) //never do it like this, as one could be positive, one negative
+ 
+```
+
+:::
+
+#### See also
+
+[`currentTime`](#currenttime)<br/>
+[`timestamp`](#timestamp)
+
 ## monthOf
 
 <!-- REF #_command_.monthOf.Syntax -->**monthOf** ( *aDate* : date ) : integer<!-- END REF -->
@@ -388,6 +593,57 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 
 #### See also
 
+[`string`](string.md#string)<br/>
+[`time`](#time)
+
+## timestamp
+
+<!-- REF #_command_.timestamp.Syntax -->**timestamp** : string<!-- END REF -->
+
+
+<!-- REF #_command_.timestamp.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|string|<-|Current time returned using ISO format with milliseconds|<!-- END REF -->
+
+#### Description
+
+`timestamp` <!-- REF #_command_.timestamp.Summary -->returns the current UTC time in ISO format with milliseconds, i.e. yyyy-MM-ddTHH:mm:ss.SSSZ<!-- END REF -->.  Note that the "Z" character indicates the GMT time zone.
+
+Each time returned by `timestamp` is expressed according to the ISO 8601 standard. For more information about this standard, refer to: https://en.wikipedia.org/wiki/ISO_8601
+
+:::note
+
+This function is not suitable for timing purposes; you should use [`milliseconds`](#milliseconds) when you want to measure elapsed time.
+
+:::
+
+#### Example
+
+You can use `timestamp` in a log file to know precisely when the events occurred. As shown below, you may have several operations occurring during the same second:
+
+```qs
+ var vhDocRef, logWithTimestamp : string
+ vhDocRef=appendDocument("TimestampProject.log")
+ logWithTimestamp=timestamp+char(Tab)+"log with timestamp"+char(Carriage return)
+ sendPacket(vhDocRef,string(logWithTimestamp))
+ 
+```
+
+Result:
+```
+2016-12-12T13:31:29.477Z   Log with timestamp
+2016-12-12T13:31:29.478Z   Connection of user1
+2016-12-12T13:31:29.486Z   ERROR - Exception of type 'System exception'
+2016-12-12T13:31:29.492Z   Click on button1684
+2016-12-12T13:31:29.502Z   [SP_HELP- 1 rows] Command processed
+2016-12-12T13:31:29.512Z   [SP_HELP- 5 rows] Result set fetched
+ 
+```
+
+#### See also
+
+[`milliseconds`](#milliseconds)<br/>
 [`string`](string.md#string)<br/>
 [`time`](#time)
 
