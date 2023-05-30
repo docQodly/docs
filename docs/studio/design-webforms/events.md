@@ -7,7 +7,7 @@ Events are usually used as a means of triggering certain behaviors. They are use
 
 For example, if the user clicks a button on a webpage, you can choose how to react by calling a function or opening another webpage. Events can also be triggered [when a datasource is updated](#datasource-events). 
 
-With 4D Web Studio, events are used to execute code on the 4D web server. No additional Javascript is needed.
+With Qodly Studio, events are used to execute code on the Qodly web server. No additional Javascript is needed.
 
 ## Configuring an event
 
@@ -137,7 +137,27 @@ An `On Change` event attached a datasource triggers in the following cases:
 |Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 
 
+### Provide feedback
 
+This selector allows you to provide customized feedback to the user for any function events. This feedback is related to the business rules of the application, they do not interact with the application navigation flow. 
+
+When the selector is enabled for a function event, an internal hidden feedback element is added to the web form. This element will automatically display messages sent by the application code as a response to the event using [dedicated `webForm` functions](../language/WebForm.md#webform-class). 
+
+Three levels of feedbacks are available, and will be displayed as colored "toasts":
+
+- [`setMessage()`](../../language/WebForm.md#setmessage), to send information messages
+![feedback-info](img/message-info.png)
+
+- [`setWarning()`](../../language/WebForm.md#setwarning), to send warning messages
+![feedback-warning](img/message-warning.png)
+
+- [`setError()`](../../language/WebForm.md#seterror), to send error messages
+![feedback-error](img/message-error.png)
+
+Toasts are displayed during 5 seconds and are automatically closed. They can also be closed by the user with a click on the **x**.
+
+
+ 
 ## Standard actions
 
 You can define standard actions to apply to datasources in response to specific events. Available actions depend on the datasource kind.
@@ -171,4 +191,5 @@ The following standard actions are available, depending on the datasource kind:
 ||Refresh|Reloads the whole entity selection from the server|
 ||All|Loads all the entities of the same dataclass|
 ||Empty|Creates a new, empty selection of the same dataclass|
+
 

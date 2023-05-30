@@ -283,7 +283,7 @@ const sidebars = {
 				'studio/design-webforms/components',
 				'studio/design-webforms/styling',
 				'studio/design-webforms/datasources',
-				'studio/design-webforms/events/events',
+				'studio/design-webforms/events',
 				'studio/rendering',
 			],
 		},
