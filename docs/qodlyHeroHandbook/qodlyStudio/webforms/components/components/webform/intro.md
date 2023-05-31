@@ -18,17 +18,17 @@ As I strode purposefully towards <span style={{color:'#B174E5',fontWeight: 'bold
 
 ---
 
-### <u>The Webform Component: The Base Container</u>
+### <u>The Webform: The Base Container</u>
 
 <br />
 
-Similar to how <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span> is the guiding force, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component serves as the cornerstone, encapsulating all other elements. It empowers me to fashion a visually striking and interactive homepage.
+Similar to how <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span> is the guiding force, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> serves as the cornerstone, encapsulating all other elements. It empowers me to fashion a visually striking and interactive homepage.
 
 With unwavering determination, I commanded <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>, proclaiming:
 <Dialog.ChatDialogue>
 	<Dialog.ChatBox />
 	<Dialog.ChatBox
-		content=" QDroid, let's establish the foundation of our website by transforming the Webform component's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team."
+		content=" QDroid, let's establish the foundation of our website by transforming the Webform's background image into a captivating representation of myself, the esteemed leader of the heroic Qodly team."
 	/>
 	<Dialog.ChatBox isTyping={true} />
 	<Dialog.Phone />
@@ -42,7 +42,7 @@ With unwavering determination, I commanded <span style={{color:'#B174E5',fontWei
 
 <br />
 
-With <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>'s invaluable assistance, we swiftly accessed the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> of the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component and seamlessly modified the background image to a captivating depiction of myself. Setting the background image size to `Cover`, we witnessed the entire container being enveloped in the magnificence of my presence.
+With <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>'s invaluable assistance, we swiftly accessed the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> of the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> and seamlessly modified the background image to a captivating depiction of myself. Setting the background image size to `Cover`, we witnessed the entire container being enveloped in the magnificence of my presence.
 
 
 <img alt="explorer" src={require('./img/backgroundImage.png').default} style={{borderRadius: '6px'}} />
@@ -61,7 +61,7 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
 
 <br />
 
-As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component, it's crucial to check the results of each modification live. But before we do that, let me showcase the three impressive arsenal of tools available for managing your webform components. 
+As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span>, it's crucial to check the results of each modification live. But before we do that, let me showcase the three impressive arsenal of tools available for managing your webform. 
 
 <br />
 
@@ -69,7 +69,7 @@ As we delve deeper into the <span style={{color:'#B174E5',fontWeight: 'bold'}}>W
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="70%">
-		The first tool we'll talk about as we embark on this journey of exploring webform components is the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Tooltip</span>. It's a smart and intuitive feature that offers a range of actions to choose from.
+		The first tool we'll talk about as we embark on this journey of exploring webforms is the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Tooltip</span>. It's a smart and intuitive feature that offers a range of actions to choose from.
 	</Column.Item>
 	<Column.Item width="20%">
 		<img alt="explorer" src={require('./img/tooltip.png').default} style={{borderRadius: '6px'}} />
@@ -146,7 +146,7 @@ After setting the visual foundation of our homepage, it is time to focus on craf
 
 To summarize:
 
-:::note The <span style={{color:'#B174E5'}}>Webform</span> component is the base container that holds all the other components, similar to how QDroid is the guiding force.
+:::note The <span style={{color:'#B174E5'}}>Webform</span> is the base container that holds all the other components, similar to how QDroid is the guiding force.
 :::
 
 Below is the video providing a step-by-step summary of the process in this section:

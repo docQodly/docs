@@ -51,7 +51,7 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> i
 <br />
 <br />
 
-In essence, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> is the heart of the component, offering us the ability to customize it to suit our preferences and create a visually appealing and unique web application. And now, it has just received a major upgrade with the introduction of the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span> properties. This feature is available in all components, except for the <span style={{color:'#B174E5',fontWeight: 'bold'}}>webForm</span>, and it's a complete game-changer. With <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span>, developers can access and manipulate the component's properties directly from the server, giving them complete control over the component's behavior.
+In essence, the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Properties panel</span> is the heart of the component, offering us the ability to customize it to suit our preferences and create a visually appealing and unique web application. And now, it has just received a major upgrade with the introduction of the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span> properties. This feature is available in all components, except for the <span style={{color:'#B174E5',fontWeight: 'bold'}}>WebForm</span>, and it's a complete game-changer. With <span style={{color:'#B174E5',fontWeight: 'bold'}}>Data Access</span>, developers can access and manipulate the component's properties directly from the server, giving them complete control over the component's behavior.
 
 <br />
 

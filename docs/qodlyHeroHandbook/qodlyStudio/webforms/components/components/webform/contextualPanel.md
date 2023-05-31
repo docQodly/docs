@@ -38,7 +38,7 @@ Now, as I delve deeper into the realm of <span style={{color:'#B174E5',fontWeigh
 
 <br /><br />
 
-- Select a component or a datasource and witness the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Contextual panel</span> come alive, revealing a plethora of compatible events specifically tailored for your chosen entity. Let's consider the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> component as an illustrative example, acting as the canvas upon which we can explore a future use case of populating an array of data to be displayed within our view. 
+- Select a component or a datasource and witness the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Contextual panel</span> come alive, revealing a plethora of compatible events specifically tailored for your chosen entity. Let's consider the <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span> as an illustrative example, acting as the canvas upon which we can explore a future use case of populating an array of data to be displayed within our view. 
 
 <br />
 
@@ -134,3 +134,71 @@ But wait, the adventure continues! Within the realm of Qdler, I grant you the po
 
 
 <br />
+
+#### <span style={{color:'#B174E5'}}>&#9314; &nbsp; <u>Chaining actions</u> </span>
+
+<br />
+
+And now, let me shed light upon the art of chaining actions, where you possess the power to forge a symphony of events. Imagine a hero with multiple tasks at hand, each action building upon the success of the previous one. With your unwavering focus, watch as the events unfold in their predetermined order, their actions executed sequentially. Each action commences only when the previous one has completed its divine purpose, leading you closer to triumph.
+
+In this heroic journey, you have learned to configure events with boundless courage. Your webforms shall now come alive, driven by the power of events that shape their destiny. Embrace the call of adventure and unleash your creativity upon the world!
+
+<br />
+
+### <u>Event types</u>
+
+<br />
+
+Events come in two distinct forms, dear mortals. 
+
+<br />
+
+#### <span style={{color:'#B174E5'}}>&#9312; &nbsp; <u>User events</u> </span>
+
+<br />
+
+The first form arises from the actions of end-users, when they dare to perform certain deeds. A mere click of a button can set the stage for miraculous events.
+
+<br />
+
+For instance, consider the tale of 'Hello User,' where a humble database is transformed into a portal of enchantment, allowing access to the studio, crafting a rudimentary interface, and initiating a search to greet the user by their very name.
+
+<br />
+
+Another tale unfolds through the mesmerizing 'Search Feature,' where the objective is to update a list of students based on the end-user's input. As the user types, the Matrix component reveals a captivating display, guided by a search function that queries the students' names and dynamically updates the list.
+
+<br />
+
+#### <span style={{color:'#B174E5'}}>&#9313; &nbsp; <u>Datasource events</u> </span>
+
+<br />
+
+The second form of events emerges when datasources themselves undergo changes, triggering automatic events. Let me share with you the tale of 'Updating an Entity Selection.' Here, the employee datatable showcases a list of employees, fueled by an entity selection. The user's interactions with buttons and radio components prompt the update of the employee datasource, which invokes an onChange event. This event, in turn, calls upon the mighty function of the EmployeeSelection class, aptly named 'statistics,' providing the user with either general or detailed statistics based on their selection.
+
+<br />
+
+### <u>Standard actions</u>
+
+<br />
+
+In this realm, standard actions hold immense power. You have the ability to define actions tailored to specific events, unleashing their might upon datasources. The available actions vary depending on the kind of datasource.
+
+<br />
+
+To partake in this enchanting process, embark on the following steps:
+
+- Select an event that calls upon your desires.
+- Within the Action area, enter the name of the datasource, unveiling its true potential.
+- With a simple click upon the desired standard action icon, you invoke its transformative powers upon the selected component.
+
+<br />
+
+Allow me to present to you a list of standard actions that you can embrace within this realm:
+
+- For entities, you may create anew, save, refresh, or remove them. You can navigate through the entity selection, traversing to the first, previous, next, or last entity.
+- Entity selections grant you the power to order them, choosing attributes to sort and selecting the direction.
+Queries, mighty tools of exploration, allow you to unleash the full power of your desires. They can refresh the entire entity selection, load all entities of a specific dataclass, or even create new empty selections.
+
+<br />
+
+Such is the grandeur of events and their interwoven tapestry within the realm of Qdler. Embrace their power, and together, let us forge a path of authentic creation!
