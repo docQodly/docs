@@ -46,7 +46,7 @@ The <span style={{color:'#B174E5',fontWeight: 'bold'}}>Tooltip</span> is a smart
 <br />
 <br />
 
-So there you have it, a deep dive into the powerful tools available to you for managing your webform components. Keep sharpening your skills and happy designing!
+So there you have it, a deep dive into the powerful tools available to you for managing your Webform. Keep sharpening your skills and happy designing!
 
 
 
