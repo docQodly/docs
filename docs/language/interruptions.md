@@ -11,17 +11,17 @@ These commands allow you to control the execution of your code.
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.throwError.Syntax -->](#throwerror)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.throwError.Summary -->|
+|[<!-- INCLUDE #_command_.throw.Syntax -->](#throw)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.throw.Summary -->|
 
 
 
-## throwError
+## throw
 
 
-<!-- REF #_command_.throwError.Syntax -->**throwError**( *msg* : string )<!-- END REF -->
+<!-- REF #_command_.throw.Syntax -->**throw**( *msg* : string )<!-- END REF -->
 
 
-<!-- REF #_command_.throwError.Syntax -->
+<!-- REF #_command_.throw.Syntax -->
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
@@ -31,7 +31,7 @@ These commands allow you to control the execution of your code.
 
 #### Description
 
-The `throwError` command <!-- REF #_command_.throwError.Summary -->allows you to send a custom error to the web form<!-- END REF -->.
+The `throw` command <!-- REF #_command_.throw.Summary -->allows you to send a custom system error to the web form<!-- END REF -->.
 
 The command returns a response with a `500 Internal Server Error` status and an `__ERROR` collection in the body with an object that has a "errCode" property set to "errorCode" and a "message" property set to "message".
 
