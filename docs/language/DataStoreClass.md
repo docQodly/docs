@@ -22,9 +22,7 @@ A [Datastore](../concepts/orda/data-model.md#datastore) is the interface object 
 |[<!-- INCLUDE DataStoreClass.dataclassName.Syntax -->](#dataclassname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE DataStoreClass.dataclassName.Summary --> |
 |[<!-- INCLUDE #DataStoreClass.isAdminProtected().Syntax -->](#isadminprotected)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.isAdminProtected().Summary --> |
 |[<!-- INCLUDE #DataStoreClass.setAdminProtection().Syntax -->](#setadminprotection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.setAdminProtection().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.startRequestLog().Syntax -->](#startrequestlog)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.startRequestLog().Summary --> |
 |[<!-- INCLUDE #DataStoreClass.startTransaction().Syntax -->](#starttransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.startTransaction().Summary --> |
-|[<!-- INCLUDE #DataStoreClass.stopRequestLog().Syntax -->](#stoprequestlog)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.stopRequestLog().Summary --> |
 |[<!-- INCLUDE #DataStoreClass.validateTransaction().Syntax -->](#validatetransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.validateTransaction().Summary --> |
 
 
@@ -190,79 +188,6 @@ You create a *protectDataFile* project method to call before deployments for exa
 <!-- END REF -->
 
 
-<!-- REF DataStoreClass.startRequestLog().Desc -->
-## .startRequestLog()
-
-
-<!-- REF #DataStoreClass.startRequestLog().Syntax -->
-**.startRequestLog**()<br/>**.startRequestLog**( *file* : 4D.File )<br/>**.startRequestLog**( *reqNum* : integer )<!-- END REF -->
-
-
-<!-- REF #DataStoreClass.startRequestLog().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|file |4D.File|->|File object|
-|reqNum |integer|->|Number of requests to keep in memory|
-<!-- END REF -->
-
-
-#### Description
-
-The `.startRequestLog()` function <!-- REF #DataStoreClass.startRequestLog().Summary -->starts the logging of ORDA requests on the client side<!-- END REF -->.
-
-This function must be called on a remote 4D, otherwise it does nothing. It is designed for debugging purposes in client/server configurations.
-
-The ORDA request log can be sent to a file or to memory, depending on the parameter type:
-
-*	If you passed a *file* object created with the `File` command, the log data is written in this file as a collection of objects (JSON format). Each object represents a request.<br/>If the file does not already exist, it is created. Otherwise if the file already exists, the new log data is appended to it.
-If `.startRequestLog( )` is called with a file while a logging was previously started in memory, the memory log is stopped and emptied.
-
-> A \] character must be manually appended at the end of the file to perform a JSON validation
-
-*	If you passed a *reqNum* integer, the log in memory is emptied (if any) and a new log is initialized. It will keep *reqNum* requests in memory until the number is reached, in which case the oldest entries are emptied (FIFO stack).<br/>If `.startRequestLog()` is called with a *reqNum* while a logging was previously started in a file, the file logging is stopped.
-
-*	If you did not pass any parameter, the log is started in memory. If `.startRequestLog()` was previously called with a *reqNum* (before a `.stopRequestLog()`), the log data is stacked in memory until the next time the log is emptied or `.stopRequestLog()` is called.
-
-For a description of the ORDA request log format, please refer to the [**ORDA client requests**](https://developer.4d.com/docs/en/Admin/debugLogFiles.html#orda-client-requests) section.
-
-#### Example 1
-
-You want to log ORDA client requests in a file and use the log sequence number:
-
-```qs
- var $file : 4D.File
- var $e : cs.PersonsEntity
-
- $file:=File("/LOGS/ORDARequests.txt") //logs folder
-
- SET DATABASE PARAMETER(Client Log Recording;1) //to trigger the global log sequence number
- ds.startRequestLog($file)
- $e:=ds.Persons.get(30001) //send a request
- ds.stopRequestLog()
- SET DATABASE PARAMETER(Client Log Recording;0)
-```
-
-#### Example 2
-
-You want to log ORDA client requests in memory:
-
-```qs
- var $es : cs.PersonsSelection
- var $log : Collection
-
- ds.startRequestLog(3) //keep 3 requests in memory
-
- $es:=ds.Persons.query("name=:1";"Marie")
- $es:=ds.Persons.query("name IN :1";New collection("Marie"))
- $es:=ds.Persons.query("name=:1";"So@")
-
- $log:=ds.getRequestLog()
- ALERT("The longest request lasted: "+String($log.max("duration"))+" ms")
-```
-
-<!-- END REF -->
-
-
 
 
 <!-- REF DataStoreClass.startTransaction().Desc -->
@@ -316,35 +241,6 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 
 
 <!-- END REF -->
-
-
-
-
-
-<!-- REF DataStoreClass.stopRequestLog().Desc -->
-## .stopRequestLog()
-
-<!-- REF #DataStoreClass.stopRequestLog().Syntax -->
-**.stopRequestLog**()  <!-- END REF -->
-
-<!-- REF #DataStoreClass.stopRequestLog().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-||||Does not require any parameters|
-<!-- END REF -->
-
-
-#### Description
-
-The `.stopRequestLog()` function <!-- REF #DataStoreClass.stopRequestLog().Summary -->stops any logging of ORDA requests<!-- END REF -->. It is particularly useful when logging in a file, since it actually closes the opened document on disk.
-
-
-#### Example
-
-See examples for [`.startRequestLog()`](#startrequestlog).
-
-<!-- END REF -->
-
 
 
 
