@@ -122,7 +122,7 @@ The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebF
 
 Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
 
-The command returns `Null` if it is called in a request that does not originate from Qodly Studio.
+The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 
 <!-- END REF -->
 
@@ -180,7 +180,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 ```qs 
 exposed Function myError()
 
-Web Form.setError("My error message")
+webForm.setError("My error message")
 
 ```
 
@@ -191,7 +191,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### See also
 
-[`throw`](interruptions.md#throwerror)
+[`throw`](interruptions.md#throw)
 
 
 ### .setMessage()
@@ -218,7 +218,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 ```qs 
 exposed Function myMessage()
 
-Web Form.setMessage("My information message")
+webForm.setMessage("My information message")
 
 ```
 
@@ -251,7 +251,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 ```qs 
 exposed Function myWarning()
 
-Web Form.setWarning("My warning message")
+webForm.setWarning("My warning message")
 
 ```
 
@@ -285,7 +285,7 @@ For example, `WebFormObject.myImage` refers to the image component with `myImage
 
 #### Description
 
-The **.hide**() function <!-- REF #WebFormItemClass.hide().Summary -->hides the component<!-- END REF -->.
+The `.hide()` function <!-- REF #WebFormItemClass.hide().Summary -->hides the component<!-- END REF -->.
 
 #### Example
 
@@ -299,7 +299,7 @@ exposed Function isHidden()
 
 var myComponent: 4D.WebFormItem
 
-myComponent=Web Form.myImage
+myComponent=webForm.myImage
 myComponent.hide() // Hide the component that has "myImage" as server reference 
 ```
 
@@ -322,7 +322,7 @@ myComponent.hide() // Hide the component that has "myImage" as server reference
 
 #### Description
 
-The **.show()** function <!-- REF #WebFormItemClass.show().Summary -->makes the component visible<!-- END REF -->. If the component was already visible, the function does nothing.
+The `.show()` function <!-- REF #WebFormItemClass.show().Summary -->makes the component visible<!-- END REF -->. If the component was already visible, the function does nothing.
 
 
 ### .addCSSClass()
@@ -355,5 +355,5 @@ The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -
 
 #### Description
 
-The **.removeCSSClass()** function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
+The `.removeCSSClass()` function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
 
