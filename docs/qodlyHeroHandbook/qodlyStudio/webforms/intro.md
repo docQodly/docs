@@ -14,7 +14,7 @@ As the creator of <span style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly Studi
 
 <br />
 
-The first step in <span style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly Studio</span> is always to create a <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span>, which serves as the container for all other components. To get started, <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9312;</span> simply go to the `Explorer` section and click on the plus icon next to `Webform` to give a name to your new Webform. Alternatively, <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9313;</span>  click on the `+ New` tab, and then select `Webform`.
+The first step in <span style={{color:'#B174E5',fontWeight: 'bold'}}>Qodly Studio</span> is always to create a <span style={{color:'#B174E5',fontWeight: 'bold'}}>Webform</span>, which serves as the container for all other components. To get started, <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9312;</span> simply go to the <code>Explorer</code> section and click on the plus icon next to `Webform` to give a name to your new Webform. Alternatively, <span style={{color:'#B174E5',fontWeight: 'bold'}}>&#9313;</span>  click on the `+ New` tab, and then select `Webform`.
  
 <img alt="explorer" src={require('./img/webform.png').default} style={{borderRadius: '6px'}} />
 
