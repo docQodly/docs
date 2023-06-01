@@ -1,30 +1,31 @@
 ---
 id: FolderClass
-title: Folder
+title: folder
 ---
 
 
 
-`Folder` objects are created with the [`Folder`](#folder) command. They contain references to folders that may or may not actually exist on disk. For example, when you execute the `Folder` command to create a new folder, a valid `Folder` object is created but nothing is actually stored on disk until you call the [`folder.create()`](#create) function.
+`folder` objects are created with the [`folder`](#folder) command. They contain references to folders that may or may not actually exist on disk. For example, when you execute the `folder` command to create a new folder, a valid `folder` object is created but nothing is actually stored on disk until you call the [`folder.create()`](#create) function.
 
 ### Example
 
 The following example creates a "JohnSmith" folder object:
 
 ```qs
-Form.curfolder=Folder("/PACKAGE/JohnSmith")
+var curFoler : 4D.Folder 
+curfolder=folder("/PACKAGE/JohnSmith")
 ```
 
 ### Pathnames
 
-`Folder` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
+`folder` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
 
 
 ### Commands
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Folder.Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Folder.Summary -->|
+|[<!-- INCLUDE #_command_.folder.Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.folder.Summary -->|
 
 
 ### Functions and properties
@@ -34,8 +35,6 @@ Form.curfolder=Folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #directory.copyTo().Syntax -->](#copyto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.copyTo().Summary -->|
 |[<!-- INCLUDE #FolderClass.create().Syntax -->](#create)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.create().Summary -->|
 |[<!-- INCLUDE #FolderClass.createAlias().Syntax -->](#createalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.createAlias().Summary --> |
-|[<!-- INCLUDE #directory.creationDate.Syntax -->](#creationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.creationDate.Summary -->|
-|[<!-- INCLUDE #directory.creationTime.Syntax -->](#creationtime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.creationTime.Summary -->|
 |[<!-- INCLUDE #FolderClass.delete().Syntax -->](#delete)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.delete().Summary -->|
 |[<!-- INCLUDE #directory.exists.Syntax -->](#exists)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.exists.Summary -->|
 |[<!-- INCLUDE #directory.extension.Syntax -->](#extension)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.extension.Summary -->|  
@@ -44,7 +43,6 @@ Form.curfolder=Folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #directory.folder().Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folder().Summary -->|  
 |[<!-- INCLUDE #directory.folders().Syntax -->](#folders)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folders().Summary -->|  
 |[<!-- INCLUDE #directory.fullName.Syntax -->](#fullname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.fullName.Summary -->|
-|[<!-- INCLUDE #directory.getIcon().Syntax -->](#geticon)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.getIcon().Summary -->|
 |[<!-- INCLUDE #directory.hidden.Syntax -->](#hidden)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.hidden.Summary -->|
 |[<!-- INCLUDE #directory.isAlias.Syntax -->](#isalias)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isAlias.Summary -->|
 |[<!-- INCLUDE #directory.isFile.Syntax -->](#isfile)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.isFile.Summary -->|
@@ -61,30 +59,27 @@ Form.curfolder=Folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #FolderClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.rename().Summary -->|
 
 
-## Folder
+## folder
 
 
-<!-- REF #_command_.Folder.Syntax -->**Folder** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**Folder** ( *folderConstant* : Integer { , \* } ) : 4D.Folder<!-- END REF -->
+<!-- REF #_command_.folder.Syntax -->**folder** ( *path* : string { , *pathType* : integer }{ , \* } ) : 4D.Folder<!-- END REF -->
 
 
-<!-- REF #_command_.Folder.Params -->
+<!-- REF #_command_.folder.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|path|Text|->|Folder path|
-|folderConstant|Integer|->|4D folder constant|
-|pathType|Integer|->|`fk posix path` (default) or `fk platform path`|
+|path|string|->|folder path|
+|pathType|integer|->|`fk posix path` (default) or `fk platform path`|
 |*||->|* to return folder of host database|
 |Result|4D.Folder|<-|New folder object|<!-- END REF -->
 
 #### Description
 
-The `Folder` command <!-- REF #_command_.Folder.Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. The command accepts two syntaxes:
-
-**Folder ( path { , pathType } { , \* } )**
+The `folder` command <!-- REF #_command_.folder.Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. 
 
 In the *path* parameter, pass a folder path string. You can use a custom string or a filesystem (e.g., "/DATA").
 
-> Only absolute pathnames are supported with the `Folder` command.
+> Only absolute pathnames are supported with the `folder` command.
 
 By default, Qodly expects a path expressed with the POSIX syntax. If you work with platform pathnames (Windows or macOS), you must declare it using the *pathType* parameter. The following constants are available:
 
@@ -93,27 +88,6 @@ By default, Qodly expects a path expressed with the POSIX syntax. If you work wi
 |fk platform path|1|Path expressed with a platform-specific syntax (mandatory in case of platform pathname)|
 |fk posix path|0|Path expressed with POSIX syntax (default)
 
-**Folder ( folderConstant { , \* } )**
-
-In the *folderConstant* parameter, pass a built-in or system folder, using one of the following constants:
-
-|Constant|Value|Comment|
-|---|---|---|
-|fk applications folder|116||
-|fk data folder|9|Associated filesystem: "/DATA"|
-|fk database folder|4|Associated filesystem: "/PACKAGE"|
-|fk desktop folder|115||
-|fk documents folder|117|Document folder of the user|
-|fk home folder|118|Current home folder of the user (usually `/Users/<username>/`)|
-|fk licenses folder|1|Folder containing the machine's 4D license files|
-|fk logs folder|7|Associated filesystem: "/LOGS"|
-|fk mobileApps folder|10||
-|fk remote database folder|3|4D database folder created on each 4D remote machine|
-|fk resources folder|6|Associated filesystem: "/RESOURCES"|
-|fk system folder|100||
-|fk user preferences folder|0|4D folder that stores user preference files within the user home folder|
-|fk web root folder|8|Current Web root folder of the database: if within the package "/PACKAGE/path", otherwise full path|
-
 If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
 
@@ -121,47 +95,48 @@ If the command is called from a component, pass the optional `*` parameter to ge
 
 
 <!-- REF #4D.Folder.new().Syntax -->
-**4D.Folder.new** ( *path* : Text { , *pathType* : Integer }{ , \* } ) : 4D.Folder<br/>**4D.Folder.new** ( *folderConstant* : Integer { , \* } ) : 4D.Folder<!-- END REF -->
+**4D.Folder.new** ( *path* : string { , *pathType* : integer }{ , \* } ) : 4D.Folder<br/>**4D.Folder.new** ( *folderConstant* : integer { , \* } ) : 4D.Folder<!-- END REF -->
 
 
 #### Description
 
-The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. It is identical to the [`Folder`](#folder) command (shortcut).
+The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. It is identical to the [`folder`](#folder) command (shortcut).
 
-> It is recommended to use the [`Folder`](#folder) shortcut command instead of `4D.Folder.new()`.
+> It is recommended to use the [`folder`](#folder) shortcut command instead of `4D.Folder.new()`.
 
 <!-- INCLUDE directory.copyTo().Desc -->
 
 <!-- REF folder.create().Desc -->
 ## .create()
 
-<!--REF #FolderClass.create().Syntax -->**.create()** : Boolean<!-- END REF -->
+<!--REF #FolderClass.create().Syntax -->**.create()** : boolean<!-- END REF -->
 
 
 <!--REF #FolderClass.create().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Boolean|<-|True if the folder was created successfully, false otherwise|<!-- END REF -->
+|Result|boolean|<-|true if the folder was created successfully, false otherwise|<!-- END REF -->
+
 
 
 #### Description
 
-The `.create()` function <!-- REF #FolderClass.create().Summary -->creates a folder on disk according to the properties of the `Folder` object<!-- END REF -->.
+The `.create()` function <!-- REF #FolderClass.create().Summary -->creates a folder on disk according to the properties of the `folder` object<!-- END REF -->.
 
 If necessary, the function creates the folder hierachy as described in the [platformPath](#platformpath) or [path](#path) properties. If the folder already exists on disk, the function does nothing (no error is thrown) and returns false.
 
 **Returned value**
 
-* **True** if the folder is created successfully,
-* **False** if a folder with the same name already exists or if an error occured.
+* **true** if the folder is created successfully,
+* **false** if a folder with the same name already exists or if an error occured.
 
 #### Example 1
 
 Create an empty folder in the database folder:
 
 ```qs
-var created : Boolean
-created=Folder("/PACKAGE/SpecialPrefs").create()
+var created : boolean
+created=folder("/PACKAGE/SpecialPrefs").create()
 ```
 
 #### Example 2
@@ -170,13 +145,13 @@ Creation of the "/Archives2019/January/" folder in the database folder:
 
 ```qs
 var newFolder : 4D.Folder
-var info : Text
-newFolder=Folder("/PACKAGE/Archives2019/January")
-If(newFolder.create())
+var info : string
+newFolder=folder("/PACKAGE/Archives2019/January")
+if(newFolder.create())
  info="The "+newFolder.name+" folder was created."
-Else
+else
  info="Impossible to create a "+newFolder.name+" folder."
-End if
+end
 ```
 
 <!-- END REF -->
@@ -184,31 +159,21 @@ End if
 <!-- REF folder.createAlias().Desc -->
 ## .createAlias()
 
-<!--REF #FolderClass.createAlias().Syntax -->**.createAlias**( *destinationFolder* : 4D.Folder , *aliasName* : Text { , *aliasType* : Integer } ) : 4D.File<!-- END REF -->
+<!--REF #FolderClass.createAlias().Syntax -->**.createAlias**( *destinationFolder* : 4D.Folder , *aliasName* : string ) : 4D.File<!-- END REF -->
 
 
 <!--REF #FolderClass.createAlias().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |destinationFolder|4D.Folder|->|Destination folder for the alias or shortcut|
-|aliasName|Text|->|Name of the alias or shortcut|
-|aliasType|Integer|->|Type of the alias link|
+|aliasName|string|->|Name of the symbolic link|
 |Result|4D.File|<-|Alias or shortcut reference|<!-- END REF -->
 
 #### Description
 
-The `.createAlias()` function <!-- REF #FolderClass.createAlias().Summary -->creates an alias (macOS) or a shortcut (Windows)<!-- END REF --> to the folder with the specified *aliasName* name in the folder designated by the *destinationFolder* object.
+The `.createAlias()` function <!-- REF #FolderClass.createAlias().Summary -->creates a symbolic link<!-- END REF --> to the folder with the specified *aliasName* name in the folder designated by the *destinationFolder* object.
 
-Pass the name of the alias or shortcut to create in the *aliasName* parameter.
-
-By default on macOS, the function creates a standard alias. You can also create a symbolic link by using the *aliasType* parameter. The following constants are available:
-
-|Constant|Value|Comment|
-|--------|-----|-------|
-|`fk alias link`|0|Alias link (default)|
-|`fk symbolic link`|1|Symbolic link (macOS only)|
-
-On Windows, a shortcut (.lnk file) is always created (the *aliasType* parameter is ignored).
+Pass the name of the symbolic link to create in the *aliasName* parameter.
 
 **Returned object**
 
@@ -216,12 +181,12 @@ A `4D.File` object with the `isAlias` property set to **true**.
 
 #### Example
 
-You want to create an alias to an archive folder in your database folder:
+You want to create a symbolic link to an archive folder in your database folder:
 
 ```qs
 var myFolder : 4D.Folder
-myFolder=Folder("/PACKAGE/Documents/Archives/2019/January")
-aliasFile=myFolder.createAlias(Folder("/PACKAGE"),"Jan2019")
+myFolder=folder("/PACKAGE/Documents/Archives/2019/January")
+aliasFile=myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
 ```
 <!-- END REF -->
 
@@ -232,13 +197,13 @@ aliasFile=myFolder.createAlias(Folder("/PACKAGE"),"Jan2019")
 <!-- REF folder.delete().Desc -->
 ## .delete()
 
-<!--REF #FolderClass.delete().Syntax -->**.delete**( { *option* : Integer } )<!-- END REF -->
+<!--REF #FolderClass.delete().Syntax -->**.delete**( { *option* : integer } )<!-- END REF -->
 
 
 <!-- REF #FolderClass.delete().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|option |Integer|->|Folder deletion option|<!-- END REF -->
+|option |integer|->|folder deletion option|<!-- END REF -->
 
 #### Description
 
@@ -260,10 +225,8 @@ When `Delete with contents` is passed:
 
 * The folder, along with all of its contents, is deleted.
 **Warning**: Even when this folder and/or its contents are locked or set to read-only, if the current user has suitable access rights, the folder (and contents) is still deleted.
-* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and an error(*) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the `GET LAST ERROR STACK` command to retrieve the name and path of the offending file.
+* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and error -45 (The file is locked or the pathname is not correct) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the [`lastErrors`](interruptions.md#lasterrors) command to retrieve the name and path of the offending file.
 * If the folder does not exist, the command does nothing and no error is returned.
-(*) Windows: -54 (Attempt to open locked file for writing)
-macOS: -45 (The file is locked or the pathname is not correct)
 
 <!-- END REF -->
 
@@ -301,19 +264,19 @@ macOS: -45 (The file is locked or the pathname is not correct)
 ## .moveTo()
 
 
-<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } ) : 4D.Folder<!-- END REF -->
+<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : string } ) : 4D.Folder<!-- END REF -->
 
 
 <!--REF #FolderClass.moveTo().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
 |destinationFolder|4D.Folder|->|Destination folder|
-|newName|Text|->|Full name for the moved folder|
+|newName|string|->|Full name for the moved folder|
 |Result|4D.Folder|<-|Moved folder|<!-- END REF -->
 
 #### Description
 
-The `.moveTo()` function <!-- REF #FolderClass.moveTo().Summary -->moves or renames the `Folder` object (source folder) into the specified *destinationFolder*<!-- END REF -->.
+The `.moveTo()` function <!-- REF #FolderClass.moveTo().Summary -->moves or renames the `folder` object (source folder) into the specified *destinationFolder*<!-- END REF -->.
 
 The *destinationFolder* must exist on disk, otherwise an error is generated.  
 
@@ -321,17 +284,16 @@ By default, the folder retains its name when moved. If you want to rename the mo
 
 **Returned object**
 
-The moved `Folder` object.
+The moved `folder` object.
 
 #### Example
 
 You want to move and rename a folder:
 
 ```qs
- var tomove, tomove2, docs : 4D.Folder
- docs=Folder(fk documents folder)
- tomove=docs.folder("Pictures")
- tomove2=tomove.moveTo(docs.folder("Archives"),"Pic_Archives")
+ var tomove, tomove2 : 4D.Folder
+ tomove=folder("/RESOURCES/Pictures")
+ tomove2=tomove.moveTo(folder("/RESOURCES/Archives"),"Pic_Archives")
 ```
 <!-- END REF -->
 
@@ -348,29 +310,29 @@ You want to move and rename a folder:
 <!-- REF folder.rename().Desc -->
 ## .rename()
 
-<!--REF #FolderClass.rename().Syntax -->**.rename**( *newName* : Text ) : 4D.Folder<!-- END REF -->
+<!--REF #FolderClass.rename().Syntax -->**.rename**( *newName* : string ) : 4D.Folder<!-- END REF -->
 
 
 <!--REF #FolderClass.rename().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|newName|Text|->|New full name for the folder|
+|newName|string|->|New full name for the folder|
 |Result|4D.Folder|<-|Renamed folder|<!-- END REF -->
 
 #### Description
 
-The `.rename()` function <!-- REF #FolderClass.rename().Summary -->renames the folder with the name you passed in *newName* and returns the renamed `Folder` object<!-- END REF -->.
+The `.rename()` function <!-- REF #FolderClass.rename().Summary -->renames the folder with the name you passed in *newName* and returns the renamed `folder` object<!-- END REF -->.
 
 The *newName* parameter must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned. If a file with the same name already exists, an error is returned.
 
 **Returned object**
 
-The renamed `Folder` object.
+The renamed `folder` object.
 
 #### Example
 
 ```qs
  var toRename : 4D.Folder
- toRename=Folder("/RESOURCES/Pictures").rename("Images")
+ toRename=folder("/RESOURCES/Pictures").rename("Images")
 ```
 <!-- END REF -->
