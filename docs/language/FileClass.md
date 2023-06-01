@@ -25,7 +25,7 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 |---|
 |[<!-- INCLUDE #_command_.File.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.File.Summary -->|
 
-### Fuctions and properties
+### Functions and properties
 
 ||
 |---|

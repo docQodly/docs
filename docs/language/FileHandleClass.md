@@ -1,11 +1,11 @@
 ---
-id: fileHandleClass
-title: fileHandle
+id: FileHandleClass
+title: FileHandle
 ---
 
-The `fileHandle` class has functions that allow you to sequentially read from or append contents to an opened [`file`](FileClass.md) object. A file handle can access any part of a document.
+The `FileHandle` class has functions that allow you to sequentially read from or append contents to an opened [`file`](FileClass.md) object. A file handle can access any part of a document.
 
-file handle objects are created with the [`file.open()`](FileClass.md#open) function.
+File handle objects are created with the [`file.open()`](FileClass.md#open) function.
 
 :::tip
 
