@@ -5,39 +5,12 @@ title: Document Class
 
 ## Description
 
-<!-- REF document.creationDate.Desc -->
-## .creationDate
-
-
-<!-- REF #document.creationDate.Syntax -->**.creationDate** : Date<!-- END REF -->
-
-#### Description
-
-The `.creationDate` property returns <!-- REF #document.creationDate.Summary -->the creation date of the file<!-- END REF -->.
-
-This property is **read-only**.
-
-<!-- END REF -->
-
-<!-- REF document.creationTime.Desc -->
-## .creationTime
-
-
-<!-- REF #document.creationTime.Syntax -->**.creationTime** : Time<!-- END REF -->
-
-#### Description
-
-The `.creationTime` property  returns <!-- REF #document.creationTime.Summary -->the creation  time of the file<!-- END REF --> (expressed as a number of seconds beginning at 00:00).
-
-This property is **read-only**.
-
-<!-- END REF -->
 
 <!-- REF document.exists.Desc -->
 ## .exists
 
 
-<!-- REF #document.exists.Syntax -->**.exists** : Boolean<!-- END REF -->
+<!-- REF #document.exists.Syntax -->**.exists** : boolean<!-- END REF -->
 
 #### Description
 
@@ -52,7 +25,7 @@ This property is **read-only**.
 ## .extension
 
 
-<!-- REF #document.extension.Syntax -->**.extension** : Text<!-- END REF -->
+<!-- REF #document.extension.Syntax -->**.extension** : string<!-- END REF -->
 
 #### Description
 
@@ -66,7 +39,7 @@ This property is **read-only**.
 ## .fullName
 
 
-<!-- REF #document.fullName.Syntax -->**.fullName** : Text<!-- END REF -->
+<!-- REF #document.fullName.Syntax -->**.fullName** : string<!-- END REF -->
 
 #### Description
 
@@ -80,7 +53,8 @@ This property is **read-only**.
 ## .hidden
 
 
-<!-- REF #document.hidden.Syntax -->**.hidden** : Boolean<!-- END REF -->
+
+<!-- REF #document.hidden.Syntax -->**.hidden** : boolean<!-- END REF -->
 
 #### Description
 
@@ -93,7 +67,7 @@ This property is **read/write**.
 <!-- REF document.isAlias.Desc -->
 ## .isAlias
 
-<!-- REF #document.isAlias.Syntax -->**.isAlias** : Boolean<!-- END REF -->
+<!-- REF #document.isAlias.Syntax -->**.isAlias** : boolean<!-- END REF -->
 
 #### Description
 
@@ -107,7 +81,7 @@ This property is **read-only**.
 ## .isFile
 
 
-<!-- REF #document.isFile.Syntax -->**.isFile** : Boolean<!-- END REF -->
+<!-- REF #document.isFile.Syntax -->**.isFile** : boolean<!-- END REF -->
 
 #### Description
 
@@ -121,7 +95,7 @@ This property is **read-only**.
 ## .isFolder
 
 
-<!-- REF #document.isFolder.Syntax -->**.isFolder** : Boolean<!-- END REF -->
+<!-- REF #document.isFolder.Syntax -->**.isFolder** : boolean<!-- END REF -->
 
 #### Description
 
@@ -135,7 +109,7 @@ This property is **read-only**.
 ## .isWritable
 
 
-<!-- REF #document.isWritable.Syntax -->**.isWritable** : Boolean<!-- END REF -->
+<!-- REF #document.isWritable.Syntax -->**.isWritable** : boolean<!-- END REF -->
 
 #### Description
 
@@ -148,10 +122,10 @@ This property is **read-only**.
 **Example**  
 
 ```qs
- myFile=File("C:\\Documents\\Archives\\ReadMe.txt",fk platform path)
- If(myFile.isWritable)
+ myFile=file("/RESOURCES/Archives/ReadMe.txt")
+ if(myFile.isWritable)
     myNewFile=myFile.setText("Added text")
- End if
+ end
 ```
 
 <!-- END REF -->
@@ -160,7 +134,7 @@ This property is **read-only**.
 ## .modificationDate
 
 
-<!-- REF #document.modificationDate.Syntax -->**.modificationDate** : Date<!-- END REF -->
+<!-- REF #document.modificationDate.Syntax -->**.modificationDate** : date<!-- END REF -->
 
 #### Description
 
@@ -174,7 +148,7 @@ This property is **read-only**.
 ## .modificationTime
 
 
-<!-- REF #document.modificationTime.Syntax -->**.modificationTime** : Time<!-- END REF -->
+<!-- REF #document.modificationTime.Syntax -->**.modificationTime** : time<!-- END REF -->
 
 ##### Description
 
@@ -188,7 +162,7 @@ This property is **read-only**.
 ## .name
 
 
-<!-- REF #document.name.Syntax -->**.name** : Text<!-- END REF -->
+<!-- REF #document.name.Syntax -->**.name** : string<!-- END REF -->
 
 #### Description
 
@@ -234,7 +208,7 @@ This property is **read-only**.
 <!-- REF document.path.Desc -->
 ## .path
 
-<!-- REF #document.path.Syntax -->**.path** : Text<!-- END REF -->
+<!-- REF #document.path.Syntax -->**.path** : string<!-- END REF -->
 
 #### Description
 
@@ -248,7 +222,7 @@ This property is **read-only**.
 ## .platformPath
 
 
-<!-- REF #document.platformPath.Syntax -->**.platformPath** : Text<!-- END REF -->
+<!-- REF #document.platformPath.Syntax -->**.platformPath** : string<!-- END REF -->
 
 #### Description
 
@@ -262,7 +236,7 @@ This property is **read-only**.
 ## .size
 
 
-<!-- REF #document.size.Syntax -->**.size** : Real<!-- END REF -->
+<!-- REF #document.size.Syntax -->**.size** : real<!-- END REF -->
 
 #### Description
 
@@ -277,20 +251,20 @@ This property is **read-only**.
 ## .copyTo()
 
 
-<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : Text } { , *overwrite* : Integer } ) : 4D.File<!-- END REF -->
+<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : string } { , *overwrite* : integer } ) : 4D.File<!-- END REF -->
 
 
 <!-- REF #document.copyTo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |destinationFolder | 4D.Folder |->|Destination folder|
-|newName|Text|->|Name for the copy|
-|overwrite|Integer|->|`fk overwrite` to replace existing elements|
+|newName|string|->|Name for the copy|
+|overwrite|integer|->|`fk overwrite` to replace existing elements|
 |Result|4D.File|<-|Copied file|<!-- END REF -->
 
 #### Description
 
-The `.copyTo()` function <!-- REF #document.copyTo().Summary -->copies the `File` object into the specified *destinationFolder* <!-- END REF -->.
+The `.copyTo()` function <!-- REF #document.copyTo().Summary -->copies the `file` object into the specified *destinationFolder* <!-- END REF -->.
 
 The *destinationFolder* must exist on disk, otherwise an error is generated.  
 
@@ -304,16 +278,16 @@ If a file with the same name already exists in the *destinationFolder*, by defau
 
 **Returned value**
 
-The copied `File` object.
+The copied `file` object.
 
 #### Example
 
 You want to copy a picture *file* from the user's document folder to the application folder:
 
 ```qs
-var source, copy : Object
-source=Folder(fk documents folder).file("Pictures/photo.png")
-copy=source.copyTo(Folder("/PACKAGE"),fk overwrite)
+var source, copy : 4D.File
+source=file("/RESOURCES/Pictures/photo.png")
+copy=source.copyTo(folder("/PACKAGE"),fk overwrite)
 ```
 
 <!-- END REF -->
@@ -332,7 +306,7 @@ copy=source.copyTo(Folder("/PACKAGE"),fk overwrite)
 
 #### Description
 
-The `.getContent()` function  <!-- REF #document.getContent().Summary -->returns a `4D.Blob` object containing the entire content of a file<!-- END REF -->. For information on BLOBs, please refer to the [BLOB](../basics/lang-blob.md) section.
+The `.getContent()` function  <!-- REF #document.getContent().Summary -->returns a `4D.Blob` object containing the entire content of a file<!-- END REF -->. For information on blobs, please refer to the [blob](../basics/lang-blob.md) section.
 
 **Returned value**
 
@@ -346,7 +320,7 @@ To save a document's contents in a `Blob` attribute:
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
- myFile=Folder(fk documents folder).file("Archives/data.txt")
+ myFile=file("/RESOURCES/Archives/data.txt")
  vEntity=ds.myClass.all().first() //get an entity
  vEntity.infoBlob=myFile.getContent()
  vEntity.save()
@@ -355,47 +329,21 @@ To save a document's contents in a `Blob` attribute:
 
 <!-- END REF -->
 
-<!-- REF document.getIcon().Desc -->
-## .getIcon()
-
-
-<!-- REF #document.getIcon().Syntax -->**.getIcon**( { *size* : Integer } ) : Picture<!-- END REF -->
-
-
-<!-- REF #document.getIcon().Params -->
-|Parameter|Type||Description|
-|---|----|---|---|
-|size|Integer|->|Side length for the returned picture (pixels)|
-|Result|Picture|<-|Icon|<!-- END REF -->
-
-#### Description
-
-The `.getIcon()` function returns <!-- REF #document.getIcon().Summary -->the icon of the file<!-- END REF -->.
-
-The optional *size* parameter specifies the dimensions in pixels of the returned icon. This value actually represents the length of the side of the square containing the icon. Icons are usually defined in 32x32 pixels (“large icons”) or 16x16 pixels (“small icons”). If you pass 0 or omit this parameter, the "large icon" version is returned.
-
-If the file does not exist on disk, a default blank icon is returned.  
-
-**Returned value**
-
-File icon [picture](../basics/lang-picture.md).
-
-<!-- END REF -->
 
 <!-- REF document.getText().Desc -->
 ## .getText()
 
 
-<!-- REF #document.getText().Syntax -->**.getText**( { *charSetName* : Text { , *breakMode* : Integer } } ) : Text<br/>**.getText**( { *charSetNum* : Integer { , *breakMode* : Integer } } ) : Text<!-- END REF -->
+<!-- REF #document.getText().Syntax -->**.getText**( { *charSetName* : string { , *breakMode* : integer } } ) : string<br/>**.getText**( { *charSetNum* : integer { , *breakMode* : integer } } ) : string<!-- END REF -->
 
 
 <!-- REF #document.getText().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|charSetName |Text |-> |Name of character set|
-|charSetNum |Integer |-> |Number of character set|
-|breakMode|Integer |-> |Processing mode for line breaks|
-|Result |Text  |<- |Text from the document|<!-- END REF -->
+|charSetName |string |-> |Name of character set|
+|charSetNum |integer |-> |Number of character set|
+|breakMode|integer |-> |Processing mode for line breaks|
+|Result |string  |<- |string from the document|<!-- END REF -->
 
 #### Description
 
@@ -440,8 +388,9 @@ id name price vat
 When you execute this code:
 
 ```qs
- var 
- myFile=Folder(fk documents folder).file("Billing.txt") //UTF-8 by default
+ var myFile : 4D.File
+ var txt : string
+ myFile=file("/RESOURCES/Billing.txt") //UTF-8 by default
  txt=myFile.getText()
 ```
 
