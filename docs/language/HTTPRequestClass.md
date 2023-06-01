@@ -13,23 +13,23 @@ The `HTTPRequest` class is available from the `4D` class store. You create and s
 Create a `MyHttpRequestOptions` class for the request options:
 
 ```qs
-Class constructor(method : Text, headers : Object, body : Text)
-	This.method=method
-	This.headers=headers
-	This.body=body
+Class constructor(method : string, headers : object, body : string)
+	this.method=method
+	this.headers=headers
+	this.body=body
 
-Function onResponse(request : 4D.HTTPRequest, event : Object)
+Function onResponse(request : 4D.HTTPRequest, event : object)
 //My onResponse method, if you want to handle the request asynchronously
 
-Function onError(request : 4D.HTTPRequest, event : Object)
+Function onError(request : 4D.HTTPRequest, event : object)
 //My onError method, if you want to handle the request asynchronously
 ```
 
 You can now create your request:
 
 ```qs
-var headers : Object
-headers=New object()
+var headers : object
+headers=newObject()
 headers["field1"]="value1"
 
 var myHttpRequestOptions : cs.MyHttpRequestOptions
@@ -68,14 +68,14 @@ HTTPRequest objects provide the following functions and properties:
 ## 4D.HTTPRequest.new()
 
 
-<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : Text { , *options* : Object } ) : 4D.HTTPRequest<!-- END REF -->
+<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : string { , *options* : object } ) : 4D.HTTPRequest<!-- END REF -->
 
 
 <!-- REF #4D.HTTPRequest.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|url|Text|->|URL to which to send the request|
-|options|Object|->|Request configuration properties|
+|url|string|->|URL to which to send the request|
+|options|object|->|Request configuration properties|
 |Result|4D.HTTPRequest|<-|New HTTPRequest object|<!-- END REF -->
 
 #### Description
@@ -112,24 +112,24 @@ In the *options* parameter, pass an object that can contain the following proper
 
 |Property|Type|Description|Default|
 |---|---|---|---|
-|body|Variant|Body of the request (required in case of `post` or `put` requests). Can be a text, a blob, or an object. The content-type is determined from the type of this property unless it is set inside the headers|undefined|
-|certificatesFolder|[Folder](FolderClass.md)|Sets the active client certificates folder|undefined|
-|dataType|Text|Type of the response body attribute. Values: "text", "blob", "object", or "auto". If "auto", the type of the body content will be deduced from its MIME type (object for JSON, text for text, javascript, xml, http message and url encoded form, blob otherwise)|"auto"|
-|decodeData|Boolean|If true, the data received in the `onData` callback is uncompressed|False|
-|encoding|Text|Used only in case of requests with a `body` (`post` or `put` methods). Encoding of the request body content if it's a text, ignored if content-type is set inside the headers|"UTF-8"|
-|headers|Object|Headers of the request. Syntax: `headers.key=value` (*value* can be a Collection if the same key must appear multiple times)|Empty object|
-|method|Text|"POST", "GET", or other method|"GET"|
-|minTLSVersion|Text|Sets the minimum version of TLS: "`TLSv1_0`", "`TLSv1_1`", "`TLSv1_2`", "`TLSv1_3`"|"`TLSv1_2`"|
-|onData|[Function](FunctionClass.md)|Callback when data from the body is received. It receives two objects as parameters (see below)|undefined|
-|onError|[Function](FunctionClass.md)|Callback when an error occurs. It receives two objects as parameters (see below)|undefined|
-|onHeaders|[Function](FunctionClass.md)|Callback when the headers are received. It receives two objects as parameters (see below)|undefined|
-|onResponse|[Function](FunctionClass.md)|Callback when a response is received. It receives two objects as parameters (see below)|undefined|
-|onTerminate|[Function](FunctionClass.md)|Callback when the request is over. It receives two objects as parameters (see below)|undefined|
-|protocol|Text|"auto" or "HTTP1". "auto" means HTTP1 in the current implementation|"auto"|
-|proxyAuthentication|[authentication object](#authentication-object)|Object handling proxy authentication|undefined|
-|serverAuthentication|[authentication object](#authentication-object)|Object handling server authentication|undefined|
-|returnResponseBody|Boolean|If false, the response body is not returned in the [`response` object](#response). Returns an error if false and `onData` is undefined|True|
-|timeout|Real|Timeout in seconds. Undefined = no timeout|Undefined|
+|body|variant|Body of the request (required in case of `post` or `put` requests). Can be a text, a blob, or an object. The content-type is determined from the type of this property unless it is set inside the headers|undefined|
+|certificatesFolder|[folder](FolderClass.md)|Sets the active client certificates folder|undefined|
+|dataType|string|Type of the response body attribute. Values: "text", "blob", "object", or "auto". If "auto", the type of the body content will be deduced from its MIME type (object for JSON, text for text, javascript, xml, http message and url encoded form, blob otherwise)|"auto"|
+|decodeData|boolean|If true, the data received in the `onData` callback is uncompressed|false|
+|encoding|string|Used only in case of requests with a `body` (`post` or `put` methods). Encoding of the request body content if it's a text, ignored if content-type is set inside the headers|"UTF-8"|
+|headers|object|Headers of the request. Syntax: `headers.key=value` (*value* can be a collection if the same key must appear multiple times)|Empty object|
+|method|string|"POST", "GET", or other method|"GET"|
+|minTLSVersion|string|Sets the minimum version of TLS: "`TLSv1_0`", "`TLSv1_1`", "`TLSv1_2`", "`TLSv1_3`"|"`TLSv1_2`"|
+|onData|[function](FunctionClass.md)|Callback when data from the body is received. It receives two objects as parameters (see below)|undefined|
+|onError|[function](FunctionClass.md)|Callback when an error occurs. It receives two objects as parameters (see below)|undefined|
+|onHeaders|[function](FunctionClass.md)|Callback when the headers are received. It receives two objects as parameters (see below)|undefined|
+|onResponse|[function](FunctionClass.md)|Callback when a response is received. It receives two objects as parameters (see below)|undefined|
+|onTerminate|[function](FunctionClass.md)|Callback when the request is over. It receives two objects as parameters (see below)|undefined|
+|protocol|string|"auto" or "HTTP1". "auto" means HTTP1 in the current implementation|"auto"|
+|proxyAuthentication|[authentication object](#authentication-object)|object handling proxy authentication|undefined|
+|serverAuthentication|[authentication object](#authentication-object)|object handling server authentication|undefined|
+|returnResponseBody|boolean|If false, the response body is not returned in the [`response` object](#response). Returns an error if false and `onData` is undefined|true|
+|timeout|real|Timeout in seconds. Undefined = no timeout|undefined|
 
 
 #### Callback functions
@@ -145,7 +145,6 @@ Here is the sequence of callback calls:
 
 1. `onHeaders` is always called once
 2. `onData` is called zero or several times (not called if the request does not have a body)
-
 3. If no error occured, `onResponse` is always called once
 4. If an error occurs, `onError` is executed once (and terminates the request)
 5. `onTerminate` is always executed once
@@ -165,16 +164,16 @@ An authentication object handles the `options.serverAuthentication` or `options.
 
 |Property|Type|Description|Default|
 |---|---|---|---|
-|name|Text|Name used for authentication|undefined|
-|password|Text|Password used for authentication|undefined|
-|method|Text|Method used for authentication:"basic", "digest", "auto"|"auto"|
+|name|string|Name used for authentication|undefined|
+|password|string|Password used for authentication|undefined|
+|method|string|Method used for authentication: "basic", "digest", "auto"|"auto"|
 
 <!-- END REF -->
 
 <!-- REF #HTTPRequestClass.dataType.Desc -->
 ## .dataType
 
-<!-- REF #HTTPRequestClass.dataType.Syntax -->**dataType** : Text<!-- END REF -->
+<!-- REF #HTTPRequestClass.dataType.Syntax -->**dataType** : string<!-- END REF -->
 
 #### Description
 
@@ -185,7 +184,7 @@ The `.dataType` property contains <!-- REF #HTTPRequestClass.dataType.Summary --
 <!-- REF #HTTPRequestClass.encoding.Desc -->
 ## .encoding
 
-<!-- REF #HTTPRequestClass.encoding.Syntax -->**encoding** : Text<!-- END REF -->
+<!-- REF #HTTPRequestClass.encoding.Syntax -->**encoding** : string<!-- END REF -->
 
 #### Description
 
@@ -196,7 +195,7 @@ The `.encoding` property contains <!-- REF #HTTPRequestClass.encoding.Summary --
 <!-- REF #HTTPRequestClass.errors.Desc -->
 ## .errors
 
-<!-- REF #HTTPRequestClass.errors.Syntax -->**errors** : Collection<!-- END REF -->
+<!-- REF #HTTPRequestClass.errors.Syntax -->**errors** : collection<!-- END REF -->
 
 #### Description
 
@@ -206,17 +205,17 @@ Here is the contents of the `.errors` property:
 
 |Property||Type|Description|
 |---|---|---|---|
-|errors||Collection|Qodly error stack in case of error|
+|errors||collection|Qodly error stack in case of error|
 ||[].errCode|Number|Qodly error code|
-||[].message|Text|Description of the Qodly error|
-||[].componentSignature|Text|Signature of the internal component which returned the error|
+||[].message|string|Description of the Qodly error|
+||[].componentSignature|string|Signature of the internal component which returned the error|
 
 <!-- END REF -->
 
 <!-- REF #HTTPRequestClass.headers.Desc -->
 ## .headers
 
-<!-- REF #HTTPRequestClass.headers.Syntax -->**headers** : Object<!-- END REF -->
+<!-- REF #HTTPRequestClass.headers.Syntax -->**headers** : object<!-- END REF -->
 
 #### Description
 
@@ -227,7 +226,7 @@ The `.headers` property contains <!-- REF #HTTPRequestClass.headers.Summary -->t
 <!-- REF #HTTPRequestClass.method.Desc -->
 ## .method
 
-<!-- REF #HTTPRequestClass.method.Syntax -->**method** : Text<!-- END REF -->
+<!-- REF #HTTPRequestClass.method.Syntax -->**method** : string<!-- END REF -->
 
 #### Description
 
@@ -238,7 +237,7 @@ The `.method` property contains <!-- REF #HTTPRequestClass.method.Summary -->the
 <!-- REF #HTTPRequestClass.protocol.Desc -->
 ## .protocol
 
-<!-- REF #HTTPRequestClass.protocol.Syntax -->**protocol** : Text<!-- END REF -->
+<!-- REF #HTTPRequestClass.protocol.Syntax -->**protocol** : string<!-- END REF -->
 
 #### Description
 
@@ -250,7 +249,7 @@ The `.protocol` property contains <!-- REF #HTTPRequestClass.protocol.Summary --
 <!-- REF #HTTPRequestClass.response.Desc -->
 ## .response
 
-<!-- REF #HTTPRequestClass.response.Syntax -->**response** : Object<!-- END REF -->
+<!-- REF #HTTPRequestClass.response.Syntax -->**response** : object<!-- END REF -->
 
 #### Description
 
@@ -260,22 +259,22 @@ A `response` object is a non-sharable object. It provides the following properti
 
 |Property|Type|Description|
 |---|---|---|
-|.body|Variant|Body of the response. The type of the message is defined according to the [`dataType`](#datatype) property. Undefined if the body has not been received yet|
-|.headers|Object|Headers of the response. Header names are returned in lowercase. `<headername>.key` = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet. |
-|.status|Number|Status code of the response|
-|.statusText|Text|Message explaining the status code|
-|.rawHeaders|Object|Headers of the response. Header names are returned untouched (with their original case). `<headerName>.key` = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet.|
+|.body|variant|Body of the response. The type of the message is defined according to the [`dataType`](#datatype) property. Undefined if the body has not been received yet|
+|.headers|object|Headers of the response. Header names are returned in lowercase. `<headername>.key` = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet. |
+|.status|number|Status code of the response|
+|.statusText|string|Message explaining the status code|
+|.rawHeaders|object|Headers of the response. Header names are returned untouched (with their original case). `<headerName>.key` = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet.|
 
 <!-- END REF -->
 
 <!-- REF #HTTPRequestClass.returnResponseBody.Desc -->
 ## .returnResponseBody
 
-<!-- REF #HTTPRequestClass.returnResponseBody.Syntax -->**returnResponseBody** : Boolean<!-- END REF -->
+<!-- REF #HTTPRequestClass.returnResponseBody.Syntax -->**returnResponseBody** : boolean<!-- END REF -->
 
 #### Description
 
-The `.returnResponseBody` property contains <!-- REF #HTTPRequestClass.returnResponseBody.Summary -->the `returnResponseBody` passed in the [`options`](#options-parameter) object when calling [new()](#4dhttprequestnew)<!-- END REF -->. If it was omitted, contains True.
+The `.returnResponseBody` property contains <!-- REF #HTTPRequestClass.returnResponseBody.Summary -->the `returnResponseBody` passed in the [`options`](#options-parameter) object when calling [new()](#4dhttprequestnew)<!-- END REF -->. If it was omitted, contains true.
 
 <!-- END REF -->
 
@@ -299,29 +298,29 @@ The `.terminate()` function <!-- REF #HTTPRequestClass.terminate().Summary -->ab
 <!-- REF #HTTPRequestClass.terminated.Desc -->
 ## .terminated
 
-<!-- REF #HTTPRequestClass.terminated.Syntax -->**terminated** : Boolean<!-- END REF -->
+<!-- REF #HTTPRequestClass.terminated.Syntax -->**terminated** : boolean<!-- END REF -->
 
 #### Description
 
-The `.terminated` property contains <!-- REF #HTTPRequestClass.terminated.Summary -->True if the request is terminated (after the call to `onTerminate`), false otherwise<!-- END REF -->.
+The `.terminated` property contains <!-- REF #HTTPRequestClass.terminated.Summary -->true if the request is terminated (after the call to `onTerminate`), false otherwise<!-- END REF -->.
 
 <!-- END REF -->
 
 <!-- REF #HTTPRequestClass.timeout.Desc -->
 ## .timeout
 
-<!-- REF #HTTPRequestClass.timeout.Syntax -->**timeout** : Real<!-- END REF -->
+<!-- REF #HTTPRequestClass.timeout.Syntax -->**timeout** : real<!-- END REF -->
 
 #### Description
 
-The `.timeout` property contains <!-- REF #HTTPRequestClass.timeout.Summary -->the `timeout` passed in the [`options`](#options-parameter) object when calling [new()](#4dhttprequestnew)<!-- END REF -->. If it was omitted, contains Undefined.
+The `.timeout` property contains <!-- REF #HTTPRequestClass.timeout.Summary -->the `timeout` passed in the [`options`](#options-parameter) object when calling [new()](#4dhttprequestnew)<!-- END REF -->. If it was omitted, contains undefined.
 
 <!-- END REF -->
 
 <!-- REF #HTTPRequestClass.url.Desc -->
 ## .url
 
-<!-- REF #HTTPRequestClass.url.Syntax -->**url** : Text<!-- END REF -->
+<!-- REF #HTTPRequestClass.url.Syntax -->**url** : string<!-- END REF -->
 
 #### Description
 
@@ -332,13 +331,13 @@ The `.url` property contains <!-- REF #HTTPRequestClass.url.Summary -->the URL o
 <!-- REF #HTTPRequestClass.wait().Desc -->
 ## .wait()
 
-<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : Real } ) : HTTPRequestClass<!-- END REF -->
+<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : real } ) : HTTPRequestClass<!-- END REF -->
 
 
 <!-- REF #HTTPRequestClass.wait().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|time|Real|->|Maximum time in seconds to wait for the response|
+|time|real|->|Maximum time in seconds to wait for the response|
 |Result|4D.HTTPRequest|<-|HTTPRequest object|<!-- END REF -->
 
 #### Description
