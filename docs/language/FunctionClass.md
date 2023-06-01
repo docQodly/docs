@@ -12,16 +12,16 @@ A **`4D.Function`** object contains a piece of code that can be executed from an
 
 
 
-### Formula objects
+### formula objects
 
-The [Formula](#formula) and [Formula from string](#formula-from-string) commands allow you to create **formula functions,** i.e. `4D.Function` objects to execute any expression or code expressed as text.
+The [formula](#formula) and [formulaFromString](#formulafromstring) commands allow you to create **formula functions,** i.e. `4D.Function` objects to execute any expression or code expressed as text.
 
-Formula objects can be encapsulated in object properties:
+formula objects can be encapsulated in object properties:
 
 ```qs
  var f : 4D.Function
- f=New object
- f.comp=Formula(1+2)
+ f=newObject
+ f.comp=formula(1+2)
 ```
 
 This property is an "object function", i.e. a function which is bound to its parent object. To execute a function stored in an object property, use the **()** operator after the property name, such as:
@@ -56,9 +56,9 @@ You can pass parameters to your formulas using sequentially numbered "$" variabl
 
 ```qs
 
- var f : Object
- f=New object
- f.comp=Formula(1+$1)
+ var f : object
+ f=newObject
+ f.comp=formula(1+$1)
  f.comp(5) //returns 6
 ```
 
@@ -66,10 +66,10 @@ Or using the [.call()](#call) function:
 
 ```qs
  var f : 4D.Function
- var r : Integer
- f=Formula($1+$2)
- r=f.call(Null,5,5) //r: 10
- r=f.call(Null,10,Year of(Current date)) //r: 2033
+ var r : integer
+ f=formula($1+$2)
+ r=f.call(null,5,5) //r: 10
+ r=f.call(null,10,yearOf(currentDate)) //r: 2033
 ```
 
 #### Parameters to a single method
@@ -78,20 +78,20 @@ For more convenience, when the formula is made of a single method, parameters ca
 
 ```qs
  var f : 4D.Function
- var t : Text
+ var t : string
 
- f=Formula(myMethod)
-  //Writing Formula(myMethod($1,$2)) is not necessary
- t=f.call(Null,"Hello","World") //returns "Hello World"
+ f=formula(myMethod)
+  //Writing formula(myMethod($1,$2)) is not necessary
+ t=f.call(null,"Hello","World") //returns "Hello World"
  t=f.call() //returns "How are you?"
 
   //myMethod
- #declare (param1 : Text, param2 : Text)->return : Text
- If(Count parameters=2)
+ declare (param1 : string, param2 : string)->return : string
+ if(countParameters=2)
     return=param1+" "+param2
- Else
+ else
     return="How are you?"
- End if
+ end
 ```
 
 Parameters are received within the method, in the order they are specified in the call.
@@ -102,8 +102,8 @@ Parameters are received within the method, in the order they are specified in th
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.Formula.Syntax -->](#formula)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Formula.Summary -->|
-|[<!-- INCLUDE #_command_.Formula from string.Syntax -->](#formula-from-string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.Formula from string.Summary --> |
+|[<!-- INCLUDE #_command_.formula.Syntax -->](#formula)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.formula.Summary -->|
+|[<!-- INCLUDE #_command_.formula from string.Syntax -->](#formulafromstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.formula from string.Summary --> |
 
 
 ### Functions and properties
@@ -118,22 +118,22 @@ Parameters are received within the method, in the order they are specified in th
 
 
 
-## Formula
+## formula
 
 
-<!-- REF #_command_.Formula.Syntax -->**Formula** ( *formulaExp* : Expression ) : 4D.Function<!-- END REF -->
+<!-- REF #_command_.formula.Syntax -->**formula** ( *formulaExp* : expression ) : 4D.Function<!-- END REF -->
 
 
-<!-- REF #_command_.Formula.Params -->
+<!-- REF #_command_.formula.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formulaExp|Expression|->|Formula to be returned as object|
+|formulaExp|expression|->|formula to be returned as object|
 |Result|4D.Function|<-|Native function encapsulating the formula|<!-- END REF -->
 
 
 #### Description
 
-The `Formula` command <!-- REF #_command_.Formula.Summary -->creates a `4D Function` object based upon the *formulaExp* expression<!-- END REF -->. *formulaExp* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
+The `formula` command <!-- REF #_command_.formula.Summary -->creates a `4D Function` object based upon the *formulaExp* expression<!-- END REF -->. *formulaExp* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
 
 The returned formula can be called with:
 
@@ -142,8 +142,8 @@ The returned formula can be called with:
 
 ```qs
  var f : 4D.Function
- f=Formula(1+2)
- o=New object("myFormula",f)
+ f=formula(1+2)
+ o=newObject("myFormula",f)
 
   //three different ways to call the formula
  f.call(o) //returns 3
@@ -151,13 +151,13 @@ The returned formula can be called with:
  o.myFormula() //returns 3
 ```
 
-You can pass [parameters](#passing-parameters) to the `Formula`, as seen below in [example 4](#example-4).
+You can pass [parameters](#passing-parameters) to the `formula`, as seen below in [example 4](#example-4).
 
-You can specify the object on which the formula is executed, as seen in [example 5](#example-5). The properties of the object can then be accessed via the `This` command.
+You can specify the object on which the formula is executed, as seen in [example 5](#example-5). The properties of the object can then be accessed via [`this`](langage.md#this).
 
-If *formulaExp* uses variables, their values are copied and stored in the returned formula object when it is created. When executed, the formula uses these copied values rather than the current value of the variables. Note that using arrays as variables is not supported.
+If *formulaExp* uses variables, their values are copied and stored in the returned formula object when it is created. When executed, the formula uses these copied values rather than the current value of the variables. 
 
-The object created by `Formula` can be saved, for example, in a datastore attribute or in a blob document.
+The object created by `formula` can be saved, for example, in a datastore attribute or in a blob document.
 
 
 #### Example 1
@@ -166,10 +166,10 @@ A simple formula:
 
 ```qs
  var f : 4D.Function
- f=Formula(1+2)
+ f=formula(1+2)
 
- var o : Object
- o=New object("f",f)
+ var o : object
+ o=newObject("f",f)
 
  result=o.f() // returns 3
 ```
@@ -179,10 +179,10 @@ A simple formula:
 A formula using variables:
 
 ```qs
- var value : Integer
+ var value : integer
 
  value=10
- o=New object("f",Formula(value))
+ o=newObject("f",formula(value))
  value=20
 
  result=o.f() // returns 10
@@ -194,27 +194,27 @@ A formula using variables:
 A simple formula using parameters:
 
 ```qs
- o=New object("f",Formula($1+$2))
+ o=newObject("f",formula($1+$2))
  result=o.f(10,20) //returns 30
 ```
 
 
 #### Example 4
 
-A formula using a project method with parameters:
+A formula using a method with parameters:
 
 ```qs
- o=New object("f",Formula(myMethod))
+ o=newObject("f",formula(myMethod))
  result=o.f("param1","param2") // equivalent to result=myMethod("param1","param2")
 ```
 
 
 #### Example 5
 
-Using `This`:
+Using `this`:
 
 ```qs
- o=New object("fullName",Formula(This.firstName+" "+This.lastName))
+ o=newObject("fullName",formula(this.firstName+" "+this.lastName))
  o.firstName="John"
  o.lastName="Smith"
  result=o.fullName() //returns "John Smith"
@@ -225,69 +225,69 @@ Using `This`:
 Calling a formula using object notation:
 
 ```qs
- var feta, robot : Object
+ var feta, robot : object
  var calc : 4D.Function
- robot=New object("name","Robot","price",543,"quantity",2)
- feta=New object("name","Feta","price",12.5,"quantity",5)
+ robot=newObject("name","Robot","price",543,"quantity",2)
+ feta=newObject("name","Feta","price",12.5,"quantity",5)
 
- calc=Formula(This.total=This.price*This.quantity)
+ calc=formula(this.total=this.price*this.quantity)
 
   //sets the formula to object properties
  feta.calc=calc
  robot.calc=calc
 
   //call the formula
- feta.calc() // feta={name:Feta,price:12.5,quantity:5,total:62.5,calc:"[object Formula]"}
- robot.calc() // robot={name:Robot,price:543,quantity:2,total:1086,calc:"[object Formula]"}
+ feta.calc() // feta={name:Feta,price:12.5,quantity:5,total:62.5,calc:"[object formula]"}
+ robot.calc() // robot={name:Robot,price:543,quantity:2,total:1086,calc:"[object formula]"}
 ```
 
 
 
 
-## Formula from string
+## formulaFromString
 
-<!-- REF #_command_.Formula from string.Syntax -->**Formula from string**( *formulaString* : Text ) : 4D.Function<!-- END REF -->
+<!-- REF #_command_.formula from string.Syntax -->**formulaFromString**( *formulaString* : string ) : 4D.Function<!-- END REF -->
 
 
-<!-- REF #_command_.Formula from string.Params -->
+<!-- REF #_command_.formula from string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formulaString|Text|->|Text formula to be returned as object|
+|formulaString|string|->|string formula to be returned as object|
 |Result|4D.Function|<-|Native object encapsulating the formula|<!-- END REF -->
 
 
 #### Description
 
-The `Formula from string` command <!-- REF #_command_.Formula from string.Summary -->creates a `4D.Function` object based upon *formulaString*<!-- END REF -->. The *formulaString* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
+The `formula from string` command <!-- REF #_command_.formula from string.Summary -->creates a `4D.Function` object based upon *formulaString*<!-- END REF -->. The *formulaString* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
 
-This command is similar to [`Formula`](#formula), except that it handles a text-based formula. In most cases, it is recommended to use the `Formula` command. `Formula from string` should only be used when the original formula was expressed as text (e.g., stored externally in a JSON file). 
+This command is similar to [`formula`](#formula), except that it handles a text-based formula. In most cases, it is recommended to use the `formula` command. `formulaFromString` should only be used when the original formula was expressed as text (e.g., stored externally in a JSON file). 
 
 :::note
 
-This command does not support the use of variables in *formulaString*. An attempt to access a variable with `Formula from string` will result in an error (-10737).
+This command does not support the use of variables in *formulaString*. An attempt to access a variable with `formulaFromString` will result in an error (-10737).
 
 :::
 
 <!-- REF FunctionClass.apply().Desc -->
 ## .apply()
 
-<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : Object { , *formulaParams* : Collection } ) : any<!-- END REF -->
+<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : object { , *formulaParams* : collection } ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.apply().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|thisObj|Object|->|Object to be returned by the This command in the formula|
-|formulaParams |Collection|->|Collection of values to be passed as $1...$n when `formula` is executed|
+|thisObj|object|->|Object to be returned by `this` in the formula|
+|formulaParams |collection|->|Collection of values to be passed as $1...$n when `formula` is executed|
 |Result|any|<-|Value from formula execution|<!-- END REF -->
 
 
 #### Description
 
-The `.apply()` function <!-- REF #FunctionClass.apply().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `Formula` or `Formula from string` commands.
+The `.apply()` function <!-- REF #FunctionClass.apply().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `formula` or `formulaFromString` commands.
 
 
-In the *thisObj* parameter, you can pass a reference to the object to be used as `This` within the formula.
+In the *thisObj* parameter, you can pass a reference to the object to be used as `this` within the formula.
 
 You can also pass a collection to be used as $1...$n parameters in the formula using the optional *formulaParams* parameter.
 
@@ -298,10 +298,10 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 
 ```qs
  var f : 4D.Function
- f=Formula($1+$2+$3)
+ f=formula($1+$2+$3)
 
- c=New collection(10,20,30)
- result=f.apply(Null,c) // returns 60
+ c=newCollection(10,20,30)
+ result=f.apply(null,c) // returns 60
 ```
 
 
@@ -309,11 +309,11 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 
 ```qs
  var calc : 4D.Function
- var feta, robot : Object
- robot=New object("name","Robot","price",543,"quantity",2)
- feta=New object("name","Feta","price",12.5,"quantity",5)
+ var feta, robot : object
+ robot=newObject("name","Robot","price",543,"quantity",2)
+ feta=newObject("name","Feta","price",12.5,"quantity",5)
 
- calc=Formula(This.total=This.price*This.quantity)
+ calc=formula(this.total=this.price*this.quantity)
 
  calc.apply(feta) // feta={name:Feta,price:12.5,quantity:5,total:62.5}
  calc.apply(robot) // robot={name:Robot,price:543,quantity:2,total:1086}
@@ -326,22 +326,22 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 ## .call()
 
 
-<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : Object { , ...*params* : any } ) : any<!-- END REF -->
+<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : object { , ...*params* : any } ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.call().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|thisObj|Object|->|Object to be returned by the This command in the formula|
+|thisObj|object|->|object to be returned by `this` in the formula|
 |params |any|->|Value(s) to be passed as $1...$n when formula is executed|
 |Result|any|<-|Value from formula execution|<!-- END REF -->
 
 
 #### Description
 
-The `.call()` function <!-- REF #FunctionClass.call().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `Formula` or `Formula from string` commands.
+The `.call()` function <!-- REF #FunctionClass.call().Summary -->executes the `formula` object to which it is applied and returns the resulting value<!-- END REF -->. The formula object can be created using the `formula` or `formulaFromString` commands.
 
-In the *thisObj* parameter, you can pass a reference to the object to be used as `This` within the formula.
+In the *thisObj* parameter, you can pass a reference to the object to be used as `this` within the formula.
 
 You can also pass values to be used as *$1...$n* parameters in the formula using the optional *params* parameter(s).
 
@@ -351,19 +351,19 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
 
 ```qs
  var f : 4D.Function
- var result : Text
- f=Formula(Uppercase($1))
- result=f.call(Null,"hello") // returns "HELLO"
+ var result : string
+ f=formula(uppercase($1))
+ result=f.call(null,"hello") // returns "HELLO"
 ```
 
 #### Example 2
 
 ```qs
  var f : 4D.Function
- var o : Object
- var result : Integer
- o=New object("value",50)
- f=Formula(This.value*2)
+ var o : object
+ var result : integer
+ o=newObject("value",50)
+ f=formula(this.value*2)
  result=f.call(o) // returns 100
 ```
 
@@ -374,7 +374,7 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
 <!-- REF FunctionClass.source.Desc -->
 ## .source
 
-<!-- REF #FunctionClass.source.Syntax -->**.source** : Text <!-- END REF -->
+<!-- REF #FunctionClass.source.Syntax -->**.source** : string <!-- END REF -->
 
 
 #### Description
@@ -387,9 +387,9 @@ This property is **read-only**.
 
 ```qs
  var of : 4D.Function
- var tf : Text
- of=Formula(String(Current time,HH MM AM PM))
- tf=of.source //"String(Current time,HH MM AM PM)"
+ var tf : string
+ of=formula(string(currentTime,HH MM AM PM))
+ tf=of.source //"string(currentTime,HH MM AM PM)"
 ```
 
 
