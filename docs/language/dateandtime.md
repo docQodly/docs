@@ -9,11 +9,16 @@ title: Date and Time
 ||
 |---|
 |[<!-- INCLUDE #_command_.addToDate.Syntax -->](#addToDate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.addToDate.Summary -->|
+|[<!-- INCLUDE #_command_.currentDate.Syntax -->](#currentDate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentDate.Summary -->|
+|[<!-- INCLUDE #_command_.currentTime.Syntax -->](#currentTime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentTime.Summary -->|
+|[<!-- INCLUDE #_command_.date.Syntax -->](#date)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.date.Summary -->|
 |[<!-- INCLUDE #_command_.dayNumber.Syntax -->](#dayNumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayNumber.Summary -->|
 |[<!-- INCLUDE #_command_.dayOf.Syntax -->](#dayOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayOf.Summary -->|
+|[<!-- INCLUDE #_command_.milliseconds.Syntax -->](#milliseconds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.milliseconds.Summary -->|
 |[<!-- INCLUDE #_command_.monthOf.Syntax -->](#monthOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
 |[<!-- INCLUDE #_command_.time.Syntax -->](#time)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.time.Summary -->|
 |[<!-- INCLUDE #_command_.timeString.Syntax -->](#timeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timeString.Summary -->|
+|[<!-- INCLUDE #_command_.timestamp.Syntax -->](#timestamp)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timestamp.Summary -->|
 |[<!-- INCLUDE #_command_.yearOf.Syntax -->](#yearOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
 
 ## addToDate
