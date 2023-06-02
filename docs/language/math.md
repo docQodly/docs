@@ -40,11 +40,9 @@ title: Math
 
 #### Example
 
-The following example returns the absolute value of –10.3, which is 10.3:
-
 ```qs
 var vlVector : number
-vlVector=abs(-10.3)
+vlVector=abs(-10.3) //10.3
 
 ```
 
@@ -73,7 +71,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 ```qs
 	var vPi : string
- vPi="Pi is equal to: "+string(arctan(1)*4)
+ 	vPi="Pi is equal to: "+string(arctan(1)*4)
 
 ```
 
@@ -127,12 +125,12 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 #### Example
 
-The following example takes a monetary value expressed as a real number, and extracts the dollar part and the cents part. If *vrAmount* is 7.31, then *vlDollars* is set to 7 and *vlCents* is set to 31:
+The following example takes a monetary value expressed as a number, and extracts the dollar part and the cents part. If *vAmount* is 7.31, then *vDollars* is set to 7 and *vCents* is set to 31:
 
 ```qs
- var vlDollars, vlCents, vrAmount : number
- vlDollars=int(vrAmount) //Get the dollars
- vlCents=dec(vrAmount)*100 // Get the fractional part
+ var vDollars, vCents, vAmount : number
+ vDollars=int(vAmount) //Get the dollars
+ vCents=dec(vAmount)*100 // Get the fractional part
 
 ```
 
@@ -288,7 +286,7 @@ The following example illustrates how the `mod` function works with different ar
 |---------|--- |:---:|------|
 |aRound|number|->|Number to be rounded|
 |places|integer|->|Number of decimal places used for rounding|
-|Result|number|<-|Number rounded to the number of decimal places specified by Places|<!-- END REF -->
+|Result|number|<-|Number rounded to the number of decimal places specified by *places*|<!-- END REF -->
 
 #### Description
 
@@ -300,7 +298,7 @@ If the digit following places is 5 though 9, `round` rounds toward positive infi
 
 #### Example
 
-The following example illustrates how `round` works with different arguments. Each line assigns a number to the *vlResult* variable. The comments describe the results:
+The following example illustrates how `round` works with different arguments:
 
 ```qs
  var vlResult : number
@@ -350,23 +348,23 @@ The following example assigns a random integer between 10 and 30 to the *vlResul
 
 ## setRealComparisonLevel
 
-<!-- REF #_command_.setRealComparisonLevel.Syntax -->**setRealComparisonLevel** : number<!-- END REF -->
+<!-- REF #_command_.setRealComparisonLevel.Syntax -->**setRealComparisonLevel** ( *epsilon* : number )<!-- END REF -->
 
 
 <!-- REF #_command_.setRealComparisonLevel.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|number|<-|Epsilon value for real equality comparisons|<!-- END REF -->
+|epsilon|number|->|Epsilon value for real equality comparisons|<!-- END REF -->
 
 #### Description
 
-The `setRealComparisonLevel` command <!-- REF #_command_.setRealComparisonLevel.Summary -->sets the epsilon value used by Qodly to compare real values and expressions for equality<!-- END REF -->.
+The `setRealComparisonLevel` command <!-- REF #_command_.setRealComparisonLevel.Summary -->sets the *epsilon* value used by Qodly to compare real values and expressions for equality<!-- END REF -->.
 
 A computer always performs approximative real computations; therefore, testing real numbers for equality should take this approximation into account. Qodly does this when comparing real numbers by testing whether or not the difference between the two numbers exceeds a certain value. This value is called the epsilon and works this way:
 
-Given two real numbers a and b, if abs(a-b) is greater than the epsilon, the numbers are considered not equal; otherwise, the numbers are considered equal.
+Given two real numbers *a* and *b*, if `abs(a-b)` is greater than the epsilon, the numbers are considered not equal; otherwise, the numbers are considered equal.
 
-By default, Qodly, sets the epsilon value to 10 power minus 6 (10^-6). Please note that the epsilon value should always be positive. Examples:
+By default, Qodly sets the epsilon value to 10 power minus 6 (10^-6). Please note that the epsilon value should always be positive. Examples:
 
 * 0.00001=0.00002 returns false, because the difference 0.00001 is greater than 10^-6.
 * 0.000001=0.000002 returns true, because the difference 0.000001 is not greater than 10^-6.
@@ -374,21 +372,27 @@ By default, Qodly, sets the epsilon value to 10 power minus 6 (10^-6). Please no
 
 Using `setRealComparisonLevel`, you can increase or decrease the epsilon value as you require.
 
-:::caution
+:::note
 
-Typically, you will not need to use this command to change the default epsilon value.
+The command will have no effect if *epsilon* > 10^-3 or if *epsilon* < 0.
 
 :::
 
-:::caution 
 
 Changing the epsilon only affects real number comparison for equality. It has no effect on other real computations nor on the display of real values. 
 
+
+:::caution
+
+This command should be used in specific cases, such as sorting on an attribute with values less than 10^-6. Usually, you will not need to change the default epsilon value.
+
 :::
+
 
 :::note
 
-The `setRealComparisonLevel` command has no effect on queries and sorts performed with fields of the Real type. It only applies the Qodly language.
+The `setRealComparisonLevel` command has no effect on queries and sorts performed with attributes of the Number type. It only applies the Qodly language.
+
 :::
 
 ## sin
@@ -427,22 +431,32 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |number|number|->|Number whose square root is calculated|
-
 |Result|number|<-|Square root of the number|<!-- END REF -->
 
 #### Description
 
-`round` <!-- REF #_command_.squareRoot.Summary -->returns the square root of *number*<!-- END REF -->.
+`squareRoot` <!-- REF #_command_.squareRoot.Summary -->returns the square root of *number*<!-- END REF -->.
 
-#### Example
+#### Example 1
 
-The following exemple assigns the value 1.414213562373 to the variable vrSquareRootOfTwo.
+The following example assigns the value 1.414213562373 to the variable *vrSquareRootOfTwo*.
 
 ```qs
  var vrSquareRootOfTwo : number
  vrSquareRootOfTwo=squareRoot(2)
  
 ```
+
+#### Example 2
+
+The following method returns the hypotenuse of the right triangle whose two legs are passed as parameters:
+
+
+```qs
+ declare ( legA : number , legB : number) -> hypothenuse : number
+ hypothenuse:=squareRoot((legA^2)+(legB^2)) 
+```
+
 
 ## tan
 
@@ -481,7 +495,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 |---------|--- |:---:|------|
 |number|number|->|Number to be truncated|
 |places|integer|->|Number of decimal places used for truncating|
-|Result|number|<-|Number with its decimal part truncated to the number of decimal places specified by Places|<!-- END REF -->
+|Result|number|<-|Number with its decimal part truncated to the number of decimal places specified by *places*|<!-- END REF -->
 
 #### Description
 
@@ -490,8 +504,6 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 If *places* is positive, *number* is truncated to *places* decimal places. If *places* is negative, number is truncated on the left of the decimal point.
 
 #### Example
-
-The following example illustrates how `trunc` works with different arguments. Each line assigns a number to the *vlResult* variable. The comments describe the results:
 
 ```qs
  var vlResult : number
