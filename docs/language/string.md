@@ -3,7 +3,7 @@ id: string
 title: String
 ---
 
-`String` is a generic term that stands for both [**text and string data types**](../concepts/lang-text.md).
+`String` is a generic term that stands for string and text values. 
 
 **See also:** 
 
@@ -89,8 +89,11 @@ The `char` command <!-- REF #_command_.char.Summary -->returns the character who
 
 Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
 
-**Tip:** In editing a method, the command `char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the Method editor.
+:::tip
 
+In editing a method, the command `char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the code editor.
+
+:::
 
 #### Example
 
@@ -127,7 +130,7 @@ The [`char`](#char) function is the counterpart of `characterCode`. It returns t
 
 #### Example 1
 
-Uppercase and lowercase characters are considered equal within a comparison. You can use characterCode to differentiate between uppercase and lowercase characters. Thus, this line returns True:
+Uppercase and lowercase characters are considered equal within a comparison. You can use `characterCode` to differentiate between uppercase and lowercase characters. Thus, this line returns true:
 
 ```qs
 ("A"=="a")
@@ -199,7 +202,7 @@ The second piece of code runs faster for two reasons: it does only one character
 
 ## compareStrings
 
-<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string { , *options* : integer } ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.compareStrings.Params -->
@@ -214,20 +217,20 @@ The second piece of code runs faster for two reasons: it does only one character
 
 The `compareStrings` command <!-- REF #_command_.compareStrings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
 
-In the *aString* parameter, pass a *string* value.
+In the *aString* parameter, pass a string value.
 
-In the *bString* parameter, pass a *string* value to be compared to *aString*.
+In the *bString* parameter, pass a string value to be compared to *aString*.
 
 By default, `compareStrings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants: 
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u> OR <u>sk diacritic insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
 |sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
 |sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
 |sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
+|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>sk strict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).<p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
 
 :::caution
 
@@ -241,9 +244,9 @@ The command returns the following integer values:
 
 |Value |Description|
 |:----|:----|
-|-1|aString is lower than bString|
-|0|aString is equal to bString|
-|1 |aString is higher bString|
+|-1|*aString* is lower than *bString*|
+|0|*aString* is equal to *bString*|
+|1 |*aString* is higher *bString*|
 
 #### Example 1
 
@@ -322,14 +325,15 @@ For example:
 
 ## convertFromString
 
-<!-- REF #_command_.convertFromString.Syntax -->**convertFromString** ( *aString* : string , *charSet* : string, integer ) : blob<!-- END REF -->
+<!-- REF #_command_.convertFromString.Syntax -->**convertFromString** ( *aString* : string , *charSetString* : string ) : blob<br/>**convertFromString** ( *aString* : string , *charSetInt* : integer ) : blob<!-- END REF -->
 
 
 <!-- REF #_command_.convertFromString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aString|string|->|string expressed in current character set|
-|charSet|string, integer|->|Name or Number of character set|
+|charSetString|string|->|Name of character set|
+|charSetInt|integer|->|Number of character set|
 |Result|blob|<-|blob containing converted string|<!-- END REF -->
 
 #### Description
@@ -338,7 +342,7 @@ The `convertFromString` command <!-- REF #_command_.convertFromString.Summary --
 
 In the *aString* parameter, pass the text to be converted. This text is expressed in the current character set (Unicode by default).
 
-In *charSet*, pass the character set to be used for the conversion. You can pass a string containing the standard name of the set (for example “ISO-8859-1” or “UTF-8”), or its MIBEnum identifier.
+In *charSetString* or *charSetInt*, pass the character set to be used for the conversion. You can pass a string containing the standard name of the set (for example "ISO-8859-1" or "UTF-8"), or its MIBEnum identifier.
 
 Here is a list of character sets supported by the convertFromString and [`convertToString`](#converttostring) commands:
 
@@ -501,9 +505,6 @@ For more information about the names of character sets, please refer to the foll
 
 After execution of the command, the converted text will be returned in the *convertedBLOB* blob. This blob can be read by the [`convertToString`](#converttostring) command.
 
-#### System variables and sets
-
-If the command has been correctly executed, the OK variable is set to 1. Otherwise, it is set to 0.
 
 #### See also
 
@@ -511,27 +512,23 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 ## convertToString
 
-<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSet* : string, integer ) : string<!-- END REF -->
-
+<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSetString* : string ) : string<br/>**convertToString** ( *aBlob* : blob , *charSetInt* : integer ) : string<!-- END REF -->
 
 <!-- REF #_command_.convertToString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aBlob|blob|->|blob containing text expressed in a specific character set|
-|charSet|string, integer|->|Name or Number of blob character set|
+|charSetString|string|->|Name of blob character set|
+|charSetInt|integer|->|Number of blob character set|
 |Result|string|<-|Contents of blob expressed in Qodly character set|<!-- END REF -->
 
 #### Description
 
 The `convertToString` command <!-- REF #_command_.convertToString.Summary -->converts the text contained in the *aBlob* parameter and returns it in text expressed in the character set of Qodly<!-- END REF -->. Qodly uses the UTF-16 character set by default.
 
-In *charSet*, pass the character set of the text contained in *aBlob*, which will be used for the conversion. If the blob contains text copied from within Qodly, then the blob’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`convertFromString`](#convertfromstring) command.
+In *charSetString* or *charSetInt*, pass the character set of the text contained in *aBlob*, which will be used for the conversion. If the blob contains text copied from within Qodly, then the blob’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`convertFromString`](#convertfromstring) command.
 
 `convertToString` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), Qodly attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and Qodly uses the character set that it defines instead of the one specified.
-
-#### System variables and sets
-
-If the command has been correctly executed, the OK variable is set to 1. Otherwise, it is set to 0.
 
 #### See also
 
@@ -539,7 +536,7 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 ## deleteString
 
-<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : string , *where * : integer , *numChars* : integer ) : string<!-- END REF -->
+<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : string , *where* : integer , *numChars* : integer ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.deleteString.Params -->
@@ -554,7 +551,7 @@ If the command has been correctly executed, the OK variable is set to 1. Otherwi
 
 `deleteString` <!-- REF #_command_.deleteString.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
 
-`deleteString` returns the same string as `*source*` when:
+`deleteString` returns the same string as *source* when:
 
 * *source* is an empty string
 * *where* is greater than the length of *source*
@@ -567,7 +564,7 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 #### Example
 
 ```qs
-var vtResult, vtOtherVar : string
+ var vtResult, vtOtherVar : string
  vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
  vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
  vtResult=deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
@@ -637,7 +634,7 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 :::note
 
-When you want to check whether a string contains any characters, including ignorable characters, you must use the test If(length(vtAnyText)=0) rather than If(vtAnyText=""). If the string contains for example Char(1), which is an ignorable character, length(vtAnyText) does return 1 but vtAnyText="" returns True.
+When you want to check whether a string contains any characters, including ignorable characters, you must use the test `if(length(vtAnyText)==0)` rather than `if(vtAnyText=="")`. If the string contains for example `char(1)`, which is an ignorable character, `length(vtAnyText)` does return 1 but `vtAnyText==""` returns true.
 
 :::
 
@@ -665,19 +662,16 @@ When you want to check whether a string contains any characters, including ignor
 
 #### Description
 
-`lowercase` <!-- REF #_command_.lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase.<!-- END REF -->. 
+`lowercase` <!-- REF #_command_.lowercase.Summary -->takes *aString* and returns the string with all alphabetic characters in lowercase<!-- END REF -->. 
 
-The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented lowercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
+The optional `*` parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented lowercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 
 #### Example 1
 
 The following project method capitalizes the string or text received as parameter. For instance, Caps ("john") would return "John".
 
 ```qs
-  //Caps project method
-  //Caps ( String ) -> String
-  //Caps ( Any text  ) -> Capitalized text
- #declare (myText : Text) -> myCapText : Text
+ declare (myText : string) -> myCapText : string
  myCapText=lowercase(myText)
  if(length(myCapText)>0)
     myCapText[[1]]==uppercase(myCapText[[1]])
@@ -687,7 +681,7 @@ The following project method capitalizes the string or text received as paramete
 
 #### Example 2
 
-This example compares the results obtained according to whether or not the * parameter has been passed:
+This example compares the results obtained according to whether or not the `*` parameter has been passed:
 
 ```qs
  var thestring : string 
@@ -707,98 +701,70 @@ This example compares the results obtained according to whether or not the * par
 <!-- REF #_command_.matchRegex.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|pattern|Text|->|Regular expression (complete equality when using two parameters only)|
-|aString|Text|->|String in which search will be done|
+|pattern|string|->|Regular expression (complete equality when using two parameters only)|
+|aString|string|->|String in which search will be done|
 |start|integer|->|Position in aString where search will start|
-|pos_found| |<-|Position of occurrence|
-|length_found| |<-|Length of occurrence|
+|pos_found|integer |<-|Position of occurrence|
+|length_found|integer |<-|Length of occurrence|
 |*||->|If passed: only searches at position indicated|
 |Result|boolean|<-|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
 
 #### Description
 
-The `matchRegex` <!-- REF #_command_.matchRegex.Summary -->searches for the regular expression pattern in aString<!-- END REF -->, this command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called “regular expression” or “rational expression.” The regex abbreviation is commonly used to indicate these types of notations. 
+The `matchRegex` command <!-- REF #_command_.matchRegex.Summary -->searches for the regular expression *pattern* in *aString*<!-- END REF -->. It checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called "regular expression" or "rational expression". The *regex* abbreviation is commonly used to indicate these types of notations. 
 
 Pass the regular expression to search for in *pattern*. This consists of a set of characters used for describing a character string, using special characters.
 
 Pass the string where you want to search for the regular expression in *aString*.
 
-In start, pass the position at which to start the search in *aString*.
+In *start*, pass the position at which to start the search in *aString*.
 
-If *pos_found* and *length_found* are variables, the command returns the position and length of the occurrence in these variables. If you pass arrays, the command returns the position and length of the occurrence in the element zero of the arrays and the positions and lengths of the groups captured by the regular expression in the following elements.
+In *pos_found* and *length_found* variables, the command returns the position and length of the first occurrence found.
 
-The optional * parameter indicates, when it is passed, that the search must be carried out at the position specified by *start* without searching any further in the case of failure.
+The optional `*` parameter indicates, when it is passed, that the search must be carried out at the position specified by *start* without searching any further in the case of failure.
 
-The command returns **True** if the search has found an occurrence.
+The command returns **true** if the search has found an occurrence.
 
-For more information about regex, refer to the following address:
-http://en.wikipedia.org/wiki/Regular_expression
+For more information about regex, refer to the dedicated [Wikipedia page](http://en.wikipedia.org/wiki/Regular_expression). 
 
-For more information about the syntax of the regular expression passed in the *pattern* parameter, refer to the following address:
-https://unicode-org.github.io/icu/userguide/strings/regexp.html#regular-expressions
+For more information about the syntax of the regular expression passed in the *pattern* parameter, refer to [this page](https://unicode-org.github.io/icu/userguide/strings/regexp.html#regular-expressions).
 
 #### Example 1
 
-Search in text by position:
+Search in text by position. You want to fidn all tags in a text:
 
 ```qs
-vfound=matchRegex(pattern, mytext, start, pos_found, length_found)
-```
-
-```qs
- #declare (myText : string)
+ declare (myText : string) -> result : collection
  var start : integer
  var vfound : boolean
  start=1
+ result=newCollection
  repeat
     vfound=matchRegex("<.*>",myText,start,pos_found,length_found)
     if(vfound)
-       ALERT(substring(myText,pos_found,length_found))
+       result.push(substring(myText,pos_found,length_found))
        start=pos_found+length_found
     end
- until(Not(vfound))
+ until(not(vfound))
 
 ```
+
 
 #### Example 2
-
-Search with support of “capture groups” via parentheses. ( ) are used to specify groups in the regexes:
-
-```qs
-vfound=matchRegex( pattern,mytext, start, pos_found_array, length_found_array)
-```
-
-
-```qs
- #declare (myText : string)
- var start : integer
- var vfound : boolean
- var group1, group2 : string
- ARRAY LONGINT(pos_found_array,0)
- ARRAY LONGINT(length_found_array,0)
- vfound=matchRegex("(.*)stuff(.*)",myText,1,pos_found_array,length_found_array)
- if(vfound)
-    group1=substring(myText,pos_found_array{1},length_found_array{1})
-    group2=substring(myText,pos_found_array{2},length_found_array{2})
- end
-
-```
-
-#### Example 3
 
 Search limiting the comparison of the pattern to the position indicated:
 Add a star to the end of one of the two previous syntaxes.
 
 ```qs
- var start, pos_found, length_found : integer
+ var pos_found, length_found : integer
  var vfound : string
 
  vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found)
-  // returns True
+  // returns true
  vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found,*)
-  // returns False
+  // returns false
  vfound=matchRegex("a.b","---a-b---",4,pos_found,length_found,*)
-  // returns True
+  // returns true
 
 ```
 
@@ -810,19 +776,20 @@ The positions and lengths returned are only meaningful in Unicode mode or if the
 
 #### Error management
 
-In the event of an error, the command generates an error that you can intercept via a method installed by the ON ERR CALL command.
+In the event of an error, the command generates an error that you can intercept via a method installed by the `onErrCall` command.
+
 
 ## num
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string,boolean,integer , *separator* : string ) : number <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string {, *separator* : string } ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|string,boolean,integer|->|Character for which you want to get the code|
-|separator|string|->|Character for which you want to get the code|
-|Result|number|<-|Character code|<!-- END REF -->
+|expression|mixed|->|Character for which you want to get the code|
+|separator|string|->|Decimal separator|
+|Result|number|<-|Numeric form of the expression parameter|<!-- END REF -->
 
 #### Description
 
@@ -841,19 +808,13 @@ Note that when the string includes more than one "e", conversion might give diff
 
 The *separator* parameter designates a custom decimal separator for evaluating the *expression*. When the string to be evaluated is expressed with a decimal separator different from the system operator, the command returns an incorrect result. The *separator* parameter can be used in this case to obtain a correct evaluation. When this parameter is passed, the command does not take the system decimal separator into account. You can pass one or more characters.
 
-:::note
-
-The GET SYSTEM FORMAT command can be used to find out the current decimal separator as well as several other regional system parameters.
-
-:::
-
 **Boolean Expressions**
 
-If you pass a boolean expression, `num` returns 1 if the expression is True; otherwise, it returns 0 (zero).
+If you pass a boolean expression, `num` returns 1 if the expression is true; otherwise, it returns 0 (zero).
 
 **Numeric Expressions**
 
-If you pass a numeric expression in the *expression* parameter, `num` returns the value passed in the *expression* parameter as is. This can be useful more particularly in the case of generic programming using pointers.
+If you pass a numeric expression in the *expression* parameter, `num` returns the value passed in the *expression* parameter as is. This can be useful more particularly in the case of generic programming.
 
 **Undefined Expressions**
 
@@ -862,7 +823,7 @@ If *expression* evaluates to undefined, the command returns 0 (zero). This is us
 
 #### Example 1
 
-The following example illustrates how `num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
+The following example illustrates how `num` works when passed a string argument. 
 
 ```qs
  var vResult : number
@@ -877,24 +838,20 @@ The following example illustrates how `num` works when passed a string argument.
 
 #### Example 2
 
-This example compares the results obtained depending on the “current” separator:
+This example compares the results obtained depending on the separator:
 
 ```qs
  var thestring : string
  var thenum : number
- thestring="33,333.33"
- thenum=num(thestring)
-  // by default, thenum equals 33,33333 on a French system
- thenum=num(thestring,".")
-  // thenum will be correctly evaluated regardless of the system
-  // for example, 33 333,33 on a French system
+ thestring="33 333,33"
+ thenum=num(thestring) // 3333333
+ thenum=num(thestring,",") // 33333.33
 
 ```
 
 #### See also
 
 [`bool`](#bool)<br/>
-[`GET SYSTEM FORMAT`](#get-system-format)<br/>
 [`string`](#string)
 
 ## position
@@ -904,8 +861,8 @@ This example compares the results obtained depending on the “current” separa
 <!-- REF #_command_.position.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|find|Text|->|String to find|
-|aString|Text|->|String in which to search|
+|find|string|->|String to find|
+|aString|string|->|String in which to search|
 |start|integer|->|Position in string where search will start|
 |lengthFound|integer|<-|Length of string found|
 |*||->|If passed: evaluation based on character codes|
@@ -945,13 +902,12 @@ To modify this functioning, you can pass:
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u><span>&nbsp;</span>OR&nbsp;<u>sk diacritic insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u>&nbsp;([`position`](#position)&nbsp;command only)</li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u> OR <u>sk diacritic insensitive</u></li><li><u>sk whole word</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
+|sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>Can be combined with: <u>sk case insensitive</u></p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
+|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
 |sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
 |sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk whole word|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk case insensitive</u><span>&nbsp;</span>([`position`](#position)<span>&nbsp;</span>command only)</li><li><u>sk diacritic insensitive</u><span>&nbsp;</span>([`position`](#position)<span>&nbsp;</span>command only)</li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in<span>&nbsp;</span><a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Notes:</strong>&nbsp;</p><ul><li>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</li><li>This option is ignored by the<span>&nbsp;</span>[`position`](#position)<span>&nbsp;</span>function. Unicode width insensitive collation is asymmetric and impossible to locate by position or length.&nbsp;</li></ul><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
+|sk whole word|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
 
 :::caution
 
@@ -961,7 +917,6 @@ You cannot use the @ wildcard character with `position`. For example, if you pas
 
 #### Example 1
 
-This example illustrates the use of position. The results, described in the comments, are assigned to the variable vlResult.
 
 ```qs
  var length, vlResult : integer
@@ -978,7 +933,7 @@ This example illustrates the use of position. The results, described in the comm
 
 #### Example 2
 
-In the following example, the lengthFound parameter can be used to search for all the occurrences of "aegis" in a text, regardless of how it is written:
+In the following example, the *lengthFound* parameter can be used to search for all the occurrences of "aegis" in a text, regardless of how it is written:
 
 ```qs
  var start, lengthfound, vlResult : integer
@@ -1031,7 +986,7 @@ In the following example, you want to find all instances of a string and replace
 |newString|string|->|Replacement string (if empty string, occurrences are deleted)|
 |howMany|integer|->|How many times to replace If omitted, all occurrences are replaced|
 |*||->|If passed: evaluation based on character codes|
-|Result|Text|<-|Resulting string|<!-- END REF -->
+|Result|string|<-|Resulting string|<!-- END REF -->
 
 #### Description
 
@@ -1092,14 +1047,14 @@ The following example illustrates the use of the * parameter in the case of a di
 
 ## splitString
 
-<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string , *options* : integer ) : collection <!-- END REF -->
+<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string {, *options* : integer }) : collection <!-- END REF -->
 
 
 <!-- REF #_command_.splitString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|stringToSplit|Text|->|String value|
-|separator|Text|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
+|stringToSplit|string|->|String value|
+|separator|string|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
 |options|integer|->|Option(s) regarding empty strings and spaces|
 |Result|collection|<-|Collection of substrings|<!-- END REF -->
 
@@ -1111,17 +1066,17 @@ If no *separator* is found in *stringToSplit*, `splitString` returns a collectio
 
 In the *options* parameter, you can pass one or a combination of the following constants:
 
-|Constant|Type|Value|Comment|
+|Constant|Value|Comment|
 |---------|--- |---|------|
-|sk ignore empty strings|integer|1|Remove empty strings from the resulting collection (they are ignored)|
-|sk trim spaces|integer|2|Trim space characters at the beginning and end of substrings|
+|sk ignore empty strings|1|Remove empty strings from the resulting collection (they are ignored)|
+|sk trim spaces|2|Trim space characters at the beginning and end of substrings|
 
 #### Example 1
 
 ```qs
  var myText : string
  var myCol : collection 
- col=New collection
+ col=newCollection
  
  myText="John,Doe,120 jefferson st.,Riverside,, NJ, 08075"
  myCol=splitString(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
@@ -1146,7 +1101,6 @@ The *separator* parameter can be a multiple-character string:
 #### See also
 
 [`collection.join()`](#collection.join)<br/>
-[`TEXT TO ARRAY`](#text-to-array)
 
 ## string
 
@@ -1363,9 +1317,7 @@ When you use this command in a multi-style context, you need to convert any Wind
 
 :::
 
-#### Example 1
-
-This example illustrates the use of `substring`. The results, described in the comments, are assigned to the variable vsResult.
+#### Example
 
 ```qs
  var vsResult : string
@@ -1375,32 +1327,6 @@ This example illustrates the use of `substring`. The results, described in the c
  
 ```
 
-#### Example 2
-
-The following project method appends the paragraphs found in the text (passed as first parameter) to a string or text array (the pointer of which is passed as second parameter):
-
-```qs
-  // EXTRACT PARAGRAPHS
-  // EXTRACT PARAGRAPHS ( string , Pointer )
-  // EXTRACT PARAGRAPHS ( string to parse , -> Array of ¶s )
- 
- #declare (myText : string, myPointer : Pointer ) 
- var vlElem, vlPos : integer
- 
- vlElem=Size of array(myPointer->)
- repeat
-    vlElem=vlElem+1
-    INSERT IN ARRAY(myPointer->,vlElem)
-    vlPos=position(char(Carriage return),$1)
-    if(vlPos>0)
-       myPointer->{vlElem}=substring(myText,1,vlPos-1)
-       myText=substring(myText,vlPos+1)
-    else
-       myPointer->{vlElem}=myText
-    end
- until(myText=="")
- 
-```
 
 #### See also
 
@@ -1422,7 +1348,7 @@ The following project method appends the paragraphs found in the text (passed as
 
 `uppercase` <!-- REF #_command_.uppercase.Summary -->takes *aString* and returns the string with all alphabetic characters in uppercase.<!-- END REF -->. 
 
-The optional * parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented uppercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
+The optional `*` parameter, if passed, indicates that any accented characters present in *aString* must be returned as accented uppercase characters. By default, when this parameter is omitted, accented characters “lose” their accents after the conversion is carried out.
 
 #### Example 1
 
