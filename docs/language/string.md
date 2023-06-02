@@ -1145,12 +1145,13 @@ The *separator* parameter can be a multiple-character string:
 
 #### See also
 
-[`collection.join( )`](#collection.join)<br/>
+[`collection.join()`](#collection.join)<br/>
 [`TEXT TO ARRAY`](#text-to-array)
 
 ## string
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : any , *format* : string, integer , *addTime* : time ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+
 
 
 <!-- REF #_command_.string.Params -->
@@ -1171,7 +1172,7 @@ The optional *addTime* parameter adds a time to a date in a combined format. It 
 
 **Numeric Expressions**
 
-If *expression* is a numeric expression (number, integer, Long integer), you can pass an optional string format. Following are some examples:
+If *expression* is a numeric expression (number or integer), you can pass an optional string *format*. Following are some examples:
 
 |Example|Result|Comments|
 |:----|:----|:----|
@@ -1194,11 +1195,6 @@ If *expression* is a numeric expression (number, integer, Long integer), you can
 |string(1/0)|INF|Positive infinite number|
 |string(-1/0)|-INF|Negative infinite number|
 
-:::note
-
-The `string` function is not compatible with "Integer 64 bits" type fields in compiled mode.
-
-:::
 
 **Date Expressions**
 
@@ -1321,7 +1317,7 @@ In this case, the *format* parameter, if passed, is ignored.
 
 **Boolean Expressions**
 
-If *expression* is of the boolean type, the command returns the string “True” or “False” in the language of the application.
+If *expression* is of the boolean type, the command returns the string “True” or “False”.
 In this case, the *format* parameter, if passed, is ignored.
 
 **Undefined Expressions** 
