@@ -1,17 +1,17 @@
 ---
 id: lang-number
-title: Number
+title: Numeric
 ---
 
-Number is a generic term that stands for:
+Numeric is a generic term that stands for:
 
-- Real variable or expression. The range for the real data type is ±1.7e±308 (13 significant digits).
+- Number attribute, variable or expression. The range for the number data type is ±1.7e±308 (13 significant digits).
 - Integer attribute, variable or expression. The range for the integer data type (4-byte Long integer) is -2^31..(2^31)-1.
 
-You can assign any number data type to another; Qodly does the conversion, truncating or rounding if necessary. However, when values are out of range, the conversion will not return a valid value. You can mix number data types in expressions.
+You can assign any numeric data type to another; Qodly does the conversion, truncating or rounding if necessary. However, when values are out of range, the conversion will not return a valid value. You can mix numeric data types in expressions.
 
 
-## Number literals
+## Numeric literals
 
 A numeric literal constant is written as a real number with a period (.) as decimal separator. Here are some examples of numeric constants:
 
@@ -29,7 +29,7 @@ Negative numbers are specified with the minus sign (-). For example:
 -0.0076
 ```
 
-## Number operators
+## Numeric operators
 
 |Operation |Syntax |Returns |Expression |Value|
 |---|---|---|---|---|
