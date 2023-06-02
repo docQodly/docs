@@ -128,77 +128,87 @@ But wait, the adventure continues! Within the realm of Qdler, I grant you the po
             - <code>Webform Loader (Self)</code>: unravels the mysteries within the current Webform loader, granting you further insight into the depths of your creation.
 	</Column.Item>
 	<Column.Item width="35%">
+    	<img alt="explorer" src={require('./img/addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
+        <br /><br />
 		<img alt="explorer" src={require('./img/navigationAction.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
+<br />
+
+The option to `Provide Feedback` is not available. This means that users will not have the ability to provide feedback regarding their navigation experience.
+<br />
+
+#### <span style={{color:'#B174E5'}}>&#9314; &nbsp; <u>Bind a standard action to an event</u> </span>
 
 <br />
 
-#### <span style={{color:'#B174E5'}}>&#9314; &nbsp; <u>Chaining actions</u> </span>
+Within this realm, the potency of standard actions is formidable. You possess the capability to define actions specifically tailored to distinct events, unleashing their power upon datasources to effortlessly manage them using standard actions, without the need to code functions on the server.
+
+To partake in this captivating process, follow the steps outlined below:
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> Choose a component or a datasource and embrace the call of destiny by selecting <code>Add a Standard Action</code> in the Contextual panel.<br /><br />
+        <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> In the Action area, enter the name of the datasource, thereby revealing its true potential.
+	</Column.Item>
+	<Column.Item width="35%">
+    	<img alt="explorer" src={require('./img/addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 <br />
 
-And now, let me shed light upon the art of chaining actions, where you possess the power to forge a symphony of events. Imagine a hero with multiple tasks at hand, each action building upon the success of the previous one. With your unwavering focus, watch as the events unfold in their predetermined order, their actions executed sequentially. Each action commences only when the previous one has completed its divine purpose, leading you closer to triumph.
-
-In this heroic journey, you have learned to configure events with boundless courage. Your webforms shall now come alive, driven by the power of events that shape their destiny. Embrace the call of adventure and unleash your creativity upon the world!
+With a simple click on the desired standard action icon, you invoke its transformative abilities upon the selected component. The available actions vary depending on the type of datasource:
 
 <br />
 
-### <u>Event types</u>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span>For entities, you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
+	</Column.Item>
+	<Column.Item width="40%">
+    	<img alt="explorer" src={require('./img/entityStandardActions.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 <br />
 
-Events come in two distinct forms, dear mortals. 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span>While Entity selections grant you the power to order them, selecting attributes for sorting and determining the direction. Queries, powerful tools of exploration, enable you to unleash the full potential of your desires. They can refresh the entire entity selection, load all entities of a specific dataclass, or even create new empty selections.
+	</Column.Item>
+	<Column.Item width="40%">
+    	<img alt="explorer" src={require('./img/entitySelectionStandardActions.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 <br />
 
-#### <span style={{color:'#B174E5'}}>&#9312; &nbsp; <u>User events</u> </span>
+Regarding the `Provide Feedback` option, it empowers developers to customize the handling of unexpected error messages, determining what will be displayed to end users. Here, you have the ability to:
 
 <br />
 
-The first form arises from the actions of end-users, when they dare to perform certain deeds. A mere click of a button can set the stage for miraculous events.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span>Provide simple UI feedback on a Save, Reload, or Drop standard action on an entity.<br /><br />
+		<span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span>Provide simple UI feedback on a Reload, Order by, or Query standard action on an EntitySelection.
+	</Column.Item>
+	<Column.Item width="40%">
+    	<img alt="explorer" src={require('./img/provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 <br />
 
-For instance, consider the tale of 'Hello User,' where a humble database is transformed into a portal of enchantment, allowing access to the studio, crafting a rudimentary interface, and initiating a search to greet the user by their very name.
+Such is the grandeur of events and their interwoven tapestry within the realm of <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</span>. Embrace their power, and together, let us forge a path of authentic creation!
 
 <br />
 
-Another tale unfolds through the mesmerizing 'Search Feature,' where the objective is to update a list of students based on the end-user's input. As the user types, the Matrix component reveals a captivating display, guided by a search function that queries the students' names and dynamically updates the list.
+:::tip 
+When you wield the ability to orchestrate a symphony of events. Picture yourself as a heroic figure, facing multiple tasks that interconnect, with each action building upon the triumph of the previous one. By maintaining unwavering focus, witness the seamless unfolding of events in their predetermined order, as their actions unfold one after another. Each action waits for its predecessor to fulfill its divine purpose, propelling you closer to ultimate victory.
+:::
 
 <br />
 
-#### <span style={{color:'#B174E5'}}>&#9313; &nbsp; <u>Datasource events</u> </span>
-
-<br />
-
-The second form of events emerges when datasources themselves undergo changes, triggering automatic events. Let me share with you the tale of 'Updating an Entity Selection.' Here, the employee datatable showcases a list of employees, fueled by an entity selection. The user's interactions with buttons and radio components prompt the update of the employee datasource, which invokes an onChange event. This event, in turn, calls upon the mighty function of the EmployeeSelection class, aptly named 'statistics,' providing the user with either general or detailed statistics based on their selection.
-
-<br />
-
-### <u>Standard actions</u>
-
-<br />
-
-In this realm, standard actions hold immense power. You have the ability to define actions tailored to specific events, unleashing their might upon datasources. The available actions vary depending on the kind of datasource.
-
-<br />
-
-To partake in this enchanting process, embark on the following steps:
-
-- Select an event that calls upon your desires.
-- Within the Action area, enter the name of the datasource, unveiling its true potential.
-- With a simple click upon the desired standard action icon, you invoke its transformative powers upon the selected component.
-
-<br />
-
-Allow me to present to you a list of standard actions that you can embrace within this realm:
-
-- For entities, you may create anew, save, refresh, or remove them. You can navigate through the entity selection, traversing to the first, previous, next, or last entity.
-- Entity selections grant you the power to order them, choosing attributes to sort and selecting the direction.
-Queries, mighty tools of exploration, allow you to unleash the full power of your desires. They can refresh the entire entity selection, load all entities of a specific dataclass, or even create new empty selections.
-
-<br />
-
-Such is the grandeur of events and their interwoven tapestry within the realm of Qdler. Embrace their power, and together, let us forge a path of authentic creation!
+In this heroic journey, learn to harness the boundless courage of configuring events. Watch as your webforms come to life, propelled by the influential force of events that shape their destiny. Embrace the call of adventure and unleash your creative prowess upon the world!

@@ -25,8 +25,7 @@ I understand that keeping track of a project's progress can be a daunting task. 
 
 <br />
 
-<span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Toggle Airy Layout:</span> <br /><br />
-
+<span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Toggle Airy Layout:</span> Airy mode is a specially crafted feature that enriches the creation of user-friendly web forms by automatically incorporating default margins between components. When enabled, it introduces a spacious layout by inserting a gap between the components within the form. This not only streamlines the process of designing visually appealing and user-friendly web forms but also significantly reduces the necessity for manual adjustments to style properties. To reflect the selected mode, a convenient toggle is incorporated on the canvas, allowing developers to easily switch between Airy mode and Compact mode. The initial state of the toggle is context-dependent, adapting to the specific form being worked on.<br /><br />
 
 <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Sanity Check:</span> No more unnoticed website issues. The Sanity Check tool is an essential part of a component in Qodly Studio. It scans for any issues that need fixing, like text bound to non-existing data classes, ensuring a smooth user experience for your visitors.<br /><br />
 
@@ -35,7 +34,7 @@ I understand that keeping track of a project's progress can be a daunting task. 
 <span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Preview:</span> Ensure your web masterpiece meets expectations. Use the Preview tool to see how your webform looks visually stunning and dynamic before finalizing modifications.<br /><br />
 
 
-<span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Render in a New Tab:</span> Effortlessly render webforms with Qodly's built-in engine. While the WebAdmin web server allows previewing, keep in mind that end-users view forms in their browsers. The Render in a New Tab feature provides a clear understanding of the end-user perspective.<br /><br />
+<span style={{color:'#B174E5',fontSize:'20px'}}>&#9758; &nbsp;</span> <span style={{color:'#B174E5',fontWeight: 'bold'}}>Render in a New Tab:</span> Effortlessly render webforms with my built-in engine. While the WebAdmin web server allows previewing, keep in mind that end-users view forms in their browsers. The Render in a New Tab feature provides a clear understanding of the end-user perspective.<br /><br />
 
 <br />
 
