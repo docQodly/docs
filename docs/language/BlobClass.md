@@ -34,7 +34,7 @@ If the `blob` parameter is omitted, the method returns an empty 4D.Blob.
 
 ## .size
 
-<!-- REF #Blob.size.Syntax -->**.size** : real<!-- END REF -->
+<!-- REF #Blob.size.Syntax -->**.size** : number<!-- END REF -->
 
 #### Description
 
@@ -42,14 +42,14 @@ The `.size` property <!-- REF #Blob.size.Summary -->returns the size of a `4D.Bl
 
 ## .slice()
 
-<!-- REF #Blob.slice().Syntax -->**.slice**() : 4D.Blob<br/>**.slice**( *start* : Real ) : 4D.Blob<br/>**.slice**( *start* : Real; *end* : Real ) : 4D.Blob<!-- END REF -->
+<!-- REF #Blob.slice().Syntax -->**.slice**() : 4D.Blob<br/>**.slice**( *start* : number ) : 4D.Blob<br/>**.slice**( *start* : number; *end* : number ) : 4D.Blob<!-- END REF -->
 
 
 <!-- REF #Blob.slice().Params -->
 | Parameter | Type ||Description |
 | --------- | ------- | :-: | --- |
-| start| real    | ->  | index of the first byte to include in the new `4D.Blob`.               |
-| end| real    | ->  | index of the first byte that will not be included in the new `4D.Blob` |
+| start| number    | ->  | index of the first byte to include in the new `4D.Blob`.               |
+| end| number    | ->  | index of the first byte that will not be included in the new `4D.Blob` |
 | Result| 4D.Blob | <-  | New `4D.Blob`|<!-- END REF -->
 
 #### Description

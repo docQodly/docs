@@ -344,7 +344,7 @@ end
 
 The `for...end` loop is a loop controlled by a counter variable:
 
-- The counter variable *Counter_Variable* is a numeric variable (real or integer) that the `for...end` loop initializes to the value specified by *Start_Expression*.
+- The counter variable *Counter_Variable* is a numeric variable (number or integer) that the `for...end` loop initializes to the value specified by *Start_Expression*.
 - Each time the loop is executed, the counter variable is incremented by the value specified in the optional value *Increment_Expression*. If you do not specify *Increment_Expression*, the counter variable is incremented by one (1), which is the default.
 - When the counter variable passes the *End_Expression* value, the loop stops.
 

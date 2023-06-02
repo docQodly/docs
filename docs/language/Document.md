@@ -236,7 +236,7 @@ This property is **read-only**.
 ## .size
 
 
-<!-- REF #document.size.Syntax -->**.size** : real<!-- END REF -->
+<!-- REF #document.size.Syntax -->**.size** : number<!-- END REF -->
 
 #### Description
 

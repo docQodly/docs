@@ -227,7 +227,7 @@ function getArea()->result : integer
 // In a project method
 
 var rect : cs.Rectangle
-var area : real
+var area : number
 
 rect=cs.Rectangle.new(50,100)  
 area=rect.getArea() //5000
@@ -382,7 +382,7 @@ The property type can be one of the following supported types:
 |`time`|Time value|
 |`boolean`|Boolean value|
 |`integer`|Long integer value|
-|`real`|Real value|
+|`number`|number value|
 |`picture`|Picture value|
 |`blob`|Scalar Blob value|
 |`collection`|Collection value|

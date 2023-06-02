@@ -8,7 +8,7 @@ Variables, attributes or expressions of the object type can contain various type
 - A property name is always a text, for example "Name". It must follow [specific rules](lang-identifiers.md#object-properties).
 
 - A property value can be of the following type:
-	- number (real, integer)
+	- number (number, integer)
 	- string
 	- null
 	- boolean

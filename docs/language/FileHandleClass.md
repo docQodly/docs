@@ -159,13 +159,13 @@ This property is **read-only**.
 ## .getSize()
 
 
-<!--REF #fileHandleClass.getSize().Syntax -->**.getSize()** : real <!-- END REF -->
+<!--REF #fileHandleClass.getSize().Syntax -->**.getSize()** : number <!-- END REF -->
 
 
 <!--REF #fileHandleClass.getSize().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|real|<-|Size of the document in bytes|<!-- END REF -->
+|Result|number|<-|Size of the document in bytes|<!-- END REF -->
 
 #### Description
 
@@ -203,7 +203,7 @@ This property is **read-only**.
 ## .offset
 
 
-<!-- REF #fileHandleClass.offset.Syntax -->**.offset** : real<!-- END REF -->
+<!-- REF #fileHandleClass.offset.Syntax -->**.offset** : number<!-- END REF -->
 
 
 #### Description
@@ -225,13 +225,13 @@ This property is **read/write**.
 <!-- REF fileHandleClass.readBlob().Desc -->
 ## .readBlob()
 
-<!--REF #fileHandleClass.readBlob().Syntax -->**.readBlob**( *bytes* : real ) : [4D.Blob](BlobClass) <!-- END REF -->
+<!--REF #fileHandleClass.readBlob().Syntax -->**.readBlob**( *bytes* : number ) : [4D.Blob](BlobClass) <!-- END REF -->
 
 
 <!--REF #fileHandleClass.readBlob().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*bytes*|real|->|Number of bytes to be read|
+|*bytes*|number|->|Number of bytes to be read|
 |Result|[4D.Blob](BlobClass)|<-|Bytes read from the file|<!-- END REF -->
 
 
@@ -320,13 +320,13 @@ If the *stopChar* parameter is passed and not found, `.readText()` returns an em
 ## .setSize()
 
 
-<!--REF #fileHandleClass.setSize().Syntax -->**.setSize**( *size* : real )<!-- END REF -->
+<!--REF #fileHandleClass.setSize().Syntax -->**.setSize**( *size* : number )<!-- END REF -->
 
 
 <!--REF #fileHandleClass.setSize().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|size|real|->|New size of the document in bytes|<!-- END REF -->
+|size|number|->|New size of the document in bytes|<!-- END REF -->
 
 
 #### Description

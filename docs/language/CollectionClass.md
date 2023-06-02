@@ -89,7 +89,7 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 <!-- REF #_command_.newCollection.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, real, string, date, time, boolean, object, collection, picture|->|collection's value(s)|
+|value|integer, number, string, date, time, boolean, object, collection, picture|->|collection's value(s)|
 |Result|collection|<-|newCollection|<!-- END REF -->
 
 
@@ -116,7 +116,7 @@ You can pass any number of values of any supported type (number, text, date, pic
 You must pay attention to the following conversion issues:
 
 *	dates are stored as "yyyy-mm-dd" dates or strings with the "YYYY-MM-DDTHH:mm:ss.SSSZ" format, according to the current "dates inside objects" setting. When converting dates into text prior to storing them in the collection, by default the program takes the local time zone into account. You can modify this behavior using the `dates inside objects` selector of the `SET DATABASE PARAMETER` command.
-*	If you pass a time, it is stored as a number of milliseconds (real).
+*	If you pass a time, it is stored as a number of milliseconds (number).
 
 #### Example 1
 
@@ -164,7 +164,7 @@ You create a new collection and then add a new element:
 <!-- REF #_command_.newSharedcollection.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, real, string, date, time, boolean, object (shared), collection (shared)|->|Shared collection's value(s)|
+|value|integer, number, string, date, time, boolean, object (shared), collection (shared)|->|Shared collection's value(s)|
 |Result|collection|<-|newSharedcollection|<!-- END REF -->
 
 
@@ -188,11 +188,11 @@ Optionally, you can prefill the new shared collection by passing one or several 
 
 You can pass any number of values of the following supported types:
 
-*	number (real, integer...). Number values are always stored as reals.
+*	number (number, integer...). Number values are always stored as numbers.
 *	string
 *	boolean
 *	date
-*	time (stored as number of milliseconds - real)
+*	time (stored as number of milliseconds - number)
 *	null
 *	shared object
 *	shared collection
@@ -261,14 +261,14 @@ element=col.at(10) // undefined
 <!-- REF collection.average().Desc -->
 ## .average()
 
-<!-- REF #collection.average().Syntax -->**.average**( {*propertyPath* : string } ) : real<!-- END REF -->
+<!-- REF #collection.average().Syntax -->**.average**( {*propertyPath* : string } ) : number<!-- END REF -->
 
 
 <!-- REF #collection.average().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|string|->|object property path to be used for calculation|
-|Result|real, undefined|<-|Arithmetic mean (average) of collection values|<!-- END REF -->
+|Result|number, undefined|<-|Arithmetic mean (average) of collection values|<!-- END REF -->
 
 
 
@@ -400,7 +400,7 @@ c.combine(fruits,3) //[1,2,3,"Orange","Banana","Apple","Grape",4,5,6]
 <!-- REF #collection.concat().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, real, string, object, collection, date, time, boolean, picture|->|Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection|
+|value|integer, number, string, object, collection, date, time, boolean, picture|->|Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection|
 |Result|collection|<-|New collection with value(s) added to the original collection|<!-- END REF -->
 
 
@@ -533,14 +533,14 @@ end
 <!-- REF collection.count().Desc -->
 ## .count()
 
-<!-- REF #collection.count().Syntax -->**.count**( { *propertyPath* : string } ) : real<!-- END REF -->
+<!-- REF #collection.count().Syntax -->**.count**( { *propertyPath* : string } ) : number<!-- END REF -->
 
 
 <!-- REF #collection.count().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|string|->|object property path to be used for calculation|
-|Result|real|<-|Number of elements in the collection|<!-- END REF -->
+|Result|number|<-|Number of elements in the collection|<!-- END REF -->
 
 
 #### Description
@@ -553,7 +553,7 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 
 ```qs
  var col : collection
- var count1,count2 : real
+ var count1,count2 : number
  col=newCollection(20,30,null,40)
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
@@ -574,7 +574,7 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 ## .countValues()
 
 
-<!-- REF #collection.countValues().Syntax -->**.countValues**( *value* : any {, *propertyPath* : string } ) : real<!-- END REF -->
+<!-- REF #collection.countValues().Syntax -->**.countValues**( *value* : any {, *propertyPath* : string } ) : number<!-- END REF -->
 
 
 <!-- REF #collection.countValues().Params -->
@@ -582,7 +582,7 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 |---------|--- |:---:|------|
 |value|string, Number, boolean, date, object, collection|->|Value to count|
 |propertyPath|string|->|Object property path to be used for calculation|
-|Result|real|<-|Number of occurrences of the value	|<!-- END REF -->
+|Result|number|<-|Number of occurrences of the value	|<!-- END REF -->
 
 
 #### Description
@@ -814,7 +814,7 @@ b=c.every(f) //returns false
 
 #### Example 2
 
-This example tests that all elements of a collection are of the real type:
+This example tests that all elements of a collection are of the number type:
 
 ```qs
 var c : collection
@@ -824,10 +824,10 @@ var f : 4D.Function
 f=formula(valueType($1.value)==$2
 c=newCollection()
 c.push(5,3,1,4,6,2)
-b=c.every(f,Is real) //b=true
+b=c.every(f,Is number) //b=true
 c=c.push(newObject("name","Cleveland","zc",35049))
 c=c.push(newObject("name","Blountsville","zc",35031))
-b=c.every(f,Is real) //b=false
+b=c.every(f,Is number) //b=false
 ```
 
 
@@ -1022,7 +1022,7 @@ You want to filter elements according to their value type:
  c=newCollection(5,3,1,4,6,2)
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
- c2=c.filter(f,Is real) // c2=[5,3,1,4,6,2]
+ c2=c.filter(f,Is number) // c2=[5,3,1,4,6,2]
  c3=c.filter(f,Is object)
   // c3=[{name:Cleveland,zc:35049},{name:Blountsville,zc:35031}]
 ```
@@ -2879,14 +2879,14 @@ col3=col.sort(formula(String($1.value)<String($1.value2))) //alphabetical sort: 
 ## .sum()
 
 
-<!-- REF #collection.sum().Syntax -->**.sum**( { *propertyPath* : string } ) : real<!-- END REF -->
+<!-- REF #collection.sum().Syntax -->**.sum**( { *propertyPath* : string } ) : number<!-- END REF -->
 
 
 <!-- REF #collection.sum().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath |string |->|object property path to be used for calculation|
-|Result|real|<-|Sum of collection values|<!-- END REF -->
+|Result|number|<-|Sum of collection values|<!-- END REF -->
 
 
 #### Description
@@ -2908,7 +2908,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 ```qs
  var col : collection
- var vSum : real
+ var vSum : number
  col=newCollection(10,20,"Monday",true,2)
  vSum=col.sum() //32
 ```
@@ -2917,7 +2917,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 ```qs
  var col : collection
- var vSum : real
+ var vSum : number
  col=newCollection()
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
@@ -2941,7 +2941,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value |string, Number, object, collection, date |->|Value(s) to insert at the beginning of the collection|
-|Result|real|<-|collection containing added element(s)
+|Result|number|<-|collection containing added element(s)
 |<!-- END REF -->
 
 

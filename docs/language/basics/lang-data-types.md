@@ -18,7 +18,7 @@ Although they are usually equivalent, some data types available at the datastore
 |[Collection](lang-collection.md)	|`var collection`|-|null|
 |[Date](lang-date.md)|`var date`|date|00-00-00|
 |[Null](lang-null.md)	|-	|-|null|
-|[Number](lang-number.md)|`var integer`, `var real`|number|0|
+|[Number](lang-number.md)|`var integer`, `var number`|number|0|
 |[Object](lang-object.md)	|`var object`|object|null|
 |[Picture](lang-picture.md)	|`var picture`|image|`pictureSize`==0|
 |[String](lang-text.md)	|`var string`|string|""|

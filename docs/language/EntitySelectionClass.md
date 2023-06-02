@@ -347,13 +347,13 @@ We want to have a selection of employees named "Jones" who live in New York:
 
 
 <!-- REF #EntitySelectionClass.average().Syntax -->
-**.average**( *attributePath* : string ) : real<!-- END REF -->
+**.average**( *attributePath* : string ) : number<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.average().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath |string|->|Attribute path to be used for calculation|
-|Result|real|<-|Arithmetic mean (average) of entity attribute values (Undefined if empty entity selection)|
+|Result|number|<-|Arithmetic mean (average) of entity attribute values (Undefined if empty entity selection)|
 <!-- END REF -->
 
 #### Description
@@ -383,7 +383,7 @@ An error is returned if:
 We want to obtain a list of employees whose salary is higher than the average salary:
 
 ```qs
- var averageSalary : real
+ var averageSalary : number
  var moreThanAv : cs.EmployeeSelection
  averageSalary=ds.Employee.all().average("salary")
  moreThanAv=ds.Employee.query("salary > :1",averageSalary)
@@ -440,13 +440,13 @@ If *entity* and the entity selection do not belong to the same dataclass, an err
 
 
 <!-- REF #EntitySelectionClass.count().Syntax -->
-**.count**( *attributePath* : string ) : real<!-- END REF -->
+**.count**( *attributePath* : string ) : number<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.count().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath |string|->|Path of the attribute to be used for calculation|
-|Result|real|<-|Number of non null *attributePath* values in the entity selection|
+|Result|number|<-|Number of non null *attributePath* values in the entity selection|
 <!-- END REF -->
 
 #### Description
@@ -466,7 +466,7 @@ We want to find out the total number of employees for a company without counting
 
 ```qs
  var sel : cs.EmployeeSelection
- var count : real
+ var count : number
  
  sel=ds.Employee.query("employer = :1","Acme, Inc")
  count=sel.count("jobtitle")
@@ -1087,7 +1087,7 @@ We want to find the highest salary among all the female employees:
 
 ```qs
  var sel : cs.EmpSelection
- var maxSalary : real
+ var maxSalary : number
  sel=ds.Employee.query("gender = :1","female")
  maxSalary=sel.max("salary")
 ```
@@ -1129,7 +1129,7 @@ In this example, we want to find the lowest salary among all the female employee
 
 ```qs
  var sel : cs.EmpSelection
- var minSalary : real
+ var minSalary : number
  sel=ds.Employee.query("gender = :1","female")
  minSalary:=sel.min("salary")
 ```
@@ -1646,13 +1646,13 @@ slice=ds.Employee.all().slice(-1,-2) //tries to return entities from index 9 to 
 ## .sum()   
 
 <!-- REF #EntitySelectionClass.sum().Syntax -->
-**.sum**( *attributePath* : string ) : real<!-- END REF -->
+**.sum**( *attributePath* : string ) : number<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.sum().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath |string|->|Path of the attribute to be used for calculation|
-|Result|real|<-|Sum of entity selection values|
+|Result|number|<-|Sum of entity selection values|
 <!-- END REF -->
 
 #### Description
@@ -1676,7 +1676,7 @@ An error is returned if:
 
 ```qs
 var sel : cs.EmployeeSelection
-var sum : real
+var sum : number
  
 sel=ds.Employee.query("salary < :1",20000)
 sum=sel.sum("salary")

@@ -57,7 +57,7 @@ The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->com
 
 ## convertPicture
 
-<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , ** :   , *codec* : string , *compression* : real )<!-- END REF -->
+<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , ** :   , *codec* : string , *compression* : number )<!-- END REF -->
 
 
 <!-- REF #_command_.convertPicture.Params -->
@@ -66,7 +66,7 @@ The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->com
 |aPicture|picture|<-|Picture to be converted|
 |||->|Converted picture|
 |codec|string|->|Picture Codec ID|
-|compression|real|->|Quality of compression|<!-- END REF -->
+|compression|number|->|Quality of compression|<!-- END REF -->
 
 #### Description
 
@@ -153,14 +153,14 @@ The `getPictureMetadata` command <!-- REF #_command_.getPictureMetadata.Summary 
 
 ## pictureProperties
 
-<!-- REF #_command_.pictureProperties.Syntax -->**pictureProperties** ( *aPicture* : picture , *width* : real , *height* : real , *hOffset* : integer , *vOffset* : integer , *mode* : integer )<!-- END REF -->
+<!-- REF #_command_.pictureProperties.Syntax -->**pictureProperties** ( *aPicture* : picture , *width* : number , *height* : number , *hOffset* : integer , *vOffset* : integer , *mode* : integer )<!-- END REF -->
 
 
 <!-- REF #_command_.pictureProperties.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aPicture|picture|->|Picture for which to get information|
-|width|real|<-|Width of the picture expressed in pixels|
+|width|number|<-|Width of the picture expressed in pixels|
 |height|reak|<-|Height of the picture expressed in pixels|
 |hOffset|integer|<-|Horizontal offset when displayed on background|
 |vOffset|integer|<-|Vertical offset when displayed on background|

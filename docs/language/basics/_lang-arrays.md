@@ -115,7 +115,7 @@ However, in some circumstances, you may need to work with arrays holding hundred
 |Long Integer	|(1+number of elements) * 4  
 |Object|(1+number of elements) * 8 + Sum of the size of each object
 |Picture	|(1+number of elements) * 8 + Sum of the size of each picture
-|Real	|(1+number of elements) * 8
+|number	|(1+number of elements) * 8
 |Text	|(1+number of elements) * 20 + (Sum of the length of each text) * 2
 |Time|(1+number of elements) * 4
 |Two-dimensional	|(1+number of elements) * 16 + Sum of the size of each array

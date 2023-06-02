@@ -129,7 +129,7 @@ In the *options* parameter, pass an object that can contain the following proper
 |proxyAuthentication|[authentication object](#authentication-object)|object handling proxy authentication|undefined|
 |serverAuthentication|[authentication object](#authentication-object)|object handling server authentication|undefined|
 |returnResponseBody|boolean|If false, the response body is not returned in the [`response` object](#response). Returns an error if false and `onData` is undefined|true|
-|timeout|real|Timeout in seconds. Undefined = no timeout|undefined|
+|timeout|number|Timeout in seconds. Undefined = no timeout|undefined|
 
 
 #### Callback functions
@@ -309,7 +309,7 @@ The `.terminated` property contains <!-- REF #HTTPRequestClass.terminated.Summar
 <!-- REF #HTTPRequestClass.timeout.Desc -->
 ## .timeout
 
-<!-- REF #HTTPRequestClass.timeout.Syntax -->**timeout** : real<!-- END REF -->
+<!-- REF #HTTPRequestClass.timeout.Syntax -->**timeout** : number<!-- END REF -->
 
 #### Description
 
@@ -331,13 +331,13 @@ The `.url` property contains <!-- REF #HTTPRequestClass.url.Summary -->the URL o
 <!-- REF #HTTPRequestClass.wait().Desc -->
 ## .wait()
 
-<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : real } ) : HTTPRequestClass<!-- END REF -->
+<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : number } ) : HTTPRequestClass<!-- END REF -->
 
 
 <!-- REF #HTTPRequestClass.wait().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|time|real|->|Maximum time in seconds to wait for the response|
+|time|number|->|Maximum time in seconds to wait for the response|
 |Result|4D.HTTPRequest|<-|HTTPRequest object|<!-- END REF -->
 
 #### Description

@@ -41,7 +41,7 @@ The following table lists all supported `varType` values:
 |`time`|Time value|
 |`boolean`|Boolean value|
 |`integer`|Long integer value|
-|`real`|Real value|
+|`number`|number value|
 |`picture`|Picture value|
 |`blob`|Scalar Blob value|
 |`collection`|Collection value|

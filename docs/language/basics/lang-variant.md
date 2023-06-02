@@ -14,7 +14,7 @@ A variant type variable can contain a value of the following data types:
 - longint
 - object
 - picture
-- real
+- number
 - text
 - time
 - null
@@ -31,7 +31,7 @@ vtypeVal=valueType(variant) // 2 (Is text)
 
 variant=42
 vtype=type(variant) // 12 (Is variant)
-vtypeVal=valueType(variant) // 1 (Is real)
+vtypeVal=valueType(variant) // 1 (Is number)
 ```
 
 You can use variant variables wherever variables are expected, you only need to make sure than the variable content data type is of the expected type. When accessing variant variables, only their current value is taken into account. For example:

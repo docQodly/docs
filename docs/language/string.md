@@ -814,7 +814,7 @@ In the event of an error, the command generates an error that you can intercept 
 
 ## num
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string,boolean,integer , *separator* : string ) : real <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string,boolean,integer , *separator* : string ) : number <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->
@@ -822,7 +822,7 @@ In the event of an error, the command generates an error that you can intercept 
 |---------|--- |:---:|------|
 |expression|string,boolean,integer|->|Character for which you want to get the code|
 |separator|string|->|Character for which you want to get the code|
-|Result|real|<-|Character code|<!-- END REF -->
+|Result|number|<-|Character code|<!-- END REF -->
 
 #### Description
 
@@ -865,7 +865,7 @@ If *expression* evaluates to undefined, the command returns 0 (zero). This is us
 The following example illustrates how `num` works when passed a string argument. Each line assigns a number to the *vResult* variable. The comments describe the results:
 
 ```qs
- var vResult : real
+ var vResult : number
  vResult=num("ABCD") // vResult gets 0
  vResult=num("A1B2C3") // vResult gets 123
  vResult=num("123") // vResult gets 123
@@ -881,7 +881,7 @@ This example compares the results obtained depending on the “current” separa
 
 ```qs
  var thestring : string
- var thenum : real
+ var thenum : number
  thestring="33,333.33"
  thenum=num(thestring)
   // by default, thenum equals 33,33333 on a French system
@@ -1156,7 +1156,7 @@ The *separator* parameter can be a multiple-character string:
 <!-- REF #_command_.string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be real, integer, date, time, string, boolean, undefined, or null)|
+|expression|any|->|Expression for which to return the string form (can be number, integer, date, time, string, boolean, undefined, or null)|
 |format|string, integer|->|Display format|
 |addTime|time|->|Time to add on if expression is a date|
 |Result|string|<-|String form of the expression|<!-- END REF -->
@@ -1171,7 +1171,7 @@ The optional *addTime* parameter adds a time to a date in a combined format. It 
 
 **Numeric Expressions**
 
-If *expression* is a numeric expression (real, integer, Long integer), you can pass an optional string format. Following are some examples:
+If *expression* is a numeric expression (number, integer, Long integer), you can pass an optional string format. Following are some examples:
 
 |Example|Result|Comments|
 |:----|:----|:----|
