@@ -102,7 +102,7 @@ The following example sets the variable *vbOptions* to false:
 
 #### Description
 
-The `not` function <!-- REF #_command_.true.Summary -->returns the negation of *aBoolean*, changing true to false or false to true<!-- END REF -->.
+The `not` function <!-- REF #_command_.not.Summary -->returns the negation of *aBoolean*, changing true to false or false to true<!-- END REF -->.
 
 #### Example
 
