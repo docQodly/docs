@@ -13,7 +13,9 @@ These commands allow you to control the execution of your code.
 |---|
 |[<!-- INCLUDE #_command_.abort.Syntax -->](#abort)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.abort.Summary -->|
 |[<!-- INCLUDE #_command_.assert.Syntax -->](#assert)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.assert.Summary -->|
+|[<!-- INCLUDE #_command_.asserted.Syntax -->](#asserted)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.asserted.Summary -->|
 |[<!-- INCLUDE #_command_.getAssertEnabled.Syntax -->](#getassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getAssertEnabled.Summary -->|
+|[<!-- INCLUDE #_command_.lastErrors.Syntax -->](#lasterrors)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lastErrors.Summary -->|
 |[<!-- INCLUDE #_command_.methodCalledOnError.Syntax -->](#methodCalledOnError)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.methodCalledOnError.Summary -->|
 |[<!-- INCLUDE #_command_.onErrCall.Syntax -->](#onerrcall)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.onErrCall.Summary -->|
 |[<!-- INCLUDE #_command_.setAssertEnabled.Syntax -->](#setassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setAssertEnabled.Summary -->|
@@ -53,7 +55,7 @@ There are errors you can treat programmatically; for example, during an import o
 ## assert
 
 
-<!-- REF #_command_.assert.Syntax -->**assert**( *boolExpression* : boolean )<br/>**assert**( *boolExpression* : boolean, *msg* : string } )<!-- END REF -->
+<!-- REF #_command_.assert.Syntax -->**assert**( *boolExpression* : boolean )<br/>**assert**( *boolExpression* : boolean, *msg* : string )<!-- END REF -->
 
 
 <!-- REF #_command_.assert.Params -->
@@ -112,7 +114,51 @@ An assertion can allow parameters passed to a project method to be tested in ord
 
 #### See also
 
-[`.onErrCall()`](#onerrcall)<br/>
+[`asserted`](#asserted)<br/>[`.onErrCall()`](#onerrcall)<br/>
+[`setAssertEnabled`](#setassertenabled)
+
+
+## asserted
+
+
+<!-- REF #_command_.asserted.Syntax -->**asserted**( *boolExpression* : boolean ) : boolean<br/>**asserted**( *boolExpression* : boolean, *msg* : string ) : boolean<!-- END REF -->
+
+
+<!-- REF #_command_.asserted.Params -->
+
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|boolExpression|boolean|->|Boolean expression|
+|msg|string|->|Text of error message|
+|result|boolean|<-|Result of evaluation of boolExpression|
+<!-- END REF -->
+
+
+#### Description
+
+The `asserted` command <!-- REF #_command_.asserted.Summary -->returns the result of the evaluation of the *boolExpression* parameter. If *boolExpression* is `false` and if assertions [are enabled](#setassertenabled), the error -10518 is generated<!-- END REF -->, exactly as for the [`assert`](#assert) command. If the assertions are disabled, `asserted` returns the result of the expression that was passed without triggering an error.
+
+`asserted` has an operation similar to that of the [`assert`](#assert) command, with one difference in that it returns a value which is the result of the evaluation of the *boolExpression* parameter. It therefore allows the use of an assertion during the evaluation of a condition (see the example). For more information about the operation of assertions and the parameters of this command, please refer to the description of the [`assert`](#assert) command.
+
+
+#### Example
+
+Insertion of an assertion in the evaluation of an expression:
+
+```qs
+ var employee : cs.EmployeeEntity
+ var status : Object
+ employee=ds.Employee.get(717)
+ status=employee.lock() 
+ if(asserted(not(status.success)))
+  // triggers error -10518 if entity cannot be locked
+ end
+```
+
+
+#### See also
+
+[`assert`](#assert)<br/>[`.onErrCall()`](#onerrcall)<br/>
 [`setAssertEnabled`](#setassertenabled)
 
 
@@ -143,6 +189,41 @@ By default, assertions are enabled but they may have been disabled using the [`s
 
 [`.assert`](#assert)<br/>
 [`setAssertEnabled`](#setassertenabled)
+
+
+
+## lastErrors
+
+
+<!-- REF #_command_.lastErrors.Syntax -->**lastErrors** : collection<!-- END REF -->
+
+
+<!-- REF #_command_.lastErrors.Params -->
+
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|result|collection|->|Collection of error objects|
+<!-- END REF -->
+
+
+#### Description
+
+The `lastErrors` command <!-- REF #_command_.lastErrors.Summary -->returns the current stack of errors of the Qodly application as a collection of error objects, or `null` if no error occurred<!-- END REF -->.
+
+Each error object contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|errCode|number|Error code|
+|message|string|Description of the error|
+|componentSignature|string|Signature of the internal component which returned the error|
+
+This command must be called from an error-handling method installed by the [`onErrCall`](#onerrcall) command.
+
+
+#### See also
+
+[`onErrCall`](#onerrcall)
 
 
 
