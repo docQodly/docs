@@ -344,6 +344,7 @@ const sidebars = {
 			'language/interruptions',
 			'language/MailAttachmentClass',
 			'language/math',
+			'language/SessionClass',
 			'language/string',
 			'language/UsersClass',
 			'language/WebForm',
