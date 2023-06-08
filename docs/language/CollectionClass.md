@@ -21,8 +21,8 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.newCollection.Syntax -->](#new-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newCollection.Summary -->|
-|[<!-- INCLUDE #_command_.newSharedcollection.Syntax -->](#new-shared-collection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedcollection.Summary -->|
+|[<!-- INCLUDE #_command_.newCollection.Syntax -->](#newcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newCollection.Summary -->|
+|[<!-- INCLUDE #_command_.newSharedcollection.Syntax -->](#newsharedcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedcollection.Summary -->|
 
 
 
