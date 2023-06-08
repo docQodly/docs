@@ -147,9 +147,9 @@ end
 
 #### Description
 
-The `.idleTimeout` property contains <!-- REF #SessionClass.idleTimeout.Summary -->the inactivity session timeout (in minutes), after which the session is automatically closed by 4D<!-- END REF -->.
+The `.idleTimeout` property contains <!-- REF #SessionClass.idleTimeout.Summary -->the inactivity session timeout (in minutes), after which the session is automatically closed by Qodly<!-- END REF -->.
 
-if this property is not set, the default value is 60 (1h).
+If this property is not set, the default value is 60 (1h).
 
 When this property is set, the [`.expirationDate`](#expirationdate) property is updated accordingly.
 
@@ -160,7 +160,7 @@ This property is **read write**.
 
 #### Example
 
-```4d
+```qs
 if (session.isGuest())
 		// A Guest session will close after 60 minutes of inactivity
 	session.idleTimeout=60
@@ -178,25 +178,24 @@ end
 ## .isGuest()
 
 
-<!-- REF #SessionClass.isGuest().Syntax -->**.isGuest()** : boolean<!-- END REF -->
+<!-- REF #SessionClass.isGuest().Syntax -->**.isGuest**() : boolean<!-- END REF -->
 
 
 <!-- REF #SessionClass.isGuest().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|True if session is a Guest one, False otherwise|<!-- END REF -->
+|Result|boolean|<-|True if session is a Guest one, false otherwise|<!-- END REF -->
 
 #### Description
 
-The `.isGuest()` function <!-- REF #SessionClass.isGuest().Summary -->returns True if the session is a Guest session (i.e. it has no privileges)<!-- END REF -->.
+The `.isGuest()` function <!-- REF #SessionClass.isGuest().Summary -->returns `true` if the session is a Guest session (i.e. it has no privileges)<!-- END REF -->.
 
 
 #### Example
 
-In the `On Web Connection` database method:
 
-```4d
-if (Session.isGuest())
+```qs
+if (session.isGuest())
 	//Do something for Guest user
 end
 ```
@@ -208,24 +207,16 @@ end
 <!-- REF SessionClass.setPrivileges().Desc -->
 ## .setPrivileges()
 
-<details><summary>History</summary>
 
-|Version|Changes|
-|---|---|
-|v19 R8|Support of "roles" Settings property|
-|v18 R6|Added|
-
-</details>
-
-<!-- REF #SessionClass.setPrivileges().Syntax -->**.setPrivileges**( *privilege* : string )<br/>**.setPrivileges**( *privileges* : Collection )<br/>**.setPrivileges**( *settings* : Object )<!-- END REF -->
+<!-- REF #SessionClass.setPrivileges().Syntax -->**.setPrivileges**( *privilege* : string )<br/>**.setPrivileges**( *privileges* : collection )<br/>**.setPrivileges**( *settings* : object )<!-- END REF -->
 
 
 <!-- REF #SessionClass.setPrivileges().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |privilege|string|->|Privilege name|
-|privileges|Collection|->|Collection of privilege names|
-|settings|Object|->|Object with a "privileges" property (string or collection)|<!-- END REF -->
+|privileges|collection|->|Collection of privilege names|
+|settings|Object|->|object with a "privileges" property (string or collection)|<!-- END REF -->
 
 #### Description
 
@@ -239,17 +230,17 @@ The `.setPrivileges()` function <!-- REF #SessionClass.setPrivileges().Summary -
 
 |Property|Type|Description|
 |---|---|---|
-|privileges|string or Collection|<li>String containing a privilege name, or</li><li>Collection of strings containing privilege names</li>|
-|roles|string or Collection|<li>String containing a role, or</li><li>Collection of strings containing roles</li>|
+|privileges|string or collection|<li>String containing a privilege name, or</li><li>Collection of strings containing privilege names</li>|
+|roles|string or collection|<li>String containing a role, or</li><li>Collection of strings containing roles</li>|
 |userName|string|User name to associate to the session (optional)|
 
 :::info
 
-Privileges and roles are defined in [`roles.json`](../ORDA/privileges.md#rolesjson-file) file of the project. For more information, please refer to the [**Privileges**](../ORDA/privileges.md) section.
+Privileges and roles are defined in [`roles.json`](../concepts/orda/privileges.md#rolesjson-file) file of the project. For more information, please refer to the [**Privileges**](../concepts/orda/privileges.md) section.
 
 :::
 
-if the `privileges` or `roles` property contains a name that is not declared in the [`roles.json`](../ORDA/privileges.md#rolesjson-file) file, it is ignored.
+If the `privileges` or `roles` property contains a name that is not declared in the [`roles.json`](../concepts/orda/privileges.md#rolesjson-file) file, it is ignored.
 
 By default when no privilege or role is associated to the session, the session is a [Guest session](#isguest).
 
@@ -259,16 +250,16 @@ The [`userName`](#username) property is available at session object level (read-
 
 In a custom authentication method, you set the "WebAdmin" privilege to the user:
 
-```4d
+```qs
 var userOK : boolean
 
 ... //Authenticate the user
 
 if (userOK) //The user has been approved
-  var info : Object
-  info=New object()
-  info.privileges=New collection("WebAdmin")
-  Session.setPrivileges(info)
+  var info : object
+  info=newObject
+  info.privileges=newCollection("WebAdmin")
+  session.setPrivileges(info)
 end
 
 ```
@@ -279,35 +270,27 @@ end
 <!-- REF SessionClass.storage.Desc -->
 ## .storage
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v18 R6|Added|
-
-</details>
-
-<!-- REF #SessionClass.storage.Syntax -->**.storage** : Object<!-- END REF -->
+<!-- REF #SessionClass.storage.Syntax -->**.storage** : object<!-- END REF -->
 
 #### Description
 
 The `.storage` property contains <!-- REF #SessionClass.storage.Summary -->a shared object that can be used to store information available to all requests of the web client<!-- END REF -->.
 
-When a `Session` object is created, the `.storage` property is empty. Since it is a shared object, this property will be available in the `Storage` object of the server.
+When a `session` object is created, the `.storage` property is empty. Since it is a shared object, this property will be available in the `storage` object of the server.
 
-> Like the `Storage` object of the server, the `.storage` property is always "single": adding a shared object or a shared collection to `.storage` does not create a shared group.
+> Like the `storage` object of the server, the `.storage` property is always "single": adding a shared object or a shared collection to `.storage` does not create a shared group.
 
 This property is **read only** itself but it returns a read-write object.
 
 #### Example
 
-You want to store the client IP in the `.storage` property. You can write in the `On Web Authentication` database method:
+You want to store the client IP in the `.storage` property:
 
-```4d
-if (Session.storage.clientIP=Null) //first access
-    Use (Session.storage)
-        Session.storage.clientIP=New shared object("value"; clientIP)
-    End use
+```qs
+if (session.storage.clientIP=null) //first access
+    use (session.storage)
+        session.storage.clientIP=newSharedObject("value", clientIP)
+    end
 end
 
 ```
@@ -321,13 +304,6 @@ end
 <!-- REF SessionClass.userName.Desc -->
 ## .userName
 
-<details><summary>History</summary>
-
-|Version|Changes|
-|---|---|
-|v18 R6|Added|
-
-</details>
 
 <!-- REF #SessionClass.userName.Syntax -->**.userName** : string<!-- END REF -->
 

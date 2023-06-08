@@ -80,7 +80,7 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 
 
 
-## `newCollection`
+## newCollection
 
 
 <!-- REF #_command_.newCollection.Syntax -->**newCollection** {( *...value* : any )} : collection<!-- END REF -->
@@ -90,7 +90,7 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|integer, number, string, date, time, boolean, object, collection, picture|->|collection's value(s)|
-|Result|collection|<-|newCollection|<!-- END REF -->
+|Result|collection|<-|New collection|<!-- END REF -->
 
 
 #### Description
@@ -156,7 +156,7 @@ You create a new collection and then add a new element:
 
 
 
-## `newSharedcollection`
+## newSharedcollection
 
 <!-- REF #_command_.newSharedcollection.Syntax -->**newSharedcollection** {( *...value* : any )} : collection<!-- END REF -->
 
@@ -165,7 +165,7 @@ You create a new collection and then add a new element:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |value|integer, number, string, date, time, boolean, object (shared), collection (shared)|->|Shared collection's value(s)|
-|Result|collection|<-|newSharedcollection|<!-- END REF -->
+|Result|collection|<-|New shared collection|<!-- END REF -->
 
 
 #### Description
