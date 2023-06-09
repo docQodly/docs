@@ -38,12 +38,24 @@ Timeout for selected tooltip behavior.
 
 Shows or hides the tips icons ![helper](img/helper-tip.png) in the webform editor.
 
-## Database
+## Application
 
 #### Preview Page
 
-Allows to select a webform to use as the home page. When clicking on the **Preview/Run application** button, this webform is rendered in a new tab.
+Allows to select a webform to use as the home page of your application. 
+
+The home page webform is automatically rendered when:
+
+- you click on the **Preview** button in the webform editor - the webform is rendered in a new tab.
+- you click on the **Preview URL** area in the Qodly Cloud dashboard of your application. 
 
 This setting is defined at project level.
 
+#### Default Display Mode
 
+Allows to select the default mode for displaying multiple components in your webforms:
+
+- **Neutral** (default): no specific margins are applied to components
+- **Airy**: automatically incorporate default margins between components, for a better design. 
+
+The display mode can also be selected at the webform level.
