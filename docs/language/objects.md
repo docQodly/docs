@@ -13,8 +13,8 @@ The Object commands manage [object](../basics/lang-object.md) type elements.
 |[<!-- INCLUDE #_command_.objectCopy.Syntax -->](#objectcopy)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectCopy.Summary -->|
 |[<!-- INCLUDE #_command_.objectIsDefined.Syntax -->](#objectisdefined)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectIsDefined.Summary -->|
 |[<!-- INCLUDE #_command_.objectRemove.Syntax -->](#objectremove)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectRemove.Summary -->|
+|[<!-- INCLUDE #_command_.objectValues.Syntax -->](#objectvalues)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectValues.Summary -->|
 |[<!-- INCLUDE #_command_.storage.Syntax -->](#storage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.storage.Summary -->|
-|[<!-- INCLUDE #_command_.int.Syntax -->](#int)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.int.Summary -->|
 |[<!-- INCLUDE #_command_.log.Syntax -->](#log)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.log.Summary -->|
 |[<!-- INCLUDE #_command_.mod.Syntax -->](#mod)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mod.Summary -->|
 |[<!-- INCLUDE #_command_.random.Syntax -->](#random)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.random.Summary -->|
@@ -244,6 +244,50 @@ This test is equivalent to:
 [objectIsEmpty](#objectisempty)
 
 
+## objectKeys
+
+<!-- REF #_command_.objectValues.Syntax -->**objectValues** ( *object* : object ) : collection<!-- END REF -->
+
+
+<!-- REF #_command_.objectValues.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|object|object|->|Object to return property values|
+|Result|collection|<-|Collection of property values (variant)|<!-- END REF -->
+
+<!-- END REF -->
+
+#### Description
+
+The `objectValues` command <!-- REF #_command_.objectValues.Summary -->returns a collection of variants containing all of the enumerable property values of the *object*<!-- END REF -->.
+
+The order of values within the returned collection follows the definition order of the properties.
+
+
+#### Example
+
+```qs
+ var person : object
+ var col : collection
+ 
+ person=newObject
+ person.lastName="Smith"
+ person.firstName="Jenny"
+ person.children=newObject("Mary",12,"Mark",8)
+ 
+ col=objectValues(person)
+ 
+  //col[0]:"Smith"
+  //col[1]:"Jenny"
+  //col[2]:{"Mary":12,"Mark":8}
+```
+
+#### See also
+
+[objectEntries](#objectentries)<br/>[objectKeys](#objectkeys)
+
+
+
 ## objectRemove
 
 <!-- REF #_command_.objectRemove.Syntax -->**objectRemove** ( *object* : object , *property* : string )<!-- END REF -->
@@ -278,6 +322,47 @@ If the *property* is not found at the first level of *object*, the command does 
 ```
 
 
+## objectValues
+
+<!-- REF #_command_.objectValues.Syntax -->**objectValues** ( *object* : object ) : collection<!-- END REF -->
+
+
+<!-- REF #_command_.objectValues.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|object|object|->|Object to return property values|
+|Result|collection|<-|Collection of property values (variant)|<!-- END REF -->
+
+<!-- END REF -->
+
+#### Description
+
+The `objectValues` command <!-- REF #_command_.objectValues.Summary -->returns a collection of variants containing all of the enumerable property values of the *object*<!-- END REF -->.
+
+The order of values within the returned collection follows the definition order of the properties.
+
+
+#### Example
+
+```qs
+ var person : object
+ var col : collection
+ 
+ person=newObject
+ person.lastName="Smith"
+ person.firstName="Jenny"
+ person.children=newObject("Mary",12,"Mark",8)
+ 
+ col=objectValues(person)
+ 
+  //col[0]:"Smith"
+  //col[1]:"Jenny"
+  //col[2]:{"Mary":12,"Mark":8}
+```
+
+#### See also
+
+[objectEntries](#objectentries)<br/>[objectKeys](#objectkeys)
 
 
 ## storage
@@ -747,6 +832,7 @@ The following method returns the hypotenuse of the right triangle whose two legs
 |---------|--- |:---:|------|
 |number|number|->|Number, in radians, whose tangent is returned|
 |Result|number|<-|Tangent of number|<!-- END REF -->
+
 
 #### Description
 
