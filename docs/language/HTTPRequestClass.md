@@ -13,7 +13,7 @@ The `HTTPRequest` class is available from the `4D` class store. You create and s
 Create a `MyHttpRequestOptions` class for the request options:
 
 ```qs
-Class constructor(method : string, headers : object, body : string)
+constructor(method : string, headers : object, body : string)
 	this.method=method
 	this.headers=headers
 	this.body=body
