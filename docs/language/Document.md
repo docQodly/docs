@@ -218,19 +218,6 @@ This property is **read-only**.
 
 <!-- END REF -->
 
-<!-- REF document.platformPath.Desc -->
-## .platformPath
-
-
-<!-- REF #document.platformPath.Syntax -->**.platformPath** : string<!-- END REF -->
-
-#### Description
-
-The `.platformPath` property returns <!-- REF #document.platformPath.Summary -->the path of the file expressed with the current platform syntax<!-- END REF -->.
-
-This property is **read-only**.
-
-<!-- END REF -->
 
 <!-- REF document.size.Desc -->
 ## .size

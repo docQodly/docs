@@ -12,7 +12,7 @@ title: Folder
 The following example creates a "JohnSmith" folder object:
 
 ```qs
-var curFoler : 4D.Folder 
+var curfolder : 4D.Folder 
 curfolder=folder("/PACKAGE/JohnSmith")
 ```
 
@@ -54,7 +54,6 @@ curfolder=folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #directory.original.Syntax -->](#original)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.original.Summary -->|
 |[<!-- INCLUDE #directory.parent.Syntax -->](#parent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.parent.Summary -->|
 |[<!-- INCLUDE #directory.path.Syntax -->](#path)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.path.Summary -->|
-|[<!-- INCLUDE #directory.platformPath.Syntax -->](#platformpath)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.platformPath.Summary -->|
 |[<!-- INCLUDE #FolderClass.moveTo().Syntax -->](#moveto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.moveTo().Summary -->|
 |[<!-- INCLUDE #FolderClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.rename().Summary -->|
 
@@ -62,14 +61,13 @@ curfolder=folder("/PACKAGE/JohnSmith")
 ## folder
 
 
-<!-- REF #_command_.folder.Syntax -->**folder** ( *path* : string { , *pathType* : integer }{ , \* } ) : 4D.Folder<!-- END REF -->
+<!-- REF #_command_.folder.Syntax -->**folder** ( *path* : string { , * } ) : 4D.Folder<!-- END REF -->
 
 
 <!-- REF #_command_.folder.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |path|string|->|folder path|
-|pathType|integer|->|`fk posix path` (default) or `fk platform path`|
 |*||->|* to return folder of host database|
 |Result|4D.Folder|<-|New folder object|<!-- END REF -->
 
@@ -77,16 +75,9 @@ curfolder=folder("/PACKAGE/JohnSmith")
 
 The `folder` command <!-- REF #_command_.folder.Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. 
 
-In the *path* parameter, pass a folder path string. You can use a custom string or a filesystem (e.g., "/DATA").
+In the *path* parameter, pass a [folder filesystem string](basics/lang-pathnames.md) (e.g., "/DATA").
 
-> Only absolute pathnames are supported with the `folder` command.
-
-By default, Qodly expects a path expressed with the POSIX syntax. If you work with platform pathnames (Windows or macOS), you must declare it using the *pathType* parameter. The following constants are available:
-
-|Constant|Value|Comment|
-|---|---|---|
-|fk platform path|1|Path expressed with a platform-specific syntax (mandatory in case of platform pathname)|
-|fk posix path|0|Path expressed with POSIX syntax (default)
+Qodly expects a path expressed with the POSIX syntax. 
 
 If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
@@ -95,7 +86,7 @@ If the command is called from a component, pass the optional `*` parameter to ge
 
 
 <!-- REF #4D.Folder.new().Syntax -->
-**4D.Folder.new** ( *path* : string { , *pathType* : integer }{ , \* } ) : 4D.Folder<br/>**4D.Folder.new** ( *folderConstant* : integer { , \* } ) : 4D.Folder<!-- END REF -->
+**4D.Folder.new** ( *path* : string { , * } ) : 4D.Folder<!-- END REF -->
 
 
 #### Description
@@ -305,7 +296,6 @@ You want to move and rename a folder:
 
 <!-- INCLUDE directory.path.Desc -->
 
-<!-- INCLUDE directory.platformPath.Desc -->
 
 <!-- REF folder.rename().Desc -->
 ## .rename()

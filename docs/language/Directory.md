@@ -232,21 +232,6 @@ This property is **read-only**.
 
 <!-- END REF -->
 
----
-
-<!-- REF directory.platformPath.Desc -->
-## .platformPath
-
-
-<!-- REF #directory.platformPath.Syntax -->**.platformPath** : string<!-- END REF -->
-
-#### Description
-
-The `.platformPath` property returns <!-- REF #directory.platformPath.Summary -->the path of the folder expressed with the current platform syntax<!-- END REF -->.
-
-This property is **read-only**.
-
-<!-- END REF -->
 
 ---
 

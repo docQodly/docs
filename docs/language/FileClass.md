@@ -3,7 +3,7 @@ id: FileClass
 title: File
 ---
 
-`file` objects are created with the [`file`](#file) command. They contain references to disk files that may or may not actually exist on disk. For example, when you execute the `file` command to create a new file, a valid `file` object is created but nothing is actually stored on disk until you call the [`file.create()`](#create) function.
+`File` objects are created with the [`file`](#file) command. They contain references to disk files that may or may not actually exist on disk. For example, when you execute the `file` command to create a new file, a valid `file` object is created but nothing is actually stored on disk until you call the [`file.create()`](#create) function.
 
 ### Example
 
@@ -51,7 +51,6 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 |[<!-- INCLUDE #document.original.Syntax -->](#original)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.original.Summary -->|
 |[<!-- INCLUDE #document.parent.Syntax -->](#parent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.parent.Summary -->|
 |[<!-- INCLUDE #document.path.Syntax -->](#path)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.path.Summary -->|
-|[<!-- INCLUDE #document.platformPath.Syntax -->](#platformpath)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.platformPath.Summary -->|
 |[<!-- INCLUDE #FileClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.rename().Summary -->|
 |[<!-- INCLUDE #FileClass.setContent().Syntax -->](#setcontent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setContent().Summary -->|
 |[<!-- INCLUDE #FileClass.setText().Syntax -->](#settext)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setText().Summary -->|
@@ -61,14 +60,13 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 ## file
 
 
-<!-- REF #_command_.File.Syntax -->**file** ( *path* : string { , *pathType* : integer }{ , \* } ) : 4D.File<!-- END REF -->
+<!-- REF #_command_.File.Syntax -->**file** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
 
 
 <!-- REF #_command_.File.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |path|string|->|File path|
-|pathType|integer|->|`fk posix path` (default) or `fk platform path`|
 |*||->|* to return file of host database|
 |Result|4D.File|<-|New file object|<!-- END REF -->
 
@@ -76,16 +74,9 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 
 The `file` command <!-- REF #_command_.File.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
 
-In the *path* parameter, pass a file path string. You can use a custom string or a filesystem (e.g., "/DATA/myfile.txt").
+In the *path* parameter, pass a [filesystem path string](basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
 
-> Only absolute pathnames are supported with the `file` command.
-
-By default, Qodly expects a path expressed with the POSIX syntax. if you work with platform pathnames (Windows or macOS), you must declare it using the *pathType* parameter. The following constants are available:
-
-|Constant|Value|Comment|
-|---|---|---|
-|fk platform path|1|Path expressed with a platform-specific syntax (mandatory in case of platform pathname)|
-|fk posix path|0|Path expressed with POSIX syntax (default)
+Qodly expects a path expressed with the POSIX syntax. 
 
 If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
@@ -95,7 +86,7 @@ If the command is called from a component, pass the optional `*` parameter to ge
 
 
 <!-- REF #4D.File.new().Syntax -->
-**4D.File.new** ( *path* : string { , *pathType* : integer }{ , * } ) : 4D.File<br/>**4D.File.new** ( *fileConstant* : integer { , * } ) : 4D.File<!-- END REF -->
+**4D.File.new** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
 
 #### Description
 
@@ -233,6 +224,7 @@ You want to delete a specific file in the project folder:
 
 <!-- INCLUDE document.isFolder.Desc -->
 
+
 <!-- INCLUDE document.isWritable.Desc -->
 
 <!-- INCLUDE document.modificationDate.Desc -->
@@ -347,8 +339,6 @@ fhandle=f.open("read")
 <!-- INCLUDE document.parent.Desc -->
 
 <!-- INCLUDE document.path.Desc -->
-
-<!-- INCLUDE document.platformPath.Desc -->
 
 <!-- REF file.rename().Desc -->
 ## .rename()
