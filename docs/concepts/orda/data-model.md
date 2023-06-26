@@ -3,7 +3,7 @@ id: data-model
 title: Data Model Objects
 ---
 
-The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (i.e. an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides access to data through entity and entity selection objects. 
+The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides access to data through entity and entity selection objects. 
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
@@ -24,7 +24,7 @@ When handled through the code, the datastore is an object, returned by the [`ds`
 The datastore object itself cannot be copied as an object:
 
 ```qs 
-mydatastore=OB Copy(ds) //returns null
+mydatastore=objectCopy(ds) //returns null
 ```
 
 
@@ -32,16 +32,16 @@ The datastore properties are however enumerable:
 
 
 ```qs 
- ARRAY TEXT(prop,0)
- OB GET PROPERTY NAMES(ds,prop)
-  //prop contains the names of all the dataclasses
+ var names : collection
+ names=objectKeys(ds)
+  //names contains the names of all the dataclasses
 ```
 
 
 
 ### Dataclass
 
-A dataclass is the equivalent of a table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as computed attributes or alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
+A dataclass is the equivalent of a database table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as computed and alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
 
 All dataclasses in a Qodly project are available as a property of the `ds` datastore. The **Expose as REST resource** option must be selected at the model level for each dataclass that you want to be called from the Web. 
 
@@ -60,8 +60,8 @@ A dataclass object can contain:
 
 *	attributes
 *	relation attributes
-*	[computed attributes]
-*	alias attributes
+*	[computed attributes](orda-classes.md#computed-attributes)
+*	[alias attributes](orda-classes.md#alias-attributes)
 *	functions
 
 The dataclass offers an abstraction of the physical database and allows handling a conceptual data model with specific features such as computed attributes or alias attributes. The dataclass is the only means to query the datastore. A query is done from a single dataclass. Queries are built around attributes and relation attribute names of the dataclasses. So the relation attributes are the means to involve several linked dataclasses in a query.
@@ -69,15 +69,15 @@ The dataclass offers an abstraction of the physical database and allows handling
 The dataclass object itself cannot be copied as an object:
 
 ```qs 
-mydataclass=OB Copy(ds.Employee) //returns null
+mydataclass=objectCopy(ds.Employee) //returns null
 ```
 
 The dataclass properties are however enumerable:
 
 ```
-ARRAY TEXT(prop;0)
-OB GET PROPERTY NAMES(ds.Employee,prop)
-//prop contains the names of all the dataclass attributes
+ var names : collection
+ names=objectKeys(ds.Employee)
+//names contains the names of all the dataclass attributes
 ```
 
 
@@ -86,12 +86,12 @@ OB GET PROPERTY NAMES(ds.Employee,prop)
 Basically, dataclass properties are attribute objects describing the underlying fields or relations. For example:
 
 ```qs 
- var nameAttribute, revenuesAttribute : Object
+ var nameAttribute, revenuesAttribute : object
  nameAttribute=ds.Company.name //reference to class attribute
  revenuesAttribute=ds.Company["revenues"] //alternate way to reference
 ```
 
-This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle using the [`DataClassAttribute` class functions](../language/DataClassAttribute.md). To handle values, you need to go through [Entities](#entity).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
 
 The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 
@@ -154,7 +154,7 @@ However, an entity also contains data correlated to the datastore. The purpose o
 For example, to create an entity:
 
 ```qs
- var status : Object
+ var status : object
  var employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
 
  employee=ds.Employee.new()
@@ -166,15 +166,15 @@ For example, to create an entity:
 The entity object itself cannot be copied as an object:
 
 ```qs
- myentity=OB Copy(ds.Employee.get(1)) //returns null
+ myentity=objectCopy(ds.Employee.get(1)) //returns null
 ```
 
 The entity properties are however enumerable:
 
 ```qs
- ARRAY TEXT($prop,0)
- OB GET PROPERTY NAMES(ds.Employee.get(1),prop)
-  //prop contains the names of all the entity attributes
+ var names : collection
+ names=objectKeys(ds.Employee.get(1))
+  //names contains the names of all the entity attributes
 ```
 
 
@@ -192,16 +192,16 @@ e=ds.Employee.all() //assigns the resulting entity selection reference to the e 
 The entity selection object itself cannot be copied as an object:
 
 ```qs
- myentitysel=OB Copy(ds.Employee.all()) //returns null
+ myentitysel=objectCopy(ds.Employee.all()) //returns null
 ``` 
  
 The entity selection properties are however enumerable:
 
 ```qs
- ARRAY TEXT(prop,0)
- OB GET PROPERTY NAMES(ds.Employee.all();prop)
-  //prop contains the names of the entity selection properties
-  //("length", 00", "01"...)
+ var names : collection
+ names=objectKeys(ds.Employee.all())
+  //names contains the names of the entity selection properties
+  //("length", "00", "01"...)
 ```
 
 
@@ -227,14 +227,6 @@ Unordered entity selections are created in all other cases, including:
 *	result of a `query()` on a selection (of any type) or a `query()` on a dataclass,
 *	result of a `all()`, `fromCollection()`, or `newSelection()` (without option) function on a dataclass,
 *	result of various functions from the entity selection class, whatever the input selection types: `or()`, `and()`, `add()`, `copy()`, `extract()`, `slice()`, `drop()`...
-*	result of a relation such as `$empSel:=company.employees`, or a projection such as `$empSel.name`,
+*	result of a relation such as `empSel=company.employees`, or a projection such as `empSel.name`,
 *	result of an `entity.getSelection()` function.
-
-
-
-:::note
-
-Entity selections built upon remote datastores are always ordered. 
-
-:::
 
