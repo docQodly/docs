@@ -9,9 +9,13 @@ The Object commands manage [object](../basics/lang-object.md) type elements.
 
 ||
 |---|
+|[<!-- INCLUDE #_command_.newObject.Syntax -->](#newobject)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newObject.Summary -->|
 |[<!-- INCLUDE #_command_.newSharedObject.Syntax -->](#newsharedobject)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedObject.Summary -->|
+|[<!-- INCLUDE #_command_.objectClass.Syntax -->](#objectclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectClass.Summary -->|
 |[<!-- INCLUDE #_command_.objectCopy.Syntax -->](#objectcopy)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectCopy.Summary -->|
+|[<!-- INCLUDE #_command_.objectEntries.Syntax -->](#objectentries)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectEntries.Summary -->|
 |[<!-- INCLUDE #_command_.objectIsDefined.Syntax -->](#objectisdefined)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectIsDefined.Summary -->|
+|[<!-- INCLUDE #_command_.objectKeys.Syntax -->](#objectkeys)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectKeys.Summary -->|
 |[<!-- INCLUDE #_command_.objectRemove.Syntax -->](#objectremove)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectRemove.Summary -->|
 |[<!-- INCLUDE #_command_.objectValues.Syntax -->](#objectvalues)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectValues.Summary -->|
 |[<!-- INCLUDE #_command_.storage.Syntax -->](#storage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.storage.Summary -->|
@@ -24,6 +28,71 @@ The Object commands manage [object](../basics/lang-object.md) type elements.
 |[<!-- INCLUDE #_command_.squareRoot.Syntax -->](#squareRoot)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.squareRoot.Summary -->|
 |[<!-- INCLUDE #_command_.tan.Syntax -->](#tan)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.tan.Summary -->|
 |[<!-- INCLUDE #_command_.trunc.Syntax -->](#trunc)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.trunc.Summary -->|
+
+
+
+## newObject
+
+<!-- REF #_command_.newObject.Syntax -->**newObject** {( *property* : string , *value* : any {, *...property* : string , *...value* : any} ) } : object<!-- END REF -->
+
+
+<!-- REF #_command_.newObject.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|property|string|->|Name of property to create|
+|value|integer, number, string, date, time, boolean, object, collection, picture|->|Value of property|
+|Result|object|<-|New object|<!-- END REF -->
+
+#### Description
+
+The `newObject` command <!-- REF #_command_.newObject.Summary -->creates a new empty or prefilled object and returns its reference<!-- END REF -->. 
+
+:::info
+
+Object literals can also be created directly with the `{}` operator, for example:
+
+```qs
+o={a:"foo",b:42}
+``` 
+
+:::
+
+
+If you do not pass any parameters, `newObject` creates an empty object and returns its reference. 
+
+Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
+
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties). 
+- In the *value* parameter, pass the value you want to set for the property. The following types of values are supported:
+	- number (all numeric values are stored as numbers)
+	- string
+	- boolean
+	- date
+	- time (stored as number of milliseconds)
+	- null
+	- picture
+	- object
+	- collection
+
+
+#### Example
+
+Create empty or filled objects:
+
+```qs
+var obj1, obj2, obj3, obj4 : object
+obj1=newObject
+  // obj1 = {}
+obj2=newObject("name","Smith")
+  // obj2 = {name:Smith}
+obj3=newObject("name","Smith","age",40)
+  // obj3 = {name:Smith,age:40}
+  
+  // Note that this is equivalent to:
+obj4={name:"Smith",age:40}
+```
+
+
 
 
 
@@ -62,6 +131,7 @@ Optionally, you can prefill the new object by passing one or several *property/v
 
 Unlike standard (not shared) objects, shared objects do not support pictures and objects or collections that are not shared.
 
+:::
 
 #### Example 1
 
@@ -81,6 +151,51 @@ end
 ```
 
 
+
+## objectClass
+
+<!-- REF #_command_.objectClass.Syntax -->**objectClass** ( *object* : object ) : object<!-- END REF -->
+
+
+<!-- REF #_command_.objectClass.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|object|object|->|Object whose class is to be returned|
+|Result|object|<-|Class of object or `null` if not found|<!-- END REF -->
+
+<!-- END REF -->
+
+#### Description
+
+The `objectClass` command <!-- REF #_command_.objectClass.Summary -->returns the class of the *object* passed in parameter<!-- END REF -->. 
+
+All objects inherit from the Object class. If *object* is not an existing object, `objectClass` returns `null`. 
+
+#### Example
+
+You created the Polygon class:
+
+```qs
+  //Class: Polygon
+ 
+ constructor(size1 : integer, size2 : integer)
+ this.area=size1*size2
+```
+
+Then, in a method, you can write:
+
+```qs
+ var poly, class : object
+ poly=cs.Polygon.new(4,3)
+ 
+ class=objectClass(poly)
+  //class contains Class: Polygon
+```
+
+
+#### See also
+
+[objectEntries](#objectentries)<br/>[objectValues](#objectvalues)
 
 
 
@@ -181,6 +296,63 @@ We want to copy *sharedObj* in *sharedColl* but since they belong to different s
  end
 ```
 
+## objectEntries
+
+<!-- REF #_command_.objectEntries.Syntax -->**objectEntries** ( *object* : object ) : collection<!-- END REF -->
+
+
+<!-- REF #_command_.objectEntries.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|object|object|->|Object to return contents|
+|Result|collection|<-|Collection of objects with key / value properties|<!-- END REF -->
+
+<!-- END REF -->
+
+#### Description
+
+The `objectEntries` command <!-- REF #_command_.objectEntries.Summary -->returns a collection of objects containing the contents of the *object* as key / value property pairs<!-- END REF -->. 
+
+Each returned object contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|key|string|Enumerable property name of the object|
+|value|variant|Enumerable property value of the object| 
+
+Only first-level property names are returned (property names of sub-objects are not returned). The order of properties within the returned collection follows the definition order of the properties.
+
+
+#### Example
+
+Using an object as an hash map (key / value system) provides a quick and direct access to data, just like when using an index (e.g., if we need Mary's age, we can write: `persons["Mary"]`)
+
+
+```qs
+var individual, persons : object
+var names, ages : collection
+var result1, result2 : string
+ 
+persons=newObject
+persons["John"]=42
+persons["Andy"]=24
+persons["Mary"]=30
+persons["Paul"]=50
+ 
+result1="The average age is "+string(objectValues(persons).average())
+result1=result1+"/rThere are "+string(objectKeys(persons).length)+" persons"
+ 
+ages=objectEntries(persons).query("value>:1",25)
+result2="There are "+string(ages.length)+" persons who are over 25"
+result2=result2+"/rTheir names are: "+ages.extract("key").join("-")
+```
+
+
+#### See also
+
+[objectKeys](#objectkeys)<br/>[objectValues](#objectvalues)
+
+
 ## objectIsDefined
 
 <!-- REF #_command_.objectIsDefined.Syntax -->**objectIsDefined** ( *object* : object {, *property* : string } ) : boolean<!-- END REF -->
@@ -246,45 +418,44 @@ This test is equivalent to:
 
 ## objectKeys
 
-<!-- REF #_command_.objectValues.Syntax -->**objectValues** ( *object* : object ) : collection<!-- END REF -->
+<!-- REF #_command_.objectKeys.Syntax -->**objectKeys** ( *object* : object ) : collection<!-- END REF -->
 
 
-<!-- REF #_command_.objectValues.Params -->
+<!-- REF #_command_.objectKeys.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to return property values|
-|Result|collection|<-|Collection of property values (variant)|<!-- END REF -->
+|object|object|->|Object to return property names|
+|Result|collection|<-|Collection of property names (strings)|<!-- END REF -->
 
 <!-- END REF -->
 
 #### Description
 
-The `objectValues` command <!-- REF #_command_.objectValues.Summary -->returns a collection of variants containing all of the enumerable property values of the *object*<!-- END REF -->.
+The `objectKeys` command returns a<!-- REF #_command_.objectKeys.Summary -->returns a collection of strings containing all of the enumerable property names of the *object*<!-- END REF -->.
 
-The order of values within the returned collection follows the definition order of the properties.
-
+Only first-level property names are returned (property names of sub-objects are not returned). The order of names within the returned collection follows the definition order of the properties.
 
 #### Example
 
 ```qs
- var person : object
- var col : collection
+var person : object
+var col : collection
  
- person=newObject
- person.lastName="Smith"
- person.firstName="Jenny"
- person.children=newObject("Mary",12,"Mark",8)
+person=newObject
+person.lastName="Smith"
+person.firstName="Jenny"
+person.children=newObject("Mary",12,"Mark",8)
  
- col=objectValues(person)
+col=objectKeys(person)
  
-  //col[0]:"Smith"
-  //col[1]:"Jenny"
-  //col[2]:{"Mary":12,"Mark":8}
+  //col[0]:"lastName"
+  //col[1]:"firstName"
+  //col[2]:"children"
 ```
 
 #### See also
 
-[objectEntries](#objectentries)<br/>[objectKeys](#objectkeys)
+[objectEntries](#objectentries)<br/>[objectValues](#objectvalues)
 
 
 
