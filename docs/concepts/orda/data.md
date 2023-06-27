@@ -239,7 +239,7 @@ An entity selection can be **shareable** (readable by multiple processes, but no
 A **shareable** entity selection has the following characteristics:
 
 - it can be stored in a shared object or shared collection, and can be passed as parameter between several processes or workers;
-- it can be stored in several shared objects or collections, or in a shared object or collection which already belongs to a group (it does not have a *locking identifier*);
+- it can be stored in several shared objects or collections, or in a shared object or collection which already belongs to a group;
 - it does not allow the addition of new entities. Trying to add an entity to a shareable entity selection will trigger an error (1637 - This entity selection cannot be altered). To add an entity to a shareable entity selection, you must first transform it into a non-shareable entity selection using the [`.copy()`](../../language/EntitySelectionClass.md#copy) function, before calling [`.add()`](../../language/EntitySelectionClass.md#add).
 
 :::note
@@ -261,7 +261,7 @@ The **shareable** or **alterable** nature of an entity selection is defined when
 
 A new entity selection is **shareable** in the following cases:
 
-- the new entity selection results from an ORDA class function applied to a dataClass: [dataClass.all()](../../language/DataClassClass.md#all), [dataClass.fromCollection()](../../language/DataClassClass.md#fromcollection), [dataClass.query()](../../language/DataClassClass.md#query),
+- the new entity selection results from an ORDA class function applied to a dataclass: [dataClass.all()](../../language/DataClassClass.md#all), [dataClass.fromCollection()](../../language/DataClassClass.md#fromcollection), [dataClass.query()](../../language/DataClassClass.md#query),
 - the new entity selection is based upon a relation [entity.*attributeName*](../../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute but the entity does not belong to an entity selection.
 - the new entity selection is explicitely copied as shareable with [entitySelection.copy()](../../language/EntitySelectionClass.md#copy) (i.e. with the `ck shared` option).
 
@@ -298,13 +298,13 @@ A new entity selection **inherits** from the original entity selection nature in
 Examples:
  
 ```qs
-var highSal , lowSal : cs.EmployeeSelection
+var highSal, lowSal : cs.EmployeeSelection
 var comp, comp2 : cs.CompanySelection
-highSal=ds.Employee.query("salary >= :1"; 1000000)   
+highSal=ds.Employee.query("salary >= :1", 1000000)   
 	//highSal is shareable because of the query on dataClass
 comp=highSal.employer //comp is shareable because highSal is shareable
 
-lowSal=ds.Employee.query("salary <= :1"; 10000).copy() 
+lowSal=ds.Employee.query("salary <= :1", 10000).copy() 
 	//lowSal is alterable because of the copy()
 comp2=lowSal.employer //comp2 is alterable because lowSal is alterable
 ```
@@ -322,7 +322,7 @@ paid=ds.Invoices.query("status=:1", "Paid")
 unpaid=ds.Invoices.query("status=:1", "Unpaid")
 
 //We pass entity selection references as parameters to the worker
-CALL WORKER("mailing"; "sendMails", $paid; $unpaid)
+callWorker("mailing", "sendMails", paid, unpaid)
  
 ```
 
@@ -330,32 +330,32 @@ The `sendMails` method:
 
 ```qs 
 
- #DECLARE (paid : cs.InvoicesSelection, unpaid : cs.InvoicesSelection)
+ declare (paid : cs.InvoicesSelection, unpaid : cs.InvoicesSelection)
  var invoice : cs.InvoicesEntity
  
- var server, transporter, email, status : Object
+ var server, transporter, email, status : object
  
   //Prepare emails
- server=New object()
+ server=newObject()
  server.host="exchange.company.com"
  server.user="myName@company.com"
  server.password="my!!password"
- transporter=SMTP New transporter(server)
- email=New object()
+ transporter=smtpNewTransporter(server)
+ email=newObject()
  email.from="myName@company.com"
  
   //Loops on entity selections
- For each(invoice,paid)
+ forEach(invoice,paid)
     email.to=invoice.customer.address // email address of the customer
-    email.subject="Payment OK for invoice # "+String(invoice.number)
+    email.subject="Payment OK for invoice # "+string(invoice.number)
     status=transporter.send(email)
- End for each
+ end
  
- For each(invoice,unpaid)
+ forEach(invoice,unpaid)
     email.to=invoice.customer.address // email address of the customer
-    email.subject="Please pay invoice # "+String(invoice.number)
+    email.subject="Please pay invoice # "+string(invoice.number)
     status=transporter.send(email)
- End for each
+ end
 ```
 
 
@@ -416,7 +416,7 @@ You can lock and unlock entities on demand when accessing data. When an entity i
 
 This feature is based upon two functions of the `Entity` class:
 
-*	`entity.lock()`
-*	`entity.unlock()`
+*	[`entity.lock()`](../../language/EntityClass.md#lock)
+*	[`entity.unlock()`](../../language/EntityClass.md#unlock)
 
 For more information, please refer to the descriptions for these functions.
