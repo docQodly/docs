@@ -74,7 +74,7 @@ mydataclass=objectCopy(ds.Employee) //returns null
 
 The dataclass properties are however enumerable:
 
-```
+```qs
  var names : collection
  names=objectKeys(ds.Employee)
 //names contains the names of all the dataclass attributes

@@ -65,23 +65,23 @@ This is illustrated by the following graphic:
 
 Note however that entities refer to the same record. In all cases, if you call the `entity.save()` method, the record will be updated (except in [case of conflict](#entity-locking)).
 
-In fact, `$e1` and `$e2` are not the entity itself, but a reference to the entity. It means that you can pass them directly to any function or method, and it will act like a pointer. For example:
+In fact, `e1` and `e2` are not the entity itself, but a reference to the entity. It means that you can pass them directly to any function or method, and it will act like a pointer. For example:
 
 ```qs
- For each(entity,selection)
+ forEach(entity,selection)
     do_Capitalize(entity)
- End for each
+ end
 ```
  
 And the *do_Capitalize* method is:
 
 ```qs
- #DECLARE (entity : cs.EmployeeEntity)
- var name : Text
+ declare (entity : cs.EmployeeEntity)
+ var name : string
  name=entity.lastname
- if(name!=Null)
-    name=Uppercase(Substring(name,1,1))+Lowercase(Substring(name,2))
- end if
+ if(name!=null)
+    name=uppercase(substring(name,1,1))+lowercase(substring(name,2))
+ end
  entity.lastname=name
 ```
  
@@ -89,15 +89,16 @@ You can handle entities like any other object and pass their references directly
 
 :::note
 
-You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the [lazy loading](glossary#lazy-loading) mechanism, which means that only the needed information is loaded.
+You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the [lazy loading](glossary.md#lazy-loading) mechanism, which means that only the needed information is loaded.
 
 :::
 
 ## Using entity attributes  
 
-Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../../language/DataClassAttributeClass.md#kind). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](orda-classes.md#computed-attributes) and [**alias**](orda-classes.md#alias-attributes) kind can return any value type.  
+Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](orda-classes.md#computed-attributes) and [**alias**](orda-classes.md#alias-attributes) kind can return any value type.  
 
 For example, to set a storage attribute:
+
 
 ```qs
  entity=ds.Employee.get(1) //get employee attribute with ID 1
@@ -107,7 +108,7 @@ For example, to set a storage attribute:
 ```
 
 
-Accessing a related attribute depends on the attribute [`kind`](../../language/DataClassAttributeClass.md#kind). For example, with the following structure:
+Accessing a related attribute depends on the attribute [`kind`](../../language/DataClassClass.md#attributename). For example, with the following structure:
 
 ![](img/structure2.png)
 
@@ -128,7 +129,7 @@ Each employee can be a manager and can have a manager. To get the manager of the
 
 ```qs
  var myEmp : cs.EmployeeEntity
- var manLev2 : Text
+ var manLev2 : string
  myEmp=ds.Employee.get(50)
  manLev2=myEmp.manager.manager.lastname
 ```
@@ -156,7 +157,7 @@ To assign a value directly to the "employer" attribute, you must pass an existin
  emp.save()
 ```
 
-ORDA provides an additional facility for entering a relation attribute for a "many" entity related to a "one" entity: you pass the primary key of the "one" entity directly when assigning a value to the relation attribute. For this to work, you pass data of type Number or Text (the primary key value) to the relation attribute. ORDA then automatically takes care of searching for the corresponding entity in the dataclass. For example:
+ORDA provides an additional facility for entering a relation attribute for a "many" entity related to a "one" entity: you pass the primary key of the "one" entity directly when assigning a value to the relation attribute. For this to work, you pass the primary key value (number or string) to the relation attribute. ORDA then automatically takes care of searching for the corresponding entity in the dataclass. For example:
 
 ```qs
  var emp : cs.EmployeeEntity
@@ -198,17 +199,17 @@ You can simultaneously create and use as many different entity selections as you
 
 :::note
 
-An entity selection is usually unordered, but it can be ordered (see [Ordered or unordered entity selection](data-model#ordered-or-unordered-entity-selection)).
+An entity selection is usually unordered, but it can be ordered (see [Ordered or unordered entity selection](data-model.md#ordered-or-unordered-entity-selection)).
 
 :::
 
 ### Entity selections and Storage attributes  
 
-All storage attributes (text, number, boolean, date) are available as properties of entity selections as well as of entities. When used in conjunction with an entity selection, a scalar attribute returns a collection of scalar values. For example:
+All storage attributes (string, number, boolean, date) are available as properties of entity selections as well as of entities. When used in conjunction with an entity selection, a scalar attribute returns a collection of scalar values. For example:
 
 ```qs
  var locals : cs.PersonSelection
- var localEmails : Collection
+ var localEmails : collection
  locals=ds.Person.query("city = :1","San Jose") //entity selection of person
  localEmails=locals.emailAddress //collection of email addresses (strings)
 ```
