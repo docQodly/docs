@@ -3,27 +3,28 @@ id: dateandtime
 title: Date and Time
 ---
 
+Date and time commands handle [date](../basics/lang-date.md) and [time](../basics/lang-time.md) type values. 
 
 ## Date and Time Commands
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.addToDate.Syntax -->](#addToDate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.addToDate.Summary -->|
-|[<!-- INCLUDE #_command_.currentDate.Syntax -->](#currentDate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentDate.Summary -->|
-|[<!-- INCLUDE #_command_.currentTime.Syntax -->](#currentTime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentTime.Summary -->|
+|[<!-- INCLUDE #_command_.addToDate.Syntax -->](#addtodate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.addToDate.Summary -->|
+|[<!-- INCLUDE #_command_.currentDate.Syntax -->](#currentdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentDate.Summary -->|
+|[<!-- INCLUDE #_command_.currentTime.Syntax -->](#currenttime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentTime.Summary -->|
 |[<!-- INCLUDE #_command_.date.Syntax -->](#date)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.date.Summary -->|
-|[<!-- INCLUDE #_command_.dayNumber.Syntax -->](#dayNumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayNumber.Summary -->|
-|[<!-- INCLUDE #_command_.dayOf.Syntax -->](#dayOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayOf.Summary -->|
+|[<!-- INCLUDE #_command_.dayNumber.Syntax -->](#daynumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayNumber.Summary -->|
+|[<!-- INCLUDE #_command_.dayOf.Syntax -->](#dayof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dayOf.Summary -->|
 |[<!-- INCLUDE #_command_.milliseconds.Syntax -->](#milliseconds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.milliseconds.Summary -->|
-|[<!-- INCLUDE #_command_.monthOf.Syntax -->](#monthOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
+|[<!-- INCLUDE #_command_.monthOf.Syntax -->](#monthof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
 |[<!-- INCLUDE #_command_.time.Syntax -->](#time)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.time.Summary -->|
-|[<!-- INCLUDE #_command_.timeString.Syntax -->](#timeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timeString.Summary -->|
+|[<!-- INCLUDE #_command_.timeString.Syntax -->](#timestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timeString.Summary -->|
 |[<!-- INCLUDE #_command_.timestamp.Syntax -->](#timestamp)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.timestamp.Summary -->|
-|[<!-- INCLUDE #_command_.yearOf.Syntax -->](#yearOf)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
+|[<!-- INCLUDE #_command_.yearOf.Syntax -->](#yearof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
 
 ## addToDate
 
-<!-- REF #_command_.addToDate.Syntax -->**addToDate** ( *aDate* : date , *years* : integer , *months* : integer , *days * : integer) : date<!-- END REF -->
+<!-- REF #_command_.addToDate.Syntax -->**addToDate** ( *aDate* : date , *years* : integer , *months* : integer , *days* : integer) : date<!-- END REF -->
 
 
 <!-- REF #_command_.addToDate.Params -->
@@ -59,24 +60,22 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
 
 ## currentDate
 
-<!-- REF #_command_.currentDate.Syntax -->**currentDate** ( 	* : operator ) : date<!-- END REF -->
+<!-- REF #_command_.currentDate.Syntax -->**currentDate** : date<!-- END REF -->
 
 
 <!-- REF #_command_.currentDate.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|*|operator|->|Returns the current date from the server|
 |Result|date|<-|Current date|<!-- END REF -->
 
 #### Description
 
-The `currentDate` command <!-- REF #_command_.currentDate.Summary --> returns the current date as kept by the system clock<!-- END REF -->.
+The `currentDate` command <!-- REF #_command_.currentDate.Summary --> returns the current date from the server<!-- END REF -->.
 
-If you use the asterisk (*) parameter when executing this function on a Qodly Client machine, it returns the current date from the server.
 
-#### Example 1
+#### Example
 
-In the following example we assign the the current date to a string variable:
+In the following example we assign the current date to a string variable:
 
 ```qs
  var vCurrentDate : string
@@ -84,96 +83,29 @@ In the following example we assign the the current date to a string variable:
  
 ```
 
-#### Example
-
-If you write an application for the international market, you may need to know if the version of 4D that you run works with dates formatted as MM/DD/YYYY (US version) or DD/MM/YYYY (French version). This is useful to know for customizing data entry fields.
-
-The following project method allows you to do so:
-
-```qs
-  // Sys date format global function
-  // Sys date format -> String
-  // Sys date format -> Default 4D data format
-  
- var  vdDate : date
- var vsDate, vsDay, vsMonth, vsYear, vsMDY, myResult : string
- var vlPos : integer
- 
-  // Get a Date value where the month, day and year values are all different
- vdDate=currentDate
- repeat
-    vsMonth=string(monthOf(vdDate))
-    vsDay=string(dayOf(vdDate))
-    vsDay=string(yearOf(vdDate)%100)
-    if((vsMonth==vsDay)|(vsMonth==vsYear)|(vsDay==vsYear))
-       vOK=0
-       vdDate=vdDate+1
-    else
-       vOK=1
-    end
- until(vOK==1)
- myResult="" // Initialize function result
- vsDate=string(vdDate)
- vlPos=position("/",vsDate) // Find the first / separator in the string ../../..
- vsMDY=substring(vsDate,1,vlPos-1) // Extract the first digits from the date
- vsDate=substring(vsDate,vlPos+1) // Eliminate the first digits as well as the first / separator
- switch
-    :(vsMDY==vsMonth) // The digits express the month
-       myResult="MM"
-    :(vsMDY==vsDay) // The digits express the day
-       myResult="DD"
-    :(vsMDY==vsYear) // The digits express the year
-       myResult="YYYY"
- end
- myResult=myResult+"/" // Start building the function result
- vlPos=position("/",vsDate) // Find the second separator in the string ../..
- vsMDY=substring(vsDate,1,vlPos-1) // Extract the next digits from the date
- vsDate=substring(vsDate,vlPos+1) // Reduce the string to the last digits from the date
- switch
-    :(vsMDY==vsMonth) // The digits express the month
-       myResult=myResult+"MM"
-    :(vsMDY==vsDay) // The digits express the day
-       myResult=myResult+"DD"
-    :(vsMDY==vsYear) // The digits express the year
-       myResult=myResult+"YYYY"
- end
- myResult=myResult+"/" // Pursue building the function result
- switch
-    :(vsDate==vsMonth) // The digits express the month
-       myResult=myResult+"MM"
-    :(vsDate==vsDay) // The digits express the day
-       myResult=myResult+"DD"
-    :(vsDate==vsYear) // The digits express the year
-       myResult=myResult+"YYYY"
- end
-  // At this point myResult is equal to MM/DD/YYYY or DD/MM/YYYY or...
- 
-```
-
 #### See also
 
-[`dayOf`](#dayOf)<br/>
-[`monthOf`](#monthOf)<br/>
-[`yearOf`](#yearOf)
+[`dayOf`](#dayof)<br/>
+[`monthOf`](#monthof)<br/>
+[`yearOf`](#yearof)
+
 
 ## currentTime
 
-<!-- REF #_command_.currentTime.Syntax -->**currentTime** ( 	* : operator ) : time<!-- END REF -->
+<!-- REF #_command_.currentTime.Syntax -->**currentTime** : time<!-- END REF -->
 
 
 <!-- REF #_command_.currentTime.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|*|operator|->|Returns the current time from the server|
 |Result|time|<-|Current time|<!-- END REF -->
 
 #### Description
 
-The `currentTime` command <!-- REF #_command_.currentTime.Summary --> returns the current time from the system clock<!-- END REF -->.
+The `currentTime` command <!-- REF #_command_.currentTime.Summary --> returns the current time from the server (GMT)<!-- END REF -->.
 
-The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md#string) or [`timeString`](#timeString) to obtain the string form of the time expression returned by `currentTime`.
+The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md#string) or [`timeString`](#timestring) to obtain the string form of the time expression returned by `currentTime`.
 
-If you use the asterisk (*) parameter when executing this function on a Qodly Client machine, it returns the current date from the server.
 
 #### Example 1
 
@@ -181,21 +113,21 @@ The following example shows you how to time the length of an operation. Here, *L
 
 ```qs
  var vhStartTime, vhEndTime : time
- var  vCurrentTime : string
-  vhStartTime=((currentDate-!1980-01-01!)*86400)+currentTime //Save the start time, seconds after 1.1.1980
+ var vCurrentTime : string
+ vhStartTime=((currentDate-!1980-01-01!)*86400)+currentTime //Save the start time, seconds after 1.1.1980
  LongOperation //Perform the operation
  vhEndTime=((currentDate-!1980-01-01!)*86400)+currentTime
  vCurrentTime="The operation took "+string(vhEndTime-vhStartTime)+" seconds." //how long it took
  
 ```
 
-#### Example
+#### Example 2
 
 The following example extracts the hours, minutes, and seconds from the current time:
 
 ```qs
- var  vhNow : time
- var  vCurrentTime : string
+ var vhNow : time
+ var vCurrentTime : string
  vhNow=currentTime
  vCurrentTime="Current hour is: "+string(vhNow\3600)
  vCurrentTime="Current minute is: "+string((vhNow\60)%60)
@@ -208,35 +140,42 @@ The following example extracts the hours, minutes, and seconds from the current 
 [`milliseconds`](#milliseconds)<br/>
 [`string`](string.md#string)
 
+
 ## date
 
-<!-- REF #_command_.date.Syntax -->**date** ( *expression* : string, date ) : date<!-- END REF -->
+<!-- REF #_command_.date.Syntax -->**date** ( *exprString* : string ) : date<br/>**date** ( *exprDate* : date ) : date<!-- END REF -->
 
 
 <!-- REF #_command_.date.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|string, date|->|String representing the date to be returned or Date expression|
+|exprString|string|->|String representing the date to be returned|
+|exprDate|date|->|Date expression|
 |Result|date|<-|Date expression|<!-- END REF -->
 
 #### Description
 
-The `date` command <!-- REF #_command_.date.Summary -->evaluates *expression* and returns a date<!-- END REF -->. 
+The `date` command <!-- REF #_command_.date.Summary -->evaluates *exprString* or *exprDate* and returns a date<!-- END REF -->. 
 
-##### ISO date format
-The string must be formatted as follows: "YYYY-MM-DDTHH:MM:SS", for example "2013-11-20T10:20:00". In this case, `date` evaluates the *expression* parameter correctly, regardless of the current language settings. Decimal seconds, preceded by a period, are supported (e.g.: "2013-11-20T10:20:00.9854").
-If the *expression* format does not precisely fit this ISO format, the date is evaluated as a short date format based on the regional settings of the system.
+##### *exprString*
 
-##### Regional settings
-When the *expression* does not match the ISO format, the regional settings defined in the operating system for a short date are used for the evaluation. For example, in the US version, by default the date must be in the order MM/DD/YY (month, day, year). The month and day can be one or two digits. The year can be two or four digits. If the year is two digits, then `date` considers whether the date belongs to the 21st or 20th century based on the value entered. By default, the pivotal value is 30:
+The *exprString* must be formatted as follows: "YYYY-MM-DDTHH:MM:SS", for example "2013-11-20T10:20:00". In this case, `date` evaluates the *expression* parameter correctly, regardless of the current settings. Decimal seconds, preceded by a period, are supported (e.g.: "2013-11-20T10:20:00.9854").
+If the *exprString* format does not precisely fit this ISO format, the date is evaluated as a short date format based on the regional settings of the server.
+
+:::note
+
+When the *exprString* does not match the ISO format, the regional settings defined in the operating system for a short date are used for the evaluation. For example, in the US version, by default the date must be in the order MM/DD/YY (month, day, year). The month and day can be one or two digits. The year can be two or four digits. If the year is two digits, then `date` considers whether the date belongs to the 21st or 20th century based on the value entered. By default, the pivotal value is 30:
 
 * If the value is greater than or equal to 30, Qodly considers the century to be the 20th and adds 19 to the beginning of the value.
 * If the value is less than 30, Qodly considers the century to be the 21st and adds 20 to the beginning of the value.
-* If you pass an invalid date (such as "13/35/94" or "aa/12/94") in expression, Date returns an empty date (00/00/00). It is your responsibility to verify that expression is a valid date.
-* If the expression evaluates to undefined, Date returns an empty date (00/00/00). This is useful when you expect the result to be a date, even if it can be undefined (e.g. an object attribute).
+* If you pass an invalid date (such as "13/35/94" or "aa/12/94") in expression, `date` returns an empty date (00/00/00). It is your responsibility to verify that expression is a valid date.
+* If the expression evaluates to undefined, `date` returns an empty date (00/00/00). This is useful when you expect the result to be a date, even if it can be undefined (e.g. an object attribute).
 
-##### Date type expression
-If *expression* is of date type, `date` returns the date passed in the parameter 'as is'. This is particularly useful in the context of generic programming using pointers or object attributes.
+:::
+
+##### *exprDate*
+
+If a date type *exprDate* is passed, `date` returns the date passed in the parameter 'as is'. This is particularly useful in the context of generic programming using object attributes.
 
 #### Example 1
 
@@ -287,6 +226,7 @@ You want to get a date from an object attribute, whatever the current attribute 
 [`bool`](boolean.md#bool)<br/>
 [`string`](string.md#string)
 
+
 ## dayNumber
 
 <!-- REF #_command_.dayNumber.Syntax -->**dayNumber** ( *aDate* : date ) : integer<!-- END REF -->
@@ -322,7 +262,7 @@ Qodly provides the following predefined constants:
 
 :::note
 
-`dayNumber`" "returns a value between 1 and 7. To get the day number within the month for a date, use the command [`dayOf`](#dayOf).
+`dayNumber` returns a value between 1 and 7. To get the day number within the month for a date, use the command [`dayOf`](#dayof).
 
 :::
 
@@ -332,7 +272,7 @@ The following example is a function that returns the current day as a string:
 
 ```qs
  var viDay : integer
- var myResult: stirng
+ var myResult: string
  viDay=dayNumber(currentDate) // viDay gets the current day number
  switch
     :(viDay==1)
@@ -355,7 +295,8 @@ The following example is a function that returns the current day as a string:
 
 #### See also
 
-[`dayOf`](#dayOf)
+[`dayOf`](#dayof)
+
 
 ## dayOf
 
@@ -366,7 +307,8 @@ The following example is a function that returns the current day as a string:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the day|
-|Result|integer|<-|Day of the month of date|<!-- END REF -->
+|Result|integer|<-|Day of the month of *aDate*|<!-- END REF -->
+
 
 #### Description
 
@@ -374,12 +316,12 @@ The `dayOf` command <!-- REF #_command_.dayOf.Summary -->returns the day of the 
 
 :::note
 
-`dayOf` returns a value between 1 and 31. To get the day of the week for a date, use the command [`dayNumber`](#dayNumber).
+`dayOf` returns a value between 1 and 31. To get the day of the week for a date, use the command [`dayNumber`](#daynumber).
 
 :::
 
 
-#### Example 1
+#### Example 
 
 The following example illustrates the use of `dayOf`. The results are assigned to the variable *vResult*. The comments describe what is put in *vResult*:
 
@@ -390,15 +332,13 @@ The following example illustrates the use of `dayOf`. The results are assigned t
  
 ```
 
-#### Example 2
-
-See the example for the [`currentDate`](#currentDate) command.
 
 #### See also
 
 [`dayNumber`](#dayNumber)<br/>
 [`monthOf`](#monthOf)<br/>
 [`yearOf`](#yearOf)
+
 
 ## milliseconds
 
@@ -410,28 +350,31 @@ See the example for the [`currentDate`](#currentDate) command.
 |---------|--- |:---:|------|
 |Result|integer|<-|Number of milliseconds elasped since the machine was started|<!-- END REF -->
 
+
 #### Description
 
-`milliseconds` <!-- REF #_command_.milliseconds.Summary -->returns the number of milliseconds (1000th of a second) elapsed since the machine was started<!-- END REF -->.
+`milliseconds` <!-- REF #_command_.milliseconds.Summary -->returns the number of milliseconds (1000th of a second) elapsed since the server was started<!-- END REF -->.
 
 The returned value is a signed integer, up to 2^31 (around 2 billion milliseconds or 24 days). When the machine has been running for more than 24 days, the number becomes negative.
 
 The purpose of the command is to measure short periods of time with a high precision. A 24-day range is more than large enough for comparisons, but you need to be careful. When comparing values, always work with the difference between two values. Never compare the values directly since one could be negative and the other positive.
 
-:::note
+:::caution
 
-Always compare the difference between two calls of Milliseconds as shown above, never compare directly, e.g.:
+Always compare the difference between two calls of `milliseconds`, never compare directly, e.g.:
+
 ```qs
- (milliseconds>(starttime+5000)) //never do it like this, as one could be positive, one negative
- 
-```
+(milliseconds>(starttime+5000)) //never do it like this, as one could be positive, one negative
 
+```
 :::
+
 
 #### See also
 
 [`currentTime`](#currenttime)<br/>
 [`timestamp`](#timestamp)
+
 
 ## monthOf
 
@@ -442,17 +385,13 @@ Always compare the difference between two calls of Milliseconds as shown above, 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the month|
-|Result|integer|<-|Number indicating the month of date|<!-- END REF -->
+|Result|integer|<-|Number indicating the month of *aDate*|<!-- END REF -->
 
 #### Description
 
-The `monthOf` command <!-- REF #_command_.monthOf.Summary -->returns the month of *aDate*<!-- END REF -->. 
+The `monthOf` command <!-- REF #_command_.monthOf.Summary -->returns the month number of *aDate*<!-- END REF -->. 
 
-:::note
-
-`monthOf` returns the number of the month, not the name (see Example 1).
-
-:::
+`monthOf` returns the number of the month, not the name (see example).
 
 To compare the value returned by this function, Qodly provides the following predefined constants:
 
@@ -471,9 +410,8 @@ To compare the value returned by this function, Qodly provides the following pre
 |November|integer|11|
 |December|integer|12|
 
-#### Example 1
 
-The following example illustrates the use of `monthOf`. The results are assigned to the variable *vResult*. The comments describe what is put in *vResult*:
+#### Example
 
 ```qs
  var vResult : integer
@@ -482,38 +420,37 @@ The following example illustrates the use of `monthOf`. The results are assigned
  
 ```
 
-#### Example 2
-
-See the example for the [`currentDate`](#currentDate) command.
 
 #### See also
 
 [`dayOf`](#dayOf)<br/>
 [`yearOf`](#yearOf)
 
+
 ## time
 
-<!-- REF #_command_.time.Syntax -->**time** ( *timeValue * : string, integer ) : time <!-- END REF -->
+<!-- REF #_command_.time.Syntax -->**time** ( *timeString* : string ) : time<br/>**time** ( *timeValue* : integer ) : time<!-- END REF -->
 
 
 <!-- REF #_command_.time.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|timeValue|string, integer|->|Value to return as a time|
-|Result|time|<-|Time specified by timeValue|<!-- END REF -->
+|timeString|string|->|String to return as a time|
+|timeValue|integer|->|Number to return as a time|
+|Result|time|<-|Time specified by *timeString* or *timeValue*|<!-- END REF -->
+
 
 #### Description
 
-The `time` command <!-- REF #_command_.time.Summary --> returns a time expression equivalent to the time specified in the *timeValue* parameter<!-- END REF -->. 
+The `time` command <!-- REF #_command_.time.Summary -->returns a time expression equivalent to the time specified in the *timeString* or *timeValue* parameter<!-- END REF -->. 
 
-The *timeValue* parameter can contain either:
+Pass in the *timeString* parameter a string containing a time expressed in one of the standard time formats (for more information, refer to the description of the [`string`](../string.md#string) command).
 
-* a string containing a time expressed in one of the standard time formats corresponding to the language of your system (for more information, refer to the description of the [`string`](../string#string) command).
-* a longint that represents the number of seconds elapsed since 00:00:00.
+Or, you can pass in the *timeValue* parameter a number that represents the number of seconds elapsed since 00:00:00.
 
 :::note
 
-If the *timeValue* expression evaluates to undefined, `time` returns an empty time (00:00:00). This is useful when you expect the result of an expression (e.g. an object attribute) to be a time, even if it can be undefined.
+If the *timeString* or *timeValue* parameter evaluates to undefined, `time` returns an empty time (00:00:00). This is useful when you expect the result of an expression (e.g. an object attribute) to be a time, even if it can be undefined.
 
 :::
 
@@ -534,22 +471,24 @@ You can express any numerical value as a time:
 
 [`bool`](#../boolean#bool)<br/>[`string`](../string#string)<br/>[`timeString`](#timeString)<br/>[`timestamp`](#timestamp)
 
+
 ## timeString
 
-<!-- REF #_command_.timeString.Syntax -->**timeString** ( *seconds* : integer, time ) : string<!-- END REF -->
+<!-- REF #_command_.timeString.Syntax -->**timeString** ( *secondsTime* : time ) : string<br/>**timeString** ( *secondsValue* : integer ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.timeString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|seconds|integer, time|->|Seconds from midnight|
+|secondsTime|time|->|Time expressing seconds from midnight|
+|secondsValue|integer|->|Number expressing seconds from midnight|
 |Result|string|<-|Time as a string in 24-hour format|<!-- END REF -->
 
 #### Description
 
-The `timeString` command <!-- REF #_command_.timeString.Summary -->returns the string form of the time expression you pass in *seconds*<!-- END REF -->. 
+The `timeString` command <!-- REF #_command_.timeString.Summary -->returns the string form of the time expression you pass in *secondsTime* or *secondsValue*<!-- END REF -->. 
 
-If you go beyond the number of seconds in a day (86,400), `timeString` continues to add hours, minutes, and seconds. For example, `timeString` (86401) returns 24:00:01.
+If you go beyond the number of seconds in a day (86,400), `timeString` continues to add hours, minutes, and seconds. For example, `timeString(86401)` returns 24:00:01.
 
 :::note
 
@@ -572,6 +511,7 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 [`string`](string.md#string)<br/>
 [`time`](#time)
 
+
 ## timestamp
 
 <!-- REF #_command_.timestamp.Syntax -->**timestamp** : string<!-- END REF -->
@@ -582,11 +522,12 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 |---------|--- |:---:|------|
 |Result|string|<-|Current time returned using ISO format with milliseconds|<!-- END REF -->
 
+
 #### Description
 
 `timestamp` <!-- REF #_command_.timestamp.Summary -->returns the current UTC time in ISO format with milliseconds, i.e. yyyy-MM-ddTHH:mm:ss.SSSZ<!-- END REF -->.  Note that the "Z" character indicates the GMT time zone.
 
-Each time returned by `timestamp` is expressed according to the ISO 8601 standard. For more information about this standard, refer to: https://en.wikipedia.org/wiki/ISO_8601
+Each time returned by `timestamp` is expressed according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601). 
 
 :::note
 
@@ -610,7 +551,7 @@ myFile.setContent(logWithTimestamp)
 
 Result:
 ```
-2016-12-12T13:31:29.477Z   Log with timestamp
+2023-12-12T13:31:29.477Z   Log with timestamp
  
 ```
 
@@ -629,15 +570,13 @@ Result:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |aDate|date|->|Date for which to return the year|
-|Result|integer|<-|Number indicating the year of date|<!-- END REF -->
+|Result|integer|<-|Number indicating the year of *aDate*|<!-- END REF -->
 
 #### Description
 
 The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *aDate*<!-- END REF -->. 
 
-#### Example 1
-
-The following example illustrates the use of `yearOf`. The results are assigned to the variable *vResult*:
+#### Example
 
 ```qs
  var vResult : integer
@@ -649,9 +588,6 @@ The following example illustrates the use of `yearOf`. The results are assigned 
  
 ```
 
-#### Example 2
-
-See the example for the [`currentDate`](#currentDate) command.
 
 #### See also
 
