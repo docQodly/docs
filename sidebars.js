@@ -329,6 +329,7 @@ const sidebars = {
 			'language/interruptions',
 			'language/MailAttachmentClass',
 			'language/math',
+			'language/object',
 			'language/SessionClass',
 			'language/SignalClass',
 			'language/string',
