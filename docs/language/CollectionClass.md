@@ -213,6 +213,9 @@ Unlike standard (not shared) collections, shared collections do not support pict
  end
 ```
 
+#### See also
+
+[objectIsShared](objects.md#objectisshared)
 
 
 
@@ -2743,6 +2746,7 @@ The `.some()` function <!-- REF #collection.some().Summary -->returns true if at
 
 You designate the QodlyScript code (callback) to be executed to evaluate collection elements using either:
 
+
 - *formula* (recommended syntax), a [formula object](FunctionClass.md) that can encapsulate any executable expressions, including functions and project methods,
 - or *methodName*, the name of a project method (string).
 
@@ -2932,6 +2936,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 
 
 <!-- REF collection.unshift().Desc -->
+
 ## .unshift()
 
 <!-- REF #collection.unshift().Syntax -->**.unshift**( *value* : any { ,...*valueN* : any } ) : collection<!-- END REF -->

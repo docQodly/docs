@@ -36,7 +36,6 @@ The Object commands manage [object](../basics/lang-object.md) type elements.
 |class|object|->|Class to test belongship|
 |Result|boolean|<-|True if object belongs to the specified class or a child class, and false otherwise|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
