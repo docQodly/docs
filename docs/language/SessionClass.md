@@ -5,7 +5,7 @@ title: Session
 
 Session objects are returned by the [`Session`](#session) command. The Session object is automatically created and maintained by the Qodly web server to control the session of a web client (e.g. a browser). This object provides the web developer with an interface to the user session, allowing to manage privileges, store contextual data, share information between processes, and launch session-related preemptive processes.
 
-For detailed information about the session implementation, please refer to the [web server Sessions](WebServer/sessions.md) section.
+For detailed information about the session implementation, please refer to the [web server Sessions](WebServer.md/sessions.md) section.
 
 ### Commands
 
@@ -45,7 +45,7 @@ For detailed information about the session implementation, please refer to the [
 
 The `session` command <!-- REF #_command_.session.Summary -->returns the `Session` object corresponding to the current scalable user web session<!-- END REF -->.
 
-The `Session` object is available from any web processes in ORDA [Data Model Class functions](ORDA/ordaClasses.md) called with REST requests.
+The `Session` object is available from any web processes in ORDA [Data Model Class functions](../Concepts/orda/ordaClasses.md) called with REST requests.
 
 
 

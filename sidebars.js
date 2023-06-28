@@ -333,6 +333,7 @@ const sidebars = {
 			'language/SessionClass',
 			'language/SignalClass',
 			'language/string',
+			'language/SystemWorkerClass',
 			'language/UsersClass',
 			'language/WebForm',
 			'language/ZipArchiveClass',
