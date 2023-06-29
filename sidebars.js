@@ -336,6 +336,7 @@ const sidebars = {
 			'language/SystemWorkerClass',
 			'language/UsersClass',
 			'language/WebForm',
+			'language/WebServerClass',
 			'language/ZipArchiveClass',
 			'language/ZipFileClass',
 			'language/ZipFolderClass',
