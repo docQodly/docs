@@ -20,7 +20,6 @@ Web server objects are instantiated with the [`webServer`](#webserver) command.
 
 ||
 |---|
-|[<!-- INCLUDE #WebServerClass.accessKeyDefined.Syntax -->](#accesskeydefined)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #WebServerClass.accessKeyDefined.Summary -->|
 |[<!-- INCLUDE #WebServerClass.certificateFolder.Syntax -->](#certificatefolder)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #WebServerClass.certificateFolder.Summary -->|
 |[<!-- INCLUDE #WebServerClass.characterSet.Syntax -->](#characterset)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #WebServerClass.characterSet.Summary -->|
 |[<!-- INCLUDE #WebServerClass.cipherSuite.Syntax -->](#ciphersuite)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #WebServerClass.cipherSuite.Summary -->|
@@ -59,10 +58,10 @@ Web server objects are instantiated with the [`webServer`](#webserver) command.
 ## webServer
 
 
-<!-- REF #_command_.WEB Server.Syntax -->**webServer** : 4D.WebServer<!-- END REF -->
+<!-- REF #_command_.webServer.Syntax -->**webServer** : 4D.WebServer<!-- END REF -->
 
 
-<!-- REF #_command_.WEB Server.Params -->
+<!-- REF #_command_.webServer.Params -->
 
 |Parameter|Type||Description|
 |---|---|----|---|
@@ -83,15 +82,6 @@ You want to know if the Web server is started:
  vRun=webServer.isRunning
 ```
 
-
-## .accessKeyDefined
-
-<!-- REF #WebServerClass.accessKeyDefined.Syntax -->**.accessKeyDefined** : boolean<!-- END REF -->
-
-
-The **.accessKeyDefined** property contains <!-- REF #WebServerClass.accessKeyDefined.Summary -->true if an access key is defined in the settings of the web server<!-- END REF -->. This property is used by the WebAdmin web server to validate the security configuration of the administration interface.
-
-<!-- REF WebServerClass.certificateFolder.Desc -->
 
 ## .certificateFolder
 
