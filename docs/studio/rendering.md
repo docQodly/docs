@@ -7,50 +7,39 @@ A webform describes your application's look and behavior. After or while you des
 
 ## Overview
 
-4D Web Studio does not generate HTML code directly. When you drop components on the canvas, when you map datasources to components, or when you configure an event, 4D Web Studio places your work in a JSON file. This JSON file, the webform, cannot directly be opened in a web browser. It is “rendered” either when you preview it in the webstudio, or when you choose to render it in a dedicated browser tab.
+Qodly Studio does not generate HTML code directly. When you drop components on the canvas, when you map datasources to components, or when you configure an event, Qodly Studio places your work in a JSON file. This JSON file, the webform, cannot directly be opened in a web browser. It is "rendered" either when you preview it in the Studio, or when you choose to render it in a dedicated browser tab.
 
-At runtime, webforms are generated and interpreted by a built-in renderer engine.
+At runtime, webforms are generated and interpreted by the built-in renderer engine.
 
-Each webform has its own URL on the [4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html).
+Each webform has its own URL on the Qodly Web server.
 
 The following diagram describes how data flows to and from the studio:
 
 ![workflow-diagram](img/workflow.png)
 
-* The 4D WebAdmin web server provides a secured web access to 4D Web Studio and allows previewing webforms inside the studio.
-* The main 4D web server is [exposed as REST server](https://developer.4d.com/docs/en/REST/configuration.html#starting-the-rest-server), and the renderer communicates with it using [REST requests](https://developer.4d.com/docs/en/REST/gettingStarted.html).
+* The WebAdmin web server provides a secured web access to Qodly Studio and allows previewing webforms inside the studio.
+* The Qodly web server is exposed as REST server and the renderer communicates with it using REST requests.
 * The webforms are deployed with the application, and end-users render them in their browsers. 
 
 
 ## How to render a webform
 
-Webforms can be rendered from the 4D Web Studio IDE, or directly from a browser window. 
-
-### From the 4D Web Studio IDE
-
-To open a browser tab and render a webform, click the **Render** button (![render-button](img/render-button.png)).
-
-A tab will open at `IP:port/$lib/renderer/?w=WebFormName`.
-
-:::note
-
-The button is displayed only when the [configuration options](#configuration) are activated.
-
-:::
-
-### From a browser window
-
-Webforms can be rendered directly from a browser window, by typing the following address:
-
-`IP:port/$lib/renderer/?w=WebFormName`
+Webforms can be rendered in the Qodly Studio IDE or in a browser window. Note that the database resource access control will or will not be applied to the rendered page(s) depending on the renderer.   
 
 
-## Exposed and non-exposed assets
+### In the Qodly Studio IDE
 
-4D Web Studio runs through the [4D WebAdmin web server](https://developer.4d.com/docs/en/Admin/webAdmin.html). When you use 4D Web Studio as a developer, even when you preview a webform in the studio, you’re using the 4D WebAdmin web server. This allows you to see dataclasses, functions and attributes that are not exposed as REST resources for example (they are greyed out).
+The preview button ![preview-button](img/preview-ide.png) of the webform editor allows you to render the current page directly in the webform editor window. 
 
-However, webform rendering happens outside 4D Web Studio, and is served by the [standard 4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html). In this situation, your web application cannot access assets that are not exposed as REST resources.
+In this case, the webform is rendered by the WebAdmin web server. This allows you to see all dataclasses, functions and attributes, even if they are not exposed as REST resources (they are greyed out), or even if permission actions are configured.
 
-See [Exposed vs non-exposed functions](https://developer.4d.com/docs/en/ORDA/ordaClasses.html#exposed-vs-non-exposed-functions) and [Exposing tables](https://developer.4d.com/docs/en/REST/configuration.html#exposing-tables) for more information on how to expose assets.
 
+### In a browser window
+
+You can render the current webform or the whole website in a browser window:
+
+- current webform: in the webform editor, click on the Render in a new tab button (![preview-button-tab](img/preview-tab.png). The webform is displayed in a browser window tab.
+- whole website: in the Qodly toolbar, click on the **Preview** button (![preview-button-tab](img/preview-main.png). The home page [defined in the Settings](settings.md/#application) is then displayed in a browser window tab. 
+
+In both cases, the webform is rendered by Qodly web renderer engine. The renderer engine **applies the REST resource restrictions and permission actions** that might have been configured defined in your Qodly project. This means that only exposed resources are rendered in the browser. 
 
