@@ -9,6 +9,7 @@
     "prestart":"node prebuild.js docs/language/",
     "prestart_watch":"node prebuild.js docs/language/",
     "start_watch": "doc_preprocess --settings_type='start_watch'",
+    "syntax":"doc_preprocess --settings_type='build_syntax'",
     "build": "doc_preprocess && doc_preprocess --settings_type='build_versioned_docs' && doc_preprocess --settings_type='build_translate' && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
