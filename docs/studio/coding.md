@@ -1,23 +1,98 @@
 ---
-id: coding-and-debugging
-title: Coding and debugging
+id: coding
+title: Coding
 ---
 
-In Qodly Studio, you use [events](design-webforms/events/events.md) in conjunction with class functions and project methods to manage the information inside your web application.
+In Qodly Studio, you use [events](design-webforms/events/events.md) in conjunction with class functions and methods to manage the information inside your web application.
+
+
+## Methods and Classes
+
+In QodlyScript, you can organize your code in two kinds of structures: **methods** and **classes**.
+
+- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They cannot be called directly from the components. For testing purposes, methods can be executed directly from the Explorer:
+![code-editor](img/method-exec.png)
+- [**classes**](../language/basics/lang-classes.md) allow you to organize your code with regard to objects. Only class functions can be called from your components. 
+	- User classes allow you to set the behavior of your components. For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](../language/WebForm.md). 
+	- [ORDA classes](../concepts/orda/orda-classes.md) are used to configure your data model and your business logic.  
+
+Both code structures are handled in the code editor. 
 
 ## Code Editor
 
-Qodly Studio has an embedded code editor that allows you to edit your class functions and methods.  
+Qodly Studio has an embedded code editor that allows you to create, edit, and manage your methods and class functions. 
 
-### Reload
+
+### Managing methods and classes
+
+#### Creating a method or class
+
+To create a method or a class, click on the **+** button at the right side of a title area (**Methods** or **Classes**) in the Explorer.
+
+![code-editor](img/code-create.png)
+
+A new "UntitledN" entry is added to the list of methods or classes and a new tab is created. The entry area is editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md) to the method or class. Press **Enter** to validate the modification.
+
+:::info
+
+To actually create the method or class file, do not forget to press **Enter**.
+
+:::
+
+#### Duplicating a method or class
+
+You can create a new method or class by duplicating an existing one: the code it contains is copied and the new item named by default `*itemName*_copyN_`. 
+
+![code-duplicate](img/code-delete.png)
+
+
+
+#### Renaming a method or class
+
+To rename a method or class:
+
+- ![rename](img/code-rename.png) 
+In the Explorer, click on the icon at the right side of the item to rename in the Explorer. The item name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
+
+- ![code-editor](img/code-popup.png)
+Or, in the pop up menu of the item tab, select **Rename**. The tab name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
+
+#### Deleting a method or class
+
+To delete a method or class, display the options menu from the right side of the item to delete and select **Delete**:
+
+![code-delete](img/code-delete.png)
+
+A warning dialog will ask you to confirm the deletion of the file associated to the method or class.
+
+### Opening and closing tabs
+
+To open a method or a class in a tab of the code editor window, double-click on the method or class name in the [Explorer]. If a tab containing the method or class code was already open, it is moved to front. Only one instance of a method or class code can be open in the same code editor window.
+
+To close a tab, you can click on the **x** at the right side of the tab title. You can also right-click on a tab and select one of the closing commands from the tab pop up menu:
+
+![code-editor](img/code-popup.png)
+
+
+
+### Reload code
 
 When a class function or a method is open in the studio, and that class function or method is edited elsewhere, its Tab displays *(outdated)*, meaning that the code displayed is not the latest version. To obtain the latest version, right click the Tab and then choose **Reload**.
 
 ![code-editor](img/code-editor.png)
 
+### LSP
+
+Qodly Studio relies on the [LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol) to provide you with advanced features such as code completion or syntax highlighting in the code editor. This technology requires that a connection be established between the LSP server and the code editor window. When it's not the case, a warning message indicates that the LSP is not loaded:
+
+![code-editor](img/lsp.png)
+
+You can still write and save your code, but LSP related features will be missing. It is recommended to **Reload** the LSP. 
+
+
 ### Type-ahead features
 
-The Qodly Studio code editor includes standard type-ahead features, i.e. accurate contents is suggested in a list while you enter code. 
+The Qodly Studio code editor includes standard type-ahead and autocompletion features, i.e. accurate contents is suggested in a list while you enter code. 
 
 - The suggestion list appears automatically when you enter text.
 - Press the **Tab** key to write down the selected entry from the suggestion list. 
@@ -34,47 +109,3 @@ The entry area at the top of the palette allows you to filter the list of comman
 
 ![code-editor](img/palette2.png)
 
-
-## Methods and Classes
-
-In QodlyScript, you can organize your code in two kinds of structures: **methods** and **classes**.
-
-### Methods
-
-Methods are independant pieces of code. They are not related to an object or a context. 
-
-They can be executed from other methods or functions. They can receive one or more parameter(s) and can return a single parameter. To call a method from your code, just enter its name without namespace:
-
-```qs
-//calling the myMethod method with a parameter
-//it returns a value, assigned to a variable
-
-var returnValue : String
-returnValue=myMethod("Hello world")
-```
-
-For testing purposes, methods can also be executed directly from the Explorer :
-
-![code-editor](img/method-exec.png)
-
-### ORDA Classes
-
-The flow of data in the studio is handled through data model classes that allow you to manage your business logic. See [ORDA classes](../concepts/orda/orda-classes.md) for more information.
-
-## 4D classes
-
-Some classes available only in the studio allow you to set the behavior of your components. They are instantiated using 4D commands.
-
-For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](API/WebFormItemClass.md).
-
-## Using project methods
-
-We recommend using class functions over methods, but you can still use your project methods as REST functions in the studio.
-
-To be used in 4D Web Studio, project methods must be defined as Datastore, Dataclass, Entity or Entity selection class functions. 
-
-To check if a method is available as REST function: 
-1. In the Explorer of your 4D application, **right-click a project method** > **Edit Properties...** to open the Method Properties dialog. 
-2. Check that the **REST Server** option is checked.
-
-Selecting **Scope** > **Catalog** designates the project method as a function of the Datastore class. No table (dataclass) is assigned in this case.
