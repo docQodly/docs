@@ -241,9 +241,11 @@ const sidebars = {
 			label: "Settings"
 		},
 		{
-			type: 'doc',
-				id: 'studio/coding-and-debugging',
-				label: "Coding and debugging"
+			type: 'category',
+			label: 'Coding and Debugging',
+			items: ['studio/coding',
+				'studio/debugging',
+			],
 		},
 		],
 	},
