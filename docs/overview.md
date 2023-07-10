@@ -1,5 +1,5 @@
 ---
-id: overview
+id: welcome
 title: Welcome
 ---
 
@@ -7,6 +7,13 @@ title: Welcome
 
 Welcome to **Qodly**, a hybrid low-code web application development platform. The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor any web application.
 
+### What is a low-code development platform?
+
+To develop a web application with Qodly Studio, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
+
+### What is a hybrid development platform?
+
+//
 
 
 ## What is Qodly?
