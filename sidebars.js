@@ -30,7 +30,12 @@ const sidebars = {
    */
    
   GetStarted:[
-    {
+      {
+      type: 'doc',
+      id: 'welcome',
+      label: "Welcome"
+    },
+	{
         type: 'category',
         label: 'Qodly Hero Handbook',
         link: {
@@ -182,16 +187,6 @@ const sidebars = {
       id: 'materials',
       label: "Materials"
     }, 
-    {
-      type: 'doc',
-      id: 'overview',
-      label: "Welcome"
-    },
-	{
-      type: 'doc',
-      id: 'get-started',
-      label: "Getting Started"
-    },
   ],
   
   
