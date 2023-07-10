@@ -38,8 +38,8 @@ In this case, the webform is rendered by the WebAdmin web server. This allows yo
 
 You can render the current webform or the whole website in a browser window:
 
-- current webform: in the webform editor, click on the Render in a new tab button (![preview-button-tab](img/preview-tab.png). The webform is displayed in a browser window tab.
-- whole website: in the Qodly toolbar, click on the **Preview** button (![preview-button-tab](img/preview-main.png). The home page [defined in the Settings](settings.md/#application) is then displayed in a browser window tab. 
+- current webform: in the webform editor, click on the Render in a new tab button (![preview-button-tab](img/preview-tab.png)).<br/> The webform is displayed in a browser window tab.
+- whole website: in the Qodly toolbar, click on the **Preview** button (![preview-button-tab](img/preview-main.png)).<br/> The home page [defined in the Settings](settings.md/#application) is then displayed in a browser window tab. 
 
 In both cases, the webform is rendered by Qodly web renderer engine. The renderer engine **applies the REST resource restrictions and permission actions** that might have been configured defined in your Qodly project. This means that only exposed resources are rendered in the browser. 
 
