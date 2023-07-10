@@ -10,7 +10,7 @@ In Qodly Studio, you use [events](design-webforms/events/events.md) in conjuncti
 
 In QodlyScript, you can organize your code in two kinds of structures: **methods** and **classes**.
 
-- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They cannot be called directly from the components. For testing purposes, methods can be executed directly from the Explorer:
+- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They can be called from class functions or form other methods, but not directly from your components. For testing purposes, a method can also be executed from the Explorer:
 ![code-editor](img/method-exec.png)
 - [**classes**](../language/basics/lang-classes.md) allow you to organize your code with regard to objects. Only class functions can be called from your components. 
 	- User classes allow you to set the behavior of your components. For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](../language/WebForm.md). 
@@ -49,12 +49,12 @@ You can create a new method or class by duplicating an existing one: the code it
 
 #### Renaming a method or class
 
-To rename a method or class:
+To rename a method or a class:
 
-- ![rename](img/code-rename.png) 
+- ![rename](img/code-rename.png)<br/>
 In the Explorer, click on the icon at the right side of the item to rename in the Explorer. The item name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
 
-- ![code-editor](img/code-popup.png)
+- ![code-editor](img/code-popup.png)<br/>
 Or, in the pop up menu of the item tab, select **Rename**. The tab name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
 
 #### Deleting a method or class
@@ -69,7 +69,7 @@ A warning dialog will ask you to confirm the deletion of the file associated to 
 
 To open a method or a class in a tab of the code editor window, double-click on the method or class name in the [Explorer]. If a tab containing the method or class code was already open, it is moved to front. Only one instance of a method or class code can be open in the same code editor window.
 
-To close a tab, you can click on the **x** at the right side of the tab title. You can also right-click on a tab and select one of the closing commands from the tab pop up menu:
+To close a tab, you can click on the **[x]** button on the right side of the tab title. You can also right-click on a tab and select one of the closing commands from the tab pop up menu:
 
 ![code-editor](img/code-popup.png)
 
