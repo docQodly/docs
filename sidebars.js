@@ -242,6 +242,11 @@ const sidebars = {
 				'studio/debugging',
 			],
 		},
+		{
+			type: 'doc',
+			id: 'studio/roles',
+			label: "Roles & Privileges"
+		}
 		],
 	},
 	
