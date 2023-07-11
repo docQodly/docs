@@ -25,7 +25,7 @@ Qodly Studio has an embedded code editor that allows you to create, edit, and ma
 
 ### Managing methods and classes
 
-#### Creating a method or class
+#### Creating
 
 To create a method or a class, click on the **+** button at the right side of a title area (**Methods** or **Classes**) in the Explorer.
 
@@ -39,7 +39,7 @@ To actually create the method or class file, do not forget to press **Enter**.
 
 :::
 
-#### Duplicating a method or class
+#### Duplicating
 
 You can create a new method or class by duplicating an existing one: the code it contains is copied and the new item named by default `*itemName*_copyN_`. 
 
@@ -47,7 +47,7 @@ You can create a new method or class by duplicating an existing one: the code it
 
 
 
-#### Renaming a method or class
+#### Renaming
 
 To rename a method or a class:
 
@@ -57,7 +57,7 @@ In the Explorer, click on the icon at the right side of the item to rename in th
 - ![code-editor](img/code-popup.png)<br/>
 Or, in the pop up menu of the item tab, select **Rename**. The tab name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
 
-#### Deleting a method or class
+#### Deleting
 
 To delete a method or class, display the options menu from the right side of the item to delete and select **Delete**:
 
@@ -74,6 +74,11 @@ To close a tab, you can click on the **[x]** button on the right side of the tab
 ![code-editor](img/code-popup.png)
 
 
+### Saving
+
+When you write or edit code, modifications are automatically saved in method and class files stored on the server, on a regular basis.
+If you want to make sure a modification is immediately saved (for example if you want the new code to available for other developers), click **Save all** to force the save of all edited tabs. 
+ 
 
 ### Reload code
 

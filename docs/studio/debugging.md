@@ -57,7 +57,8 @@ Depending on the context, breakpoints can have different status, represented thr
 
 |Appearance|Status|Context|
 |---|---|---|
-|![breakpoint](img/debug6.png)|Breakpoint|The breakpoint is registered in the debug session and will stop execution| 
-|![breakpoint](img/debug6.png)|Breakpoint|The breakpoint is registered in the debug session and will stop execution| 
+|![breakpoint](img/debug6.png)|Breakpoint|The breakpoint is validated in the debug session and will stop execution| 
+|![breakpoint](img/debug8.png)|Draft breakpoint|The breakpoint is registered but no debug session is started | 
+|![breakpoint](img/debug7.png)|Unverified breakpoint|The method or function where the breakpoint is set is not correctly saved. You might have to fix the code| 
 
 
