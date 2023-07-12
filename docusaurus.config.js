@@ -91,7 +91,7 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: '/category/studio',
+            docId: 'studio/overview',
             position: 'left',
             label: 'Studio',
           },

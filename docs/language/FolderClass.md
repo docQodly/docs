@@ -181,10 +181,6 @@ aliasFile=myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
 ```
 <!-- END REF -->
 
-<!-- INCLUDE directory.creationDate.Desc -->
-
-<!-- INCLUDE directory.creationTime.Desc -->
-
 <!-- REF folder.delete().Desc -->
 ## .delete()
 
@@ -234,8 +230,6 @@ When `Delete with contents` is passed:
 <!-- INCLUDE directory.folders().Desc -->
 
 <!-- INCLUDE directory.fullName.Desc -->
-
-<!-- INCLUDE directory.getIcon().Desc -->
 
 <!-- INCLUDE directory.hidden.Desc -->
 

@@ -190,36 +190,28 @@ const sidebars = {
   ],
   
   
-  Development:[
-  
+  Studio:[
 	{
-      type: 'category',
-      label: 'Qodly Studio',
-	  link: {
-			type: 'generated-index',
-			title: 'Qodly Studio',
-			description: 'Welcome to the Qodly Studio documentation.',
-			slug: '/category/studio',
-			keywords: ['Studio', 'Development'],
-			image: '/img/docusaurus.png',
-			},
-		items: [
-		{
+			type: 'doc',
+			id: 'studio/overview',
+			label: "Overview"
+	},
+	{
 			type: 'category',
 			label: "Configuration",
 			items: ['studio/configuration/4d-settings',
 				'studio/configuration/license-usage'
 			],
-		},
-		{
+	},
+	{
 			type: 'category',
 			label: 'Model',
 			items: ['studio/model/model-overview',
 				'studio/model/model-editor-interface',
 				'studio/model/datastore-classes'
 			],
-		},
-		{
+	},
+	{
 			type: 'category',
 			label: 'Webforms',
 			items: ['studio/design-webforms/create-webform',
@@ -229,26 +221,26 @@ const sidebars = {
 				'studio/design-webforms/events',
 				'studio/rendering',
 			],
-		},
-		{
+	},
+	{
 			type: 'doc',
 			id: 'studio/settings',
 			label: "Settings"
-		},
-		{
+	},
+	{
 			type: 'category',
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
 				'studio/debugging',
 			],
-		},
-		{
+	},
+	{
 			type: 'doc',
 			id: 'studio/roles',
 			label: "Roles & Privileges"
-		}
-		],
 	},
+],
+	QodlyScript:[
 	
 	{
 		type: 'category',
@@ -349,23 +341,46 @@ const sidebars = {
 
   Cloud:[
   	{
-		type: 'category',
-		label: 'Cloud',
-		link: {
-			type: 'generated-index',
-			title: 'Cloud',
-			description: 'Qodly Cloud documentation',
-			slug: '/category/cloud',
-			image: '/img/docusaurus.png',
-			},
-		items: [
-		  		{
-					type: 'doc',
-					id: 'cloud/overview-cloud',
-					label: "Overview"
-				},
-			],
+			type: 'doc',
+			id: 'cloud/overview-cloud',
+			label: "Architecture"
 	},
+	{
+			type: 'doc',
+			id: 'cloud/security',
+			label: "Security and User management"
+	},
+	{
+			type: 'category',
+			label: "User Guide",
+			link: {
+				type: 'generated-index',
+				title: 'User Guide',
+				description: 'User Guide for Qodly Cloud administrators',
+				slug: '/category/cloud',
+				image: '/img/docusaurus.png',
+				},
+			items: [
+			{
+				type: 'doc',
+				id: 'cloud/getStarted',
+				label: "Getting Started"
+			},
+			{
+				type: 'doc',
+				id: 'cloud/monitor',
+				label: "Monitoring"
+			},
+			{
+				type: 'doc',
+				id: 'cloud/account',
+				label: "Account Management"
+			},
+			],
+		
+
+	},
+
 	],
 
 

@@ -116,7 +116,7 @@ The `4D.File.new()` function <!-- REF #4D.File.new().Summary -->creates and retu
 
 The `.create()` function <!-- REF #FileClass.create().Summary -->creates a file on disk according to the properties of the `file` object<!-- END REF -->.
 
-if necessary, the function creates the folder hierachy as described in the [platformPath](#platformpath) or [path](#path) properties. if the file already exists on disk, the function does nothing (no error is thrown) and returns false.
+if necessary, the function creates the folder hierachy as described in the [path](#path) property. if the file already exists on disk, the function does nothing (no error is thrown) and returns false.
 
 **Returned value**
 

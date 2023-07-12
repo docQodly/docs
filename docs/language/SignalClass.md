@@ -83,7 +83,7 @@ Since a signal object is a [shared object](../basics/lang-shared.md), you can us
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.newSignal.Syntax -->](#newsignal)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #SignalClass.newSignal.Summary -->|
+|[<!-- INCLUDE #_command_.newSignal.Syntax -->](#newsignal)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #_command_.newSignal.Summary -->|
 
 
 ### Functions and properties

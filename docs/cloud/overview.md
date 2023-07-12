@@ -1,8 +1,8 @@
 ---
 id: overview-cloud
-title: Qodly Cloud
+title: Qodly Cloud Architecture
 ---
 
-## Welcome to Qodly Cloud
+... Coming soon ...
 
 //
