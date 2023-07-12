@@ -3,10 +3,12 @@
 
 # Production
 /build
+/docsPostProcessed
 
 # Generated files
 .docusaurus
 .cache-loader
+commandList.json
 
 # Misc
 .DS_Store
