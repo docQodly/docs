@@ -93,7 +93,13 @@ const config = {
             type: 'doc',
             docId: '/category/studio',
             position: 'left',
-            label: 'Development',
+            label: 'Studio',
+          },
+		   {
+            type: 'doc',
+            docId: '/category/qodlyscript',
+            position: 'left',
+            label: 'QodlyScript',
           },
 		  {
             type: 'doc',
@@ -101,12 +107,14 @@ const config = {
             position: 'left',
             label: 'Cloud',
           },
-		 {
+		
+		 /*{
             type: 'doc',
             docId: '/category/API',
             position: 'left',
             label: 'API',
           },
+		  */
 		  /*
           {to: '/blog', label: 'Blog', position: 'left'},
           {
