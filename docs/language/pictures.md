@@ -8,8 +8,8 @@ title: Pictures
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.pictureSize.Syntax -->](#pictureSize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureSize.Summary -->|
-|[<!-- INCLUDE #_command_.pictureProperties.Syntax -->](#pictureProperties)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureProperties.Summary -->|
+|[<!-- INCLUDE #_command_.pictureSize.Syntax -->](#picturesize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureSize.Summary -->|
+|[<!-- INCLUDE #_command_.pictureProperties.Syntax -->](#pictureproperties)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureProperties.Summary -->|
 
 
 ## blobToPicture
@@ -30,7 +30,7 @@ The `blobToPicture` command <!-- REF #_command_.blobToPicture.Summary -->inserts
 
 #### See also
 
-[`pictureToBlob`](#pictureToBlob)
+[`pictureToBlob`](#picturetoblob)
 
 ## combinePictures
 
@@ -53,7 +53,7 @@ The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->com
 
 #### See also
 
-[`transformPicture`](#transformPicture)
+[`transformPicture`](#transformpicture)
 
 ## convertPicture
 
@@ -123,13 +123,13 @@ The `equalPictures` command <!-- REF #_command_.equalPictures.Summary -->precise
 
 The `getPictureFileName` command <!-- REF #_command_.getPictureFileName.Summary -->returns the current default name of the picture passed as paramete<!-- END REF -->. 
 
-The default name is used when exporting the picture to a disk file. It can be set automatically based on the original name of the picture file imported into the picture field or variable, or using the [`setPictureFileName`](#setPictureFileName) command.
+The default name is used when exporting the picture to a disk file. It can be set automatically based on the original name of the picture file imported into the picture field or variable, or using the [`setPictureFileName`](#setpicturefilename) command.
 
 If the picture does not have a default name, the command returns an empty string.
 
 #### See also
 
-[`setPictureFileName`](#setPictureFileName)
+[`setPictureFileName`](#setpicturefilename)
 
 ## getPictureMetadata
 
@@ -145,11 +145,11 @@ If the picture does not have a default name, the command returns an empty string
 
 #### Description
 
-The `getPictureMetadata` command <!-- REF #_command_.getPictureMetadata.Summary -->can be used to read the contents of the metadata (or meta-tags) found in *aPicture* (picture field or variable)<!-- END REF -->. For more information about metadata, please refer to the description of the [`setPictureMetadata`](#setPictureMetadata) command.
+The `getPictureMetadata` command <!-- REF #_command_.getPictureMetadata.Summary -->can be used to read the contents of the metadata (or meta-tags) found in *aPicture* (picture field or variable)<!-- END REF -->. For more information about metadata, please refer to the description of the [`setPictureMetadata`](#setpicturemetadata) command.
 
 #### See also
 
-[`setPictureMetadata`](#setPictureMetadata)
+[`setPictureMetadata`](#setpicturemetadata)
 
 ## pictureProperties
 
@@ -176,7 +176,7 @@ The *hOffset*, *vOffset*, and *mode* parameters return the horizontal and vertic
 
 #### See also
 
-[`pictureSize`](#pictureSize)
+[`pictureSize`](#picturesize)
 
 ## pictureSize
 
@@ -195,5 +195,5 @@ The *hOffset*, *vOffset*, and *mode* parameters return the horizontal and vertic
 
 #### See also
 
-[`pictureProperties`](#pictureProperties)
+[`pictureProperties`](#pictureproperties)
 
