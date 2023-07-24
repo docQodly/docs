@@ -15,20 +15,20 @@ title: String
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.changeString.Syntax -->](#changeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.changeString.Summary -->|
+|[<!-- INCLUDE #_command_.changeString.Syntax -->](#changestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.changeString.Summary -->|
 |[<!-- INCLUDE #_command_.char.Syntax -->](#char)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.char.Summary -->|
-|[<!-- INCLUDE #_command_.characterCode.Syntax -->](#characterCode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.characterCode.Summary -->|
-|[<!-- INCLUDE #_command_.compareStrings.Syntax -->](#compareStrings)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
-|[<!-- INCLUDE #_command_.convertFromString.Syntax -->](#convertFromString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
-|[<!-- INCLUDE #_command_.convertToString.Syntax -->](#convertToString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertToString.Summary -->|
-|[<!-- INCLUDE #_command_.deleteString.Syntax -->](#deleteString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
-|[<!-- INCLUDE #_command_.insertString.Syntax -->](#insertString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.insertString.Summary -->|
+|[<!-- INCLUDE #_command_.characterCode.Syntax -->](#charactercode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.characterCode.Summary -->|
+|[<!-- INCLUDE #_command_.compareStrings.Syntax -->](#comparestrings)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
+|[<!-- INCLUDE #_command_.convertFromString.Syntax -->](#convertfromstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
+|[<!-- INCLUDE #_command_.convertToString.Syntax -->](#converttostring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertToString.Summary -->|
+|[<!-- INCLUDE #_command_.deleteString.Syntax -->](#deletestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
+|[<!-- INCLUDE #_command_.insertString.Syntax -->](#insertstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.insertString.Summary -->|
 |[<!-- INCLUDE #_command_.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.length.Summary -->|
 |[<!-- INCLUDE #_command_.lowercase.Syntax -->](#lowercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lowercase.Summary -->|
-|[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchRegex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
+|[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchregex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
 |[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
 |[<!-- INCLUDE #_command_.position.Syntax -->](#position)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.position.Summary -->|
-|[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replaceString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
+|[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replacestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
 |[<!-- INCLUDE #_command_.splitString.Syntax -->](#splitstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.splitString.Summary -->|
 |[<!-- INCLUDE #_command_.string.Syntax -->](#string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.string.Summary -->|
 |[<!-- INCLUDE #_command_.substring.Syntax -->](#substring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.substring.Summary -->|
