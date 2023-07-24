@@ -288,6 +288,8 @@ Assigning *undefined* to an object property clears its value while preserving it
 ```qs  
 //Class: Person.4qm
 
+property firstName, lastName : string
+
 constructor(firstname : string, lastname : string)
  this.firstName=firstname
  this.lastName=lastname
