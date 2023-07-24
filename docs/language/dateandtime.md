@@ -335,9 +335,9 @@ The following example illustrates the use of `dayOf`. The results are assigned t
 
 #### See also
 
-[`dayNumber`](#dayNumber)<br/>
-[`monthOf`](#monthOf)<br/>
-[`yearOf`](#yearOf)
+[`dayNumber`](#daynumber)<br/>
+[`monthOf`](#monthof)<br/>
+[`yearOf`](#yearof)
 
 
 ## milliseconds
@@ -423,8 +423,8 @@ To compare the value returned by this function, Qodly provides the following pre
 
 #### See also
 
-[`dayOf`](#dayOf)<br/>
-[`yearOf`](#yearOf)
+[`dayOf`](#dayof)<br/>
+[`yearOf`](#yearof)
 
 
 ## time
@@ -469,7 +469,7 @@ You can express any numerical value as a time:
 
 #### See also
 
-[`bool`](#../boolean#bool)<br/>[`string`](../string#string)<br/>[`timeString`](#timeString)<br/>[`timestamp`](#timestamp)
+[`bool`](#../boolean#bool)<br/>[`string`](../string#string)<br/>[`timeString`](#timestring)<br/>[`timestamp`](#timestamp)
 
 
 ## timeString
@@ -591,6 +591,6 @@ The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *
 
 #### See also
 
-[`dayOf`](#dayOf)<br/>
-[`monthOf`](#monthOf)
+[`dayOf`](#dayof)<br/>
+[`monthOf`](#monthof)
 
