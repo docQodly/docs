@@ -3,7 +3,7 @@ id: settings
 title: Settings
 ---
 
-The Settings panel allows you to customize the Web Studio interface for the current project and the current user. 
+The Settings panel allows you to customize the Web Studio interface for the current user and the current application. 
 
 To open the Settings panel, click on the **Settings** button from the Explorer or the toolbar:
  
@@ -12,7 +12,7 @@ To open the Settings panel, click on the **Settings** button from the Explorer o
 The following pages are available:
 
 - **User**: settings related to the user interface
-- **Database**: settings related to the web project
+- **Application**: settings related to the web application
 
 
 ## User
@@ -38,18 +38,23 @@ Timeout for selected tooltip behavior.
 
 Shows or hides the tips icons ![helper](img/helper-tip.png) in the webform editor.
 
+#### Activate Welcome Tour
+
+Enables or disables the display of the Welcome tour dialogs boxes that introduce you to the main features of the Web studio.  
+
+
 ## Application
 
-#### Preview Page
+#### Start Page
 
-Allows to select a webform to use as the home page of your application. 
+Allows to select a webform to use as the start page of your application. 
 
-The home page webform is automatically rendered when:
+The start page webform is automatically rendered when:
 
 - you click on the **Preview** button in the webform editor - the webform is rendered in a new tab.
 - you click on the **Preview URL** area in the Qodly Cloud dashboard of your application. 
 
-This setting is defined at project level.
+
 
 #### Default Display Mode
 
