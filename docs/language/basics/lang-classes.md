@@ -288,6 +288,8 @@ Assigning *undefined* to an object property clears its value while preserving it
 ```qs  
 //Class: Person.4qm
 
+property firstName, lastName : string
+
 constructor(firstname : string, lastname : string)
  this.firstName=firstname
  this.lastName=lastname
@@ -393,7 +395,7 @@ The property type can be one of the following supported types:
 
 :::info
 
-The `property` keyword can only be used in class methods and outside any `function` block.
+The `property` keyword can only be used in class methods and outside any `function` or `constructor` block.
 
 :::
 
