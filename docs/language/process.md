@@ -11,9 +11,9 @@ Multi-tasking in QodlyScript is the ability to have distinct operations that are
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.changeString.Syntax -->](#changeString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.changeString.Summary -->|
-|[<!-- INCLUDE #_command_.char.Syntax -->](#char)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.char.Summary -->|
-|[<!-- INCLUDE #_command_.characterCode.Syntax -->](#characterCode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.characterCode.Summary -->|
+|[<!-- INCLUDE #_command_.callWorker.Syntax -->](#callworker)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callWorker.Summary -->|
+|[<!-- INCLUDE #_command_.clearSemaphore.Syntax -->](#clearsemaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.clearSemaphore.Summary -->|
+|[<!-- INCLUDE #_command_.killWorker.Syntax -->](#killworker)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.killWorker.Summary -->|
 |[<!-- INCLUDE #_command_.compareStrings.Syntax -->](#compareStrings)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
 |[<!-- INCLUDE #_command_.convertFromString.Syntax -->](#convertFromString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
 |[<!-- INCLUDE #_command_.convertToString.Syntax -->](#convertToString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertToString.Summary -->|
@@ -34,7 +34,7 @@ Multi-tasking in QodlyScript is the ability to have distinct operations that are
 
 ## callWorker
 
-<!-- REF #_command_.callWorker.Syntax -->**callWorker** ( *process* : string , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : string , *formula* : string {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : string {, *param {, ...paramN }* : integer } )<!-- END REF -->
+<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : string , *formula* : string {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : string {, *param {, ...paramN }* : integer } )<!-- END REF -->
 
 
 <!-- REF #_command_.changeString.Params -->
@@ -96,80 +96,78 @@ The code of `workerMethod` is:
 
 #### See also
 
-[`deleteString`](#deletestring)<br/>
-[`insertString`](#insertstring)<br/>
-[`replaceString`](#replacestring)
-
-## char
-
-<!-- REF #_command_.char.Syntax -->**char** ( *charCode* : integer ) : string<!-- END REF -->
+[`killWorker`](#killworker)
 
 
-<!-- REF #_command_.char.Params -->
+## clearSemaphore
+
+<!-- REF #_command_.clearSemaphore.Syntax -->**clearSemaphore**( *semaphore* : string )<!-- END REF -->
+
+
+<!-- REF #_command_.clearSemaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|charCode|integer|->|Character code|
-|Result|string|<-|Character represented by the charCode|<!-- END REF -->
+|semaphore|string|->|Semaphore to clear|<!-- END REF -->
 
 #### Description
 
-The `char` command <!-- REF #_command_.char.Summary -->returns the character whose code is *charCode*<!-- END REF -->. 
+The `clearSemaphore` command <!-- REF #_command_.clearSemaphore.Summary -->erases *semaphore* previously set by the `semaphore` command<!-- END REF -->. 
 
-Pass a UTF-16 value (included between 1 and 65535) in *charCode*.
+As a rule, all semaphores that have been created should be cleared. If semaphores are not cleared, they remain in memory until the process that creates them ends. A process can only clear semaphores that it has created. If you try to clear a semaphore from within a process that did not create it, nothing happens.
 
-:::tip
-
-In editing a method, the command `char` is commonly used to specify characters that cannot be entered from the keyboard or that would be interpreted as an editing command in the code editor.
-
-:::
-
-#### Example
-
-```qs
-
-var myText : string
-myText ="hello"+char(carriageReturn)+"world"
-```
 
 #### See also
 
-[`characterCode`](#charactercode)<br/>
-[`Character Reference Symbols`](../basics/lang-text#character-reference-symbols)
-
-## characterCode
-
-<!-- REF #_command_.characterCode.Syntax -->**characterCode** ( *character* : String ) : integer<!-- END REF -->
+[`semaphore`](#semaphore)<br/>
+[`Signal` class](SignalClass.md)
 
 
-<!-- REF #_command_.characterCode.Params -->
+## killWorker
+
+<!-- REF #_command_.killWorker.Syntax -->**killWorker**()<br/>**killWorker**( *process* : string )<br/>**killWorker**( *process* : integer )<!-- END REF -->
+
+
+<!-- REF #_command_.killWorker.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|character|string|->|Character for which you want to get the code|
-|Result|integer|<-|Character code|<!-- END REF -->
+|process|string &#124; integer |->|Name or number of process to kill (current process if omitted)|<!-- END REF -->
 
 #### Description
 
-The `characterCode` command <!-- REF #_command_.characterCode.Summary -->returns the Unicode UTF-16 code (included between 1 and 65535) of *character*<!-- END REF -->. 
+The `killWorker` command <!-- REF #_command_.killWorker.Summary -->posts a message to the worker process whose name or number you passed in *process*, asking it to ignore any pending messages and to terminate its execution as soon as the current task ends<!-- END REF -->. 
 
-If there is more than one character in the string, `characterCode` returns only the code of the first character.
+This command can only be used with worker processes.
 
-The [`char`](#char) function is the counterpart of `characterCode`. It returns the character that the UTF-16 code represents.
+In *process*, you pass either the name or number of the worker process whose execution needs to be terminated. If no worker with the specified process name or number exists, `killWorker` does nothing.
+
+If you do not pass any parameter, `killWorker` applies to the currently running worker.
+
+If `killWorker` is applied to a worker that was not created explicitly using the [`callWorker`](#callworker) command, it only asks this worker to empty its message box.
+
+If the [`callWorker`](#callworker) command is called to send a message to a worker that was just killed by `killWorker`, a new process is started. To make sure that there is only one process running at a time for a worker, the new process will start after the previous one is actually terminated. Note however that if [`callWorker`](#callworker) is called from a worker to send itself a message whereas it has just been killed by `killWorker`, the command does nothing.
 
 
-#### Example 1
+#### Example
 
-Uppercase and lowercase characters are considered equal within a comparison. You can use `characterCode` to differentiate between uppercase and lowercase characters. Thus, this line returns true:
+The following code triggers the termination of a worker:
+
 
 ```qs
-("A"=="a")
+callWorker(vWorkerName,"theWorker","end")
 
 ```
 
-On the other hand, this line returns False:
 
 ```qs
- (characterCode("A")==characterCode("a"))
-
+   //theWorker method
+   
+declare (param : text)
+switch
+    :(param=="call") //the worker is called
+       ... //do something
+    :(param=="end") //the worker is asked to kill itself
+      killWorker()
+end
 ```
 
 #### Example 2
