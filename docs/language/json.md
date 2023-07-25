@@ -125,7 +125,9 @@ JSON Pointer is a standard that defines a string syntax which can be used to acc
 
 A JSON pointer is, strictly speaking, a string composed of parts separated by '/'. A JSON pointer is usually found in a URI that specifies the document into which the pointer will be resolved. The fragment character "#' is used in the URI to specify the JSON pointer. By convention, a URI containing a JSON pointer can be found in a JSON object property that must be named "ref".
 
+```
 {    "ref":<path>#<json_pointer> }
+```
 
 :::note
 
