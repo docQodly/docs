@@ -148,7 +148,7 @@ In this context, the command returns a reference to the object currently process
 
 In any other context, the command returns **Null**.
 
-Within supported contexts, you will access object/collection element properties or entity attributes through This.<propertyPath>. For example, This.name or This.employer.lastName are valid pathes to object, element or entity properties.
+Within supported contexts, you will access object/collection element properties or entity attributes through `This.<propertyPath>`. For example, This.name or This.employer.lastName are valid pathes to object, element or entity properties.
 
 #### See also
 
