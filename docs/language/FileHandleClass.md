@@ -65,6 +65,7 @@ file handle objects cannot be shared.
 |[<!-- INCLUDE #fileHandleClass.breakModeWrite.Syntax -->](#breakmodewrite)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.breakModeWrite.Summary -->|
 |[<!-- INCLUDE #fileHandleClass.charset.Syntax -->](#charset)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.charset.Summary -->|
 |[<!-- INCLUDE #fileHandleClass.eof.Syntax -->](#eof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.eof.Summary -->|
+|[<!-- INCLUDE #FileHandleClass.file.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileHandleClass.file.Summary -->|
 |[<!-- INCLUDE #fileHandleClass.getSize().Syntax -->](#getsize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.getSize().Summary -->|
 |[<!-- INCLUDE #fileHandleClass.mode.Syntax -->](#mode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.mode.Summary -->|
 |[<!-- INCLUDE #fileHandleClass.offset.Syntax -->](#offset)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #fileHandleClass.offset.Summary -->|
@@ -153,6 +154,20 @@ This property is **read-only**.
 
 <!-- END REF -->
 
+
+<!-- REF fileHandleClass.file.Desc -->
+## .file
+
+<!-- REF #fileHandleClass.file.Syntax -->**.file** : 4D.File<!-- END REF -->
+
+
+#### Description
+
+The `.file` property returns <!-- REF #fileHandleClass.file.Summary -->the [4D.File](FileClass.md) object on which the handle has been created<!-- END REF -->.
+
+This property is **read-only**.
+
+<!-- END REF -->
 
 
 <!-- REF fileHandleClass.getSize().Desc -->
@@ -353,6 +368,7 @@ If the *size* value is less than the current document size, the document content
 |Parameter|Type||Description|
 |---|---|---|---|
 |*blob*|[4D.Blob](BlobClass)|->|Blob to write in the file|<!-- END REF -->
+
 
 
 #### Description

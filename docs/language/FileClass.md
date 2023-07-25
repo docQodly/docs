@@ -181,9 +181,8 @@ You want to create a symbolic link to a file in your resources folder:
 
 #### Description
 
-The `.delete()` function <!-- REF #FileClass.delete().Summary -->deletes the file<!-- END REF -->.
 
-if the file is currently open, an error is generated.
+The `.delete()` function <!-- REF #FileClass.delete().Summary -->deletes the file<!-- END REF -->.
 
 if the file does not exist on disk, the function does nothing (no error is generated).
 
