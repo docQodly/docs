@@ -6,6 +6,8 @@ title: Language
 
 ## Language Commands
 
+||
+|---|
 |[<!-- INCLUDE #_command_.4D.Syntax -->](#4d)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.4D.Summary -->|
 |[<!-- INCLUDE #_command_.callChain.Syntax -->](#callchain)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callChain.Summary -->|
 |[<!-- INCLUDE #_command_.copyParameters.Syntax -->](#copyparameters)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.copyParameters.Summary -->|
