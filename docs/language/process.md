@@ -11,24 +11,71 @@ Multi-tasking in QodlyScript is the ability to have distinct operations that are
 
 ||
 |---|
+|[<!-- INCLUDE #_command_.abortProcessByID.Syntax -->](#abortprocessbyid)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.abortProcessByID.Summary -->|
 |[<!-- INCLUDE #_command_.callWorker.Syntax -->](#callworker)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callWorker.Summary -->|
 |[<!-- INCLUDE #_command_.clearSemaphore.Syntax -->](#clearsemaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.clearSemaphore.Summary -->|
+|[<!-- INCLUDE #_command_.currentProcess.Syntax -->](#currentprocess)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentProcess.Summary -->|
+|[<!-- INCLUDE #_command_.currentProcessName.Syntax -->](#currentprocessname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentProcessName.Summary -->|
+|[<!-- INCLUDE #_command_.delayProcess.Syntax -->](#delayprocess)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.delayProcess.Summary -->|
+|[<!-- INCLUDE #_command_.getProcessActivity.Syntax -->](#getprocessactivity)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getProcessActivity.Summary -->|
+|[<!-- INCLUDE #_command_.highestProcessNumber.Syntax -->](#highestprocessnumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.highestProcessNumber.Summary -->|
 |[<!-- INCLUDE #_command_.killWorker.Syntax -->](#killworker)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.killWorker.Summary -->|
-|[<!-- INCLUDE #_command_.compareStrings.Syntax -->](#compareStrings)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
-|[<!-- INCLUDE #_command_.convertFromString.Syntax -->](#convertFromString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
-|[<!-- INCLUDE #_command_.convertToString.Syntax -->](#convertToString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertToString.Summary -->|
-|[<!-- INCLUDE #_command_.deleteString.Syntax -->](#deleteString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
-|[<!-- INCLUDE #_command_.insertString.Syntax -->](#insertString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.insertString.Summary -->|
-|[<!-- INCLUDE #_command_.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.length.Summary -->|
+|[<!-- INCLUDE #_command_.semaphore.Syntax -->](#semaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.semaphore.Summary -->|
+|[<!-- INCLUDE #_command_.testSemaphore.Syntax -->](#testsemaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.testSemaphore.Summary -->|
 |[<!-- INCLUDE #_command_.lowercase.Syntax -->](#lowercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lowercase.Summary -->|
 |[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchRegex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
 |[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
+
 |[<!-- INCLUDE #_command_.position.Syntax -->](#position)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.position.Summary -->|
 |[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replaceString)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
 |[<!-- INCLUDE #_command_.splitString.Syntax -->](#splitstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.splitString.Summary -->|
 |[<!-- INCLUDE #_command_.string.Syntax -->](#string)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.string.Summary -->|
 |[<!-- INCLUDE #_command_.substring.Syntax -->](#substring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.substring.Summary -->|
 |[<!-- INCLUDE #_command_.uppercase.Syntax -->](#uppercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.uppercase.Summary -->|
+
+
+
+## abortProcessByID
+
+<!-- REF #_command_.abortProcessByID.Syntax -->**abortProcessByID** ( *uniqueID* : integer )<!-- END REF -->
+
+
+<!-- REF #_command_.abortProcessByID.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|uniqueID|integer|->|Unique process ID|<!-- END REF -->
+
+
+#### Description
+
+The `abortProcessByID` command <!-- REF #_command_.abortProcessByID.Summary -->stops a specific process on the Qodly Server<!-- END REF -->. 
+
+In the *uniqueID* parameter, pass the unique ID of the process running on the server that you want to stop. You can retrieve the process ID with the [`getProcessActivity`](#getprocessactivity) or the [`processProperties`](#processproperties) command.
+
+:::note
+
+This command should only be used for searching errors or administration purposes, not as a regular procedure.
+
+:::
+
+#### Example
+
+You want to stop the first process of a processes collection:
+
+```qs
+  //variable =curItemPosition
+ 
+  // Retrieve the list of process on the server
+ activity=getProcessActivity(kProcessesOnly).processes 
+ ...
+  // The selected process is stopped on the server
+ abortProcessByID(activity[0].ID)
+```
+
+#### See also
+
+[`getProcessActivity`](#getprocessactivity)
+
 
 
 
@@ -75,6 +122,7 @@ A worker process remains alive until the application is closed or the `killWorke
 
 #### Example
 
+
 In a webform, a button starts a computation: for example, statistics for the selected year. The button creates or calls a worker process that computes the data while the user can continue to work in the form.
 
 The code called from the button:
@@ -96,7 +144,8 @@ The code of `workerMethod` is:
 
 #### See also
 
-[`killWorker`](#killworker)
+[`killWorker`](#killworker)<br/>
+[`Signal` class](SignalClass.md)
 
 
 ## clearSemaphore
@@ -120,6 +169,232 @@ As a rule, all semaphores that have been created should be cleared. If semaphore
 
 [`semaphore`](#semaphore)<br/>
 [`Signal` class](SignalClass.md)
+
+
+## currentProcess
+
+<!-- REF #_command_.currentProcess.Syntax -->**currentProcess** : integer<!-- END REF -->
+
+
+<!-- REF #_command_.currentProcess.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Current process number|<!-- END REF -->
+
+
+#### Description
+
+`currentProcess` <!-- REF #_command_.currentProcess.Summary -->returns the process ID of the process within which this command is called<!-- END REF -->. 
+
+
+#### See also
+
+[`currentProcessName`](#currentprocessname)<br/>
+[`processNumber`](#processnumber)<br/>
+[`processState`](#processstate)
+
+
+## currentProcessName
+
+<!-- REF #_command_.currentProcessName.Syntax -->**currentProcessName** : string<!-- END REF -->
+
+
+<!-- REF #_command_.currentProcessName.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|string|<-|Current process name|<!-- END REF -->
+
+
+#### Description
+
+`currentProcessName` <!-- REF #_command_.currentProcess.Summary -->returns the name of the process within which this command is called<!-- END REF -->. 
+
+
+#### Example
+
+You want to call a worker and pass the calling process name as parameter:
+
+```qs
+callWorker(1,"myMessage",currentProcessName,"Start:"+string(vMax))
+```
+ 
+ 
+#### See also
+
+[`currentProcess`](#currentprocess)<br/>
+[`processNumber`](#processnumber)<br/>
+[`processState`](#processstate)
+
+
+
+## delayProcess
+
+<!-- REF #_command_.delayProcess.Syntax -->**delayProcess** ( *process* : integer , *duration* : number )<!-- END REF -->
+
+
+<!-- REF #_command_.delayProcess.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|process|integer|->|Process number|
+|duration|number|->|Duration expressed in ticks|
+<!-- END REF -->
+
+
+#### Description
+
+The `delayProcess` command <!-- REF #_command_.delayProcess.Summary -->delays the execution of *process* for a *duration* expressed in number of ticks (1 tick = 1/60th of a second)<!-- END REF -->. During this period, *process* does not take any processing time. Even though the execution of a process may be delayed, it is still in memory.
+
+You can delay a process for less than one tick. For example, if you pass 0.5 in *duration*, the process will be delayed for a 1/2 tick, i.e. 1/120th of a second.
+
+If the process is already delayed, this command delays it again. The *duration* parameter is not added to the time remaining, but replaces it. Therefore pass zero (0) for *duration* if you no longer want to delay a process.
+
+If *process* does not exist, the command does nothing.
+
+
+## getProcessActivity
+
+<!-- REF #_command_.getProcessActivity.Syntax -->**getProcessActivity** ({ *options* : integer }) : object<!-- END REF -->
+
+
+<!-- REF #_command_.getProcessActivity.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|options|integer|->|Return options|
+|Result|object|<-|Snapshot of running processes and/or user sessions|<!-- END REF -->
+
+#### Description
+
+The `getProcessActivity` command <!-- REF #_command_.getProcessActivity.Summary -->returns a snapshot of connected user sessions and/or related running processes at a given time<!-- END REF -->. This command returns all processes, including internal processes that are not reachable by the `processProperties` command.
+
+By default if you omit the *options* parameter, `getProcessActivity` returns both user session and process lists, as shown below:
+
+```json
+{
+"sessions": [
+          {
+             "type": "remote",
+             "userName": "Designer",
+             "machineName": "iMac27caroline",
+             "systemUserName": "Caroline Briaud",
+             "IPAddress": "192.168.18.18",
+             "hostType": "mac",
+             "creationDateTime": "2017-09-22T12:46:39Z",
+             "state": "postponed",
+             "ID": "3C81A8D7AFE64C2E9CCFFCDC35DC52F5"
+           },...
+       ],
+"processes": [
+          {
+             "name": "Application process",
+             "sessionID": "3C81A8D7AFE64C2E9CCFFCDC35DC52F5",
+             "number": 4,
+             "ID": 4,
+             "visible": true,
+             "systemID": "123145476132864",
+             "type": -18,
+             "state": 0,
+             "cpuUsage": 0,
+             "cpuTime": 0.006769,
+             "preemptive": false,
+             "session": {  
+                      "type": "remote",
+                      "userName": "Designer",
+                      "machineName": "iMac27caroline",
+                      "systemUserName": "Caroline Briaud",
+                      "IPAddress": "192.168.18.18",
+                      "hostType": "mac",
+                      "creationDateTime": "2017-09-22T12:46:39Z",
+                      "state": "postponed",
+                      "ID": "3C81A8D7AFE64C2E9CCFFCDC35DC52F5"
+                       }
+           },...
+    ]
+}
+```
+
+You can select the list to return by passing one of the following constants (integer) in the *options* parameter:
+
+- `kProcessesOnly` (1): Returns only the process list
+- `kSessionsOnly` (2): Returns only the user session list
+
+
+#### Sessions
+
+The "sessions" property contains a collection of objects describing all running user sessions on the server. Each session object contains the following properties:
+
+|Property name|Type|Description|
+|---|---|---|
+|type|string |Session type. Possible values: "storedProcedure", "web", "rest"|
+|userName|string |User name|
+|machineName|string |Name of the machine|
+|systemUserName|string |Name of the system session opened on the machine|
+|IPAddress|string |	IP address of the machine|
+|hostType|string |	Host type. Possible values: "windows", "mac", "browser"|
+|creationDateTime|Date ISO 8601	Date and time of connection of the machine|
+|state|string |	Session state. Possible values: "active", "postponed", "sleeping"|
+|ID|string |Session UUID|
+|persistentID|string |Session's persistent ID|
+
+
+#### Processes
+
+The "processes" property contains a collection of objects describing all running processes on the server. Each process object contains the following properties:
+
+|Property name|Type|Description|
+|---|---|---|
+|name|string|Process name|
+sessionID|string|Session UUID
+number|integer|Process number
+ID|integer|Process unique ID
+visible|boolean|true if visible, false otherwise
+systemID|string|ID for the user process, Qodly process or spare process
+type|integer|Running process type. <li>kHTTPLogFlusher (-58)</li><li>kMainProcess (-39)</li><li>kClientManagerProcess (-31)</li><li>kCompilerProcess (-29)</li><li>kMonitorProcess (-26)</li><li>kInternalTimerProcess (-25)</li><li>kLogFileProcess (-20)</li><li>kBackup process (-19)</li><li>kInternalProcess (-18)</li><li>kOnExitProcess (-16)</li><li>kWebServerProcess (-13)</li><li>kOtherProcess (-10)</li><li>kEventManager (-8)</li><li>kIndexingProcess (-5)</li><li>kCacheManager (-4)</li><li>kWebProcessWithNoContext (-3)</li><li>kDesignProcess (-2)</li><li>kNone (0)</li><li>kWorkerProcess (5)</li>
+|state|integer|Current status (see [`processState`](#processstate) constant list)|
+|cpuUsage|number|Percentage of time devoted to this process (between 0 and 1)|
+|cpuTime|number|Running time (seconds)|
+|preemptive|boolean|always true|
+|session|object|The specific session in which the process is running. Undefined if the `kProcessesOnly` parameter is passed.|
+|url|string|URL with path and parameters (if any) of the web (-3) processes running on the web server. Not returned for other types of processes.|
+
+
+
+#### Example
+
+You want to get the collection of all user sessions:
+
+```qs 
+var o : object
+var i : integer
+ 
+o=getProcessActivity //Get process & session info
+for(i,0,(o.processes.length)-1) //Iterate over the "processes" collection
+  processName=o.processes[i].name
+  userName=string(o.processes[i].session.userName) // Easy access to userName
+  //use string because session object might be undefined
+end
+ 
+```
+
+
+## highestProcessNumber
+
+
+<!-- REF #_command_.highestProcessNumber.Syntax -->**highestProcessNumber** : integer<!-- END REF -->
+
+<!-- REF #_command_.highestProcessNumber.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Highest number of open processes (including kernel processes)|<!-- END REF -->
+
+#### Description
+
+The `highestProcessNumber` command <!-- REF #_command_.highestProcessNumber.Summary -->returns the highest alive process number in the Qodly Server<!-- END REF -->. 
+
+Processes are numbered in the order in which they are created. When still no process has been aborted during the session, then this command returns the total number of open processes.
+
+This number takes into account all processes, even those that are automatically managed by Qodly Server, such as the Cache Manager process and Web Server process.
+
+
 
 
 ## killWorker
@@ -170,509 +445,152 @@ switch
 end
 ```
 
-#### Example 2
-
-This example returns the code of the first character of the string "ABC":
-
-```qs
- var GetCode : integer
- GetCode=characterCode("ABC") //GetCode gets 65, the characterCode of A
-
-```
-
-#### Example 3
-
-The following example tests for carriage returns and tabs:
-
-```qs
- var vlChar : integer
- var vtText : string
- for(vlChar,1,length(vtText))
-    switch
-       :(vtText[[vlChar]]==char(Carriage return))
-  //do something
-       :(vtText[[vlChar]]==char(Tab))
-  // do something else
-       :(...)
-  //...
-    end
- end
-
-```
-
-When executed multiple times on large texts, this test will run faster when compiled if it is written this way:
-
-```qs
- var vlChar, vlCode  : integer
- var vtText : string
- for(vlChar,1,length(vtText))
-    vlCode=characterCode(vtText[[vlChar]])
-    switch
-       :(vlCode==Carriage return)
-  //do something
-       :(vlCode==Tab)
-  //do something else
-       :(...)
-  //...
-    end
- end
-
-```
-
-The second piece of code runs faster for two reasons: it does only one character reference by iteration and uses integer comparisons instead of string comparisons to test for carriage returns and tabs. Use this technique when working with common codes such as CR and TAB
-
 #### See also
 
-[`char`](#char)<br/>
-[`Character Reference Symbols`](#character-reference-symbols)
-
-## compareStrings
-
-<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string { , *options* : integer } ) : integer<!-- END REF -->
+[`callWorker`](#callworker)<br/>
+[`Signal` class](SignalClass.md)
 
 
-<!-- REF #_command_.compareStrings.Params -->
+## semaphore
+
+<!-- REF #_command_.semaphore.Syntax -->**semaphore** ( *semaphore* : string { , *tickCount* : integer } ) : boolean<!-- END REF -->
+
+
+<!-- REF #_command_.semaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|String to compare|
-|bString|string|->|String to compare|
-|options|integer|->|Comparison rule(s)|
-|Result|integer|<-|Result of string comparison|<!-- END REF -->
+|semaphore|string|->|Semaphore to test and set|
+|tickCount|integer|->|Maximum waiting time|
+|Result|boolean|<-|false: semaphore has been successfully set, true: semaphore was already set|<!-- END REF -->
 
 #### Description
 
-The `compareStrings` command <!-- REF #_command_.compareStrings.Summary -->returns a negative, zero, or positive value depending on if *aString* is evaluated as lower, equal, or higher than *bString*.<!-- END REF -->. 
+The `semaphore` command <!-- REF #_command_.semaphore.Summary -->returns `true` and does nothing if *semaphore* already exists, or creates *semaphore* and returns `false` if it does not exist<!-- END REF -->. 
 
-In the *aString* parameter, pass a string value.
+:::info
 
-In the *bString* parameter, pass a string value to be compared to *aString*.
-
-By default, `compareStrings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants: 
-
-|Constant|Value|Comment|
-|:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u> OR <u>sk diacritic insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
-|sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in <a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>sk strict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
-
-:::caution
-
-You cannot use the @ wildcard character with `compareStrings`. For example, if you pass "*abc@*" in *aString* or *bString* the command will actually evaluate the "*abc@*" string and not an "abc" string plus any character.
+A **semaphore** is a flag shared among processes. A semaphore simply exists or does not exist. The methods that each process is running can test for the existence of a semaphore. A semaphore can only be removed by the process that created it. By creating and testing semaphores, methods can communicate between processes. You do not use semaphores to protect data access (this is automatically done by the Qodly Server), you use semaphores to prevent several processes from performing the same operation at the same time.
 
 :::
 
-**Returned value**
 
-The command returns the following integer values:
+Only one process at a time can create a semaphore. If `semaphore` returns `false`, it means that the semaphore did not exist, but it also means that the *semaphore* has been set for the process in which the call has been made.
 
-|Value |Description|
-|:----|:----|
-|-1|*aString* is lower than *bString*|
-|0|*aString* is equal to *bString*|
-|1 |*aString* is higher *bString*|
+`semaphore` returns `false` if the *semaphore* was not set. It also returns `false` if the semaphore is already set by the same process in which the call has been made.
+
+The *semaphore* name is limited to 255 characters. If you pass a longer string, the semaphore will be tested with the truncated string. Keep in mind that semaphore names are case-sensitive.
+
+The optional parameter *tickCount* allows you to specify a waiting time (in ticks) if *semaphore* is already set. In this case, the function will wait either for the semaphore to be freed or the waiting time to expire before returning `true`.
+
 
 #### Example 1
 
-You want to compare the following strings:
+Here is typical code for using a semaphore:
 
 ```qs
- var string1, string2 : string
- var myResult : integer
- string1="alpha Bravo charlie Delta Echo Fox-Trot"
- string2="Alpha Bravo Charlie Delta Echo Fox-Trot"
- 
-  //compare the strings using the character code
- myResult=compareStrings(string1,string2,sk char codes)
-  // myResult = 1
- 
-  //compare the strings using the character code but ignoring any capitalization
- myResult=compareStrings(string1,string2,sk char codes+sk case insensitive)
-  // myResult = 0
- 
+while(semaphore("MySemaphore",300))
+    
+end
+  // place code protected by semaphore here
+clearSemaphore("MySemaphore")
 ```
 
-#### Example 2
+#### Example 2  
 
-The following examples illustrate the specific impact of options in **Japanese data language context**:
+This method allows you to not execute a method when a semaphore is present; the method alerts the calling method with an error code and plain text.
 
 ```qs
- var myResult : integer
-//default is kana insensitive
- myResult=compareStrings("イロハ","いろは") // equal
- myResult=compareStrings("イロハ","いろは",sk strict)      // not equal
- result=compareStrings("イロハ","いろは",sk kana insensitive) // equal
- 
+// calling code
+declare -> result : object
+result = semaphore_proof
+// result.code: error code
+// result.message: error text
 ```
 
 ```qs
- var myResult : integer
-//default is case insensitive
- myResult=compareStrings("さつき","さっき") // equal
- myResult=compareStrings("さつき","さっき",sk strict) // not equal
- myResult=compareStrings("さつき","さっき",sk case insensitive) // equal
+  // Protective structure using semaphores
+ var result : object
  
-```
-
-```qs
- var myResult : integer
- //default is diacritic sensitive when the data language is set to Japanese (different to all other languages)
- myResult=compareStrings("ete","été") // equal in non-Japanese data language
- myResult=compareStrings("ete","été") // not equal in Japanese data language
- myResult=compareStrings("うがい","うかい") // not equal
- myResult=compareStrings("うがい","うかい",sk strict) // not equal
- myResult=compareStrings("うがい","うかい",sk diacritic insensitive) // equal
  
-```
-
-:::note
-
-The "Sorting order appropriate for searching" setting has an impact on the `compareStrings` command. In particular, the "Katakana-Hiragana Prolonged Sound Mark" or "長音記号" will be interpreted differently. The setting also has an impact on "Japanese Iteration Marks" such as "ゝ" or "ゞ". 
-
-:::
-
-For example:
-
-
-```qs
- var myResult : integer
- myResult=compareStrings("いすず","いすゞ") // equal if setting is disabled
- myResult=compareStrings("いすず","いすゞ") // not equal if setting is enabled
- myResult=compareStrings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
- myResult=compareStrings("ラーメン",&NBSP,"ﾗｰﾒﾝ") // not equal if setting is disabled
+  // Start of method
+ var L_MyError : integer
+ L_MyError=1
  
+ var t_Sema : string
+ t_Sema="tictac"
+ 
+ if(semaphore(t_Sema,300))
+  // We expected 300 ticks but the semaphore
+  // was not released by the one that placed it:
+  // we end up here
+    L_MyError=-1
+ 
+ else
+ 
+  // This method is only run by one process at a time
+  // We placed the semaphore as we entered
+  // so we're the only ones that can remove it
+ 
+  // Do something
+    ...
+  // Then finish by removing the semaphore
+    clearSemaphore(t_Sema)
+ end
+ 
+ var t_Message : string
+ if(L_MyError==-1)
+    t_Message="The semaphore "+t_Sema+" has blocked access to the rest of the code"
+ else
+    t_Message="OK"
+ end
+ 
+ result={code : L_MyError, message : t_Message)
+  // The calling method receives an error code and an explanation in plain text
 ```
 
 #### See also
 
-[`position`](#position)
-
-## convertFromString
-
-<!-- REF #_command_.convertFromString.Syntax -->**convertFromString** ( *aString* : string , *charSetString* : string ) : blob<br/>**convertFromString** ( *aString* : string , *charSetInt* : integer ) : blob<!-- END REF -->
+[`clearSemaphore`](#clearsemaphore)<br/>
+[`Signal` class](SignalClass.md)
 
 
-<!-- REF #_command_.convertFromString.Params -->
+## testSemaphore
+
+<!-- REF #_command_.testSemaphore.Syntax -->**testSemaphore** ( *semaphore* : string ) : boolean<!-- END REF -->
+
+
+<!-- REF #_command_.testSemaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|string expressed in current character set|
-|charSetString|string|->|Name of character set|
-|charSetInt|integer|->|Number of character set|
-|Result|blob|<-|blob containing converted string|<!-- END REF -->
+|semaphore|string|->|Semaphore to test|
+|Result|boolean|<-|false: semaphore does not exist, true: semaphore exists|<!-- END REF -->
 
 #### Description
 
-The `convertFromString` command <!-- REF #_command_.convertFromString.Summary -->can be used to convert a string expressed in the current character set to a string expressed in another character set<!-- END REF -->. 
+The `testSemaphore` command <!-- REF #_command_.testSemaphore.Summary -->tests for the existence of *semaphore*<!-- END REF -->. 
 
-In the *aString* parameter, pass the text to be converted. This text is expressed in the current character set (Unicode by default).
-
-In *charSetString* or *charSetInt*, pass the character set to be used for the conversion. You can pass a string containing the standard name of the set (for example "ISO-8859-1" or "UTF-8"), or its MIBEnum identifier.
-
-Here is a list of character sets supported by the convertFromString and [`convertToString`](#converttostring) commands:
-
-|MIBEnum|Name(s)|
-|:----|:----|
-|1017|UTF-32|
-|1018|UTF-32BE|
-|1019|UTF-32LE|
-|1015|UTF-16|
-|1013|UTF-16BE|
-|1014|UTF-16LE|
-|106|UTF-8|
-|1012|UTF-7|
-|3|US-ASCII|
-|3|ANSI_X3.4-1968|
-|3|ANSI_X3.4-1986|
-|3|ASCII|
-|3|cp367|
-|3|csASCII|
-|3|IBM367|
-|3|iso-ir-6|
-|3|ISO_646.irv:1991|
-|3|ISO646-US|
-|3|us|
-|2011|IBM437|
-|2011|cp437|
-|2011|437|
-|2011|csPC8CodePage437|
-|2028|ebcdic-cp-us|
-|2028|cp037|
-|2028|csIBM037|
-|2028|ebcdic-cp-ca|
-|2028|ebcdic-cp-n|
-|2028|ebcdic-cp-wt|
-|2028|IBM037|
-|2027|MacRoman|
-|2027|x-mac-roman|
-|2027|mac|
-|2027|macintosh|
-|2027|csMacintosh|
-|2252|windows-1252|
-|1250|MacCE|
-|1250|x-mac-ce|
-|2250|windows-1250|
-|1251|x-mac-cyrillic|
-|2251|windows-1251|
-|1253|x-mac-greek|
-|2253|windows-1253|
-|1254|x-mac-turkish|
-|2254|windows-1254|
-|1256|x-mac-arabic|
-|2256|windows-1256|
-|1255|x-mac-hebrew|
-|2255|windows-1255|
-|1257|x-mac-ce|
-|2257|windows-1257|
-|17|Shift_JIS|
-|17|csShiftJIS|
-|17|MS_Kanji|
-|17|Shift-JIS|
-|39|ISO-2022-JP|
-|39|csISO2022JP|
-|2026|Big5|
-|2026|csBig5|
-|38|EUC-KR|
-|38|csEUCKR|
-|2084|KOI8-R|
-|2084|csKOI8R|
-|4|ISO-8859-1|
-|4|CP819|
-|4|csISOLatin1|
-|4|IBM819|
-|4|iso-ir-100|
-|4|ISO_8859-1|
-|4|ISO_8859-1:1987|
-|4|l1|
-|4|latin1|
-|5|ISO-8859-2|
-|5|csISOLatin2|
-|5|iso-ir-101|
-|5|ISO_8859-2|
-|5|ISO_8859-2:1987|
-|5|l2|
-|5|latin2|
-|6|ISO-8859-3|
-|6|csISOLatin3|
-|6|ISO-8859-3:1988|
-|6|iso-ir-109|
-|6|ISO_8859-3|
-|6|l3|
-|6|latin3|
-|7|ISO-8859-4|
-|7|csISOLatin4|
-|7|ISO-8859-4:1988|
-|7|iso-ir-110|
-|7|ISO_8859-4|
-|7|l4|
-|7|latin4|
-|8|ISO-8859-5|
-|8|csISOLatinCyrillic|
-|8|cyrillic|
-|8|ISO-8859-5:1988|
-|8|iso-ir-144|
-|8|ISO_8859-5|
-|9|ISO-8859-6|
-|9|arabic|
-|9|ASMO-708|
-|9|csISOLatinArabic|
-|9|ECMA-114|
-|9|ISO-8859-6:1987|
-|9|iso-ir-127|
-|9|ISO_8859-6|
-|10|ISO-8859-7|
-|10|csISOLatinGreek|
-|10|ECMA-118|
-|10|ELOT_928|
-|10|greek|
-|10|greek8|
-|10|iso-ir-126|
-|10|ISO_8859-7|
-|10|ISO_8859-7:1987|
-|11|ISO-8859-8|
-|11|csISOLatinHebrew|
-|11|hebrew|
-|11|iso-ir-138|
-|11|ISO_8859-8|
-|11|ISO_8859-8:1988|
-|12|ISO-8859-9|
-|12|csISOLatin5|
-|12|iso-ir-148|
-|12|ISO_8859-9|
-|12|ISO_8859-9:1989|
-|12|l5|
-|12|latin5|
-|13|ISO-8859-10|
-|13|csISOLatin6|
-|13|iso-ir-157|
-|13|ISO_8859-10|
-|13|ISO_8859-10:1992|
-|13|l6|
-|13|latin6|
-|109|ISO-8859-13|
-|111|ISO-8859-15|
-|111|Latin-9|
-|113|GBK|
-|2025|GB2312|
-|2025|csGB2312|
-|2025|x-mac-chinesesimp|
-|2024|Windows-31J|
-|57|GB_2312-80|
-|57|csISO58GB231280|
-
-:::note
-
-Several rows have the same MIBEnum identifier because a character set can have more than one name (alias).
-
-:::
-
-For more information about the names of character sets, please refer to the following address: *http://www.iana.org/assignments/character-sets*
-
-After execution of the command, the converted text will be returned in the *convertedBLOB* blob. This blob can be read by the [`convertToString`](#converttostring) command.
+The difference between the `semaphore` and the `testSemaphore` functions is that `testSemaphore` does not create the semaphore if it does not exist. If the semaphore exists, the command returns `true`. Otherwise, it returns `false`.
 
 
 #### See also
 
-[`convertToString`](#converttostring)
-
-## convertToString
-
-
-<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSetString* : string ) : string<br/>**convertToString** ( *aBlob* : blob , *charSetInt* : integer ) : string<!-- END REF -->
-
-<!-- REF #_command_.convertToString.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|aBlob|blob|->|blob containing text expressed in a specific character set|
-|charSetString|string|->|Name of blob character set|
-|charSetInt|integer|->|Number of blob character set|
-|Result|string|<-|Contents of blob expressed in Qodly character set|<!-- END REF -->
-
-#### Description
-
-The `convertToString` command <!-- REF #_command_.convertToString.Summary -->converts the text contained in the *aBlob* parameter and returns it in text expressed in the character set of Qodly<!-- END REF -->. Qodly uses the UTF-16 character set by default.
-
-In *charSetString* or *charSetInt*, pass the character set of the text contained in *aBlob*, which will be used for the conversion. If the blob contains text copied from within Qodly, then the blob’s text is likely to be in the UTF-16 character set. You can pass a string providing the standard name of the character set, or one of its aliases (for example, “ISO-8859-1” or “UTF-8”), or its identifier (integer). For more information, please refer to the description of the [`convertFromString`](#convertfromstring) command.
-
-`convertToString` supports Byte Order Marks (BOMs). If the character set specified is of the Unicode type (UTF-8, UTF-16 or UTF-32), Qodly attempts to identify a BOM among the first bytes received. If one is detected, it is filtered out of the result and Qodly uses the character set that it defines instead of the one specified.
-
-#### See also
-
-[`convertFromString`](#convertfromstring)
-
-## deleteString
-
-<!-- REF #_command_.deleteString.Syntax -->**deleteString** ( *source* : string , *where* : integer , *numChars* : integer ) : string<!-- END REF -->
+[`clearSemaphore`](#clearsemaphore)<br/>
+[`semaphore`](#semaphore)<br/>
+[`Signal` class](SignalClass.md)
 
 
-<!-- REF #_command_.deleteString.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|source|string|->|String from which to delete characters|
-|where |integer|->|First character to delete|
-|numChars|integer|->|Number of characters to delete|
-|Result|string|<-|Resulting string|<!-- END REF -->
-
-#### Description
-
-`deleteString` <!-- REF #_command_.deleteString.Summary -->deletes *numChars* from *source*, starting at *where*, and returns the resulting string<!-- END REF -->. 
-
-`deleteString` returns the same string as *source* when:
-
-* *source* is an empty string
-* *where* is greater than the length of *source*
-* *numChars* is zero (0)
-
-If *where* is less than one, the characters are deleted from the beginning of the string.
-
-If *where* plus *numChars* is equal to or greater than the length of *source*, the characters are deleted from *where* to the end of *source*.
-
-#### Example
-
-```qs
- var vtResult, vtOtherVar : string
- vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
- vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
- vtResult=deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
- 
-```
-
-#### See also
-
-[`changeString`](#changestring)<br/>
-[`insertString`](#insertstring)<br/>
-[`replaceString`](#replacestring)
 
 
-## insertString
-
-<!-- REF #_command_.insertString.Syntax -->**insertString** ( *source* : string , *what* : string , *where* : integer ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.insertString.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|source|string|->|String in which to insert the other string|
-|what|string|->|String to insert|
-|where|integer|->|Where to insert|
-|Result|string|<-|Resulting string|<!-- END REF -->
-
-#### Description
-
-The `insertString` command <!-- REF #_command_.insertString.Summary -->inserts a string into *source* and returns the resulting string<!-- END REF -->. The command inserts the string *what* before the character at position *where*.
-
-If *what* is an empty string (""), `insertString` returns source unchanged.
-
-If *where* is greater than the length of *source*, then *what* is appended to *source*. If *where* is less than one (1), then *what* is inserted before *source*.
-
-`insertString` is different from [`changeString`](#changestring) in that it inserts characters instead of overwriting them.
-
-#### Example
-
-```qs
- var vtResult : string
- vtResult=insertString("The tree"," green",4) // vtResult gets "The green  tree"
- vtResult=insertString("Shut","o",3) // vtResult gets "Shout"
- vtResult=insertString("Indention","ta",6) // vtResult gets "Indentation"
- 
-```
-
-#### See also
-
-[`changeString`](#changestring)<br/>
-[`deleteString`](#deletestring)<br/>
-[`replaceString`](#replacestring)
-
-## length
-
-<!-- REF #_command_.length.Syntax -->**length** ( *aString* : string ) : integer<!-- END REF -->
 
 
-<!-- REF #_command_.length.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|aString|string|->|String for which to return length|
-|Result|integer|<-|Length of string|<!-- END REF -->
 
-#### Description
 
-`length` is used to find the length of a *aString*. `length` <!-- REF #_command_.length.Summary -->returns the number of characters that are in a *aString*.<!-- END REF -->. 
 
-:::note
 
-When you want to check whether a string contains any characters, including ignorable characters, you must use the test `if(length(vtAnyText)==0)` rather than `if(vtAnyText=="")`. If the string contains for example `char(1)`, which is an ignorable character, `length(vtAnyText)` does return 1 but `vtAnyText==""` returns true.
 
-:::
 
-#### Example
-
-```qs
- var vtResult : string
- vlResult=length("Topaz") // vlResult gets 5
- vlResult=length("Citizen") // vlResult gets 7
- 
-```
 
 
 ## lowercase
