@@ -30,7 +30,7 @@ const sidebars = {
    */
    
   GetStarted:[
-      {
+     {
       type: 'doc',
       id: 'welcome',
       label: "Welcome"
@@ -155,7 +155,16 @@ const sidebars = {
             },
         ],
     },
-	{
+    {
+      type: 'doc',
+      id: 'materials',
+      label: "Materials"
+    }, 
+  ],
+  
+  
+  Concepts: [
+  {
       type: 'category',
       label: 'Concepts',
 	  link: {
@@ -182,13 +191,7 @@ const sidebars = {
 				},
 			],
     },
-    {
-      type: 'doc',
-      id: 'materials',
-      label: "Materials"
-    }, 
   ],
-  
   
   Studio:[
 	{
@@ -294,6 +297,7 @@ const sidebars = {
 						'language/basics/lang-operators',
 						'language/basics/lang-methods',
 						'language/basics/lang-classes',
+						'language/basics/orda-classes',
 						'language/basics/lang-parameters',
 						'language/basics/lang-expressions',
 						'language/basics/lang-shared',

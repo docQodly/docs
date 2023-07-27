@@ -91,6 +91,12 @@ const config = {
           },
 		  {
             type: 'doc',
+            docId: 'concepts/server-architecture',
+            position: 'left',
+            label: 'Concepts',
+          },
+		  {
+            type: 'doc',
             docId: 'studio/overview',
             position: 'left',
             label: 'Studio',
@@ -103,7 +109,7 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: '/category/cloud',
+            docId: 'cloud/overview-cloud',
             position: 'left',
             label: 'Cloud',
           },
