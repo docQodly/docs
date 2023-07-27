@@ -163,14 +163,14 @@ const sidebars = {
   ],
   
   
-  Concepts: [
+  Platform: [
   {
       type: 'category',
-      label: 'Concepts',
+      label: 'Platform',
 	  link: {
 			type: 'generated-index',
-			title: 'Concepts',
-			description: 'Description of the main concepts implemented in Qodly.',
+			title: 'Platform',
+			description: 'Overview of the concepts and technologies in the Qodly platform.',
 			slug: '/category/concepts',
 			keywords: ['concepts'],
 			image: '/img/docusaurus.png',
@@ -211,7 +211,8 @@ const sidebars = {
 			label: 'Model',
 			items: ['studio/model/model-overview',
 				'studio/model/model-editor-interface',
-				'studio/model/datastore-classes'
+				'studio/model/datastore-classes',
+				'studio/model/attributes',
 			],
 	},
 	{
@@ -241,6 +242,11 @@ const sidebars = {
 			type: 'doc',
 			id: 'studio/roles',
 			label: "Roles & Privileges"
+	},
+	{
+			type: 'doc',
+			id: 'studio/data',
+			label: "Working with data"
 	},
 ],
 	QodlyScript:[

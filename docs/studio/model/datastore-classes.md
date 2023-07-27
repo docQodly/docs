@@ -2,10 +2,7 @@
 id: datastore-classes
 title: Datastore Classes
 ---
-The datastore class is a type of structure that can contain attributes
-and relation attributes (links between datastore classes) in order to
-conceptually describe its data and how they all interact with each other
-as well as functions to interact with the data in your model.
+The datastore class is a type of structure that can contain attributes and relation attributes (links between datastore classes) in order to conceptually describe its data and how they all interact with each other as well as functions to interact with the data in your model.
 
 \*\* add a picture of a created datastore class\*\*
 
@@ -30,6 +27,8 @@ specific datastore class:
 -   ![alt-text](img/importfromcvs-icon.png) import from CSV : Allows you to import data from a CSV file.
 
 -   You can delete the datastore class completely by clicking on the ![alt-text](img/deletedatastoreclass-icon.png) icon.
+
+
 ### Datastore Class Properties 
 
 In the Properties tab, you can modify the datastore class's properties:
@@ -45,6 +44,7 @@ In the Properties tab, you can modify the datastore class's properties:
 -   **Selection name**: Selection of the datastore class. Allows you to modify the name of your datastore class selection.
 
 -   **Scope**: Modifies the scope of the datastore class(Expose as REST or do not expose as REST). By default, this option is set to Expose as REST which means the datastore class can be accessed using a REST request.
+
 
 -   **Page size**:
 
