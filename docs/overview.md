@@ -22,16 +22,16 @@ The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud**, all wo
 
 ### Qodly Studio
 
-4D Web Studio is a new way of building business web applications, powered by 4D. Our vision is to provide developers a 100% web-browser-based experience by allowing them to:
+The Qodly Studio is a new way of building business web applications. Our vision is to provide developers a 100% web-browser-based experience by allowing them to:
 
 * design web forms visually by drag and dropping components on a canvas
 * preview pages instantly
-* easily map data with ORDA data classes
-* directly execute 4D code on web events or datasource events
+* easily map data with ORDA dataclasses
+* directly execute QodlyScript code on web events or datasource events
 * code & debug in the browser
 * and even edit a data model
 
-At the end of the road, developers will be able to build complete web business applications using only a web browser and their 4D coding skills. There is no JavaScript involved.
+At the end of the road, developers will be able to build complete web business applications using only a web browser and very few lines of QodlyScript code. There is no JavaScript involved.
 
 ### Qodly Server
 //
