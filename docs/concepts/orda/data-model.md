@@ -19,7 +19,7 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
+When handled through the code, the datastore is an object, returned by the [`ds`](../../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
 The datastore object itself cannot be copied as an object:
 
@@ -91,7 +91,7 @@ Basically, dataclass properties are attribute objects describing the underlying 
  revenuesAttribute=ds.Company["revenues"] //alternate way to reference
 ```
 
-This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
 
 The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 

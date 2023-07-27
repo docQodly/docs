@@ -32,17 +32,17 @@ All ORDA data model classes are exposed as properties of the **`cs`** class stor
 
 |Class|Example name|Instantiated by|
 |---|---|---|
-|cs.DataStore|cs.DataStore|[`ds`](../language/DataStoreClass.md#ds) command|
-|cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../language/DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
-|cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../language/DataClassClass.md#get), [`dataClass.new()`](../language/DataClassClass.md#new), [`entitySelection.first()`](../language/EntitySelectionClass.md#first), [`entitySelection.last()`](../language/EntitySelectionClass.md#last), [`entity.previous()`](../language/EntityClass.md#previous), [`entity.next()`](../language/EntityClass.md#next), [`entity.first()`](../language/EntityClass.md#first), [`entity.last()`](../language/EntityClass.md#last), [`entity.clone()`](../language/EntityClass.md#clone)|
-|cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../language/DataClassClass.md#query), [`entitySelection.query()`](../language/EntitySelectionClass.md#query), [`dataClass.all()`](../language/DataClassClass.md#all), [`dataClass.fromCollection()`](../language/DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../language/DataClassClass.md#newselection), [`entitySelection.drop()`](../language/EntitySelectionClass.md#drop), [`entity.getSelection()`](../language/EntityClass.md#getselection), [`entitySelection.and()`](../language/EntitySelectionClass.md#and), [`entitySelection.minus()`](../language/EntitySelectionClass.md#minus), [`entitySelection.or()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../language/EntitySelectionClass.md#orderbyformula), [`entitySelection.slice()`](../language/EntitySelectionClass.md#slice)|
+|cs.DataStore|cs.DataStore|[`ds`](../../language/DataStoreClass.md#ds) command|
+|cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../../language/DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
+|cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../../language/DataClassClass.md#get), [`dataClass.new()`](../../language/DataClassClass.md#new), [`entitySelection.first()`](../../language/EntitySelectionClass.md#first), [`entitySelection.last()`](../../language/EntitySelectionClass.md#last), [`entity.previous()`](../../language/EntityClass.md#previous), [`entity.next()`](../../language/EntityClass.md#next), [`entity.first()`](../../language/EntityClass.md#first), [`entity.last()`](../../language/EntityClass.md#last), [`entity.clone()`](../../language/EntityClass.md#clone)|
+|cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../../language/DataClassClass.md#query), [`entitySelection.query()`](../../language/EntitySelectionClass.md#query), [`dataClass.all()`](../../language/DataClassClass.md#all), [`dataClass.fromCollection()`](../../language/DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../../language/DataClassClass.md#newselection), [`entitySelection.drop()`](../../language/EntitySelectionClass.md#drop), [`entity.getSelection()`](../../language/EntityClass.md#getselection), [`entitySelection.and()`](../../language/EntitySelectionClass.md#and), [`entitySelection.minus()`](../../language/EntitySelectionClass.md#minus), [`entitySelection.or()`](../../language/EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../../language/EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../../language/EntitySelectionClass.md#orderbyformula), [`entitySelection.slice()`](../../language/EntitySelectionClass.md#slice)|
 
 Also, object instances from ORDA data model user classes benefit from their parent's properties and functions:
 
-- a Datastore class object can call functions from the [ORDA Datastore generic class](../language/DataStoreClass.md).
-- a Dataclass class object can call functions from the [ORDA Dataclass generic class](../language/DataClassClass.md).
-- an Entity selection class object can call functions from the [ORDA Entity selection generic class](../language/EntitySelectionClass.md).
-- an Entity class object can call functions from the [ORDA Entity generic class](../language/EntityClass.md).
+- a Datastore class object can call functions from the [ORDA Datastore generic class](../../language/DataStoreClass.md).
+- a Dataclass class object can call functions from the [ORDA Dataclass generic class](../../language/DataClassClass.md).
+- an Entity selection class object can call functions from the [ORDA Entity selection generic class](../../language/EntitySelectionClass.md).
+- an Entity class object can call functions from the [ORDA Entity generic class](../../language/EntityClass.md).
 
 
 
@@ -273,7 +273,7 @@ You create a computed attribute by defining a `get` accessor in the [**entity cl
 
 Other computed attribute functions (`set`, `query`, and `orderBy`) can also be defined in the entity class. They are optional.
 
-Within computed attribute functions, `this` designates the entity. Computed attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../language/EntityClass.md) or [entity selection class](../language/EntitySelectionClass.md) functions. 
+Within computed attribute functions, `this` designates the entity. Computed attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../../language/EntityClass.md) or [entity selection class](../../language/EntitySelectionClass.md) functions. 
 
 :::info
 
@@ -426,7 +426,7 @@ The *event* parameter contains the following properties:
 |dataClassName|string|Dataclass name|
 |kind|string|"query"|
 |value|variant|Value to be handled by the computed attribute|
-|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li><= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
+|operator|string|Query operator (see also the [`query` class function](../../language/DataClassClass.md#query)). Possible values:<li>== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li><= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
 |result|variant|Value to be handled by the computed attribute. Pass `null` in this property if you want to execute a default query (always sequential for computed attributes).|
 
 > If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
@@ -474,7 +474,7 @@ function query fullName(event : object)->result : object
 	result=newObject("query", myQuery, "parameters", parameters)
 ```
 
-> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../language/DataClassClass.md#query)).
+> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../../language/DataClassClass.md#query)).
 
 Calling code, for example:
 
@@ -661,12 +661,12 @@ Alias attributes are read-only (except when based upon a scalar attribute of the
 
 ### Alias properties
 
-Alias attribute [`kind`](../language/DataClassClass.md#attributename) is "alias".  
+Alias attribute [`kind`](../../language/DataClassClass.md#attributename) is "alias".  
 
-An alias attribute inherits its data [`type`](../language/DataClassClass.md#attributename) property from the target attribute: 
+An alias attribute inherits its data [`type`](../../language/DataClassClass.md#attributename) property from the target attribute: 
 
-- if the target attribute [`kind`](../language/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
-- if the target attribute [`kind`](../language/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection"). 
+- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
+- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection"). 
 
 Alias attributes based upon relations have a specific [`path`](../../language/DataClassClass.md#attributename) property, containing the path of their target attributes. Alias attributes based upon attributes of the same dataclass have the same properties as their target attributes (and no `path` property). 
 
