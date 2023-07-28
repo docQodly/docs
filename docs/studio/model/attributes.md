@@ -4,76 +4,254 @@ title: Attributes
 ---
 
 
-An attribute is an object that stores information or represents a value in the datastore class. Once you create a datastore class, you can add attributes to it. To learn how to create the different types of attributes, refer to the chapter in the User Guide manual.
+An attribute is an object that stores information or represents a value in the datastore class. Once you create a datastore class, you can add attributes to it. To learn how to create the different types of attributes, refer to XXX.
 
-By default, the datastore class is created with an attribute of type Longint named “ID,” which is defined as its primary key.
+A datastore class is alsways created with an attribute of type Longint named "ID" by default, which is defined as its primary key.
 
-You can modify a few of the attribute’s properties when you select it in the datastore class:
+You can view and modify a few of the attribute’s properties when you select or hover it in the datastore class:
 
-
-
-Delete: Deletes the attribute from the datastore class.
-Scope: Modifies the scope—public, private (), public on server (), or protected () of the attribute. A public attribute can be used from anywhere. A private attribute can only be used inside the datastore class. A protected attribute can be used from datastore classes as well as from extended datastore classes.
-Name: Attribute name that you can change by double-clicking on it to render the area enterable.
-Primary Key: Defines the attribute as the primary key for the datastore class.
-Note: Refer to the Modifying the Primary Key section in the Datastore Classes section.
-Type Icon: Displays the datastore entity type as an icon.
-Type: Attribute type that you can change by double-clicking on it to render the area enterable.
-Attribute Categories  
-There are five categories of attributes in Wakanda:
-
-Scalar/Storage: Scalar/storage attributes allow you to store information in the datastore class.
-Relation: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N<->N relationship between three datastore classes.
-Calculated: A calculated attribute does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. When a calculated attribute is referenced, the underlying “calculation” is evaluated to determine the value. You can also assign values to other attributes in the datastore class during data entry. For example, if you have an enterable “fullName” attribute, you can assign the values entered in the “fullName” attribute into two separate attributes, like “firstName” and “lastName.”
-Alias: An alias attribute is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the “parent” datastore class can be directly referenced as attributes within the “child” datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute.
-Inherited: Attributes inherited from an extended datastore class. For example, if we extend a Person datastore class and name the derived datastore class Student, the attributes from the Person datastore class are the inherited ones in the new datastore class.
-Creating a Scalar Attribute  
-When you add an attribute to your datastore class, a name is entered by default that you can edit it. Attribute names are case-sensitive: “firstName” and “firstNAME” are not equal.
-
-If you enter a space, it will be replaced by an underscore. The attribute name must be unique and start with a letter, and can contain only numbers and letters. You can also include accented and non-Roman letters. For more information, please refer to the Naming Conventions section.
-
-The attribute type list appears contains datastore classes and collections (in bold) as well as predefined data types and relation attributes:
+![attribute](img/attribute1.png)
 
 
-
-Note: If the attribute types in the datastore class are hidden, they will reappear so that you can select one from the list for the new attribute.
-
-You can rename an attribute by double-clicking on its name in the datastore class. For more information, refer to the Renaming an Attribute section below.
-
-If you create a calculated attribute, the  icon appears to the left of the type icon.
-
-If you type in a value that is not a datastore class or datastore entity name, the panel will display  for the type icon and the text entered for the data type in red:
-
-
-
-An error message will also be displayed in the Datastore Classes area if you click on the datastore class:
-
+- **Delete**: Deletes the attribute from the datastore class.
+- **Scope**: A closed lock icon indicates that the attribute is **Not exposed as REST**, i.e. it can only be called from the server code. 
+- **Name**: Attribute name that you can change by double-clicking on it to render the area enterable. 
+	- a name in **bold** indicates that an index is associated to the attribute.
+	- a name <u>underlined</u> indicates the primary key attribute 
+	- a name in *italics* indicates a not exposed attribute 
+- **Primary Key**: Indicates the primary key attribute for the datastore class. This attribute is mandatory, you can rename it but not delete it.
+- ![icon](img/alias-icon.png): Indicates an alias attribute.
+- ![icon](img/calculated-icon.png): Indicates a calculated attribute.
+- **Type Icon**: Displays the datastore entity type as an icon.
+- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable.
 
 
-Scalar Attribute Types  
-Modified in v11
-Wakanda manages the following data types (which are null by default until a value is entered):
+## Overview  
+
+There are several categories of attributes in Qodly:
+
+- **Scalar/Storage**: Scalar/storage attributes allow you to store information in the datastore class.
+- **Relation**: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N<->N relationship between three datastore classes.
+- **Alias**: An alias attribute is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute.
+- **Calculated**: A calculated attribute does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. See XXX.
+
+The data type list contains predefined data types as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
+
+![types](img/types.png)
+
+The type to select depend on the category of attribute to create.
+
+You create **storage**, **relation** and **alias** attributes from the datastore class in the Model editor. **Calculated** attributes must be [created by code](XXX). However, they are displayed in the datastore class:
+
+![calc](img/calculated1.png)
+
+
+### Attribute name
+
+Attribute names are case-sensitive: "firstName" and "firstNAME" are not equal. The attribute name must be unique, start with a letter, and can contain only numbers and letters. You cannot include accented and non-Roman letters. For more information, please refer to the [Identifiers](../../language/basics/lang-identifiers.md) section. If you enter an invalid character, you will not be able to save the name.
+
+![wrong-name](img/wrong-name.png)
 
 
 
-Data Type	Icon	Description	Value Range
-blob		A "binary large object" containing binary data.	
-bool		A Boolean value: either true or false.	
-byte		A sequence of 8 bits.	
-date		If the Date only property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2010"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2010-10-05T23:00:00.000Z" for October 5, 2010 in the Central European Timezone). SSS, which represent the milliseconds, which can be between 0 to 999, has been added to the date in the Dev Branch.	
-duration		A duration between two dates	
-image		A reference to an image file or an actual image.	
-long		A whole number, greater than or equal to a standard number	-2,147,483,648 to 2,147,483,647
-long64		A whole number, greater than or equal to a standard number	-9,223,372,036,854,775,808 to +9,223,372,036,854,775,807
-number		A numeric value, corresponding either to a Real, and Integer or Long Integer.	±1.7e±308 (real), -32,768 to 32,767 (integer), -2^31 to (2^31)-1 (long)
-string		A sequence of characters.	
-uuid		Universally Unique Identifier: a 16 bytes (128 bits) number containing 32 hexadecimal characters	
-word		A 16-bit signed integer	-32767 to 32768
- 
-Added in v10
-object		A pure JavaScript object containing any kind of property/value pairs, including arrays. This data type can be indexed. Functions and recursive references are not supported	Example:
-{x:2,y:"blue",z:{a:1, b:2}, v:[3,4,5]}
-Attribute Properties  
+## Create a storage attribute
+
+To create a storage attribute:
+
+1. Click on the **+** button at the right side of the **Attributes** bar in the datastore class.
+2. Give a [name](#attribute-name) to the attribute.
+2. Select a predefined data type from the list and press **Enter**.
+
+The **Qodly database** supports [an extended set of data types](../../concepts/db.md#data-types).
+
+
+## Create a N->1 relation attribute
+
+An N->1 relation attribute relates one entity in a datastore class to one entity in another datastore class. For example, an employee has only one employer.
+
+To create an N->1 relation attribute:
+
+1. Click on the **+** button at the right side of the **Attributes** bar in the **1** datastore class.
+2. Give a [name](#attribute-name) to the attribute.
+3. Select the **N** datastore class in the data type menu. It means that the attribute will contain a reference to an entity of the N datastore class. 
+
+For example, to have a N->1 relation between Employee and Company datastore classes, create an attribute named "employer" in the Employee datastore class, and select **Company** as data type. 
+
+![related](img/n1-attribute.png)
+
+Once you select **Company**, a matching 1->N relation attribute is created automatically in the Company datastore class. By default, it is named "EmployeeSelection", we renamed it "employees".
+
+![related](img/n1-global.png)
+
+:::note
+
+You can establish the same relationship by creating a "1->N" relation from the "1" datastore class. 
+
+:::
+
+## Create a 1->N relation attribute
+
+An 1->N relation attribute relates one entity in a datastore class to multiple entities in another datastore class. For example, each company has multiple employees.
+
+To create a 1->N relation attribute:
+
+1. Click on the **+** button at the right side of the **Attributes** bar in the **N** datastore class.
+2. Give a [name](#attribute-name) to the attribute.
+3. Select the Entity selection of the **1** datastore class in the data type menu. It means that the attribute will contain a reference to an entity selection of the 1 datastore class. 
+
+For example, to have a 1->N relation attribute that contains all the employees in the Company datastore class, create an attribute named "staff" in the Company datastore class, and select **EmployeeSelection** as data type.
+
+![related](img/1n-attribute.png)
+
+After you select **EmployeeSelection**, you need to define the **path** of the relation, i.e. the matching relation attribute to create in the N datastore class. You can enter any valid attribute name, it will be automatically created in the N datastore class. 
+
+![related](img/1n-attribute2.png)
+
+
+## Create a N->N relation attribute
+
+A N->N relation attribute allows you to have complex data structures. Here is our initial datastore model:
+
+![related](img/n-to-n1.png)
+
+As it is easy to express, an invoice can contain N items, and an item can be included in N invoices. To implement a N->N relation, we added the "InvoiceItem" intermediary datastore class. 
+
+To create the N->N relation, you can proceed with the following steps
+
+1. Create a new N->1 relation attribute in the "InvoiceItem" class, named "itemPart".
+2. Define its type as "Part".
+3. Create a new N->1 relation attribute in the "InvoiceItem" class, named "itemInvoice".
+4. Define its type as "Invoice".
+
+In both cases the 1->N relation attribute is automatically created in the "Part" and "Invoice" datastore classes. As a result, we have the "InvoiceItem" datastore class that has a relation attribute in the "Invoice" and "Part" datastore classes:
+
+![related](img/n-to-n2.png)
+
+
+
+
+## Alias attributes
+
+An **alias** attribute is built above another attribute of the data model, named **target** attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass. 
+
+Alias attributes are read-only. They can be used instead of their target attribute path in class functions.
+
+Alias attributes are particularly useful to handle N to N relations. They bring more readability and simplicity in the code and in queries by allowing to rely on business concepts instead of implementation details.
+
+### Create an alias attribute
+
+To create an alias attribute:
+
+1. Click on the **+** icon to add an attribute.
+2. Give a [name](#attribute-name) to the attribute.
+3. Click in the Type area and enter the name of the related attribute in the datastore class upon which you want to create the alias, and type a dot (**.**)
+![attribute](img/alias-create1.png)
+
+4. Select or enter the full attribute path. It can contain one or more levels, such as "employee.company.name". An alias can be used as a part of a path of another alias. A [computed attribute](#computed-attributes) can be used in an alias path, but only as the last level of the path, otherwise, an error is returned. For example, if "fullName" is a computed attribute, an alias with path "employee.fullName" is valid. 
+
+
+
+The alias attribute is then displayed in the datastore class with the (img/alias-icon.png) symbol. 
+
+
+
+### Alias properties
+
+Alias attribute [`kind`](../../language/DataClassClass.md#attributename) is "alias".  
+
+An alias attribute inherits its data [`type`](../../language/DataClassClass.md#attributename) property from the target attribute: 
+
+- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
+- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection"). 
+
+Alias attributes based upon relations have a specific [`path`](../../language/DataClassClass.md#attributename) property, containing the path of their target attributes. 
+
+
+### Examples
+
+Considering the following model:
+
+![alias](img/alias1.png)
+
+
+In the Teacher dataclass, an alias attribute returns all students of a teacher:
+
+```qs
+// cs.TeacherEntity class
+
+extends Entity
+
+alias students courses.student //relatedEntities 
+```
+
+In the Student dataclass, an alias attribute returns all teachers of a student:
+
+```qs
+// cs.StudentEntity class
+
+extends Entity
+
+alias teachers courses.teacher //relatedEntities 
+```
+
+In the Course dataclass:
+
+- an alias attribute returns another label for the "name" attribute
+- an alias attribute returns the teacher name
+- an alias attribute returns the student name
+
+
+```qs
+// cs.CourseEntity class
+
+extends Entity
+
+exposed alias courseName name //scalar 
+exposed alias teacherName teacher.name //scalar value
+exposed alias studentName student.name //scalar value
+
+```
+
+You can then execute the following queries:
+
+```qs
+// Find course named "Archaeology"
+ds.Course.query("courseName == :1","Archaeology")
+
+// Find courses given by the professor Smith
+ds.Course.query("teacherName == :1","Smith")
+
+// Find courses where Student "Martin" assists
+ds.Course.query("studentName == :1","Martin")
+
+// Find students who have M. Smith as teacher 
+ds.Student.query("teachers.name == :1","Smith")
+
+// Find teachers who have M. Martin as student
+ds.Teacher.query("students.name == :1","Martin")
+// Note that this very simple query string processes a complex 
+// query including a double join, as you can see in the queryPlan:   
+// "Join on Table : Course  :  Teacher.ID = Course.teacherID,    
+//  subquery:[ Join on Table : Student  :  Course.studentID = Student.ID,
+//  subquery:[ Student.name === Martin]]"
+```
+
+
+You can also edit the value of the *courseName* alias:
+
+```qs
+// Rename a course using its alias attribute
+arch=ds.Course.query("courseName == :1","Archaeology")
+arch.courseName="Archaeology II"
+arch.save() //courseName and name are "Archaeology II"
+```
+
+
+
+
+## Attribute Properties  
+
+
 Properties help you to define your application’s business rules that will be automatically applied at the server level. For example, if you define an attribute like “Unique,” Wakanda returns an error if the user tries to save the datastore entity with a value that is not unique into that attribute, and the entity will not be saved.
 
 Wakanda manages the attribute’s properties when it is published to the Web. You can overwrite certain properties, like an attribute’s display formats in a widget on your Page.
@@ -293,152 +471,5 @@ Within computed attribute functions, `this` designates the entity. Computed attr
 ORDA computed attributes are not [**exposed**](#exposed-vs-non-exposed-functions) by default. You expose a computed attribute by adding the `exposed` keyword to the **get function** definition.
 
 :::
-
-
-## Alias attributes
-
-### Overview
-
-An **alias** attribute is built above another attribute of the data model, named **target** attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass. 
-
-Alias attributes are particularly useful to handle N to N relations. They bring more readability and simplicity in the code and in queries by allowing to rely on business concepts instead of implementation details.
-
-### How to define alias attributes
-
-You create an alias attribute in a dataclass by using the `alias` keyword in the [**entity class**](#entity-class) of the dataclass. 
-
-
-### `alias <attributeName> <targetPath>`
-
-
-#### Syntax
-
-```
-{exposed} alias <attributeName> <targetPath>
-```
-
-*attributeName* must comply with [standard rules for property names](../language/basics/lang-identifiers.md#object-properties). 
-
-*targetPath* is an attribute path containing one or more levels, such as "employee.company.name". If the target attribute belongs to the same dataclass, *targetPath* is the attribute name. 
-
-An alias can be used as a part of a path of another alias. 
-
-A [computed attribute](#computed-attributes) can be used in an alias path, but only as the last level of the path, otherwise, an error is returned. For example, if "fullName" is a computed attribute, an alias with path "employee.fullName" is valid. 
-
-> ORDA alias attributes are **not exposed** by default. You must add the [`exposed`](#exposed-vs-non-exposed-functions) keyword before the `alias` keyword if you want the alias to be available from the Web.
-
-
-### Using alias attributes
-
-Alias attributes are read-only (except when based upon a scalar attribute of the same dataclass, see the last example below). They can be used instead of their target attribute path in class functions such as:
-
-* `dataClass.query()`, `entitySelection.query()`
-* `entity.toobject()`
-* `entitySelection.toCollection()`
-* `entitySelection.extract()`
-* `entitySelection.orderBy()`
-* `entitySelection.orderByFormula()`
-* `entitySelection.average()`
-* `entitySelection.count()`
-* `entitySelection.distinct()`
-* `entitySelection.sum()`
-* `entitySelection.min()`
-* `entitySelection.max()`
-* `entity.diff()`
-* `entity.touchedAttributes()`
-
-
-
-### Alias properties
-
-Alias attribute [`kind`](../language/DataClassClass.md#attributename) is "alias".  
-
-An alias attribute inherits its data [`type`](../language/DataClassClass.md#attributename) property from the target attribute: 
-
-- if the target attribute [`kind`](../language/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
-- if the target attribute [`kind`](../language/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection"). 
-
-Alias attributes based upon relations have a specific [`path`](../language/DataClassClass.md#attributename) property, containing the path of their target attributes. Alias attributes based upon attributes of the same dataclass have the same properties as their target attributes (and no `path` property). 
-
-
-### Examples
-
-Considering the following model:
-
-![alias](img/alias1.png)
-
-
-In the Teacher dataclass, an alias attribute returns all students of a teacher:
-
-```qs
-// cs.TeacherEntity class
-
-extends Entity
-
-alias students courses.student //relatedEntities 
-```
-
-In the Student dataclass, an alias attribute returns all teachers of a student:
-
-```qs
-// cs.StudentEntity class
-
-extends Entity
-
-alias teachers courses.teacher //relatedEntities 
-```
-
-In the Course dataclass:
-
-- an alias attribute returns another label for the "name" attribute
-- an alias attribute returns the teacher name
-- an alias attribute returns the student name
-
-
-```qs
-// cs.CourseEntity class
-
-extends Entity
-
-exposed alias courseName name //scalar 
-exposed alias teacherName teacher.name //scalar value
-exposed alias studentName student.name //scalar value
-
-```
-
-You can then execute the following queries:
-
-```qs
-// Find course named "Archaeology"
-ds.Course.query("courseName == :1","Archaeology")
-
-// Find courses given by the professor Smith
-ds.Course.query("teacherName == :1","Smith")
-
-// Find courses where Student "Martin" assists
-ds.Course.query("studentName == :1","Martin")
-
-// Find students who have M. Smith as teacher 
-ds.Student.query("teachers.name == :1","Smith")
-
-// Find teachers who have M. Martin as student
-ds.Teacher.query("students.name == :1","Martin")
-// Note that this very simple query string processes a complex 
-// query including a double join, as you can see in the queryPlan:   
-// "Join on Table : Course  :  Teacher.ID = Course.teacherID,    
-//  subquery:[ Join on Table : Student  :  Course.studentID = Student.ID,
-//  subquery:[ Student.name === Martin]]"
-```
-
-
-You can also edit the value of the *courseName* alias:
-
-```qs
-// Rename a course using its alias attribute
-arch=ds.Course.query("courseName == :1","Archaeology")
-arch.courseName="Archaeology II"
-arch.save() //courseName and name are "Archaeology II"
-```
-
 
 

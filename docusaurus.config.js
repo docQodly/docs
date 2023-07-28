@@ -91,7 +91,7 @@ const config = {
           },
 		  {
             type: 'doc',
-            docId: 'concepts/server-architecture',
+            docId: '/category/concepts',
             position: 'left',
             label: 'Platform',
           },

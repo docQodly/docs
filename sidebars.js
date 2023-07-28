@@ -170,26 +170,12 @@ const sidebars = {
 	  link: {
 			type: 'generated-index',
 			title: 'Platform',
-			description: 'Overview of the concepts and technologies in the Qodly platform.',
+			description: 'Overview of the powerful concepts and technologies used in the Qodly platform.',
 			slug: '/category/concepts',
 			keywords: ['concepts'],
 			image: '/img/docusaurus.png',
 			},
-      items: ['concepts/server-architecture','concepts/db',
-				{ 	type: 'category',
-					label: 'ORDA',
-					link: {
-						type: 'doc',
-						id: 'concepts/orda/overview',
-					},
-					items: [
-						'concepts/orda/data-model',
-						'concepts/orda/orda-classes',
-						'concepts/orda/data',
-						'concepts/orda/glossary',
-					],
-				},
-			],
+      items: ['concepts/cloud-architecture','concepts/security','concepts/server-architecture','concepts/db','concepts/orda'],
     },
   ],
   

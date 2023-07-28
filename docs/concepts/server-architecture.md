@@ -1,6 +1,6 @@
 ---
 id: server-architecture
-title: Server Architecture
+title: Qodly Server
 ---
 
 ## Overview
@@ -12,7 +12,7 @@ Qodly Server includes:
 
 - an HTTP server,
 - a REST server with a comprehensive API,
-- a Web server,
+- a Web application server,
 - the Datasource manager,
 - Qodly Database, a built-in relational database, directly available through the ORDA (Object Relational Data Access) technology. 
 - the **QodlyScript language**, that can be used in all layers of the project. 
