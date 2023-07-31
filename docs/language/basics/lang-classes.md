@@ -117,6 +117,19 @@ If a class inherits from another class (i.e. the [extends](#extends-classname) k
 
 When QodlyScript does not find a function or a property in a class, it searches it in its [`superclass`](../ClassClass.md#superclass); if not found, QodlyScript continues searching in the superclass of the superclass, and so on until there is no more superclass (all objects inherit from the "4D.Object" superclass).
 
+### `objectClass`
+
+#### `objectClass ( object ) -> object | null`
+
+[`objectClass`](../objects.md#objectclass) returns the class of the object passed in parameter.
+
+### `instanceOf`
+
+#### `instanceOf ( object , class ) -> boolean`
+
+[`instanceOf`](../objects.md#instanceof) returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
+
+
 ## Class keywords
 
 Specific QodlyScript keywords can be used in class definitions:
@@ -129,7 +142,10 @@ Specific QodlyScript keywords can be used in class definitions:
 
 :::info
 
-[ORDA data model classes](../../concepts/orda/orda-classes.md) support additional keywords such as `exposed` and `alias`. 
+[ORDA data model classes](orda-classes.md) support additional keywords:
+
+- [`exposed`](orda-classes.md#exposed-vs-non-exposed-functions) to allow external access to the function,
+- [`function query <attributeName>`](../../studio/model/attributes.md#function-query-attributename) and [`function orderBy <attributeName>`](../../studio/model/attributes.md#function-orderby-attributename) to define additional database functions for calculated attributes.
 
 :::
 
@@ -463,7 +479,7 @@ constructor (side : integer)
 
 
  function getArea() -> result : integer
-  result:=this.height*this.width
+  result=this.height*this.width
 ```
 
 ### `super`
@@ -636,18 +652,3 @@ val=o.f() //8
 
 In this example, the object assigned to the variable o doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of o, its `this` refers to o.
 
-## Class commands
-
-Several commands of the QodlyScript language allows you to handle class features.
-
-### `objectClass`
-
-#### `objectClass ( object ) -> object | null`
-
-`objectClass` returns the class of the object passed in parameter.
-
-### `instanceOf`
-
-#### `instanceOf ( object , class ) -> boolean`
-
-`instanceOf` returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.

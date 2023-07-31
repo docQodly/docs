@@ -245,7 +245,7 @@ When creating or editing data model classes, you must pay attention to the follo
 ## Calculated attributes
 
 
-A calculated attribute is a dataclass attribute with a data type that masks a calculation. For more information on calculated attributes, see [Calculated attributes](../studio/model/attributes.md#calculated-attributes).
+A calculated attribute is a dataclass attribute with a data type that masks a calculation. For more information on calculated attributes, see XXX.
 
 
 ### `function get <attributeName>`

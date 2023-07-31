@@ -3,7 +3,7 @@ id: data-model
 title: Data Model Objects
 ---
 
-The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides access to data through entity and entity selection objects. 
+The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as calculated attributes or dataclass functions. It also provides access to data through entity and entity selection objects. 
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
@@ -41,7 +41,7 @@ The datastore properties are however enumerable:
 
 ### Dataclass
 
-A dataclass is the equivalent of a database table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as computed and alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
+A dataclass is the equivalent of a database table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as calculated and alias attributes. Relational, calculated and alias attributes can be used in queries like any other attribute.
 
 All dataclasses in a Qodly project are available as a property of the `ds` datastore. The **Expose as REST resource** option must be selected at the model level for each dataclass that you want to be called from the Web. 
 
@@ -60,11 +60,11 @@ A dataclass object can contain:
 
 *	attributes
 *	relation attributes
-*	[computed attributes](orda-classes.md#computed-attributes)
+*	[calculated attributes](orda-classes.md#calculated-attributes)
 *	[alias attributes](orda-classes.md#alias-attributes)
 *	functions
 
-The dataclass offers an abstraction of the physical database and allows handling a conceptual data model with specific features such as computed attributes or alias attributes. The dataclass is the only means to query the datastore. A query is done from a single dataclass. Queries are built around attributes and relation attribute names of the dataclasses. So the relation attributes are the means to involve several linked dataclasses in a query.
+The dataclass offers an abstraction of the physical database and allows handling a conceptual data model with specific features such as calculated attributes or alias attributes. The dataclass is the only means to query the datastore. A query is done from a single dataclass. Queries are built around attributes and relation attribute names of the dataclasses. So the relation attributes are the means to involve several linked dataclasses in a query.
 
 The dataclass object itself cannot be copied as an object:
 
@@ -95,7 +95,7 @@ This code assigns to `nameAttribute` and `revenuesAttribute` references to the `
 
 The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 
-Dataclass attributes come in several kinds: storage, relatedEntity, relatedEntities, computed (*aka* calculated), or alias. Attributes that are scalar (*i.e.*, provide only a single value) support all the standard data types (integer, text, object, etc.).
+Dataclass attributes come in several kinds: storage, relatedEntity, relatedEntities, calculated (*aka* computed), or alias. Attributes that are scalar (*i.e.*, provide only a single value) support all the standard data types (integer, text, object, etc.).
 
 #### Storage and Relation attributes  
 
@@ -136,9 +136,9 @@ ds.Project.theClient //relatedEntity
 
 Keep in mind that these objects describe attributes, but do not give access to data. Reading or writing data is done through [entity objects](#entity).
 
-#### Computed attributes
+#### Calculated attributes
 
-[Computed attributes](orda-classes.md#computed-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
+[Calculated attributes](orda-classes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
 #### Alias attributes
 

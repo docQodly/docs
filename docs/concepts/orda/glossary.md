@@ -36,7 +36,7 @@ An attributePath is the path of an attribute inside a given dataclass or entity.
 
 ## Calculated attribute
 
-See [Computed attribute](#computed-attribute).
+A calculated attribute doesn't actually store information. Instead, it determines its value based on other values from the same entity or from other entities, attributes or functions. When a calculated attribute is referenced, the underlying "computation" is evaluated to determine the value. Calculated attributes may even be assigned values where user-defined code determines what to do during the assignment.
 
 ## Class code
 
@@ -54,9 +54,6 @@ $myClass.query("name = smith")
 
 
 
-## Computed attribute
-
-A computed attribute doesn't actually store information. Instead, it determines its value based on other values from the same entity or from other entities, attributes or functions. When a computed attribute is referenced, the underlying "computation" is evaluated to determine the value. Computed attributes may even be assigned values where user-defined code determines what to do during the assignment.
 
 ## Data model class
 
