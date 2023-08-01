@@ -187,13 +187,6 @@ const sidebars = {
 	},
 	{
 			type: 'category',
-			label: "Configuration",
-			items: ['studio/configuration/4d-settings',
-				'studio/configuration/license-usage'
-			],
-	},
-	{
-			type: 'category',
 			label: 'Model',
 			items: ['studio/model/model-overview',
 				'studio/model/model-editor-interface',

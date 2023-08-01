@@ -18,22 +18,22 @@ Unlike other databases that require the addition and configuration of an externa
 
 ### Data types
 
-The following table lists all available Qodly Database scalar data types and how they are handled in the Qodly language:
+The following table lists all available Qodly Database scalar data types and how they are handled in the QodlyScript language:
 
 |Data Types	|Language support|Description|
 |---|----|---|
-|[Text]|`var Text`	|A sequence of characters up to 2 GB|
-|[String]	|-	|A sequence of characters with properties|
+|[Text]|`var string`	|A sequence of characters up to 2 GB|
+|[String]	|`var string`	|A sequence of characters with properties|
 |[UUID]|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
-|[Date]|`var Date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
-|[Duration]|-	|A duration between two dates	|
-|[Bool]|`var Boolean`|A Boolean value: either true or false.|
+|[Date]|`var date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
+|[Duration]|`var long`	|A duration between two dates	|
+|[Bool]|`var boolean`|A Boolean value: either true or false.|
 |[Byte]	|-|A sequence of 8 bits.|
 |[Word]|-|A 16-bit signed integer. Range: -32,767 to 32,768|
-|[Number]|-|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
-|[Long]|`var Real`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
-|[Object]|`var Object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
-|[Image]|`var Picture`	|A reference to an image file or an actual image.	|
+|[Number]|`var number`|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
+|[Long]|`var nimber`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
+|[Object]|`var object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
+|[Image]|`var picture`	|A path to an image file or an actual image.	|
 
 
 
@@ -188,15 +188,3 @@ On the server, queries are processed by the Qodly **query parser** that translat
 For more detailed information about queries in Qodly, see XXX.
 
 
-## Security
-
-Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
-
-Qodly's key features to protect your data from breaches, loss and failure events include:
-- **Authentication**: Qodly supports built-in and customized authentication, as well as authentication via Active Directory and LDAP.
-- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
-- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
-- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
-
-
-## Mirroring

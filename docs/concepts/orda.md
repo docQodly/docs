@@ -39,7 +39,7 @@ The ORDA technology is based upon an automatic mapping of an underlying relation
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
-![schema](img/orda-schema2.png)
+![schema](img/orda-schema3.png)
 
 
 ### Datastore
@@ -268,7 +268,7 @@ Unordered entity selections are created in all other cases, including:
 ## Data Model Classes
 
 
-ORDA allows you to create high-level class functions above the data model. This allows you to write business-oriented code and "publish" it just like an API. Datastore, dataclasses, entity selections, and entities are all available as class objects that can contain functions.
+ORDA allows you to create high-level [class](../language/basics/lang-classes.md) functions above the data model. This allows you to write business-oriented code and "publish" it just like an API. Datastore, dataclasses, entity selections, and entities are all available as class objects that can contain functions.
 
 For example, you could create a `getNextWithHigherSalary()` function in the `EmployeeEntity` class to return employees with a salary higher than the selected one. It would be as simple as calling:
 
@@ -285,9 +285,9 @@ Thanks to this feature, the entire business logic of your Qodly application can 
 ![](img/functions-schema.png)
 
 
-## Architecture
+### Architecture
 
-ORDA provides **generic classes** exposed through a **`4D`** class store, as well as specific **user classes** (extending generic classes) exposed in the [**`cs`** class store](lang-classes.md):
+ORDA provides **generic classes** exposed through a **`4D`** class store, as well as specific **user classes** (extending generic classes) exposed in the [**`cs`** class store](../language/basics/lang-classes.md):
 
 ![](img/ClassDiagramImage.png)
 
@@ -309,7 +309,6 @@ Also, object instances from ORDA data model user classes benefit from their pare
 
 
 
-## Class Description
 
 ### DataStore Class
 
@@ -509,14 +508,14 @@ When creating or editing data model classes, you must pay attention to the follo
 
 ## Glossary
 
+Here is an reminder for the main concepts handled by ORDA.
 
-
-### *any* data type  
+#### *any* data type  
 
 In this documentation, "any" data type is used to designate the various type of values that can be stored within dataclass attributes. It includes:
 
 *	number
-*	text
+*	string
 *	null
 *	boolean
 *	date
@@ -527,7 +526,7 @@ In this documentation, "any" data type is used to designate the various type of 
 *(\*) picture type is not supported by statistical methods such as* `entitySelection.max( )`.
 
 
-### Attribute 
+#### Attribute 
  
 An attribute is the smallest storage cell in a relational database (see also [Relation attribute](#relation-attribute)). Do not confuse dataclass attributes and entity attributes:
 
@@ -536,19 +535,19 @@ An attribute is the smallest storage cell in a relational database (see also [Re
 
 *Attributes* and *properties* are similar concepts. "Attribute" is used to designate dataclass properties that store data, while "property" is more generic and defines a piece of data stored within an object. 
 
-### AttributePath  
+#### AttributePath  
 
 An attributePath is the path of an attribute inside a given dataclass or entity. See also [PropertyPath](#propertyPath).
 
-### Calculated attribute
+#### Calculated attribute
 
-See [Computed attribute](#computed-attribute).
+A calculated attribute doesn't actually store information. Instead, it determines its value based on other values from the same entity or from other entities, attributes or functions. When a calculated attribute is referenced, the underlying "calculation" is evaluated to determine the value. Calculated attributes may even be assigned values where user-defined code determines what to do during the assignment.
 
-### Class code
+#### Class code
 
 Code for the user class function(s). 
 
-### Class function
+#### Class function
 
 ORDA objects such as datastores, dataclasses, entity selections, and entities, define classes of objects. They provide specific functions to directly interact with them. These functions are called class functions. Such functions are used by calling them on an instance of the object.
 
@@ -558,36 +557,30 @@ For example, the `query()` function is a dataclass class function. If you have s
 $myClass.query("name = smith")
 ```
 
-
-
-### Computed attribute
-
-A computed attribute doesn't actually store information. Instead, it determines its value based on other values from the same entity or from other entities, attributes or functions. When a computed attribute is referenced, the underlying "computation" is evaluated to determine the value. Computed attributes may even be assigned values where user-defined code determines what to do during the assignment.
-
-### Data model class
+#### Data model class
 
 Extended class available for a data model object. 
 
-### Data model object
+#### Data model object
 
 Database objects available through the ORDA concept, i.e. datastore, dataclasses, entities and entity selections.
 
-### Data model function
+#### Data model function
 
 Function of an ORDA data model class.
 
-### Dataclass  
+#### Dataclass  
 
 A dataclass is an object model that describes the data. Tables in the database provided by the datastore are handled through dataclasses. Each table in the database provided by the datastore has a corresponding dataclass with the same name. Each field of the table is an attribute of the dataclass.
 
 A dataclass is related to a single datastore.
 
 
-### DataClass class
+#### DataClass class
 
 Class for specific dataclass objects, in which you can add custom functions. 
 
-### Datastore  
+#### Datastore  
 
 A datastore is the interface object provided by ORDA to reference a model and access its data. The model, returned by the `ds` command, is available as a datastore (the main datastore).
 
@@ -597,31 +590,31 @@ A datastore provides:
 *	a set of dataclasses to work with the database
 
 
-### DataStore class
+#### DataStore class
 
 Class for datastore objects, in which you can add custom functions. 
 
 
-### DataStoreImplementation
+#### DataStoreImplementation
 
 Internal name of the generic DataStore class in the `4D` class store.
 
-### Deep copy 
+#### Deep copy 
  
 A deep copy duplicates an object and all the references it contains. After a deep copy, a copied collection contains duplicated elements and thus, new references, of all of the orginal elements. See also [Shallow copy](#shallow-copy).
 
-### ds  
+#### ds  
 
 `ds` is the language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the Qodly database.
 
-### Entity  
+#### Entity  
 
 An entity is an object that corresponds to a dataclass model. An entity contains the same attributes as the dataclass.
 
 An entity can be seen as an instance of the dataclass, like a record of the table matching the dataclass in its associated datastore. However, an entity also contains related data. The purpose of the entity is to manage data (create, update, delete).
 
 
-### Entity selection  
+#### Entity selection  
 
 An entity selection is an object. When querying the datastore, an entity selection is returned. An entity selection is a set of references to entities related to the same dataclass.
 
@@ -633,53 +626,53 @@ An entity selection contains:
 
 An entity selection can also be empty.
 
-### Function
+#### Function
 
 See [Class function](#class-function).
 
-### Generic class
+#### Generic class
 
 Built-in class for ORDA objects such as entities, or dataclasses. Functions and properties of generic classes are automatically available in user extended classes, e.g. `EmployeeEntity`. 
 
 
-### Lazy loading 
+#### Lazy loading 
  
 Since entities are managed as references, data is loaded only when necessary, i.e. when accessing it in the code or through interface widgets. This optimization principle is called lazy loading.
 
-### Main datastore  
+#### Main datastore  
 
 The Datastore object matching the opened Qodly database (standalone or client/server). The main datastore is returned by the `ds` command. 
 
-### Optimistic Lock  
+#### Optimistic Lock  
 
 In "optimistic lock" mode, entities are not locked explicitly before updating them. Each entity has an internal stamp that is automatically incremented each time the entity is saved on disk. The entity.save( ) or entity.drop( ) methods will return an error if the stamp of the loaded entity (in memory) and the stamp of the entity on disk do not match, or if the entity has been dropped. Optimistic locking is only available in ORDA implementation. See also "Pessimistic lock".
 
-### ORDA
+#### ORDA
 
 Object Relational Data Access. See [What is ORDA?](overview)
 
 
-### Pessimistic Lock  
+#### Pessimistic Lock  
 
 A "pessimistic lock" means that an entity is locked prior to its being accessed, using the `entity.lock()` function. Other processes can neither update nor drop the entity until it is unlocked. See also [Optimistic lock](#optimistic-lock).
 
-### Property  
+#### Property  
 
 See [Attribute](#attribute).
 
-### PropertyPath  
+#### PropertyPath  
 
 A propertyPath is the path to a property in a given object. If the property is nested in several levels, each level separated is by a dot (".").
 
-### Regular class  
+#### Regular class  
 
 User class not related to an ORDA object.
 
-### Related dataclass  
+#### Related dataclass  
 
 These are dataclasses linked by relation attributes.
 
-### Relation attribute  
+#### Relation attribute  
 
 Relation attributes are used to conceptualize relations between dataclasses (many-to-one and one-to-many).
 
@@ -690,29 +683,29 @@ A dataclass can have recursive relation attributes.
 
 In an entity, the value of a relation attribute can be an entity or an entity selection.
 
-### Related entities  
+#### Related entities  
 
 A related entity can be seen as the instance of a relation attribute in a dataclass.
 
 Entity selections may refer to related entities according to the relation attributes defined in the corresponding dataclasses.
 
 
-### Session  
+#### Session  
 
 When a user connects to a Qodly application, a Session object is created on the Server (HTTP). A session cookie is generated. 
 
 Each Session object provides a `.storage` property which is a shared object. Privileges are associated to user sessions. 
 
 
-### Shallow copy 
+#### Shallow copy 
  
 A shallow copy only duplicates the structure of elements, and keeps the same internal references. After a shallow copy, two collections will both share the individual elements. See also [Deep copy](#deep-copy).
 
-### Stamp 
+#### Stamp 
  
 Used in "optimistic" locking technology. All entities have an internal counter, the stamp, which is incremented each time the entity is saved. By automatically comparing stamps between an entity being saved and its version stored on disk, ORDA can prevent concurrent modifications on the same entities.
 
-### Storage attribute
+#### Storage attribute
 
 A storage attribute (sometimes referred to as a scalar attribute) is the most basic type of attribute in a datastore class and most directly corresponds to a field in a relational database. A storage attribute holds a single value for each entity in the class.
 

@@ -13,20 +13,16 @@ Qodly Server includes:
 - an HTTP server,
 - a REST server with a comprehensive API,
 - a Web application server,
-- the Datasource manager,
 - Qodly Database, a built-in relational database, directly available through the ORDA (Object Relational Data Access) technology. 
-- the **QodlyScript language**, that can be used in all layers of the project. 
-
-
-![full stack of servers](img/full-stack.png)
+- the QodlyScript language, that can be used in all layers of the project. 
 
 
 
 All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
 
-In the development environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
+In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
 
-In the staging and production environments, the same Qodly Server is also used to handle and process requests from the browsers. 
+In the **staging** and **production** environments, the same Qodly Server is also used to handle and process requests from the browsers. 
 
 ## HTTP Server
 
