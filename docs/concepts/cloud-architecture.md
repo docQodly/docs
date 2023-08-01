@@ -3,6 +3,6 @@ id: cloud-architecture
 title: Qodly Cloud
 ---
 
-... Coming soon ...
+![schema-cloud](img/cloud-schema.png)
 
 //

@@ -10,9 +10,7 @@ At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is 
 
 Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
 
-Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by ORDA. In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
-
-![qodly database](img/qodlydb2.png)
+Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by the [ORDA technology](orda.md). In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
 
 
 

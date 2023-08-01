@@ -39,7 +39,7 @@ The ORDA technology is based upon an automatic mapping of an underlying relation
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
-![schema](img/orda-schema.png)
+![schema](img/orda-schema2.png)
 
 
 ### Datastore
