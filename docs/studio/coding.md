@@ -10,7 +10,7 @@ In Qodly Studio, you use [events](design-webforms/events/events.md) in conjuncti
 
 In QodlyScript, you can organize your code in two kinds of structures: **methods** and **classes**.
 
-- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They can be called from class functions or form other methods, but not directly from your components. For testing purposes, a method can also be executed from the Explorer:</br>
+- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They can be called from class functions or form other methods, but not directly from your components. For testing purposes, a method can also be executed from the Explorer:<br/>
 ![code-editor](img/method-exec.png)
 - [**classes**](../language/basics/lang-classes.md) allow you to organize your code according to objects. Only class functions can be called from your components. 
 	- User classes allow you to set the behavior of your components. For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](../language/WebForm.md). 
