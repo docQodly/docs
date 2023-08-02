@@ -20,9 +20,9 @@ Multi-tasking in QodlyScript is the ability to have distinct operations that are
 |[<!-- INCLUDE #_command_.getProcessActivity.Syntax -->](#getprocessactivity)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getProcessActivity.Summary -->|
 |[<!-- INCLUDE #_command_.highestProcessNumber.Syntax -->](#highestprocessnumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.highestProcessNumber.Summary -->|
 |[<!-- INCLUDE #_command_.killWorker.Syntax -->](#killworker)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.killWorker.Summary -->|
+|[<!-- INCLUDE #_command_.processNumber.Syntax -->](#processnumber)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.processNumber.Summary -->|
 |[<!-- INCLUDE #_command_.semaphore.Syntax -->](#semaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.semaphore.Summary -->|
 |[<!-- INCLUDE #_command_.testSemaphore.Syntax -->](#testsemaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.testSemaphore.Summary -->|
-|[<!-- INCLUDE #_command_.lowercase.Syntax -->](#lowercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lowercase.Summary -->|
 |[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchRegex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
 |[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
 
@@ -581,6 +581,22 @@ The difference between the `semaphore` and the `testSemaphore` functions is that
 
 
 
+
+
+## processNumber
+
+<!-- REF #_command_.processNumber.Syntax -->**processNumber** ( *name* : string ) : integer<!-- END REF -->
+
+
+<!-- REF #_command_.processNumber.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|name|string|->|Name of process for which to retrieve the process number|
+|Result|integer|<-|Process number|<!-- END REF -->
+
+#### Description
+
+The `processNumber` command <!-- REF #_command_.processNumber.Summary -->returns the number of the process whose name you pass in *name*<!-- END REF -->. If no process is found, `processNumber` returns 0.
 
 
 
