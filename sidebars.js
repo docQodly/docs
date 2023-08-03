@@ -316,6 +316,7 @@ const sidebars = {
 			'language/math',
 			'language/object',
 			'language/pictures',
+			'language/process',
 			'language/SessionClass',
 			'language/SignalClass',
 			'language/string',
