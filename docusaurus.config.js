@@ -89,6 +89,13 @@ const config = {
             position: 'left',
             label: 'Getting Started',
           },
+  		  {
+            type: 'doc',
+            docId: 'cloud/overview-cloud',
+            position: 'left',
+            label: 'Dashboard',
+          },
+
 		  /*{
             type: 'doc',
             docId: '/category/concepts',
@@ -106,12 +113,6 @@ const config = {
             docId: 'orda/overview',
             position: 'left',
             label: 'Programming',
-          },
-		  {
-            type: 'doc',
-            docId: 'cloud/overview-cloud',
-            position: 'left',
-            label: 'Dashboard',
           },
 		
 		 /*{

@@ -3,17 +3,18 @@ id: platform
 title: Qodly Platform Overview
 ---
 
-Welcome to **Qodly**, a hybrid low-code web application development platform. To develop a web application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
-
 The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor any web application.
 
-The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
+Qodly is a hybrid low-code web application development platform. It means that, to develop a web application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
 
-All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
+The Qodly plaform is made of a **Studio**, a **Server**, and a **Dashboard**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
 
 In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
 
 In the **staging** and **production** environments, the same Qodly Server is also used to handle and process requests from the browsers. 
+
+![schema-cloud](img/cloud-schema.png)
+
 
 
 ## Qodly Studio
@@ -42,15 +43,15 @@ Qodly Server includes:
 - **Qodly Database**, a built-in relational database. The Qodly Database has extended capabilities to store and process data. Model and data access is done through **ORDA** (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept. 
 - the **QodlyScript** language, that can be used in all layers of the project: to configure the model, the application layer, the datasources, the web forms, the events. No other language is required to develop a Qodly application. QodlyScript is an object-oriented language containing built-in classes that you can extend, and also user classes. ORDA provides data model classes that are very efficient to handle data.  
 
+All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
 
 
 
 
-## Qodly Cloud 
+## Qodly Dashboard 
 
-### Architecture
+### Cloud Architecture
 
-![schema-cloud](img/cloud-schema.png)
 
 //
 
