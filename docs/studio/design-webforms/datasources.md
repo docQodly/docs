@@ -4,7 +4,7 @@ title: Datasources
 ---
 
 
-Datasources are a central concept to Qodly's architecture and are intended to make developping Web applications as simple as possible. A datasource references data and automatically generates events when this data is changed. Your webform components can **subscribe** to datasources to determine how and where the data is displayed in your application.
+Datasources are a central concept to Qodly's architecture and are intended to make developping Web applications as simple as possible. A **datasource references data and automatically generates events when this data is changed**. Your webform components can **subscribe** to datasources to determine how and where the data is displayed in your application.
 
 
 ## What are datasources?

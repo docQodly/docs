@@ -30,10 +30,15 @@ const sidebars = {
    */
    
   GetStarted:[
-     {
+    {
       type: 'doc',
-      id: 'welcome',
-      label: "Welcome"
+      id: 'concepts/platform',
+      label: "Qodly Platform Overview"
+    },
+	 {
+      type: 'doc',
+      id: 'concepts/quickstart',
+      label: "Quickstart"
     },
 	{
         type: 'category',
@@ -157,27 +162,11 @@ const sidebars = {
     },
     {
       type: 'doc',
-      id: 'materials',
-      label: "Materials"
+      id: 'resources',
+      label: "Resources"
     }, 
   ],
   
-  
-  Platform: [
-  {
-      type: 'category',
-      label: 'Platform',
-	  link: {
-			type: 'generated-index',
-			title: 'Platform',
-			description: 'Overview of the powerful concepts and technologies used in the Qodly platform.',
-			slug: '/category/concepts',
-			keywords: ['concepts'],
-			image: '/img/docusaurus.png',
-			},
-      items: ['concepts/cloud-architecture','concepts/security','concepts/server-architecture','concepts/db','concepts/orda'],
-    },
-  ],
   
   Studio:[
 	{
@@ -222,14 +211,14 @@ const sidebars = {
 			id: 'studio/roles',
 			label: "Roles & Privileges"
 	},
-	{
-			type: 'doc',
-			id: 'studio/data',
-			label: "Working with data"
-	},
 ],
-	QodlyScript:[
-	
+Programming:[
+	{
+			type: 'category',
+			label: 'Programming with ORDA',
+			items: ['orda/overview','orda/data-model','orda/orda-classes','orda/data','orda/queries',
+			],
+	},
 	{
 		type: 'category',
 		label: 'QodlyScript Reference',
@@ -332,17 +321,7 @@ const sidebars = {
 	],
 		
 
-  Cloud:[
-  	{
-			type: 'doc',
-			id: 'cloud/overview-cloud',
-			label: "Architecture"
-	},
-	{
-			type: 'doc',
-			id: 'cloud/security',
-			label: "Security and User management"
-	},
+  Dashboard:[
 	{
 			type: 'category',
 			label: "User Guide",
@@ -354,21 +333,21 @@ const sidebars = {
 				image: '/img/docusaurus.png',
 				},
 			items: [
-			{
-				type: 'doc',
-				id: 'cloud/getStarted',
-				label: "Getting Started"
-			},
-			{
-				type: 'doc',
-				id: 'cloud/monitor',
-				label: "Monitoring"
-			},
-			{
-				type: 'doc',
-				id: 'cloud/account',
-				label: "Account Management"
-			},
+				{
+					type: 'doc',
+					id: 'cloud/getStarted',
+					label: "Getting Started"
+				},
+				{
+					type: 'doc',
+					id: 'cloud/monitor',
+					label: "Monitoring"
+				},
+				{
+					type: 'doc',
+					id: 'cloud/account',
+					label: "Account Management"
+				},
 			],
 		
 

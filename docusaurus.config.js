@@ -85,16 +85,16 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'welcome',
+            docId: 'concepts/platform',
             position: 'left',
             label: 'Getting Started',
           },
-		  {
+		  /*{
             type: 'doc',
             docId: '/category/concepts',
             position: 'left',
             label: 'Platform',
-          },
+          },*/
 		  {
             type: 'doc',
             docId: 'studio/overview',
@@ -103,15 +103,15 @@ const config = {
           },
 		   {
             type: 'doc',
-            docId: '/category/qodlyscript',
+            docId: 'orda/overview',
             position: 'left',
-            label: 'QodlyScript',
+            label: 'Programming',
           },
 		  {
             type: 'doc',
             docId: 'cloud/overview-cloud',
             position: 'left',
-            label: 'Cloud',
+            label: 'Dashboard',
           },
 		
 		 /*{
