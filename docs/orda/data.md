@@ -1,9 +1,9 @@
 ---
 id: data
-title: Working with data
+title: CRUD Operations
 ---
 
-In ORDA, you access data through [entities](data-model#entity) and [entity selections](data-model#entity-selection). These objects allow you to create, update, query, or sort the data of the datastore. 
+In ORDA, you access data through [entities](data-model#entity) and [entity selections](data-model#entity-selection) objects. These objects allow you to execute CRUD (*Create, Read, Update, Delete*) basic operations on data, along with [queries](queries.md) and sorts.
 
 
 ## Creating an entity  
@@ -101,6 +101,7 @@ For example, to set a storage attribute:
 
 
 ```qs
+
  entity=ds.Employee.get(1) //get employee attribute with ID 1
  name=entity.lastname //get the employee name, e.g. "Smith"
  entity.lastname="Jones" //set the employee name
@@ -178,6 +179,7 @@ You can assign or modify the value of a "one" related entity attribute from the 
 ```code4d
  var emp : cs.EmployeeEntity
  emp=ds.Employee.get(2) // load the Employee entity with primary key 2
+
  emp.employer.name="4D, Inc." //modify the name attribute of the related Company
  emp.employer.save() //save the related attribute
   //the related entity is updated
