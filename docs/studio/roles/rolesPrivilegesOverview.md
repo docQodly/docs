@@ -8,15 +8,15 @@ In the realm of data security and access control, Qodly introduces a robust syst
 ---
 ## Roles: Defining User Profiles 
 
-### <u> <span style={{fontSize: '1.2rem'}}>Understanding Roles in Qodly</span> </u> 
+### <u> Understanding Roles in Qodly </u> 
 
 Roles in Qodly play a pivotal role in defining distinct user profiles within the application. Each role corresponds to a specific set of responsibilities, privileges, and access levels. For instance, consider a travel agency website, roles such as "Customer," "Content Manager," and "Sales Manager" delineate varying user profiles, each with a unique scope of actions and operations they can perform.
 
-### <u> <span style={{fontSize: '1.2rem'}}>Role Hierarchy and Hierarchical Access Control</span> </u> 
+### <u> Role Hierarchy and Hierarchical Access Control </u> 
 
 Roles are hierarchically structured, allowing for the establishment of an organized and layered access control system. This hierarchy ensures that higher-level roles encompass the privileges of lower-level roles, creating a seamless and efficient method of managing user access. This hierarchical access control enhances the granularity of access management, facilitating a streamlined and systematic approach.
 
-### <u> <span style={{fontSize: '1.2rem'}}>Adding Roles in Qodly</span> </u> 
+### <u> Adding Roles in Qodly </u> 
 
 Adding roles in Qodly is a straightforward process. Begin by opening the `Explorer` Panel, your control center for Qodly management. From there, navigate to the `Roles and Privileges` section, where you'll find the dedicated `Roles` tab. Click on this tab to access role management. To define a new role, initiate the role creation process by clicking on the `Add new role` option. 
 
@@ -31,7 +31,7 @@ Following these uncomplicated steps, in the context of a travel agency website k
 |Content Manager|Responsible for managing the content of the website, including creating and updating travel packages, adding new destinations, and editing descriptions.|
 |Sales Manager   |Has additional privileges compared to customers, allowing them to manage customer bookings, view sales reports, and generate invoices.|
 
-### <u> <span style={{fontSize: '1.2rem'}}>Role-Based Authentication: Ensuring Clear Access Control</span> </u> 
+### <u> Role-Based Authentication: Ensuring Clear Access Control </u> 
 
 To ensure clear role-based access within the system, the integration of a user authentication mechanism, specifically a dedicated sign-in page, is of utmost importance. This mechanism serves as a vital tool for distinguishing between different roles attempting to access the website. By requiring users to sign in, the system uniquely identifies and associates each user with their designated role. After a successful registration, automatic assignment of a default role, such as the `Customer` role, serves as the foundational step for controlled access in alignment with predefined privileges.
 
@@ -75,15 +75,15 @@ For a more comprehensive understanding, we recommend consulting the [**Session c
 
 ## Privileges: Enabling Controlled Access
 
-### <u> <span style={{fontSize: '1.2rem'}}>Defining Privileges for Different User Profiles</span> </u> 
+### <u> Defining Privileges for Different User Profiles </u> 
 
 Privileges are the building blocks of access control in Qodly. They define the specific technical capabilities and actions that users of different roles can perform. By assigning privileges to roles, you determine the extent of a user's access to data and functionalities. For example, the "BrowsePackages" privilege allows users to view available travel packages, while the "BookPackage" privilege enables booking transactions.
 
-### <u> <span style={{fontSize: '1.2rem'}}>Hierarchical Privileges for Granular Control</span> </u> 
+### <u> Hierarchical Privileges for Granular Control </u> 
 
 Privileges can be structured hierarchically, allowing one privilege to include or inherit the capabilities of another. This hierarchical arrangement enhances the flexibility of access control, enabling the creation of comprehensive privilege sets that cater to various user roles. By establishing a hierarchy of privileges, you can efficiently manage access without duplicating efforts or creating redundant privilege definitions.
 
-### <u> <span style={{fontSize: '1.2rem'}}>Adding Privileges in Qodly</span> </u> 
+### <u> Adding Privileges in Qodly </u> 
 
 The process of adding privileges in Qodly is just as simple as adding roles. To get started, head to the `Privileges` tab within the `Roles and Privileges` section. To create a new privilege, simply click on the `+` icon, which will prompt the `Create New Privilege` form to appear.
 
