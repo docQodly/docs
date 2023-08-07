@@ -25,19 +25,19 @@ Qodly employs Role-Based Access Control (RBAC), a fundamental security model, to
 ## Key Concepts 
  
 
-### <u> ORDA Concepts </u> 
+### <u> <span style={{fontSize: '1.2rem'}}>ORDA Concepts</span> </u> 
 
 Central to Qodly's data manipulation are the principles of Object-Relational Data Access (ORDA). Data organization revolves around DataStores and DataClasses, which serve as pivotal resources. ORDA introduces attributes and functions within classes, streamlining the data management process.
 
-### <u> Resources </u> 
+### <u> <span style={{fontSize: '1.2rem'}}>Resources</span> </u> 
 
 Qodly encompasses a range of resources including DataStores, DataClasses, attributes, and functions. Each of these resources has the potential for linked privileges that govern permissible actions.
 
-### <u> Permissions </u> 
+### <u> <span style={{fontSize: '1.2rem'}}>Permissions</span> </u> 
 
-Permissions encompass the fundamental tasks achievable on resources. These Permissions encompass operations such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
+Permissions encompass the fundamental tasks achievable on resources. These permissions encompass operations such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
 
-### <u> Granularity Hierarchy for Data Access Restrictions in Qodly </u> 
+### <u> <span style={{fontSize: '1.2rem'}}>Granularity Hierarchy for Data Access Restrictions in Qodly</span> </u> 
 
 At the core of Qodly's data security lies a well-defined granularity hierarchy that lets you control who accesses your resources and how. This hierarchy ensures that data access restrictions can be set at different levels, catering to the specific needs of your application and users. Let's explore the granularity levels in detail:
 
