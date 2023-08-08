@@ -7,7 +7,7 @@ The Qodly platform is a fully integrated environment where you can develop, test
 
 Qodly is a hybrid **low-code** web application development platform. It means that, to develop a web application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
 
-The Qodly plaform is made of a **Studio**, a **Server**, and a **Dashboard**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
+The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud Management Console**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
 
 In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
 
@@ -48,7 +48,7 @@ All these elements are included in one single executable running under Linux OS,
 
 
 
-## Qodly Dashboard 
+## Qodly Cloud Management Console 
 
 ### Cloud Architecture
 
@@ -62,7 +62,8 @@ All these elements are included in one single executable running under Linux OS,
 Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
 
 Qodly's key features to protect your data from breaches, loss and failure events include:
-- **Authentication**: Qodly supports built-in and customized authentication, as well as authentication via Active Directory and LDAP.
+
+- **Authentication**: Qodly supports user authentication and identification through *Cognito*, the AWS Customer identity and access management (CIAM). 
 - **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
 - **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
 - **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.

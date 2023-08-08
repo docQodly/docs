@@ -59,9 +59,8 @@ Two types of components are available:
 |Button|data source|Triggers actions on a web page|
 |Checkbox|data source|Allows the user to make a binary choice (boolean value)|
 |Columns|data source|Displays data inside columns|
-|Datatable|data source|Displays data in the form of a table. User can select a row to interact with the server|
-|File input|data source| Allows you to upload a file to the server|
-|Grid|data source| Allows you to produce complex and responsive layouts faster. Grid areas can be edited directly on the canvas|
+|Datatable|data source|[Iterative](datasources.md#iterative-components). Displays data in the form of a table. User can select a row to interact with the server|
+|File upload|data source| Allows you to upload a file to the server|
 |Icon|data source|Displays an icon|
 |Image|data source|Displays an image|
 |Matrix|container|[Iterative](datasources.md#iterative-components). Container of repeated Styleboxes. Its Stylebox must have a fixed height set in pixels|[Iterative](datasources.md#iterative-components)|
@@ -118,11 +117,11 @@ The DataTable component supports the following specific [server event](../API/we
 |name|Text|the datasource of the column (i.e; address.city)|
 
 
-### File input
+### File upload
 
-The **File input** component provides a convenient way to upload files to the server. Thanks to this component, the user can upload a binary or a picture file and store it in an entity attribute.
+The **File upload** component provides a convenient way to upload files to the server. Thanks to this component, the user can upload a binary or a picture file and store it in an entity attribute.
 
-A File input component is made of two elements (that you can select separately):
+A File upload component is made of two elements (that you can select separately):
 
 ![alt-text](img/file-upload.png)
 
@@ -131,7 +130,7 @@ A File input component is made of two elements (that you can select separately):
 
 The File input area can be configured with the following properties, available in the **Properties** panel:
 
-- **Label position**: relative position of the label regarding the file input area. You can also select **hidden** to not display a label.
+- **Icon position**: relative position of the icon regarding the label. You can also select **hidden** to not display an icon.
 - **Size limit**: maximum file size that the user will be allowed to upload. You can select the unit: KB, MB, GB. If the user selects a file with a larger size, an error is displayed on the browser. 
 - **Media type**: file type. Supported type: text, image, video, audio.
 
@@ -257,6 +256,7 @@ The Text input component supports a **Type** property with the following values:
 The **Webform loader** component displays a webform inside the current Webform component.
 
 A Webform loader's initial value determines which webform it displays when it loads. You can set that initial value in one of the following ways: 
+
 * using the Properties panel
 * by binding a local datasource of type Text to it and giving it an initial value. 
 
@@ -266,6 +266,9 @@ The initial value must match the name of the webform to display.
 
 The difference between these methods is that binding a local datasource allows you to dynamically update the contents of the Webform loader. Every time the value of the datasource changes, the contents of the Webform loader are updated accordingly.
 
+When implementing navigation actions in a Webform loader, you need to use the component [`Ref` property](create-webform.md#ref) to designate the components to process:
+
+![navigation-action](img/webform-loader-navigation.jpg)
 
 ## Server-side reference
 
@@ -325,3 +328,89 @@ To use a template:
 5. Drop the component on the Canvas.
 
 
+
+### Ref
+
+The internal ID for the selected component. This ID is automatically assigned at the component creation and used to reference it during [Webform loader component](components.md#webform-loader) navigation action.
+
+A webform has always `ROOT` as reference. 
+
+### Search
+
+This area allows you to search among the property names, for an instant access to the desired setting. 
+
+
+
+
+
+### Server Side
+
+The server-side reference of a component is its "address" on the server. To set the behavior of a component, you can give it a server-side reference, and then [use that reference in class functions](../language/WebFormItemClass.md).
+
+To assign a server-side reference to a component, enter a value in the Properties panel > Server Side:
+
+![alt-text](img/image-server-side.png)
+
+
+### Class
+
+This area allows you to apply default or custom CSS class(es) to the selected component. When you select or enter a CSS class name, the CSS is applied to the component and its name is displayed under the area. Involved style and color properties are updated accordingly in the panel, allowing you to alter some parts of the CSS.
+
+You can apply more than one CSS, [Cascading and inheritance rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) will be applied. 
+
+![alt-text](img/class1.png)
+
+To remove a CSS from the component, just click the `x` at the right side of the CSS label. 
+
+
+### Text Color and Background
+
+Text and Background color of the selected component. For each property, you can:
+
+- enter a rgb value with the syntax `rgb(<number>,<number>,<number>)`
+- enter a hexadecimal color value such as `#cf737300`
+- click on the color picker button and select a color; its hexadecimal value is then inserted in the area. 
+
+
+### Height and Width
+
+Height and Width of the selected component. You can use these properties to modify the component's size. You can change the [unit](#display-unit) for these properties. 
+
+
+### Margin and Padding
+
+This area allows you to define the margin and padding values for the selected components. When you click on a padding or a margin, an additonal area is displayed, so that you can enter or display values.   
+
+
+![alt-text](img/padding.png)  
+
+
+### Display
+
+:::info
+
+This property is only available for a whole webform.
+
+:::
+
+Overall display organization of components within the webform. 
+
+![alt-text](img/display.png)  
+
+The following options are available:
+
+- **Block** (default): components are displayed sequentially from top to bottom, without specific settings.
+- **Flex**: components are displayed depending on a defined schema that includes multiple customized parameters (alignment, gap between components, justification, wrap). When you select this option, an additional area is displayed so that you can modify any relevant parameters. 
+
+![alt-text](img/flex.png)  
+
+- **None**: components are hidden.
+
+
+### Display unit 
+
+CSS size properties such as "Height" & "Width" are expressed using the `PX` (pixels) default display unit. You can modifiy this unit using the menu at the right side:
+
+![alt-text](img/unit.png)  
+
+For a description of these units, you can refer to [this page](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#lengths).
