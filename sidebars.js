@@ -167,11 +167,11 @@ const sidebars = {
     }, 
   ],
   
-    Dashboard:[
+    Console:[
     {
       type: 'doc',
       id: 'cloud/overview-cloud',
-      label: "Dashboard"
+      label: "Console"
     }, 
 	{
 			type: 'category',
