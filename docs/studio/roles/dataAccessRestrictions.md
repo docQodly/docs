@@ -1,24 +1,44 @@
 ---
-id: dataAccessRestrictions
-title: Data Access Restrictions
+id: accessControlMechanisms
+title: Access Control Mechanisms
 ---
 
 
-Delve into Qodly's technical documentation on Data Access Restrictions. This comprehensive guide explores the intricate mechanisms that ensure robust protection against unauthorized data access within the application framework.
+
+Two closely linked yet distinct concepts, "Data Access Restrictions" and "Role-Based Access Control (RBAC)", address separate dimensions of access control and security within the application. "Data Access Restrictions" establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, "Role-Based Access Control (RBAC)" delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions within the application.
 
 ---
 
-## What are Data Access Restrictions? 
+## Data Access Restrictions
 
-Data Access Restrictions are a critical aspect of ensuring data security and privacy within an application. In Qodly, a comprehensive approach is taken to limit and control access to sensitive data, preventing unauthorized users from accessing information beyond their designated scope.
+Data Access Restrictions play a pivotal role in enhancing data security and privacy. Qodly adopts a comprehensive and holistic strategy to confine and manage access to sensitive data effectively.
 
-The primary purpose of Data Access Restrictions in Qodly is to safeguard sensitive data and maintain the confidentiality, integrity, and availability of information. By controlling access, the application aims to prevent data breaches, unauthorized disclosure, and other security risks that may arise due to inappropriate access to sensitive data.
+The primary purpose of implementing Data Access Restrictions within Qodly is to fortify the protection of sensitive data, ensuring its confidentiality, integrity, and availability. This controlled access approach is instrumental in preventing data breaches, unauthorized disclosures, and security vulnerabilities arising from inappropriate data access
+
+### <u> Benefits </u> 
+
+The benefits of implementing Data Access Restrictions in Qodly include:
+
+- Enhanced Security: By limiting data access to authorized individuals, the risk of unauthorized data breaches and leaks is significantly reduced.
+- Compliance: Qodly's adherence to data access restrictions helps ensure compliance with industry regulations and standards, as well as data protection laws.
+- Customization: Different roles and privilege levels allow for a tailored user experience, optimizing efficiency and usability based on user needs.
+- Auditability: The controlled access model facilitates tracking and monitoring of user interactions with sensitive data, enabling detailed audit trails for security analysis.
 
 ---
 
 ## Role-Based Access Control (RBAC) 
 
 Qodly employs Role-Based Access Control (RBAC), a fundamental security model, to facilitate controlled and secure resource access within the application. RBAC enhances data security and streamlines access management by associating specific roles with well-defined privileges, enabling efficient and effective user access control.
+
+### <u> Benefits </u> 
+
+Implementing RBAC in Qodly yields several benefits:
+
+- Granular Access Control: RBAC allows fine-grained control over user access to resources, minimizing the risk of unauthorized access.
+- Simplified Management: Role assignment simplifies access management, reducing administrative overhead.
+- Security and Compliance: RBAC aids in enforcing security policies and complying with data protection regulations.
+- Scalability: As the application grows, RBAC scales efficiently by adding new roles and adjusting privilege assignments.
+
 
 ---
 
