@@ -248,7 +248,7 @@ const sidebars = {
         type: 'category',
         label: 'Access Control',
         items: [
-            'studio/roles/dataAccessRestrictions',
+            'studio/roles/accessControlMechanisms',
             'studio/roles/rolesPrivilegesOverview',
             {   
                 type: 'category',
