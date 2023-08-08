@@ -115,9 +115,9 @@ For instance, a `Sales Manager` role might possess privileges like `ManageBookin
 
 ---
 
-## Adding Roles via Cloud Interface
+## Assigning Roles
 
-Through the cloud interface of your application, you can seamlessly integrate roles for users across various environments, be it development, staging, or production – each with its own tailored configuration. 
+Through the Qodly Management Console of your application, you can seamlessly integrate roles for users across various environments, be it development, staging, or production – each with its own tailored configuration. 
 
 :::info
 
@@ -129,6 +129,8 @@ For instance, in the development environment, navigate to the `Teams` tab. Here,
 
 <img alt="explorer" src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
 
-The significance of these role assignments extends beyond user management. As you shape your application, these roles will influence the user experience. For instance, a non-connected customer will be restricted from viewing their bookings, while a connected customer can conveniently access their bookings from the header bar. This seamless integration of roles ensures a cohesive and tailored user interaction throughout your application.
+The impact of these role assignments goes beyond mere user administration. As you mold your application, these roles exert a direct influence on the user journey. For example, an unauthenticated customer will be limited in viewing their bookings, whereas an authenticated customer can effortlessly access their bookings from the header bar. This integrated role system guarantees a unified and customized user experience across your application. 
 
 <img alt="explorer" src={require('./img/travelTrove.gif').default} style={{borderRadius: '6px'}} />
+
+It's important to note that view management restrictions are just the initial step, subsequent stages will involve extending these limitations to various other aspects of interaction.
