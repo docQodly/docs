@@ -244,11 +244,33 @@ const sidebars = {
 				'studio/debugging',
 			],
 	},
-	{
-			type: 'doc',
-			id: 'studio/roles',
-			label: "Roles & Privileges"
-	},
+    {
+        type: 'category',
+        label: 'Access Control',
+        items: [
+            'studio/roles/dataAccessRestrictions',
+            'studio/roles/rolesPrivilegesOverview',
+            {   
+                type: 'category',
+                label: 'Permissions',
+                items: [
+                    'studio/roles/datastorePermissions',
+                    'studio/roles/dataClassPermissions',
+                    'studio/roles/attributesPermissions'
+                ]
+            },
+            'studio/roles/includingPrivileges',
+            {   
+                type: 'category',
+                label: 'Function Level Access',
+                items: [
+                    'studio/roles/permissionsFunctionLevel',
+                    'studio/roles/promoteActionFunction'
+                ]
+            },
+            'studio/roles/privilegesModelEditor'
+        ],
+    }
 ],
 Programming:[
 	{
