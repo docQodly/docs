@@ -253,8 +253,8 @@ const sidebars = {
 Programming:[
 	{
 			type: 'category',
-			label: 'Programming with ORDA',
-			items: ['orda/overview','orda/data-model','orda/orda-classes','orda/data','orda/queries',
+			label: 'Programming Guide',
+			items: ['orda/data-model','orda/orda-classes','orda/data','orda/queries',
 			],
 	},
 	{
