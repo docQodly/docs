@@ -45,9 +45,8 @@ The tooltip is contextual, which means that some actions are available to certai
 When you select some text in the Text component, additional actions are proposed in its [tooltip](#tooltip).
 
 
-## Description of components
 
-### Overview
+## Component overview
 
 Two types of components are available:
 
@@ -329,15 +328,8 @@ To use a template:
 
 
 
-### Ref
+. 
 
-The internal ID for the selected component. This ID is automatically assigned at the component creation and used to reference it during [Webform loader component](components.md#webform-loader) navigation action.
-
-A webform has always `ROOT` as reference. 
-
-### Search
-
-This area allows you to search among the property names, for an instant access to the desired setting. 
 
 
 

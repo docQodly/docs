@@ -17,21 +17,20 @@ The Webform Editor provides several tools to customize the interface and content
 
 ![interface](img/web-form-editor-interface.png)
 
-<ol class="interface-numbers">
-<li class="interface-item">Explorer: Lists your project's webforms, methods, classes, shared elements (such as images), and debuggger sessions. Use the **...** contextual menu at the right side of each element to access actions available for the element (usually **Delete**, **Duplicate**, **Open** or **Edit**). The Explorer also provides access to the project's definition files: roles and privileges, data model, and settings. </li>
-<li class="interface-item">Tabs: They let you keep track of your currently opened elements, such as your forms and methods.</li>
-<li class="interface-item">Components: The building blocks of your application.</li>
-<li class="interface-item">Data Sources: Create and explore your datasources.</li>
-<li class="interface-item">Styles Library: Holds predefined and customized styles for your components.</li>
-<li class="interface-item">Outline: Presents the structure of your webform and allows you to navigate between the different elements. </li>
-<li class="interface-item">Canvas: This is where you combine your components, styles and datasources. You can drag and drop components onto your canvas, then drag and drop CSS classes and datasources onto these components, and preview or render your webforms.</li>
-<li class="interface-item">Properties panel: Allows for advanced style customization. Also allows binding datasources to components.</li>
-<li class="interface-item">Contextual configuration panel: Link events and methods to your components, edit CSS styles, etc.</li>
-<li class="interface-item-2"> Header: Save and preview your work, access the Data Explorer as well as additional settings.</li>
-</ol>
+1. Explorer: Lists your project's webforms, methods, classes, shared elements (such as images), and debuggger sessions. Use the **...** contextual menu at the right side of each element to access actions available for the element (usually **Delete**, **Duplicate**, **Open** or **Edit**). The Explorer also provides access to the project's definition files: roles and privileges, data model, and settings.
+2. Tabs: They let you keep track of your currently opened elements, such as your forms and methods.
+3. Components: The building blocks of your application.
+4. Data Sources: Create and explore your datasources.
+5. Styles Library: Holds predefined and customized styles for your components.
+6. Outline: Presents the structure of your webform and allows you to navigate between the different elements.
+7. Canvas: This is where you combine your components, styles and datasources. You can drag and drop components onto your canvas, then drag and drop CSS classes and datasources onto these components, and preview or render your webforms.
+8. Properties panel: Allows for advanced style customization. Also allows binding datasources to components.
+9. Contextual panel: Link events and code to your components, edit CSS styles, etc.
+10. Header: Save and preview your work, access the Data Explorer as well as additional settings.
 
 
-### Breadcrumbs
+
+## Breadcrumbs
 
 When you select a component in the canvas, the breadcrumbs display its hierarchy:
 
@@ -39,7 +38,7 @@ When you select a component in the canvas, the breadcrumbs display its hierarchy
 
 To select any parent component displayed in the breadcrumbs trail, click its name. 
 
-### Outline
+## Outline
 
 The outline section displays the hierarchy of your webform:
 
@@ -48,6 +47,16 @@ The outline section displays the hierarchy of your webform:
 Click an element in the list to select it, or click and drag it anywhere in the outline to move it somewhere else.
 
 To display or hide an element, click the eye icon.
+
+## Header panel
+
+![header panel](img/headerPanel.png)
+
+- **Toggle Airy Layout:** Airy mode is a specially crafted feature that enriches the creation of user-friendly web forms by automatically incorporating default margins between components. When enabled, it introduces a spacious layout by inserting a gap between the components within the form. This not only streamlines the process of designing visually appealing and user-friendly web forms but also significantly reduces the necessity for manual adjustments to style properties. To reflect the selected mode, a convenient toggle is incorporated on the canvas, allowing developers to easily switch between Airy mode and Neutral mode. The initial state of the toggle is context-dependent, adapting to the specific form being worked on.
+- **Sanity Check**: No more unnoticed website issues. The [Sanity Check](#sanity-check) tool scans for any issues that need fixing, like text bound to non-existing data classes, ensuring a smooth user experience for your visitors.
+- **Datasources Color**: Simplify component management with the Datasources Color feature. Easily identify the background color of datasources bound to the component, streamlining your workflow.
+- **Preview in Studio** and Preview in a new Tab: Render your webform either directly in Qodly Studio or using the webform URL. See [Rendering a webform](../rendering.md). 
+
 
 
 ## Sanity check
@@ -69,9 +78,26 @@ The Sanity check is only informative. A webform can always be saved even if it c
 :::
 
 
+## Contextual panel
+
+The Contextual panel can be used to:
+
+- configure actions to execute when [events](events.md) occur in your webform and components,
+- edit your [CSS](styling.md).
+
+The contents of the panel depends on the currently selected element, whose name is always displayed at the top of the panel:
+
+![context](img/context-panel.png)
+
+ 
+
 ## Properties panel
 
-The Properties panel is used to display or modify all properties of the selected form or component. Two modes are proposed:
+The Properties panel is used to display or modify all available properties for the selected webform or component.  
+
+### Display modes
+
+Two modes are proposed:
 
 - **Standard mode**: displays a compact, straighforward view where essential properties can be set. Use this mode to quickly configure the main properties of your webform components. 
 - **Advanced mode**: displays an comprehensive view of all available properties. Use this mode for greater granularity in property definition, allowing precise configuration of design options and parameters. 
@@ -80,32 +106,25 @@ To select a mode, use the switch on the top right area of the editor:
 
 ![advanced](img/advanced.png)
 
-Whatever the mode, available properties depend on the selected element. The following properties are generic. Additional properties are proposed per component.  
+Whatever the mode, available properties depend on the selected element. 
 
 ![panel](img/propertie.png)
 
-### Graphical control 
+Three groups of properties are available:
 
-Some of the key features that can be accessed through the Properties panel include:
+- **Properties**: specific properties for the selected component. These properties are documented with each component.
+- **Data Access**: configure the interaction between the selected component and its data source (if any). These properties are documented in the [**Datasources**](datasources.md) section.
+- **Style**: defines graphical properties of the components. These properties are documented in the [**Styling**](styling.md) section.
 
-- CSS: The CSS class contains styles that are applied to the component, encompassing font sizes, colors, and layout styles, which influence its appearance and layout. You can refer to the Style Library for more information and available style options.
-- Color scheme: The color scheme feature permits the customization of the component's color scheme, encompassing background colors, text colors, and border colors. This functionality provides flexibility in adapting the component's visual aesthetics to match the desired design.
-- Background image: With the background image feature, you have the ability to assign a background image to the component. This capability enhances the visual appeal of the component and facilitates conveying a specific theme or mood effectively.
-- Dimensions: The dimensions feature enables you to define the width, height, and other size-related properties of the component. By utilizing this feature, you can ensure that the component fits seamlessly within the layout of the webpage.
-- Layout: The layout feature empowers you to specify the position of the component within the page, align it with other elements, and define its behavior when the page is resized. This functionality provides control over the overall structure and arrangement of the component.
-- Appearance: The appearance attribute encompasses the component's position (relative, absolute, etc.), overflow behavior, and display style (block, flex, etc.). By adjusting these attributes, you can effectively control how the component is presented and interacted with on the webpage.
-- Font: The font feature allows you to choose the font type, size, alignment, and style for the component's text. This versatility enables you to achieve the desired visual look and feel for the component's textual content.
-- Borders and Border radius: You can define borders around the component, specifying attributes such as thickness, color, and style. The border radius feature enables you to determine the curvature or roundness of the component's corners. By adjusting this attribute, you can create various shapes and styles, adding aesthetic appeal to the component's design.
 
-### Data access
+### Ref
 
-In essence, the Properties panel is the heart of the component, offering the ability to customize it to suit preferences and create a visually appealing and unique web application. But it goes far furthur with the **Data Access** properties. This feature is available in all components, except for the  WebForm, and it's a complete game-changer. With Data Access, developers can access and manipulate the component's properties directly from the server, giving them complete control over the component's behavior.
+The internal ID for the selected component. This ID is automatically assigned at the component creation and used to reference it during [Webform loader component](webformloader.md) navigation action.
 
-The **Data Access** properties contain a `Server Side` field, which displays a reference to the component on the server side. This reference is like the component's address, allowing developers to access the component from anywhere in the application. These properties can be used to dynamically change the content of the website without any manual intervention, making it truly interactive by responding to user actions in real-time.
+A webform has always `ROOT` as reference
 
-The **Data Access** properties contains other options/fields as well, depending on the component at hand. For instance:
 
-- The `DataSource` field allows developers to define the source of data for the component to iterate on.
-- The `Selected Element` field allows them to specify which element in the component is selected. 
-- The `Iterate field` is available for developers to loop through that same set of data.
+### Search box
+
+The area allows you to search among the property names, for an quick access to the desired property. As you enter characters, the property list is updated to show only properties with matching names. 
 

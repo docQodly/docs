@@ -1,0 +1,5 @@
+---
+id: checkbox
+title: Checkbox
+---
+//
