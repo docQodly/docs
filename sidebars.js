@@ -255,11 +255,10 @@ const sidebars = {
                 label: 'Permissions',
                 items: [
                     'studio/roles/datastorePermissions',
-                    'studio/roles/dataClassPermissions',
+					'studio/roles/dataClassPermissions',
                     'studio/roles/attributesPermissions'
                 ]
             },
-            'studio/roles/includingPrivileges',
             {   
                 type: 'category',
                 label: 'Function Level Access',
@@ -268,7 +267,7 @@ const sidebars = {
                     'studio/roles/promoteActionFunction'
                 ]
             },
-            'studio/roles/privilegesModelEditor'
+			'studio/roles/includingPrivileges'
         ],
     }
 ],
