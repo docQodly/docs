@@ -384,7 +384,7 @@ The following diagram illustrates optimistic locking:
 
 ![](img/optimisticLock1.png)
 
-2. The first process modifies the entity and validates the change. The `entity.save()` method is called. The Qodly engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented. 
+2. The first process modifies the entity and validates the change. The `entity.save()` method is called. The 4D engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented. 
 
 ![](img/optimisticLock2.png)
 

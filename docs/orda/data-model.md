@@ -3,7 +3,7 @@ id: data-model
 title: Data Model Objects
 ---
 
-The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides [access to data](../studio/data.md) through entity and entity selection objects. 
+The ORDA technology is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides [access to data](../studio/data.md) through entity and entity selection objects. 
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  

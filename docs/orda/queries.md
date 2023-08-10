@@ -25,13 +25,13 @@ The `query()` function is available in both the [entity selection class](../lang
 
 **.query**( *queryString* : string { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection
 
-|Parameter|Type| &nbsp;&nbsp;&nbsp;&nbsp;|Description|
-|---|---|-----|---|
-|queryString |string |->|Search criteria as string|
-|formula |object | -> |Search criteria as formula object|
+|Parameter|Type||Description|
+|---|---|---|---|
+|queryString |string |-> |Search criteria as string|
+|formula |object |-> |Search criteria as formula object|
 |value|any|->|Value(s) to use for indexed placeholder(s)|
-|querySettings|object| -> |Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
-|Result|4D.EntitySelection| <- |New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
+|querySettings|object|->|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
+|Result|4D.EntitySelection|<-|New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
 
 
 The `.query()` function searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s), for all the entities in the dataclass or the entity selection. 
@@ -65,19 +65,16 @@ where:
 *	**formula**: a valid formula passed as `string` or `object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `this` object.  
 
 	*	**string**: the formula string must be preceeded by the `eval()` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(this.lastname) >=30)"*
-	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](../language/FunctionClass.md#formula) or [`formulaFromString`](../language/FunctionClass.md#formulafromstring) command. 
+	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`] or [`formula from string`] command. 
 
 	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators. 
-	>* If the formula is not the only search criteria, the [query engine optimizer](#about-queryplan-and-querypath) could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.
-	>*	You can also pass directy a *formula* parameter object instead of the *queryString* parameter (recommended when formulas are more complex). See [**formula parameter**](#formula-parameter) paragraph. 
+	>* If the formula is not the only search criteria, the query engine optimizer could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.
+	>*	You can also pass directy a `formula` parameter object instead of the *queryString* parameter (recommended when formulas are more complex). See [**formula parameter**](#formula-parameter) paragraph. 
 
 	Formulas in queries can receive **parameters** through `$1`. This point is detailed in the [**formula parameter**](#formula-parameter) paragraph.
 
-:::info
 
-For security reasons, formula calls within `query()` methods can be disallowed. See [*querySettings* parameter](#querysettings-parameter) description. 
-
-:::
+	>*	For security reasons, formula calls within `query()` methods can be disallowed. See *querySettings* parameter description. 
 
 *	**comparator**: symbol that compares *attributePath* and *value*. The following symbols are supported:
 
@@ -111,7 +108,7 @@ For security reasons, formula calls within `query()` methods can be disallowed. 
 	|OR | &#124;,&#124;&#124;, or|
 
 *	**order by attributePath**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
-	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered or Unordered entity selections](data-model.md#ordered-or-unordered-entity-selection)). 
+	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../concepts/orda/data-model.md#ordered-or-unordered-entity-selection). 
 
 ### Using quotes
 
@@ -121,7 +118,7 @@ When you use quotes within queries, you must use single quotes ' ' inside the qu
 "employee.name = 'smith' AND employee.firstname = 'john'"
 ```
 
-> Single quotes (') are not supported in searched values since they would break the query string. For example "comp.name = 'John's pizza' " will generate an error. If you need to search on values with single quotes, you may consider using [placeholders](#using-placeholders).
+> Single quotes (') are not supported in searched values since they would break the query string. For example "comp.name = 'John's pizza' " will generate an error. If you need to search on values with single quotes, you may consider using placeholders (see below).
 
 ### Using parenthesis
 
@@ -275,22 +272,17 @@ es=ds.Movie.query("roles.actor.lastName == :1 AND roles.actor{2}.lastName == :2"
 
 ## *formula* parameter
 
-As an alternative to formula insertion within the *queryString* parameter (see above), you can pass directly a formula object as a boolean search criteria. Using a formula object for queries is usually recommended since you benefit from tokenization, and code is easier to search/read.  
+As an alternative to formula insertion within the *queryString* parameter (see above), you can pass directly a formula object as a boolean search criteria. Using a formula object for queries is **recommended** since you benefit from tokenization, and code is easier to search/read.  
 
 The *formula* must have been created using the [`formula`](../language/FunctionClass.md#formula) or [`formulaFromString`](../language/FunctionClass.md#formulafromstring) command. In this case:
 
-*	the *formula* is evaluated for each entity and must return `true` or `false`. During the execution of the query, if the *formula*'s result is not a boolean, it is considered as `false`. 
+*	the *formula* is evaluated for each entity and must return `true` or `false`. During the execution of the query, if the formula's result is not a boolean, it is considered as `false`. 
 *	within the *formula*, the entity is available through the `this` object. 
 *	if the `formula` object is **null**, the errror 1626 ("Expecting a text or formula") is generated, that you call intercept using a method installed with `onErrCall`.
 
-:::info
+	> For security reasons, formula calls within `query()` functions can be disallowed. See *querySettings* parameter description. 
 
-For security reasons, formula calls within `query()` methods can be disallowed. See [*querySettings* parameter](#querysettings-parameter) description. 
-
-:::
-
-
-## Passing parameters to formulas
+### Passing parameters to formulas
 
 Any *formula* called by the `query()` class function can receive parameters:
 
@@ -323,7 +315,7 @@ In the *querySettings* parameter, you can pass an object containing additional o
 
 ## About *queryPlan* and *queryPath*
 
-On Qodly server, queries are processed by the Qodly **query analyzer** that translates the user query in a SQL-like statement, including automatic joins and subqueries: the **query plan**. It also optimizes the **query path**, depending on the query context. For example, the query analyzer can dynamically convert an indexed query into a sequential one if it estimates that it is faster. This particular case can occur when the number of entities being searched for is low.
+On Qodly server, queries are processed by the Qodly **query parser** that translates the user query in a SQL-like statement, including automatic joins and subqueries: the **query plan**. It also optimizes the **query path**, depending on the query context. For example, the query analyzer can dynamically convert an indexed query into a sequential one if it estimates that it is faster. This particular case can occur when the number of entities being searched for is low.
 
 The information recorded in `queryPlan`/`queryPath` include the query type (indexed and sequential) and each necessary subquery along with conjunction operators. Query paths also contain the number of entities found and the time required to execute each search criterion. You may find it useful to analyze this information while developing your application(s). Generally, the description of the query plan and its path are identical but they can differ because the query parser can implement dynamic optimizations when a query is executed in order to improve performance. 
 
@@ -335,7 +327,6 @@ For example, if you execute the following query:
 ```
 
 queryPlan:
-
 
 ```
 {Or:[{And:[{item:[index : Employee.salary ] < 50000},  
@@ -356,6 +347,8 @@ queryPath:
 ```
 
 ## Examples of queries with queryString
+
+This section provides various examples of queries. 
 
 Query on a string:
 

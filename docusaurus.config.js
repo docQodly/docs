@@ -93,7 +93,7 @@ const config = {
             type: 'doc',
             docId: 'cloud/overview-cloud',
             position: 'left',
-            label: 'Console',
+            label: 'Dashboard',
           },
 
 		  /*{
@@ -110,7 +110,7 @@ const config = {
           },
 		   {
             type: 'doc',
-            docId: 'orda/data-model',
+            docId: 'orda/overview',
             position: 'left',
             label: 'Programming',
           },
