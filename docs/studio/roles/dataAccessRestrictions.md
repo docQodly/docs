@@ -1,13 +1,13 @@
 ---
 id: accessControlMechanisms
 title: Access Control Mechanisms
+hide_title: true
 ---
 
-
+<br/>
 
 Two closely linked yet distinct concepts, "Data Access Restrictions" and "Role-Based Access Control (RBAC)", address separate dimensions of access control and security within the application. "Data Access Restrictions" establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, "Role-Based Access Control (RBAC)" delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions within the application.
 
----
 
 ## Data Access Restrictions
 
@@ -53,9 +53,28 @@ Central to Qodly's data manipulation are the principles of Object-Relational Dat
 
 Qodly encompasses a range of resources including DataStores, DataClasses, attributes, and functions. Each of these resources has the potential for linked privileges that govern permissible actions.
 
+|Resource           |Description|
+|---------------------|---|
+|Datastore            |Represents the entire data storage system of the website, including all dataclasses and entities.|  
+|Dataclasses          |Refer to specific data structures in the website's datastore, such as travel packages, destinations, or customer bookings.|
+|Attributes           |Define the properties or characteristics of Dataclasses, such as package details, pricing, availability, or destination descriptions.|
+|Functions |Represent custom functions defined within the website's data model, used for managing bookings, generating invoices, or handling reservations.|
+
+
 ### <u> Permissions </u> 
 
 Permissions encompass the fundamental tasks achievable on resources. These Permissions encompass operations such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
+
+|Permission          |Description|
+|--------|---|
+|Create  |Allows the creation of new entities, such as adding new travel packages or destinations to the Datastore.|  
+|Read    |Enables reading/viewing the content of resources, such as browsing travel packages, viewing destination information, or accessing booking details.|
+|Update  |Allows modifying the content of resources, such as updating travel package details or editing destination descriptions.|
+|Delete  |Permits the deletion of entities, such as removing outdated travel packages or destinations from the Datastore.|
+|Execute |Enables the execution of functions related to managing bookings, generating invoices, and performing other administrative tasks.|
+|Describe |Provides access to metadata about resources, such as retrieving information about available Dataclasses, Attributes, or data model functions.|
+|Promote |Temporarily adds a specific privilege to the Session for the duration of executing a function, primarily used for secure privilege escalation.|
+
 
 ### <u> Granularity Hierarchy for Data Access Restrictions in Qodly </u> 
 
