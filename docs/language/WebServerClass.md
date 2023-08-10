@@ -90,7 +90,6 @@ You want to know if the Web server is started:
 
 Path of the <!-- REF #WebServerClass.certificateFolder.Summary -->folder where the certificate files are located<!-- END REF -->. The path is formatted in POSIX full path using filesystems. When using this property in the `settings` parameter of the [`.start()`](#start) function, it can be a [`Folder` object](FolderClass.md).
 
-<!-- END REF -->
 
 <!-- REF WebServerClass.characterSet.Desc -->
 

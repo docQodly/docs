@@ -26,7 +26,7 @@ You can view and modify a few of the attribute’s properties when you select or
 - ![icon](img/alias-icon.png): Indicates an alias attribute.
 - ![icon](img/calculated-icon.png): Indicates a calculated attribute.
 - **Type Icon**: Displays the datastore entity type as an icon.
-- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable.
+- **Type**: [Attribute type](../Concepts/platform.md#qodly-database) that you can change by double-clicking on it to render the area enterable.
 
 
 ### Attribute categories
@@ -38,7 +38,7 @@ There are several categories of attributes in Qodly:
 - **Alias**: An alias attribute is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute.
 - **Calculated**: A calculated attribute does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. See XXX.
 
-The data type list contains predefined data types as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
+The data type list contains [predefined data types](../Concepts/platform.md#qodly-database) as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
 
 ![types](img/types.png)
 

@@ -77,7 +77,7 @@ You want to stop the first process of a processes collection:
 <!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : string , *formula* : string {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : string {, *param {, ...paramN }* : integer } )<!-- END REF -->
 
 
-<!-- REF #_command_.changeString.Params -->
+<!-- REF #_command_.callWorker.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |process|string &#124; integer |->|Name or number of worker process|
@@ -201,7 +201,7 @@ As a rule, all semaphores that have been created should be cleared. If semaphore
 #### Description
 
 
-`currentProcessName` <!-- REF #_command_.currentProcess.Summary -->returns the name of the process within which this command is called<!-- END REF -->. 
+`currentProcessName` <!-- REF #_command_.currentProcessName.Summary -->returns the name of the process within which this command is called<!-- END REF -->. 
 
 
 #### Example

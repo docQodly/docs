@@ -207,7 +207,6 @@ end
 |object|object|->|Object whose class is to be returned|
 |Result|object|<-|Class of object or `null` if not found|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -248,7 +247,7 @@ Then, in a method, you can write:
 <!-- REF #_command_.objectCopy.Syntax -->**objectCopy** ( *object* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : collection ) : object<!-- END REF -->
 
 
-<!-- REF #_command_.abs.Params -->
+<!-- REF #_command_.objectCopy.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |object|object|->|Object to copy|
@@ -351,7 +350,6 @@ We want to copy *sharedObj* in *sharedColl* but since they belong to different s
 |object|object|->|Object to return contents|
 |Result|collection|<-|Collection of objects with key / value properties|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -409,7 +407,6 @@ result2=result2+"/rTheir names are: "+ages.extract("key").join("-")
 |property |string|->|If passed = property to check, if omitted = check object|
 |Result|boolean|<-|<li>If *property* omitted: true if *object* is defined, otherwise false.</li><li>If *property* passed: true if *property* is defined, otherwise false.</li>|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -471,7 +468,6 @@ This test is equivalent to:
 |object|object|->|Object to check|
 |Result|boolean|<-|true if object is empty or undefined, otherwise false|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -513,7 +509,6 @@ The `objectIsEmpty` command <!-- REF #_command_.objectIsEmpty.Summary -->returns
 |collection|collection|->|Collection to check|
 |Result|boolean|<-|true if *object* or *collection* is shareable, false if it is alterable|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -539,7 +534,6 @@ The command returns `true` if you pass a [shareable entity selection](../concept
 |object|object|->|Object to return property names|
 |Result|collection|<-|Collection of property names (strings)|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -580,8 +574,8 @@ col=objectKeys(person)
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |object|object|->|Object to edit|
-|property |string|->|Name of property to remove|
-<!-- END REF -->
+|property |string|->|Name of property to remove|<!-- END REF -->
+
 
 #### Description
 
@@ -616,7 +610,7 @@ If the *property* is not found at the first level of *object*, the command does 
 |object|object|->|Object to return property values|
 |Result|collection|<-|Collection of property values (variant)|<!-- END REF -->
 
-<!-- END REF -->
+
 
 #### Description
 
@@ -658,7 +652,7 @@ The order of values within the returned collection follows the definition order 
 |---------|--- |:---:|------|
 |Result|object|<-|Catalog of shared objects and shared collections registered in `storage`|<!-- END REF -->
 
-<!-- END REF -->
+
 
 #### Description
 

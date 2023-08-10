@@ -116,7 +116,7 @@ End if
 
 ## 4D.IMAPTransporter.new()
 
-<!-- REF #4D.IMAPTransporter.new().Syntax -->**4D.IMAPTransporter.new**( *server* : Object ) : 4D.IMAPTransporter<!-- END REF -->
+<!-- REF #4D.IMAPTransporter.new().Syntax -->**4D.IMAPTransporter.new**( *server* : object ) : 4D.IMAPTransporter<!-- END REF -->
 
 
 <!-- REF #4D.IMAPTransporter.new().Params -->
@@ -760,6 +760,7 @@ In the optional *parameters* parameter, pass an object containing values to filt
 #### Result
 
 Each object of the returned collection contains the following properties:
+
 
 |Property|  Type|Description |
 |---|---|---|
