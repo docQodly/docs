@@ -167,11 +167,11 @@ const sidebars = {
     }, 
   ],
   
-    Dashboard:[
+    Console:[
     {
       type: 'doc',
       id: 'cloud/overview-cloud',
-      label: "Dashboard"
+      label: "Console"
     }, 
 	{
 			type: 'category',
@@ -274,8 +274,8 @@ const sidebars = {
 Programming:[
 	{
 			type: 'category',
-			label: 'Programming with ORDA',
-			items: ['orda/overview','orda/data-model','orda/orda-classes','orda/data','orda/queries',
+			label: 'Programming Guide',
+			items: ['orda/data-model','orda/orda-classes','orda/data','orda/queries',
 			],
 	},
 	{
