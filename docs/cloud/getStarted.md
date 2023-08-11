@@ -1,7 +1,9 @@
 ---
 id: getStarted
-title: Getting Started
+title: Basics
 ---
+
+Welcome to the Qodly Cloud Management Console. This section describes the basics actions you can execute from the console.  
 
 ## Create an account on Qodly
 

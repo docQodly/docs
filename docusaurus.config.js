@@ -91,7 +91,7 @@ const config = {
           },
   		  {
             type: 'doc',
-            docId: 'cloud/overview-cloud',
+            docId: 'cloud/getStarted',
             position: 'left',
             label: 'Console',
           },

@@ -169,39 +169,19 @@ const sidebars = {
   
     Console:[
     {
-      type: 'doc',
-      id: 'cloud/overview-cloud',
-      label: "Console"
-    }, 
+		type: 'doc',
+		id: 'cloud/getStarted',
+		label: "Basics"
+	},
 	{
-			type: 'category',
-			label: "User Guide",
-			link: {
-				type: 'generated-index',
-				title: 'User Guide',
-				description: 'User Guide for Qodly Cloud administrators',
-				slug: '/category/cloud',
-				image: '/img/docusaurus.png',
-				},
-			items: [
-				{
-					type: 'doc',
-					id: 'cloud/getStarted',
-					label: "Getting Started"
-				},
-				{
-					type: 'doc',
-					id: 'cloud/monitor',
-					label: "Monitoring"
-				},
-				{
-					type: 'doc',
-					id: 'cloud/account',
-					label: "Account Management"
-				},
-			],
-		
-
+		type: 'doc',
+		id: 'cloud/monitor',
+		label: "Monitoring"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/account',
+		label: "Account Management"
 	},
 
 	],
