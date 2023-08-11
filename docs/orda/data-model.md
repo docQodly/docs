@@ -3,7 +3,7 @@ id: data-model
 title: Data Model Objects
 ---
 
-The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides [access to data](../studio/data.md) through entity and entity selection objects. 
+The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides [access to data](data.md) through entity and entity selection objects. 
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
@@ -17,7 +17,7 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object, returned by the [`ds`](../../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
+When handled through the code, the datastore is an object, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
 The datastore object itself cannot be copied as an object:
 
@@ -92,7 +92,7 @@ Basically, dataclass properties are attribute objects describing the underlying 
  revenuesAttribute=ds.Company["revenues"] //alternate way to reference
 ```
 
-This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
 
 The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 
@@ -137,13 +137,349 @@ ds.Project.theClient //relatedEntity
 
 Keep in mind that these objects describe attributes, but do not give access to data. Reading or writing data is done through [entity objects](#entity).
 
-### Computed attributes
 
-[Computed attributes](orda-classes.md#computed-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
 ### Alias attributes
 
-An [alias attribute](orda-classes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
+An [alias attribute](../studio/model/attributes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
+
+
+## Computed attributes
+
+[Computed attributes](../studio/model/attributes.md#computed-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
+
+:::info
+
+ORDA calculated attributes are not [**exposed**](#exposed-vs-non-exposed-functions) by default. You expose a calculated attribute by adding the `exposed` keyword to the **get function** definition.
+
+:::
+
+
+### `function get <attributeName>`
+
+#### Syntax
+
+```qs
+{exposed} function get <attributeName>({event : object}) -> result : type
+// code
+```
+The *getter* function is mandatory to declare the *attributeName* calculated attribute. Whenever the *attributeName* is accessed, the `function get` code is evaluated and the *result* value is returned. 
+
+> A calculated attribute can use the value of other calculated attribute(s). Recursive calls generate errors. 
+
+The *getter* function defines the data type of the calculated attribute thanks to the *result* parameter. The following resulting types are allowed:
+
+- Scalar (string, boolean, date, time, number)
+- object
+- Image
+- BLOB
+- Entity (i.e. cs.EmployeeEntity)
+- Entity selection (i.e. cs.EmployeeSelection)
+
+The *event* parameter contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|attributeName|string|Calculated attribute name|
+|dataClassName|string|Dataclass name|
+|kind|string|"get"|
+|result|variant|Optional. Add this property with null value if you want a scalar attribute to return null|
+
+
+#### Examples
+
+- *fullName* calculated attribute:
+
+```qs
+function get fullName(event : object)-> fullName : string
+
+  switch 	
+	: (this.firstName==null) & (this.lastName==null)
+		event.result=null //use result to return null
+	: (this.firstName==null)
+		fullName=this.lastName
+	: (this.lastName==null)
+		fullName=this.firstName
+	else 
+		fullName=this.firstName+" "+this.lastName
+	end 
+```
+
+- A calculated attribute can be based upon an entity related attribute:
+
+```qs
+function get bigBoss(event : object)-> result: cs.EmployeeEntity
+	result=this.manager.manager
+    
+```
+
+- A calculated attribute can be based upon an entity selection related attribute:
+
+```qs
+function get coWorkers(event : object)-> result: cs.EmployeeSelection
+    if (this.manager==null)
+        result=ds.Employee.newSelection()
+    else 
+        result=this.manager.directReports.minus(this)
+    end
+```
+    
+### `function set <attributeName>`
+
+#### Syntax
+
+```qs
+function set <attributeName>(value : type {, event : object})
+// code
+```
+
+The *setter* function executes whenever a value is assigned to the attribute. this function usually processes the input value(s) and the result is dispatched between one or more other attributes.
+
+The *value* parameter receives the value assigned to the attribute. 
+
+The *event* parameter contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|attributeName|string|Calculated attribute name|
+|dataClassName|string|Dataclass name|
+|kind|string|"set"|
+|value|variant|Value to be handled by the calculated attribute|
+
+#### Example
+
+```qs
+function set fullName(value : string , event : object)
+	var p : integer
+    p=position(" ",value) 		
+	this.firstname=substring(value, 1, p-1)  // "" if p<0
+	this.lastname=substring(value, p+1)
+```
+
+
+
+### `function query <attributeName>`
+
+#### Syntax
+
+```qs
+function query <attributeName>(event : object)
+function query <attributeName>(event : object) -> result : string
+function query <attributeName>(event : object) -> result : object
+// code
+```
+
+This function supports three syntaxes:
+
+- With the first syntax, you handle the whole query through the `event.result` object property.
+- With the second and third syntaxes, the function returns a value in *result*:
+	- If *result* is a string, it must be a valid query string
+	- If *result* is an object, it must contain two properties:
+	
+	|Property|Type|Description|
+	|---|---|---|
+	|result.query|string|Valid query string with placeholders (:1, :2, etc.)|
+	|result.parameters|collection|values for placeholders|
+
+The `query` function executes whenever a query using the calculated attribute is launched. It is useful to customize and optimize queries by relying on indexed attributes. When the `query` function is not implemented for a calculated attribute, the search is always sequential (based upon the evaluation of all values using the `get <AttributeName>` function).
+
+:::note
+
+The following features are not supported:
+
+- calling a `query` function on calculated attributes of type Entity or Entity selection, 
+- using the `order by` keyword in the resulting query string.
+
+:::
+
+The *event* parameter contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|attributeName|string|Calculated attribute name|
+|dataClassName|string|Dataclass name|
+|kind|string|"query"|
+|value|variant|Value to be handled by the calculated attribute|
+|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li><= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
+|result|variant|Value to be handled by the calculated attribute. Pass `null` in this property if you want to execute a default query (always sequential for calculated attributes).|
+
+> If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
+
+#### Examples
+
+- Query on the *fullName* calculated attribute. 
+
+```qs
+function query fullName(event : object)->result : object
+
+	var fullname, firstname, lastname, myQuery : string
+	var operator, myQuery : string
+	var p : integer
+	var parameters : collection
+
+	operator=event.operator
+	fullname=event.value
+
+	p=position(" ",fullname) 
+	if (p>0)
+		firstname=substring(fullname, 1, p-1)+"@"
+		lastname=substring(fullname, p+1)+"@"
+		parameters=newCollection(firstname, lastname) // two items collection
+	else 
+		fullname=fullname+"@"
+		parameters=newCollection(fullname) // single item collection
+	end 
+
+	switch 
+	: (operator=="==") | (operator=="===")
+		if (p>0)
+			myQuery="(firstName = :1 and lastName = :2) or (firstName = :2 and lastName = :1)"
+		else 
+			myQuery="firstName = :1 or lastName = :1"
+		end 
+	: (operator="!=")
+		if (p>0)
+			myQuery="firstName != :1 and lastName != :2 and firstName != :2 and lastName != :1"
+		else 
+			myQuery="firstName != :1 and lastName != :1"
+		end 
+	end 
+
+	result=newObject("query", myQuery, "parameters", parameters)
+```
+
+> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../language/DataClassClass.md#query)).
+
+Calling code, for example:
+
+```qs
+emps=ds.Employee.query("fullName = :1", "Flora Pionsin")
+```
+
+- This function handles queries on the *age* calculated attribute and returns an object with parameters:
+
+```qs
+function query age(event : object)->result : object
+	
+	var operator, myQuery : string
+	var age : integer
+	
+	operator=event.operator
+			
+	age=num(event.value)  // integer
+	d1=addToDate(currentDate, -age-1, 0, 0)
+	d2=addToDate(d1, 1, 0, 0)
+	parameters=newCollection(d1, d2)
+	
+	switch 
+			
+		: (operator=="==")
+			myQuery="birthday > :1 and birthday <= :2"  // after d1 and before or egal d2
+			
+		: (operator=="===") 
+
+			myQuery="birthday = :2"  // d2 = second calculated date (= birthday date)
+
+		: (operator==">=")
+			myQuery="birthday <= :2"
+			
+			//... other operators			
+			
+			
+	end 
+	
+	
+	if (undefined(event.result))
+		result=newObject
+		result.query=myQuery
+		result.parameters=parameters
+	end
+
+```  
+
+Calling code, for example:
+
+```qs
+// people aged between 20 and 21 years (-1 day)
+twenty=people.query("age = 20")  // calls the "==" case
+
+// people aged 20 years today
+twentyToday=people.query("age === 20") // equivalent to people.query("age is 20") 
+
+```
+
+
+### `function orderBy <attributeName>`
+
+#### Syntax
+
+```qs
+function orderBy <attributeName>(event : object)
+function orderBy <attributeName>(event : object)-> result : string
+
+// code
+```
+
+The `orderBy` function executes whenever the calculated attribute needs to be ordered. It allows sorting the calculated attribute. For example, you can sort *fullName* on first names then last names, or conversely.
+When the `orderBy` function is not implemented for a calculated attribute, the sort is always sequential (based upon the evaluation of all values using the `get <AttributeName>` function).
+
+:::info
+
+Calling an `orderBy` function on calculated attributes of type Entity class or Entity selection class **is not supported**. 
+
+:::
+
+The *event* parameter contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|attributeName|string|Calculated attribute name|
+|dataClassName|string|Dataclass name|
+|kind|string|"orderBy"|
+|value|variant|Value to be handled by the calculated attribute|
+|operator|string|"desc" or "asc" (default)|
+|descending|boolean|`true` for descending order, `false` for ascending order|
+|result|variant|Value to be handled by the calculated attribute. Pass `null` if you want to let Qodly execute the default sort.|
+
+> You can use either the `operator` or the `descending` property. It is essentially a matter of programming style (see examples).   
+
+You can return the `orderBy` string either in the `event.result` object property or in the *result* function result. If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
+
+
+#### Example
+
+You can write conditional code:
+
+```qs
+function orderBy fullName(event : object)-> result : string
+    if (event.descending==true)
+        result="firstName desc, lastName desc" 
+    else 
+        result="firstName, lastName" 
+    end
+```
+
+You can also write compact code:
+
+```qs
+function orderBy fullName(event : object)-> result : string
+	result="firstName "+event.operator+", "lastName "+event.operator
+
+```
+
+Conditional code is necessary in some cases:
+
+```qs
+function orderBy age(event : object)-> result : string
+    if (event.descending==true)
+        result="birthday asc" 
+    else 
+        result="birthday desc" 
+    end
+
+```
+
+
 
 
 ## Entity
@@ -230,4 +566,63 @@ Unordered entity selections are created in all other cases, including:
 *	result of various functions from the entity selection class, whatever the input selection types: `or()`, `and()`, `add()`, `copy()`, `extract()`, `slice()`, `drop()`...
 *	result of a relation such as `empSel=company.employees`, or a projection such as `empSel.name`,
 *	result of an `entity.getSelection()` function.
+
+
+
+
+## Exposed vs non-exposed functions
+
+For security reasons, all of your data model class functions are **not exposed** (i.e., private) by default to web requests. 
+
+A function that is not exposed is not available from web requests and cannot be called on any object instance. You define non-exposed functions (as well as dataclasses or attributes) if you want them to be only available on the server through local code. If a web request tries to access a non-exposed function, the "-10729 - Unknown member method" error is returned. 
+
+To allow a data model class function to be called by a remote request, you must explicitly declare it using the `exposed` keyword. The formal syntax is:
+
+```qs  
+// declare an exposed function
+exposed function <functionName>   
+```
+
+:::note
+
+The `exposed` keyword can only be used with Data model class functions. If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
+
+:::
+
+### Example 
+
+You want an exposed function to use a private function in a dataclass class:
+
+```qs
+extends DataClass
+
+//Public function
+exposed function registerNewStudent(student : object) -> status : object
+
+var entity : cs.StudentsEntity
+
+entity=ds.Students.new()
+entity.fromObject(student)
+entity.school=this.query("name=:1", student.schoolName).first()
+entity.idNumber=this.computeIDNumber()
+status=entity.save()
+
+//Not exposed (private) function
+function computeIDNumber()-> id : integer
+//compute a new ID number
+id=...
+
+```
+
+When the code is called:
+
+```qs
+var student , status : object
+var id : integer
+
+student=newObject("firstname", "Mary", "lastname", "Smith", "schoolName", "Math school")
+
+status=ds.Schools.registerNewStudent(student) //can be called from a web request
+// id=ds.Schools.computeIDNumber() // Error "Unknown member method" if called from a web request 
+```
 

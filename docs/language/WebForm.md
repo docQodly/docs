@@ -128,7 +128,7 @@ end
 
 The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object that references a webform<!-- END REF -->.
 
-Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
+Each property of the returned object is an object of the [4D.WebFormItem](#webformitem-class) class.
 
 The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 
@@ -148,7 +148,7 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 
 The components of webforms are <!-- REF #WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these webforms.
 
-The returned objects are of the [`4D.WebFormItem`](WebFormItemClass.md) class. These objects have functions that you can use to manage your components dynamically.
+The returned objects are of the [`4D.WebFormItem`](#webformitem-class) class. These objects have functions that you can use to manage your components dynamically.
 
 
 #### Example

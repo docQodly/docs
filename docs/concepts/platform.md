@@ -16,6 +16,31 @@ In the **staging** and **production** environments, the same Qodly Server is als
 ![schema-cloud](img/cloud-schema.png)
 
 
+## Qodly Cloud Management Console 
+
+### Cloud Architecture
+
+
+//
+
+
+
+### Security and User management
+
+Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
+
+Qodly's key features to protect your data from breaches, loss and failure events include:
+
+- **Authentication**: Qodly supports user authentication and identification through *Cognito*, the AWS Customer identity and access management (CIAM). 
+- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
+- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
+- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
+
+
+### Services
+
+//
+
 
 ## Qodly Studio
 
@@ -52,7 +77,7 @@ At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is 
 
 Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
 
-Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by the [ORDA technology](orda.md). In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
+Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by the [ORDA technology](#the-orda-concept). In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
 
 ### Data types
 
@@ -101,31 +126,6 @@ The Qodly Database supports **transactions**. A transaction represents a series 
 
 
 
-## Qodly Cloud Management Console 
-
-### Cloud Architecture
-
-
-//
-
-
-
-### Security and User management
-
-Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
-
-Qodly's key features to protect your data from breaches, loss and failure events include:
-
-- **Authentication**: Qodly supports user authentication and identification through *Cognito*, the AWS Customer identity and access management (CIAM). 
-- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
-- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
-- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
-
-
-### Services
-
-//
-
 
 ## The ORDA Concept
 
@@ -158,9 +158,9 @@ ORDA objects are created and instanciated when necessary (you do not need to cre
 
 
 
-### Glossary
+## Glossary
 
-Here is an reminder for the main concepts handled by ORDA.
+Here is an reminder for the main concepts handled by Qodly.
 
 #### *any* data type  
 
@@ -257,7 +257,7 @@ A deep copy duplicates an object and all the references it contains. After a dee
 
 #### ds  
 
-`ds` is the language command that returns a [datastore](dsMapping.md#datastore) object reference. It matches the datastore available upon the Qodly database.
+`ds` is the language command that returns a [datastore](../orda/data-model#datastore) object reference. It matches the datastore available upon the Qodly database.
 
 #### Entity  
 

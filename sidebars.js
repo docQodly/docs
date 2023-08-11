@@ -355,7 +355,6 @@ Programming:[
 						'language/basics/lang-operators',
 						'language/basics/lang-methods',
 						'language/basics/lang-classes',
-						'language/basics/orda-classes',
 						'language/basics/lang-parameters',
 						'language/basics/lang-expressions',
 						'language/basics/lang-shared',

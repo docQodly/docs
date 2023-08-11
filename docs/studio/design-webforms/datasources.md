@@ -18,7 +18,7 @@ For example, if a datasource is returned as result by a function, after the func
 
 ### Events and datasources 
 
-You can also attach **events** to datasources to trigger certain actions when these datasources are updated in the web browser. See [datasource events](design-webforms/events/events.md#datasource-events) for more details.
+You can also attach **events** to datasources to trigger certain actions when these datasources are updated in the web browser. See [datasource events](events.md#datasource-events) for more details.
 
 
 ### Catalog datasources and scalar datasources
@@ -175,5 +175,5 @@ The data sources are assigned using the Data Access panel:
 
 ## Storing data in a datasource
 
-You can store data in scalar and catalog datasources. For example, you can configure an event that calls a function, and store the result of that function in a datasource. See the [example from the user events section](design-webforms/events/events.md#example-search-feature-using-the-onchange-event).
+You can store data in scalar and catalog datasources. For example, you can configure an event that calls a function, and store the result of that function in a datasource. See the [example from the user events section](events.md#example-search-feature-using-the-onchange-event).
 

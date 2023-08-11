@@ -61,7 +61,7 @@ The modulo operator % divides the first number by the second number and returns 
 
 :::caution
 
-- The modulo operator `%` returns significant values with numbers that are in the integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the [`mod`](../maths.md) command.
+- The modulo operator `%` returns significant values with numbers that are in the integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the [`mod`](../math.md#mod) command.
 - The longint division operator `\` returns significant values with integer numbers only.
 
 :::
@@ -130,6 +130,7 @@ The following table lists the bitwise operators and their effects:
 |Operation|Example|Result|
 |---|---|---|
 |Bitwise AND|0x0000FFFF & 0xFF00FF00|0x0000FF00|
+
 |Bitwise OR (inclusive)|0x0000FFFF &#124; 0xFF00FF00| 0xFF00FFFF
 |Bitwise OR (exclusive)|0x0000FFFF \^&#124; 0xFF00FF00| 0xFF0000FF|
 |Left Bit Shift|0x0000FFFF << 8|0x00FFFF00|

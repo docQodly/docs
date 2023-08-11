@@ -3,7 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../concepts/orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
+A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
 
 
 ### Commands
@@ -99,7 +99,7 @@ See example for the [`.startTransaction()`](#starttransaction) function.
 
 #### Description
 
-Each dataclass in a datastore is available as a property of the [DataStore object](../../concepts/orda/data-model.md#datastore). The returned cs.object contains <!-- REF DataStoreClass.dataclassName.Summary -->all attributes of the dataclass as objects<!-- END REF -->.
+Each dataclass in a datastore is available as a property of the [DataStore object](../orda/data-model.md#datastore). The returned cs.object contains <!-- REF DataStoreClass.dataclassName.Summary -->all attributes of the dataclass as objects<!-- END REF -->.
 
 
 #### Example

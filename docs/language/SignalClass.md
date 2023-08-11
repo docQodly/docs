@@ -38,7 +38,7 @@ In QodlyScript, you create a new signal object by calling the [`newSignal`](#new
 
 Once a signal has been released using a `signal.trigger()` call, it cannot be reused again. If you want to set another signal, you need to call the `newSignal` command again.
 
-Since a signal object is a [shared object](../basics/lang-shared.md), you can use it to return results from called workers, provided that you do not forget to write values within a `use...end` structure (see example).
+Since a signal object is a [shared object](basics/lang-shared.md), you can use it to return results from called workers, provided that you do not forget to write values within a `use...end` structure (see example).
 
 ### Example
 

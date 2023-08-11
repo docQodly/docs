@@ -10,6 +10,7 @@ title: Language
 |---|
 |[<!-- INCLUDE #_command_.4D.Syntax -->](#4d)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.4D.Summary -->|
 |[<!-- INCLUDE #_command_.callChain.Syntax -->](#callchain)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callChain.Summary -->|
+|[<!-- INCLUDE #_command_.clearVariable.Syntax -->](#clearvariable)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.clearVariable.Summary -->|
 |[<!-- INCLUDE #_command_.copyParameters.Syntax -->](#copyparameters)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.copyParameters.Summary -->|
 |[<!-- INCLUDE #_command_.countParameters.Syntax -->](#countparameters)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.countParameters.Summary -->|
 |[<!-- INCLUDE #_command_.cs.Syntax -->](#cs)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.cs.Summary -->|
@@ -329,7 +330,7 @@ o=newObject("prop",42,"f",formula(this.prop))
 val=o.f() //42
 ```
 
-When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
+When a [constructor](#class-constructor) function is used (with the [`new()`](ClassClass.md#new) function), its `this` is bound to the new object being constructed.
 
 ```qs
 //Class: ob
@@ -614,6 +615,9 @@ end
 [`type`](#type)
 
 ## callChain
+
+## clearVariable
+
 
 ## copyParameters
 

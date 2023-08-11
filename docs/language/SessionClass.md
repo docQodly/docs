@@ -5,7 +5,6 @@ title: Session
 
 Session objects are returned by the [`Session`](#session) command. The Session object is automatically created and maintained by the Qodly web server to control the session of a web client (e.g. a browser). This object provides the web developer with an interface to the user session, allowing to manage privileges, store contextual data, share information between processes, and launch session-related preemptive processes.
 
-For detailed information about the session implementation, please refer to the [web server Sessions](WebServer.md/sessions.md) section.
 
 ### Commands
 
@@ -45,7 +44,7 @@ For detailed information about the session implementation, please refer to the [
 
 The `session` command <!-- REF #_command_.session.Summary -->returns the `Session` object corresponding to the current scalable user web session<!-- END REF -->.
 
-The `Session` object is available from any web processes in ORDA [Data Model Class functions](../Concepts/orda/ordaClasses.md) called with REST requests.
+The `Session` object is available from any web processes in ORDA [Data Model Class functions](../orda/orda-classes.md) called with REST requests.
 
 
 
@@ -236,11 +235,11 @@ The `.setPrivileges()` function <!-- REF #SessionClass.setPrivileges().Summary -
 
 :::info
 
-Privileges and roles are defined in [`roles.json`](../concepts/orda/privileges.md#rolesjson-file) file of the project. For more information, please refer to the [**Privileges**](../concepts/orda/privileges.md) section.
+For more information, please refer to the [**Privileges**](../studio/roles/rolesPrivilegesOverview.md) section.
 
 :::
 
-If the `privileges` or `roles` property contains a name that is not declared in the [`roles.json`](../concepts/orda/privileges.md#rolesjson-file) file, it is ignored.
+If the `privileges` or `roles` property contains a name that is not declared, it is ignored.
 
 By default when no privilege or role is associated to the session, the session is a [Guest session](#isguest).
 

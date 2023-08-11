@@ -23,12 +23,12 @@ You declare variables using the `var` keyword. It allows you to create basic var
 
 `var <varName>{, <varName2>,...}{ : <varType>}`
 
-`varName` is the variable name, it must comply with the [rules](Concepts/identifiers.md) about identifiers.
+`varName` is the variable name, it must comply with the [rules](lang-identifiers.md) about identifiers.
 
 `varType` can be:
 
-- a [basic type](Concepts/data-types.md), in which case the variable contains a value of the declared type,
-- a [class reference](Concepts/classes.md) (4D class or user class), in which case the variable contains a reference to an object of the defined class.
+- a [basic type](lang-data-types.md), in which case the variable contains a value of the declared type,
+- a [class reference](lang-classes.md) (4D class or user class), in which case the variable contains a reference to an object of the defined class.
 
 If `varType` is omitted, a variable of the **variant** type is created.
 

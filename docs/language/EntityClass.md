@@ -3,7 +3,7 @@ id: EntityClass
 title: Entity
 ---
 
-An [entity](../concepts/orda/data-model.md#entity) is an instance of a [Dataclass](../concepts/orda/data-model.md#dataclass), like a record of the table matching the dataclass in its associated datastore. It contains the same attributes as the dataclass as well as the data values and specific properties and functions.
+An [entity](../orda/data-model.md#entity) is an instance of a [Dataclass](../orda/data-model.md#dataclass), like a record of the table matching the dataclass in its associated datastore. It contains the same attributes as the dataclass as well as the data values and specific properties and functions.
 
 
 ### Functions and properties
@@ -342,7 +342,7 @@ vCompareResult3 (only differences on e1 touched attributes are returned)
 
 The `.drop()` function <!-- REF #EntityClass.drop().Summary -->deletes the data contained in the entity from the datastore<!-- END REF -->, from the table related to its Dataclass. Note that the entity remains in memory.
 
-In a multi-process application, the `.drop()` function is executed under an ["optimistic lock"](../concepts/orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
+In a multi-process application, the `.drop()` function is executed under an ["optimistic lock"](../orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
 
 By default, if the *mode* parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process in the meantime. 
 
@@ -681,7 +681,7 @@ If the entity does not belong to an entity selection, the function returns null.
 
 The `.getStamp()` function <!-- REF #EntityClass.getStamp().Summary --> returns the current value of the stamp of the entity<!-- END REF -->. 
 
-The internal stamp is automatically incremented by the database each time the entity is saved. It manages concurrent user access and modifications to the same entities (see [**Entity locking**](../concepts/orda/data.md#entity-locking)).
+The internal stamp is automatically incremented by the database each time the entity is saved. It manages concurrent user access and modifications to the same entities (see [**Entity locking**](../orda/data.md#entity-locking)).
 
 :::note
 
@@ -842,7 +842,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 
 #### Description
 
-The `.lock()` function <!-- REF #EntityClass.lock().Summary -->puts a pessimistic lock on the record referenced by the entity<!-- END REF -->. The [lock is set](../concepts/orda/data.md#entity-locking) for a record and all the references of the entity in the current process.
+The `.lock()` function <!-- REF #EntityClass.lock().Summary -->puts a pessimistic lock on the record referenced by the entity<!-- END REF -->. The [lock is set](../orda/data.md#entity-locking) for a record and all the references of the entity in the current process.
 
 Other processes will see this record as locked (the `result.success` property will contain False if they try to lock the same entity using this function). Only functions executed in the "locking" session are allowed to edit and save the attributes of the entity. The entity can be loaded as read-only by other sessions, but they will not be able to enter and save values.
 
@@ -1082,7 +1082,7 @@ The `.save()` function <!-- REF #EntityClass.save().Summary -->saves the changes
 
 The save operation is executed only if at least one entity attribute has been "touched" (see the [`.touched()`](#touched) and [`.touchedAttributes()`](#touchedattributes) functions). Otherwise, the function does nothing (the trigger is not called).
 
-In a multi-process application, the `.save()` function is executed under an ["optimistic lock"](../concepts/orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
+In a multi-process application, the `.save()` function is executed under an ["optimistic lock"](../orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
 
 By default, if the *mode* parameter is omitted, the method will return an error (see below) whenever the same entity has been modified by another process in the meantime, no matter the modified attribute(s).
 
@@ -1597,7 +1597,7 @@ In this case:
 
 The `.unlock()` function <!-- REF #EntityClass.unlock().Summary -->removes the pessimistic lock on the record matching the entity<!-- END REF --> in the datastore and table related to its dataclass.
 
-> For more information, please refer to [Entity locking](../concepts/orda/data.md#entity-locking) section.
+> For more information, please refer to [Entity locking](../orda/data.md#entity-locking) section.
 
 A record is automatically unlocked when it is no longer referenced by any entities in the locking process (for example: if the lock is put only on one local reference of an entity, the entity and thus the record is unlocked when the process ends).
 

@@ -39,7 +39,7 @@ hello=person.sayHello() //"Hello John Doe"
 
 ## Class definition
 
-A user class in Qodly is defined by a specific [method](methods.md) file (.4qm), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name.
+A user class in Qodly is defined by a specific [method file](../../studio/coding.md#methods-and-classes) (.4qm), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name.
 
 When naming classes, you should keep in mind the following rules:
 
@@ -71,7 +71,7 @@ Available classes are accessible from their class stores. Two class stores are a
 |---|---|---|---|
 |classStore|object|<-|User class store for the project|
 
-The `cs` command returns the user class store for the current project. It returns all user classes [defined](#class-definition) in the opened project. By default, only project [ORDA classes](../../concepts/orda/orda-classes.md) are available.
+The `cs` command returns the user class store for the current project. It returns all user classes [defined](#class-definition) in the opened project. By default, only project [ORDA classes](../../orda/orda-classes.md) are available.
 
 #### Example
 
@@ -142,10 +142,10 @@ Specific QodlyScript keywords can be used in class definitions:
 
 :::info
 
-[ORDA data model classes](orda-classes.md) support additional keywords:
+[ORDA data model classes](../../orda/data-model.md) support additional keywords:
 
-- [`exposed`](orda-classes.md#exposed-vs-non-exposed-functions) to allow external access to the function,
-- [`function query <attributeName>`](../../studio/model/attributes.md#function-query-attributename) and [`function orderBy <attributeName>`](../../studio/model/attributes.md#function-orderby-attributename) to define additional database functions for calculated attributes.
+- [`exposed`](../../orda/data-model.md#exposed-vs-non-exposed-functions) to allow external access to the function,
+- [`function query <attributeName>`](../../orda/data-model.md#function-query-attributename) and [`function orderBy <attributeName>`](../../orda/data-model.md#function-orderby-attributename) to define additional database functions for calculated attributes.
 
 :::
 
@@ -447,7 +447,7 @@ The `extends` keyword is used in class declaration to create a user class which 
 
 Class extension must respect the following rules:
 
-- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../../concepts/orda/orda-classes.md) which are extended by default for user classes).
+- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../../orda/orda-classes.md) which are extended by default for user classes).
 - A user class cannot extend a user class from another project.
 - A user class cannot extend itself.
 - It is not possible to extend classes in a circular way (i.e. "a" extends "b" that extends "a").

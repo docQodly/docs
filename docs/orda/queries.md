@@ -65,7 +65,7 @@ where:
 *	**formula**: a valid formula passed as `string` or `object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `this` object.  
 
 	*	**string**: the formula string must be preceeded by the `eval()` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(this.lastname) >=30)"*
-	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](../language/FunctionClass.md#formula) or [`formulaFromString`](../language/FunctionClass.md#formulafromstring) command. 
+	*	**object**: the [formula object](../language/FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](../language/FunctionClass.md#formula) or [`formulaFromString`](../language/FunctionClass.md#formulafromstring) command. 
 
 	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators. 
 	>* If the formula is not the only search criteria, the [query engine optimizer](#about-queryplan-and-querypath) could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.

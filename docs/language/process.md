@@ -104,7 +104,7 @@ In *formula*, you designate the code to execute in the context of the worker pro
 
 You can also pass parameters to *formula* using one or more optional *param* parameters. If the *formula* is a string formula, you must use sequential parameters ($1, $2...). Upon starting execution in the context of the process, the process *formula* receives the parameter values either in the parameters, or in $1, $2, and so on. In the context of the `callWorker` command, the following considerations need to be taken into account:
 
-- Standard object or collection type parameters are passed by copy, i.e. Qodly will create a copy of the object or the collection in the destination process if the worker is in a process different from the one calling the `callWorker` command. In this context, if you want to pass an object or collection parameter by reference, you must use a [shared object or collection](../basics/lang-shared.md).
+- Standard object or collection type parameters are passed by copy, i.e. Qodly will create a copy of the object or the collection in the destination process if the worker is in a process different from the one calling the `callWorker` command. In this context, if you want to pass an object or collection parameter by reference, you must use a [shared object or collection](basics/lang-shared.md).
 
 :::caution
 

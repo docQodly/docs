@@ -17,7 +17,7 @@ Variables, attributes or expressions of the object type can contain various type
 	- picture(2)
 	- collection
 
-(1)ORDA objects such as [entities](../../concepts/orda/data-model.md#entity) or [entity selections](../../concepts/orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**. 
+(1)ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**. 
 
 (2)When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]". 
 
@@ -37,7 +37,7 @@ Objects must have been instantiated, otherwise trying to read or modify their pr
 
 Object instantiation can be done in one of the following ways:
 
-- using the [`newObject`](../object.md#newobject) command,
+- using the [`newObject`](../objects.md#newobject) command,
 - using the `{}` operator.
 
 :::info
@@ -49,7 +49,7 @@ Several commands and functions return objects, for example [`jsonParse`](../json
 
 ### `newObject` command
 
-The [`newObject`](../object.md#newobject) command creates a new empty or prefilled object and returns its reference.
+The [`newObject`](../objects.md#newobject) command creates a new empty or prefilled object and returns its reference.
 
 Examples:
 
@@ -111,7 +111,7 @@ col=o.col[5] //6
 You can create two types of objects:
 
 - regular (non-shared) objects, using the `newObject` command or object literal syntax (`{}`). These objects can be edited without any specific access control but cannot be shared between processes. 
-- shared objects, using the [`newSharedObject`](../object.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
+- shared objects, using the [`newSharedObject`](../objects.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
 
 
 ## Syntax basics
@@ -202,7 +202,7 @@ For more information, please refer to the [`null`](../language.md#null) descript
 
 Evaluating an object property can sometimes produce an **undefined** value. Typically when trying to read or assign undefined expressions, the QodlyScript will generate errors. This does not happen in the following cases:
 
-- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](../variable.md#clearvariable) with them:
+- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](../language.md#clearvariable) with them:
 
 ```qs
      var o : object

@@ -85,17 +85,17 @@ And the *do_Capitalize* method is:
  entity.lastname=name
 ```
  
-You can handle entities like any other object and pass their references directly as [parameters](../../language/basics/lang-parameters.md).
+You can handle entities like any other object and pass their references directly as [parameters](../language/basics/lang-parameters.md).
 
 :::note
 
-You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the [lazy loading](glossary.md#lazy-loading) mechanism, which means that only the needed information is loaded.
+You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the [lazy loading](../concepts/platform.md#lazy-loading) mechanism, which means that only the needed information is loaded.
 
 :::
 
 ## Using entity attributes  
 
-Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](orda-classes.md#computed-attributes) and [**alias**](orda-classes.md#alias-attributes) kind can return any value type.  
+Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](orda-classes.md#computed-attributes) and [**alias**](orda-classes.md#alias-attributes) kind can return any value type.  
 
 For example, to set a storage attribute:
 
@@ -109,7 +109,7 @@ For example, to set a storage attribute:
 ```
 
 
-Accessing a related attribute depends on the attribute [`kind`](../../language/DataClassClass.md#attributename). For example, with the following structure:
+Accessing a related attribute depends on the attribute [`kind`](../language/DataClassClass.md#attributename). For example, with the following structure:
 
 ![](img/structure2.png)
 
@@ -189,12 +189,12 @@ You can assign or modify the value of a "one" related entity attribute from the 
 
 You can create an object of type [entity selection](data-model#entity-selection) as follows:
 
-*	Querying the entities [in a dataclass](../../language/DataClassClass.md#query) or in an [existing entity selection](../../language/EntitySelectionClass.md#query);
-*	Using the [`.all()`](../../language/DataClassClass.md#all) dataclass function to select all the entities in a dataclass;
-*	Using the [`.newSelection()`](../../language/DataClassClass.md#newselection) dataclass function to create a blank entity selection;
-*	Using the [`.copy()`](../../language/EntitySelectionClass.md#copy) function to duplicate an existing entity selection;
-*	Using one of the various functions from the [Entity selection class](../../language/EntitySelectionClass.md) that returns a new entity selection, such as [`.and()`](../../language/EntitySelectionClass.md#and), [`.minus()`](../../language/EntitySelectionClass.md#minus), [`.slice()`](../../language/EntitySelectionClass.md#slice), etc.;
-*	Using the [`entity.getSelection()`](../../language/EntityClass.md#getselection) function;
+*	Querying the entities [in a dataclass](../language/DataClassClass.md#query) or in an [existing entity selection](../language/EntitySelectionClass.md#query);
+*	Using the [`.all()`](../language/DataClassClass.md#all) dataclass function to select all the entities in a dataclass;
+*	Using the [`.newSelection()`](../language/DataClassClass.md#newselection) dataclass function to create a blank entity selection;
+*	Using the [`.copy()`](../language/EntitySelectionClass.md#copy) function to duplicate an existing entity selection;
+*	Using one of the various functions from the [Entity selection class](../language/EntitySelectionClass.md) that returns a new entity selection, such as [`.and()`](../language/EntitySelectionClass.md#and), [`.minus()`](../language/EntitySelectionClass.md#minus), [`.slice()`](../language/EntitySelectionClass.md#slice), etc.;
+*	Using the [`entity.getSelection()`](../language/EntityClass.md#getselection) function;
 *	Using a relation attribute of kind `relatedEntities` such as `empSel=company.employees`, or a projection such as `empSel.name`.
 
 You can simultaneously create and use as many different entity selections as you want for a dataclass. Keep in mind that an entity selection only contains references to entities. Different entity selections can contain references to the same entities. 
@@ -234,7 +234,7 @@ The last line will return in *myInvoices* an entity selection of all invoices th
 
 ### Shareable or alterable entity selections
 
-An entity selection can be **shareable** (readable by multiple processes, but not alterable after creation) or **alterable** (supports the [`.add()`](../../language/EntitySelectionClass.md#add) function, but only usable by the current process). 
+An entity selection can be **shareable** (readable by multiple processes, but not alterable after creation) or **alterable** (supports the [`.add()`](../language/EntitySelectionClass.md#add) function, but only usable by the current process). 
 
 #### Properties
 
@@ -242,30 +242,30 @@ A **shareable** entity selection has the following characteristics:
 
 - it can be stored in a shared object or shared collection, and can be passed as parameter between several processes or workers;
 - it can be stored in several shared objects or collections, or in a shared object or collection which already belongs to a group;
-- it does not allow the addition of new entities. Trying to add an entity to a shareable entity selection will trigger an error (1637 - This entity selection cannot be altered). To add an entity to a shareable entity selection, you must first transform it into a non-shareable entity selection using the [`.copy()`](../../language/EntitySelectionClass.md#copy) function, before calling [`.add()`](../../language/EntitySelectionClass.md#add).
+- it does not allow the addition of new entities. Trying to add an entity to a shareable entity selection will trigger an error (1637 - This entity selection cannot be altered). To add an entity to a shareable entity selection, you must first transform it into a non-shareable entity selection using the [`.copy()`](../language/EntitySelectionClass.md#copy) function, before calling [`.add()`](../language/EntitySelectionClass.md#add).
 
 :::note
 	
-Most entity selection functions (such as [`.slice()`](../../language/EntitySelectionClass.md#slice), [`.and()`](../../language/EntitySelectionClass.md#and)...) support shareable entity selections since they do not need to alter the original entity selection (they return a new one). 
+Most entity selection functions (such as [`.slice()`](../language/EntitySelectionClass.md#slice), [`.and()`](../language/EntitySelectionClass.md#and)...) support shareable entity selections since they do not need to alter the original entity selection (they return a new one). 
 
 :::
 
 An **alterable** entity selection has the following characteristics:
 
 - it cannot be shared between processes, nor be stored in a shared object or collection. Trying to store a non-shareable entity selection in a shared object or collection will trigger an error (-10721 - Not supported value type in a shared object or shared collection);
-- it accepts the addition of new entities, i.e. it is supports the [`.add()`](../../language/EntitySelectionClass.md#add) function.
+- it accepts the addition of new entities, i.e. it is supports the [`.add()`](../language/EntitySelectionClass.md#add) function.
 	
 
 #### How are they defined?
 
-The **shareable** or **alterable** nature of an entity selection is defined when the entity selection is created (it cannot be modified afterwards). You can know the nature of an entity selection using the [.isAlterable()](../../language/EntitySelectionClass.md#isalterable) function. 
+The **shareable** or **alterable** nature of an entity selection is defined when the entity selection is created (it cannot be modified afterwards). You can know the nature of an entity selection using the [.isAlterable()](../language/EntitySelectionClass.md#isalterable) function. 
 
 
 A new entity selection is **shareable** in the following cases:
 
-- the new entity selection results from an ORDA class function applied to a dataclass: [dataClass.all()](../../language/DataClassClass.md#all), [dataClass.fromCollection()](../../language/DataClassClass.md#fromcollection), [dataClass.query()](../../language/DataClassClass.md#query),
-- the new entity selection is based upon a relation [entity.*attributeName*](../../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute but the entity does not belong to an entity selection.
-- the new entity selection is explicitely copied as shareable with [entitySelection.copy()](../../language/EntitySelectionClass.md#copy) (i.e. with the `ck shared` option).
+- the new entity selection results from an ORDA class function applied to a dataclass: [dataClass.all()](../language/DataClassClass.md#all), [dataClass.fromCollection()](../language/DataClassClass.md#fromcollection), [dataClass.query()](../language/DataClassClass.md#query),
+- the new entity selection is based upon a relation [entity.*attributeName*](../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute but the entity does not belong to an entity selection.
+- the new entity selection is explicitely copied as shareable with [entitySelection.copy()](../language/EntitySelectionClass.md#copy) (i.e. with the `ck shared` option).
 
 Example: 
 
@@ -278,8 +278,8 @@ employees=myComp.employees //employees is shareable
 
 A new entity selection is **alterable** in the following cases:
 
-- the new entity selection created blank using the [dataClass.newSelection()](../../language/DataClassClass.md#newselection) function,
-- the new entity selection is explicitely copied as alterable with [entitySelection.copy()](../../language/EntitySelectionClass.md#copy) (i.e. without the `ck shared` option).
+- the new entity selection created blank using the [dataClass.newSelection()](../language/DataClassClass.md#newselection) function,
+- the new entity selection is explicitely copied as alterable with [entitySelection.copy()](../language/EntitySelectionClass.md#copy) (i.e. without the `ck shared` option).
 
 Example:
 
@@ -291,11 +291,11 @@ toModify=ds.Company.all().copy() //toModify is alterable
 
 A new entity selection **inherits** from the original entity selection nature in the following cases:
 
-- the new entity selection results from one of the various ORDA class functions applied to an existing entity selection ([.query()](../../language/EntitySelectionClass.md#query), [.slice()](../../language/EntitySelectionClass.md#slice), etc.) .
+- the new entity selection results from one of the various ORDA class functions applied to an existing entity selection ([.query()](../language/EntitySelectionClass.md#query), [.slice()](../language/EntitySelectionClass.md#slice), etc.) .
 - the new entity selection is based upon a relation:
-	- [entity.*attributeName*](../../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute and the entity belongs to an entity selection (same nature as [.getSelection()](../../language/EntityClass.md#getselection) entity selection),
-	- [entitySelection.*attributeName*](../../language/EntitySelectionClass.md#attributename) (e.g. "employees.employer") when *attributeName* is a related attribute (same nature as the entity selection),
-	- [.extract()](../../language/EntitySelectionClass.md#extract) when the resulting collection contains entity selections (same nature as the entity selection).
+	- [entity.*attributeName*](../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute and the entity belongs to an entity selection (same nature as [.getSelection()](../language/EntityClass.md#getselection) entity selection),
+	- [entitySelection.*attributeName*](../language/EntitySelectionClass.md#attributename) (e.g. "employees.employer") when *attributeName* is a related attribute (same nature as the entity selection),
+	- [.extract()](../language/EntitySelectionClass.md#extract) when the resulting collection contains entity selections (same nature as the entity selection).
 
 Examples:
  

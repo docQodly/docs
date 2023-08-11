@@ -3,7 +3,7 @@ id: object
 title: Object
 ---
 
-The Object commands manage [object](../basics/lang-object.md) type elements.
+The Object commands manage [object](basics/lang-object.md) type elements.
 
 ## Commands
 
@@ -103,7 +103,7 @@ If you do not pass any parameters, `newObject` creates an empty object and retur
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties). 
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties). 
 - In the *value* parameter, pass the value you want to set for the property. The following types of values are supported:
 	- number (all numeric values are stored as numbers)
 	- string
@@ -151,13 +151,13 @@ obj4={name:"Smith",age:40}
 
 #### Description
 
-The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](../basics/lang-shared) page.
+The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](basics/lang-shared.md) page.
 
 If you do not pass any parameters, `newSharedObject` creates an empty object and returns its reference. 
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties). 
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties). 
 - In the *value* parameter, pass the value you want to set for the property. Shared objects can only contain values of the following types:
 	- number (all numeric values are stored as numbers)
 	- string
@@ -591,6 +591,7 @@ If the *property* is not found at the first level of *object*, the command does 
 
 ```qs
  var obj : object
+
  obj={name : "Smith", info: {a: 20, b: 30}}
  objectRemove(obj, "name")
 	//obj: {"info": {"a": 20, "b": 30}} 
@@ -662,7 +663,7 @@ The catalog returned by `storage` is automatically created by Qodly and is avail
 
 Use the `storage` catalog to reference any shared objects or shared collections that you want to be used from any preemptive or standard process. To register a shared object or a shared collection in the catalog, add its reference to the shared object returned by `storage`.
 
-Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](../basics/lang-shared) section (but with some specificities):
+Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](basics/lang-shared.md) section (but with some specificities):
 
 - This object can only contain shared objects and shared collections. Trying to add other kinds of values (non-shared objects or collections, null, scalar values) will generate an error.
 - Adding a property to this object must be surrounded by the `use...end` structure, otherwise an error is returned. Reading an attribute outside of a `use...end` structure is, however, possible.

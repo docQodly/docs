@@ -32,7 +32,7 @@ When you select a component in the canvas, the tooltip displays its type and off
 |Select Parent Component|Selects the parent component of the element. For example, selects the Text Input component when you click on its Label or Input part. |
 |Delete component|Removes the selected component from the canvas|
 |Export styles|Exports the [overridden CSS properties](styling.md#overriding-style-properties) to a new CSS class|
-|Open Events panel|Opens the bottom panel, allowing you to bind [events](events/events.md) to the component|
+|Open Events panel|Opens the bottom panel, allowing you to bind [events](events.md) to the component|
 |Copy, Cut, Paste, Paste into|Standard edit actions|
 |Duplicate|Duplicates the component|
 |Save as craft|Saves the component, its child components, and their styles as a reusable component named [crafted component](#crafted-components)|
@@ -106,7 +106,7 @@ The DataTable component supports dedicated CSS classes that allow customizing sp
 
 #### Events
 
-The DataTable component supports the following specific [server event](../API/web-event.md):
+The DataTable component supports the following specific [server event](../../language/WebForm.md#webevent):
 
 |Property|Type|Description|
 |---|---|---|
@@ -271,7 +271,7 @@ When implementing navigation actions in a Webform loader, you need to use the co
 
 ## Server-side reference
 
-The server-side reference of a component is its "address" on the server. To set the behavior of a component, you can give it a server-side reference, and then [use that reference in class functions](../API/WebFormItemClass.md).
+The server-side reference of a component is its "address" on the server. To set the behavior of a component, you can give it a server-side reference, and then [use that reference in class functions](../../language/WebForm.md).
 
 To assign a server-side reference to a component, enter a value in the Properties panel > Server Side:
 
@@ -337,7 +337,7 @@ To use a template:
 
 ### Server Side
 
-The server-side reference of a component is its "address" on the server. To set the behavior of a component, you can give it a server-side reference, and then [use that reference in class functions](../language/WebFormItemClass.md).
+The server-side reference of a component is its "address" on the server. To set the behavior of a component, you can give it a server-side reference, and then [use that reference in class functions](../../language/WebForm.md).
 
 To assign a server-side reference to a component, enter a value in the Properties panel > Server Side:
 

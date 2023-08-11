@@ -17,13 +17,13 @@ Although they are usually equivalent, some data types available at the datastore
 |[Boolean](lang-boolean.md)	|`var boolean`|bool|false|
 |[Collection](lang-collection.md)	|`var collection`|-|null|
 |[Date](lang-date.md)|`var date`|date|00-00-00|
-|[Null](lang-null.md)	|-	|-|null|
+|[Null](lang-null-undefined.md)	|-	|-|null|
 |[Number](lang-number.md)|`var integer`, `var number`|number|0|
 |[Object](lang-object.md)	|`var object`|object|null|
 |[Picture](lang-picture.md)	|`var picture`|image|`pictureSize`==0|
 |[String](lang-text.md)	|`var string`|string|""|
 |[Time](lang-time.md) |`var time`|number|00:00:00|
-|[Undefined](lang-undefined.md)	|-	|-|undefined|
+|[Undefined](lang-null-undefined.md)	|-	|-|undefined|
 |[Variant](lang-variant.md)	|`var variant`|-|undefined|
 
 :::note
