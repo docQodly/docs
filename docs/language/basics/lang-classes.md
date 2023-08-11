@@ -507,7 +507,7 @@ The `super` keyword allows calls to the `superclass`, i.e. the parent class.
  
 ```qs
 // inside myClass constructor
-var text1, text2 : string
+constructor(text1 : string,  text2 : string)
 super(text1) //calls superclass constructor with a text param
 this.param=text2 // use second param
 ```

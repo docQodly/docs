@@ -79,26 +79,13 @@ According to the calling method type, the returned string can be as follows:
 
 |Calling Method|Returned string|
 |:----|:----|
-|Database Method|MethodName|
-|Trigger|Trigger on [TableName]|
 |Project Method|MethodName|
 |Table Form Method|[TableName].FormName|
-|Project Form Method|FormName|
-|Table Form Object Method|[TableName].FormName.ObjectName|
-|Project Form Object Method|FormName.ObjectName|
 |Class Constructor|ClassName:constructor|
 |Class Function|ClassName.FunctionName|
-|Component Project Method|MethodName|
-|Component Project Form Method|FormName(ComponentName)|
-|Component Project Form Object Method|FormName(ComponentName).ObjectName(ComponentName)|
 
 This command cannot be called from within a Qodly formula.
 
-:::note
-
-For this command to be able to operate in compiled mode, it must not be included in code for which range checking has been disabled. 
-
-:::
 
 ## null
 
@@ -112,20 +99,212 @@ For this command to be able to operate in compiled mode, it must not be included
 
 #### Description
 
-`null`<!-- REF #_command_.null.Summary -->returns the Null type value **null**<!-- END REF -->.
+`null`<!-- REF #_command_.null.Summary -->returns the null type value **null**<!-- END REF -->.
 
 This function allows you to assign or compare the **null** value to the following language elements:
 
 |Language elements|Comments|
 |:----|:----|
-|object property values|Comparing Null to an object property returns true if the property value is null, and false otherwise. To simplify code, comparing Null also returns true if the property does not exist in the object (i.e. is [`undefined`](#undefined)), see example 4.collection elements|When a collection is expanded by adding non-adjacent elements, any intermediary elements get automatically the null value.|
-|object variables|See (*) below|
-|collection variables|See (*) below|
-|pointer variables|See (*) below|
-|picture variables|(*) Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
+|object property values|Comparing Null to an object property returns true if the property value is null, and false otherwise. To simplify code, comparing Null also returns true if the property does not exist in the object (i.e. is [`undefined`](#undefined)), see example 4.
+|collection elements|When a collection is expanded by adding non-adjacent elements, any intermediary elements get automatically the `null` value.|
+|object variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
+|collection variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
+|picture variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
 |variant variables| |
 
+
+#### Example 1  
+
+You assign and test the **null** value to an object property:
+
+```qs
+var vEmp : object
+vEmp=newObject
+vEmp.name="Smith"
+vEmp.children=null
+ 
+if(vEmp.children==null) //true
+end
+if(vEmp.name==null) //false
+end
+if(vEmp.parent==null) //true
+end
+```
+
+#### Example 2 
+
+You assign and compare the **null** value to a collection element:
+
+```qs
+var myCol : collection
+myCol=newCollection(10,20,null)
+
+if(myCol[2]==null)
+  // if the 3rd element is null
+...
+end
+```
+
+#### Example 3  
+
+These examples show the various ways to assign or compare the **null** value to variables: 
+
+```qs
+
+//Object variable
+var o : object
+o=newObject
+o=null //equivalent to clearVariable(o)
+if(o!=null) //equivalent to if(objectIsDefined(o))
+end
+
+//Collection variable
+var c : collection
+c=newCollection
+c=null //equivalent to clearVariable(c)
+if(c!=null)
+end
+
+//Picture variable
+var i : picture
+i=vpicture
+i=null //equivalent to clearVariable(i)
+if(i!=null) //equivalent to if(pictureSize(i)!=0)
+end
+```
+
+
+#### Example 4  
+
+Here are the different results of the `undefined` command as well as the `null` command with object properties, depending on the context:
+
+```qs
+var vEmp : object
+var vUndefined, vNull : boolean
+vEmp=newObject
+vEmp.name="Smith"
+vEmp.children=null
+ 
+vUndefined=undefined(vEmp.name) // false
+vNull=(vEmp.name=null) //false
+ 
+vUndefined=undefined(vEmp.children) // false
+vNull=(vEmp.children=null) //true
+ 
+vUndefined=undefined(vEmp.parent) // true
+vNull=(vEmp.parent=null) //true
+```
+
+#### See also
+
+[`undefined`](#undefined)
+
 ## super
+
+<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any ) : object<!-- END REF -->
+
+
+<!-- REF #_command_.super.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|param|any|->|Parameter(s) to pass to the parent constructor|
+|Result|object|<-|Object's parent|<!-- END REF -->
+
+#### Description
+
+The `super` command <!-- REF #_command_.super.Summary -->makes calls to the superclass<!-- END REF -->.
+
+`super` serves two different purposes:
+
+1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used. 
+	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid. 
+	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated. 
+	- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error-10746 is generated.
+	
+```qs
+constructor(t1 : string, t2 : string)
+super(t1) //calls superclass constructor with a string param
+this.param=t2 // use second param
+```
+
+2. Inside a class member function, `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
+
+```qs
+super.doSomething(42) //calls "doSomething" function declared in superclasses
+```
+
+#### Example 1
+
+This example illustrates the use of `super` in a class constructor. The command is called to avoid duplicating the constructor parts that are common between `Rectangle` and `Square` classes.
+
+```qs
+  //Class: Rectangle
+ 
+constructor(height : integer, width : integer)
+  this.name="Rectangle"
+  this.height=height
+  this.width=width
+ 
+function sayName()
+  return("Hi, I am a "+this.name+".")
+ 
+function getArea()-> area : integer
+  area=this.height*this.width
+```
+
+```qs
+
+  //Class: Square
+ 
+extends Rectangle
+ 
+constructor(side : integer) 
+ 
+  // It calls the parent class's constructor with lengths
+  // provided for the Rectangle's width and height
+super(side, side)
+ 
+  // In derived classes, super must be called before you
+  // can use 'This'
+this.name="Square"
+```
+
+#### Example 2  
+
+This example illustrates the use of `super` in a class member function. 
+
+You created a Rectangle class with a function:
+
+```qs
+  //Class: Rectangle
+ 
+function nbSides() -> sides : text
+  sides="I have 4 sides"
+```
+
+You also created the Square class with a function calling the superclass function:
+
+```qs
+
+  //Class: Square
+ 
+extends Rectangle
+ 
+function description() -> desc : text
+  desc=super.nbSides()+" which are all equal"
+```
+
+```qs
+
+Then you can write in a method:
+
+var square : object
+var info : text
+square=cs.Square.new()
+info=square.description() //I have 4 sides which are all equal
+```
+
+
 
 ## this
 
@@ -141,16 +320,78 @@ This function allows you to assign or compare the **null** value to the followin
 
 The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->. 
 
-The command is designed to be used in the following contexts:
+In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-* A list box associated to a collection or an entity selection, during the On Display Detail or the On Data Change events.
-In this context, the command returns a reference to the collection element or entity accessed by the list box to display the current row.
-* The execution of a formula object created by the Formula or Formula from string commands.
-In this context, the command returns a reference to the object currently processed by the formula.
+When executing a formula object created by the [`formula`](FunctionClass.md#formula) or [`formulaFromString`](FunctionClass.md#formula) commands, `this` returns a reference to the object currently processed by the formula. For example:
 
-In any other context, the command returns **Null**.
+```qs
+o=newObject("prop",42,"f",formula(this.prop))
+val=o.f() //42
+```
 
-Within supported contexts, you will access object/collection element properties or entity attributes through `This.<propertyPath>`. For example, This.name or This.employer.lastName are valid pathes to object, element or entity properties.
+When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
+
+```qs
+//Class: ob
+  
+constructor  
+ 
+ // Create properties on this as
+ // desired by assigning to them
+ this.a=42 
+```
+
+```qs
+// in a method  
+o=cs.ob.new()
+val=o.a //42
+```
+
+> When calling the superclass constructor in a constructor using the [super](#super) keyword, keep in mind that `this` must not be called before the superclass constructor, otherwise an error is generated.
+
+In any cases, `this` refers to the object the method was called on, as if the method were on the object.
+
+```qs
+//Class: ob
+  
+function f()
+ return this.a+this.b
+```
+
+Then you can write in a project method:
+
+```qs
+o=cs.ob.new()
+o.a=5
+o.b=3
+val=o.f() //8
+
+```
+
+In this example, the object assigned to the variable *o* doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of *o*, its `this` refers to *o*.
+
+#### Example
+
+You want to use a project method as a formula encapsulated in an object:
+
+```qs
+var person : object
+var g : string
+person=newObject()
+person.firstName="John"
+person.lastName="Smith"
+person.greeting=formula(Greeting)
+
+g=person.greeting("hello") // returns "hello John Smith"
+g=person.greeting("hi") // returns "hi John Smith"
+```
+
+With the `Greeting` method:
+
+```qs
+declare(param : string) -> vMessage : text
+vMessage=param+" "+this.firstName+" "+this.lastName
+```
 
 #### See also
 
@@ -168,97 +409,209 @@ Within supported contexts, you will access object/collection element properties 
 
 #### Description
 
-You use `trace` <!-- REF #_command_.trace.Summary -->to trace methods during the development of a database<!-- END REF -->. 
+You use `trace` <!-- REF #_command_.trace.Summary -->to debug your code during the development of an application<!-- END REF -->. 
 
-The `trace` command turns on the Qodly debugger for the current process. The Debugger window is displayed before the next line of code is executed, and continues to be displayed for each line of code that is executed. You can also turn on the debugger by pressing Alt+Shift+right-click (Windows) or Control+Option+Command+click (Macintosh) while code is executing.
+The `trace` command turns on the Qodly debugger for the current process. The Debugger is displayed before the next line of code is executed, and continues to be displayed for each line of code that is executed. 
 
-The `trace` command is ignored when the executing code is compiled. 
+A valid [debug session](../studio/debugging.md#starting-a-debug-session) must be launched for a `trace` call to open the debugger. Otherwise, the `trace` command is ignored. 
 
-If you call `trace` from a project method executed within the context of a Stored Procedure, the debugger window appears on the Server machine.
 
-Do not place `trace` calls when using a form whose On Activate and On Deactivate events have been enabled. Each time the debugger window appears, these events will be invoked; you will then loop infinitely between these events and the debugger window. If you end up in this situation, Shift+click on the No Trace button of the debugger in order to get out of it. Any subsequent calls to `trace` within the process will be ignored.
 
 ## type
 
-<!-- REF #_command_.type.Syntax -->**type** ( *fieldVar* : field, variable ) : integer<!-- END REF -->
+<!-- REF #_command_.type.Syntax -->**type** ( *var* : any ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.type.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|vJson|object|->|field or variable to be tested|
+|var|any|->|Variable to be tested|
 |Result|integer|<-|Data type number|<!-- END REF -->
 
 #### Description
 
-The `type` command <!-- REF #_command_.type.Summary -->returns a numeric value that indicates the type of field or variable you have passed in the *fieldVar* parameter<!-- END REF -->. 
+The `type` command <!-- REF #_command_.type.Summary -->returns a numeric value that indicates the type of variable you have passed in the *var* parameter<!-- END REF -->. 
 
 Qodly provides the following predefined constants:
 
-|Constant|Type|Value|
-|:----|:----|:----|
-|Array 2D|integer|13|
-|Blob array|integer|31|
-|Boolean array|integer|22|
-|Date array|integer|17|
-|Integer array|integer|15|
-|Is alpha field|integer|0|
-|Is BLOB|integer|30|
-|Is Boolean|integer|6|
-|Is collection|integer|42|
-|Is date|integer|4|
-|Is integer|integer|8|
-|Is integer 64 bits|integer|25|
-|Is longint|integer|9|
-|Is null|integer|255|
-|Is object|integer|38|
-|Is picture|integer|3|
-|Is pointer|integer|23|
-|Is real|integer|1|
-|Is string var|integer|24|
-|Is subtable|integer|7|
-|Is text|integer|2|
-|Is time|integer|11|
-|Is undefined|integer|5|
-|Is variant|integer|12|
-|LongInt array|integer|16|
-|Object array|integer|39|
-|Picture array|integer|19|
-|Pointer array|integer|20|
-|Real array|integer|14|
-|String array|integer|21|
-|Text array|integer|18|
-|Time array|integer|32|
+|Constant|Value|
+|:----|:----|
+|kBlob|30|
+|kBoolean|6|
+|kCollection|42|
+|kDate|4|
+|kInteger|9|
+|kNull|255|
+|kObject|38|
+|kPicture|3|
+|kNumber|1|
+|kString|2|
+|kTime|11|
+|kUndefined|5|
+|kVariant|12|
 
-You can apply the `type` function to fields, interprocess variables, process variables, local variables, and dereferenced pointers for these types of objects. You can apply `type` to the parameters ($1, $2 ... ${...}) of a project method or to the result of a function ($0).
+You can apply the `type` function to variables and sequential parameters ($1, $2...) of a method.
 
 :::note
 
-You can not apply the Type function to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]). To do this, you must use the Value type command.
+You cannot apply the `type` function to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]). To do this, you must use the [`valueType`](#valuetype) command.
 
 :::
 
-:::note
-
-In compiled mode, calling Type on a method parameter ($0, $1...) declared as C_VARIANT does not return Is variant but the actual data type (same as calling Value type).
-
-:::
 
 #### See also
 
-[`undefined`](#undefined)<br/>
-[`valueType`](#valueType)
+[`valueType`](#valuetype)
+
 
 ## undefined
 
-<!-- REF #_command_.undefined.Syntax -->**undefined**<!-- END REF -->
+<!-- REF #_command_.undefined.Syntax -->**undefined** ( expression : *any* )<!-- END REF -->
 
 
-#### Description.
+<!-- REF #_command_.undefined.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|expression|any|->|Expression whose resulting value to be evaluated|
+|Result|boolean|<-|true = undefined, false = not undefined|<!-- END REF -->
+
+
+#### Description
+
+`undefined`<!-- REF #_command_.undefined.Summary -->returns `true` if the result of the evaluation of *expression* is not a defined value, and `false` otherwise<!-- END REF -->.
+
+- A variable is defined if it has been declared or if a value is assigned to it. It is undefined in all other cases.
+- An object property is `undefined` if it does not exist in the object.
+- A collection item is `undefined` if it does not exist in the collection.
+
+:::note
+
+Keep in mind that `undefined` evaluates *expression*. The following statements are equivalent:
+
+```qs
+var result : boolean
+result=undefined(exp)
+  // same result:
+result=(valueType(exp)=kUndefined)
+```
+
+:::
+
+#### Example
+
+Here are the different results of the `undefined` command as well as the `null` command with object properties, depending on the context:
+
+```qs
+var vEmp : object
+var vUndefined, vNull : boolean
+
+vEmp=newObject
+vEmp.name="Smith"
+vEmp.children=null
+ 
+vUndefined=undefined(vEmp.name) // false
+vNull=(vEmp.name=null) //false
+ 
+vUndefined=undefined(vEmp.children) // false
+vNull=(vEmp.children=null) //true
+ 
+vUndefined=undefined(vEmp.parent) // true
+vNull=(vEmp.parent=null) //true
+```
+
+
+#### See also
+
+[`null`](#null)
+
+
 
 ## valueType
 
-<!-- REF #_command_.valueType.Syntax -->**valueType**<!-- END REF -->
+<!-- REF #_command_.valueType.Syntax -->**valueType** ( *expression* : any ) : integer<!-- END REF -->
+
+<!-- REF #_command_.valueType.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|expression|any|->|Expression whose resulting value to be tested|
+|Result|integer|<-|Data type number|<!-- END REF -->
+
+
+#### Description
+
+The `valueType` command <!-- REF #_command_.valueType.Summary -->returns the type of the value resulting from the evaluation of the *expression* you passed as parameter<!-- END REF -->. 
+
+The command returns a numeric value that can be compared with one of the following constants provided by Qodly:
+
+|Constant|Value|
+|:----|:----|
+|kBlob|30|
+|kBoolean|6|
+|kCollection|42|
+|kDate|4|
+|kInteger|9|
+|kNull|255|
+|kObject|38|
+|kPicture|3|
+|kNumber|1|
+|kString|2|
+|kTime|11|
+|kUndefined|5|
+|kVariant|12|
+
+
+This command is designed to return the type of a scalar expression, i.e. the value stored in or returned by the *expression* parameter. In particular, it can be applied to the following Qodly expressions:
+
+- object properties (emp.name),
+- collection elements (myCol[5]).
+
+:::note
+
+Numerical object properties are always considered number values:
+
+```
+var o : object
+var vType : integer
+o=newObject("value",42)
+vType=valueType(o.value) //vType=kNumber
+```
+
+::: 
+
+#### Example 1
+
+You want to handle the various possible types of an object property value:
+
+```qs
+switch
+	:(valueType(o.value)==kNumber)
+  //handle a numeric value
+    :(valueType(o.value)==kString)
+  //handle a string
+    :(valueType(o.value)==kObject)
+  //handle a sub-object
+       ...
+end
+```
+
+#### Example 2
+
+You want to sum up all numeric values in a collection:
+
+```qs
+var col : collection
+var colSum : number
+col=newCollection("Hello",20,"World2",15,50,currentDate,true,10)
+for(i,0,col.length-1) //-1 since collections start at 0
+	if(valueType(col[i])==kNumber)
+       colSum=colSum+col[i]
+    end
+end
+```
+
+#### See also
+
+[`type`](#type)
 
 ## callChain
 

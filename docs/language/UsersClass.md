@@ -45,13 +45,11 @@ usersInterface=cs.Qodly.Users.new()
 The `cs.Qodly.Users.new()` function <!-- REF #cs.Qodly.Users.new().Summary -->creates and returns a new object of the `cs.Qodly.Users` type<!-- END REF -->. The returned object will then be used to call user information functions.
 
 
-<!-- END REF -->
 
 
 
 
 
-<!-- REF Users.getCurrentUser().Desc -->
 ## .getCurrentUser()
 
 <!--REF #Users.getCurrentUser().Syntax -->**.getCurrentUser**() : Object<!-- END REF -->
@@ -94,9 +92,7 @@ user=usersInterface.getCurrentUser()
 return user
 ```
 
-<!-- END REF -->
 
-<!-- REF Users.getAllUsers().Desc -->
 ## .getAllUsers()
 
 <!--REF #Users.getAllUsers().Syntax -->**.getAllUsers**() : Collection<!-- END REF -->
@@ -134,5 +130,3 @@ users=usersInterface.getAllUsers()
 
 return users
 ```
-
-<!-- END REF -->

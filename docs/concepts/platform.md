@@ -46,6 +46,59 @@ Qodly Server includes:
 All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
 
 
+## Qodly Database
+
+At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly Database is an evolution of the 4D Database which has proven itself in terms of reliability and robustness for over 30 years. 
+
+Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
+
+Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by the [ORDA technology](orda.md). In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
+
+### Data types
+
+The following table lists all available Qodly Database scalar data types and how they are handled in the QodlyScript language:
+
+|Data Types	|Language support|Description|
+|---|----|---|
+|[Text]|`var string`	|A sequence of characters up to 2 GB|
+|[String]	|`var string`	|A sequence of characters with properties|
+|[UUID]|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
+|[Date]|`var date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
+|[Duration]|`var long`	|A duration between two dates	|
+|[Bool]|`var boolean`|A Boolean value: either true or false.|
+|[Byte]	|-|A sequence of 8 bits.|
+|[Word]|-|A 16-bit signed integer. Range: -32,767 to 32,768|
+|[Number]|`var number`|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
+|[Long]|`var nimber`	|A whole number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
+|[Object]|`var object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
+|[Image]|`var picture`	|A path to an image file or an actual image.	|
+
+
+
+### Capabilities
+
+The following table lists the maximum capabilities of the Qodly Database per application:
+
+|Capabilities|Maximum|
+|---|---|
+|Number of dataclasses|32,767|
+|Number of attributes per dataclass|32,767|
+|Number of entities per dataclass|1 billion|
+|Number of index keys per dataclass|128 billion|
+|Size of text attributes|2 GB|
+|*Size BLOB fields*|2 GB|
+|Size of object attributes|2 GB|
+|Number of properties per object attribute|up to 128 billion*|
+|Number of transaction levels|Unlimited|
+
+* depending on the number of index keys
+
+
+### Transactions
+
+The Qodly Database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
+
+
 
 
 ## Qodly Cloud Management Console 
