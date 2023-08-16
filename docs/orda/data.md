@@ -95,7 +95,7 @@ You can use as many entities as you need at the same time, there is no automatic
 
 ## Using entity attributes  
 
-Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](orda-classes.md#computed-attributes) and [**alias**](orda-classes.md#alias-attributes) kind can return any value type.  
+Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](data-model.md#calculated-attributes) and [**alias**](data-model.md#alias-attributes) kind can return any value type.  
 
 For example, to set a storage attribute:
 

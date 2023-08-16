@@ -24,12 +24,12 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Qodly Cloud',
+    title: 'Qodly Cloud Console',
     Svg: require('@site/static/img/qodly-cloud.svg').default,
     description: (
       <>
-        A dedicated infrastructure to launch and monitor
-        your applications through a sophisticated dashboard.
+        A comprehensive dashboard to launch and monitor your
+        applications on the Qodly Cloud dedicated infrastructure.
       </>
     ),
   },

@@ -481,7 +481,7 @@ An [alias attribute](../studio/model/attributes.md#alias-attributes) is built ab
 
 ## Calculated attributes
 
-[Calculated attributes](../studio/model/attributes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
+[Calculated attributes](../studio/model/attributes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
 :::info
 

@@ -154,7 +154,7 @@ Basically, ORDA handles objects. In ORDA, all main concepts, including the datas
 
 ORDA objects can be handled like standard objects, but they automatically benefit from specific properties and methods.
 
-ORDA objects are created and instanciated when necessary (you do not need to create them). However, ORDA data model objects are associated with [classes](../orda/orda-classes.md) where you can add custom functions and define [computed attributes](../orda/orda-classes.md#computed-attributes).
+ORDA objects are created and instanciated when necessary (you do not need to create them). However, ORDA data model objects are associated with [classes](../orda/data-model.md) where you can add custom functions and define [calculated attributes](../orda/data-model.md#calculated-attributes-1).
 
 
 

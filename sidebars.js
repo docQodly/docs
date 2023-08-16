@@ -40,7 +40,7 @@ const sidebars = {
       id: 'concepts/quickstart',
       label: "Quickstart"
     },
-	{
+	/*{
         type: 'category',
         label: 'Qodly Hero Handbook',
         link: {
@@ -160,6 +160,7 @@ const sidebars = {
             },
         ],
     },
+    */
     {
       type: 'doc',
       id: 'resources',
