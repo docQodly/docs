@@ -3,7 +3,7 @@ id: data-model
 title: Data Model Objects
 ---
 
-The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as computed attributes or dataclass functions. It also provides [access to data](data.md) through entity and entity selection objects. 
+The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as calculated attributes or dataclass functions. It also provides [access to data](data.md) through entity and entity selection objects. 
 
 As a result, ORDA exposes the whole database as a set of data model objects. 
  
@@ -144,9 +144,9 @@ Keep in mind that these objects describe attributes, but do not give access to d
 An [alias attribute](../studio/model/attributes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
 
 
-## Computed attributes
+## Calculated attributes
 
-[Computed attributes](../studio/model/attributes.md#computed-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
+[Calculated attributes](../studio/model/attributes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](orda-classes.md#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
 :::info
 

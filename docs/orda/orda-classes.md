@@ -45,6 +45,17 @@ Also, object instances from ORDA data model user classes benefit from their pare
 
 
 
+### Specific rules
+
+When creating or editing data model classes, you must pay attention to the following rules:
+
+- Since they are both defined in the **cs** [class store](../language/basics/lang-classes.md#class-stores), do not give the same name to a dataclass and to a user class. If such a case occurs, the constructor of the user class becomes unusable. 
+- Do not use a reserved name for a user class (e.g., "DataClass").
+- In an ORDA class, `this` designates the instance of the object matching the dataclass.
+- You cannot instantiate a data model class object with the `new()` keyword (an error is returned). You must use a regular method as listed in the [`Instantiated by` column of the ORDA class table](#architecture).
+- You cannot override a native ORDA class function from the **`4D`** [class store](../language/basics/lang-classes.md#class-stores) with a data model user class function.
+
+
 
 ## DataStore Class
 
@@ -229,15 +240,6 @@ if (city.isBigCity())
 end
 ```
 
-### Specific rules
-
-When creating or editing data model classes, you must pay attention to the following rules:
-
-- Since they are both defined in the **cs** [class store](../language/basics/lang-classes.md#class-stores), do not give the same name to a dataclass and to a user class. If such a case occurs, the constructor of the user class becomes unusable. 
-- Do not use a reserved name for a user class (e.g., "DataClass").
-- In an ORDA class, `this` designates the instance of the object matching the dataclass.
-- You cannot instantiate a data model class object with the `new()` keyword (an error is returned). You must use a regular method as listed in the [`Instantiated by` column of the ORDA class table](#architecture).
-- You cannot override a native ORDA class function from the **`4D`** [class store](../language/basics/lang-classes.md#class-stores) with a data model user class function.
 
 
 
