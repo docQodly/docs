@@ -3,11 +3,71 @@ id: data-model
 title: Data Model Objects
 ---
 
+## Introduction
+
+### Database as Objects
+
 The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an automatic mapping of an underlying relational database structure to a data model (this concept can be viewed as an included and enhanced [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping)), along with powerful features such as calculated attributes or dataclass functions. It also provides [access to data](data.md) through entity and entity selection objects. 
 
-As a result, ORDA exposes the whole database as a set of data model objects. 
+As a result, ORDA exposes the whole database as a set of data model objects, including **model objects** as well as **data objects**.  
  
 ![schema](img/orda-schema3.png)
+
+### Objects have Classes
+
+With ORDA, you can declare and use high-level [user class functions](../language/basics/lang-classes.md#function) above the data model. This allows you to write business-oriented code and "publish" it just like an API. Datastore, dataclasses, entity selections, and entities are all available as class objects that can contain functions.
+
+For example, you could create a `getNextWithHigherSalary()` function in the `EmployeeEntity` class to return employees with a salary higher than the selected one. It would be as simple as calling:
+
+```qs
+nextHigh=ds.Employee.get(1).getNextWithHigherSalary()
+```
+
+Thanks to this feature, the entire business logic of your Qodly application can be stored as a independent layer so that it can be easily maintained and reused with a high level of security:
+
+- You can "hide" the overall complexity of the underlying physical structure and only expose understandable and ready-to-use functions. 
+- If the physical structure evolves, you can simply adapt function code and client applications will continue to call them transparently. 
+- By default, all of your data model class functions (including [calculated attribute functions](#calculated-attributes)) are **not exposed** to remote calls. You must explicitly declare each public function with the [`exposed`](#exposed-vs-non-exposed-functions) keyword.
+
+![](img/functions-schema.png)
+
+### Class Architecture
+
+ORDA provides **generic classes** exposed through a **`4D`** class store, as well as specific **user classes** (extending generic classes) exposed in the [**`cs`** class store](../language/basics/lang-classes.md):
+
+![](img/ClassDiagramImage.png)
+
+All ORDA data model classes are exposed as properties of the **`cs`** class store. The following ORDA classes are available:
+
+|Class|Example name|Instantiated by|
+|---|---|---|
+|cs.DataStore|cs.DataStore|[`ds`](../language/DataStoreClass.md#ds) command|
+|cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../language/DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
+|cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../language/DataClassClass.md#get), [`dataClass.new()`](../language/DataClassClass.md#new), [`entitySelection.first()`](../language/EntitySelectionClass.md#first), [`entitySelection.last()`](../language/EntitySelectionClass.md#last), [`entity.previous()`](../language/EntityClass.md#previous), [`entity.next()`](../language/EntityClass.md#next), [`entity.first()`](../language/EntityClass.md#first), [`entity.last()`](../language/EntityClass.md#last), [`entity.clone()`](../language/EntityClass.md#clone)|
+|cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../language/DataClassClass.md#query), [`entitySelection.query()`](../language/EntitySelectionClass.md#query), [`dataClass.all()`](../language/DataClassClass.md#all), [`dataClass.fromCollection()`](../language/DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../language/DataClassClass.md#newselection), [`entitySelection.drop()`](../language/EntitySelectionClass.md#drop), [`entity.getSelection()`](../language/EntityClass.md#getselection), [`entitySelection.and()`](../language/EntitySelectionClass.md#and), [`entitySelection.minus()`](../language/EntitySelectionClass.md#minus), [`entitySelection.or()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../language/EntitySelectionClass.md#orderbyformula), [`entitySelection.slice()`](../language/EntitySelectionClass.md#slice)|
+
+Also, object instances from ORDA data model user classes benefit from their parent's properties and functions:
+
+- a Datastore class object can call functions from the [ORDA Datastore generic class](../language/DataStoreClass.md).
+- a Dataclass class object can call functions from the [ORDA Dataclass generic class](../language/DataClassClass.md).
+- an Entity selection class object can call functions from the [ORDA Entity selection generic class](../language/EntitySelectionClass.md).
+- an Entity class object can call functions from the [ORDA Entity generic class](../language/EntityClass.md).
+
+
+### Creating Data Model Classes
+
+In Qodly Studio, you can create all the classes related to a dataclass by clicking on a single button:
+
+1. Open the [Model Editor](../studio/model/model-editor-interface) and select the dataclass for which you want to create classes.
+2. Click on the `<...>` button at the top right side of the panel.
+
+![](img/create-classes.png)
+
+All classes are automatically created and can be displayed in the **Classes** section of the Explorer:
+
+![](img/create-classes2.png)
+
+
 
 
 ## Datastore
@@ -35,11 +95,38 @@ The datastore properties are however enumerable:
   //names contains the names of all the dataclasses
 ```
 
+### DataStore Class
+
+
+A database exposes its own DataStore class in the `cs` class store. 
+
+- **Extends**: 4D.DataStoreImplementation 
+- **Class name in *cs* class store**: DataStore
+
+You create functions in the DataStore class that will be available through the `ds` object, from any context of the application. 
+
+#### Example
+
+```qs  
+// DataStore class
+
+extends DataStoreImplementation
+
+exposed function getDesc
+  return "Database exposing employees and their companies"
+```
+
+
+This function can then be called:
+
+```qs
+desc=ds.getDesc() //"Database exposing..."
+```
 
 
 ## Dataclass
 
-A dataclass is the equivalent of a database table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as computed and alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
+A dataclass is the equivalent of a database table. It is used as an object model and references all fields as attributes, including relational attributes (attributes built upon relations between dataclasses) as well as calculated and alias attributes. Relational, computed and alias attributes can be used in queries like any other attribute.
 
 All dataclasses in a Qodly project are available as a property of the `ds` datastore. The **Expose as REST resource** option must be selected at the model level for each dataclass that you want to be called from the Web. 
 
@@ -81,10 +168,258 @@ The dataclass properties are however enumerable:
 //names contains the names of all the dataclass attributes
 ```
 
+### DataClass Class
 
-## Attribute
+Each dataclass offers a DataClass class in the `cs` class store.
 
-Basically, dataclass properties are attribute objects describing the underlying fields or relations. For example:
+- **Extends**: 4D.DataClass 
+- **Class name in *cs* class store**: *DataClassName*
+- **Example name**: Employee
+
+
+
+#### Example 1
+
+```qs
+// Company class
+
+
+extends DataClass
+
+// Returns companies whose revenue is over the average
+// Returns an entity selection related to the Company DataClass
+
+function getBestOnes() : cs.CompanySelection 
+	sel=this.query("revenues >= :1",this.all().average("revenues"))
+	return sel
+```
+
+Then you can get an entity selection of the "best" companies by executing: 
+
+```qs
+	var best : cs.CompanySelection
+	best=ds.Company.getBestOnes()
+```
+
+:::note
+
+[Calculated attributes](#calculated-attributes) are defined in the [Entity Class](#entity-class). 
+
+:::
+
+#### Example 2
+
+Considering the following model (partial view):
+
+![](img/structure3.png)
+
+Zipcodes are used as primary keys of the *ZipCode* table. The many-to-one relation attribute between *cityID* and *ID* is named *city*.
+
+The `City Class` provides an API:
+
+```qs  
+// City class
+
+extends DataClass
+
+exposed function getCityName(zipcode : integer) -> result : string
+	var zip : cs.ZipCodeEntity
+
+	zip=ds.ZipCode.get(zipcode)
+	result="" 
+
+	if (zip!=null)
+		result=zip.city.name
+	end
+```
+
+The application can use the API to get the city matching a zip code:
+
+```qs
+city=ds.City.getCityName(zipcode)
+
+```
+
+
+
+
+
+
+
+
+## Entity
+
+An entity is the equivalent of a record. It is actually an object that references a record in the database. It can be seen as an instance of a [dataclass](#dataclass), like a record of the table matching the dataclass. 
+
+However, an entity also contains data correlated to the datastore. The purpose of the entity is to manage data (create, read, update, delete). When an entity reference is obtained by means of an entity selection, it also retains information about the entity selection which allows iteration through the selection.
+
+For example, to create an entity:
+
+```qs
+ var status : object
+ var employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
+
+ employee=ds.Employee.new()
+ employee.firstName="Mary"
+ employee.lastName="Smith"
+ status=employee.save()
+```
+
+The entity object itself cannot be copied as an object:
+
+```qs
+ myentity=objectCopy(ds.Employee.get(1)) //returns null
+```
+
+The entity properties are however enumerable:
+
+```qs
+ var names : collection
+ names=objectKeys(ds.Employee.get(1))
+  //names contains the names of all the entity attributes
+```
+
+### Entity Class
+
+Each dataclass offers an Entity class in the `cs` class store.
+
+- **Extends**: 4D.Entity 
+- **Class name in *cs* class store**: *DataClassName*Entity
+- **Example name**: CityEntity
+
+#### Calculated attributes
+
+Entity classes allow you to define **calculated attributes** using specific keywords:
+
+- `function get` *attributeName*
+- `function set` *attributeName*
+- `function query` *attributeName*
+- `function orderBy` *attributeName*
+
+For more information, please refer to the [Calculated attributes](#calculated-attributes-1) section below. 
+
+
+#### Example
+
+
+```qs
+// cs.CityEntity class
+
+extends Entity
+
+function getPopulation() -> result : integer
+    result=this.zips.sum("population")
+
+
+function isBigCity() -> result : boolean
+// The getPopulation() function is usable inside the class
+result=this.getPopulation()>50000
+```
+
+Then you can call this code: 
+
+```qs
+var city : cs.CityEntity
+var message : string
+
+city=ds.City.getCity("Caguas")
+
+if (city.isBigCity())
+	message=city.name + " is a big city"
+end
+```
+
+
+
+
+## Entity selection
+
+An entity selection is an object containing one or more reference(s) to entities belonging to the same dataclass. It is usually created as a result of a query or returned from a relation attribute. An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass.
+
+Example:
+
+```qs
+var e : cs.EmployeeSelection //declares a e object variable of the EmployeeSelection class type
+e=ds.Employee.all() //assigns the resulting entity selection reference to the e variable
+``` 
+
+The entity selection object itself cannot be copied as an object:
+
+```qs
+ myentitysel=objectCopy(ds.Employee.all()) //returns null
+``` 
+ 
+The entity selection properties are however enumerable:
+
+```qs
+ var names : collection
+ names=objectKeys(ds.Employee.all())
+  //names contains the names of the entity selection properties
+  //("length", "00", "01"...)
+```
+
+### EntitySelection Class
+
+Each dataclass offers an EntitySelection class in the `cs` class store.
+
+- **Extends**: 4D.EntitySelection 
+- **Class name in *cs* class store**: *DataClassName*Selection
+- **Example name**: EmployeeSelection
+
+
+#### Example
+
+```qs
+// EmployeeSelection class
+
+
+extends EntitySelection
+
+//Extract the employees with a salary greater than the average from this entity selection 
+
+function withSalaryGreaterThanAverage() -> result : cs.EmployeeSelection
+	result=this.query("salary > :1",this.average("salary")).orderBy("salary")
+
+```
+
+Then you can get employees with a salary greater than the average in any entity selection by executing: 
+
+```qs
+moreThanAvg=ds.Company.all().employees.withSalaryGreaterThanAverage()
+```
+
+
+### Ordered or unordered entity selection
+
+For optimization reasons, by default ORDA usually creates unordered entity selections, except when you call the [`orderBy()`](../language/EntitySelectionClass.md#orderby) function or use specific options. In this documentation, unless specified, "entity selection" usually refers to an "unordered entity selection".
+
+Ordered entity selections are created only when necessary or when specifically requested using options, i.e. in the following cases:
+
+*	result of an `orderBy()` on a selection (of any type)
+*	result of an `orderByFormula()` on a selection (of any type)
+*	result of the `newSelection()` function with the `dk keep ordered` option
+
+:::note
+
+Ordered entity selections support duplicated entity references. On the other hand, when an ordered entity selection becomes an unordered entity selection, any repeated entity references are removed.
+
+:::
+
+
+Unordered entity selections are created in all other cases, including:
+
+*	result of a `query()` on a selection (of any type) or a `query()` on a dataclass,
+*	result of a `all()`, `fromCollection()`, or `newSelection()` (without option) function on a dataclass,
+*	result of various functions from the entity selection class, whatever the input selection types: `or()`, `and()`, `add()`, `copy()`, `extract()`, `slice()`, `drop()`...
+*	result of a relation such as `empSel=company.employees`, or a projection such as `empSel.name`,
+*	result of an `entity.getSelection()` function.
+
+
+
+
+## Attributes
+
+There is no specific class for attribute objects. Basically, dataclass properties are attribute objects describing the underlying fields or relations. For example:
 
 ```qs 
  var nameAttribute, revenuesAttribute : object
@@ -478,97 +813,6 @@ function orderBy age(event : object)-> result : string
     end
 
 ```
-
-
-
-
-## Entity
-
-An entity is the equivalent of a record. It is actually an object that references a record in the database. It can be seen as an instance of a [dataclass](#dataclass), like a record of the table matching the dataclass. 
-
-However, an entity also contains data correlated to the datastore. The purpose of the entity is to manage data (create, read, update, delete). When an entity reference is obtained by means of an entity selection, it also retains information about the entity selection which allows iteration through the selection.
-
-For example, to create an entity:
-
-```qs
- var status : object
- var employee : cs.EmployeeEntity //declares a variable of the EmployeeEntity class type
-
- employee=ds.Employee.new()
- employee.firstName="Mary"
- employee.lastName="Smith"
- status=employee.save()
-```
-
-The entity object itself cannot be copied as an object:
-
-```qs
- myentity=objectCopy(ds.Employee.get(1)) //returns null
-```
-
-The entity properties are however enumerable:
-
-```qs
- var names : collection
- names=objectKeys(ds.Employee.get(1))
-  //names contains the names of all the entity attributes
-```
-
-
-## Entity selection
-
-An entity selection is an object containing one or more reference(s) to entities belonging to the same dataclass. It is usually created as a result of a query or returned from a relation attribute. An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass.
-
-Example:
-
-```qs
-var e : cs.EmployeeSelection //declares a e object variable of the EmployeeSelection class type
-e=ds.Employee.all() //assigns the resulting entity selection reference to the e variable
-``` 
-
-The entity selection object itself cannot be copied as an object:
-
-```qs
- myentitysel=objectCopy(ds.Employee.all()) //returns null
-``` 
- 
-The entity selection properties are however enumerable:
-
-```qs
- var names : collection
- names=objectKeys(ds.Employee.all())
-  //names contains the names of the entity selection properties
-  //("length", "00", "01"...)
-```
-
-
-### Ordered or unordered entity selection
-
-For optimization reasons, by default ORDA usually creates unordered entity selections, except when you call the `orderBy()` function or use specific options. In this documentation, unless specified, "entity selection" usually refers to an "unordered entity selection".
-
-Ordered entity selections are created only when necessary or when specifically requested using options, i.e. in the following cases:
-
-*	result of an `orderBy()` on a selection (of any type)
-*	result of an `orderByFormula()` on a selection (of any type)
-*	result of the `newSelection()` function with the `dk keep ordered` option
-
-:::note
-
-Ordered entity selections support duplicated entity references. On the other hand, when an ordered entity selection becomes an unordered entity selection, any repeated entity references are removed.
-
-:::
-
-
-Unordered entity selections are created in all other cases, including:
-
-*	result of a `query()` on a selection (of any type) or a `query()` on a dataclass,
-*	result of a `all()`, `fromCollection()`, or `newSelection()` (without option) function on a dataclass,
-*	result of various functions from the entity selection class, whatever the input selection types: `or()`, `and()`, `add()`, `copy()`, `extract()`, `slice()`, `drop()`...
-*	result of a relation such as `empSel=company.employees`, or a projection such as `empSel.name`,
-*	result of an `entity.getSelection()` function.
-
-
-
 
 ## Exposed vs non-exposed functions
 

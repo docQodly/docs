@@ -280,7 +280,7 @@ Programming:[
 	{
 			type: 'category',
 			label: 'Programming Guide',
-			items: ['orda/data-model','orda/orda-classes','orda/data','orda/queries',
+			items: ['orda/data-model','orda/data','orda/queries',
 			],
 	},
 	{

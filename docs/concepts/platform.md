@@ -32,8 +32,8 @@ Security encompasses more than risk elimination and blocking unauthorized access
 Qodly's key features to protect your data from breaches, loss and failure events include:
 
 - **Authentication**: Qodly supports user authentication and identification through *Cognito*, the AWS Customer identity and access management (CIAM). 
-- **Access control with a low level authorization system**: a per session, built-in user authorization system is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
-- **Data Encryption**: ensures the confidentiality of your data by encrypting tables that contain sensitive information.
+- **Access control with a low level authorization system**: a per session, built-in user [authorization system](../studio/roles/dataAccessRestrictions.md) is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
+- **Data Encryption**: ensures the confidentiality of your data by encrypting dataclasses that contain sensitive information.
 - **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
 
 
