@@ -9,37 +9,52 @@ Qodly is a hybrid **low-code** web application development platform. It means th
 
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud Management Console**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
 
-In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.).
-
-In the **staging** and **production** environments, the same Qodly Server is also used to handle and process requests from the browsers. 
-
-![schema-cloud](img/cloud-schema.png)
+In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.). In the **staging** and **production** environments, Qodly Server is also used to handle and process requests from the browsers. 
 
 
-## Qodly Cloud Management Console 
-
-### Cloud Architecture
+## Qodly Cloud
 
 
-//
+![schema-cloud](img/cloud.png)
+
+### Cloud technologies
+
+Qodly Cloud is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).  
+
+Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
+
+### Environments and services
+
+For every application, [Qodly Server](../concepts/platform.md#qodly-server) is deployed on three different instances called **environments**: 
+
+- **development**: in this environment, developers can create, design, improve their Qodly application
+- **staging**: in this environment, developers, product managers, or quality team can test the application and its features in a configuration similar to the production environment
+- **production**: in this environment, users can connect and use your final application. 
+
+Each environment proposes different services:
+
+||Development|Staging|Production|
+|---|---|---|---|
+|Access to Qodly Studio|X|||
+|Invite developers|X|||
+|Invite users||X|X|
+|Data Backup and Restore|||X|
+|Updates|X|X|X|
+
+User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. 
+
+Every developer or application user needs to be [declared in QIS](xxx) with an appropriate [role](../studio/roles/dataAccessRestrictions.md). Roles allow you to assign assign different permissions at database level for user sessions.
+
+Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
 
 
+[Click here for more information about the Qodly Cloud architecture](../cloud/getStarted.md)
 
-### Security and User management
+### Qodly Cloud Management Console 
 
-Security encompasses more than risk elimination and blocking unauthorized access or unlawful disclosure of information, it covers data loss prevention and protection against destruction.
+The Qodly Cloud Management Console (QCMC) allows you to create, configure, and monitor all your Qodly applications:
 
-Qodly's key features to protect your data from breaches, loss and failure events include:
-
-- **Authentication**: Qodly supports user authentication and identification through *Cognito*, the AWS Customer identity and access management (CIAM). 
-- **Access control with a low level authorization system**: a per session, built-in user [authorization system](../studio/roles/dataAccessRestrictions.md) is included in Qodly, allowing you to assign different permissions and roles to users connecting to the database.
-- **Data Encryption**: ensures the confidentiality of your data by encrypting dataclasses that contain sensitive information.
-- **Backup and logs**: the Qodly platform includes administration tools that verify, maintain, and backup your data and model, ensuring data integrity in case of failure, data corruption or accidental deletion.
-
-
-### Services
-
-//
+![console](img/console.png)
 
 
 ## Qodly Studio
