@@ -154,6 +154,10 @@ const config = {
               label: "Youtube Channels",
               to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
             },
+            {
+              label: "Linkedin",
+              to: "https://linkedin.com/showcase/qodly",
+            },
           ],
         },
         {
