@@ -1,0 +1,5 @@
+---
+id: tabs
+title: Tabs
+---
+//

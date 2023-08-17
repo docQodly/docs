@@ -1,0 +1,19 @@
+{
+    "default": 
+    {
+        "path":"./docs/",
+        "config":"preprocessing.conf"
+    },
+    "start_watch" : {
+        "watch":true,
+        "output":"./docsPostProcessed/"
+    },
+
+    "build_syntax": {
+        "path":"./docs/language/",
+        "syntax_output":"./syntax/en.lproj/syntax_4qs_EN.json",
+        "config":"../preprocessing.conf",
+        "syntax_only":true,
+        "syntax_pretty":true
+    }
+}
