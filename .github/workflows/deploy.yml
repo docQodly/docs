@@ -37,7 +37,7 @@ jobs:
           node-version: '16.x'
       - name: Setup config file
         run: |
-          if [ ${{ github.repository_owner }} == 'docQodly' ]; then
+          if [ ${{ github.repository_owner }} == 'qodly' ]; then
             sed -i 's/noIndex:\ false/noIndex:\ true/g' docusaurus.config.js
           else
             sed -i 's/includeCurrentVersion:\ true/includeCurrentVersion:\ false/g' docusaurus.config.js
