@@ -8,8 +8,15 @@ title: Pictures
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.pictureSize.Syntax -->](#picturesize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureSize.Summary -->|
+|[<!-- INCLUDE #_command_.blobToPicture.Syntax -->](#blobtopicture)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.blobToPicture.Summary -->|
+|[<!-- INCLUDE #_command_.combinePictures.Syntax -->](#combinepictures)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.combinePictures.Summary -->|
+|[<!-- INCLUDE #_command_.convertPicture.Syntax -->](#convertpicture)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.convertPicture.Summary -->|
+|[<!-- INCLUDE #_command_.createThumbnail.Syntax -->](#createthumbnail)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.createThumbnail.Summary -->|
+|[<!-- INCLUDE #_command_.equalPictures.Syntax -->](#equalpictures)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.equalPictures.Summary -->|
+|[<!-- INCLUDE #_command_.getPictureFileName.Syntax -->](#getpicturefilename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getPictureFileName.Summary -->|
+|[<!-- INCLUDE #_command_.getPictureMetadata.Syntax -->](#getpicturemetadata)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getPictureMetadata.Summary -->|
 |[<!-- INCLUDE #_command_.pictureProperties.Syntax -->](#pictureproperties)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureProperties.Summary -->|
+|[<!-- INCLUDE #_command_.pictureSize.Syntax -->](#picturesize)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.pictureSize.Summary -->|
 
 
 ## blobToPicture
