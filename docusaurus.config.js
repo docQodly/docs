@@ -79,8 +79,10 @@ const config = {
         title: 'Docs', //Docs
         logo: {
           alt: 'Qodly',
-          src: 'img/qodly-logo-dark.svg',
-		  srcDark: 'img/qodly-logo-white.svg',
+          //src: 'img/qodly-logo-dark.svg',
+		  //srcDark: 'img/qodly-logo-white.svg',
+          src: 'img/Qodly-beta-D.png',
+		  srcDark: 'img/Qodly-beta-W.png',
         },
         items: [
           {

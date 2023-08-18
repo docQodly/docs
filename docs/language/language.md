@@ -43,6 +43,210 @@ A class store object contains a specific set of classes.
 
 [`cs`](#cs)
 
+
+## callChain
+
+<!-- REF #_command_.callChain.Syntax -->**callChain** : collection<!-- END REF -->
+
+<!-- REF #_command_.callChain.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|collection|<-|Collection of objects describing the call chain within a process|<!-- END REF -->
+
+
+#### Description
+
+The `callChain` command <!-- REF #_command_.callChain.Summary -->returns a collection of objects describing each step of the method call chain within the current process<!-- END REF -->. 
+
+It provides the same information as the *debugger*. It has the added benefit of being able to be executed from any environment.
+
+The command facilitates debugging by enabling the identification of the method called, the component that called it, and the line number where the call was made. Each object in the returned collection contains the following properties:
+
+|Property|Type|Description|Example|
+|---|----|----|----|
+|database|text|Name of the database calling the method|"database":"contactInfo"|
+|line|integer|Line number of call to the method|"line":6|
+|name|text|Name of the called method|"name":"moreThanAverage"|
+|type|text|Type of the method:<li>"projectMethod" (method)</li><li>"executeFormula"</li><li>"classFunction"</li>|"type":"classFunction"|
+
+
+#### Example
+
+```qs
+
+var currentCallChain : collection
+currentCallChain=callChain()
+
+```
+
+
+## clearVariable
+
+<!-- REF #_command_.clearVariable.Syntax -->**clearVariable** ( *variable* : any )<!-- END REF -->
+
+<!-- REF #_command_.clearVariable.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|variable|any|->|Variable to clear|<!-- END REF -->
+
+
+#### Description
+
+The `clearVariable` command <!-- REF #_command_.clearVariable.Summary -->resets *variable* to its [default type value](basics/lang-data-types.md#default-values) (i.e., empty string, 0 for numeric variables, null for objects, etc.)<!-- END REF -->. The variable still exists in memory. 
+
+:::note
+
+You do not need to clear variables when the method or function in which it was created completes execution; Qodly clears them automatically.
+
+:::
+
+## copyParameters
+
+<!-- REF #_command_.copyParameters.Syntax -->**copyParameters**() : collection<br/>**copyParameters** ( *startFrom* : integer ) : collection<!-- END REF -->
+
+<!-- REF #_command_.copyParameters.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|startFrom|integer|->|Starting index (included)|
+|Result|any|<-|New collection containing parameters actually passed|<!-- END REF -->
+
+
+#### Description
+
+The `copyParameters` command <!-- REF #_command_.copyParameters.Summary -->returns a new collection containing all parameters actually passed to a method or a function<!-- END REF -->. This command is useful when you need to forward a various number of parameters from a method or function to another method or function.
+
+In the *startFrom* optional parameter, you can pass the index of the parameter from which to start collecting parameters to forward. The *startFrom* parameter itself is included. 
+
+When called inside a formula, `copyParameters` returns the parameters passed explicitely using [`apply()`](FunctionClass.md#apply) or [`call()`](FunctionClass.md#call) (and not those passed to the parent method or function). 
+
+`copyParameters` returns an empty collection if:
+
+- it is not called in a method or function that has been called by another method or function,
+- no parameter was passed to the parent method or function.
+
+
+#### Example 1
+
+Calling a different function depending on the first parameter and passing other parameters to this function:
+
+```qs
+function selectTask(task : string)
+switch
+  :(task=="Task1")
+	 this.task1(copyParameters(2))
+  :(task=="Task2")
+	 this.task2(copyParameters(2))
+end
+```
+
+Or, calling another function on another object with `apply()` and pass the parameters:
+
+```qs
+function doSomething(param : string , extraParam : variant)
+  this.delegate.doSomething.apply(this.delegate,copyParameters)
+```
+
+#### Example 2
+
+Since the command returns a collection, it can be used with [`.join()`](CollectionClass.md#join) to build for example a html list:
+
+```qs
+
+  // Class
+function list (type : string) -> string
+  //type of list is "u" or "o"
+	var value : collection
+	var html : string
+	value=copyParameters(2)
+	html="<"+type+"l><li>"
+	html+=value.join("</li><li>")
+	html+="</li></"+type+"l>"
+	return html
+ 
+  // Method
+var htmlList : string 
+htmlList=c.list("u","Alpha","Bravo","Charlie")
+  // htmlList = <ul><li>Alpha</li><li>Bravo</li><li>Charlie</li></ul>
+```
+
+
+## countParameters
+
+<!-- REF #_command_.countParameters.Syntax -->**countParameters** : integer<!-- END REF -->
+
+
+<!-- REF #_command_.countParameters.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Number of parameters actually passed|<!-- END REF -->
+
+#### Description
+
+The `countParameters` command <!-- REF #_command_.countParameters.Summary -->returns the number of parameters passed to a method<!-- END REF -->. 
+ 
+
+#### Example 1
+
+Qodly methods accept optional parameters, starting from the right. For example, you can call the method `MyMethod(a,b
+,c,d)` in the following ways:
+
+```qs
+ MyMethod(a,b,c,d)
+ MyMethod(a,b,c)
+ MyMethod(a,b) 
+ MyMethod(a) 
+ MyMethod 
+```
+
+Using `countParameters` from within `MyMethod`, you can detect the actual number of parameters and perform different operations depending on what you have received:
+
+``` 
+//Do_Things method
+
+#declare(p1 : string , p2 : time , p3 : integer)
+var info : string
+info = p1
+if(countParameters>=3)
+    Do_something(p3,p1)
+else
+    if(countParameters>=2)
+       Do_something_else(p2,p1)
+    end
+end
+```
+
+You can then write:
+
+```qs
+Do_Things(vtSomeText) //will only fill info
+Do_Things(vtSomeText , vTime ) //will fill info and call Do_something_else
+Do_Things(vtSomeText , 0 , vNum) //will fill info and call Do_something
+```
+
+#### Example 2
+
+Qodly methods accept a variable number of parameters of the same type, starting from the right. To declare these parameters, you use the [parameter indirection syntax](basics/lang-parameters.md#parameter-indirection-n), in which you pass `${N}` as a variable, where N specifies the first parameter. Using `countParameters` you can address those parameters with a `for` loop. This example is a function that returns the greatest number received as parameter:
+
+```qs
+//MaxOf method
+#declare (${1} : number) -> result : number 
+var i : integer
+result=${1}
+for(i,2,countParameters)
+    if(${i}>result)
+       result=${i}
+    end
+end
+```
+
+After this method has been added to your application, you can write calls like:
+
+```qs
+vrResult=MaxOf(12,50)   
+vrResult=MaxOf(r1,r2,r3,r4,r5,r6)
+```
+
+
 ## cs
 
 <!-- REF #_command_.cs.Syntax -->**cs** : object<!-- END REF -->
@@ -614,11 +818,4 @@ end
 
 [`type`](#type)
 
-## callChain
 
-## clearVariable
-
-
-## copyParameters
-
-## countParameters
