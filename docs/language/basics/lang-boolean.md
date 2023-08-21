@@ -35,7 +35,7 @@ QodlyScript supports two logical operators that work on Boolean expressions: con
 
 :::note
 
-In boolean contexts, it is usually recommended to use [short-circuit logical operators](operators.md#short-circuit-operators) (`&&` and `||`). 
+In boolean contexts, it is usually recommended to use [short-circuit logical operators](lang-operators.md#short-circuit-operators) (`&&` and `||`). 
 
 :::
 

@@ -5,7 +5,7 @@ title: DataClass
 
 
 
-A [DataClass](../concepts/orda/data-model.md#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../concepts/orda/data-model.md#datastore). 
+A [DataClass](../orda/data-model.md#dataclass) provides an object interface to a database table. All dataclasses in a Qodly application are available as a property of the `ds` [datastore](../orda/data-model.md#datastore). 
 
 
 
@@ -86,12 +86,12 @@ Returned attribute objects contain the following properties:
 |indexed|boolean|True if there is a B-tree or a Cluster B-tree index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
 |inverseName|string|Name of the attribute which is at the other side of the relation. Returned only when `.kind`="relatedEntity" or "relatedEntities".|
 |keywordIndexed|boolean|True if there is a keyword index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
-|kind|string|Category of the attribute. Possible values:<li>"storage": storage (or scalar) attribute, i.e. attribute storing a value, not a reference to another attribute</li><li>"calculated": computed attribute, i.e. defined through a [`get` function](../concepts/orda/orda-classes#function-get-attributename).</li><li>"relatedEntity": N -> 1 relation attribute (reference to an entity)</li><li>"relatedEntities": 1 -> N relation attribute (reference to an entity selection)</li>|
+|kind|string|Category of the attribute. Possible values:<li>"storage": storage (or scalar) attribute, i.e. attribute storing a value, not a reference to another attribute</li><li>"calculated": computed attribute, i.e. defined through a [`get` function](../orda/orda-classes#function-get-attributename).</li><li>"relatedEntity": N -> 1 relation attribute (reference to an entity)</li><li>"relatedEntities": 1 -> N relation attribute (reference to an entity selection)</li>|
 |mandatory|boolean|True if null value input is rejected for the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
 |name|string|Name of the attribute as string|
 |readOnly|boolean|True if the attribute is read-only. For example, computed attributes without [`set` function](../basics/orda/orda-classes#function-set-attributename) are read-only.|
 |relatedDataClass|string|Name of the dataclass related to the attribute. Returned only when `.kind`="relatedEntity" or "relatedEntities".|
-|type|string|Conceptual value type of the attribute, useful for generic programming. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": "blob", "bool", "date", "image", "number", "object", or "string". "number" is returned for any numeric types including duration; "string" is returned for uuid, string and text attribute types; "blob" attributes are [blob objects](../basics/lang-blob.md).</li><li>if `.kind`="relatedEntity": related dataClass name</li><li>if `.kind`="relatedEntities": related dataClass name + "Selection" suffix</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
+|type|string|Conceptual value type of the attribute, useful for generic programming. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": "blob", "bool", "date", "image", "number", "object", or "string". "number" is returned for any numeric types including duration; "string" is returned for uuid, string and text attribute types; "blob" attributes are [blob objects](basics/lang-blob.md).</li><li>if `.kind`="relatedEntity": related dataClass name</li><li>if `.kind`="relatedEntities": related dataClass name + "Selection" suffix</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
 |unique|boolean|True if the attribute value must be unique. Not returned if `.kind` = "relatedEntity" or "relatedEntities".|
 
 :::tip
@@ -186,7 +186,7 @@ The nested objects featuring related entities must contain a "\_\_KEY" property 
 
 **Stamp**
 
-If a \_\_STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned ("Given stamp does not match current one for record# XX of table XXXX"). For more information, see [Entity locking](../concepts/orda/data.md#entity-locking).
+If a \_\_STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned ("Given stamp does not match current one for record# XX of table XXXX"). For more information, see [Entity locking](../orda/data.md#entity-locking).
 
 
 #### Example 1
@@ -557,7 +557,7 @@ this example creates a new entity in the "Log" Dataclass and records information
 
 The `.newSelection( )` function <!-- REF #DataClassClass.newSelection().Summary -->creates a new, blank, non-shareable entity selection, related to the dataclass, in memory<!-- END REF -->. 
 
-If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../concepts/orda/data-model.md#ordered-or-unordered-entity-selection).
+If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection).
 
 When created, the entity selection does not contain any entities (`mySelection.length` returns 0). this method lets you build entity selections gradually by making subsequent calls to the [`add()`](EntitySelectionClass.md#add) function.
 
@@ -660,7 +660,7 @@ where:
 	|OR | &#124;,&#124;&#124;, or|
 
 *	**order by attributePath**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
-	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../concepts/orda/data-model.md#ordered-or-unordered-entity-selection). 
+	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection). 
 
 **Using quotes**
 

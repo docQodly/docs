@@ -16,22 +16,31 @@ Qodly proposes several commands and functions allowing to handle your webform co
 
 
 
-### Functions and properties
+### Functions and properties (WebForm)
 
 ||
 |---|
-|[<!-- INCLUDE WebFormClass.componentName.Syntax -->](#componentname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE WebFormClass.componentName.Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.hide().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.show().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
+|[<!-- INCLUDE #WebFormClass.componentName.Syntax -->](#componentname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.componentName.Summary -->|
+|[<!-- INCLUDE #WebFormClass.setError().Syntax -->](#seterror)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setError().Summary -->|
+|[<!-- INCLUDE #WebFormClass.setMessage().Syntax -->](#setmessage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setMessage().Summary -->|
+|[<!-- INCLUDE #WebFormClass.setWarning().Syntax -->](#setwarning)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setWarning().Summary -->|
 
+
+
+
+### Functions and properties (WebFormItem)
+
+||
+|---|
+|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
+|[<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.hide().Summary -->|
+|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
+|[<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.show().Summary -->|
 
 
 ## webEvent
 
-<!-- REF #_command_.webEvent.Syntax -->
-**webEvent** : object<!-- END REF -->
+<!-- REF #_command_.webEvent.Syntax -->**webEvent** : object<!-- END REF -->
 
 <!-- REF #_command_.webEvent.Params -->
 |Parameter|Type||Description|
@@ -107,8 +116,7 @@ end
 
 ## webForm
 
-<!-- REF #_command_.webForm.Syntax -->
-**webForm** : 4D.WebForm<!-- END REF -->
+<!-- REF #_command_.webForm.Syntax -->**webForm** : 4D.WebForm<!-- END REF -->
 
 <!-- REF #_command_.webForm.Params -->
 |Parameter|Type||Description|
@@ -120,11 +128,10 @@ end
 
 The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object that references a webform<!-- END REF -->.
 
-Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
+Each property of the returned object is an object of the [4D.WebFormItem](#webformitem-class) class.
 
 The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 
-<!-- END REF -->
 
 
 ## WebForm Class
@@ -132,17 +139,16 @@ The command returns `null` if it is called in a request that does not originate 
 The `4D.WebForm` class object provides an interface that allows you to handle your webform components. `4D.WebForm` objects are instantiated with the [webForm](#webform) command.
 
 
-<!-- REF WebFormClass.componentName.Desc -->
 
 ### *.componentName*
 
-<!-- REF WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](#webformitem-class)<!-- END REF -->
+<!-- REF #WebFormClass.componentName.Syntax -->***.componentName*** : [4D.WebFormItem](#webformitem-class)<!-- END REF -->
 
 #### Description
 
-The components of webforms are <!-- REF WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these webforms.
+The components of webforms are <!-- REF #WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these webforms.
 
-The returned objects are of the [`4D.WebFormItem`](WebFormItemClass.md) class. These objects have functions that you can use to manage your components dynamically.
+The returned objects are of the [`4D.WebFormItem`](#webformitem-class) class. These objects have functions that you can use to manage your components dynamically.
 
 
 #### Example
@@ -161,7 +167,7 @@ component=myForm.myImage //returns the myImage component of the web form
 <!-- REF #WebFormClass.setError().Syntax -->
 **.setError**( *msg* : string)<!-- END REF -->
 
-<!-- REF #WebFormItemClass.setError().Params -->
+<!-- REF #WebFormClass.setError().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msg|string|->|Error message to display in the web form|
@@ -169,7 +175,7 @@ component=myForm.myImage //returns the myImage component of the web form
 
 #### Description
 
-The `.setError()` function  <!-- REF WebFormClass.setError().Summary -->sends *msg* as an error message to the web form<!-- END REF -->.
+The `.setError()` function  <!-- REF #WebFormClass.setError().Summary -->sends *msg* as an error message to the web form<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "error".
 
@@ -199,7 +205,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 <!-- REF #WebFormClass.setMessage().Syntax -->
 **.setMessage**( *msg* : string)<!-- END REF -->
 
-<!-- REF #WebFormItemClass.setMessage().Params -->
+<!-- REF #WebFormClass.setMessage().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msg|string|->|Information message to display in the web form|
@@ -207,7 +213,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### Description
 
-The `.setMessage()` function  <!-- REF WebFormClass.setMessage.Summary -->sends *msg* as an information message to the web form<!-- END REF -->.
+The `.setMessage()` function  <!-- REF #WebFormClass.setMessage().Summary -->sends *msg* as an information message to the web form<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "message".
 
@@ -232,7 +238,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 <!-- REF #WebFormClass.setWarning().Syntax -->
 **.setWarning**( *msg* : string)<!-- END REF -->
 
-<!-- REF #WebFormItemClass.setMessage().Params -->
+<!-- REF #WebFormClass.setWarning().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msg|string|->|Warning message to display in the web form|
@@ -240,7 +246,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### Description
 
-The `.setWarning()` function  <!-- REF WebFormClass.setWarning.Summary -->sends *msg* as a warning message to the web form<!-- END REF -->.
+The `.setWarning()` function  <!-- REF #WebFormClass.setWarning().Summary -->sends *msg* as a warning message to the web form<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "warning".
 
@@ -264,7 +270,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 The `4D.WebFormItem` class allows you to handle the behavior of your webform components.
 
-`4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass.md) object returned by the [`webForm`](#webform) command. 
+`4D.WebFormItem` objects are properties of the [`4D.WebForm`](#webform-class) object returned by the [`webForm`](#webform) command. 
 
 When you call the [`webForm`](#webform) command, the returned `4D.WebForm` object holds as many `4D.WebFormItems` as there are components with `[server-side references](XXX)` in your webform.
 

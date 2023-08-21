@@ -67,7 +67,7 @@ However, it is necessary to read a shared object/collection within `use...end` w
 
 ### Duplication
 
-Calling [`objectCopy`](../object.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
+Calling [`objectCopy`](../objects.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
 
 ### Storage
 

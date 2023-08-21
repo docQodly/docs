@@ -26,7 +26,7 @@ You can view and modify a few of the attribute’s properties when you select or
 - ![icon](img/alias-icon.png): Indicates an alias attribute.
 - ![icon](img/calculated-icon.png): Indicates a calculated attribute.
 - **Type Icon**: Displays the datastore entity type as an icon.
-- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable.
+- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable. An attribute type can be [scalar](../../concepts/platform.md#data-types) or based upon a [relation](#create-a-relation-attribute), in which case it can be of the *classNameEntity* or *classNameSelection* type). 
 
 
 ### Attribute categories
@@ -35,10 +35,10 @@ There are several categories of attributes in Qodly:
 
 - **Scalar/Storage**: Scalar/storage attributes allow you to store information in the datastore class.
 - **Relation**: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N<->N relationship between three datastore classes.
-- **Alias**: An alias attribute is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute.
-- **Calculated**: A calculated attribute does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. See XXX.
+- **Alias**: An [alias attribute](#alias-attributes) is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute.
+- **Calculated**: A [calculated attribute](#calculated-attributes) does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods.
 
-The data type list contains predefined data types as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
+The data type list contains [predefined data types](../../concepts/platform.md#qodly-database) as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
 
 ![types](img/types.png)
 
@@ -65,7 +65,7 @@ To create a storage attribute:
 2. Give a [name](#attribute-name) to the attribute.
 2. Select a predefined data type from the list and press **Enter**.
 
-The **Qodly database** supports [an extended set of data types](../../concepts/db.md#data-types).
+The **Qodly database** supports [an extended set of data types](../../concepts/platform.md#data-types).
 
 
 ## Create a relation attribute
@@ -233,8 +233,6 @@ Alias attributes based upon relations have a specific [`path`](../../language/Da
 ## Calculated attributes
 
 
-### Overview
-
 A calculated attribute is a dataclass attribute with a data type that masks a calculation.
 
 At the very minimum, a calculated attribute requires a `get` function that describes how its value will be calculated. When a *getter* function is supplied for an attribute, ORDA does not create the underlying storage space in the datastore but instead substitutes the function's code each time the attribute is accessed. If the attribute is not accessed, the code never executes.
@@ -248,342 +246,11 @@ Similarly, calculated attributes can be included in **sorts**. When a calculated
 
 ### Create a calculated attribute
 
-You create a calculated attribute by defining a `get` accessor in the [**entity class**](#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
+You create a calculated attribute by defining a [`get` function](../../orda/data-model.md#function-get-attributename) in the [**entity class**](#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
 
-Other calculated attribute functions (`set`, `query`, and `orderBy`) can also be defined in the entity class. They are optional.
+Three other calculated attribute functions ([`set`](../../orda/data-model.md#function-set-attributename), [`query`](../../orda/data-model.md#function-query-attributename), and [`orderBy`](../../orda/data-model.md#function-orderby-attributename)) can also be defined in the entity class. They are optional.
 
-Within calculated attribute functions, `this` designates the entity. Calculated attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../language/EntityClass.md) or [entity selection class](../language/EntitySelectionClass.md) functions. 
-
-:::info
-
-ORDA calculated attributes are not [**exposed**](#exposed-vs-non-exposed-functions) by default. You expose a calculated attribute by adding the `exposed` keyword to the **get function** definition.
-
-:::
-
-
-### `function get <attributeName>`
-
-#### Syntax
-
-```qs
-{exposed} function get <attributeName>({event : object}) -> result : type
-// code
-```
-The *getter* function is mandatory to declare the *attributeName* calculated attribute. Whenever the *attributeName* is accessed, the `function get` code is evaluated and the *result* value is returned. 
-
-> A calculated attribute can use the value of other calculated attribute(s). Recursive calls generate errors. 
-
-The *getter* function defines the data type of the calculated attribute thanks to the *result* parameter. The following resulting types are allowed:
-
-- Scalar (string, boolean, date, time, number)
-- object
-- Image
-- BLOB
-- Entity (i.e. cs.EmployeeEntity)
-- Entity selection (i.e. cs.EmployeeSelection)
-
-The *event* parameter contains the following properties:
-
-|Property|Type|Description|
-|---|---|---|
-|attributeName|string|Calculated attribute name|
-|dataClassName|string|Dataclass name|
-|kind|string|"get"|
-|result|variant|Optional. Add this property with null value if you want a scalar attribute to return null|
-
-
-#### Examples
-
-- *fullName* calculated attribute:
-
-```qs
-function get fullName(event : object)-> fullName : string
-
-  switch 	
-	: (this.firstName==null) & (this.lastName==null)
-		event.result=null //use result to return null
-	: (this.firstName==null)
-		fullName=this.lastName
-	: (this.lastName==null)
-		fullName=this.firstName
-	else 
-		fullName=this.firstName+" "+this.lastName
-	end 
-```
-
-- A calculated attribute can be based upon an entity related attribute:
-
-```qs
-function get bigBoss(event : object)-> result: cs.EmployeeEntity
-	result=this.manager.manager
-    
-```
-
-- A calculated attribute can be based upon an entity selection related attribute:
-
-```qs
-function get coWorkers(event : object)-> result: cs.EmployeeSelection
-    if (this.manager==null)
-        result=ds.Employee.newSelection()
-    else 
-        result=this.manager.directReports.minus(this)
-    end
-```
-    
-### `function set <attributeName>`
-
-#### Syntax
-
-```qs
-function set <attributeName>(value : type {, event : object})
-// code
-```
-
-The *setter* function executes whenever a value is assigned to the attribute. this function usually processes the input value(s) and the result is dispatched between one or more other attributes.
-
-The *value* parameter receives the value assigned to the attribute. 
-
-The *event* parameter contains the following properties:
-
-|Property|Type|Description|
-|---|---|---|
-|attributeName|string|Calculated attribute name|
-|dataClassName|string|Dataclass name|
-|kind|string|"set"|
-|value|variant|Value to be handled by the calculated attribute|
-
-#### Example
-
-```qs
-function set fullName(value : string , event : object)
-	var p : integer
-    p=position(" ",value) 		
-	this.firstname=substring(value, 1, p-1)  // "" if p<0
-	this.lastname=substring(value, p+1)
-```
-
-
-
-### `function query <attributeName>`
-
-#### Syntax
-
-```qs
-function query <attributeName>(event : object)
-function query <attributeName>(event : object) -> result : string
-function query <attributeName>(event : object) -> result : object
-// code
-```
-
-This function supports three syntaxes:
-
-- With the first syntax, you handle the whole query through the `event.result` object property.
-- With the second and third syntaxes, the function returns a value in *result*:
-	- If *result* is a string, it must be a valid query string
-	- If *result* is an object, it must contain two properties:
-	
-	|Property|Type|Description|
-	|---|---|---|
-	|result.query|string|Valid query string with placeholders (:1, :2, etc.)|
-	|result.parameters|collection|values for placeholders|
-
-The `query` function executes whenever a query using the calculated attribute is launched. It is useful to customize and optimize queries by relying on indexed attributes. When the `query` function is not implemented for a calculated attribute, the search is always sequential (based upon the evaluation of all values using the `get <AttributeName>` function).
-
-:::note
-
-The following features are not supported:
-
-- calling a `query` function on calculated attributes of type Entity or Entity selection, 
-- using the `order by` keyword in the resulting query string.
-
-:::
-
-The *event* parameter contains the following properties:
-
-|Property|Type|Description|
-|---|---|---|
-|attributeName|string|Calculated attribute name|
-|dataClassName|string|Dataclass name|
-|kind|string|"query"|
-|value|variant|Value to be handled by the calculated attribute|
-|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li><= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
-|result|variant|Value to be handled by the calculated attribute. Pass `null` in this property if you want to execute a default query (always sequential for calculated attributes).|
-
-> If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
-
-#### Examples
-
-- Query on the *fullName* calculated attribute. 
-
-```qs
-function query fullName(event : object)->result : object
-
-	var fullname, firstname, lastname, myQuery : string
-	var operator, myQuery : string
-	var p : integer
-	var parameters : collection
-
-	operator=event.operator
-	fullname=event.value
-
-	p=position(" ",fullname) 
-	if (p>0)
-		firstname=substring(fullname, 1, p-1)+"@"
-		lastname=substring(fullname, p+1)+"@"
-		parameters=newCollection(firstname, lastname) // two items collection
-	else 
-		fullname=fullname+"@"
-		parameters=newCollection(fullname) // single item collection
-	end 
-
-	switch 
-	: (operator=="==") | (operator=="===")
-		if (p>0)
-			myQuery="(firstName = :1 and lastName = :2) or (firstName = :2 and lastName = :1)"
-		else 
-			myQuery="firstName = :1 or lastName = :1"
-		end 
-	: (operator="!=")
-		if (p>0)
-			myQuery="firstName != :1 and lastName != :2 and firstName != :2 and lastName != :1"
-		else 
-			myQuery="firstName != :1 and lastName != :1"
-		end 
-	end 
-
-	result=newObject("query", myQuery, "parameters", parameters)
-```
-
-> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../language/DataClassClass.md#query)).
-
-Calling code, for example:
-
-```qs
-emps=ds.Employee.query("fullName = :1", "Flora Pionsin")
-```
-
-- This function handles queries on the *age* calculated attribute and returns an object with parameters:
-
-```qs
-function query age(event : object)->result : object
-	
-	var operator, myQuery : string
-	var age : integer
-	
-	operator=event.operator
-			
-	age=num(event.value)  // integer
-	d1=addToDate(currentDate, -age-1, 0, 0)
-	d2=addToDate(d1, 1, 0, 0)
-	parameters=newCollection(d1, d2)
-	
-	switch 
-			
-		: (operator=="==")
-			myQuery="birthday > :1 and birthday <= :2"  // after d1 and before or egal d2
-			
-		: (operator=="===") 
-
-			myQuery="birthday = :2"  // d2 = second calculated date (= birthday date)
-
-		: (operator==">=")
-			myQuery="birthday <= :2"
-			
-			//... other operators			
-			
-			
-	end 
-	
-	
-	if (undefined(event.result))
-		result=newObject
-		result.query=myQuery
-		result.parameters=parameters
-	end
-
-```  
-
-Calling code, for example:
-
-```qs
-// people aged between 20 and 21 years (-1 day)
-twenty=people.query("age = 20")  // calls the "==" case
-
-// people aged 20 years today
-twentyToday=people.query("age === 20") // equivalent to people.query("age is 20") 
-
-```
-
-
-### `function orderBy <attributeName>`
-
-#### Syntax
-
-```qs
-function orderBy <attributeName>(event : object)
-function orderBy <attributeName>(event : object)-> result : string
-
-// code
-```
-
-The `orderBy` function executes whenever the calculated attribute needs to be ordered. It allows sorting the calculated attribute. For example, you can sort *fullName* on first names then last names, or conversely.
-When the `orderBy` function is not implemented for a calculated attribute, the sort is always sequential (based upon the evaluation of all values using the `get <AttributeName>` function).
-
-:::info
-
-Calling an `orderBy` function on calculated attributes of type Entity class or Entity selection class **is not supported**. 
-
-:::
-
-The *event* parameter contains the following properties:
-
-|Property|Type|Description|
-|---|---|---|
-|attributeName|string|Calculated attribute name|
-|dataClassName|string|Dataclass name|
-|kind|string|"orderBy"|
-|value|variant|Value to be handled by the calculated attribute|
-|operator|string|"desc" or "asc" (default)|
-|descending|boolean|`true` for descending order, `false` for ascending order|
-|result|variant|Value to be handled by the calculated attribute. Pass `null` if you want to let Qodly execute the default sort.|
-
-> You can use either the `operator` or the `descending` property. It is essentially a matter of programming style (see examples).   
-
-You can return the `orderBy` string either in the `event.result` object property or in the *result* function result. If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
-
-
-#### Example
-
-You can write conditional code:
-
-```qs
-function orderBy fullName(event : object)-> result : string
-    if (event.descending==true)
-        result="firstName desc, lastName desc" 
-    else 
-        result="firstName, lastName" 
-    end
-```
-
-You can also write compact code:
-
-```qs
-function orderBy fullName(event : object)-> result : string
-	result="firstName "+event.operator+", "lastName "+event.operator
-
-```
-
-Conditional code is necessary in some cases:
-
-```qs
-function orderBy age(event : object)-> result : string
-    if (event.descending==true)
-        result="birthday asc" 
-    else 
-        result="birthday desc" 
-    end
-
-```
+Within calculated attribute functions, `this` designates the entity. Calculated attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../../language/EntityClass.md) or [entity selection class](../../language/EntitySelectionClass.md) functions. 
 
 
 ## Properties  

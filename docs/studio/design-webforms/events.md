@@ -33,7 +33,7 @@ You can bind your webform events to different actions such as executing a functi
 
 A class function can be mapped to several events, and you can assign several events to the same class function.
 
-> When configuring events,the functions that have namespaces displayed next to them are [shared functions](../datasources.md/#shared-functions).
+> When configuring events,the functions that have namespaces displayed next to them are [shared functions](datasources.md/#shared-functions).
 
 ### Bind a navigation action to an event
 
@@ -46,8 +46,8 @@ To do this:
 3. Define where the target webform opens:
     * **New Tab**: Opens in a new browser tab 
     * **Current Tab**: Opens in the current browser tab, replacing the current webform
-    * **Webform Loader**: Opens in the selected [Webform loader](../components.md#component-list)
-    * **Webform Loader (Self)**: Opens in the current [Webform loader](../components.md#component-list)
+    * **Webform Loader**: Opens in the selected [Webform loader](webformloader.md)
+    * **Webform Loader (Self)**: Opens in the current [Webform loader](webformloader.md)
 
 ![search](img/navigation-event.png)
 
@@ -141,7 +141,7 @@ An `On Change` event attached a datasource triggers in the following cases:
 
 This selector allows you to provide customized feedback to the user for any function events. This feedback is related to the business rules of the application, they do not interact with the application navigation flow. 
 
-When the selector is enabled for a function event, an internal hidden feedback element is added to the web form. This element will automatically display messages sent by the application code as a response to the event using [dedicated `webForm` functions](../language/WebForm.md#webform-class). 
+When the selector is enabled for a function event, an internal hidden feedback element is added to the web form. This element will automatically display messages sent by the application code as a response to the event using [dedicated `webForm` functions](../../language/WebForm.md#webform-class). 
 
 Three levels of feedbacks are available, and will be displayed as colored "toasts":
 

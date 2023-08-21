@@ -107,7 +107,7 @@ users=[{name: "Alice", \
 
 You can create two types of collections:
 
-- regular (non-shared) collections, using the [`newCollection`](collection.md#new-collection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes. 
+- regular (non-shared) collections, using the [`newCollection`](../CollectionClass.md#newcollection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes. 
 - shared collections, using the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command. These collections can be shared between processes, including preemptive threads. Access to these collections is controlled by [`use...end`](lang-shared.md#useend) structures. 
 
 For more information, refer to the [Shared objects and collections](lang-shared.md) section.

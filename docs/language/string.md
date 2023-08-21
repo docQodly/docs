@@ -7,8 +7,8 @@ title: String
 
 **See also:** 
 
-- [**String operators**](../concepts/lang-text.md#string-operators)
-- [**Character Reference Symbols**](../concepts/lang-text.md#character-reference-symbols)
+- [**String operators**](basics/lang-text.md#string-operators)
+- [**Character Reference Symbols**](basics/lang-text.md#character-reference-symbols)
 
 
 ## String Commands
@@ -106,7 +106,7 @@ myText ="hello"+char(carriageReturn)+"world"
 #### See also
 
 [`characterCode`](#charactercode)<br/>
-[`Character Reference Symbols`](../basics/lang-text#character-reference-symbols)
+[`Character Reference Symbols`](basics/lang-text.md#character-reference-symbols)
 
 ## characterCode
 
@@ -511,6 +511,7 @@ After execution of the command, the converted text will be returned in the *conv
 [`convertToString`](#converttostring)
 
 ## convertToString
+
 
 <!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSetString* : string ) : string<br/>**convertToString** ( *aBlob* : blob , *charSetInt* : integer ) : string<!-- END REF -->
 

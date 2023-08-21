@@ -3,7 +3,7 @@ id: dateandtime
 title: Date and Time
 ---
 
-Date and time commands handle [date](../basics/lang-date.md) and [time](../basics/lang-time.md) type values. 
+Date and time commands handle [date](basics/lang-date.md) and [time](basics/lang-time.md) type values. 
 
 ## Date and Time Commands
 
@@ -189,6 +189,7 @@ The following examples show various cases:
  vdDate3=date("It was the 6/30, we were in 2016") //06/30/16
  vobj=newObject("expDate","2020-11-17T00:00:00.0000")
  vdDate4=date(vobj.expDate) //11/17/20
+
  vdDate5=date(vobj.creationDate) //00/00/00
  
 ```
@@ -444,7 +445,7 @@ To compare the value returned by this function, Qodly provides the following pre
 
 The `time` command <!-- REF #_command_.time.Summary -->returns a time expression equivalent to the time specified in the *timeString* or *timeValue* parameter<!-- END REF -->. 
 
-Pass in the *timeString* parameter a string containing a time expressed in one of the standard time formats (for more information, refer to the description of the [`string`](../string.md#string) command).
+Pass in the *timeString* parameter a string containing a time expressed in one of the standard time formats (for more information, refer to the description of the [`string`](string.md#string) command).
 
 Or, you can pass in the *timeValue* parameter a number that represents the number of seconds elapsed since 00:00:00.
 
@@ -487,6 +488,7 @@ You can express any numerical value as a time:
 #### Description
 
 The `timeString` command <!-- REF #_command_.timeString.Summary -->returns the string form of the time expression you pass in *secondsTime* or *secondsValue*<!-- END REF -->. 
+
 
 If you go beyond the number of seconds in a day (86,400), `timeString` continues to add hours, minutes, and seconds. For example, `timeString(86401)` returns 24:00:01.
 

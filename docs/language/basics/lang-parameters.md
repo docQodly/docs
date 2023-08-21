@@ -205,15 +205,15 @@ Result=MySum("##0.00",125,2,33.5,24) //"182.70"
 Result=MySum("000",1,2,200) //"203"
 ```
 
-Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`Count parameters`] command. For example:
+Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`countParameters`](../language.md#countparameters) command. For example:
 
 ```qs
 //foo method
-#DECLARE(p1: Text, p2 : Text, p3 : Date)
-var myLog : Text
-For(i,1,Count parameters)
-	myLog="param "+String(i)+" = "+String(${i})+"\r"
-End for
+#declare(p1: string , p2 : string , p3 : date)
+var myLog : string
+for(i,1,countParameters)
+	myLog="param "+string(i)+" = "+string(${i})+"\r"
+end
 ```
 
 This method can be called:

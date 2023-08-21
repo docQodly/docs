@@ -3,7 +3,7 @@ id: object
 title: Object
 ---
 
-The Object commands manage [object](../basics/lang-object.md) type elements.
+The Object commands manage [object](basics/lang-object.md) type elements.
 
 ## Commands
 
@@ -103,7 +103,7 @@ If you do not pass any parameters, `newObject` creates an empty object and retur
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties). 
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties). 
 - In the *value* parameter, pass the value you want to set for the property. The following types of values are supported:
 	- number (all numeric values are stored as numbers)
 	- string
@@ -151,13 +151,13 @@ obj4={name:"Smith",age:40}
 
 #### Description
 
-The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](../basics/lang-shared) page.
+The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](basics/lang-shared.md) page.
 
 If you do not pass any parameters, `newSharedObject` creates an empty object and returns its reference. 
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties). 
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties). 
 - In the *value* parameter, pass the value you want to set for the property. Shared objects can only contain values of the following types:
 	- number (all numeric values are stored as numbers)
 	- string
@@ -207,7 +207,6 @@ end
 |object|object|->|Object whose class is to be returned|
 |Result|object|<-|Class of object or `null` if not found|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -248,7 +247,7 @@ Then, in a method, you can write:
 <!-- REF #_command_.objectCopy.Syntax -->**objectCopy** ( *object* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : collection ) : object<!-- END REF -->
 
 
-<!-- REF #_command_.abs.Params -->
+<!-- REF #_command_.objectCopy.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |object|object|->|Object to copy|
@@ -351,7 +350,6 @@ We want to copy *sharedObj* in *sharedColl* but since they belong to different s
 |object|object|->|Object to return contents|
 |Result|collection|<-|Collection of objects with key / value properties|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -409,7 +407,6 @@ result2=result2+"/rTheir names are: "+ages.extract("key").join("-")
 |property |string|->|If passed = property to check, if omitted = check object|
 |Result|boolean|<-|<li>If *property* omitted: true if *object* is defined, otherwise false.</li><li>If *property* passed: true if *property* is defined, otherwise false.</li>|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -471,7 +468,6 @@ This test is equivalent to:
 |object|object|->|Object to check|
 |Result|boolean|<-|true if object is empty or undefined, otherwise false|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -513,7 +509,6 @@ The `objectIsEmpty` command <!-- REF #_command_.objectIsEmpty.Summary -->returns
 |collection|collection|->|Collection to check|
 |Result|boolean|<-|true if *object* or *collection* is shareable, false if it is alterable|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -539,7 +534,6 @@ The command returns `true` if you pass a [shareable entity selection](../concept
 |object|object|->|Object to return property names|
 |Result|collection|<-|Collection of property names (strings)|<!-- END REF -->
 
-<!-- END REF -->
 
 #### Description
 
@@ -580,8 +574,8 @@ col=objectKeys(person)
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |object|object|->|Object to edit|
-|property |string|->|Name of property to remove|
-<!-- END REF -->
+|property |string|->|Name of property to remove|<!-- END REF -->
+
 
 #### Description
 
@@ -597,6 +591,7 @@ If the *property* is not found at the first level of *object*, the command does 
 
 ```qs
  var obj : object
+
  obj={name : "Smith", info: {a: 20, b: 30}}
  objectRemove(obj, "name")
 	//obj: {"info": {"a": 20, "b": 30}} 
@@ -616,7 +611,7 @@ If the *property* is not found at the first level of *object*, the command does 
 |object|object|->|Object to return property values|
 |Result|collection|<-|Collection of property values (variant)|<!-- END REF -->
 
-<!-- END REF -->
+
 
 #### Description
 
@@ -658,7 +653,7 @@ The order of values within the returned collection follows the definition order 
 |---------|--- |:---:|------|
 |Result|object|<-|Catalog of shared objects and shared collections registered in `storage`|<!-- END REF -->
 
-<!-- END REF -->
+
 
 #### Description
 
@@ -668,7 +663,7 @@ The catalog returned by `storage` is automatically created by Qodly and is avail
 
 Use the `storage` catalog to reference any shared objects or shared collections that you want to be used from any preemptive or standard process. To register a shared object or a shared collection in the catalog, add its reference to the shared object returned by `storage`.
 
-Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](../basics/lang-shared) section (but with some specificities):
+Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](basics/lang-shared.md) section (but with some specificities):
 
 - This object can only contain shared objects and shared collections. Trying to add other kinds of values (non-shared objects or collections, null, scalar values) will generate an error.
 - Adding a property to this object must be surrounded by the `use...end` structure, otherwise an error is returned. Reading an attribute outside of a `use...end` structure is, however, possible.

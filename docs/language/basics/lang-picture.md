@@ -7,11 +7,11 @@ A Picture attribute, variable or expression can be any valid image. In general, 
 
 QodlyScript uses native APIs to encode (write) and decode (read) picture. These implementations provide access to numerous native formats. 
 
-QodlyScript supports metadata in pictures. Two commands, [`setPictureMetadata`](../picture.md#setpicturemetadata) and [`getPictureMetadata`](../picture.md#getpicturemetadata), let you benefit from metadata in your developments.
+QodlyScript supports metadata in pictures. Two commands, [`setPictureMetadata`](../pictures.md#setpicturemetadata) and [`getPictureMetadata`](../pictures.md#getpicturemetadata), let you benefit from metadata in your developments.
 
 ## Picture Codec IDs  
 
-QodlyScript supports natively a set of picture formats. A picture format is defined through a *codecID*. Several [picture management commands](picture.md) can receive a *codecID* as a parameter. 
+QodlyScript supports natively a set of picture formats. A picture format is defined through a *codecID*. Several [picture management commands](../pictures.md) can receive a *codecID* as a parameter. 
 
 The following codec IDs are supported:
 
@@ -45,9 +45,9 @@ The following codec IDs are supported:
 :::note Notes
 
 - In order to use the `|` operator, Pict1 and Pict2 must have exactly the same dimension. If both pictures are a different size, the operation Pict1 | Pict2 produces a blank picture.
-- The [`combinePictures`](../picture.md#combinePicture) command can be used to superimpose pictures while keeping the characteristics of each source picture in the resulting picture.
-- Additional operations can be performed on pictures using the [`transformPicture`](../picture.md#transformPicture) command.
-- There is no comparison operators on pictures, however QodlyScript proposes the [`equalPicture`](../picture.md#equalPicture) command to compare two pictures.
+- The [`combinePictures`](../pictures.md#combinePicture) command can be used to superimpose pictures while keeping the characteristics of each source picture in the resulting picture.
+- Additional operations can be performed on pictures using the [`transformPicture`](../pictures.md#transformPicture) command.
+- There is no comparison operators on pictures, however QodlyScript proposes the [`equalPicture`](../pictures.md#equalPicture) command to compare two pictures.
 
 ::: 
 

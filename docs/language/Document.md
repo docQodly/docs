@@ -293,7 +293,7 @@ copy=source.copyTo(folder("/PACKAGE"),fk overwrite)
 
 #### Description
 
-The `.getContent()` function  <!-- REF #document.getContent().Summary -->returns a `4D.Blob` object containing the entire content of a file<!-- END REF -->. For information on blobs, please refer to the [blob](../basics/lang-blob.md) section.
+The `.getContent()` function  <!-- REF #document.getContent().Summary -->returns a `4D.Blob` object containing the entire content of a file<!-- END REF -->. For information on blobs, please refer to the [blob](basics/lang-blob.md) section.
 
 **Returned value**
 

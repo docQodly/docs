@@ -3,7 +3,7 @@ id: coding
 title: Coding
 ---
 
-In Qodly Studio, you use [events](design-webforms/events/events.md) in conjunction with class functions and methods to manage the information inside your web application.
+In Qodly Studio, you use [events](design-webforms/events.md) in conjunction with class functions and methods to manage the information inside your web application.
 
 
 ## Methods and Classes
@@ -14,7 +14,7 @@ In QodlyScript, you can organize your code in two kinds of structures: **methods
 ![code-editor](img/method-exec.png)
 - [**classes**](../language/basics/lang-classes.md) allow you to organize your code according to objects. Only class functions can be called from your components. 
 	- User classes allow you to set the behavior of your components. For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](../language/WebForm.md). 
-	- [ORDA classes](../language/basics/orda-classes.md) are used to configure your data model and your business logic.  
+	- [ORDA classes](../orda/data-model.md) are used to configure your data model and your business logic.  
 
 Both code structures are handled in the code editor. 
 

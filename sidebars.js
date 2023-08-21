@@ -40,7 +40,7 @@ const sidebars = {
       id: 'concepts/quickstart',
       label: "Quickstart"
     },
-	{
+	/*{
         type: 'category',
         label: 'Qodly Hero Handbook',
         link: {
@@ -160,6 +160,7 @@ const sidebars = {
             },
         ],
     },
+    */
     {
       type: 'doc',
       id: 'resources',
@@ -167,41 +168,21 @@ const sidebars = {
     }, 
   ],
   
-    Dashboard:[
+    Console:[
     {
-      type: 'doc',
-      id: 'cloud/overview-cloud',
-      label: "Dashboard"
-    }, 
+		type: 'doc',
+		id: 'cloud/getStarted',
+		label: "Basics"
+	},
 	{
-			type: 'category',
-			label: "User Guide",
-			link: {
-				type: 'generated-index',
-				title: 'User Guide',
-				description: 'User Guide for Qodly Cloud administrators',
-				slug: '/category/cloud',
-				image: '/img/docusaurus.png',
-				},
-			items: [
-				{
-					type: 'doc',
-					id: 'cloud/getStarted',
-					label: "Getting Started"
-				},
-				{
-					type: 'doc',
-					id: 'cloud/monitor',
-					label: "Monitoring"
-				},
-				{
-					type: 'doc',
-					id: 'cloud/account',
-					label: "Account Management"
-				},
-			],
-		
-
+		type: 'doc',
+		id: 'cloud/monitor',
+		label: "Monitoring"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/account',
+		label: "Account Management"
 	},
 
 	],
@@ -225,7 +206,32 @@ const sidebars = {
 			type: 'category',
 			label: 'Webforms',
 			items: ['studio/design-webforms/create-webform',
-				'studio/design-webforms/components',
+					{
+						type: 'category',
+						label: 'Components',
+						link: {
+							type: 'doc',
+							id: 'studio/design-webforms/components',
+							},
+						items: ['studio/design-webforms/selectbox',
+							'studio/design-webforms/stylebox',
+							'studio/design-webforms/tabs',
+							'studio/design-webforms/webformloader',
+							'studio/design-webforms/matrix',
+							'studio/design-webforms/datatable',
+							'studio/design-webforms/text',
+							'studio/design-webforms/button',
+							'studio/design-webforms/textinput',
+							'studio/design-webforms/image',
+							'studio/design-webforms/fileupload',
+							'studio/design-webforms/radio',
+							'studio/design-webforms/rangeinput',
+							'studio/design-webforms/selectinput',
+							'studio/design-webforms/icon',
+							'studio/design-webforms/checkbox',
+						],
+					},
+				'studio/design-webforms/properties',
 				'studio/design-webforms/styling',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
@@ -274,8 +280,8 @@ const sidebars = {
 Programming:[
 	{
 			type: 'category',
-			label: 'Programming with ORDA',
-			items: ['orda/overview','orda/data-model','orda/orda-classes','orda/data','orda/queries',
+			label: 'Programming Guide',
+			items: ['orda/data-model','orda/data','orda/queries',
 			],
 	},
 	{
@@ -330,7 +336,6 @@ Programming:[
 						'language/basics/lang-operators',
 						'language/basics/lang-methods',
 						'language/basics/lang-classes',
-						'language/basics/orda-classes',
 						'language/basics/lang-parameters',
 						'language/basics/lang-expressions',
 						'language/basics/lang-shared',

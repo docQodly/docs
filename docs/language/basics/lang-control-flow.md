@@ -67,7 +67,7 @@ The result is similar and *MethodB* is evaluated only if necessary.
 
 :::tip
 
-The [ternary operator](operators.md#ternary-operator) allows writing one-line conditional expressions and can replace a full sequence of `if...else...end` statements.
+The [ternary operator](lang-operators.md#ternary-operator) allows writing one-line conditional expressions and can replace a full sequence of `if...else...end` statements.
 
 :::
 
@@ -283,7 +283,7 @@ The Boolean expression must be set by something inside the loop or else the loop
  end
 ```
 
-If you find yourself in such a situation, where a method is executing uncontrolled, you can use the trace facilities to stop the loop and track down the problem. For more information about tracing the code, see the [Error handling](lang-error.md) page.
+If you find yourself in such a situation, where a method is executing uncontrolled, you can use the trace facilities to stop the loop and track down the problem. For more information about tracing the code, see the [Error handling](lang-errors.md) page.
 
 #### Example
 
@@ -309,7 +309,7 @@ repeat
     {continue}
 until(Boolean_Expression)
 ```
-A `repeat...until` loop is similar to a [while...end](flow-control.md#whileend) loop, except that it tests the Boolean expression after the loop rather than before. Thus, a `repeat...until` loop always executes the loop once, whereas if the Boolean expression is initially False, a `while...end` loop does not execute the loop at all.
+A `repeat...until` loop is similar to a [while...end](#whileend) loop, except that it tests the Boolean expression after the loop rather than before. Thus, a `repeat...until` loop always executes the loop once, whereas if the Boolean expression is initially False, a `while...end` loop does not execute the loop at all.
 
 The other difference with a `repeat...until` loop is that the loop continues until the Boolean expression is TRUE.
 
@@ -704,7 +704,7 @@ end
 
 The `return` statement can be called from anywhere. When a `return` statement is used in a function or method, the execution of the function or method is stopped. The remaining code is not executed and the control is returned to the caller.
 
-The `return` statement can be used to [return a value](parameters.md#return-expression) to the caller.
+The `return` statement can be used to [return a value](lang-parameters.md#return-expression) to the caller.
 
 #### Example
 

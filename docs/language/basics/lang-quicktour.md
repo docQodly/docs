@@ -131,7 +131,7 @@ output=uppercase(input)
 
 ## Data Types
 
-In QodlyScript, the various types of data that can be handled are referred to as data types. There are scalar data types (string, numeric, date, time, boolean, picture, arrays), and also composite data types (BLOBs, objects, collections).
+In QodlyScript, the various types of data that can be handled are referred to as data types. There are scalar data types (string, numeric, date, time, boolean, picture), and also composite data types (objects, collections, blobs).
 
 Note that string and numeric data types can be associated with more than one type of datastore attributes. When data is put into an attribute, QodlyScript automatically converts the data to the correct type for the attribute. For example, if an Long attribute is used, its data is automatically treated as integer. In other words, you need not worry about mixing similar attribute types when using the QodlyScript; it will manage them for you.
 

@@ -79,8 +79,10 @@ const config = {
         title: 'Docs', //Docs
         logo: {
           alt: 'Qodly',
-          src: 'img/qodly-logo-dark.svg',
-		  srcDark: 'img/qodly-logo-white.svg',
+          //src: 'img/qodly-logo-dark.svg',
+		  //srcDark: 'img/qodly-logo-white.svg',
+          src: 'img/Qodly-beta-D.png',
+		  srcDark: 'img/Qodly-beta-W.png',
         },
         items: [
           {
@@ -91,7 +93,7 @@ const config = {
           },
   		  {
             type: 'doc',
-            docId: 'cloud/overview-cloud',
+            docId: 'cloud/getStarted',
             position: 'left',
             label: 'Dashboard',
           },
@@ -139,28 +141,24 @@ const config = {
           title: "Community",
           items: [
             {
-              label: "4D Blog",
-              to: "https://blog.4d.com",
-            },
-            {
-              label: "4D Forum",
-              to: "https://discuss.4d.com",
+              label: "Slack",
+              to: "https://join.slack.com/t/qodly/shared_invite/zt-20ieeffts-NU57SOXcbakmWgIMnJpStQ",
             },
             {
               label: "Facebook",
-              to: "https://www.facebook.com/4Dsoftware/",
+              to: "https://www.facebook.com/qodlyby4d",
             },
             {
               label: "Twitter",
-              to: "https://twitter.com/4Dsoftware",
+              to: "https://twitter.com/qodlyby4d",
             },
             {
-              label: "Youtube",
-              to: "https://www.youtube.com/user/4Dsoftware",
+              label: "Youtube Channels",
+              to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
             },
             {
-              label: "Github",
-              to: "https://github.com/4D/",
+              label: "Linkedin",
+              to: "https://linkedin.com/showcase/qodly",
             },
           ],
         },
@@ -168,28 +166,12 @@ const config = {
           title: "Support",
           items: [
             {
-              label: "4D Documentation",
-              to: "https://developer.4d.com/docs/",
-            },
-            {
-              label: "4D Doc Center (Legacy)",
-              to: "https://doc.4d.com/",
-            },
-            {
-              label: "Knowledge Base",
-              to: "http://kb.4d.com/",
-            },
-            {
-              label: "Downloads",
-              to: "https://us.4d.com/product-download",
-            },
-            {
-              label: "Resources",
-              to: "https://us.4d.com/resources",
+              label: "Tutorials",
+              to: "https://www.youtube.com/playlist?list=PLcUzCPYm5QO-2WoG87EdZFIccbewCURJm",
             },
             {
               label: "Get Support",
-              to: "https://us.4d.com/4d-technical-support",
+              to: "https://support.4d.com/",
             },
           ],
         },
@@ -202,15 +184,7 @@ const config = {
             },
             {
               label: "Contact us",
-              to: "https://us.4d.com/contact-us",
-            },
-            {
-              label: "4D around the world",
-              to: "https://us.4d.com/4d-around-the-world",
-            },
-            {
-              label: "Careers",
-              to: "https://us.4d.com/careers",
+              to: "mailto:contact@qodly.com",
             },
           ],
         },

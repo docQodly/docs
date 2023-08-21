@@ -12,7 +12,7 @@ Creating, sending or receiving emails in Qodly is done by handling an `Email` ob
 
 > You can also create a new, blank `Email` object by calling the `New object` command, and then fill it with [Email object properties](#email-object).
 
-You send `Email` objects using the SMTP [`.send()`](SMTPTransporterClass.md#send) function.
+You send `Email` objects using the SMTP [`.send()`](`SMTPTransporterClass.md#send`) function.
 
 [`MAIL Convert from MIME`](#mail-convert-from-mime) and [`MAIL Convert to MIME`](#mail-convert-to-mime) commands can be used to convert `Email` objects to and from MIME contents.
 
