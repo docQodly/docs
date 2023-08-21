@@ -376,7 +376,7 @@ This automatic mechanism is based on the concept of "optimistic locking" which i
 
 *	All entities can always be loaded in read-write; there is no *a priori* "locking" of entities.
 *	Each entity has an internal locking stamp that is incremented each time it is saved.
-*	When a user or process tries to save an entity using the `entity.save( )` method, Qodly compares the stamp value of the entity to be saved with that of the entity found in the data (in the case of a modification):
+*	When a user or process tries to save an entity using the [`entity.save()`](../language/EntityClass.md#save) function, Qodly compares the stamp value of the entity to be saved with that of the entity found in the data (in the case of a modification):
 	*	When the values match, the entity is saved and the internal stamp value is incremented.
 	*	When the values do not match, it means that another user has modified this entity in the meantime. The save is not performed and an error is returned.
 
@@ -386,11 +386,11 @@ The following diagram illustrates optimistic locking:
 
 ![](img/optimisticLock1.png)
 
-2. The first process modifies the entity and validates the change. The `entity.save()` method is called. The 4D engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented. 
+2. The first process modifies the entity and validates the change. The [`entity.save()`](../language/EntityClass.md#save) fucntion is called. The Qodly engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented. 
 
 ![](img/optimisticLock2.png)
 
-3. The second process also modifies the loaded entity and validates its changes. The `entity.save()` method is called. Since the stamp value of the modified entity does not match the one of the entity stored in the data, the save is not performed and an error is returned. 
+3. The second process also modifies the loaded entity and validates its changes. The `entity.save()` function is called. Since the stamp value of the modified entity does not match the one of the entity stored in the data, the save is not performed and an error is returned. 
 
 ![](img/optimisticLock3.png)
 
@@ -408,7 +408,7 @@ This can also be illustrated by the following code:
 
 In this example, we assign to *person1* a reference to the person entity with a key of 1. Then, we assign another reference of the same entity to variable *person2*. Using *person1*, we change the first name of the person and save the entity. When we attempt to do the same thing with *person2*, ORDA checks to make sure the entity on disk is the same as when the reference in *person1* was first assigned. Since it isn't the same, it returns false in the `success` property and doesn’t save the second modification.
 
-When this situation occurs, you can, for example, reload the entity from the disk using the `entity.reload()` function so that you can try to make the modification again. The `entity.save()` method also proposes an "automerge" option to save the entity in case processes modified attributes that were not the same.
+When this situation occurs, you can, for example, reload the entity from the disk using the [`entity.reload()`](../language/EntityClass.md#reload) function so that you can try to make the modification again. The `entity.save()` function also proposes an "automerge" option to save the entity in case processes modified attributes that were not the same.
 
 > Record stamps are not used in **transactions** because only a single copy of a record exists in this context. Whatever the number of entities that reference a record, the same copy is modified thus `entity.save()` operations will never generate stamp errors.
 
@@ -418,7 +418,7 @@ You can lock and unlock entities on demand when accessing data. When an entity i
 
 This feature is based upon two functions of the `Entity` class:
 
-*	[`entity.lock()`](../../language/EntityClass.md#lock)
-*	[`entity.unlock()`](../../language/EntityClass.md#unlock)
+*	[`entity.lock()`](../language/EntityClass.md#lock)
+*	[`entity.unlock()`](../language/EntityClass.md#unlock)
 
 For more information, please refer to the descriptions for these functions.

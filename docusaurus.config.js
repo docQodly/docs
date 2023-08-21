@@ -112,7 +112,7 @@ const config = {
           },
 		   {
             type: 'doc',
-            docId: 'orda/overview',
+            docId: 'orda/data-model',
             position: 'left',
             label: 'Programming',
           },
