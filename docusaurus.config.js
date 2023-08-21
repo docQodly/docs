@@ -79,8 +79,10 @@ const config = {
         title: 'Docs', //Docs
         logo: {
           alt: 'Qodly',
-          src: 'img/qodly-logo-dark.svg',
-		  srcDark: 'img/qodly-logo-white.svg',
+          //src: 'img/qodly-logo-dark.svg',
+		  //srcDark: 'img/qodly-logo-white.svg',
+          src: 'img/Qodly-beta-D.png',
+		  srcDark: 'img/Qodly-beta-W.png',
         },
         items: [
           {
@@ -93,7 +95,7 @@ const config = {
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
-            label: 'Console',
+            label: 'Dashboard',
           },
 
 		  /*{
@@ -153,6 +155,10 @@ const config = {
             {
               label: "Youtube Channels",
               to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
+            },
+            {
+              label: "Linkedin",
+              to: "https://linkedin.com/showcase/qodly",
             },
           ],
         },
