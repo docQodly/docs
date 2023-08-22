@@ -148,26 +148,6 @@ You can upload an image to the studio and display it in your application. That i
 An uploaded image is displayed in the WebForm window when you select it in the **images** directory.
 
 
-### Matrix
-
-[**Iterative** component](#iterative-components).
-
-A **matrix** component displays a variable number of stylebox components (based upon the number of elements in the matrix's datasource). For example, you can display an entity selection using a matrix, where each included stylebox contains some attributes of the entity selection (text, images, etc). 
-
-The matrix is an [iterative component](#iterative-components). You can iterate on the matrix contents using the `$This` keyword.
-
-#### Orientation
-
-
-A matrix automatically displays as many stylebox composents as possible in the defined height and width. You can select the **orientation** of the matrix, i.e. the order stylebox components are displayed and how they can be scrolled. Two options are available:
-
-![alt-text](img/matrix-orientation.png) 
-
-- **Horizontal**: stylebox components are ordered horizontally and a horizontal scrollbar is automatically displayed if necessary.
-- **Vertical** (default): stylebox components are ordered vertically and a vertical scrollbar is automatic
-ally displayed if necessary.
-
-
 ### Select box
 
 [**Iterative** component](datasources.md#iterative-components).
