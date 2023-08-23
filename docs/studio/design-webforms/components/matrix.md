@@ -13,6 +13,8 @@ Upon its placement on the canvas, the Matrix component comes equipped with a sin
 
 This component proves highly beneficial for structured and customizable data presentation, allowing for the display of attributes associated with entity selections and similar scenarios.
 
+( ☢️ to be done ☢️ )
+
 ## Use Cases
 
 The Matrix component finds application in various scenarios where data needs to be displayed iteratively and can be customized. Common use cases include:
@@ -26,7 +28,7 @@ The Matrix component finds application in various scenarios where data needs to 
 
 ## Customization
 
-Developers have the flexibility to configure and customize the appearance and behavior of the Matrix component to match their specific requirements. Configuration options include:
+Enhance the Matrix component to align with your application's requirements using the following customization options:
 
 - Orientation: Developers can choose between horizontal and vertical orientations for the Matrix. This choice affects the arrangement of Stylebox components and the presence of scrollbars.
 
@@ -36,17 +38,16 @@ Developers have the flexibility to configure and customize the appearance and be
 
     <img alt="explorer" src={require('./img/matrix_orientations.gif').default} style={{borderRadius: '6px'}} />
 
+
 ## Data-Bounding
 
 The Matrix component is data-bound, which means it relies on a datasource for its content. This enables the component to display, interact with, and fetch data seamlessly.
 
 ### <u>Data Display</u>
+( ☢️ to be done ☢️ )
 
-//
-
-### <u>Data Interaction</u>
-
-// 
+### <u>Server-Side Interaction</u>
+( ☢️ to be done ☢️ )
 
 ## Triggers and Events
 
