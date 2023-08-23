@@ -1,60 +1,61 @@
 ---
 id: tabs
 title: Tabs
-hide_title: true
 ---
 
-## Component Overview
 
-The Tabs component is a versatile container designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your webform.
+The **Tabs** component is a versatile container designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your webform.
 
-Each tab within the Tabs component incorporates an embedded Stylebox, promoting orderly content arrangement and alignment. This integration optimizes the presentation of components within each tab.
+:::info 
 
-( ☢️ to be done ☢️ )
+Each tab within the Tabs component includes an embedded Stylebox, fostering organized content structuring and alignment. 
+
+:::
+
 
 ## Use Cases
 
 The Tabs component proves invaluable across a range of scenarios where content organization and easy navigation are paramount:
 
-- Multifunctional Interfaces: Implement the Tabs component in applications with diverse features or sections, such as dashboards. Users can quickly switch between different aspects of the application while enjoying a clear visual separation.
+- **Multifunctional Interfaces**: Implement the Tabs component in applications with diverse features or sections, such as dashboards. Users can quickly switch between different aspects of the application while enjoying a clear visual separation.
 
-- Form Navigation: Integrate tabs within lengthy forms or multi-step processes. Users can navigate through different sections of the form seamlessly, focusing on relevant data input without feeling overwhelmed.
+- **Form Navigation**: Integrate tabs within lengthy forms or multi-step processes. Users can navigate through different sections of the form seamlessly, focusing on relevant data input without feeling overwhelmed.
 
-- Content Categorization: Apply the Tabs component to categorize and display content, such as articles or product listings. This enables users to access specific categories with minimal effort, enhancing content discoverability.
+- **Content Categorization**: Apply the Tabs component to categorize and display content, such as articles or product listings. This enables users to access specific categories with minimal effort, enhancing content discoverability.
 
 
-## Customization
+## Customization Through Properties Panel
 
 Enhance the Tabs component to align with your application's requirements using the following customization options:
 
-- Variant Selection: Choose the ideal tab variant that best matches your design aesthetics:
+- **Variant Selection**: Choose the ideal tab variant that best matches your design aesthetics:
     
-    - Line Variant: Select the "Line" variant for tabs with an underlined styling effect. This option provides a clean and visually distinct appearance.
+    - **Line Variant**: Select the "Line" variant for tabs with an underlined styling effect..
 
-    - Enclosed Variant: Opt for the "Enclosed" variant to showcase tabs with a bordered presentation. This choice adds an additional layer of style to your tabs.
+    - **Enclosed Variant**: Opt for the "Enclosed" variant to showcase tabs with a bordered presentation. This choice adds an additional layer of style to your tabs.
 
-- Adding Tabs: Incorporate new tabs with ease using the intuitive tab management system:
+- **Adding Tabs**: Incorporate new tabs with ease using the intuitive tab management system:
 
-    - Using the Plus Button: Add new tabs effortlessly by clicking the "+" button within the Tabs component. Each tab can be individually configured, allowing you to fine-tune attributes such as title, content, and more.
+    - **Using the Plus Button**: Add new tabs effortlessly by clicking the "+" button within the Tabs component. Each tab can be individually configured, allowing you to fine-tune attributes such as:
 
-    - Direct Canvas Addition: Directly add new tabs onto the canvas using the "+" icon. This approach provides an alternative method for tab integration.
+        - **Tab Duplication**: Duplicate existing tabs to replicate configurations quickly.
 
-- Tab Configuration:  Manage and tailor tabs to meet your design requirements:
+        - **Tab Removal**: Delete tabs that no longer serve a purpose within your content structure.
 
-    - Tab Duplication: Duplicate existing tabs to replicate configurations quickly.
+        - **Title Customization**: Modify tab titles to precisely reflect the content or functionality associated with each tab. 
 
-    - Tab Removal: Delete tabs that no longer serve a purpose within your content structure.
+    - **Direct Canvas Addition**: Directly add new tabs onto the canvas using the "+" icon.
 
-    - Title Customization: Modify tab titles to precisely reflect the content or functionality associated with each tab. 
 
 
 ## Data-Bounding
 
-When it comes to data-binding, it's important to note that the Tabs component itself is not inherently data-bound. Unlike components like the DataTable that derive their content from specified datasources, the Tabs component primarily focuses on organizing and presenting content through clickable tabs.
+When it comes to data-binding, it's important to note that the **Tabs** component itself is not inherently data-bound. Unlike components like the DataTable that derive their content from specified datasources, the Tabs component primarily focuses on organizing and presenting content through clickable tabs.
+
 
 ## Triggers and Events
 
-The Tabs component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **Tabs** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|

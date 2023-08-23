@@ -1,10 +1,7 @@
 ---
 id: icon
 title: Icon
-hide_title: true
 ---
-
-## Component Overview
 
 // introduce the component
 

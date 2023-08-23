@@ -1,51 +1,49 @@
 ---
 id: textinput
 title: Text Input
-hide_title: true
 ---
 
-## Component Overview
 
-The Text Input component serves as a crucial element for user interactions, allowing seamless input of alphanumeric data within your webform. By offering various input types, this component caters to a wide range of data entry scenarios.
+The **Text Input** component serves as a crucial element for user interactions, allowing seamless input of alphanumeric data within your webform. By offering various input types, this component caters to a wide range of data entry scenarios.
 
 
 ## Use Cases
 
 The Text Input component provides a versatile solution for a wide range of backoffice scenarios, streamlining data entry and enhancing user interactions:
 
-- User Profile Management: Incorporate the Text Input component in user profile management interfaces. Users can conveniently update their personal information, such as names, contact details, and addresses, ensuring accurate and up-to-date records.
+- **User Profile Management**: Incorporate the Text Input component in user profile management interfaces. Users can conveniently update their personal information, such as names, contact details, and addresses, ensuring accurate and up-to-date records.
 
-- Data Filtering: Enhance data filtering capabilities within backoffice applications. Implement Text Input components to allow users to input search criteria, making it easier to locate specific records within large datasets.
+- **Data Filtering**: Enhance data filtering capabilities within backoffice applications. Implement Text Input components to allow users to input search criteria, making it easier to locate specific records within large datasets.
 
-- Comments and Notes: Integrate Text Input components within comment or note sections of backoffice systems. Employees can leave comments, feedback, or additional information on records, facilitating efficient communication and collaboration.
+- **Comments and Notes**: Integrate Text Input components within comment or note sections of backoffice systems. Employees can leave comments, feedback, or additional information on records, facilitating efficient communication and collaboration.
 
 
-## Customization
+## Customization Through Properties Panel
 
-Enhance the Text Input component to align with your application's requirements using the following customization options:
+Enhance the **Text Input** component to align with your application's requirements using the following customization options:
 
-- Label Position: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.
+- **Label Position**: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.
 
-- Input Customization: The input field allows for personalized configurations, including :
+- **Input Customization**: The input field allows for personalized configurations, including :
     
-    - Placeholder: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.
+    - **Placeholder**: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.
 
-    - Input Type: Select the appropriate input type to match the nature of the expected data. Available types include:
+    - **Input Type**: Select the appropriate input type to match the nature of the expected data. Available types include:
 
-        - text: Standard alphanumeric data.
-        - number: Numerical values only.
-        - password: Concealed input for sensitive data.
-        - date: Restriction to date values with an associated date picker.
-        - time: Limiting input to time values (if supported by the component).
+        - **text**: Standard alphanumeric data.
+        - **number**: Numerical values only.
+        - **password**: Concealed input for sensitive data.
+        - **date**: Restriction to date values with an associated date picker.
+        - **time**: Limiting input to time values (if supported by the component).
     
-    - Input Format: Specify the desired format for the entered data. This is especially relevant for dates and times, where specific formatting ensures consistency and clarity.
+    - **Input Format**: Specify the desired format for the entered data. This is especially relevant for dates and times, where specific formatting ensures consistency and clarity.
 
-    - Read-Only Option: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified.
+    - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified.
 
 
 ## Data-Binding
 
-The Text Input component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform. This feature empowers developers to create responsive and data-driven user experiences.
+The **Text Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform. This feature empowers developers to create responsive and data-driven user experiences.
 
 ### Data Display
 ( ☢️ to be done ☢️ )
@@ -56,19 +54,8 @@ The Text Input component allows for seamless integration of datasources, enablin
 
 ## Triggers and Events
 
-The Text Input component, composed of a label and an input, responds to various events, enhancing dynamic user experiences. Below, you'll find the triggers and events for both the label and the input components:
+The **Text Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
-### Label Component
-
-|Event|Description|
-|---|---|
-|On Click| Calls for an action when the user clicks on the component. |
-|On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
-|On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
-|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
-|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
-
-### Input Component
 
 |Event|Description|
 |---|---|

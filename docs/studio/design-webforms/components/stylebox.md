@@ -1,34 +1,38 @@
 ---
 id: stylebox
 title: Style Box
-hide_title: true
 ---
 
-## Component Overview
+The **Stylebox** component serves as a versatile container designed to enhance content alignment and legibility within webforms. By adhering to precise position rules and flexbox layout, **Styleboxes** ensure that enclosed elements are well-organized and visually harmonious.
 
-The Stylebox component serves as a versatile container designed to enhance content alignment and legibility within webforms. By adhering to precise position rules and flexbox layout, Styleboxes ensure that enclosed elements are well-organized and visually harmonious.
 
 ## Enhancing Content Presentation
 
-Styleboxes play a crucial role in optimizing content presentation and alignment, especially when integrated with specific components such as Tabs, Matrix, and Select Box. These components inherently incorporate Styleboxes to achieve uniformity and readability in their layouts.
+**Styleboxes** play a crucial role in optimizing content presentation and alignment, especially when integrated with specific components such as **Tabs**, **Matrix**, and **Select Box**. These components inherently incorporate **Styleboxes** to achieve uniformity and readability in their layouts.
 
-- Tabs: Styleboxes within Tabs components facilitate consistent alignment of content across different tab panels, creating a seamless and user-friendly experience.
+- **Tabs**: Styleboxes within Tabs components facilitate consistent alignment of content across different tab panels, creating a seamless and user-friendly experience.
+<img alt="explorer" src={require('./img/Tabs_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
-- Matrix: When used in Matrix components, Styleboxes maintain alignment within individual cells, ensuring a structured and visually appealing representation of data.
+- **Matrix**: When used in Matrix components, Styleboxes maintain alignment within individual cells, ensuring a structured and visually appealing representation of data.
+<img alt="explorer" src={require('./img/Matrix_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
-- Select Box: Integrating Styleboxes with Select Box components aids in organizing dropdown menus, resulting in a neatly arranged selection interface.
+- **Select Box**: Integrating Styleboxes with Select Box components aids in organizing dropdown menus, resulting in a neatly arranged selection interface.
+<img alt="explorer" src={require('./img/SelectBox_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
-( ☢️ to be done ☢️ )
 
 ## Data-Binding
-When you drag and drop a datasource attribute to a Stylebox, the following automatic creations occur:
+When you drag and drop a datasource attribute to a **Stylebox**, the following automatic creations occur:
 
-- Entity Attribute: Generates a component linked to **entity.attribute** based on its type.
-- Length of a Selection: Establishes a Text component reflecting **selection.length**.
+- **Entity Attribute**: Generates a component linked to **entity.attribute** based on its type.
+<img alt="explorer" src={require('./img/styleBox_dataBinding_entityAttribute.gif').default} style={{borderRadius: '6px'}} />
+
+- **Length of a Selection**: Establishes a Text component reflecting **selection.length**.
+<img alt="explorer" src={require('./img/styleBox_dataBinding_length.gif').default} style={{borderRadius: '6px'}} />
+
 
 ## Triggers and Events
 
-The Stylebox component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **Stylebox** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|

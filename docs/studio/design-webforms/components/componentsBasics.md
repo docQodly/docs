@@ -1,7 +1,6 @@
 ---
 id: componentsBasics
 title: Components basics
-hide_title: true
 ---
 import Column from '@site/src/components/Column'
 
@@ -9,18 +8,23 @@ import Column from '@site/src/components/Column'
 
 Components are the fundamental building blocks that constitute your application's user interface. These modular elements allow you to construct rich and dynamic interfaces by combining various functionalities and visual elements. 
 
+
+
 ## Locating Components
 
 Components are conveniently accessible from the left side panel in the **Components** tab section. This panel serves as a hub where you can explore and select the components you need to design your application's interface.
 
 
+
 ## Adding Components
 
-Incorporating components into your webform is a straightforward process that involves drag-and-drop functionality. Simply select a component from the sidebar and place it onto your working area or canvas. 
+Incorporating components into your webform is a straightforward process that involves **drag-and-drop** functionality. Simply select a component and place it onto your working area or canvas. 
 
 You have the flexibility to drop components directly onto the webform itself, as well as within other components that accept nested elements. This versatility allows you to construct complex layouts and hierarchies by combining different components within one another. 
 
 <img alt="explorer" src={require('./img/addingComponents.gif').default} style={{borderRadius: '6px'}} />
+
+
 
 ## Tooltip
 
@@ -33,16 +37,19 @@ You have the flexibility to drop components directly onto the webform itself, as
 	</Column.Item>
 </Column.List>
 
+
+
 ### Essential Options
 
 |Option|Description|
 |---|---|
-|Move| Allows you to easily reposition the selected component on the canvas, giving you the flexibility to create the perfect design.|
-|Select Parent Component| Enables you to select the parent component of the current selection. It's incredibly helpful for when you need to edit a specific part of a larger component.|
-|Delete Component| Lets you remove the selected component from the canvas, freeing up valuable real estate for your other design elements.|
-|Export Styles| Allows you to export the overridden CSS properties to a new CSS class, giving you unparalleled control over the styling of your webforms.|
-|Open Events Panel| Add interactivity to your webforms by binding events to the selected component|
+|Move| Reposition the selected component on the canvas.|
+|Select Parent Component| Select the parent component of the current selection.|
+|Delete Component| Remove the selected component from the canvas.|
+|Export Styles| Export the overridden CSS properties to a new CSS class.|
+|Open Events Panel| Binding events to the selected component.|
  
+
 ### More Options
 
 |Option|Description|
