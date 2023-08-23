@@ -71,18 +71,18 @@ lastEmployee=employee.last()
 
 ## Constants
 
-QodlyScript proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `sk char codes` is a constant (value 1). 
+QodlyScript proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `kCharCodes` is a constant (value 1). 
 
 ```qs
 a="alpha bravo charlie"
 b="Alpha Bravo Charlie"  
-vResult=compareStrings(a,b,sk char codes) // vResult: 1
+vResult=compareStrings(a,b,kCharCodes) // vResult: 1
 ```
 
 Constants can be added:
 
 ```qs
-vResult=compareStrings(a,b,sk char codes+sk case insensitive) // vResult: 0
+vResult=compareStrings(a,b,kCharCodes+kCaseInsensitive) // vResult: 0
 ```
 
 

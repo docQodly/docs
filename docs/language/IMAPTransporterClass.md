@@ -56,13 +56,13 @@ IMAP Transporter objects are instantiated with the [IMAP New transporter](#imap-
 ## IMAP New transporter
 
 
-<!-- REF #_command_.IMAP New transporter.Syntax -->**IMAP New transporter**( *server* : Object ) : 4D.IMAPTransporter<!-- END REF -->
+<!-- REF #_command_.IMAP New transporter.Syntax -->**IMAP New transporter**( *server* : object ) : 4D.IMAPTransporter<!-- END REF -->
 
 
 <!-- REF #_command_.IMAP New transporter.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|server|Object|->|Mail server information|
+|server|object|->|Mail server information|
 |Result|4D.IMAPTransporter|<-|IMAP transporter object|<!-- END REF -->
 
 
@@ -75,13 +75,13 @@ In the *server* parameter, pass an object containing the following properties:
 |*server*|Default value (if omitted)|
 |---|---|
 |[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
-|.**accessTokenOAuth2**: Text<br/>.**accessTokenOAuth2**: Object<br/>Text string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
+|.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode) - <!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
 |[<!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Syntax -->](#checkconnectiondelay) - <!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Summary -->|300|
 |[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout) - <!-- INCLUDE #transporter.connectionTimeOut.Summary -->|30|
 |[<!-- INCLUDE #transporter.host.Syntax -->](#host) - <!-- INCLUDE #transporter.host.Summary -->|*mandatory*
 |[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile) - <!-- INCLUDE #transporter.logFile.Summary -->|none|
-|.**password** : Text<br/>User password for authentication on the server. Not returned in the `IMAP transporter` object.|none|
+|.**password** : string<br/>User password for authentication on the server. Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.port.Syntax -->](#port) - <!-- INCLUDE #transporter.port.Summary -->|993|
 |[<!-- INCLUDE #transporter.user.Syntax -->](#user) - <!-- INCLUDE #transporter.user.Summary -->|none|
 
@@ -96,7 +96,7 @@ The function returns an [**IMAP transporter object**](#imap-transporter-object).
 #### Example
 
 ```qs
-server=New object
+server=newObject
 server.host="imap.gmail.com" //Mandatory
 server.port=993
 server.user="qodly@gmail.com"
@@ -104,14 +104,14 @@ server.password="XXXXXXXX"
 server.logFile="LogTest.txt" //log to save in the Logs folder
 
 var transporter : 4D.IMAPTransporter
-var status : Object
-var info : Text
+var status : object
+var info : string
 transporter=IMAP New transporter(server)
 
 status=transporter.checkConnection()
-If(Not(status.success))
-   info="An error occurred: "+status.statusText
-End if
+if(not(status.success))
+   info="An error occurred: "+status.statusstring
+end
 ```
 
 ## 4D.IMAPTransporter.new()
@@ -122,7 +122,7 @@ End if
 <!-- REF #4D.IMAPTransporter.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|server|Object|->|Mail server information|
+|server|object|->|Mail server information|
 |Result|4D.IMAPTransporter|<-|IMAP transporter object|<!-- END REF -->
 
 #### Description
@@ -135,17 +135,17 @@ The `4D.IMAPTransporter.new()` function <!-- REF #4D.IMAPTransporter.new().Summa
 ## .addFlags()
 
 
-<!-- REF #IMAPTransporterClass.addFlags().Syntax -->**.addFlags**( *msgIDs* : Collection , *keywords* :  Object ) : Object<br/>**.addFlags**( *msgIDs* : Text , *keywords* :  Object ) : Object<br/>**.addFlags**( *msgIDs* : Integer  , *keywords* :  Object ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.addFlags().Syntax -->**.addFlags**( *msgIDs* : Collection , *keywords* :  object ) : object<br/>**.addFlags**( *msgIDs* : string , *keywords* :  object ) : object<br/>**.addFlags**( *msgIDs* : Integer  , *keywords* :  object ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.addFlags().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msgIDs|Collection|->|Collection of strings: Message unique IDs (text)|
-|msgIDs|Text| Unique ID of a message|
+|msgIDs|string| Unique ID of a message|
 |msgIDs|Integer|IMAP all: All messages in the selected mailbox|
-|keywords|Object|->|Keyword flags to add|
-|Result|Object|<-|Status of the addFlags operation|<!-- END REF -->
+|keywords|object|->|Keyword flags to add|
+|Result|object|<-|Status of the addFlags operation|<!-- END REF -->
 
 #### Description
 
@@ -184,19 +184,19 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
 ```qs
 var transporter : 4D.IMAPTransporter
-var options,boxInfo,status : Object
+var options,boxInfo,status : object
 
-options=New object
+options=newObject
 options.host="imap.gmail.com"
 options.port=993
 options.user="qodly@gmail.com"
@@ -209,7 +209,7 @@ transporter=IMAP New transporter(options)
 boxInfo=transporter.selectBox("INBOX")
 
 // Mark all messages from INBOX as read/seen
-flags=New object
+flags=newObject
 flags["$seen"]=True
 status=transporter.addFlags(IMAP all,flags)
 ```
@@ -220,22 +220,22 @@ status=transporter.addFlags(IMAP all,flags)
 ## .append()
 
 
-<!-- REF #IMAPTransporterClass.append().Syntax -->**.append**( *mailObj* : Object , *destinationBox* : Text , *options* : Object ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.append().Syntax -->**.append**( *mailObj* : object , *destinationBox* : string , *options* : object ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.append().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mailObj|Object|->|Email object|
-|destinationBox|Text|->|Mailbox to receive Email object|
-|options|Object|->|Object containing charset info |
-|Result|Object|<-|Status of the append operation|<!-- END REF -->
+|mailObj|object|->|Email object|
+|destinationBox|string|->|Mailbox to receive Email object|
+|options|object|->|object containing charset info |
+|Result|object|<-|Status of the append operation|<!-- END REF -->
 
 #### Description
 
 The `.append()` function <!-- REF #IMAPTransporterClass.append().Summary -->appends a `mailObj` to the `destinationBox`<!-- END REF -->.
 
-In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailObjectClass.md#email-object). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
+In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailobjectClass.md#email-object). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
 
 The optional `destinationBox` parameter lets you pass the name of a mailbox where the `mailObj` will be appended. If omitted, the current mailbox is used.
 
@@ -243,8 +243,8 @@ In the optional `options` parameter, you can pass an object to define the charse
 
 |Property|Type|Description|
 |---|---|---|
-|headerCharset|Text|Charset and encoding used for the following parts of the email: subject, attachment filenames, and email name attribute(s). Possible values: See possible charsets table below|
-|bodyCharset|Text|Charset and encoding used for the html and text body contents of the email. Possible values: See possible charsets table below |
+|headerCharset|string|Charset and encoding used for the following parts of the email: subject, attachment filenames, and email name attribute(s). Possible values: See possible charsets table below|
+|bodyCharset|string|Charset and encoding used for the html and text body contents of the email. Possible values: See possible charsets table below |
 
 Possible charsets:
 
@@ -262,11 +262,11 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
@@ -274,17 +274,17 @@ To save an email in the Drafts mailbox:
 
 ```qs
 var imap : 4D.IMAPTransporter
-var settings, status, msg: Object
+var settings, status, msg: object
 
-settings=New object("host", "domain.com", "user", "xxxx", "password", "xxxx", "port", 993)
+settings=newObject("host", "domain.com", "user", "xxxx", "password", "xxxx", "port", 993)
 
 imap=IMAP New transporter(settings)
 
-msg=New object
+msg=newObject
 msg.from="xxxx@domain.com"
 msg.subject="Lorem Ipsum"
 msg.textBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-msg.keywords=New object
+msg.keywords=newObject
 msg.keywords["$seen"]=True //flag the message as read
 msg.keywords["$draft"]=True //flag the message as a draft
 
@@ -318,7 +318,7 @@ The `.checkConnectionDelay` property contains <!-- REF #IMAPTransporterClass.che
 ## .copy()
 
 
-<!-- REF #IMAPTransporterClass.copy().Syntax -->**.copy**( *msgsIDs* : Collection , *destinationBox* : Text ) : Object<br/>**.copy**( *allMsgs* : Integer , *destinationBox* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.copy().Syntax -->**.copy**( *msgsIDs* : Collection , *destinationBox* : string ) : object<br/>**.copy**( *allMsgs* : Integer , *destinationBox* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.copy().Params -->
@@ -326,8 +326,8 @@ The `.checkConnectionDelay` property contains <!-- REF #IMAPTransporterClass.che
 |---------|--- |:---:|------|
 |msgsIDs|Collection|->|Collection of message unique IDs (strings)|
 |allMsgs|Integer|->|`IMAP all`: All messages in the selected mailbox|
-|destinationBox|Text|->|Mailbox to receive copied messages|
-|Result|Object|<-|Status of the copy operation|<!-- END REF -->
+|destinationBox|string|->|Mailbox to receive copied messages|
+|Result|object|<-|Status of the copy operation|<!-- END REF -->
 
 #### Description
 
@@ -347,22 +347,22 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example 1
 
 To copy a selection of messages:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="4d@gmail.com"
@@ -385,10 +385,10 @@ To copy a selection of messages:
 To copy all messages in the current mailbox:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="4d@gmail.com"
@@ -410,14 +410,14 @@ To copy all messages in the current mailbox:
 ## .createBox()
 
 
-<!-- REF #IMAPTransporterClass.createBox().Syntax -->**.createBox**( *name* :  Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.createBox().Syntax -->**.createBox**( *name* :  string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.createBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|->|Name of the new mailbox|
-|Result|Object|<-|Status of the mailbox creation operation|<!-- END REF -->
+|name|string|->|Name of the new mailbox|
+|Result|object|<-|Status of the mailbox creation operation|<!-- END REF -->
 
 #### Description
 
@@ -438,22 +438,22 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
 To create a new "Invoices" mailbox:
 
 ```qs
- var info : Text
+ var info : string
  var transporter : 4D.IMAPTransporter
- var options, status : Object
+ var options, status : object
 
-Options=New object
+Options=newObject
 
 options.host="imap.gmail.com"
 options.user="test@gmail.com"
@@ -466,7 +466,7 @@ status=transporter.createBox("Invoices")
 If (status.success)
 	info="Mailbox creation successful!"
 Else
-	info="Error: "+status.statusText
+	info="Error: "+status.statusstring
 End if
 ```
 
@@ -475,7 +475,7 @@ End if
 <!-- REF IMAPTransporterClass.delete().Desc -->
 ## .delete()
 
-<!-- REF #IMAPTransporterClass.delete().Syntax -->**.delete**( *msgsIDs* : Collection ) : Object<br/>**.delete**( *msgsIDs* : Integer ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.delete().Syntax -->**.delete**( *msgsIDs* : Collection ) : object<br/>**.delete**( *msgsIDs* : Integer ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.delete().Params -->
@@ -483,7 +483,7 @@ End if
 |---------|--- |:---:|------|
 |msgsIDs|Collection|->|Collection of message unique IDs (strings)|
 |msgsIDs|Integer|->|`IMAP all`: All messages in the selected mailbox|
-|Result|Object|<-|Status of the delete operation|<!-- END REF -->
+|Result|object|<-|Status of the delete operation|<!-- END REF -->
 
 #### Description
 
@@ -503,22 +503,22 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example 1
 
 To delete a selection of messages:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="qodly@gmail.com"
@@ -541,10 +541,10 @@ To delete a selection of messages:
 To delete all messages in the current mailbox:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="4d@gmail.com"
@@ -565,14 +565,14 @@ To delete all messages in the current mailbox:
 ## .deleteBox()
 
 
-<!-- REF #IMAPTransporterClass.deleteBox().Syntax -->**.deleteBox**( *name* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.deleteBox().Syntax -->**.deleteBox**( *name* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.deleteBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|->|Name of the mailbox to delete|
-|Result|Object|<-|Status of the mailbox deletion operation|<!-- END REF -->
+|name|string|->|Name of the mailbox to delete|
+|Result|object|<-|Status of the mailbox deletion operation|<!-- END REF -->
 
 
 #### Description
@@ -592,11 +592,11 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example  
 
@@ -607,7 +607,7 @@ var pw, name, info : text
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=New object
+options=newObject
 
 pw="XXXXXX" //password
 
@@ -624,7 +624,7 @@ status=transporter.deleteBox(name)
 If (status.success)
 	info="Mailbox deletion successful!"
 Else
-	info="Error: "+status.statusText
+	info="Error: "+status.statusstring
 End if
 ```
 
@@ -633,13 +633,13 @@ End if
 <!-- REF IMAPTransporterClass.expunge().Desc -->
 ## .expunge()
 
-<!-- REF #IMAPTransporterClass.expunge().Syntax -->**.expunge**() : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.expunge().Syntax -->**.expunge**() : object<!-- END REF -->
 
 
 <!-- REF IMAPTransporterClass.expunge().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|Object|<-|Status of the expunge operation |<!-- END REF -->
+|Result|object|<-|Status of the expunge operation |<!-- END REF -->
 
 #### Description
 
@@ -652,20 +652,20 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
 ```qs
 var transporter : 4D.IMAPTransporter
-var options,boxInfo,status : Object
+var options,boxInfo,status : object
 var ids : Collection
 
-options=New object
+options=newObject
 options.host="imap.gmail.com"
 options.port=993
 options.user="4d@gmail.com"
@@ -692,14 +692,14 @@ status=transporter.expunge()
 ## .getBoxInfo()
 
 
-<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**({ *name* : Text }) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**({ *name* : string }) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxInfo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|->|Name of the mailbox|
-|Result|Object|<-|boxInfo object|<!-- END REF -->
+|name|string|->|Name of the mailbox|
+|Result|object|<-|boxInfo object|<!-- END REF -->
 
 #### Description
 
@@ -724,8 +724,8 @@ The `boxInfo` object returned contains the following properties:
 
 ```qs
  var transporter : 4D.IMAPTransporter
- var boxInfo : Object
- var info : Text
+ var boxInfo : object
+ var info : string
  transporter=IMAP New transporter(server)
 
  boxInfo=transporter.getBoxInfo("INBOX")
@@ -738,13 +738,13 @@ The `boxInfo` object returned contains the following properties:
 ## .getBoxList()
 
 
-<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( { *parameters* : Object } ) : Collection<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( { *parameters* : object } ) : Collection<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxList().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|parameters|Object|->|Parameter object|
+|parameters|object|->|Parameter object|
 |Result|Collection|<-|Collection of mailbox objects|<!-- END REF -->
 
 #### Description
@@ -760,6 +760,7 @@ In the optional *parameters* parameter, pass an object containing values to filt
 #### Result
 
 Each object of the returned collection contains the following properties:
+
 
 
 |Property|  Type|Description |
@@ -779,13 +780,13 @@ If the account does not contain any mailboxes, an empty collection is returned.
 ```qs
  var transporter : 4D.IMAPTransporter
  var boxList : Collection
- var info, split : Text
+ var info, split : string
  transporter=IMAP New transporter(server)
 
  boxList=transporter.getBoxList()
 
  For each(box,boxList)
-    If(box.interesting)
+    if(box.interesting)
        split=Split string(box.name,transporter.getDelimiter())
        info="New emails are available in the box: "+split[split.length-1])
     End if
@@ -798,13 +799,13 @@ If the account does not contain any mailboxes, an empty collection is returned.
 ## .getDelimiter()
 
 
-<!-- REF #IMAPTransporterClass.getDelimiter().Syntax -->**.getDelimiter**() : Text<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getDelimiter().Syntax -->**.getDelimiter**() : string<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getDelimiter().Params -->
 |Parameter|Type||Description|
 |-----|--- |:---:|------|
-|Result|Text|<-|Hierarchy delimiter character|<!-- END REF -->
+|Result|string|<-|Hierarchy delimiter character|<!-- END REF -->
 
 #### Description
 
@@ -832,16 +833,16 @@ See [`getBoxList()` example](getboxlist).
 ## .getMail()
 
 
-<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: Integer { , *options* : Object } ) : Object<br/>**.getMail**( *msgID*: Text { , *options* : Object } ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: Integer { , *options* : object } ) : object<br/>**.getMail**( *msgID*: string { , *options* : object } ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMail().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msgNumber|Integer|->|Sequence number of the message|
-|msgID|Text|->|Unique ID of the message|
-|options|Object|->|Message handling instructions|
-|Result|Object|<-|[Email object](EmailObjectClass.md#email-object)|<!-- END REF -->
+|msgID|string|->|Unique ID of the message|
+|options|object|->|Message handling instructions|
+|Result|object|<-|[Email object](EmailobjectClass.md#email-object)|<!-- END REF -->
 
 #### Description
 
@@ -865,18 +866,18 @@ The optional *options* parameter allows you pass an object defining additional i
 
 #### Result
 
-`.getMail()` returns an [`Email` object](EmailObjectClass.md#email-object) with the following specific IMAP properties: *id*, *receivedAt*, and *size*.
+`.getMail()` returns an [`Email` object](EmailobjectClass.md#email-object) with the following specific IMAP properties: *id*, *receivedAt*, and *size*.
 
 #### Example
 
 You want to get the message with ID = 1:
 
 ```qs
- var server : Object
+ var server : object
  var info, mail, boxInfo : Variant
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="qodly@gmail.com"
@@ -898,7 +899,7 @@ You want to get the message with ID = 1:
 ## .getMails()
 
 
-<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : Collection { , *options* : Object } ) : Object<br/>**.getMails**( *startMsg* : Integer , *endMsg* : Integer { , *options* : Object } ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : Collection { , *options* : object } ) : object<br/>**.getMails**( *startMsg* : Integer , *endMsg* : Integer { , *options* : object } ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMails().Params -->
@@ -907,8 +908,8 @@ You want to get the message with ID = 1:
 |ids |Collection|->|Collection of message ID|
 |startMsg|Integer|->|Sequence number of the first message|
 |endMsg |Integer|->|Sequence number of the last message|
-|options|Object|->|Message handling instructions|
-|Result|Object|<-|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass.md#email-object) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
+|options|object|->|Message handling instructions|
+|Result|object|<-|object containing:<br/><ul><li>a collection of [Email objects](EmailobjectClass.md#email-object) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
 
 #### Description
 
@@ -952,7 +953,7 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 |Property | Type | Description |
 |---|---|---|
-|list  |Collection |Collection of [`Email` objects](EmailObjectClass.md#email-object). If no Email objects are found, an empty collection is returned.|
+|list  |Collection |Collection of [`Email` objects](EmailobjectClass.md#email-object). If no Email objects are found, an empty collection is returned.|
 |notFound |Collection| Collection of:<br/><ul><li>first syntax - previously passed message IDs that do not exist</li><li>second syntax - sequence numbers of messages between startMsg and endMsg that do not exist</li></ul>An empty collection is returned if all messages are found.|
 
 #### Example
@@ -960,10 +961,10 @@ The optional *options* parameter allows you to define the parts of the messages 
 You want to retrieve the 20 most recent emails without changing their "seen" status:
 
 ```qs
- var server,boxInfo,result : Object
+ var server,boxInfo,result : object
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="qodly@gmail.com"
@@ -975,11 +976,11 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
   //select mailbox
  boxInfo=transporter.selectBox("INBOX")
 
-  If(boxInfo.mailCount>0)
+  if(boxInfo.mailCount>0)
 	// retrieve the headers of the last 20 messages
 	// without marking them as read
     result=transporter.getMails(boxInfo.mailCount-20,boxInfo.mailCount,\
-     	New object("withBody",False,"updateSeen",False))
+     	newObject("withBody",False,"updateSeen",False))
     For each(mail,result.list)
     	// ...
     End for each
@@ -991,14 +992,14 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
 <!-- REF IMAPTransporterClass.getMIMEAsBlob().Desc -->
 ## .getMIMEAsBlob()
 
-<!-- REF #IMAPTransporterClass.getMIMEAsBlob().Syntax -->**.getMIMEAsBlob**( *msgNumber* : Integer { , *updateSeen* : Boolean } ) : Blob<br/>**.getMIMEAsBlob**( *msgID* : Text { , *updateSeen* : Boolean } ) : Blob<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMIMEAsBlob().Syntax -->**.getMIMEAsBlob**( *msgNumber* : Integer { , *updateSeen* : Boolean } ) : Blob<br/>**.getMIMEAsBlob**( *msgID* : string { , *updateSeen* : Boolean } ) : Blob<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMIMEAsBlob().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msgNumber|Integer|-> |Sequence number of the message|
-|msgID|Text|-> |Unique ID of the message|
+|msgID|string|-> |Unique ID of the message|
 |updateSeen|Boolean|->|If True, the message is marked "seen" in the mailbox. If False the message is left untouched.|
 |Result|BLOB|<-|Blob of the MIME string returned from the mail server|<!-- END REF -->
 
@@ -1022,17 +1023,17 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 
 #### Result
 
-`.getMIMEAsBlob()` returns a `BLOB` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#email-object) with the `MAIL Convert from MIME` command.
+`.getMIMEAsBlob()` returns a `BLOB` which can be archived in a database or converted to an [`Email` object](EmailobjectClass.md#email-object) with the `MAIL Convert from MIME` command.
 
 #### Example
 
 ```qs
- var server : Object
+ var server : object
  var boxInfo : Variant
  var blob : Blob
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com"
  server.port=993
  server.user="qodly@gmail.com"
@@ -1058,7 +1059,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 ## .move()
 
 
-<!-- REF #IMAPTransporterClass.move().Syntax -->**.move**( *msgsIDs* : Collection , *destinationBox* : Text ) : Object<br/>**.move**( *allMsgs* : Integer , *destinationBox* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.move().Syntax -->**.move**( *msgsIDs* : Collection , *destinationBox* : string ) : object<br/>**.move**( *allMsgs* : Integer , *destinationBox* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.move().Params -->
@@ -1066,8 +1067,8 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 |---------|--- |:---:|------|
 |msgsIDs|Collection|->|Collection of message unique IDs (strings)|
 |allMsgs|Integer|->|`IMAP all`: All messages in the selected mailbox|
-|destinationBox|Text|->|Mailbox to receive moved messages|
-|Result|Object|<-|Status of the move operation|<!-- END REF -->
+|destinationBox|string|->|Mailbox to receive moved messages|
+|Result|object|<-|Status of the move operation|<!-- END REF -->
 
 #### Description
 
@@ -1089,22 +1090,22 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|4D error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example 1
 
 To move a selection of messages:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var mailIds : Collection
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="4d@gmail.com"
@@ -1127,10 +1128,10 @@ To move a selection of messages:
 To move all messages in the current mailbox:
 
 ```qs
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="4d@gmail.com"
@@ -1177,10 +1178,10 @@ The function returns a collection of strings (unique IDs).
 
 ```qs
  var transporter : 4D.IMAPTransporter
- var server,boxInfo,status : Object
+ var server,boxInfo,status : object
  var mailIds : Collection
 
- server=New object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.port=993
  server.user="qodly@gmail.com"
@@ -1204,17 +1205,17 @@ The function returns a collection of strings (unique IDs).
 ## .removeFlags()
 
 
-<!-- REF #IMAPTransporterClass.removeFlags().Syntax -->**.removeFlags**( *msgIDs* : Collection , *keywords* :  Object ) : Object<br/>**.removeFlags**( *msgIDs* : Text , *keywords* :  Object ) : Object<br/>**.removeFlags**( *msgIDs* : Integer , *keywords* :  Object ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.removeFlags().Syntax -->**.removeFlags**( *msgIDs* : Collection , *keywords* :  object ) : object<br/>**.removeFlags**( *msgIDs* : string , *keywords* :  object ) : object<br/>**.removeFlags**( *msgIDs* : Integer , *keywords* :  object ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.removeFlags().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |msgIDs|Collection|->|Collection of strings: Message unique IDs (text)|
-|msgIDs|Text| Unique ID of a message|
+|msgIDs|string| Unique ID of a message|
 |msgIDs|Integer|IMAP all: All messages in the selected mailbox|
-|keywords|Object|->|Keyword flags to remove|
-|Result|Object|<-|Status of the removeFlags operation|<!-- END REF -->
+|keywords|object|->|Keyword flags to remove|
+|Result|object|<-|Status of the removeFlags operation|<!-- END REF -->
 
 #### Description
 
@@ -1252,19 +1253,19 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
 ```qs
-var options,boxInfo,status : Object
+var options,boxInfo,status : object
 var transporter : 4D.IMAPTransporter
 
-options=New object
+options=newObject
 options.host="imap.gmail.com"
 options.port=993
 options.user="qoldy@gmail.com"
@@ -1277,7 +1278,7 @@ transporter=IMAP New transporter(options)
 boxInfo=transporter.selectBox("INBOX")
 
 // Mark all messages from INBOX as unseen
-flags=New object
+flags=newObject
 flags["$seen"]=True
 status=transporter.removeFlags(IMAP all,flags)
 ```
@@ -1288,15 +1289,15 @@ status=transporter.removeFlags(IMAP all,flags)
 ## .renameBox()
 
 
-<!-- REF #IMAPTransporterClass.renameBox().Syntax -->**.renameBox**( *currentName* : Text , *newName* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.renameBox().Syntax -->**.renameBox**( *currentName* : string , *newName* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.renameBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|currentName|Text|->|Name of the current mailbox|
-|newName|Text|->|New mailbox name|
-|Result|Object|<-|Status of the renaming operation|<!-- END REF -->
+|currentName|string|->|Name of the current mailbox|
+|newName|string|->|New mailbox name|
+|Result|object|<-|Status of the renaming operation|<!-- END REF -->
 
 #### Description
 
@@ -1313,11 +1314,11 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
@@ -1326,9 +1327,9 @@ To to rename your "Invoices mailbox to "Bills":
 ```qs
 var options, status : object
 var transporter : 4D.IMAPTransporter
-var info : Text
+var info : string
 
-options=New object
+options=newObject
 
 options.host="imap.gmail.com"
 options.user="test@gmail.com"
@@ -1342,7 +1343,7 @@ status=transporter.renameBox("Invoices", "Bills")
 If (status.success)
    info="Mailbox renaming successful!"
 Else
-   info="Error: "+status.statusText
+   info="Error: "+status.statusstring
 End if
 ```
 
@@ -1353,13 +1354,13 @@ End if
 <!-- REF IMAPTransporterClass.searchMails().Desc -->
 ## .searchMails()
 
-<!-- REF #IMAPTransporterClass.searchMails().Syntax -->**.searchMails**( *searchCriteria* : Text ) : Collection<!-- END REF -->
+<!-- REF #IMAPTransporterClass.searchMails().Syntax -->**.searchMails**( *searchCriteria* : string ) : Collection<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.searchMails().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|searchCriteria|Text|-> |Search criteria|
+|searchCriteria|string|-> |Search criteria|
 |Result|Collection|<-|Collection of message numbers|<!-- END REF -->
 
 #### Description
@@ -1405,7 +1406,7 @@ searchCriteria = NOT SEEN
 searchCriteria = HEADER CONTENT-TYPE "MIXED" NOT HEADER CONTENT-TYPE "TEXT"...
 ```
 
-... returns message whose content-type header contains “Mixed” and does not contain “Text”.
+... returns message whose content-type header contains “Mixed” and does not contain “string”.
 
 ```
 searchCriteria = HEADER CONTENT-TYPE "E" NOT SUBJECT "o" NOT HEADER CONTENT-TYPE "MIXED"
@@ -1491,15 +1492,15 @@ Examples:
 ## .selectBox()
 
 
-<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : Text { , *state* : Integer } ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : string { , *state* : Integer } ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.selectBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|-> |Name of the mailbox|
+|name|string|-> |Name of the mailbox|
 |state|Integer|->|Mailbox access status|
-|Result|Object|<-|boxInfo object|<!-- END REF -->
+|Result|object|<-|boxInfo object|<!-- END REF -->
 
 #### Description
 
@@ -1526,7 +1527,7 @@ The `boxInfo` object returned contains the following properties:
 
 |Property | Type | Description |
 |---|---|---|
-|name| Text|Name of the mailbox|
+|name| string|Name of the mailbox|
 |mailCount|number|Number of messages in the mailbox|
 |mailRecent|number|Number of messages with the "recent" flag |
 |id|text|Unique id of the mailbox |
@@ -1542,8 +1543,8 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 #### Example
 
 ```qs
- var server, boxinfo : Object
- server=New object
+ var server, boxinfo : object
+ server=newObject
  server.host="imap.gmail.com" //Mandatory
  server.user="4d@gmail.com"
  server.password="XXXXXXXX"
@@ -1558,14 +1559,14 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 <!-- REF IMAPTransporterClass.subscribe().Desc -->
 ## .subscribe()
 
-<!-- REF #IMAPTransporterClass.subscribe().Syntax -->**.subscribe**( *name* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.subscribe().Syntax -->**.subscribe**( *name* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.subscribe().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|-> |Name of the mailbox|
-|Result|Object|<-|Status of the subscribe operation|<!-- END REF -->
+|name|string|-> |Name of the mailbox|
+|Result|object|<-|Status of the subscribe operation|<!-- END REF -->
 
 #### Description
 
@@ -1580,11 +1581,11 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
@@ -1595,7 +1596,7 @@ var name, info : text
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=New object
+options=newObject
 
 options.host="imap.gmail.com"
 options.user="test@gmail.com"
@@ -1609,7 +1610,7 @@ status=transporter.subscribe(name)
 If (status.success)
    info="Mailbox subscription successful!"
 Else
-   info="Error: "+status.statusText
+   info="Error: "+status.statusstring
 End if
 ```
 
@@ -1619,14 +1620,14 @@ End if
 ## .unsubscribe()
 
 
-<!-- REF #IMAPTransporterClass.unsubscribe().Syntax -->**.unsubscribe**( *name* : Text ) : Object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.unsubscribe().Syntax -->**.unsubscribe**( *name* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.unsubscribe().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|Text|-> |Name of the mailbox|
-|Result|Object|<-|Status of the unsubscribe operation|<!-- END REF -->
+|name|string|-> |Name of the mailbox|
+|Result|object|<-|Status of the unsubscribe operation|<!-- END REF -->
 
 #### Description
 
@@ -1641,11 +1642,11 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||Boolean|True if the operation is successful, False otherwise
-|statusText || Text|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||Collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
-| |\[].message|Text|Description of the Qodly error |
-| |\[].componentSignature|Text|Signature of the internal component which returned the error|
+| |\[].message|string|Description of the Qodly error |
+| |\[].componentSignature|string|Signature of the internal component which returned the error|
 
 #### Example
 
@@ -1656,7 +1657,7 @@ var info, name : text
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=New object
+options=newObject
 
 
 options.host="imap.gmail.com"
@@ -1671,7 +1672,7 @@ status=transporter.unsubscribe(name)
 If (status.success)
    info="Mailbox unsubscription successful!"
 Else
-   info="Error: "+status.statusText
+   info="Error: "+status.statusstring
 End if
 ```
 

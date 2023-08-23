@@ -338,7 +338,7 @@ In this example, the first entity will be created and saved but the second will 
 
 The `.get()` function <!-- REF #DataClassClass.get().Summary -->queries the dataclass to retrieve the entity matching the *primaryKey* parameter<!-- END REF -->. 
 
-In *primaryKey*, pass the primary key value of the entity to retrieve. The value type must match the primary key type set in the datastore (integer or string). You can also make sure that the primary key value is always returned as string by using the [`.getKey()`](EntityClass.md#getkey) function with the `dk key as string` parameter.
+In *primaryKey*, pass the primary key value of the entity to retrieve. The value type must match the primary key type set in the datastore (integer or string). You can also make sure that the primary key value is always returned as string by using the [`.getKey()`](EntityClass.md#getkey) function with the `kKeyAsString` parameter.
 
 If no entity is found with *primaryKey*, a **null** entity is returned.
 
@@ -548,7 +548,7 @@ this example creates a new entity in the "Log" Dataclass and records information
 <!-- REF #DataClassClass.newSelection().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|keepOrder |integer |-> |`dk keep ordered`: creates an ordered entity selection,<br/>`dk non ordered`: creates an unordered entity selection (default if omitted) |
+|keepOrder |integer |-> |`kKeepOrdered`: creates an ordered entity selection,<br/>`kNonOrdered`: creates an unordered entity selection (default if omitted) |
 |Result|4D.EntitySelection|<-|New blank entity selection related to the dataclass|
 <!-- END REF -->
 
@@ -557,7 +557,7 @@ this example creates a new entity in the "Log" Dataclass and records information
 
 The `.newSelection( )` function <!-- REF #DataClassClass.newSelection().Summary -->creates a new, blank, non-shareable entity selection, related to the dataclass, in memory<!-- END REF -->. 
 
-If you want to create an ordered entity selection, pass the `dk keep ordered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `dk non ordered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection).
+If you want to create an ordered entity selection, pass the `kKeepOrdered` selector in the *keepOrder* parameter. By default if you omit this parameter, or if you pass the `kNonOrdered` selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see [Ordered vs Unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection).
 
 When created, the entity selection does not contain any entities (`mySelection.length` returns 0). this method lets you build entity selections gradually by making subsequent calls to the [`add()`](EntitySelectionClass.md#add) function.
 
@@ -568,7 +568,7 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ```qs 
  var USelection,OSelection : cs.EmployeeSelection
  USelection=ds.Employee.newSelection() //create an unordered empty entity selection
- OSelection=ds.Employee.newSelection(dk keep ordered) //create an ordered empty entity selection
+ OSelection=ds.Employee.newSelection(kKeepOrdered) //create an ordered empty entity selection
 ```
  
 

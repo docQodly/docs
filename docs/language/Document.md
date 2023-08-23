@@ -330,7 +330,7 @@ To save a document's contents in a `Blob` attribute:
 |charSetName |string |-> |Name of character set|
 |charSetNum |integer |-> |Number of character set|
 |breakMode|integer |-> |Processing mode for line breaks|
-|Result |string  |<- |string from the document|<!-- END REF -->
+|Result |string  |<- |String from the document|<!-- END REF -->
 
 #### Description
 

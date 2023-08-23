@@ -334,7 +334,7 @@ vCompareResult3 (only differences on e1 touched attributes are returned)
 <!-- REF #EntityClass.drop().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`dk force drop if stamp changed`: Forces the drop even if the stamp has changed|
+|mode|integer|->|`kForceDropIfStampChanged`: Forces the drop even if the stamp has changed|
 |Result|object|<-|Result of drop operation|
 <!-- END REF -->
 
@@ -346,7 +346,7 @@ In a multi-process application, the `.drop()` function is executed under an ["op
 
 By default, if the *mode* parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process in the meantime. 
 
-Otherwise, you can pass the `dk force drop if stamp changed` option in the *mode* parameter: in this case, the entity is dropped even if the stamp has changed (and the primary key is still the same).
+Otherwise, you can pass the `kForceDropIfStampChanged` option in the *mode* parameter: in this case, the entity is dropped even if the stamp has changed (and the primary key is still the same).
 
 **Result**
 
@@ -377,15 +377,15 @@ The object returned by `.drop( )` contains the following properties:
 
 |Constant|	Value|	Comment|
 |---|---|---|
-|`dk status entity does not exist anymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can be returned when `dk force drop if stamp changed` option is used.</li><br/>**Associated statusText**: "Entity does not exist anymore"|
-|`dk status locked`|3|The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"|
-|`dk status serious error`|	4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
-|`dk status stamp has changed`|	2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `dk force drop if stamp changed` option is not used<br/>**Associated statusText**: "Stamp has changed"|
+|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can be returned when `kForceDropIfStampChanged` option is used.</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusLocked`|3|The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"|
+|`kStatusSeriousError`|	4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
+|`kStatusStampHasChanged`|	2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kForceDropIfStampChanged` option is not used<br/>**Associated statusText**: "Stamp has changed"|
 
 
 #### Example 1  
 
-Example without `dk force drop if stamp changed` option:
+Example without `kForceDropIfStampChanged` option:
 
 ```qs
  var employees : cs.EmployeeSelection
@@ -398,14 +398,14 @@ Example without `dk force drop if stamp changed` option:
  switch
     :(status.success)
        info="You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
-    :(status.status=dk status stamp has changed)
+    :(status.status=kStatusStampHasChanged)
        info=status.statusText
  end
 ```
 
 #### Example 2  
 
-Example with `dk force drop if stamp changed` option:
+Example with `kForceDropIfStampChanged` option:
 
 ```qs
  var employees : cs.EmployeeSelection
@@ -414,11 +414,11 @@ Example with `dk force drop if stamp changed` option:
  var info : string
  employees=ds.Employee.query("lastName=:1","Smith")
  employee=employees.first()
- status=employee.drop(dk force drop if stamp changed)
+ status=employee.drop(kForceDropIfStampChanged)
  switch
     :(status.success)
        info="You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
-    :(status.status=dk status entity does not exist anymore)
+    :(status.status=kStatusEntityDoesNotExistAnymore)
        info=status.statusText
  end
 ``` 
@@ -597,7 +597,7 @@ The following generic code duplicates any entity:
 <!-- REF #EntityClass.getKey().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`dk key as string`: primary key is returned as a string, no matter the primary key type|
+|mode|integer|->|`kKeyAsString`: primary key is returned as a string, no matter the primary key type|
 |Result|string|<-|Value of the string primary key of the entity|
 |Result|integer|<-|Value of the numeric primary key of the entity|
 
@@ -607,7 +607,7 @@ The following generic code duplicates any entity:
 
 The `.getKey()` function <!-- REF #EntityClass.getKey().Summary -->returns the primary key value of the entity<!-- END REF -->. 
 
-Primary keys can be numbers (integer) or strings. You can "force" the returned primary key value to be a string, no matter the actual primary key type, by passing the `dk key as string` option in the *mode* parameter.
+Primary keys can be numbers (integer) or strings. You can "force" the returned primary key value to be a string, no matter the actual primary key type, by passing the `kKeyAsString` option in the *mode* parameter.
 
 #### Example   
 
@@ -618,7 +618,7 @@ Primary keys can be numbers (integer) or strings. You can "force" the returned p
  var info : string
  employees=ds.Employee.query("lastName=:1","Smith")
  employee=employees[0]
- info="The primary key is "+employee.getKey(dk key as string)
+ info="The primary key is "+employee.getKey(kKeyAsString)
 ```
 
 <!-- END REF -->
@@ -836,7 +836,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 <!-- REF #EntityClass.lock().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`dk reload if stamp changed`: Reload before locking if stamp changed|
+|mode|integer|->|`kReloadIfStampChanged`: Reload before locking if stamp changed|
 |Result|object|<-|Result of lock operation|
 <!-- END REF -->
 
@@ -853,7 +853,7 @@ A locked record is unlocked:
 
 By default, if the *mode* parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process or user in the meantime. 
 
-Otherwise, you can pass the `dk reload if stamp changed` option in the *mode* parameter: in this case, no error is returned and the entity is reloaded when the stamp has changed (if the entity still exists and the primary key is still the same).
+Otherwise, you can pass the `kReloadIfStampChanged` option in the *mode* parameter: in this case, no error is returned and the entity is reloaded when the stamp has changed (if the entity still exists and the primary key is still the same).
 
 **Result**
 
@@ -862,7 +862,7 @@ The object returned by `.lock()` contains the following properties:
 |Property|	|	Type|	Description|
 |---|---|---|---|
 |success|	|	boolean|	true if the lock action is successful (or if the entity is already locked in the current process), false otherwise.|
-||||***Available only if `dk reload if stamp changed` option is used:***|
+||||***Available only if `kReloadIfStampChanged` option is used:***|
 |**wasReloaded**|		|boolean|true if the entity was reloaded with success, false otherwise.|
 ||||***Available only in case of error:***|
 |status(\*)| 	|number|	Error code, see below|
@@ -888,10 +888,10 @@ The object returned by `.lock()` contains the following properties:
 
 |Constant	|Value|	Comment|
 |---|---|---|
-|`dk status entity does not exist anymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `dk reload if stamp changed` option is used</li><br/>**Associated statusText**: "Entity does not exist anymore"|
-|`dk status locked`|	3	|The entity is locked by a pessimistic lock. **Associated statusText**: "Already locked"
-|`dk status serious error`|	4	|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc. **Associated statusText**: "Other error"|
-|`dk status stamp has changed`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error occurs only if the `dk reload if stamp changed` option is not used<br/>**Associated statusText**: "Stamp has changed"|
+|`kStatusEntityDoesNotExistAnymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `kReloadIfStampChanged` option is used</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusLocked`|	3	|The entity is locked by a pessimistic lock. **Associated statusText**: "Already locked"
+|`kStatusSeriousError`|	4	|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc. **Associated statusText**: "Other error"|
+|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error occurs only if the `kReloadIfStampChanged` option is not used<br/>**Associated statusText**: "Stamp has changed"|
 
 
 #### Example 1   
@@ -907,7 +907,7 @@ Example with error:
  switch
     :(status.success)
        info="You have locked "+employee.firstName+" "+employee.lastName
-    :(status.status=dk status stamp has changed)
+    :(status.status=kStatusStampHasChanged)
        info=status.statusText
  end
 ```
@@ -915,18 +915,18 @@ Example with error:
 
 #### Example 2   
 
-Example with `dk reload if stamp changed` option:
+Example with `kReloadIfStampChanged` option:
 
 ```qs
  var employee : cs.EmployeeEntity
  var status : object
  var info : string
  employee=ds.Employee.get(717)
- status=employee.lock(dk reload if stamp changed)
+ status=employee.lock(kReloadIfStampChanged)
  switch
     :(status.success)
        info="You have locked "+employee.firstName+" "+employee.lastName
-    :(status.status=dk status entity does not exist anymore)
+    :(status.status=kStatusEntityDoesNotExistAnymore)
        info=status.statusText
  end
 ```
@@ -1036,8 +1036,8 @@ The object returned by `.reload()` contains the following properties:
 
 |Constant|	Value|	Comment|
 |---|---|---|
-|`dk status entity does not exist anymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>***Associated statusText***: "Entity does not exist anymore"|
-|`dk status serious error`|4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>***Associated statusText***: "Other error"|
+|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>***Associated statusText***: "Entity does not exist anymore"|
+|`kStatusSeriousError`|4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>***Associated statusText***: "Other error"|
 
 
 #### Example   
@@ -1055,7 +1055,7 @@ The object returned by `.reload()` contains the following properties:
  switch
     :(result.success)
        info="Reload has been done"
-    :(result.status=dk status entity does not exist anymore)
+    :(result.status=kStatusEntityDoesNotExistAnymore)
        info="The entity has been dropped"
  end
 ```
@@ -1072,7 +1072,7 @@ The object returned by `.reload()` contains the following properties:
 <!-- REF #EntityClass.save().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`dk auto merge`: Enables the automatic merge mode|
+|mode|integer|->|`kAutoMerge`: Enables the automatic merge mode|
 |Result|object|<-|Result of save operation|
 <!-- END REF -->
 
@@ -1086,9 +1086,9 @@ In a multi-process application, the `.save()` function is executed under an ["op
 
 By default, if the *mode* parameter is omitted, the method will return an error (see below) whenever the same entity has been modified by another process in the meantime, no matter the modified attribute(s).
 
-Otherwise, you can pass the `dk auto merge` option in the *mode* parameter: when the automatic merge mode is enabled, a modification done concurrently by another process/user on the same entity but on a different attribute will not result in an error. The resulting data saved in the entity will be the combination (the "merge") of all non-concurrent modifications (if modifications were applied to the same attribute, the save fails and an error is returned, even with the auto merge mode).
+Otherwise, you can pass the `kAutoMerge` option in the *mode* parameter: when the automatic merge mode is enabled, a modification done concurrently by another process/user on the same entity but on a different attribute will not result in an error. The resulting data saved in the entity will be the combination (the "merge") of all non-concurrent modifications (if modifications were applied to the same attribute, the save fails and an error is returned, even with the auto merge mode).
 
->The automatic merge mode is not available for attributes of type Picture and object. Concurrent changes in these attributes will result in a `dk status stamp has changed` error.  
+>The automatic merge mode is not available for attributes of type Picture and object. Concurrent changes in these attributes will result in a `kStatusStampHasChanged` error.  
 
 **Result**
 
@@ -1097,7 +1097,7 @@ The object returned by `.save()` contains the following properties:
 |Property	|	|Type|	Description|
 |---|---|---|---|
 |success|	|boolean|True if the save action is successful, False otherwise.|
-||||***Available only if `dk auto merge` option is used***:|
+||||***Available only if `kAutoMerge` option is used***:|
 |autoMerged|	|boolean|True if an auto merge was done, False otherwise.|
 ||||***Available only in case of error***:|
 |status|	|number|Error code, [see below](#status-and-statustext)|
@@ -1123,11 +1123,11 @@ The following values can be returned in the `status` and `statusText` properties
 
 |Constant|	Value	|Comment|
 |---|---|---|
-|`dk status automerge failed`|	6|	(Only if the `dk auto merge` option is used) The automatic merge option failed when saving the entity.<br/>**Associated statusText**: "Auto merge failed"|
-|`dk status entity does not exist anymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>**Associated statusText**: "Entity does not exist anymore"|
-|`dk status locked`|	3|	The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"
-|`dk status serious error`|4|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
-|`dk status stamp has changed`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `dk auto merge` option is not used<<br/>**Associated statusText**: "Stamp has changed"|
+|`kStatusAutomergeFailed`|	6|	(Only if the `kAutoMerge` option is used) The automatic merge option failed when saving the entity.<br/>**Associated statusText**: "Auto merge failed"|
+|`kStatusEntityDoesNotExistAnymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusLocked`|	3|	The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"
+|`kStatusSeriousError`|4|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
+|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<<br/>**Associated statusText**: "Stamp has changed"|
 
 
 #### Example 1  
@@ -1149,7 +1149,7 @@ Creating a new entity:
 
 #### Example 2  
 
-Updating an entity without `dk auto merge` option:
+Updating an entity without `kAutoMerge` option:
 
 ```qs
  var status : object
@@ -1162,14 +1162,14 @@ Updating an entity without `dk auto merge` option:
  switch
     :(status.success)
        info="Employee updated"
-    :(status.status=dk status stamp has changed)
+    :(status.status=kStatusStampHasChanged)
        info=status.statusText
  end
 ```
 
 #### Example 3  
 
-Updating an entity with `dk auto merge` option:
+Updating an entity with `kAutoMerge` option:
 
 ```qs
  var status : object
@@ -1181,11 +1181,11 @@ Updating an entity with `dk auto merge` option:
  employees=ds.Employee.query("lastName=:1","Smith")
  employee=employees.first()
  employee.lastName="Mac Arthur"
- status=employee.save(dk auto merge)
+ status=employee.save(kAutoMerge)
  switch
     :(status.success)
        info="Employee updated"
-    :(status.status=dk status automerge failed)
+    :(status.status=kStatusAutomergeFailed)
        info=status.statusText
  end
 ```
@@ -1206,7 +1206,7 @@ Updating an entity with `dk auto merge` option:
 |---------|--- |:---:|------|
 |filterString |string	|->|Attribute(s) to extract (comma-separated string)|	
 |filterCol |collection	|->|collection of attribute(s) to extract|	
-|options|integer|->|`dk with primary key`: adds the \_KEY property;<br/>`dk with stamp`: adds the \_STAMP property|
+|options|integer|->|`kWithPrimaryKey`: adds the \_KEY property;<br/>`kWithStamp`: adds the \_STAMP property|
 |Result|object|<-|object built from the entity|
 <!-- END REF -->
 
@@ -1237,7 +1237,7 @@ If a filter is specified for attributes of the relatedEntities [kind](DataClassC
 *	propertyPath = "relatedEntities.*" -> all the properties are extracted
 *	propertyPath = "relatedEntities.propertyName1; relatedEntities.propertyName2; ..." -> only those properties are extracted
 
-In the *options* parameter, you can pass the `dk with primary key` and/or` dk with stamp` selector(s) to add the entity's primary keys and/or stamps in extracted objects.
+In the *options* parameter, you can pass the `kWithPrimaryKey` and/or` kWithStamp` selector(s) to add the entity's primary keys and/or stamps in extracted objects.
 
 
 #### Example 1  
@@ -1283,7 +1283,7 @@ Returns:
 Extracting the primary key and the stamp:
 
 ```qs
-employeeObject=employeeSelected.toObject("",dk with primary key+dk with stamp)
+employeeObject=employeeSelected.toObject("",kWithPrimaryKey+kWithStamp)
 ```
 
 Returns:
