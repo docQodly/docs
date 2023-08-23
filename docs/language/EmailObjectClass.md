@@ -14,14 +14,14 @@ Creating, sending or receiving emails in Qodly is done by handling an `Email` ob
 
 You send `Email` objects using the SMTP [`.send()`](`SMTPTransporterClass.md#send`) function.
 
-[`MAIL Convert from MIME`](#mail-convert-from-mime) and [`MAIL Convert to MIME`](#mail-convert-to-mime) commands can be used to convert `Email` objects to and from MIME contents.
+[`mailConvertFromMIME`](#mailconvertfrommime) and [`mailConvertToMIME`](#mailconverttomime) commands can be used to convert `Email` objects to and from MIME contents.
 
 ### Commands
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.MAIL_Convert_from_MIME.Syntax -->](#mail-convert-from-mime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.MAIL_Convert_from_MIME.Summary -->|
-|[<!-- INCLUDE #_command_.MAIL_Convert_to_MIME.Syntax -->](#mail-convert-to-mime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.MAIL_Convert_to_MIME.Summary -->|
+|[<!-- INCLUDE #_command_.mailConvertFromMIME.Syntax -->](#mailconvertfrommime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mailConvertFromMIME.Summary -->|
+|[<!-- INCLUDE #_command_.mailConvertToMIME.Syntax -->](#mailconverttomime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mailConvertToMIME.Summary -->|
 
 
 ### Properties
@@ -74,7 +74,7 @@ An object with two properties:
 |name|string|Display name (can be null)|
 |email|string|Email address|
 
-#### Collection
+#### collection
 
 A collection of address objects.
 
@@ -111,13 +111,13 @@ The [`stringBody`](#stringbody) and [`htmlBody`](#htmlbody) properties are only 
 ```
 
 
-## MAIL Convert from MIME
+## mailConvertFromMIME
 
 
-<!-- REF #_command_.MAIL_Convert_from_MIME.Syntax -->**MAIL Convert from MIME**( *mimeblob* : blob ) : object<br/>**MAIL Convert from MIME**( *mimestring* : string ) : object<!-- END REF -->
+<!-- REF #_command_.mailConvertFromMIME.Syntax -->**mailConvertFromMIME**( *mimeblob* : blob ) : object<br/>**mailConvertFromMIME**( *mimestring* : string ) : object<!-- END REF -->
 
 
-<!-- REF #_command_.MAIL_Convert_from_MIME.Params -->
+<!-- REF #_command_.mailConvertFromMIME.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |mimeblob|blob |->|Email in MIME blob|
@@ -126,11 +126,11 @@ The [`stringBody`](#stringbody) and [`htmlBody`](#htmlbody) properties are only 
 
 #### Description
 
-The `MAIL Convert from MIME` command <!-- REF #_command_.MAIL_Convert_from_MIME.Summary -->converts a MIME document into a valid email object<!-- END REF -->.
+The `mailConvertFromMIME` command <!-- REF #_command_.mailConvertFromMIME.Summary -->converts a MIME document into a valid email object<!-- END REF -->.
 
->QodlyScript follows the [JMAP specification](https://jmap.io/spec-mail.html) to format the returned email object.
+> QodlyScript follows the [JMAP specification](https://jmap.io/spec-mail.html) to format the returned email object.
 
-Pass in *mimeblob* or *mimestring* a valid MIME document to convert. It can be provided by any mail server or application. If the MIME comes from a file, it is recommended to use a BLOB parameter to avoid issues related to charset and line break conversions.
+Pass in *mimeblob* or *mimestring* a valid MIME document to convert. It can be provided by any mail server or application. If the MIME comes from a file, it is recommended to use a blob parameter to avoid issues related to charset and line break conversions.
 
 #### Returned object
 
@@ -142,31 +142,32 @@ You want to load a mail template saved as MIME in a string document and send an 
 
 ```qs
 var mime: blob
-var mail,server,transporter,status: object
+var transporter : 4D.SMTPTransporter
+var mail,server,status: object
 
 mime=file("/PACKAGE/Mails/templateMail.txt").getContent())
 
-mail=MAIL Convert from MIME(mime)
+mail=mailConvertFromMIME(mime)
 mail.to="smith@mail.com"
 mail.subject="Hello world"
 
-server=New object
+server=newObject
 server.host="smtp.gmail.com"
 server.port=465
 server.user="test@gmail.com"
 server.password="XXXX"
 
-transporter=SMTP New transporter(server)
+transporter=4S.SMTPTransporter.new(server)
 status=transporter.send(mail)
 ```
 
 
-## MAIL Convert to MIME
+## mailConvertToMIME
 
-<!-- REF #_command_.MAIL_Convert_to_MIME.Syntax -->**MAIL Convert to MIME**( *mail* : object { , *options* : object } ) : string<!-- END REF -->
+<!-- REF #_command_.mailConvertToMIME.Syntax -->**mailConvertToMIME**( *mail* : object { , *options* : object } ) : string<!-- END REF -->
 
 
-<!-- REF #_command_.MAIL_Convert_to_MIME.Params -->
+<!-- REF #_command_.mailConvertToMIME.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |mail|object|->|Email object|
@@ -175,11 +176,11 @@ status=transporter.send(mail)
 
 #### Description
 
-The `MAIL Convert to MIME` command <!-- REF #_command_.MAIL_Convert_to_MIME.Summary -->converts an email object into MIME string<!-- END REF -->. This command is called internally by [SMTP_transporter.send()](API/SMTPTransporterClass.md#send) to format the email object before sending it. It can be used to analyze the MIME format of the object.
+The `mailConvertToMIME` command <!-- REF #_command_.mailConvertToMIME.Summary -->converts an email object into MIME string<!-- END REF -->. This command is called internally by [SMTP_transporter.send()](SMTPTransporterClass.md#send) to format the email object before sending it. It can be used to analyze the MIME format of the object.
 
 In *mail*, pass the content and the structure details of the email to convert. This includes information such as the email addresses (sender and recipient(s)), the message itself, and the type of display for the message.
 
->QodlyScript follows the [JMAP specification](https://jmap.io/spec-mail.html) to format the email object.
+> QodlyScript follows the [JMAP specification](https://jmap.io/spec-mail.html) to format the email object.
 
 In *options*, you can set a specific charset and encoding configuration for the mail. The following properties are available:
 
@@ -195,23 +196,23 @@ If the *options* parameter is omitted, the mail mode UTF8 configuration is used 
 ```qs
 var mail: object
 var mime: string
-mail=New object
+mail=newObject
 
 // Creation of a mail
 mail.from="tsales@massmarket.com"
 mail.subject="Terrific Sale! This week only!"
 mail.stringBody="string format email"
 mail.htmlBody="<html><body>HTML format email</body></html>"
-mail.to=New collection
-mail.to.push(New object ("email","noreply@4d.com"))
-mail.to.push(New object ("email","test@4d.com"))
+mail.to=newcollection
+mail.to.push(newObject("email","noreply@4d.com"))
+mail.to.push(newObject("email","test@4d.com"))
 
 // transform the mail object in MIME
-mime=MAIL Convert to MIME(mail)
+mime=mailConvertToMIME(mail)
 
 // Contents of mime:
 // MIME-Version: 1.0
-// Date: Thu, 11 Oct 2018 15:42:25 GMT
+// Date: Thu, 15 Dec 2022 15:42:25 GMT
 // Message-ID: <7CA5D25B2B5E0047A36F2E8CB30362E2>
 // Sender: tsales@massmarket.com
 // From: tsales@massmarket.com
@@ -237,17 +238,17 @@ mime=MAIL Convert to MIME(mail)
 
 ## .attachments
 
-<!-- REF #EmailobjectClass.attachments.Syntax -->**.attachments** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.attachments.Syntax -->**.attachments** : collection<!-- END REF -->
 
 #### Description
 
 The `.attachments` property contains a <!-- REF #EmailobjectClass.attachments.Summary -->collection of `4D.MailAttachment` object(s)<!-- END REF -->.
 
-Attachment objects are defined through the [`MAIL New attachment`](MailAttachmentClass.md#mail-new-attachment) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
+Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentClass.md#mailnewattachment) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
 
 ## .bcc
 
-<!-- REF #EmailobjectClass.bcc.Syntax -->**.bcc** : string<br/>**.bcc** : object<br/>**.bcc** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.bcc.Syntax -->**.bcc** : string<br/>**.bcc** : object<br/>**.bcc** : collection<!-- END REF -->
 
 #### Description
 
@@ -270,10 +271,10 @@ The `.bodyStructure` object contains the following properties:
 |charset|string|Value of the charset parameter of the Content-Type header field|
 |encoding|string|If `isEncodingProblem==true`, the Content-Transfer-Encoding value is added (by default undefined)|
 |disposition|string|Value of the Content-Disposition header field of the part|
-|language|Collection of strings|List of language tags, as defined in [RFC3282](https://tools.ietf.org/html/rfc3282), in the Content-Language header field of the part, if present.|
+|language|collection of strings|List of language tags, as defined in [RFC3282](https://tools.ietf.org/html/rfc3282), in the Content-Language header field of the part, if present.|
 |location|string|URI, as defined in [RFC2557](https://tools.ietf.org/html/rfc2557), in the Content-Location header field of the part, if present.|
-|subParts|Collection of objects|Body parts of each child (collection of *EmailBodyPart* objects)|
-|headers|Collection of objects|List of all header fields in the part, in the order they appear in the message (collection of *EmailHeader* objects, see [headers](#headers-) property)|
+|subParts|collection of objects|Body parts of each child (collection of *EmailBodyPart* objects)|
+|headers|collection of objects|List of all header fields in the part, in the order they appear in the message (collection of *EmailHeader* objects, see [headers](#headers-) property)|
 
 ## .bodyValues
 
@@ -292,7 +293,7 @@ The `.bodyValues` object contains the following properties:
 
 ## .cc
 
-<!-- REF #EmailobjectClass.cc.Syntax -->**.cc** : string<br/>**.cc** : object<br/>**.cc** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.cc.Syntax -->**.cc** : string<br/>**.cc** : object<br/>**.cc** : collection<!-- END REF -->
 
 #### Description
 
@@ -312,11 +313,11 @@ For specific formatting requirements, please consult the [RFC#5322](https://tool
 
 ## .from
 
-<!-- REF #EmailobjectClass.from.Syntax -->**.from** : string<br/>**.from** : object<br/>**.from** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.from.Syntax -->**.from** : string<br/>**.from** : object<br/>**.from** : collection<!-- END REF -->
 
 #### Description
 
-The `.from` property contains the <!-- REF #EmailobjectClass.from.Summary -->Originating [address(es)](#email-addresses) of the email<!-- END REF -->.
+The `.from` property contains the <!-- REF #EmailobjectClass.from.Summary -->originating [address(es)](#email-addresses) of the email<!-- END REF -->.
 
 Each email you send out has both the [sender](#sender) and **from** addresses:
 
@@ -327,7 +328,7 @@ For better deliverability, it is recommended to use the same from and sender add
 
 ## .headers
 
-<!-- REF #EmailobjectClass.headers.Syntax -->**.headers** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.headers.Syntax -->**.headers** : collection<!-- END REF -->
 
 #### Description
 
@@ -420,17 +421,17 @@ The `.receivedAt` property contains the <!-- REF #EmailobjectClass.receivedAt.Su
 
 ## .references
 
-<!-- REF #EmailobjectClass.references.Syntax -->**.references** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.references.Syntax -->**.references** : collection<!-- END REF -->
 
 #### Description
 
-The `.references` property contains the <!-- REF #EmailobjectClass.references.Summary -->Collection of all message-ids of messages in the preceding reply chain<!-- END REF -->.
+The `.references` property contains the <!-- REF #EmailobjectClass.references.Summary -->collection of all message-ids of messages in the preceding reply chain<!-- END REF -->.
 
 For specific formatting requirements, please consult the [RFC#5322](https://tools.ietf.org/html/rfc5322).
 
 ## .replyTo
 
-<!-- REF #EmailobjectClass.replyTo.Syntax -->**.replyTo** : string<br/>**.replyTo** : object<br/>**.replyTo** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.replyTo.Syntax -->**.replyTo** : string<br/>**.replyTo** : object<br/>**.replyTo** : collection<!-- END REF -->
 
 #### Description
 
@@ -446,7 +447,7 @@ The `.sendAt` property contains the <!-- REF #EmailobjectClass.sendAt.Summary --
 
 ## .sender
 
-<!-- REF #EmailobjectClass.sender.Syntax -->**.sender** : string<br/>**.sender** : object<br/>**.sender** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.sender.Syntax -->**.sender** : string<br/>**.sender** : object<br/>**.sender** : collection<!-- END REF -->
 
 #### Description
 
@@ -461,7 +462,7 @@ For better deliverability, it is recommended to use the same from and sender add
 
 ## .size
 
-<!-- REF #EmailobjectClass.size.Syntax -->**.size** : Integer<!-- END REF -->
+<!-- REF #EmailobjectClass.size.Syntax -->**.size** : integer<!-- END REF -->
 
 #### Description
 
@@ -487,7 +488,7 @@ The `.stringBody` property contains the <!-- REF #EmailobjectClass.stringBody.Su
 
 ## .to
 
-<!-- REF #EmailobjectClass.to.Syntax -->**.to** : string<br/>**.to** : object<br/>**.to** : Collection<!-- END REF -->
+<!-- REF #EmailobjectClass.to.Syntax -->**.to** : string<br/>**.to** : object<br/>**.to** : collection<!-- END REF -->
 
 #### Description
 
