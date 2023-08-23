@@ -1,33 +1,39 @@
 ---
 id: webformloader
 title: Webform Loader
-hide_title: true
 ---
 
-## Component Overview
+The **Webform Loader** component is a versatile tool designed to seamlessly integrate one webform into another within the context of your application. By utilizing this component, you can efficiently embed and manage dynamic content, enhancing the overall user experience.
 
-The Webform Loader component is a versatile tool designed to seamlessly integrate one webform into another within the context of your application. By utilizing this component, you can efficiently embed and manage dynamic content, enhancing the overall user experience.
+
 
 ## Use Cases
 
-The Webform Loader component offers a multitude of applications, enhancing the modularity and interactivity of your webforms:
+The **Webform Loader** component offers a multitude of applications, enhancing the modularity and interactivity of your webforms:
 
-- Nested Webforms: Seamlessly nest one webform within another to facilitate complex UI structures and content hierarchies.
+- **Nested Webforms**: Seamlessly nest one webform within another to facilitate complex UI structures and content hierarchies.
 
-- Dynamic Content: Utilize the Webform Loader to display dynamic content that can be updated on-the-fly through data binding, allowing you to provide users with the latest information.
+- **Dynamic Content**: Utilize the Webform Loader to display dynamic content that can be updated on-the-fly through data binding, allowing you to provide users with the latest information.
 
-- Conditional Loading: Implement conditional loading of webforms based on user interactions or specific conditions, enhancing the adaptability of your application's interface.
+- **Conditional Loading**: Implement conditional loading of webforms based on user interactions or specific conditions, enhancing the adaptability of your application's interface.
+
 
 ## Loading Mechanism and Configuration
 
-The Webform Loader component functions by displaying a designated webform within the current webform. The webform to be displayed is determined based on the initial value set for the Webform Loader component. This initial value can be configured using either of the following methods:
+The **Webform Loader** component functions by displaying a designated webform within the current webform. The webform to be displayed is determined based on the initial value set for the Webform Loader component. This initial value can be configured using either of the following methods:
 
-- Direct Configuration: Utilize the Properties panel of the Webform Loader to directly choose the target webform from a dropdown list. This straightforward approach enables you to easily specify the name of the webform you intend to display within the Webform Loader.
+- **Direct Configuration**: Utilize the Properties panel of the Webform Loader to directly choose the target webform from a dropdown list.
 
-- Dynamic Binding: Establish a binding with a local datasource of type Text. By binding the component to this datasource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Webform Loader. In the case of concurrent application of both methods, the content sourced from the bound datasource takes priority.
+- **Dynamic Binding**: Establish a binding with a local datasource of type Text. By binding the component to this datasource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Webform Loader. In the case of concurrent application of both methods, the content sourced from the bound datasource takes priority.
 
-The initial value should correspond to the name of the target webform you intend to display within the Webform Loader. It's important to note that while both methods achieve the same goal, the data-bound approach enables real-time updates of the loaded webform contents as the bound datasource's value changes.
+The initial value should correspond to the name of the target webform you intend to display within the **Webform Loader**. 
 
+
+:::info 
+
+It's important to note that while both methods achieve the same goal, the data-bound approach enables real-time updates of the loaded webform contents as the bound datasource's value changes.
+
+:::
 
 ## Webform Navigation
 
@@ -37,7 +43,7 @@ When implementing navigation actions involving the Webform Loader component, it'
 
 ## Triggers and Events
 
-The Webform Loader component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **Webform Loader** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|

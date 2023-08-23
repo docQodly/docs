@@ -1,10 +1,7 @@
 ---
 id: rangeinput
 title: Range Input
-hide_title: true
 ---
-
-## Component Overview
 
 // introduce the component
 

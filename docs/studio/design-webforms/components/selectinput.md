@@ -1,10 +1,7 @@
 ---
 id: selectinput
 title: Select Input
-hide_title: true
 ---
-
-## Component Overview
 
 // introduce the component
 
