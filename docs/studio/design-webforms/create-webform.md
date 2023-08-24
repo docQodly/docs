@@ -2,129 +2,341 @@
 id: create-webform
 title: Webform Editor
 ---
+import Column from '@site/src/components/Column'
 
 ## Creating a webform
 
-In Qodly, everything starts with a webform. A webform is a container that holds all the other components (buttons, grids, style boxes, etc.) of your application.
+In Qodly, the foundation of your work begins with a webform, a container encompassing all other components (buttons, style boxes, etc.) within your application.
 
-To create a webform:
-* from the homepage, click **Webform** and enter a name for the new webform
-* from the Webform Editor, click the **New +** tab > **Webform**
+* From the homepage, select **Webform** and input a name for the new webform
+* Within the Webform Editor, access the **New +** tab and choose **Webform**
 
 ## Overview
 
-The Webform Editor provides several tools to customize the interface and contents of your application:
+The Webform Editor furnishes an array of tools for tailoring your application's interface and content:
 
 ![interface](img/web-form-editor-interface.png)
 
-1. Explorer: Lists your project's webforms, methods, classes, shared elements (such as images), and debuggger sessions. Use the **...** contextual menu at the right side of each element to access actions available for the element (usually **Delete**, **Duplicate**, **Open** or **Edit**). The Explorer also provides access to the project's definition files: roles and privileges, data model, and settings.
-2. Tabs: They let you keep track of your currently opened elements, such as your forms and methods.
-3. Components: The building blocks of your application.
-4. Data Sources: Create and explore your datasources.
-5. Styles Library: Holds predefined and customized styles for your components.
-6. Outline: Presents the structure of your webform and allows you to navigate between the different elements.
-7. Canvas: This is where you combine your components, styles and datasources. You can drag and drop components onto your canvas, then drag and drop CSS classes and datasources onto these components, and preview or render your webforms.
-8. Properties panel: Allows for advanced style customization. Also allows binding datasources to components.
-9. Contextual panel: Link events and code to your components, edit CSS styles, etc.
-10. Header: Save and preview your work, access the Data Explorer as well as additional settings.
+1. Explorer: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access project definition files for roles, privileges, data model, and settings.
+2. Tabs: These keep track of your currently opened elements, including webforms and methods.
+3. Components: Fundamental building blocks of your application.
+4. Data Sources: Create and explore datasources.
+5. Styles Library: Houses pre-defined and customized styles for components.
+6. Outline: Offers a view of your webform's structure and facilitates element navigation.
+7. Canvas: Here, components, styles, and datasources come together. Drag and drop components onto the canvas, then further refine by adding CSS classes and datasources. Preview or render your webforms.
+8. Properties panel: Allows advanced style customization and facilitates datasource binding to components.
+9. Contextual panel: Establish event links, code associations, edit CSS styles, and more.
+10. Header: Save and preview your work, access the Data Explorer, and configure additional settings.
 
 
 
 ## Breadcrumbs
 
-When you select a component in the canvas, the breadcrumbs display its hierarchy:
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        The Breadcrumbs feature showcases the hierarchy of your selected components. As you follow the trail, you can click on any parent component's name to choose it. This simplifies component management and enhances your workflow efficiency.
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/breadcrumbs.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-![breadcrumbs](img/breadcrumbs.png)
 
-To select any parent component displayed in the breadcrumbs trail, click its name. 
 
 ## Outline
 
-The outline section displays the hierarchy of your webform:
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        The outline section provides a visual representation of your webform's hierarchy, allowing you to grasp the structural arrangement. 
+        By clicking on an element within the list, you can select it for further action, or utilize the drag-and-drop functionality within the outline to reposition elements. To manage the visibility of specific elements, simply click the eye icon <img alt="explorer" src={require('./img/eye.png').default} style={{borderRadius: '6px',height: '4%', width: '4%'}} />, toggling their display on or off as needed.
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/outline.png').default} style={{borderRadius: '6px',height: '70%', width: '70%'}} />
+	</Column.Item>
+</Column.List>
 
-![outline](img/outline.png)
 
-Click an element in the list to select it, or click and drag it anywhere in the outline to move it somewhere else.
-
-To display or hide an element, click the eye icon.
 
 ## Header panel
 
-![header panel](img/headerPanel.png)
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        For simplified project tracking, utilize the Project Management tools. Here are the key features:
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/headerPanel.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
 
 - **Toggle Airy Layout:** Airy mode is a specially crafted feature that enriches the creation of user-friendly web forms by automatically incorporating default margins between components. When enabled, it introduces a spacious layout by inserting a gap between the components within the form. This not only streamlines the process of designing visually appealing and user-friendly web forms but also significantly reduces the necessity for manual adjustments to style properties. To reflect the selected mode, a convenient toggle is incorporated on the canvas, allowing developers to easily switch between Airy mode and Neutral mode. The initial state of the toggle is context-dependent, adapting to the specific form being worked on.
-- **Sanity Check**: No more unnoticed website issues. The [Sanity Check](#sanity-check) tool scans for any issues that need fixing, like text bound to non-existing data classes, ensuring a smooth user experience for your visitors.
+
+- **Sanity Check**: The Sanity Check tool ensures your Webforms's consistency and saves time by identifying errors before runtime. Particularly, it spots components bound with nonexistent datasources. It's automatically activated while editing an opened webform, visible as an icon in the upper right corner above the canvas. 
+    - The icon appears like this when there are no errors <img alt="explorer" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', height: '26px', width: '26px' }} />
+    - When errors arise, the icon displays the error count, and clicking on it provides detailed error information.
+
+    <img alt="explorer" src={require('./img/headerPanel_sanityErrors.png').default} style={{borderRadius: '6px', height: '40%', width: '40%' }} />
+    
+    <br/>
+
+    Note that:
+    :::info
+    The Sanity Check serves as an informative tool. Even if errors are present, a webform can still be saved. 
+    :::
+
 - **Datasources Color**: Simplify component management with the Datasources Color feature. Easily identify the background color of datasources bound to the component, streamlining your workflow.
+
 - **Preview in Studio** and Preview in a new Tab: Render your webform either directly in Qodly Studio or using the webform URL. See [Rendering a webform](../rendering.md). 
 
 
 
-## Sanity check
+## Contextual panel
 
-The Webfom editor includes a **Sanity check** tool, allowing you to easily and quickly check the consistency of your Webforms. This tool is useful to avoid errors at runtime and save time. In particular, the sanity check will detect if a component is bound with a non existing datasource. 
+The **Contextual** panel allows you to seamlessly bind class functions, navigation actions, and standard actions to specific events within your application. Follow the instructions below to efficiently set up event actions:
 
-The Sanity check is automatically enabled when an opened webform is being edited. Its icon is located at the upper right area above the canvas. When there are no errors, the icon looks like this:
+### Bind Class Functions to Events
 
-![sanity](img/sanity-ok.png)
+To associate class functions with events, follow these steps:
 
-When errors have been detected, the number of errors is displayed on the icon and you can click on it to display more information about the error(s):
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
 
-![sanity](img/sanity.png)
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Add a Function Event</span>: Click on <code>Add a Function Event</code> to assign a class function to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-:::note
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Select a Function</span>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> which perform various setup actions and user interface adjustments when an employee logs into the system. This data can then be stored in a local or shared datasource, such as the <code>user</code> datasource.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-The Sanity check is only informative. A webform can always be saved even if it contains errors. 
+- **Pass Parameters**: You can enhance the capabilities of class functions by passing parameters in two ways:
 
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <span style={{fontWeight: 'bold'}}>Values</span>: Provide different types of values directly to the class function as parameters. Whether it's a string, number, boolean, or any other supported data type, simply select the desired type from the dropdown list, and your class function will receive the value with precision and accuracy.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <br />
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local variable visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared variable belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and seamless data sharing.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+		<span style={{fontWeight: 'bold'}}>Provide Feedback</span>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. This feature informs users about function outcomes. By incorporating the <code>.setMessage()</code> function in the backend logic, developers can set messages based on success, warning, or error conditions. This fosters real-time feedback and seamless communication between the backend and user interface.
+	</Column.Item>
+	<Column.Item width="35%">
+		<img alt="explorer" src={require('./img/contextualPanel_provideFeedback.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+On top of that:
+
+:::tip 
+A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
 :::
 
 
-## Contextual panel
+### Bind Navigation Actions to Events
 
-The Contextual panel can be used to:
+To link navigation actions with events, follow these steps:
 
-- configure actions to execute when [events](events.md) occur in your webform and components,
-- edit your [CSS](styling.md).
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
 
-The contents of the panel depends on the currently selected element, whose name is always displayed at the top of the panel:
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Add a Navigation Event</span>: Click on <code>Add a Navigation Event</code> to assign a navigation action to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-![context](img/context-panel.png)
+- **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
 
+- **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                - <code>New Tab</code>: Induce the opening of a new browser tab.<br />
+                - <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.<br />
+                - <code>Webform Loader</code>: Access the intended webform through a dedicated loader.<br />
+                - <code>Webform Loader (Self)</code>: Reveals content within the existing Webform loader.
+        </Column.Item>
+        <Column.Item width="35%">
+            <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
  
+Please be aware that:
+
+:::tip 
+The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
+:::
+
+### Bind Standard Actions to Events
+
+To link standard actions with events, follow these steps:
+
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection. 
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Standard Actions</span>: Click on <code>Add a Standard EvActionsent</code> to assign a standard action to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- **Define Action**: In the designated Action area, provide the name of the datasource, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+           For <span style={{fontWeight: 'bold'}}>Entities</span>: you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_entityStandardActions.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <br />
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            While <span style={{fontWeight: 'bold'}}>Entity selections</span>: grant you the power to order them, selecting attributes for sorting and determining the direction. Queries, powerful tools of exploration, enable you to unleash the full potential of your desires. They can refresh the entire entity selection, load all entities of a specific dataclass, or even create new empty selections.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_entitySelectionStandardActions.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+- **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to to customize the handling of unexpected error messages, determining what will be displayed to end users. Here, you have the ability to:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            Provide simple UI feedback on a Save, Reload, or Drop standard action on an entity.<br /><br />
+            Provide simple UI feedback on a Reload, Order by, or Query standard action on an EntitySelection.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+
+Keep in mind that:
+
+:::tip 
+In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
+:::
+
 
 ## Properties panel
 
-The Properties panel is used to display or modify all available properties for the selected webform or component.  
+The Properties panel is a powerful tool for customizing a wide array of component attributes, enabling you to shape their behavior and appearance to suit your needs. The available properties are contingent upon the specific component you have selected.
 
-### Display modes
+### Display Modes
 
-Two modes are proposed:
+The Properties Panel offers a pair of distinctive modes:
 
-- **Standard mode**: displays a compact, straighforward view where essential properties can be set. Use this mode to quickly configure the main properties of your webform components. 
-- **Advanced mode**: displays an comprehensive view of all available properties. Use this mode for greater granularity in property definition, allowing precise configuration of design options and parameters. 
+- **Standard mode**: This mode presents a concise and straightforward view, ideal for configuring essential properties swiftly. Utilize it to quickly set up key attributes for your webform components. 
+- **Advanced mode**: In this mode, a comprehensive view showcasing all available properties is provided. Choose this mode for intricate property definition, enabling meticulous configuration of design choices and parameters.
 
-To select a mode, use the switch on the top right area of the editor:
-
-![advanced](img/advanced.png)
-
-Whatever the mode, available properties depend on the selected element. 
-
-![panel](img/propertie.png)
-
-Three groups of properties are available:
-
-- **Properties**: specific properties for the selected component. These properties are documented with each component.
-- **Data Access**: configure the interaction between the selected component and its data source (if any). These properties are documented in the [**Datasources**](datasources.md) section.
-- **Style**: defines graphical properties of the components. These properties are documented in the [**Styling**](styling.md) section.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        To toggle between modes, utilize the switch located in the top-right corner of the editor.
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/propertiesPanel_displayMode.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
-### Ref
+### Component Reference (Ref)
 
-The internal ID for the selected component. This ID is automatically assigned at the component creation and used to reference it during [Webform loader component](webformloader.md) navigation action.
-
-A webform has always `ROOT` as reference
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during [Webform loader component](./components/webformloader.md) component navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ### Search box
 
-The area allows you to search among the property names, for an quick access to the desired property. As you enter characters, the property list is updated to show only properties with matching names. 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        The search box feature streamlines property name searches, ensuring swift and convenient access. As you input characters, the property list dynamically updates, displaying only properties with corresponding names.
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/propertiesPanel_searchBox.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
+### Properties Category
+
+Enhance a component to align with your application's requirements using the available customization options, depending on the component selected.
+
+:::info 
+Each component's documentation contains its own dedicated section explaining these customization possibilities.
+:::
+
+### Data Access Category
+
+Configure the interaction between your chosen component and its associated datasource, if applicable. These property details are extensively covered in the [**Datasources**](datasources.md) section.
+
+The Data Access properties encompass distinct options and fields tailored to each specific component, including:
+
+- DataSource: Identifies the data source for component iteration.
+- Selected Element: Specifies the currently selected element within the component.
+- Iterate with: Utilizes a datasource for looping through the same dataset.
+- Server Side: Provides the means to exercise server-side control over a component's behavior. This involves assigning a server-side reference, essentially an "address" on the server, to the component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.
+
+### Style Category
+
+Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. Explore below for specific options:
+
+| Section       | Description |
+|-----------------|-------------|
+| CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the Style Library for comprehensive style options and additional details. |
+| Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
+| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings.                                              |
+| Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
+| Layout          | Gain control over component alignment using margins and paddings.                             |
+| Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|
+| Font            | Tailor font type, size, alignment, and style achieving desired textual visual style.                                         |
+| Borders         | Define borders using attributes like thickness, color, and style to visually distinguish the component.                                   |
+| Border radius   | Adjust component corner curvature for various shapes and styles, enhancing design aesthetics. |
+
+:::info 
+For additional styling insights, refer to the [**Styling**](styling.md) section.
+:::
+
 

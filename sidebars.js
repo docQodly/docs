@@ -210,7 +210,6 @@ const sidebars = {
 						type: 'category',
 						label: 'Components',
 						items: [
-							'studio/design-webforms/toBeDeleted',
 							'studio/design-webforms/components/componentsBasics',
 							'studio/design-webforms/components/stylebox',
 							'studio/design-webforms/components/selectbox',
@@ -232,7 +231,6 @@ const sidebars = {
 					},
 				'studio/design-webforms/craftedComponents',
 				'studio/design-webforms/templates',
-				'studio/design-webforms/properties',
 				'studio/design-webforms/styling',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
