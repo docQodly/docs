@@ -22,10 +22,16 @@ You can configure events to activate in response to specific actions carried out
 
 ### Datasource events
 
-In addition to events triggered by end-user actions, events can also be automated to respond when datasources undergo changes.
+In addition to events triggered by end-user actions, events can also be automated to respond when datasources undergo changes. The primary event available for datasources is the `On Change` event.
 
-For an exhaustive list of datasource events, refer to the [List of available events](#list-of-datasource-events) section.
+The `On Change` event, when attached to a datasource, triggers in the following cases:
 
+|Trigger|Description|
+|---|---|
+|Datasource|<li>The reference pointed to by the datasource changes in the web browser (not on the server)</li><li>The entity is [touched](../../language/EntityClass.md#touched)</li>|
+|Entity attribute|The contents of the entity attribute change|
+|Scalar datasource|The contents of the scalar datasource change|
+|Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 
 
 ## Configuring an event
@@ -294,19 +300,6 @@ Here's what you obtain after the button is clicked:
 
 ![event-datasource-result](img/event-datasource-result.png)
 
-
-## List of datasource events  
-
-### On Change
-
-An `On Change` event attached a datasource triggers in the following cases:
-
-|Trigger|Description|
-|---|---|
-|Datasource|<ul><li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>The entity is [touched](https://developer.4d.com/docs/en/API/EntityClass.html#touched)</li></ul>|
-|Entity attribute|The contents of the entity attribute change|
-|Scalar datasource|The contents of the scalar datasource change|
-|Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 
 
 

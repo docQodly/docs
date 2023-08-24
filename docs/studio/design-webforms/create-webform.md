@@ -17,16 +17,16 @@ The Webform Editor furnishes an array of tools for tailoring your application's 
 
 ![interface](img/web-form-editor-interface.png)
 
-1. Explorer: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access project definition files for roles, privileges, data model, and settings.
-2. Tabs: These keep track of your currently opened elements, including webforms and methods.
-3. Components: Fundamental building blocks of your application.
-4. Data Sources: Create and explore datasources.
-5. Styles Library: Houses pre-defined and customized styles for components.
-6. Outline: Offers a view of your webform's structure and facilitates element navigation.
-7. Canvas: Here, components, styles, and datasources come together. Drag and drop components onto the canvas, then further refine by adding CSS classes and datasources. Preview or render your webforms.
-8. Properties panel: Allows advanced style customization and facilitates datasource binding to components.
-9. Contextual panel: Establish event links, code associations, edit CSS styles, and more.
-10. Header: Save and preview your work, access the Data Explorer, and configure additional settings.
+1. **Explorer**: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access project definition files for roles, privileges, data model, and settings.
+2. **Tabs**: These keep track of your currently opened elements, including webforms and methods.
+3. **Components**: Fundamental building blocks of your application.
+4. **Data Sources**: Create and explore datasources.
+5. **Styles Library**: Houses pre-defined and customized styles for components.
+6. **Outline**: Offers a view of your webform's structure and facilitates element navigation.
+7. **Canvas**: Here, components, styles, and datasources come together. Drag and drop components onto the canvas, then further refine by adding CSS classes and datasources. Preview or render your webforms.
+8. **Properties panel**: Allows advanced style customization and facilitates datasource binding to components.
+9. **Contextual panel**: Establish event links, code associations, edit CSS styles, and more.
+10. **Header**: Save and preview your work, access the Data Explorer, and configure additional settings.
 
 
 
@@ -168,10 +168,10 @@ Configure the interaction between your chosen component and its associated datas
 
 The Data Access properties encompass distinct options and fields tailored to each specific component, including:
 
-- DataSource: Identifies the data source for component iteration.
-- Selected Element: Specifies the currently selected element within the component.
-- Iterate with: Utilizes a datasource for looping through the same dataset.
-- Server Side: Provides the means to exercise server-side control over a component's behavior. This involves assigning a server-side reference, essentially an "address" on the server, to the component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.
+- **DataSource**: Identifies the data source for component iteration.
+- **Selected Element**: Specifies the currently selected element within the component.
+- **Iterate with**: Utilizes a datasource for looping through the same dataset.
+- **Server Side**: Provides the means to exercise server-side control over a component's behavior. This involves assigning a server-side reference, essentially an "address" on the server, to the component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.
 
 ### Style Category
 
