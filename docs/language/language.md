@@ -225,11 +225,11 @@ Do_Things(vtSomeText , 0 , vNum) //will fill info and call Do_something
 
 #### Example 2
 
-Qodly methods accept a variable number of parameters of the same type, starting from the right. To declare these parameters, you use the [parameter indirection syntax](basics/lang-parameters.md#parameter-indirection-n), in which you pass `${N}` as a variable, where N specifies the first parameter. Using `countParameters` you can address those parameters with a `for` loop. This example is a function that returns the greatest number received as parameter:
+Qodly methods accept a variable number of parameters of the same type, starting from the right. Using `countParameters` and the `${N}` syntax you can access those parameters as variants in a `for` loop. This example is a function that returns the greatest number received as parameter:
 
 ```qs
 //MaxOf method
-#declare (${1} : number) -> result : number 
+#declare() -> result : number 
 var i : integer
 result=${1}
 for(i,2,countParameters)
@@ -242,7 +242,7 @@ end
 After this method has been added to your application, you can write calls like:
 
 ```qs
-vrResult=MaxOf(12,50)   
+vrResult=MaxOf(12,50,200,3) //200
 vrResult=MaxOf(r1,r2,r3,r4,r5,r6)
 ```
 
