@@ -1,87 +1,256 @@
 ---
 id: events
-title: Events and standard actions
+title: Events
 ---
+import Column from '@site/src/components/Column'
 
-Events are usually used as a means of triggering certain behaviors. They are used in conjunction with different actions to create interactions in an application.
+Events serve as a mechanism for initiating specific actions, often employed to trigger particular behaviors. They collaborate with various actions to establish dynamic interactions within an application.
 
-For example, if the user clicks a button on a webpage, you can choose how to react by calling a function or opening another webpage. Events can also be triggered [when a datasource is updated](#datasource-events). 
+For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a datasource](#datasource-events).
 
-With Qodly Studio, events are used to execute code on the Qodly web server. No additional Javascript is needed.
+Within Qodly Studio, events play a pivotal role in executing code on the Qodly web server, without requiring any supplementary JavaScript.
 
-## Configuring an event
 
-You can bind your webform events to different actions such as executing a function or navigating to another webform.
 
-### Bind a class function to an event
+## Types of Events
 
-1. Select a component or a datasource. The Contextual panel displays the events that are compatible with the element you selected.
-
-2. Click a **Add a Function Event** to attach the corresponding event to the component or datasource.
-
-3. Select a function in the list. 
-
-4. Add parameters (datasources or values) and point at a local or remote datasource to update:
-
-    ![search](img/toggle-value.png)
-
-    :::note Tip
-
-    Passing values as parameters lets you test the behavior of a function without creating a datasource.
-
-    :::
-
-A class function can be mapped to several events, and you can assign several events to the same class function.
-
-> When configuring events,the functions that have namespaces displayed next to them are [shared functions](datasources.md/#shared-functions).
-
-### Bind a navigation action to an event
-
-Inside your application, you can create navigation between pages or update the contents of a page by binding navigation actions to events.
-
-To do this: 
-
-1. Select a component or a datasource and select **Add a Navigation Event** in the Contextual panel.
-2. Select a target webform to navigate to.
-3. Define where the target webform opens:
-    * **New Tab**: Opens in a new browser tab 
-    * **Current Tab**: Opens in the current browser tab, replacing the current webform
-    * **Webform Loader**: Opens in the selected [Webform loader](webformloader.md)
-    * **Webform Loader (Self)**: Opens in the current [Webform loader](webformloader.md)
-
-![search](img/navigation-event.png)
-
-### Chaining actions
-
-You can attach several events to a component or datasource. 
-
-Events are executed in their defined order. When an event triggers, its actions are executed sequentially. This means that each action starts only when the previous one has finished executing.
-
-## Event types
-
-Events can be set to trigger when end-users perform certain actions or when datasources are updated.
+Events can be set to trigger either when end-users perform specific actions or when datasources are updated.
 
 ### User events
 
-You can set events to trigger when end-users perform certain actions, such as clicking a button.
+You can configure events to activate in response to specific actions carried out by end-users, like clicking buttons.
 
-#### Example: Hello User
+### Datasource events
 
-This 5-minute video provides a "Hello User" example. Starting from a simple database, it covers how to enable access to the studio, create a basic interface, and trigger a search to greet the user by their name:
+In addition to events triggered by end-user actions, events can also be automated to respond when datasources undergo changes.
+
+For an exhaustive list of datasource events, refer to the [List of available events](#list-of-datasource-events) section.
+
+
+
+## Configuring an event
+
+The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application. To streamline the configuration of event actions, refer to the subsequent guidelines:
+
+### Bind Class Functions to Events
+
+To associate class functions with events, follow these steps:
+
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Add a Function Event</span>: Click on <code>Add a Function Event</code> to assign a class function to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Select a Function</span>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> which perform various setup actions and user interface adjustments when an employee logs into the system. This data can then be stored in a local or shared datasource, such as the <code>user</code> datasource.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- **Pass Parameters**: You can expand the capabilities of class functions by passing parameters in two ways:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <span style={{fontWeight: 'bold'}}>Values</span>: Provide different types of values directly to the class function as parameters. Whether it's a string, number, boolean, or any other supported data type, simply select the desired type from the dropdown list, and your class function will receive the value with precision and accuracy.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <br />
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local variable visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared variable belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and data sharing.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+		<span style={{fontWeight: 'bold'}}>Provide Feedback</span>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#provide-feedback">Provide Feedback</a> section. 
+	</Column.Item>
+	<Column.Item width="35%">
+		<img alt="explorer" src={require('./img/contextualPanel_provideFeedback.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+On top of that:
+
+:::tip 
+A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
+:::
+
+### Bind Navigation Actions to Events
+
+To associate navigation actions with events, follow these steps:
+
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Add a Navigation Event</span>: Click on <code>Add a Navigation Event</code> to assign a navigation action to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
+
+- **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                - <code>New Tab</code>: Induce the opening of a new browser tab.<br />
+                - <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.<br />
+                - <code>Webform Loader</code>: Access the intended webform through a dedicated [Webform loader](./components/webformloader.md).<br />
+                - <code>Webform Loader (Self)</code>: Reveals content within the existing [Webform loader](./components/webformloader.md).
+        </Column.Item>
+        <Column.Item width="35%">
+            <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+ 
+Please be aware that:
+
+:::tip 
+The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
+:::
+
+
+### Bind Standard Actions to Events
+
+To link standard actions with events, follow these steps:
+
+- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection. 
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <span style={{fontWeight: 'bold'}}>Standard Actions</span>: Click on <code>Add a Standard Action</code> to assign a standard action to a desired event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- **Define Action**: In the designated Action area, provide the name of the datasource, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+           For <span style={{fontWeight: 'bold'}}>Entities</span>: you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_entityStandardActions.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <br />
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            While <span style={{fontWeight: 'bold'}}>Entity selections</span>: offer the ability to arrange and choose attributes for sorting. You can query, refresh, load all entities of a particular data class, and create new empty selections.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_entitySelectionStandardActions.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+- **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#provide-feedback">Provide Feedback</a> section. Here, you have the ability to:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            - Provide simple UI feedback on a Save, Reload, or Drop standard action on an entity.<br /><br />
+            - Provide simple UI feedback on a Reload, Order by, or Query standard action on an EntitySelection.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+###  List of standard actions
+
+Depending on the type of datasource, the following standard actions are accessible:
+
+|Datasource type|Action|Description|
+|---|---|---|
+|Entity|New| Generate a new entity from the corresponding dataclass|
+||Save|Save the entity|
+||Refresh|Reload entity values from the server|
+||Remove|Delete the entity|
+||First|Navigate to the first entity within the entity selection|
+||Previous|Move to the previous entity within the entity selection|
+||Next|Advance to the next entity within the entity selection|
+||Last|Navigate to the last entity within the entity selection|
+|Entity selection|Order By|Specify multiple attributes to sort and select direction|
+||Query|The query is provided as a string and supports the same syntax as an [ORDA query](https://developer.4d.com/docs/API/DataClassClass#query), except for formula (eval) and the settings object. Placeholders can be used with datasources or data as-is|
+||Refresh|Reload the entire entity selection from the server|
+||All|Load all entities of the same dataclass|
+||Empty|Create a new, empty selection of the same dataclass|
+
+
+### Chaining actions
+
+Keep in mind that:
+
+:::tip 
+In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
+:::
+
+## Provide feedback
+
+Enable the `Provide Feedback` checkbox to exhibit backend feedback on the user interface. This functionality informs users about function outcomes. By integrating the .setMessage() function within the backend logic, developers can display messages corresponding to successful, cautionary, or erroneous scenarios. This tailored feedback is aligned with the application's business rules and doesn't interfere with the application's navigation flow.
+
+
+Once activated for a function event, a concealed internal feedback element is introduced to the webform. This element automatically showcases messages dispatched by the application code as responses to events using [dedicated webForm functions](../../language/WebForm.md#webform-class). 
+
+Three tiers of feedback are accessible and will be displayed as colored "toasts":
+
+- [`setMessage()`](../../language/WebForm.md#setmessage): Dispatches informative messages. <img alt="explorer" src={require('./img/message-info.png').default} style={{borderRadius: '6px', height: '20%', width: '20%'}} />
+
+- [`setWarning()`](../../language/WebForm.md#setwarning): Sends out cautionary messages. <img alt="explorer" src={require('./img/message-warning.png').default} style={{borderRadius: '6px', height: '20%', width: '20%'}} />
+
+- [`setError()`](../../language/WebForm.md#seterror): Issues error messages. <img alt="explorer" src={require('./img/message-error.png').default} style={{borderRadius: '6px', height: '18%', width: '18%'}} />
+
+These "toasts" remain visible for 5 seconds and close automatically. Users can also dismiss them by clicking on the **x** icon.
+
+
+## Examples
+
+### User events 
+
+In this 5-minute video example, the process of creating a "Hello User" scenario is demonstrated. Beginning with a basic database, the tutorial walks through enabling access to the studio, establishing a simple interface, and triggering a search to greet the user by their name.
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GwIdic4OhPQ" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-#### Example: Search feature using the `onChange` event
 
-The objective is to update a list of students displayed in a **Matrix** component according to what the end-user types in an input area.
+The objective here is to dynamically update a list of students displayed within a **Matrix** component based on what the end-user enters into an input field.
 
-In the image below: 
-* The **Input** element is bound to the local datasource `search` (of type Text)
-* The **Matrix** component displays a list of students based on the `students` datasource, which is an entity selection
+In the provided scenario:
+
+* The **Input** element is bound to the local datasource `search` (of type Text).
+* The **Matrix** component presents a list of students through the `students` datasource, which is an entity selection.
 
 ![search](img/search-component.png)
 
-To display results corresponding to the text typed in the **Input** component, we need a `search` function that performs a query:
+To achieve the display of search results corresponding to the text entered into the **Text Input** component, a `search` function is required to execute a query:
 
 ```qs
 exposed Function search($search : Text)->$result : cs.StudentsSelection
@@ -91,31 +260,33 @@ $search:="@"+$search+"@"
 $result:=This.query("firstname = :1 or lastname = :1"; $search)   
 ```
 
-An **onChange** event calls the `search` function and passes the text typed in the **Input** element as a parameter. This updates the `students` datasource:
+An **on Change** event triggers the `search` function, passing the text input from the **Input** element as a parameter. 
 
 ![search](img/search-event.png)
 
-Now everytime the text changes inside the **Input** element, a query is sent and the list of students displayed in the **Matrix** component is updated.
+This update to the `students` datasource leads to the **Matrix** component reflecting the updated list of students.
 
-### Datasource events
 
-Aside from events triggered by end-user actions, events can trigger automatically when datasources are updated.
+### Datasource events 
 
-For a list of datasource events, see [List of available events](#list-of-datasource-events).
+In this scenario: 
 
-#### Example - Updating an entity selection
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        &nbsp; &bull; The Employee <a href="./components/datatable.md">Datatable component</a> displays a list of employees, utilizing an entity selection (bound to the <code>employees</code> catalog datasource). <br/><br/>
+        &nbsp; &bull; The "General statistics/Detailed statistics" <a href="./components/radio.md">Radio component</a> is linked to the <code>choice</code> webform datasource.<br/><br/>
+        &nbsp; &bull; Buttons are bound to standard actions that perform queries on the <code>employee</code> datasource (e.g., "salary &lt; 23000").<br/><br/>
+        &nbsp; &bull; An <code>on Change</code> event is assigned to both the <code>employees</code> and <code>choice</code> datasources. These events call the same function from the <code>EmployeeSelection</code> class, named <code>statistics</code>.<br/><br/>
+        &nbsp; &bull; For simplicity, the <code>statistics</code> scalar datasource (object) is visualized as a <a href="./components/text.md">Text component</a>
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/event-datasource.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-In the image below: 
+<br/>
 
-* The employee [Datatable component](components.md#datatable) displays a list of employees, based on an entity selection (the *employees* catalog datasource is attached).
-* The "General statistics/Detailed statistics" [radio component](components.md#radio) is bound to the *choice* webfom datasource. 
-* Buttons are bound to standard actions that execute queries on the employee datasource (e.g. "salary < 23000").
-* An `onChange` event is attached to the `employees` datasource and another `onChange` event is attached to the `choice` datasource. Both events call the same function from the `EmployeeSelection` class, named *statistics*.
-* For simplicity, the "statistics" scalar datasource (object) is displayed as a [Text component](components.md#text).
-
-![event-datasource](img/event-datasource.png)
-
-When the user clicks a button or select a radio button, the `employees` datasource is updated, triggering the `onChange` event. This function takes the value of the *choice* datasource as parameter, and returns general or detailed statistics as an object depending on the parameter value.  
+When a button is clicked or a radio button is selected, the `employees` datasource updates, prompting the `on Change` event. This function receives the value of the **choice** datasource as a parameter and produces general or detailed statistics as an object based on the parameter value.
 
 ![event-datasource-event](img/event-datasource-event.png)
 
@@ -123,7 +294,8 @@ Here's what you obtain after the button is clicked:
 
 ![event-datasource-result](img/event-datasource-result.png)
 
-### List of datasource events  
+
+## List of datasource events  
 
 ### On Change
 
@@ -137,59 +309,5 @@ An `On Change` event attached a datasource triggers in the following cases:
 |Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 
 
-### Provide feedback
-
-This selector allows you to provide customized feedback to the user for any function events. This feedback is related to the business rules of the application, they do not interact with the application navigation flow. 
-
-When the selector is enabled for a function event, an internal hidden feedback element is added to the web form. This element will automatically display messages sent by the application code as a response to the event using [dedicated `webForm` functions](../../language/WebForm.md#webform-class). 
-
-Three levels of feedbacks are available, and will be displayed as colored "toasts":
-
-- [`setMessage()`](../../language/WebForm.md#setmessage), to send information messages
-![feedback-info](img/message-info.png)
-
-- [`setWarning()`](../../language/WebForm.md#setwarning), to send warning messages
-![feedback-warning](img/message-warning.png)
-
-- [`setError()`](../../language/WebForm.md#seterror), to send error messages
-![feedback-error](img/message-error.png)
-
-Toasts are displayed during 5 seconds and are automatically closed. They can also be closed by the user with a click on the **x**.
-
-
- 
-## Standard actions
-
-You can define standard actions to apply to datasources in response to specific events. Available actions depend on the datasource kind.
-For example, you can associate the **Order By** action to an entity selection datasource, or the **Save** action to an entity datasource.
-
-To attach a standard action to the selected component:
-
-1. Select an event.
-2. In the Action area, enter the datasource name.
-3. Click on the desired standard action icon.
-
-![datasource-action](img/datasource-action.png)
-
-
-### List of standard actions
-
-The following standard actions are available, depending on the datasource kind:
-
-|Datasource kind|Action|Description|
-|---|---|---|
-|Entity|New|Creates a new entity from the same dataclass|
-||Save|Saves the entity|
-||Refresh|Reloads the entity values from the server|
-||Remove|Deletes the entity|
-||First|Goes to the first entity of the entity selection. Available if the entity belongs to an entity selection|
-||Previous|Goes to the previous entity in the entity selection. Available if the entity belongs to an entity selection|
-||Next|Goes to the next entity in the entity selection. Available if the entity belongs to an entity selection|
-||Last|Goes to the last entity of the entity selection. Available if the entity belongs to an entity selection|
-|Entity selection|Order By|You can enter several attributes to sort and select direction|
-||Query|The query is given as a string and supports the same syntax as an [ORDA query](https://developer.4d.com/docs/API/DataClassClass#query) except the use of formula (eval) and the settings object. Placeholders can be given with datasources or data as is|
-||Refresh|Reloads the whole entity selection from the server|
-||All|Loads all the entities of the same dataclass|
-||Empty|Creates a new, empty selection of the same dataclass|
 
 

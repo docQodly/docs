@@ -34,7 +34,7 @@ The Webform Editor furnishes an array of tools for tailoring your application's 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        The Breadcrumbs feature showcases the hierarchy of your selected components. As you follow the trail, you can click on any parent component's name to choose it. This simplifies component management and enhances your workflow efficiency.
+        The Breadcrumbs feature showcases the hierarchy of your selected components. As you follow the trail, you can click on any parent component's name to choose it.
 	</Column.Item>
 	<Column.Item width="30%">
         <img alt="explorer" src={require('./img/breadcrumbs.png').default} style={{borderRadius: '6px'}} />
@@ -93,166 +93,20 @@ The Webform Editor furnishes an array of tools for tailoring your application's 
 
 ## Contextual panel
 
-The **Contextual** panel allows you to seamlessly bind class functions, navigation actions, and standard actions to specific events within your application. Follow the instructions below to efficiently set up event actions:
+The **Contextual** panel allows you to bind class functions, navigation actions, and standard actions to specific events within your application. Additionally, you can modify CSS classes directly from the Contextual panel to fine-tune your application's appearance.
+
+### Modifying CSS Classes
+
+You can adjust CSS classes right from the Contextual panel, offering you granular control over your application's visual styling. For more detailed information, refer to the [Styling](styling.md) section.
 
 ### Bind Class Functions to Events
-
-To associate class functions with events, follow these steps:
-
-- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Add a Function Event</span>: Click on <code>Add a Function Event</code> to assign a class function to a desired event.
-	</Column.Item>
-	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Select a Function</span>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> which perform various setup actions and user interface adjustments when an employee logs into the system. This data can then be stored in a local or shared datasource, such as the <code>user</code> datasource.
-	</Column.Item>
-	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-- **Pass Parameters**: You can enhance the capabilities of class functions by passing parameters in two ways:
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <span style={{fontWeight: 'bold'}}>Values</span>: Provide different types of values directly to the class function as parameters. Whether it's a string, number, boolean, or any other supported data type, simply select the desired type from the dropdown list, and your class function will receive the value with precision and accuracy.
-        </Column.Item>
-        <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-    <br />
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local variable visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared variable belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and seamless data sharing.
-        </Column.Item>
-        <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-		<span style={{fontWeight: 'bold'}}>Provide Feedback</span>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. This feature informs users about function outcomes. By incorporating the <code>.setMessage()</code> function in the backend logic, developers can set messages based on success, warning, or error conditions. This fosters real-time feedback and seamless communication between the backend and user interface.
-	</Column.Item>
-	<Column.Item width="35%">
-		<img alt="explorer" src={require('./img/contextualPanel_provideFeedback.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-
-On top of that:
-
-:::tip 
-A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
-:::
-
+Connect class functions to events for streamlined interactions. For more detailed information, refer to the [Bind Class Functions to Events](events.md#bind-class-functions-to-events) section.
 
 ### Bind Navigation Actions to Events
-
-To link navigation actions with events, follow these steps:
-
-- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Add a Navigation Event</span>: Click on <code>Add a Navigation Event</code> to assign a navigation action to a desired event.
-	</Column.Item>
-	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-- **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
-
-- **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
-
-    <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
-                - <code>New Tab</code>: Induce the opening of a new browser tab.<br />
-                - <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.<br />
-                - <code>Webform Loader</code>: Access the intended webform through a dedicated loader.<br />
-                - <code>Webform Loader (Self)</code>: Reveals content within the existing Webform loader.
-        </Column.Item>
-        <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
- 
-Please be aware that:
-
-:::tip 
-The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
-:::
+Associate navigation actions with events to enable navigation based on user interactions. For more detailed information, refer to the [Bind Navigation Actions to Events](events.md#bind-navigation-actions-to-events) section.
 
 ### Bind Standard Actions to Events
-
-To link standard actions with events, follow these steps:
-
-- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection. 
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Standard Actions</span>: Click on <code>Add a Standard EvActionsent</code> to assign a standard action to a desired event.
-	</Column.Item>
-	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-- **Define Action**: In the designated Action area, provide the name of the datasource, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-           For <span style={{fontWeight: 'bold'}}>Entities</span>: you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
-        </Column.Item>
-        <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_entityStandardActions.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-    <br />
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            While <span style={{fontWeight: 'bold'}}>Entity selections</span>: grant you the power to order them, selecting attributes for sorting and determining the direction. Queries, powerful tools of exploration, enable you to unleash the full potential of your desires. They can refresh the entire entity selection, load all entities of a specific dataclass, or even create new empty selections.
-        </Column.Item>
-        <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_entitySelectionStandardActions.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-- **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to to customize the handling of unexpected error messages, determining what will be displayed to end users. Here, you have the ability to:
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            Provide simple UI feedback on a Save, Reload, or Drop standard action on an entity.<br /><br />
-            Provide simple UI feedback on a Reload, Order by, or Query standard action on an EntitySelection.
-        </Column.Item>
-        <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-
-
-Keep in mind that:
-
-:::tip 
-In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
-:::
+Link standard actions to events, ensuring consistent actions in response to specific events. For more detailed information, refer to the [Bind Standard Actions to Events](events.md#bind-standard-actions-to-events) section.
 
 
 ## Properties panel
@@ -280,7 +134,7 @@ The Properties Panel offers a pair of distinctive modes:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during [Webform loader component](./components/webformloader.md) component navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="./components/webformloader.md">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
     </Column.Item>
     <Column.Item width="30%">
         <img alt="explorer" src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
@@ -333,7 +187,7 @@ Discover numerous customization avenues that empower you to fine-tune components
 | Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|
 | Font            | Tailor font type, size, alignment, and style achieving desired textual visual style.                                         |
 | Borders         | Define borders using attributes like thickness, color, and style to visually distinguish the component.                                   |
-| Border radius   | Adjust component corner curvature for various shapes and styles, enhancing design aesthetics. |
+| Border radius   | Adjust component corner curvature for various shapes and styles. |
 
 :::info 
 For additional styling insights, refer to the [**Styling**](styling.md) section.
