@@ -1,33 +1,20 @@
 ---
 id: model-overview
-title: Qodly Models
+title: Qodly Model
 ---
-The structure of your project is called a Model. When you click on an
-empty space in the Data Model Editor, you can view the properties for
-your Model(coming soon). By default, a Model does not contain any
-default datastore classes; you have to create the datastore classes
-either in the Data Model Editor or through the **?**
 
-You access your current project\'s model by double-clicking on
-![alt-text](img/model-icon.png) in your project's sidebar menu.
+The structure of your project is called the Data Model. In Qodly, following the [ORDA concepts](../../concepts/platforms.md#the-orda-concept), the data model includes the datastore, the datastore classes and their attributes (scalar, related, alias, calculated), as well as their functions.  
 
-***Note**: You can zoom out on your project's model to view the whole
-structure of the datastore classes it contains; or zoom in to get a
-clearer view of a specific datastore class.*
+Included in the model view are also the permissions, allowing you to assign access right at any level of the model (datastore, dataclass, attributes and functions).
 
-### Model editor interface
+By default in blank applications, the model does not contain any default dataclasses; you have to create the dataclasses. 
 
-In Qodly, the structure of your Model is organized in a new way that
-allows you to better manage your datastore classes, attributes,
-functions and their properties.
+You access your current project's model in the **Model Editor** by double-clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
 
-You will find more in depth information in Model Editor - overview on
-everything interface **from the toolbar to the Properties Area**
+:::info
 
-### Datastore Classes
+You can zoom out on your project's model to view the whole structure of the dataclasses it contains; or zoom in to get a
+clearer view of a specific dataclass.
 
-### Datastore functions 
+:::
 
-### Attributes
-
-##### 

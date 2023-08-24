@@ -3,11 +3,11 @@ id: platform
 title: Qodly Platform Overview
 ---
 
-The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor any web application.
-
-Qodly is a hybrid **low-code** web application development platform. It means that, to develop a web application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
+The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor business applications with advanced web interfaces. Qodly is the perfect platform to design and publish powerful back office applications, or sophisticated dashboards, in a record time.
 
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud Management Console**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
+
+Qodly is a hybrid **low-code** application development platform. It means that, to develop an application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
 
 In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.). In the **staging** and **production** environments, Qodly Server is also used to handle and process requests from the browsers. 
 

@@ -1,12 +1,11 @@
 ---
 id: model-editor-interface
-title: Model Editor Interface
+title: Model Editor
 ---
-The Data Model Editor allows you to define the Model
-( database structure) for your application.
 
-A model is a description of how data will be accessed and stored into
-structures called "datastore classes." In each datastore class, you
+The Data Model Editor allows you to define the [Model](model-overview.md) for your application.
+
+A model is a description of how data will be accessed and stored into structures called "dataclasses". In each datastore class, you
 create attributes that store, calculate data, or refer to data in other
 datastore classes (relation attributes). As well as functions to
 interact with the data in your model.
