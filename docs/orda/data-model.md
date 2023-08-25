@@ -11,7 +11,7 @@ The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an a
 
 As a result, ORDA exposes the whole database as a set of data model objects, including **model objects** as well as **data objects**.  
  
-![schema](img/orda-schema3.png)
+![schema](img/orda-schema4.png)
 
 ### Objects have Classes
 
