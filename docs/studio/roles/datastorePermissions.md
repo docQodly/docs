@@ -1,11 +1,8 @@
 ---
 id: datastorePermissions
 title: Datastore Permissions
-hide_title: true
 ---
 
-
-## Understanding Datastore Permissions
 
 Datastore permissions play a pivotal role in controlling access to the entirety of your website's Datastore. These permissions act as sentinels, guarding your website's Datastore, which encompasses all Dataclasses and Entities. The strategic establishment of these permissions at the Datastore level assumes paramount importance, as it serves as the first line of defense against unauthorized entry and unauthorized alterations to mission-critical data. 
 
@@ -15,7 +12,7 @@ Datastore permissions play a pivotal role in controlling access to the entirety 
 
 However, when these permissions are not thoughtfully set up, your application operates under the specter of unregulated access. In this unsettling scenario, every user enjoys unregulated access to all resources within the Datastore, which, unfortunately, brings with it inherent risks. 
 
-To highlight this vulnerability, let's illustrate it practically: Imagine yourself as an unauthorized user without profile verification. Should you attempt an HTTP request to the REST API endpoint corresponding to the `User` Dataclass, you will promptly grasp the substantial threat of unchecked data access. This scenario grants you the ability to execute various actions at will, including accessing confidential information of users, a risk that extends uniformly to all other Dataclasses.
+To highlight this vulnerability, let's illustrate it practically: Imagine yourself as an unauthorized user without profile verification. Should you attempt an HTTP request to the REST API endpoint corresponding to the `Package` Dataclass, you will promptly grasp the substantial threat of unchecked data access. This scenario grants you the ability to execute various actions at will, including accessing confidential information of users, a risk that extends uniformly to all other Dataclasses.
 
 <img alt="explorer" src={require('./img/unrestrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
@@ -37,7 +34,7 @@ With the `Restricted` privilege created, as shown in the [**Roles and Privileges
 
 Setting permissions to the Datastore itself entails associating comprehensive permissions, ranging from `Read` to `Execute`. By setting all permissions for the `ds` ressource and not associating this privilege with any role, the Datastore is protected against malicious access attempts. This safeguarding mechanism effectively transforms the website into a trove, living up to its name. 
 
-Attempting to access the same REST API Endpoints will result in a "No permission to read for the User dataclass" response, a rule that extends across all Dataclasses.
+Attempting to access the same REST API Endpoints will result in a "No permission to read for the Package dataclass" response, a rule that extends across all Dataclasses.
 
 <img alt="explorer" src={require('./img/restrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
@@ -78,7 +75,7 @@ Through this transition, you bestow the `Guest` privilege with the ability for i
 <br/><br/>
 
 :::danger 
-However, it's essential to acknowledge that not all data should be made accessible to unconnected users. Sensitive User data, confidential Reporting documents, and other private information must remain restricted.
+However, it's essential to acknowledge that not all data should be made accessible to users. Sensitive User data, confidential Reporting documents, and other private information must remain restricted.
 :::
 
 To navigate this intricate balance between data accessibility and security, we turn our attention to the next crucial step: utilizing [**DataClass Permissions**](../roles/dataClassPermissions.md) to selectively shape and control access to specific sets of data.

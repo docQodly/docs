@@ -1,10 +1,8 @@
 ---
 id: accessControlMechanisms
 title: Access Control Mechanisms
-hide_title: true
 ---
 
-<br/>
 
 Two closely linked yet distinct concepts, "Data Access Restrictions" and "Role-Based Access Control (RBAC)", address separate dimensions of access control and security within the application. "Data Access Restrictions" establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, "Role-Based Access Control (RBAC)" delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions within the application.
 
