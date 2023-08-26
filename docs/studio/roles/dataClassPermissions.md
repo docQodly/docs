@@ -1,14 +1,13 @@
 ---
 id: dataClassPermissions
 title: DataClass Permissions
-hide_title: true
 ---
 
 <br/>
 
-With the presence of the `Guest` privilege, unconnected users access non-restricted resources such as package details, related information, and destinations. This controlled exploration aids informed travel decisions.
+With the presence of the `Guest` privilege, users with no role affected access non-restricted resources such as package details, related information, and destinations. 
 
-However, refining this privilege's scope involves Dataclasses permissions. Even booking mandates connection first, enhancing identification and security.
+However, refining this privilege's scope involves Dataclasses permissions. Agents whose sessions haven't been verified should encounter an error, prompting them to contact their admin to finalize the setup of their account before proceeding with client bookings.
 
 --- 
 ## Understanding DataClass Permissions 
@@ -29,9 +28,9 @@ Permissions of the `Guest` privilege are automatically inherited across various 
 
 ### <u> Setting DataClass Permissions </u>
 
-DataClass-level permissions possess the power to supersede those set at the DataStore level. Consider the example of sensitive Dataclasses such as User and Role, efficiently controlled through the `Restricted` privilege. 
+DataClass-level permissions possess the power to supersede those set at the DataStore level. Consider the example of sensitive Dataclasses such as Employee, efficiently controlled through the `Restricted` privilege. 
 
-Setting permissions for the User and Role resources, added in a manner akin to the intuitive `ds` resource addition from the dropdown list ensures restricted access unless the pertinent role asserts control. Here, the inheritance of privileges set at the DataStore level ( `Guest` ) is overridden by the `Restricted` privilege.
+Setting permissions for the Employee resource, added in a manner akin to the intuitive `ds` resource addition from the dropdown list ensures restricted access unless the pertinent role asserts control. Here, the inheritance of privileges set at the DataStore level ( `Guest` ) is overridden by the `Restricted` privilege.
 
 <img alt="explorer" src={require('./img/implementingDataClassPermissions.png').default} style={{borderRadius: '6px'}} />
 

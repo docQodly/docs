@@ -1,10 +1,8 @@
 ---
 id: rolesPrivilegesOverview
 title: Roles and Privileges
-hide_title: true
 ---
 
-<br/>
 
 In the realm of data security and access control, Qodly introduces a robust system of Roles and Privileges. These two fundamental concepts are at the heart of enforcing data access restrictions within the application. By understanding the intricacies of Roles and Privileges, you can ensure that each user accesses only the data pertinent to their designated role. 
 
@@ -12,7 +10,7 @@ In the realm of data security and access control, Qodly introduces a robust syst
 
 ### <u> Understanding Roles </u> 
 
-Roles in Qodly play a pivotal role in defining distinct user profiles within the application. Each role corresponds to a specific set of responsibilities, privileges, and access levels. For instance, consider a travel agency website, roles such as "Customer," "Content Manager," and "Sales Manager" delineate varying user profiles, each with a unique scope of actions and operations they can perform.
+Roles in Qodly play a pivotal role in defining distinct user profiles within the application. Each role corresponds to a specific set of responsibilities, privileges, and access levels. For instance, consider a backoffice travel agency website, roles such as "Agent," "Content Manager," and "Sales Manager" delineate varying user profiles, each with a unique scope of actions and operations they can perform.
 
 ### <u> Role Hierarchy and Hierarchical Access Control </u> 
 
@@ -20,67 +18,24 @@ Roles are hierarchically structured, allowing for the establishment of an organi
 
 ### <u> Adding Roles </u> 
 
-Adding roles in Qodly is a straightforward process. Begin by opening the `Explorer` Panel, your control center for Qodly management. From there, navigate to the `Roles and Privileges` section, where you'll find the dedicated `Roles` tab. Click on this tab to access role management. To define a new role, initiate the role creation process by clicking on the `Add new role` option. 
+Adding roles in Qodly is a straightforward process. Begin by opening the `Explorer` Panel then navigate to the `Roles and Privileges` section, where you'll find the dedicated `Roles` tab. Click on this tab to access role management. To define a new role, initiate the role creation process by clicking on the `Add new role` option. 
 
 <img alt="explorer" src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
 
-Following these uncomplicated steps, in the context of a travel agency website known as `TravelTrove`, you can customize unique roles such as `Customer`, `Content Manager`, and `Sales Manager` to perfectly align with your specific application needs:
+Following these uncomplicated steps, in the context of a backoffice travel agency website known as `TravelTrove`, you can customize unique roles such as `Agent`, `Content Manager`, and `Sales Manager` to perfectly align with your specific application needs:
 
 
 |Roles          |Description|
 |---------------|---|
-|Customer       |Represents website visitors who can browse travel packages, view destination information, and make bookings.|  
+|Agent       |Serves as an office representative, reserving and customizing travel packages for clients.|  
 |Content Manager|Responsible for managing the content of the website, including creating and updating travel packages, adding new destinations, and editing descriptions.|
-|Sales Manager   |Has additional privileges compared to customers, allowing them to manage customer bookings, view sales reports, and generate invoices.|
-
-### <u> Role-Based Authentication </u> 
-
-To ensure clear role-based access within the system, the integration of a user authentication mechanism, specifically a dedicated sign-in page, is of utmost importance. This mechanism serves as a vital tool for distinguishing between different roles attempting to access the website. By requiring users to sign in, the system uniquely identifies and associates each user with their designated role. After a successful registration, automatic assignment of a default role, such as the `Customer` role, serves as the foundational step for controlled access in alignment with predefined privileges.
-
-<img alt="explorer" src={require('./img/authPage.gif').default} style={{borderRadius: '6px'}} />
-
-The next step involves binding this authentication function to the login button. When a user attempts to log in, the authentication process is triggered, and the system verifies their credentials before granting access:
-
-```qs
-exposed function authenticateUser(username: variant, password: variant) : string
-	var user : cs.UserEntity 
-	var privileges : object
-
-	if ( (username != null) & (password != null) )
-		user = ds.User.query("username = :1",username).first()
-
-		if (user != null) 
-			if (verifyPasswordHash(password,user.password))
-				privileges = newobject("userName", user.username, "roles", user.role_ID.name)
-				session.setPrivileges(privileges)
-				webForm.setMessage("You are authenticated as a " + user.role_ID.name)
-				return "homePage"
-			else
-				webForm.setError("Invalid username or password. Please check your credentials and try again.")
-				return "authPage"
-			end
-		else
-			webForm.setError("The username you are trying to authenticate with does not exist.")
-			return "authPage"
-		end
-	else
-		webForm.setError("Please provide both the username and password.")
-		return "authPage"
-	end
-```
-
-For a more comprehensive understanding, we recommend consulting the [**Session command**](../../language/SessionClass.md) on the documentation page. This valuable resource offers in-depth insights and detailed information on the topic.
-
-<br/>
-
----
+|Sales Manager   |Has additional privileges compared to agents, allowing them to manage customer bookings, view sales reports, and generate invoices.|
 
 ## Privileges: Enabling Controlled Access
 
 ### <u> Understanding Privileges </u> 
 
-Privileges are the building blocks of access control in Qodly. They define the specific technical capabilities and actions that users of different roles can perform. By assigning privileges to roles, you determine the extent of a user's access to data and functionalities. For example, the "BrowsePackages" privilege allows users to view available travel packages, while the "BookPackage" privilege enables booking transactions.
-
+Privileges are the building blocks of access control in Qodly. They define the specific technical capabilities and actions that users of different roles can perform. By assigning privileges to roles, you determine the extent of a user's access to data and functionalities. 
 
 ### <u> Adding Privileges </u> 
 
@@ -88,7 +43,7 @@ The process of adding privileges in Qodly is just as simple as adding roles. To 
 
 <img alt="explorer" src={require('./img/addPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-Let's explore some of these privileges and see their application in the context of `TravelTrove`, a travel agency website:
+Let's explore some of these privileges and see their application in the context of `TravelTrove`:
 
 |Privileges          |Description|
 |---------------|---|
@@ -108,7 +63,7 @@ To assign one or multiple privileges to a role, return to the `Roles` tab within
 
 <img alt="explorer" src={require('./img/InterplayBetweenRoles_and_Privileges.png').default} style={{borderRadius: '6px'}} />
 
-For instance, a `Sales Manager` role might possess privileges like `ManageBookings` and `ViewReports`, granting them the ability to analyze booking trends and monitor revenue for informed decision-making. Similarly, a `Content Manager` role could receive privileges for `ManageContent`, enhancing the website's appeal to potential travelers and refining the overall user experience, including travel reservation options.
+For instance, a `Sales Manager` role might possess privileges like `ManageBookings` and `ViewReports`, granting them the ability to analyze booking trends and monitor revenue for informed decision-making. Similarly, a `Content Manager` role could receive the privilege `ManageContent`.
 
 <br/>
 
@@ -116,7 +71,7 @@ For instance, a `Sales Manager` role might possess privileges like `ManageBookin
 
 ## Assigning Roles
 
-Through the Qodly Management Console of your application, you can seamlessly integrate roles for users across various environments, be it development, staging, or production – each with its own tailored configuration. 
+Through the **Qodly Management Console** of your application, you can seamlessly integrate roles for users across various environments, be it development, staging, or production – each with its own tailored configuration. 
 
 :::info
 
@@ -128,8 +83,44 @@ For instance, in the development environment, navigate to the `Teams` tab. Here,
 
 <img alt="explorer" src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
 
-The impact of these role assignments goes beyond mere user administration. As you mold your application, these roles exert a direct influence on the user journey. For example, an unauthenticated customer will be limited in viewing their bookings, whereas an authenticated customer can effortlessly access their bookings from the header bar. This integrated role system guarantees a unified and customized user experience across your application. 
-
-<img alt="explorer" src={require('./img/travelTrove.gif').default} style={{borderRadius: '6px'}} />
+The impact of these role assignments goes beyond mere user administration. As you mold your application, these roles exert a direct influence on the user journey. 
 
 It's important to note that view management restrictions are just the initial step, subsequent stages will involve extending these limitations to various other aspects of interaction.
+
+---
+
+## Retrieving Current Session Information
+
+In Qodly, user information in the current session is available via `cs.Qodly.Users` class. This allows you to retrieve essential user details, such as their email, role, first name, and last name. Use the code below:
+
+```qs
+exposed Function loadSessionUserInfo()
+	var userCS : cs.Qodly.Users
+	
+	userCS = cs.Qodly.Users.new()
+
+	use(session.storage)
+		session.storage.currentUser = userCS.getCurrentUser()
+	end
+
+    ds.User.linkAccount()
+```
+
+By utilizing the `loadSessionUserInfo()` function, fetch and store user data for session-wide access.
+
+
+On the other hand, the `linkAccount()` function links sessions and profiles, allowing extended data storage. This enhances profiles with varied information such as images, preferences, and historical data.
+
+```qs
+exposed function linkAccount()
+	if(session.userName!=null)
+		user=this.query("awsID = :1", session.userName).first()
+		if(user==null)
+			user=ds.User.new()
+			user.awsID=session.userName
+			user.save()
+		end
+	end
+```
+
+For more detailed information, refer to the [Sessions](../../language/SessionClass.md) and [Users](../../language/UsersClass.md) sections.
