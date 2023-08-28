@@ -65,13 +65,16 @@ Available classes are accessible from their class stores. Two class stores are a
 
 ### `cs`
 
-#### cs -> classStore
+<!-- REF #_command_.cs.Syntax -->**cs** : object<!-- END REF -->
 
+<!-- REF #_command_.cs.Params -->
 |Parameter|Type||Description|
-|---|---|---|---|
-|classStore|object|<-|User class store for the project|
+|---------|--- |:---:|------|
+|Result|object|<-|Class Store containing all user classes of the current project|<!-- END REF -->
 
-The `cs` command returns the user class store for the current project. It returns all user classes [defined](#class-definition) in the opened project. By default, only project [ORDA classes](../../orda/data-model.md) are available.
+The `cs` command <!-- REF #_command_.cs.Summary -->returns a Class Store object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class. 
+
+It returns all user classes [defined](#class-definition) in the opened project.
 
 #### Example
 
@@ -83,13 +86,15 @@ instance=cs.myClass.new()
 
 ### `4D`
 
-#### 4D -> classStore
+<!-- REF #_command_.4D.Syntax -->**4D** : object<!-- END REF -->
 
+<!-- REF #_command_.4D.Params -->
 |Parameter|Type||Description|
-|---|---|---|---|
-|classStore|object|<-|4D class store|
+|---------|--- |:---:|------|
+|Result|object|<-|Class Store containing all built-in 4D classes|<!-- END REF -->
 
-The `4D` command returns the class store for available built-in QodlyScript classes. It provides access to specific classes such as [CryptoKey](../CryptoKeyClass.md).
+The `4D` command <!-- REF #_command_.4D.Summary -->returns a *Class Store* object containing all available built-in classes in the Qodly application<!-- END REF -->. It provides access to specific classes such as [CryptoKey](../CryptoKeyClass.md).
+
 
 #### Example
 
@@ -98,6 +103,8 @@ You want to create a new key in the `CryptoKey` class:
 ```qs
 key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 ```
+
+
 
 ## Class object
 
@@ -134,11 +141,13 @@ When QodlyScript does not find a function or a property in a class, it searches 
 
 Specific QodlyScript keywords can be used in class definitions:
 
-- `function <Name>` to define class functions of the objects.
-- `function get <Name>` and `function set <Name>` to define computed properties of the objects.
-- `constructor` to define static properties of the objects.
-- `property` to define static properties of the objects with a type.
-- `extends <ClassName>` to define inheritance.
+- `function <Name>` to define class functions of the objects
+- `function get <Name>` and `function set <Name>` to define computed properties of the objects
+- `constructor` to define static properties of the objects
+- `property` to define static properties of the objects with a type
+- `extends <ClassName>` to define inheritance
+- `super` to call the superclass
+- `this` to reference the object being processed
 
 :::info
 
@@ -205,7 +214,9 @@ Function parameters are declared using the parameter name and the parameter type
 function add(x, y : variant, z : integer, xy : object)
 ```
 
-If the type is not stated, the parameter will be defined as `variant`.
+If the [type](lang-data-types.md) is not stated, the parameter will be defined as `variant`.
+
+For more information on parameters, please refer to [this page](lang-parameters.md).
 
 
 #### Return value
@@ -482,41 +493,39 @@ constructor (side : integer)
   result=this.height*this.width
 ```
 
+
 ### `super`
 
-#### Syntax
+<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any ) : object<!-- END REF -->
 
-```qs
-super {( param{,...,paramN} )} {-> object}
-```
 
-|Parameter|Type||Description|  
-|---|---|---|---|
-|param|Mixed|->|Parameter(s) to pass to the parent constructor|
-|Result|Object|<-|Object's parent|
+<!-- REF #_command_.super.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|param|any|->|Parameter(s) to pass to the parent constructor|
+|Result|object|<-|Object's parent|<!-- END REF -->
 
-The `super` keyword allows calls to the `superclass`, i.e. the parent class.
+#### Description
+
+The `super` command <!-- REF #_command_.super.Summary -->makes calls to the superclass<!-- END REF -->.
 
 `super` serves two different purposes:
 
-1. Inside a [constructor code](#constructor), `super` is a command that allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used before the `this` keyword is used.
-
-- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid.
-- If the `this` command is called on an object whose superclasses have not been constructed, error -10743 is generated.
-- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error -10746 is generated.
- 
+1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used. 
+	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid. 
+	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated. 
+	- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error-10746 is generated.
+	
 ```qs
-// inside myClass constructor
-constructor(text1 : string,  text2 : string)
-super(text1) //calls superclass constructor with a text param
-this.param=text2 // use second param
+constructor(t1 : string, t2 : string)
+super(t1) //calls superclass constructor with a string param
+this.param=t2 // use second param
 ```
 
-2. Inside a [class member function](#class-function), `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
+2. Inside a [class function](#function), `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
 
 ```qs
-super.doSomething(42) //calls "doSomething" function  
-//declared in superclasses
+super.doSomething(42) //calls "doSomething" function declared in superclasses
 ```
 
 #### Example 1
@@ -524,87 +533,91 @@ super.doSomething(42) //calls "doSomething" function
 This example illustrates the use of `super` in a class constructor. The command is called to avoid duplicating the constructor parts that are common between `Rectangle` and `Square` classes.
 
 ```qs
-// Class: Rectangle
-constructor(width : integer, height : integer)
- this.name="Rectangle"
- this.height=height
- this.width=width
-
+  //Class: Rectangle
+ 
+constructor(height : integer, width : integer)
+  this.name="Rectangle"
+  this.height=height
+  this.width=width
  
 function sayName()
- return "Hi, I am a "+this.name+"."
+  return("Hi, I am a "+this.name+".")
  
-
-function getArea() -> area : integer
- area=(this.height)*(this.width)
+function getArea()-> area : integer
+  area=this.height*this.width
 ```
 
 ```qs
-//Class: Square
+
+  //Class: Square
  
 extends Rectangle
  
-constructor (side : integer)
+constructor(side : integer) 
  
- // It calls the parent class's constructor with lengths
- // provided for the Rectangle's width and height
- super(side;side)
- // In derived classes, super must be called before you
- // can use 'this'
- this.name="Square"
-
-function getArea() -> area : integer
- area=this.height*this.width
+  // It calls the parent class's constructor with lengths
+  // provided for the Rectangle's width and height
+super(side, side)
+ 
+  // In derived classes, super must be called before you
+  // can use 'This'
+this.name="Square"
 ```
 
-#### Example 2
+#### Example 2  
 
-This example illustrates the use of `super` in a class member method. You created the `Rectangle` class with a function:
+This example illustrates the use of `super` in a class member function. 
+
+You created a Rectangle class with a function:
 
 ```qs
-//Class: Rectangle
+  //Class: Rectangle
  
-function nbSides() -> sides : string
- sides="I have 4 sides"
+function nbSides() -> sides : text
+  sides="I have 4 sides"
 ```
 
-You also created the `Square` class with a function calling the superclass function:
+You also created the Square class with a function calling the superclass function:
 
 ```qs
-//Class: Square
+
+  //Class: Square
  
 extends Rectangle
  
-function description() -> sides:string
- sides=super.nbSides()+" which are all equal"
+function description() -> desc : text
+  desc=super.nbSides()+" which are all equal"
 ```
+
+```qs
 
 Then you can write in a method:
 
-```qs
 var square : object
-var message : string
+var info : text
 square=cs.Square.new()
-message=square.description() //I have 4 sides which are all equal
+info=square.description() //I have 4 sides which are all equal
 ```
+
+
 
 ### `this`
 
-#### Syntax
+<!-- REF #_command_.this.Syntax -->**this** : object<!-- END REF -->
 
-```qs
-this -> object
-```
 
-|Parameter|Type||Description|  
-|---|---|---|---| 
-|Result|object|<-|Current object|
+<!-- REF #_command_.this.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|object|<-|Current element or object|<!-- END REF -->
 
-The `this` keyword returns a reference to the currently processed object. 
+#### Description
+
+The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->. 
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-When a formula is called as a member method of an object, its `this` is set to the object the method is called on. For example:
+When executing a formula object created by the [`formula`](../FunctionClass.md#formula) or [`formulaFromString`](../FunctionClass.md#formula) commands, `this` returns a reference to the object currently processed by the formula. For example:
 
 ```qs
 o=newObject("prop",42,"f",formula(this.prop))
@@ -629,7 +642,7 @@ o=cs.ob.new()
 val=o.a //42
 ```
 
-> When calling the superclass constructor in a constructor using the [super](#super) keyword, keep in mind that `this` must not be called before the superclass constructor, otherwise an error is generated. See [this example](#example-1).
+> When calling the superclass constructor in a constructor using the [super](#super) keyword, keep in mind that `this` must not be called before the superclass constructor, otherwise an error is generated.
 
 In any cases, `this` refers to the object the method was called on, as if the method were on the object.
 
@@ -650,5 +663,28 @@ val=o.f() //8
 
 ```
 
-In this example, the object assigned to the variable o doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of o, its `this` refers to o.
+In this example, the object assigned to the variable *o* doesn't have its own *f* property, it inherits it from its class. Since *f* is called as a method of *o*, its `this` refers to *o*.
+
+#### Example
+
+You want to use a project method as a formula encapsulated in an object:
+
+```qs
+var person : object
+var g : string
+person=newObject()
+person.firstName="John"
+person.lastName="Smith"
+person.greeting=formula(Greeting)
+
+g=person.greeting("hello") // returns "hello John Smith"
+g=person.greeting("hi") // returns "hi John Smith"
+```
+
+With the `Greeting` method:
+
+```qs
+declare(param : string) -> vMessage : text
+vMessage=param+" "+this.firstName+" "+this.lastName
+```
 

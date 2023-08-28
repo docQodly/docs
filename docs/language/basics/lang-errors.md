@@ -24,7 +24,7 @@ In Quodly, all errors can be caught and handled by specific methods, named **err
 
 Once installed, error handlers are automatically called in case of error in the Qodly application. A different error handler can be called depending on the execution context (see below).  
 
-To *install* an error-handling method, you just need to call the [`onErrCall`](../interruptions.md#onerrcall) command with the method name and (optionnally) scope as parameters. For example:
+To *install* an error-handling method, you just need to call the [`onErrCall`](../debug.md#onerrcall) command with the method name and (optionnally) scope as parameters. For example:
 
 ```qs
 onErrCall("IO_Errors",ek local) //Installs a local error-handling method
@@ -36,7 +36,7 @@ To stop catching errors for an execution context and give back hand, call `onErr
 onErrCall("",ek local) //gives back control for the local process
 ```
 
-The  [`methodCalledOnError`](../interruptions.md#methodcalledonerror) command allows you to know the name of the method installed by `onErrCall` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
+The  [`methodCalledOnError`](../debug.md#methodcalledonerror) command allows you to know the name of the method installed by `onErrCall` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
 
 ```qs
  var methCurrent : string
@@ -71,8 +71,8 @@ You can define a single error-catching method for the whole application or diffe
 
 Within a custom error method, you can use several commands that will help you identifying the error:
 
-- the [`lastErrors`](../interruptions.md#lasterrors) command that returns a collection of the current stack of errors that occurred in the Qodly application.
-- the [`callChain`](../language.md#callchain) command that returns a collection of objects describing each step of the method call chain within the current process.
+- the [`lastErrors`](../debug.md#lasterrors) command that returns a collection of the current stack of errors that occurred in the Qodly application.
+- the [`callChain`](../debug.md#callchain) command that returns a collection of objects describing each step of the method call chain within the current process.
 
 
 #### Example
@@ -98,7 +98,7 @@ end
 
 ### Using an empty error-handling method
 
-If you mainly want the standard error messages to be hidden, you can install an empty error-handling method. The [`lastErrors`](../interruptions.md#lasterrors) command can be called in any method, i.e. outside of the error-handling method:
+If you mainly want the standard error messages to be hidden, you can install an empty error-handling method. The [`lastErrors`](../debug.md#lasterrors) command can be called in any method, i.e. outside of the error-handling method:
 
 ```qs
 onErrCall("emptyMethod") //emptyMethod exists but is empty

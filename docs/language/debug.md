@@ -1,6 +1,6 @@
 ---
-id: interruptions
-title: Interruptions
+id: debug
+title: Debug
 ---
 
 These commands allow you to control the execution of your code. 
@@ -14,12 +14,15 @@ These commands allow you to control the execution of your code.
 |[<!-- INCLUDE #_command_.abort.Syntax -->](#abort)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.abort.Summary -->|
 |[<!-- INCLUDE #_command_.assert.Syntax -->](#assert)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.assert.Summary -->|
 |[<!-- INCLUDE #_command_.asserted.Syntax -->](#asserted)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.asserted.Summary -->|
+|[<!-- INCLUDE #_command_.callChain.Syntax -->](#callchain)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callChain.Summary -->|
+|[<!-- INCLUDE #_command_.currentMethodName.Syntax -->](#currentmethodname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.currentMethodName.Summary -->|
 |[<!-- INCLUDE #_command_.getAssertEnabled.Syntax -->](#getassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getAssertEnabled.Summary -->|
 |[<!-- INCLUDE #_command_.lastErrors.Syntax -->](#lasterrors)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lastErrors.Summary -->|
 |[<!-- INCLUDE #_command_.methodCalledOnError.Syntax -->](#methodCalledOnError)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.methodCalledOnError.Summary -->|
 |[<!-- INCLUDE #_command_.onErrCall.Syntax -->](#onerrcall)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.onErrCall.Summary -->|
 |[<!-- INCLUDE #_command_.setAssertEnabled.Syntax -->](#setassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setAssertEnabled.Summary -->|
 |[<!-- INCLUDE #_command_.throw.Syntax -->](#throw)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.throw.Summary -->|
+|[<!-- INCLUDE #_command_.trace.Syntax -->](#trace)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.trace.Summary -->|
 
 
 
@@ -160,6 +163,69 @@ Insertion of an assertion in the evaluation of an expression:
 
 [`assert`](#assert)<br/>[`.onErrCall()`](#onerrcall)<br/>
 [`setAssertEnabled`](#setassertenabled)
+
+
+## callChain
+
+<!-- REF #_command_.callChain.Syntax -->**callChain** : collection<!-- END REF -->
+
+<!-- REF #_command_.callChain.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|collection|<-|Collection of objects describing the call chain within a process|<!-- END REF -->
+
+
+#### Description
+
+The `callChain` command <!-- REF #_command_.callChain.Summary -->returns a collection of objects describing each step of the method call chain within the current process<!-- END REF -->. 
+
+It provides the same information as the *debugger*. It has the added benefit of being able to be executed from any environment.
+
+The command facilitates debugging by enabling the identification of the method called, the component that called it, and the line number where the call was made. Each object in the returned collection contains the following properties:
+
+|Property|Type|Description|Example|
+|---|----|----|----|
+|database|text|Name of the database calling the method|"database":"contactInfo"|
+|line|integer|Line number of call to the method|"line":6|
+|name|text|Name of the called method|"name":"moreThanAverage"|
+|type|text|Type of the method:<li>"projectMethod" (method)</li><li>"executeFormula"</li><li>"classFunction"</li>|"type":"classFunction"|
+
+
+#### Example
+
+```qs
+
+var currentCallChain : collection
+currentCallChain=callChain()
+
+```
+
+
+## currentMethodName
+
+<!-- REF #_command_.currentMethodName.Syntax -->**currentMethodName** : string<!-- END REF -->
+
+
+<!-- REF #_command_.currentMethodName.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|string|<-|Calling method name|<!-- END REF -->
+
+#### Description
+
+The `currentMethodName` command <!-- REF #_command_.currentMethodName.Summary -->returns the method name where it has been invoked<!-- END REF -->. This command is useful for debugging generic methods.
+
+According to the calling method type, the returned string can be as follows:
+
+|Calling Method|Returned string|
+|:----|:----|
+|Project Method|MethodName|
+|Table Form Method|[TableName].FormName|
+|Class Constructor|ClassName:constructor|
+|Class Function|ClassName.FunctionName|
+
+This command cannot be called from within a Qodly formula.
+
 
 
 ## getAssertEnabled
@@ -400,7 +466,6 @@ Disabling assertions:
 
 
 
-
 ## throw
 
 
@@ -488,3 +553,25 @@ throw({message: "This is my error", deferred: true}) //Throws an error with mess
 #### See also
 
 [`.setError()`](WebForm.md#seterror)
+
+
+## trace
+
+<!-- REF #_command_.trace.Syntax -->**trace** <!-- END REF -->
+
+
+<!-- REF #_command_.trace.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|||||<!-- END REF -->
+
+#### Description
+
+You use `trace` <!-- REF #_command_.trace.Summary -->to debug your code during the development of an application<!-- END REF -->. 
+
+The `trace` command turns on the Qodly debugger for the current process. The Debugger is displayed before the next line of code is executed, and continues to be displayed for each line of code that is executed. 
+
+A valid [debug session](../studio/debugging.md#starting-a-debug-session) must be launched for a `trace` call to open the debugger. Otherwise, the `trace` command is ignored. 
+
+
+
