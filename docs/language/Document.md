@@ -246,7 +246,7 @@ This property is **read-only**.
 |---------|--- |:---:|------|
 |destinationFolder | 4D.Folder |->|Destination folder|
 |newName|string|->|Name for the copy|
-|overwrite|integer|->|`fk overwrite` to replace existing elements|
+|overwrite|integer|->|`kOverwrite` to replace existing elements|
 |Result|4D.File|<-|Copied file|<!-- END REF -->
 
 #### Description
@@ -257,11 +257,11 @@ The *destinationFolder* must exist on disk, otherwise an error is generated.
 
 By default, the file is copied with the name of the original file. If you want to rename the copy, pass the new name in the *newName* parameter. The new name must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned.
 
-If a file with the same name already exists in the *destinationFolder*, by default 4D generates an error. You can pass the `fk overwrite` constant in the *overwrite* parameter to ignore and overwrite the existing file
+If a file with the same name already exists in the *destinationFolder*, by default 4D generates an error. You can pass the `kOverwrite` constant in the *overwrite* parameter to ignore and overwrite the existing file
 
 |Constant|Value|Comment|
 |---|---|---|
-|`fk overwrite`|4|Overwrite existing elements, if any|
+|`kOverwrite`|4|Overwrite existing elements, if any|
 
 **Returned value**
 
@@ -274,7 +274,7 @@ You want to copy a picture *file* from the user's document folder to the applica
 ```qs
 var source, copy : 4D.File
 source=file("/RESOURCES/Pictures/photo.png")
-copy=source.copyTo(folder("/PACKAGE"),fk overwrite)
+copy=source.copyTo(folder("/PACKAGE"),kOverwrite)
 ```
 
 <!-- END REF -->
@@ -334,7 +334,7 @@ To save a document's contents in a `Blob` attribute:
 
 #### Description
 
-The `.getText()` function <!-- REF #document.getText().Summary -->returns the contents of the file as text <!-- END REF -->.
+The `.getText()` function <!-- REF #document.getText().Summary -->returns the contents of the file as text<!-- END REF -->.
 
 Optionally, you can designate the character set to be used for reading the contents. You can pass either:
 
@@ -350,11 +350,11 @@ In *breakMode*, you can pass a number indicating the processing to apply to end-
 
 |Constant | Value| Comment|
 |---|---|---|
-|`Document unchanged`|0|No processing|
-|`Document with native format`|1|(Default) Line breaks are converted to the native format of the operating system: CR (carriage return) under OS X, CRLF (carriage return + line feed) under Windows|
-|`Document with CRLF`|2|Line breaks are converted to Windows format: CRLF (carriage return + line feed)|
-|`Document with CR`|3|Line breaks are converted to OS X format: CR (carriage return)|
-|`Document with LF`|4|Line breaks are converted to Unix format: LF (line feed)|
+|`kDocumentUnchanged`|0|No processing|
+|`kDocumentWithNativeFormat`|1|(Default) Line breaks are converted to the native format of the operating system: CR (carriage return) under Unix, CRLF (carriage return + line feed) under Windows|
+|`kDocumentWithCRLF`|2|Line breaks are converted to Windows format: CRLF (carriage return + line feed)|
+|`kDocumentWithCR`|3|Line breaks are converted to OS X format: CR (carriage return)|
+|`kDocumentWithLF`|4|Line breaks are converted to Unix format: LF (line feed)|
 
 By default, when you omit the *breakMode* parameter, line breaks are processed in native mode (1).
 
@@ -390,7 +390,7 @@ with `\t` (tab) as separator and `\r\n` (CRLF) as line delimiter.
 Here is another example with the same file, but a different line delimiter:
 
 ```qs
- txt=myFile.getText("UTF-8", Document with LF)
+ txt=myFile.getText("UTF-8", kDocumentWithLF)
 ```
 
 In this case, the contents of `txt` are as follows:

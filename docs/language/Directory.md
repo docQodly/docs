@@ -258,11 +258,11 @@ The *destinationFolder* must exist on disk, otherwise an error is generated.
 
 By default, the folder is copied with the name of the original folder. If you want to rename the copy, pass the new name in the *newName* parameter. The new name must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned.
 
-If a folder with the same name already exists in the *destinationFolder*, by default Qodly generates an error. You can pass the `fk overwrite` constant in the *overwrite* parameter to ignore and overwrite the existing file
+If a folder with the same name already exists in the *destinationFolder*, by default Qodly generates an error. You can pass the `kOverwrite` constant in the *overwrite* parameter to ignore and overwrite the existing file
 
 |Constant|Value|Comment|
 |---|---|---|
-|`fk overwrite`|4|Overwrite existing elements, if any|
+|`kOverwrite`|4|Overwrite existing elements, if any|
 
 **Returned value**
 
@@ -275,7 +275,7 @@ You want to copy a Pictures *folder* from the resources folder to the data folde
 ```qs
 var userImages, copiedImages : 4D.Folder
 userImages=folder("/RESOURCES/Pictures/")
-copiedImages=userImages.copyTo(folder("/DATA"),fk overwrite)
+copiedImages=userImages.copyTo(folder("/DATA"),kOverwrite)
 ```
 
 <!-- END REF -->
@@ -338,8 +338,8 @@ By default, if you omit the *options* parameter, only the files at the first lev
 
 |Constant| Value| Comment|
 |---|---|---|
-|`fk recursive`|1|The collection contains files of the specified folder and its subfolders|
-|`fk ignore invisible`| 8|Invisible files are not listed|
+|`kRecursive`|1|The collection contains files of the specified folder and its subfolders|
+|`kIgnoreInvisible`| 8|Invisible files are not listed|
 
 **Returned value**
 
@@ -353,7 +353,7 @@ You want to know if there are invisible files in the project folder:
  var all, noInvisible : collection
  var info : string
  all=folder("/PACKAGE").files()
- noInvisible=folder("/PACKAGE").files(fk ignore invisible)
+ noInvisible=folder("/PACKAGE").files(kIgnoreInvisible)
  if(all.length!=noInvisible.length)
     info="Project folder contains hidden files."
  end
@@ -365,7 +365,7 @@ You want to get all files that are not invisible in the Resources folder:
 
 ```qs
  var recursive : collection
- recursive=folder("/RESOURCES").files(fk recursive+fk ignore invisible)
+ recursive=folder("/RESOURCES").files(kRecursive+kIgnoreInvisible)
 ```
 
 <!-- END REF -->
@@ -427,8 +427,8 @@ By default, if you omit the *options* parameter, only the folders at the first l
 
 |Constant| Value| Comment|
 |---|---|---|
-|`fk recursive`| 1|The collection contains folders of the specified folder and its subfolders|
-|`fk ignore invisible`| 8|Invisible folders are not listed|
+|`kRecursive`| 1|The collection contains folders of the specified folder and its subfolders|
+|`kIgnoreInvisible`| 8|Invisible folders are not listed|
 
 **Returned value**
 
@@ -440,7 +440,7 @@ You want the collection of all folders and subfolders of the database folder:
 
 ```qs
  var allFolders : collection
- allFolders=folder("/PACKAGE").folders(fk recursive)
+ allFolders=folder("/PACKAGE").folders(kRecursive)
 ```
 
 <!-- END REF -->

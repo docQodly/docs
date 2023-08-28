@@ -247,36 +247,22 @@ If *process* does not exist, the command does nothing.
 
 ## getProcessActivity
 
-<!-- REF #_command_.getProcessActivity.Syntax -->**getProcessActivity** ({ *options* : integer }) : object<!-- END REF -->
+<!-- REF #_command_.getProcessActivity.Syntax -->**getProcessActivity**: object<!-- END REF -->
 
 
 <!-- REF #_command_.getProcessActivity.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|options|integer|->|Return options|
-|Result|object|<-|Snapshot of running processes and/or user sessions|<!-- END REF -->
+|Result|object|<-|Snapshot of running processes|<!-- END REF -->
 
 #### Description
 
-The `getProcessActivity` command <!-- REF #_command_.getProcessActivity.Summary -->returns a snapshot of connected user sessions and/or related running processes at a given time<!-- END REF -->. This command returns all processes, including internal processes that are not reachable by the `processProperties` command.
+The `getProcessActivity` command <!-- REF #_command_.getProcessActivity.Summary -->returns a snapshot of running processes at a given time<!-- END REF -->. This command returns all processes, including internal processes that are not reachable by the `processProperties` command.
 
-By default if you omit the *options* parameter, `getProcessActivity` returns both user session and process lists, as shown below:
+Example of returned object:
 
 ```json
 {
-"sessions": [
-          {
-             "type": "remote",
-             "userName": "Designer",
-             "machineName": "iMac27caroline",
-             "systemUserName": "Caroline Briaud",
-             "IPAddress": "192.168.18.18",
-             "hostType": "mac",
-             "creationDateTime": "2017-09-22T12:46:39Z",
-             "state": "postponed",
-             "ID": "3C81A8D7AFE64C2E9CCFFCDC35DC52F5"
-           },...
-       ],
 "processes": [
           {
              "name": "Application process",
@@ -289,45 +275,11 @@ By default if you omit the *options* parameter, `getProcessActivity` returns bot
              "state": 0,
              "cpuUsage": 0,
              "cpuTime": 0.006769,
-             "preemptive": false,
-             "session": {  
-                      "type": "remote",
-                      "userName": "Designer",
-                      "machineName": "iMac27caroline",
-                      "systemUserName": "Caroline Briaud",
-                      "IPAddress": "192.168.18.18",
-                      "hostType": "mac",
-                      "creationDateTime": "2017-09-22T12:46:39Z",
-                      "state": "postponed",
-                      "ID": "3C81A8D7AFE64C2E9CCFFCDC35DC52F5"
-                       }
+             "preemptive": false
            },...
     ]
 }
 ```
-
-You can select the list to return by passing one of the following constants (integer) in the *options* parameter:
-
-- `kProcessesOnly` (1): Returns only the process list
-- `kSessionsOnly` (2): Returns only the user session list
-
-
-#### Sessions
-
-The "sessions" property contains a collection of objects describing all running user sessions on the server. Each session object contains the following properties:
-
-|Property name|Type|Description|
-|---|---|---|
-|type|string |Session type. Possible values: "storedProcedure", "web", "rest"|
-|userName|string |User name|
-|machineName|string |Name of the machine|
-|systemUserName|string |Name of the system session opened on the machine|
-|IPAddress|string |	IP address of the machine|
-|hostType|string |	Host type. Possible values: "windows", "mac", "browser"|
-|creationDateTime|Date ISO 8601	Date and time of connection of the machine|
-|state|string |	Session state. Possible values: "active", "postponed", "sleeping"|
-|ID|string |Session UUID|
-|persistentID|string |Session's persistent ID|
 
 
 #### Processes
@@ -347,27 +299,8 @@ type|integer|Running process type. <li>kHTTPLogFlusher (-58)</li><li>kMainProces
 |cpuUsage|number|Percentage of time devoted to this process (between 0 and 1)|
 |cpuTime|number|Running time (seconds)|
 |preemptive|boolean|always true|
-|session|object|The specific session in which the process is running. Undefined if the `kProcessesOnly` parameter is passed.|
 |url|string|URL with path and parameters (if any) of the web (-3) processes running on the web server. Not returned for other types of processes.|
 
-
-
-#### Example
-
-You want to get the collection of all user sessions:
-
-```qs 
-var o : object
-var i : integer
- 
-o=getProcessActivity //Get process & session info
-for(i,0,(o.processes.length)-1) //Iterate over the "processes" collection
-  processName=o.processes[i].name
-  userName=string(o.processes[i].session.userName) // Easy access to userName
-  //use string because session object might be undefined
-end
- 
-```
 
 
 ## highestProcessNumber

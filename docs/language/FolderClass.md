@@ -200,19 +200,19 @@ By default, for security reasons, if you omit the *option* parameter, `.delete( 
 
 |Constant| Value| Comment|
 |---|---|---|
-|`Delete only if empty`| 0| Deletes folder only when it is empty|
-|`Delete with contents`| 1| Deletes folder along with everything it contains|
+|`kDeleteOnlyIfEmpty`| 0| Deletes folder only when it is empty|
+|`kDeleteWithContents`| 1| Deletes folder along with everything it contains|
 
-When `Delete only if empty` is passed or if you omit the *option* parameter:
+When `kDeleteOnlyIfEmpty` is passed or if you omit the *option* parameter:
 
 * The folder is only deleted if it is empty, otherwise, the command does nothing and an error -47 is generated.
 * If the folder does not exist, the error -120 is generated.
 
-When `Delete with contents` is passed:
+When `kDeleteWithContents` is passed:
 
 * The folder, along with all of its contents, is deleted.
 **Warning**: Even when this folder and/or its contents are locked or set to read-only, if the current user has suitable access rights, the folder (and contents) is still deleted.
-* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and error -45 (The file is locked or the pathname is not correct) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the [`lastErrors`](interruptions.md#lasterrors) command to retrieve the name and path of the offending file.
+* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and error -45 (The file is locked or the pathname is not correct) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the [`lastErrors`](debug.md#lasterrors) command to retrieve the name and path of the offending file.
 * If the folder does not exist, the command does nothing and no error is returned.
 
 <!-- END REF -->

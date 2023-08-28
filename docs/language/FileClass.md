@@ -183,6 +183,7 @@ You want to create a symbolic link to a file in your resources folder:
 
 
 
+
 The `.delete()` function <!-- REF #FileClass.delete().Summary -->deletes the file<!-- END REF -->.
 
 if the file does not exist on disk, the function does nothing (no error is generated).
@@ -313,10 +314,10 @@ The `.breakModeRead` and `.breakModeWrite` indicate the processing to apply to e
 
 |Break mode as text|Break mode as number (constant)|Description|
 |---|---|---|
-|"native"|1 (`Document with native format`)|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) under macOS, CRLF (carriage return + line feed) under Windows|
-|"crlf"|2 (`Document with CRLF`)|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|"cr"|3 (`Document with CR`)|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|"lf"|4 (`Document with LF`)|Line breaks are converted to LF (line feed), the default Unix and macOS format|
+|"native"|1 (`kDocumentWithNativeFormat`)|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) under Unix and macOS, CRLF (carriage return + line feed) under Windows|
+|"crlf"|2 (`kDocumentWithCRLF`)|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
+|"cr"|3 (`kDocumentWithCR`)|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
+|"lf"|4 (`kDocumentWithLF`)|Line breaks are converted to LF (line feed), the default Unix and macOS format|
 
 > The *Break mode as text* value is case sensitive.
 
@@ -444,11 +445,11 @@ In *breakMode*, you can pass a number indicating the processing to apply to end-
 
 |Constant|Value|Comment|
 |--------|-----|-------|
-|`Document unchanged`|0|No processing|
-|`Document with native format`|1|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) on macOS, CRLF (carriage return + line feed) on Windows|
-|`Document with CRLF`|2|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|`Document with CR`|3|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|`Document with LF`|4|Line breaks are converted to LF (line feed), the default Unix and macOS format|
+|`kDocumentUnchanged`|0|No processing|
+|`kDocumentWithNativeFormat`|1|(Default) Line breaks are converted to the native format of the operating system (line feed on Unix)|
+|`kDocumentWithCRLF`|2|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
+|`kDocumentWithCR`|3|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
+|`kDocumentWithLF`|4|Line breaks are converted to LF (line feed), the default Unix and macOS format|
 
 By default, when you omit the *breakMode* parameter, line breaks are processed in native mode (1).
 
