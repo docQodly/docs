@@ -2,58 +2,116 @@
 id: radio
 title: Radio
 ---
+import Column from '@site/src/components/Column'
 
-The **Radio** component is a crucial user interface element that facilitates single or multiple selections from a predefined list of values. By utilizing radio buttons, you empower users to make clear and distinct choices within a set of options, enhancing their interaction experience.
+The **Radio** component is a crucial user interface element that facilitates single or multiple selections from a predefined list of values. 
 
 
 ## Use Cases
 
 **Radio** component serve various purposes in user interfaces, including:
 
-- **User Preferences**: Integrate the Radio component to allow users to select their preferred theme, language, or notification settings in a backoffice application.
+- **User Preferences**: Select preferred theme, language, or notification settings.
 
-- **Content Filtering**: Use Radio buttons to enable administrators to filter content based on specific categories or criteria, enhancing content management efficiency.
+- **Content Filtering**: Filter content based on specific categories or criteriay.
 
-- **Survey Management**: Utilize Radio buttons to create and manage survey questions with predefined answer choices for collecting feedback and insights.
+- **Survey Management**: Manage survey questions with predefined answer choices for collecting feedback and insights.
 
 
 
-## Customization Through Properties Panel
+## Properties Customization
 
 Enhance the **Radio** component to align with your application's requirements using the following customization options:
 
-- **Type**: 
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Type</span>: Choose the appearance style of the radio buttons. You can select either "Radio" for standard radio buttons or "Tab" for a tab-like appearance.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/radio_type.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 - **Mode**: The Radio Button component offers two distinct selection modes:
-    - **Single Selection**: Users can choose only one option at a time, ensuring that their selections are distinct and non-overlapping.
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+            <li> <span style={{fontWeight: 'bold'}}>Single Selection</span>: Users can choose only one option at a time, ensuring that their selections are distinct and non-overlapping.</li> <br/>
+            <li> <span style={{fontWeight: 'bold'}}>Multiple Selection</span>: Users can choose multiple options that are relevant to their needs.</li>  
+        </Column.Item>
+        <Column.Item width="35%">
+            <img alt="explorer" src={require('./img/radio_mode.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
 
-    - **Multiple Selection**: Users can choose multiple options that are relevant to their needs.  
 
-- **Default Value**: Set a default value for the radio button, ensuring that a specific option is pre-selected when the component is loaded.
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Default Value</span>: Set a default value for the radio button, ensuring that a specific option is pre-selected when the component is loaded.
+    </Column.Item>
+    <Column.Item width="35%">
+        <img alt="explorer" src={require('./img/radio_defaultValue.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
 
 - **Options**: 
     - **Adding Options**: Incorporate new options by utilizing the "+" button within the Radio Button component. Each option can be customized with a label and a corresponding value, enhancing the clarity of user selections.
+        - <Column.List align="center" justifyContent="between">
+            <Column.Item width="60%">
+                <li> <span style={{fontWeight: 'bold'}}>Label</span>: A descriptive text label for each option.</li> <br/>
+                <li> <span style={{fontWeight: 'bold'}}>Value</span>: A distinct value to each option, enabling effective backend processing and data handling based on the selections made by users.</li>
+            </Column.Item>
+            <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/radio_Options.png').default} style={{borderRadius: '6px'}} />
+            </Column.Item>
+        </Column.List>
 
-        - **Label**: A descriptive text label for each option
+    - **Option Duplication**: Duplicate existing options to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-        - **Value**: A distinct value to each option, enabling effective backend processing and data handling based on the selections made by users.
+    - **Option Removal**: Delete options that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-    - **Duplicating Options**: Duplicate existing options to maintain consistent configurations across the list of choices.
-
-    - **Removing Options**: Remove options as needed to refine the list.
+    - **Moving Option**: Arrange options to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
 
 
 
-## Data-Binding
+## Data Integration
 
-The **Radio** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform. This feature empowers developers to create responsive and data-driven user experiences.
+The **Radio** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### Data Display
-( ☢️ to be done ☢️ )
+### <u>Data Binding</u>
+To associate data with the Radio component, follow these steps:
 
-### Data Interaction
-( ☢️ to be done ☢️ )
+- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Radio component.
 
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the relevant Datasource that will capture the user's selected choice.</li>
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/radio_DataBinding.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+### <u>Server-Side Interaction</u>
+
+Retrieving user choices is straightforward. By binding a datasource to the **Radio** component, you can access and utilize the selected content.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+        For example, when users make a single choice from a set of options, binding a datasource captures the selected option. <br/> <br/>
+        Consequently, you can utilize this option value – for instance, within a standard action – to initiate a search for packages with a status that matches the datasource value.
+	</Column.Item>
+	<Column.Item width="50%">
+        <img alt="explorer" src={require('./img/radio_standardAction.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+## Showcase
+
+Here's a glimpse of how the **Radio** component will look and behave in action:
+
+<img alt="explorer" src={require('./img/radio_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events

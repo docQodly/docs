@@ -10,13 +10,13 @@ The **Stylebox** component serves as a versatile container designed to enhance c
 
 **Styleboxes** play a crucial role in optimizing content presentation and alignment, especially when integrated with specific components such as **Tabs**, **Matrix**, and **Select Box**. These components inherently incorporate **Styleboxes** to achieve uniformity and readability in their layouts.
 
-- **Tabs**: Styleboxes within Tabs components facilitate consistent alignment of content across different tab panels, creating a seamless and user-friendly experience.
+- **Tabs**: Styleboxes within Tabs components facilitate consistent alignment of content across different tab panels.
 <img alt="explorer" src={require('./img/Tabs_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
-- **Matrix**: When used in Matrix components, Styleboxes maintain alignment within individual cells, ensuring a structured and visually appealing representation of data.
+- **Matrix**: When used in Matrix components, Styleboxes maintain alignment within individual cells.
 <img alt="explorer" src={require('./img/Matrix_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
-- **Select Box**: Integrating Styleboxes with Select Box components aids in organizing dropdown menus, resulting in a neatly arranged selection interface.
+- **Select Box**: Integrating Styleboxes with Select Box components aids in organizing dropdown menus.
 <img alt="explorer" src={require('./img/SelectBox_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
 

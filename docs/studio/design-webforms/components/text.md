@@ -2,43 +2,63 @@
 id: text
 title: Text
 ---
+import Column from '@site/src/components/Column'
 
-
-The **Text** component serves as a fundamental element for displaying text content on web pages. Whether conveying static information or dynamically generated content, the Text component offers a versatile solution for presenting textual data.
+The **Text** component serves as a fundamental element for displaying text content on web pages.
 
 
 ## Use Cases
 
 The **Text** component is capable of fulfilling various text display needs:
 
-- **Static Text**: The Text component excels at showcasing static text content. You can utilize this component to present fixed information, instructions, labels, and any text that remains constant throughout the user's interaction with the web page.
+- **Static Text**: Use it to display unchanging content such as instructions, labels, and consistent information.
 
-- **Dynamic Content**: Beyond static text, the Text component has the flexibility to display dynamic content sourced from your data. This dynamic approach allows you to render text content that updates based on the values of datasources, enabling a more personalized and adaptive user experience.
+- **Dynamic Content**: The Text component is not limited to static text. It can display dynamic content pulled from your datasources. This dynamic feature allows you to show text that adapts and updates based on data values.
 
 
-## Customization Through Properties Panel
+## Properties Customization
 
 Enhance the **Text** component to align with your application's requirements using the following customization options:
 
-- **Style Buttons**: Apply various text styles such as Bold, Italic, Underline, and Strikethrough to the selected portion of text. 
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Style Buttons</span>: Apply various text styles such as Bold, Italic, Underline, and Strikethrough to the selected portion of text. 
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/text_StyleButtons.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-- **Toggle DataSource**: Bind the Text component's content to a datasource, making the text content dynamic and data-driven. By inserting placeholders in the text on the canvas and specifying the datasource path (using keywords like "employer.name" or $This in iterative components), you can dynamically populate the text content.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Toggle DataSource</span>: Bind the Text component's content to a datasource, making the text content dynamic and data-driven. By inserting a placeholder in the text on the canvas and specifying the datasource path (using keywords like <code>package.description</code> or <code>$This</code> in iterative components), you can dynamically populate the text content. <br/><br/>
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/text_ToggleDataSource.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-    - **Format Support**: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats.
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Format Support</span>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats.
+    </Column.Item>
+    <Column.Item width="35%">
+        <img alt="explorer" src={require('./img/text_FormatSupport.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-- **Toggle Link**: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from datasources.
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Toggle Link</span>: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from datasources.
+    </Column.Item>
+    <Column.Item width="35%">
+        <img alt="explorer" src={require('./img/text_ToggleLink.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
+## Data-Binding
 
-## Data-Bounding
-
-The **Text** component's content can be bound to datasources, enriching its capabilities with dynamic and data-driven content presentation.
-
-### <u>Data Display</u>
-( ☢️ to be done ☢️ )
-
-### <u>Data Interaction</u>
-( ☢️ to be done ☢️ )
-
+The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
 
 ## Triggers and Events
 

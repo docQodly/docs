@@ -2,6 +2,7 @@
 id: fileupload
 title: File Upload
 ---
+import Column from '@site/src/components/Column'
 
 
 The **File Upload** component offers a streamlined approach for users to upload files to the server, providing a practical solution for handling binary or picture file transfers. This component enables users to effortlessly upload files, which are then securely stored within an allocated entity attribute.
@@ -20,28 +21,69 @@ The **File Upload** component finds valuable application in diverse scenarios, i
 
 
 
-## Customization Through Properties Panel
+## Properties Customization
 
 Enhance the **File Upload** component to align with your application's requirements using the following customization options:
 
-- **Label**: Personalize the label to offer clear instructions or guidance.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/fileUpload_Label.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-- **Icon Position**: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden for a seamless integration into your design.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Icon Position</span>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/fileUpload_IconPosition.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-- **Size Limit**: Define the maximum file size users are allowed to upload, providing granular control over file dimensions. Choose from units such as KB, MB, and GB. If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.
 
-- **Media Type**: Specify the supported file types that can be uploaded using the component. Supported types include text, image, video, and audio.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Size Limit</span>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Media Type</span>: Specify the supported file types that can be uploaded using the component. Supported types include text, image, video, and audio.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/fileUpload_MediaType.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 
+## Data Integration
 
-## Data-Bounding
+The **File Upload** component utilizes data-binding to create a dynamic link between user actions and the underlying data structure. 
 
-The **File Upload** component harnesses the power of data-binding to establish a dynamic connection between user interactions and the underlying data structure. The File Upload component's data-binding capabilities include:
+### <u>Data Binding</u>
 
-   - **Entity Datasource**: To fully utilize the File Upload component, associate it with an attribute of type Blob or picture within an ORDA entity. This attribute serves as the destination where the uploaded file will be stored.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        For optimal use of the File Upload component, bind it with an attribute of type Blob or Picture within an entity datasource. This attribute acts as the storage location for the uploaded file.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-( ☢️ to be done ☢️ )
 
+## Showcase
+
+Here's a glimpse of how the **File Upload** component will look and behave in action:
+
+<img alt="explorer" src={require('./img/fileUpload_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events

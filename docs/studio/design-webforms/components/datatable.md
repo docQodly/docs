@@ -2,11 +2,9 @@
 id: datatable
 title: Data Table
 ---
-
+import Column from '@site/src/components/Column'
 
 The **DataTable** component is a versatile element designed to present data in a tabular format, akin to a table. It excels at iterating over a specified datasource, transforming it into a structured list composed of rows and columns. In the DataTable, attributes are represented as columns, and entities are represented as rows. Additionally, a DataTable includes a header row for labeling columns.
-
-By converting data into a visually organized layout, the DataTable simplifies the presentation of complex datasets, making it easier for users to analyze and interact with information.
 
 
 ## Use Cases
@@ -21,58 +19,121 @@ The **DataTable** component proves invaluable across a multitude of scenarios wh
 
 
 
-## Customization Through Properties Panel
+## Properties Customization
 
 Enhance the **DataTable** component to align with your application's requirements using the following customization options:
 
-- **Header Height**: Define the height of the header row in pixels.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Header Heigh</span>: Define the height of the header row in pixels.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/dataTable_HeaderHeight.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-- **Row Height**: Set the height of each row (excluding the header) in pixels.
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Row Heigh</span>: Set the height of each row (excluding the header) in pixels.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 - **Columns Area**: The columns area is where developers can manage the columns within the DataTable. It provides options for adding, moving, or removing columns to customize the structure of the table.
 
-    - **Adding Columns**: To add a new column, click on the "+" icon. This action triggers the appearance of a new column configuration area located at the bottom of the column list. This area allows you to define properties for the new column:
+    - **Adding Columns**: To add a new column, click on the `+` icon. This action triggers the appearance of a new column configuration area located at the bottom of the column list. This area allows you to define properties for the new column:
 
-        - **Title**: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.
+        - <Column.List align="center" justifyContent="between">
+            <Column.Item width="60%">
+                <li><span style={{fontWeight: 'bold'}}>Title</span>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.</li>
+                <br/>
+                <li><span style={{fontWeight: 'bold'}}>Source</span>: The source attribute specifies the datasource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's DataSource. This determines the content to be displayed in the column cells.</li>
+                <br/>
+                <li><span style={{fontWeight: 'bold'}}>Format</span>: The format property allows you to define how the data in the column should be displayed. It specifies the visual representation of the data, such as date formatting or decimal places.</li>
+                <br/>
+                <li><span style={{fontWeight: 'bold'}}>Width</span>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).</li>
+                <br/>
+                <li><span style={{fontWeight: 'bold'}}>Sorting</span>: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.</li>
+            </Column.Item>
+            <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/dataTable_ColumnsArea.png').default} style={{borderRadius: '6px'}} />
+            </Column.Item>
+        </Column.List>
 
-        - **Source**: The source attribute specifies the datasource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's DataSource. This determines the content to be displayed in the column cells.
+    - **Column Duplication**: Duplicate existing columns to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
+    - **Column Removal**: Delete columns that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-        - **Format**: The format property allows you to define how the data in the column should be displayed. It specifies the visual representation of the data, such as date formatting or decimal places.
+    - **Moving Column**: Arrange columns to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
 
-        - **Width**: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).
+## Data Integration
 
-        - **Sorting**: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.
+The **DataTable** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
-    - **Removing Columns**: To remove a column, click on the trash icon associated with the specific column. This action removes the selected column from the DataTable.
+### <u>Data Binding</u>
 
-    - **Moving Columns**: Columns can be rearranged within the DataTable using drag-and-drop functionality. To move a column, select the icon on the left side of the column name, then drag and drop the column to the desired position.
+To associate data with the **DataTable** component, follow these steps:
 
-
-
-## Enhanced User Experience Features
-
-The **DataTable** component offers a suite of features tailored to enhance usability and data manipulation for end users:
-
-- **Column Sorting**: Users can easily sort data based on specific columns by simply clicking the header of the desired column.
-
-- **Resizable Columns**: Columns within the DataTable can be dynamically resized to accommodate varying content lengths.
-
-- **Drag-and-Drop Column Movement**: Enhancing flexibility, users can rearrange columns through drag-and-drop actions. 
-
-- **Selectable/Tabbable Rows**: Users can effortlessly select and navigate through rows within the DataTable using keyboard tabbing. 
-
-
-
-## Data-Bounding
-
-The **DataTable** component derives its content from a specified datasource, which can include ORDA entity selections or other structured datasources. This enables the display of structured rows and columns, streamlining data representation.
-
-### <u>Data Display</u>
-( ☢️ to be done ☢️ )
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <li><span style={{fontWeight: 'bold'}}>Navigate to the Properties Panel</span>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
+        <br/>
+        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/dataTable_DataBinding.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 ### <u>Server-Side Interaction</u>
-( ☢️ to be done ☢️ )
 
+Enhance DataTable interactivity by binding functions to events like `onheaderclick` and `oncellclick`. These events respond to user actions and retrieve event-specific details using the [webEvent](../../../language/WebForm.md#webevent) command.
+
+Common attributes for `onheaderclick` and `oncellclick`:
+
+|Attribute|Type|Description|
+|---|---|---|
+|caller| Text | Server-side reference of the DataTable component.|
+|data| Object | The data object containing event-specific information.|
+|eventType| Text | Type of event that has been triggered ("onheaderclick" or "oncellclick")|
+
+- **onheaderclick**: Triggered when a user clicks a column header. The data object attribute includes:
+
+|Attribute|Type|Description|
+|---|---|---|
+|index| Number | The index of the clicked column header (starting from 0).|
+|name| Text | The datasource of the column.|
+
+
+- **oncellclick**: Triggered when a user clicks a cell in a row. The data object attribute includes:
+
+|Attribute|Type|Description|
+|---|---|---|
+|index| Number | The index of the clicked column header (starting from 0).|
+|name| Text | The datasource of the column.|
+|row| Number | The number of the clicked row.|
+
+
+## User Experience Features
+
+The **DataTable** component provides a range of user-friendly features:
+
+- **Column Sorting**: Users can sort data by clicking column headers <img alt="explorer" src={require('./img/dataTable_sort.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+
+- **Resizable Columns**: Adjust column widths to fit content <img alt="explorer" src={require('./img/dataTable_resize.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+
+- **Drag-and-Drop Column Movement**: Rearrange columns with ease <img alt="explorer" src={require('./img/dataTable_rearrange.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+
+- **Selectable/Tabbable Rows**: Navigate and select rows using keyboard tabbing. 
+
+
+
+## Showcase
+
+Here's a glimpse of how the **DataTable** component will look and behave in action:
+
+<img alt="explorer" src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 
 ## Triggers and Events
