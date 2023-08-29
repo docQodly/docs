@@ -196,8 +196,7 @@ const sidebars = {
 	{
 			type: 'category',
 			label: 'Model',
-			items: ['studio/model/model-overview',
-				'studio/model/model-editor-interface',
+			items: ['studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
 				'studio/model/attributes',
 			],
