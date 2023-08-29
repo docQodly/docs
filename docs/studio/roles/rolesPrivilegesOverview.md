@@ -113,11 +113,11 @@ On the other hand, the `linkAccount()` function links sessions and profiles, all
 
 ```qs
 exposed function linkAccount()
-	if(session.userName!=null)
-		user=this.query("awsID = :1", session.userName).first()
-		if(user==null)
-			user=ds.User.new()
-			user.awsID=session.userName
+	if(session.storage.currentUser!=null)
+		user = this.query("email = :1", session.storage.currentUser.email).first()
+		if(user == null)
+			user = ds.User.new()
+			user.email = session.storage.currentUser.email
 			user.save()
 		end
 	end
