@@ -6,6 +6,13 @@ import Column from '@site/src/components/Column'
 
 The **Range Input** component is an interactive user interface element that allows users to select a numeric value within a specified range. This component is commonly used for inputting values such as sliders, volume controls, and other settings that require a range selection.
 
+:::info 
+
+The **Range Input** component contains an embedded **Slider Container** and a **Label** element. This is of great importance as configuring the **Range Input** component may require adjusting properties within the embedded elements. This applies to the visual style, triggers, and actions as they may differ.
+
+:::
+
+
 
 ## Use Cases
 
@@ -20,6 +27,8 @@ The **Range Input** component is an interactive user interface element that allo
 
 
 ## Properties Customization
+
+### <u>Range Input Component</u>
 
 Enhance the **Range Input** component to align with your application's requirements using the following customization options:
 
@@ -44,7 +53,9 @@ Enhance the **Range Input** component to align with your application's requireme
         </Column.Item>
     </Column.List>
 
-Within the **Range Input** component, an embedded **Slider container** allows for further customization of the following properties:
+### <u>Embedded Slider Container</u>
+
+Within the **Range Input** component, an embedded **Slider Container** allows for further customization of the following properties:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
@@ -56,6 +67,20 @@ Within the **Range Input** component, an embedded **Slider container** allows fo
         <img alt="explorer" src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+### <u>Embedded Label</u>
+
+Within the **Range Input** component, an embedded **Label** allows for further customization of the following properties:
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
 
 
 ## Data Integration
@@ -95,15 +120,43 @@ Here's a glimpse of how the **Range Input** component will look and behave in ac
 
 ## Triggers and Events
 
+### <u>Range Input Component</u>
+
 The **Range Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|
 |On Click| Calls for an action when the user clicks on the component. |
-|On Blur| Calls for an action when the component loses focus (user clicks outside). |
-|On Focus| Calls for an action when the component gains focus (user clicks on it). |
+|On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
-|On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
-|On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
+|On Change| Calls for an action when the value of the Input changes. This typically occurs when the user enters or modifies text in the Input field. |
 
+
+### <u>Embedded Slider Container</u>
+
+The embedded **Slider Container** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
+
+|Event|Description|
+|---|---|
+|On Click| Calls for an action when the user clicks on the Slider Container. |
+|On Blur| Calls for an action when the Slider Container loses focus (user clicks outside). |
+|On Focus| Calls for an action when the Slider Container gains focus (user clicks on it). |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Slider Container.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Slider Container.|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the Slider Container is in focus. |
+|On Keyup| Calls for an action when a keyboard key is released while the Slider Container is in focus|
+
+
+### <u>Embedded Label</u>
+
+The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
+
+|Event|Description|
+|---|---|
+|On Click| Calls for an action when the user clicks on the Label. |
+|On Keyup| Calls for an action when a keyboard key is released while the Label is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the Label is in focus. |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Label.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Label.|

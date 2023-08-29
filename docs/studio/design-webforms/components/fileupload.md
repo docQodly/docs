@@ -7,6 +7,11 @@ import Column from '@site/src/components/Column'
 
 The **File Upload** component offers a streamlined approach for users to upload files to the server, providing a practical solution for handling binary or picture file transfers. This component enables users to effortlessly upload files, which are then securely stored within an allocated entity attribute.
 
+:::info 
+
+The **File Upload** component has an **Icon** element embedded within it. This is of great importance as configuring the **File Upload** component may require adjusting properties within the embedded element. This applies to the visual style, triggers, and actions as they may differ.
+
+:::
 
 
 ## Use Cases
@@ -22,6 +27,8 @@ The **File Upload** component finds valuable application in diverse scenarios, i
 
 
 ## Properties Customization
+
+### <u>File Upload Component</u>
 
 Enhance the **File Upload** component to align with your application's requirements using the following customization options:
 
@@ -62,6 +69,18 @@ Enhance the **File Upload** component to align with your application's requireme
 	</Column.Item>
 </Column.List>
 
+### <u>Embedded Icon</u>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                Within the <span style={{fontWeight: 'bold'}}>File Upload</span> component, an embedded <span style={{fontWeight: 'bold'}}>Icon</span> allows for further customization of the following properties: <br/><br/>
+                <li><span style={{fontWeight: 'bold'}}>Icon</span>: When the icon visibility is configured in the File Upload component's customization properties, you can select an icon from an icon picker list.</li>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
 
 ## Data Integration
 
@@ -88,6 +107,8 @@ Here's a glimpse of how the **File Upload** component will look and behave in ac
 
 ## Triggers and Events
 
+### <u>File Upload Component</u>
+
 The **File Upload** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
@@ -99,3 +120,15 @@ The **File Upload** component can respond to various events, enabling dynamic us
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
 |On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
 |On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
+
+### <u>Embedded Icon</u>
+
+The embedded **Icon** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
+
+|Event|Description|
+|---|---|
+|On Click| Calls for an action when the user clicks on the Icon. |
+|On Keyup| Calls for an action when a keyboard key is released while the Icon is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the Icon is in focus. |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Icon.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Icon.|
