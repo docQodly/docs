@@ -13,14 +13,9 @@ Categorized as part of iterative components, the **Select Box** facilitates user
 
 :::
 
+<br/>
 
-The key distinction of the **Select Box** component is:
-
-:::tip 
-
-Its capacity to present complex options as a dropdown list using embedded components, setting it apart from the [**Select Input**](./selectinput.md) component, which offers less versatile option displays.
-
-:::
+The **Select Box** component is notable for its capacity to present complex options as a dropdown list using embedded components, distinguishing it from the [**Select Input**](./selectinput.md) component that offers less versatile option displays.
  
 
 ## Use Cases
@@ -113,6 +108,28 @@ To associate data iterated over a datasource, you can follow these additional st
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
+</Column.List>
+
+
+### <u>Dynamic Attribute Display</u>
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        The <code>Select Box</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
+	</Column.Item>
+	<Column.Item width="25%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	</Column.Item>
 </Column.List>
 
 

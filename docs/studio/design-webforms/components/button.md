@@ -57,7 +57,7 @@ Enhance the **Button** component to align with your application's requirements u
 </Column.List>
 
 
-## Data-Binding
+## Data Binding
 
 When it comes to data-binding, it's important to note that the **Button** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified datasources, the **Button** component primarily focuses on initiating actions and interactions within the user interface.
 

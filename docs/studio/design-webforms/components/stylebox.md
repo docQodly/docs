@@ -20,7 +20,7 @@ The **Stylebox** component serves as a versatile container designed to enhance c
 <img alt="explorer" src={require('./img/SelectBox_EmbeddedStylebox.png').default} style={{borderRadius: '6px'}} />
 
 
-## Data-Binding
+## Data Binding
 When you drag and drop a datasource attribute to a **Stylebox**, the following automatic creations occur:
 
 - **Entity Attribute**: Generates a component linked to **entity.attribute** based on its type.

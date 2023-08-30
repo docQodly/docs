@@ -83,15 +83,13 @@ Enhance the **File Upload** component to align with your application's requireme
 </Column.List>
 
 
-## Data Integration
+## Data Binding
 
-The **File Upload** component utilizes data-binding to create a dynamic link between user actions and the underlying data structure. 
-
-### <u>Data Binding</u>
+The **File Upload** component uses data-binding to link user interactions with the underlying data structure.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        For optimal use of the File Upload component, bind it with an attribute of type Blob or Picture within an entity datasource. This attribute acts as the storage location for the uploaded file.
+		Bind the component to an attribute of Blob or Picture type within an entity datasource. This attribute will store the uploaded file.
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />

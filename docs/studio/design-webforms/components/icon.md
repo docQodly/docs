@@ -22,18 +22,18 @@ The **Icon** component serves various purposes within user interfaces, including
 
 Enhance the **Icon** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
+- <Column.List align="center" >
+        <Column.Item width="50%">
                 <span style={{fontWeight: 'bold'}}>Icon</span>: Select the desired icon from a predefined list of icons. 
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px', width: '60%'}} />
         </Column.Item>
 </Column.List>
 
 
 
-## Data-Binding
+## Data Binding
 
 When it comes to data-binding, it's important to note that the **Icon** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified datasources, the main purpose of the **Icon** component is to provide a visual representation.
 

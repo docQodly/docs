@@ -87,6 +87,59 @@ To display data iterated over a datasource, you can follow these additional step
     <img alt="explorer" src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
 
 
+### <u>Server-Side Interaction</u>
+
+- **Direct Datasource Interaction**: When using a direct datasource like `Rooms`, you can bind functions to button clicks using `$This`. This functionality enables the execution of functions such as "selectRoom" upon button clicks.
+
+    Follow these steps to achieve this functionality:
+
+    - Integrate the Matrix component within the interface.
+    - Select a direct datasource like <code>Rooms</code> for the Matrix.
+    - Embed buttons within the Matrix for each iterated data.
+    - Bind the desired function, , e.g., <code>selectRoom</code>, to the button click event using <code>$This</code>.
+
+
+- **Related Entity Interaction**: Alternatively, you can leverage related entity selections from the primary datasource, such as `$This.roomOptionsSelection`. This method involves embedding another Matrix within the main Matrix to handle each iterated data. This allows you to access options associated with a particular room, such as services offered.
+
+    Follow these steps to implement this approach:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="50%">
+            <li> Integrate the Matrix component within the interface.</li>
+            <li> Select a direct datasource like <code>Rooms</code> for the main Matrix.</li> 
+            <li> Embed another Matrix for each iterated data within the main Matrix.</li> 
+            <li> Choose a Related Entity datasource like <code>$This.roomOptionsSelection</code> for the embedded Matrix.</li>
+            <li> Integrate buttons within the embeded Matrix for each iterated data.</li> 
+            <li> Bind the desired function, e.g., <code>selectRoomOption</code>, to the button click event using <code>This</code>.</li> 
+        </Column.Item>
+        <Column.Item width="50%">
+            <img alt="explorer" src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+### <u>Dynamic Attribute Display</u>
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        The <code>Matrix</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
+	</Column.Item>
+	<Column.Item width="25%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	</Column.Item>
+</Column.List>
+
+
 ## Showcase
 
 Here's a glimpse of how the **Matrix** component will look and behave in action:
