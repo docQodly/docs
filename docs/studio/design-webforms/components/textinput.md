@@ -5,7 +5,8 @@ title: Text Input
 import Column from '@site/src/components/Column'
 
 
-The **Text Input** component serves as a crucial element for user interactions, allowing input of alphanumeric data within your webform. By offering various input types, this component caters to a wide range of data entry scenarios.
+The **Text Input** component is an interactive UI element that enables user interactions by allowing the input of alphanumeric data within a webform. With support for various input types, this component accommodates diverse data entry scenarios.
+
 
 :::info 
 
@@ -38,6 +39,19 @@ Enhance the **Text Input** component to align with your application's requiremen
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+### <u>Embedded Label</u>
+
+Within the **Text Input** component, an embedded **Label** allows for further customization of the following properties:
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -125,20 +139,6 @@ You can check the  <a href="https://date-fns.org/v2.30.0/docs/format">date-fns l
 
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img alt="explorer" src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
 
-### <u>Embedded Label</u>
-
-Within the **Text Input** component, an embedded **Label** allows for further customization of the following properties:
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
-	</Column.Item>
-	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-
 
 ## Data Integration
 
@@ -176,7 +176,7 @@ Retrieving user input data is equally effortless. By binding a datasource to the
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-        Consequently, you can utilize this input value – for instance, within a standard action – to initiate a search for packages whose names match the entered value.
+        Consequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
         <img alt="explorer" src={require('./img/textInput_standardAction.png').default} style={{borderRadius: '6px'}} />

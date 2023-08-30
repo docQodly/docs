@@ -5,16 +5,13 @@ title: Matrix
 import Column from '@site/src/components/Column'
 
 
-The **Matrix** component falls under the category of iterative components, designed to present a dynamic array of Stylebox components. These Stylebox elements are populated dynamically based on data retrieved from the component's datasource.
+The **Matrix** component is a UI element categorized as an iterative component, designed to present a dynamic array of Stylebox components. These Stylebox elements are populated dynamically based on data retrieved from the component's datasource.
 
 :::info 
 
 Upon being placed on the canvas, the Matrix component includes a single Stylebox component, and this Stylebox is duplicated for each iteration of data.
 
 :::
-
-This component proves highly beneficial for structured and customizable data presentation, allowing for the display of attributes associated with entity selections and similar scenarios.
-
 
 
 ## Use Cases

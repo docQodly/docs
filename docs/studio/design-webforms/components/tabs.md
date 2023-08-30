@@ -5,7 +5,8 @@ title: Tabs
 import Column from '@site/src/components/Column'
 
 
-The **Tabs** component is a versatile container designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your webform.
+The **Tabs** component is a versatile UI element designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your webform.
+
 
 :::info 
 
@@ -29,7 +30,7 @@ The Tabs component proves invaluable across a range of scenarios where content o
 
 Enhance the Tabs component to align with your application's requirements using the following customization options:
 
-- **Variant Selection**: Choose the ideal tab variant that best matches your design aesthetics:
+- **Variant Selection**: Choose the variant that aligns with your design:
     
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">

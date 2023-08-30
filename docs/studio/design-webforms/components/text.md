@@ -4,7 +4,7 @@ title: Text
 ---
 import Column from '@site/src/components/Column'
 
-The **Text** component serves as a fundamental element for displaying text content on web pages.
+The **Text** component is a UI element designed to display text content on webforms.
 
 
 ## Use Cases

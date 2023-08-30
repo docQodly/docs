@@ -5,7 +5,8 @@ title: Select Box
 import Column from '@site/src/components/Column'
 
 
-The **Select Box** component is designed to allow users to select an item from a list of Stylebox components. It is particularly useful for providing a streamlined way to choose from various options within a dropdown-style interface.
+The **Select Box** component is a UI element designed for users to choose an item from a list of Stylebox components. It provides a streamlined way to select from various options within a dropdown-style interface. Each option in the list is represented as a Stylebox component.
+
 
 :::info 
 
