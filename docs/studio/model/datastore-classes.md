@@ -102,6 +102,7 @@ Check this option in order for operations performed on the table’s data to be 
 Comments that you can store with your datastore class for private use.
 
 
+
 ## Permissions  
 
 This area allows you to define the permissions at the dataclass level. Permissions can also be set at the datastore and attribute levels.

@@ -198,6 +198,7 @@ const sidebars = {
 			label: 'Model',
 			items: ['studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
+				'studio/model/functions',
 				'studio/model/attributes',
 			],
 	},
