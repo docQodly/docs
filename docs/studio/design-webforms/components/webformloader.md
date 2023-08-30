@@ -55,9 +55,9 @@ Note that:
 In the case of concurrent application of both methods, the content sourced from the bound datasource takes priority.
 :::
 
-## Webform Navigation
+## Navigating with Webform Loader
 
-When implementing navigation actions involving the Webform Loader component, it's essential to utilize the "Ref" property to designate the components that need to be processed during the navigation event. This property ensures that the target webform is loaded and its contents are integrated into the current webform.
+When orchestrating navigation actions through the Webform Loader component, it's crucial to employ the `Ref` property to specify the components requiring processing during the navigation event. This property guarantees that the target webform is loaded, and its contents are integrated into the current webform.
 
 <img alt="explorer" src={require('./img/webformLoader_Navigation.png').default} style={{borderRadius: '6px'}} />
 

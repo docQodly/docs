@@ -78,7 +78,7 @@ To associate data with the **DataTable** component, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Navigate to the Properties Panel</span>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
+        <li><span style={{fontWeight: 'bold'}}>Navigate to the Properties Panel</span>: Access the Data Access category located within the Properties panel for the Data Table component.</li>
         <br/>
         <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
 	</Column.Item>
@@ -114,6 +114,27 @@ Common attributes for `onheaderclick` and `oncellclick`:
 |index| Number | The index of the clicked column header (starting from 0).|
 |name| Text | The datasource of the column.|
 |row| Number | The number of the clicked row.|
+
+### <u>Dynamic Attribute Display</u>
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        The <code>Data Table</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
+	</Column.Item>
+	<Column.Item width="25%">
+        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	</Column.Item>
+</Column.List>
 
 
 ## User Experience Features

@@ -56,7 +56,7 @@ Enhance the **Text** component to align with your application's requirements usi
     </Column.Item>
 </Column.List>
 
-## Data-Binding
+## Data Binding
 
 The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
 
