@@ -4,7 +4,8 @@ title: Data Table
 ---
 import Column from '@site/src/components/Column'
 
-The **DataTable** component is a versatile element designed to present data in a tabular format, akin to a table. It excels at iterating over a specified datasource, transforming it into a structured list composed of rows and columns. In the DataTable, attributes are represented as columns, and entities are represented as rows. Additionally, a DataTable includes a header row for labeling columns.
+The **DataTable** component is a versatile UI element used to display data in a tabular format, resembling a table. It efficiently iterates through a designated datasource, converting it into an organized list comprising rows and columns. In the DataTable, columns represent attributes, rows represent entities, and a header row labels the columns.
+
 
 
 ## Use Cases

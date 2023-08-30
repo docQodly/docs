@@ -4,7 +4,7 @@ title: Webform Loader
 ---
 import Column from '@site/src/components/Column'
 
-The **Webform Loader** component is a versatile tool designed to integrate one webform into another within the context of your application. By utilizing this component, you can efficiently embed and manage dynamic content, enhancing the overall user experience.
+The **Webform Loader** component is a versatile UI element designed to integrate one webform into another within the context of your application.
 
 
 ## Use Cases

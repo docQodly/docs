@@ -5,7 +5,8 @@ title: File Upload
 import Column from '@site/src/components/Column'
 
 
-The **File Upload** component offers a streamlined approach for users to upload files to the server, providing a practical solution for handling binary or picture file transfers. This component enables users to effortlessly upload files, which are then securely stored within an allocated entity attribute.
+The **File Upload** component is an interactive UI element that simplifies file transfers by allowing users to easily upload files to the server.
+
 
 :::info 
 

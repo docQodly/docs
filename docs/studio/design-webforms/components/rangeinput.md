@@ -4,7 +4,7 @@ title: Range Input
 ---
 import Column from '@site/src/components/Column'
 
-The **Range Input** component is an interactive user interface element that allows users to select a numeric value within a specified range. This component is commonly used for inputting values such as sliders, volume controls, and other settings that require a range selection.
+The **Range Input** component is an interactive UI element enabling users to choose a numeric value from a defined range.
 
 :::info 
 
@@ -53,6 +53,21 @@ Enhance the **Range Input** component to align with your application's requireme
         </Column.Item>
     </Column.List>
 
+
+### <u>Embedded Label</u>
+
+Within the **Range Input** component, an embedded **Label** allows for further customization of the following properties:
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
 ### <u>Embedded Slider Container</u>
 
 Within the **Range Input** component, an embedded **Slider Container** allows for further customization of the following properties:
@@ -66,19 +81,6 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
-</Column.List>
-
-### <u>Embedded Label</u>
-
-Within the **Range Input** component, an embedded **Label** allows for further customization of the following properties:
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
-	</Column.Item>
-	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
 </Column.List>
 
 
@@ -106,11 +108,10 @@ To associate data with the Range Input component, follow these steps:
 
 ### <u>Server-Side Interaction</u>
 
-Retrieving user input data is equally effortless. By binding a datasource to the **Range Input** component, you gain access to and can utilize the content input by the user.
+Interacting with user input data is straightforward. When you bind a datasource to the **Range Input** component, you can access and make use of the input content.
 
-Consider a rating slider scenario, where users interact by dragging the slider to a specific value. Binding a datasource captures this selected value.
+Subsequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 
-Consequently, you can utilize this input value – for instance, within a standard action – to initiate a search for hotels whose rating match the entered value.
 
 ## Showcase
 

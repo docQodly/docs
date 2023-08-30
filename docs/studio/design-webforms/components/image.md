@@ -5,7 +5,7 @@ title: Image
 import Column from '@site/src/components/Column'
 
 
-The **Image** component provides a straightforward solution for incorporating images into your webform. Whether showcasing product visuals, user avatars, or any other imagery, the Image component enables you to seamlessly integrate images into your application's interface.
+The **Image** component is a UI element that enables you to integrate images into your webform. 
 
 ## Use Cases
 

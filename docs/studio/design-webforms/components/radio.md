@@ -4,8 +4,7 @@ title: Radio
 ---
 import Column from '@site/src/components/Column'
 
-The **Radio** component is a crucial user interface element that facilitates single or multiple selections from a predefined list of values. 
-
+The **Radio** component is an interactive UI element that enables users to make single or multiple selections from a predefined set of options. Users can choose one or more options using radio buttons associated with each value in the set.
 
 ## Use Cases
 
@@ -46,7 +45,7 @@ Enhance the **Radio** component to align with your application's requirements us
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Default Value</span>: Set a default value for the radio button, ensuring that a specific option is pre-selected when the component is loaded.
+        <span style={{fontWeight: 'bold'}}>Default Value</span>: Set a default value for the radio component, ensuring that a specific option is pre-selected when the component is loaded.
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/radio_defaultValue.png').default} style={{borderRadius: '6px'}} />
@@ -56,11 +55,11 @@ Enhance the **Radio** component to align with your application's requirements us
 
 
 - **Options**: 
-    - **Adding Options**: Incorporate new options by utilizing the "+" button within the Radio Button component. Each option can be customized with a label and a corresponding value, enhancing the clarity of user selections.
+    - **Adding Options**: Incorporate new options by utilizing the "+" button within the Radio component. Each option can be customized with a label and a corresponding value, enhancing the clarity of user selections.
         - <Column.List align="center" justifyContent="between">
             <Column.Item width="60%">
                 <li> <span style={{fontWeight: 'bold'}}>Label</span>: A descriptive text label for each option.</li> <br/>
-                <li> <span style={{fontWeight: 'bold'}}>Value</span>: A distinct value to each option, enabling effective backend processing and data handling based on the selections made by users.</li>
+                <li> <span style={{fontWeight: 'bold'}}>Value</span>: A distinct value to each option, enabling effective data handling based on the selections made by users.</li>
             </Column.Item>
             <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/radio_Options.png').default} style={{borderRadius: '6px'}} />
@@ -100,12 +99,18 @@ Retrieving user choices is straightforward. By binding a datasource to the **Rad
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
         For example, when users make a single choice from a set of options, binding a datasource captures the selected option. <br/> <br/>
-        Consequently, you can utilize this option value – for instance, within a standard action – to initiate a search for packages with a status that matches the datasource value.
+        Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
         <img alt="explorer" src={require('./img/radio_standardAction.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+Additionally: 
+
+:::tip 
+The **Radio** component's datasource can also be linked to the value of an attribute in the currently selected entity of another datasource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
+:::
 
 ## Showcase
 
