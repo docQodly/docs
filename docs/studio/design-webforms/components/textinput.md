@@ -120,7 +120,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
         </Column.Item>
     </Column.List>
     <br/>
-        You can check the  <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples.
+        You can check the  <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
 
     <br/><br/>
 
