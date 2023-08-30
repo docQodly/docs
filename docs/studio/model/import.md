@@ -46,9 +46,9 @@ The lower part of the window shows a preview of the imported data in the corresp
 
 ![csv](img/import5.png)
 
-Make sure the importing format fits the format in the imported file. For example for the dates, the format must use the [date-fns library](https://date-fns.org/v2.30.0/docs/format) formats:
+Make sure the importing format fits the format in the imported file. For dates, the format must use the [date-fns library](https://date-fns.org/v2.30.0/docs/format) formats:
 
-![csv](img/import5.png)
+![csv](img/import6.png)
 
 5. When all imported columns have been mapped and formatted, click **Start import** to launch the import.
 
