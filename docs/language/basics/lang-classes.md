@@ -37,9 +37,27 @@ person=cs.Person.new("John","Doe")
 hello=person.sayHello() //"Hello John Doe"
 ```
 
-## Class definition
+## Creating classes
 
-A user class in Qodly is defined by a specific [method file](../../studio/coding.md#methods-and-classes) (.4qm), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name.
+### User classes
+
+To create a new user class in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
+
+![class](img/class3.png)
+
+You can also select **New > Class** from the menu bar, enter a name and click **Create**:
+
+![class](img/class1.png)
+![class](img/class2.png)
+
+
+### Data Model classes
+
+Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes). 
+
+
+
+### Class definition
 
 When naming classes, you should keep in mind the following rules:
 
@@ -47,8 +65,7 @@ When naming classes, you should keep in mind the following rules:
 - Class names are case sensitive.
 - Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
 
-
-For example, a class named "Polygon" will be based upon the following file:
+A user class in Qodly is defined by a specific [method file](../../studio/coding.md#methods-and-classes) (.4qm), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
 
 Project folder
  Project
@@ -207,6 +224,7 @@ In the application code, class functions are called as member methods of the obj
  
 
 #### Parameters
+
 
 Function parameters are declared using the parameter name and the parameter type, separated by a colon (:). The parameter name must be compliant with [property naming rules](lang-identifiers.md#object-properties). Multiple parameters (and types) are separated by commas (,).
 

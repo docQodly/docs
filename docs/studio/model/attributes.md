@@ -28,6 +28,7 @@ You can view and modify a few of the attribute’s properties when you select or
 - **Type Icon**: Displays the datastore entity type as an icon.
 - **Type**: Attribute type that you can change by double-clicking on it to render the area enterable. An attribute type can be [scalar](../../concepts/platform.md#data-types) or based upon a [relation](#create-a-relation-attribute), in which case it can be of the *classNameEntity* or *classNameSelection* type). 
 
+All attributes of a datastore class are also listed in the [Outline area](model-editor-overview.md#outlene) of the model editor.
 
 ### Attribute categories
 
@@ -281,7 +282,7 @@ Here is the list of all available properties:
 |Max value|Minimum value allowed for the attribute. If the value entered is more than this property, an error is returned.|long, number|
 |Min value|Minimum value allowed for the attribute. If the value entered is less than this property, an error is returned.|long, number|
 |Reverse path|This option must be selected for a 1->N relation attribute|related 1->N|
-|Scope|"Expose as REST" or "Do not expose as REST". An exposed attribute can be used from anywhere and its value can be displayed using REST requests. A not-exposed attribute can only be used by code called from inside the datastore class, including calculated attributes, functions, methods, and events, executed on the server. Select "Do not expose as REST" for attributes that should not be accessed directly, e.g. "salary".|All|
+|Scope|"Expose as REST" or "Do not expose as REST". An exposed attribute can be used from anywhere and its value can be displayed using REST requests. A not-exposed attribute can only be used by code called from inside the datastore class, including calculated attributes, functions, methods, and events, executed on the server. Select "Do not expose as REST" for attributes that should not be accessed directly, e.g. "salary". This property can be selected at the [datastore class level](datastore-classes.md#scope), and attributes inherit from this level. An attribute can override the parent dataclass level with "Do not expose as REST" if the parent was exposed; however, it the parent dataclass property is "Do not expose as REST", the attribute cannot override it.  |All|
 |Unique|Verifies that the value entered be unique. If not, an error is returned|string|
 
 
@@ -289,4 +290,4 @@ Here is the list of all available properties:
 
 This area allows you to define the permissions at the attribute level. Permissions can also be set at the dataclass and datastore levels.
 
-Permissions are described in [this section](../roles.md). 
+Attribute permissions are described in [this section](../roles/attributesPermissions.md). 
