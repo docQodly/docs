@@ -200,6 +200,8 @@ const sidebars = {
 				'studio/model/datastore-classes',
 				'studio/model/functions',
 				'studio/model/attributes',
+				'studio/model/import',
+
 			],
 	},
 	{
