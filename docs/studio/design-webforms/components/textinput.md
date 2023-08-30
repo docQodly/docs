@@ -81,7 +81,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                 -  UPPERCASE : Converts all characters to uppercase.<br/>
                 -  lowercase : Converts all characters to lowercase.<br/>
                 -  Capitalize : Capitalizes the first letter of the text.<br/>
-                -  Capitalize Each Word : Capitalizes the first letter of each word in the text.<br/>
+                -  Capitalize Each Word : Capitalizes the first letter of each word.<br/>
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
@@ -96,21 +96,22 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                 -  0 : Standard numerical format.<br/>
                 -  0% : Displays the number as a percentage.<br/>
                 -  #,##0 : Adds thousands separators to the number.<br/>
-                -  #,##0.00 : Adds thousands separators and displays two decimal places.<br/>
+                -  #,##0.00 : Adds thousands separators and displays two decimal places.<br/><br/>
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
-
-    <br />
+    <br/>
+        Refer to the <a href="https://support.microsoft.com/en-us/office/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5">Review guidelines</a> for customizing <code>number formats</code>.
+    <br/><br/>
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
            For <span style={{fontWeight: 'bold'}}>Date Input</span>: <br/>
-                -  Date short : Displays the date in a short format (MM/DD/YYYY or DD/MM/YYYY depending on locale).<br/>
-                -  Date long : Displays the date in a long format (MMMM DD, YYYY).<br/>
-                -  Date abbreviated : Displays the date with abbreviated month name (MMM DD, YYYY).<br/>
+                -  Date short : Displays the date in a short format.<br/>
+                -  Date long : Displays the date in a long format.<br/>
+                -  Date abbreviated : Displays the date with abbreviated month name.<br/>
                 -  ISO date GMT : Displays the date in ISO 8601 format with GMT time zone.<br/>
                 -  UTC String : Displays the date in a UTC format.<br/>
         </Column.Item>
@@ -118,14 +119,16 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
             <img alt="explorer" src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
+    <br/>
+        You can check the  <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples.
 
-    <br />
+    <br/><br/>
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
            For <span style={{fontWeight: 'bold'}}>Time Input</span>: <br/>
-           -  without seconds : Displays the time without seconds (01:00).<br/>
-           -  with seconds : Displays the time with seconds (01:00:00).<br/>
+           -  without seconds : Displays the time without seconds.<br/>
+           -  with seconds : Displays the time with seconds.<br/>
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
@@ -134,7 +137,6 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 
 
 
-You can check the  <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of format options and usage examples.
 
 
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img alt="explorer" src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
