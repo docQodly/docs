@@ -6,6 +6,14 @@ import Column from '@site/src/components/Column'
 
 The **Radio** component is an interactive UI element that enables users to make single or multiple selections from a predefined set of options. Users can choose one or more options using radio buttons associated with each value in the set.
 
+
+:::info 
+
+Unlike certain other components, the **Radio** component cannot be linked to a datasource to display data, instead, options must be configured through the properties panel.
+
+:::
+
+
 ## Use Cases
 
 **Radio** component serve various purposes in user interfaces, including:

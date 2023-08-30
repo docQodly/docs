@@ -12,6 +12,16 @@ The **Select Input** component contains an embedded **Select** and a **Label** e
 
 :::
 
+The key distinction of the **Select Input** component is:
+
+:::tip 
+
+Its options are predefined in the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it cannot source data from a datasource for options. Additionally, the **Select Input** component is unable to integrate embedded components within the list to enable customized displays alongside other elements.
+
+:::
+
+
+
 ## Use Cases
 
 The **Select Input** component serve various purposes in user interfaces, including:
