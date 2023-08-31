@@ -5,28 +5,29 @@ title: Qodly Applications
 
 The Qodly Cloud Management Console (QCMC) is the portal from which you can manage all your Qodly applications. 
 
-## Application list
+## Application Overview
 
-Once you are [logged to your Qodly account](../concepts/quickstart.md), the QCMC displays all your Qodly applications in a single page:
+After [logging in to your Qodly account](../concepts/quickstart.md), the QCMC presents an organized display of your Qodly applications on a single page.
 
-![console](img/console.png)
 
-There are three kinds of Qodly applications:
+Your Qodly applications fall into three categories:
 
-- **Sandbox**: This is your trial application, where you can let your imagination run wild and experiment with all Qodly's features. This application is only available in the [development environment](../concepts/platform.md#environments-and-services). 
-- **Applications**: This area lists all the applications that you have created (except the Sandbox)
-- **Shared Applications**: This area lists all the applications created by other developers that they have shared with you (through invitations).
+- **Sandbox**: This serves as a trial application where you can freely explore Qodly's features and experiment. Please note that the Sandbox is accessible only in the [development environment](../concepts/platform.md#environments-and-services). 
+- **Applications**: This section lists all applications you've created, excluding the Sandbox.
+- **Shared Applications**: Here, you'll find applications developed by other collaborators and shared with you through invitations.
 
+<img alt="explorer" src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 ## Environments and services
 
-For every application, [Qodly Server](../concepts/platform.md#qodly-server) is deployed on three different instances called **environments**: 
+For each application, the [Qodly Server](../concepts/platform.md#qodly-server) is deployed across three distinct instances, referred to as environments:
 
-- **development**: in this environment, developers can create, design, improve their Qodly application
-- **staging**: in this environment, developers, product managers, or quality team can test the application and its features in a configuration similar to the production environment
-- **production**: in this environment, users can connect and use your final application. 
+- **Development**: This environment is ideal for developers to create, design, and enhance their Qodly applications.
+- **Staging**: In this environment, developers, product managers, or quality teams can thoroughly test application features in a configuration that closely simulates the production environment.
+- **Production**: The production environment is where users can access and utilize your finalized application.
 
-Each environment proposes different services:
+
+Each environment offers a unique set of services:
 
 ||Development|Staging|Production|
 |---|---|---|---|
@@ -38,14 +39,14 @@ Each environment proposes different services:
 
 
 
-## Clone your applications
+## Cloning Applications
 
-Instead of starting from scratch, you can clone any of your applications and start a new project based on the same code. 
+Rather than starting from scratch, you have the option to clone any existing application and kickstart a new project based on the same codebase.
 
-To clone an application, click on the **Clone** button in the Apps list:
+To initiate application cloning, locate the desired application in the Apps list and click the **Clone** button:
 
-![clone](img/clone.png)
+<img alt="explorer" src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-The cloning feature duplicates all your code except your data and resources. 
+The cloning process duplicates all your code, except data and resources.
 
 
