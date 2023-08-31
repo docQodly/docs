@@ -6,7 +6,7 @@ title: Configuration
 
 ### Browser 
 
-The web studio supports the following web browsers:
+The Qodly Studio supports the following web browsers:
 
 - Chrome
 - Edge
@@ -16,19 +16,19 @@ The recommended resolution is 1920x1080.
 
 ### 4D application
 
-4D Web Studio only works with 4D projects (binary databases are not supported).
+Qodly Studio only works with 4D projects (binary databases are not supported).
 
-## Enabling access to 4D Web Studio
+## Enabling access to Qodly Studio
 
 :::note
 
-The options and menu items described on this page won't appear if the 4D Web Studio license is not activated.
+The options and menu items described on this page won't appear if the Qodly Studio license is not activated.
 
 :::
 
 By default, access to the studio is not granted. 
 
-4D Web Studio is served by the [WebAdmin web server](https://developer.4d.com/docs/en/Admin/webAdmin.html) and displays data from 4D projects handled by the [4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html). 
+Qodly Studio is served by the [WebAdmin web server](https://developer.4d.com/docs/en/Admin/webAdmin.html) and displays data from 4D projects handled by the [4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html). 
 
 To enable access to the studio, you must explicitly allow it at two levels: 
 * at the 4D application level, for global access
@@ -40,7 +40,7 @@ If one of the two levels (or both) are not enabled, access to the studio is deni
 
 As a first security level, you need to allow access to the studio on the [WebAdmin web server](https://developer.4d.com/docs/en/Admin/webAdmin.html).
 
-To do this, go to **File** > **Web Administration** > **Settings...** and check **Enable access to the Web studio**.
+To do this, go to **File** > **Web Administration** > **Settings...** and check **Enable access to the Qodly Studio**.
 
 This setting applies to the 4D application (4D or 4D Server) on the host machine. All projects opened with that 4D application take this setting into account.
 
@@ -59,9 +59,9 @@ After any change to these settings, you must [restart the WebAdmin web server](h
 
 ### At the project level
 
-After you have enabled access to the studio at the application level, you need to explicitly designate every project that can be accessed. The **Enable access to the Web Studio** option must be enabled on the [main 4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html)'s configuration page.
+After you have enabled access to the studio at the application level, you need to explicitly designate every project that can be accessed. The **Enable access to the Qodly Studio** option must be enabled on the [main 4D web server](https://developer.4d.com/docs/en/WebServer/webServer.html)'s configuration page.
 
-To do this, in your 4D application, go to **Settings** > **Web** > **Web Features** and check **Enable access to the Web studio**.
+To do this, in your 4D application, go to **Settings** > **Web** > **Web Features** and check **Enable access to the Qodly Studio**.
 
 Keep in mind that [user settings](https://doc.4d.com/4Dv19R2/4D/19-R2/User-settings.300-5516428.en.html) can be defined at several levels, and that priorities apply.
 
@@ -69,13 +69,13 @@ Keep in mind that [user settings](https://doc.4d.com/4Dv19R2/4D/19-R2/User-setti
 
 Authentication on the WebAdmin web server is granted using an access key. For more details, see [Access key](https://developer.4d.com/docs/en/Admin/webAdmin.html#access-key).
 
-## Opening 4D Web Studio
+## Opening Qodly Studio
 
-The web studio page is available when the [WebAdmin web server is running](https://developer.4d.com/docs/en/Admin/webAdmin.html#starting-the-webadmin-web-server) and [authentication is activated](#activating-authentication). 
+The Qodly Studio page is available when the [WebAdmin web server is running](https://developer.4d.com/docs/en/Admin/webAdmin.html#starting-the-webadmin-web-server) and [authentication is activated](#activating-authentication). 
 
 There are two ways to access the studio:
 
-*	from your 4D single-user application, go to **Design** > **Web Studio...**. 
+*	from your 4D single-user application, go to **Design** > **Qodly Studio...**. 
  
  	If the WebAdmin web server is already running, depending on its configuration, your default browser opens at `IPaddress:HTTPPort/studio` or `IPaddress:HTTPSPort/studio`. Otherwise, you will be prompted if you want to start the WebAdmin web server first.
 
@@ -110,4 +110,4 @@ The renderer engine applies the REST resource restrictions defined in your 4D pr
 
 ## WebAdmin server and deployment 
 
-For deployment, the 4D WebAdmin server is not necessary. End-user access to your web application made with 4D Web Studio is based on the 4D REST protocol, and as such, it works as through a conventional 4D Client.
+For deployment, the 4D WebAdmin server is not necessary. End-user access to your web application made with Qodly Studio is based on the 4D REST protocol, and as such, it works as through a conventional 4D Client.

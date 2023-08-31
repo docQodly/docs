@@ -4,7 +4,7 @@ title: Templates
 ---
 
 
-Templates are a great way to jump-start your building process. 4D Web Studio offers templates to help you design things more quickly. These templates come as-is and may require customization.
+Templates are a great way to jump-start your building process. Qodly Studio offers templates to help you design things more quickly. These templates come as-is and may require customization.
 
 :::note
 
