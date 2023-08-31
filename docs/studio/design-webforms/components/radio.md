@@ -86,7 +86,7 @@ Enhance the **Radio** component to align with your application's requirements us
 
 The **Radio** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### <u>Data Binding</u>
+### Data Binding
 To associate data with the Radio component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Radio component.
@@ -100,7 +100,7 @@ To associate data with the Radio component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Retrieving user choices is straightforward. By binding a datasource to the **Radio** component, you can access and utilize the selected content.
 

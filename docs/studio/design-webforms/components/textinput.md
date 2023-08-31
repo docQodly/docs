@@ -29,7 +29,7 @@ The Text Input component provides a versatile solution for a wide range of scena
 
 ## Properties Customization
 
-### <u>Text Input Component</u>
+### Text Input Component
 
 Enhance the **Text Input** component to align with your application's requirements using the following customization options:
 
@@ -42,7 +42,7 @@ Enhance the **Text Input** component to align with your application's requiremen
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 Within the **Text Input** component, an embedded **Label** allows for further customization of the following properties:
 
@@ -55,7 +55,7 @@ Within the **Text Input** component, an embedded **Label** allows for further cu
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Input</u>
+### Embedded Input
 
 Within the **Text Input** component, an embedded **Input** allows for further customization of the following properties:
 - <Column.List align="center" justifyContent="between">
@@ -146,7 +146,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 
 The **Text Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### <u>Data Binding</u>
+### Data Binding
 To associate data with the Text Input component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Text Input component.
@@ -163,7 +163,7 @@ To associate data with the Text Input component, follow these steps:
 - **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>package.name</code>.
 
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Retrieving user input data is equally effortless. By binding a datasource to the **Text Input** component, you can access and employ user-entered content.
 
@@ -194,7 +194,7 @@ Here's a glimpse of how the **Text Input** component will look and behave in act
 
 ## Triggers and Events
 
-### <u>Text Input Component</u>
+### Text Input Component
 
 The **Text Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -204,7 +204,7 @@ The **Text Input** component can respond to various events, enabling dynamic use
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
 
-### <u>Embedded Input</u>
+### Embedded Input
 
 The embedded **Input** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 
@@ -220,7 +220,7 @@ The embedded **Input** can also respond to various events, allowing for dynamic 
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Input.|
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Input.|
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 

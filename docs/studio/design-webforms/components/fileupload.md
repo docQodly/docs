@@ -29,7 +29,7 @@ The **File Upload** component finds valuable application in diverse scenarios, i
 
 ## Properties Customization
 
-### <u>File Upload Component</u>
+### File Upload Component
 
 Enhance the **File Upload** component to align with your application's requirements using the following customization options:
 
@@ -70,7 +70,7 @@ Enhance the **File Upload** component to align with your application's requireme
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Icon</u>
+### Embedded Icon
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
@@ -106,7 +106,7 @@ Here's a glimpse of how the **File Upload** component will look and behave in ac
 
 ## Triggers and Events
 
-### <u>File Upload Component</u>
+### File Upload Component
 
 The **File Upload** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -120,7 +120,7 @@ The **File Upload** component can respond to various events, enabling dynamic us
 |On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
 |On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
 
-### <u>Embedded Icon</u>
+### Embedded Icon
 
 The embedded **Icon** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 

@@ -50,7 +50,7 @@ Enhance the **Matrix** component to align with your application's requirements u
 The **Matrix** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
 
-### <u>Data Binding</u>
+### Data Binding
 
 To associate data with the **Matrix** component, follow these steps:
 
@@ -65,7 +65,7 @@ To associate data with the **Matrix** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Data Display</u>
+### Data Display
 
 To display data iterated over a datasource, you can follow these additional steps:
 
@@ -87,7 +87,7 @@ To display data iterated over a datasource, you can follow these additional step
     <img alt="explorer" src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
 
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 - **Direct Datasource Interaction**: When using a direct datasource like `Rooms`, you can bind functions to button clicks using `$This`. This functionality enables the execution of functions such as "selectRoom" upon button clicks.
 
@@ -118,7 +118,7 @@ To display data iterated over a datasource, you can follow these additional step
     </Column.List>
 
 
-### <u>Dynamic Attribute Display</u>
+### Dynamic Attribute Display
 
 
 <Column.List align="center" justifyContent="between">

@@ -31,7 +31,7 @@ The **Select Input** component serve various purposes in user interfaces, includ
 
 ## Properties Customization
 
-### <u>Select Input Component</u>
+### Select Input Component
 
 Enhance the **Select Input** component to align with your application's requirements using the following customization options:
 
@@ -44,7 +44,7 @@ Enhance the **Select Input** component to align with your application's requirem
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 Within the **Select Input** component, an embedded **Label** allows for further customization of the following properties:
 
@@ -57,7 +57,7 @@ Within the **Select Input** component, an embedded **Label** allows for further 
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Input</u>
+### Embedded Input
 
 Within the **Select Input** component, an embedded **Select** allows for further customization of the following properties:
 
@@ -84,7 +84,7 @@ Within the **Select Input** component, an embedded **Select** allows for further
 
 The **Select Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### <u>Data Binding</u>
+### Data Binding
 To associate data with the Select Input component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Select Input component.
@@ -98,7 +98,7 @@ To associate data with the Select Input component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Retrieving user choices is straightforward. By binding a datasource to the **Select Input** component, you can access and utilize the selected content.
 
@@ -130,7 +130,7 @@ Here's a glimpse of how the **Select Input** component will look and behave in a
 
 ## Triggers and Events
 
-### <u>Select Input Component</u>
+### Select Input Component
 
 The **Select Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -140,7 +140,7 @@ The **Select Input** component can respond to various events, enabling dynamic u
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
 
-### <u>Embedded Select</u>
+### Embedded Select
 
 The embedded **Select** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 
@@ -149,7 +149,7 @@ The embedded **Select** can also respond to various events, allowing for dynamic
 |On Change| Calls for an action when the value of the Input changes. This typically occurs when the user enters or modifies text in the Input field. |
 |On Click| Calls for an action when the user clicks on the Input. |
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 
