@@ -30,11 +30,6 @@ const sidebars = {
    */
    
   GetStarted:[
-    {
-      type: 'doc',
-      id: 'concepts/platform',
-      label: "Qodly Platform Overview"
-    },
 	 {
       type: 'doc',
       id: 'concepts/quickstart',
@@ -168,26 +163,8 @@ const sidebars = {
     }, 
   ],
   
-    Console:[
-    {
-		type: 'doc',
-		id: 'cloud/getStarted',
-		label: "Basics"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/monitor',
-		label: "Monitoring"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/account',
-		label: "Account Management"
-	},
-
-	],
   
-  Studio:[
+  Develop:[
 	{
 			type: 'doc',
 			id: 'studio/overview',
@@ -276,10 +253,8 @@ const sidebars = {
             },
 			'studio/roles/includingPrivileges'
         ],
-    }
-],
-Programming:[
-	{
+    },
+    {
 			type: 'category',
 			label: 'Programming Guide',
 			items: ['orda/data-model','orda/data','orda/queries',
@@ -382,11 +357,37 @@ Programming:[
 			'language/ZipFolderClass',
 			],
 		},
+],
+
+    Run:[
+    {
+		type: 'doc',
+		id: 'cloud/getStarted',
+		label: "Basics"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/monitor',
+		label: "Monitoring"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/account',
+		label: "Account Management"
+	},
+
 	],
-		
 
 
 
+
+   Architecture:[
+    {
+		type: 'doc',
+		id: 'concepts/platform',
+		label: "Qodly Platform Overview"
+	},
+	],
 
   API:[
 	{
