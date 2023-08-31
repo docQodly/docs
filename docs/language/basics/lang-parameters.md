@@ -496,7 +496,7 @@ function doSomething(param : string , extraParam : variant)
 
 #### Example 2
 
-Since the command returns a collection, it can be used with [`.join()`](CollectionClass.md#join) to build for example a html list:
+Since the command returns a collection, it can be used with [`.join()`](../CollectionClass.md#join) to build for example a html list:
 
 ```qs
 

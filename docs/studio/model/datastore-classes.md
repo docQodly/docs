@@ -8,24 +8,24 @@ The datastore class is a type of structure that can contain attributes and relat
 
 Once you create a datastore class, you can add [attributes](attributes.md) and functions to it.
 
-All datastores classes are automatically listed in the [Outline](model-editor-overview.md#outline) area.
+All datastores classes are automatically listed in the [Outline](model-editor-interface.md#outline) area.
 
 
 ## Handling datastore classes
 
 ### Create a datastore class
 
-To add a new datastore class, click on the **+** button of the [Outline area](model-editor-overview.md#outline):
+To add a new datastore class, click on the **+** button of the [Outline area](model-editor-interface.md#outline):
 
 ![alt-text](img/dataclass2.png)
 
 Enter the name of the new dataclass, with respect to the general [naming rules](../../language/basics/lang-identifiers.md#classes). 
 
-The datastore class is created and displayed in the model area with its ID attribute. You can start adding [attributes](#attributes.md).
+The datastore class is created and displayed in the model area with its ID attribute. You can start adding [attributes](attributes.md).
 
 ### Delete a datastore class
 
-To delete a datastore class and all its attributes, click on the ![alt-text](img/deletedatastoreclass-icon.png) in the title bar of the dataclass or in the [Outline area](model-editor-overview.md#outline).
+To delete a datastore class and all its attributes, click on the ![alt-text](img/deletedatastoreclass-icon.png) in the title bar of the dataclass or in the [Outline area](model-editor-interface.md#outline).
 
 :::info
 

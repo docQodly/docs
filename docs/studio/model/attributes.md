@@ -28,7 +28,7 @@ You can view and modify a few of the attribute’s properties when you select or
 - **Type Icon**: Displays the datastore entity type as an icon.
 - **Type**: Attribute type that you can change by double-clicking on it to render the area enterable. An attribute type can be [scalar](../../concepts/platform.md#data-types) or based upon a [relation](#create-a-relation-attribute), in which case it can be of the *classNameEntity* or *classNameSelection* type). 
 
-All attributes of a datastore class are also listed in the [Outline area](model-editor-overview.md#outlene) of the model editor.
+All attributes of a datastore class are also listed in the [Outline area](model-editor-interface.md#outlene) of the model editor.
 
 ### Attribute categories
 

@@ -87,36 +87,36 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'concepts/platform',
+            docId: 'concepts/quickstart',
             position: 'left',
             label: 'Getting Started',
           },
-  		  {
+  		  /*{
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
             label: 'Dashboard',
-          },
-
-		  /*{
-            type: 'doc',
-            docId: '/category/concepts',
-            position: 'left',
-            label: 'Platform',
           },*/
+
 		  {
             type: 'doc',
             docId: 'studio/overview',
             position: 'left',
-            label: 'Studio',
+            label: 'Develop',
           },
 		   {
             type: 'doc',
-            docId: 'orda/data-model',
+            docId: 'cloud/getStarted',
             position: 'left',
-            label: 'Programming',
+            label: 'Run & Manage',
           },
-		
+		  {
+            type: 'doc',
+            docId: 'concepts/platform',
+            position: 'left',
+            label: 'Architecture',
+          },
+		  
 		 /*{
             type: 'doc',
             docId: '/category/API',

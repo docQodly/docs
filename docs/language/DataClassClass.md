@@ -82,7 +82,7 @@ Returned attribute objects contain the following properties:
 |autoFilled|boolean|True if the attribute value is automatically filled by Qodly. Corresponds to the **autosequence** model attribute property. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
 |exposed|boolean|True if the attribute is exposed in REST|
 |fieldNumber|integer|Internal Qodly database field number of the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
-|fieldType|integer|Qodly database field type of the attribute. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": corresponding Qodly database field type, see [`valueType`](language.md#valuetype)</li><li>if `.kind`="relatedEntity": 38 (`is object`)</li><li>if `.kind`="relatedEntities": 42 (`is collection`)</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
+|fieldType|integer|Qodly database field type of the attribute. Depends on the attribute `kind`. Possible values: <li>if `.kind`="storage": corresponding Qodly database field type, see [`valueType`](basics/lang-data-types.md#valuetype)</li><li>if `.kind`="relatedEntity": 38 (`is object`)</li><li>if `.kind`="relatedEntities": 42 (`is collection`)</li><li>if `.kind`="calculated": same as above, depending on the result</li>|
 |indexed|boolean|True if there is a B-tree or a Cluster B-tree index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |
 |inverseName|string|Name of the attribute which is at the other side of the relation. Returned only when `.kind`="relatedEntity" or "relatedEntities".|
 |keywordIndexed|boolean|True if there is a keyword index on the attribute. Not returned if `.kind` = "relatedEntity" or "relatedEntities". |

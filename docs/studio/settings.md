@@ -25,7 +25,7 @@ Displays or not a pop over when the renderer and the Studio use [different URL s
 
 #### Tooltip Behavior
 
-Defines how to display the [component tooltip](design-webforms/components.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
+Defines how to display the [component tooltip](design-webforms/components/componentsBasics.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
 
 - **Show after timeout**: The tooltip is displayed after a the defined timeout (and kept onscreen until the user moves the mouse). 
 - **Hide after timeout**: The tooltip is immediately displayed and hidden after a the defined timeout.

@@ -101,7 +101,7 @@ transporter=4D.IMAPTransporter.new(server)
 
 status=transporter.checkConnection()
 if(not(status.success))
-   info="An error occurred: "+status.statusstring
+   info="An error occurred: "+status.statusText
 end
 ```
 
@@ -161,7 +161,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -237,7 +237,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -322,7 +322,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -413,7 +413,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -441,7 +441,7 @@ status=transporter.createBox("Invoices")
 if(status.success)
 	info="Mailbox creation successful!"
 else
-	info="Error: "+status.statusstring
+	info="Error: "+status.statusText
 end
 ```
 
@@ -478,7 +478,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -567,7 +567,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -599,7 +599,7 @@ status=transporter.deleteBox(name)
 if(status.success)
 	info="Mailbox deletion successful!"
 else
-	info="Error: "+status.statusstring
+	info="Error: "+status.statusText
 end
 ```
 
@@ -627,7 +627,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1065,7 +1065,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|4D error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1228,7 +1228,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1289,7 +1289,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1318,7 +1318,7 @@ status=transporter.renameBox("Invoices", "Bills")
 if(status.success)
    info="Mailbox renaming successful!"
 else
-   info="Error: "+status.statusstring
+   info="Error: "+status.statusText
 end
 ```
 
@@ -1556,7 +1556,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1585,7 +1585,7 @@ status=transporter.subscribe(name)
 if(status.success)
    info="Mailbox subscription successful!"
 else
-   info="Error: "+status.statusstring
+   info="Error: "+status.statusText
 end
 ```
 
@@ -1617,7 +1617,7 @@ The function returns an object describing the IMAP status:
 |Property|| Type| Description|
 |---|---|---|---|
 |success||boolean|true if the operation is successful, False otherwise
-|statusstring || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
+|statusText || string|Status message returned by the IMAP server, or last error returned in the Qodly error stack  |
 |errors ||collection|Qodly error stack (not returned if a IMAP server response is received)|
 | |\[].errcode|Number| Qodly error code|
 | |\[].message|string|Description of the Qodly error |
@@ -1647,7 +1647,7 @@ status=transporter.unsubscribe(name)
 if(status.success)
    info="Mailbox unsubscription successful!"
 else
-   info="Error: "+status.statusstring
+   info="Error: "+status.statusText
 end
 ```
 

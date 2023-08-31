@@ -59,4 +59,4 @@ To edit an existing function, click on the pen icon at the left side of the func
 
 This area allows you to define the permissions for the selected function.
 
-Function permissions are described in [this section](../roles/functionPermissions.md). 
+Function permissions are described in [this section](../roles/permissionsFunctionLevel.md). 

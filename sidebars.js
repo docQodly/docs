@@ -30,11 +30,6 @@ const sidebars = {
    */
    
   GetStarted:[
-    {
-      type: 'doc',
-      id: 'concepts/platform',
-      label: "Qodly Platform Overview"
-    },
 	 {
       type: 'doc',
       id: 'concepts/quickstart',
@@ -168,26 +163,8 @@ const sidebars = {
     }, 
   ],
   
-    Console:[
-    {
-		type: 'doc',
-		id: 'cloud/getStarted',
-		label: "Basics"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/monitor',
-		label: "Monitoring"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/account',
-		label: "Account Management"
-	},
-
-	],
   
-  Studio:[
+  Develop:[
 	{
 			type: 'doc',
 			id: 'studio/overview',
@@ -198,8 +175,8 @@ const sidebars = {
 			label: 'Model',
 			items: ['studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
-				'studio/model/functions',
 				'studio/model/attributes',
+				'studio/model/functions',
 				'studio/model/import',
 
 			],
@@ -276,10 +253,8 @@ const sidebars = {
             },
 			'studio/roles/includingPrivileges'
         ],
-    }
-],
-Programming:[
-	{
+    },
+    {
 			type: 'category',
 			label: 'Programming Guide',
 			items: ['orda/data-model','orda/data','orda/queries',
@@ -382,11 +357,42 @@ Programming:[
 			'language/ZipFolderClass',
 			],
 		},
+],
+
+    Run:[
+    {
+		type: 'doc',
+		id: 'cloud/getStarted',
+		label: "Console Basics"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/application-management',
+		label: "Application Management"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/deployment',
+		label: "Release Management and Deployment"
+	},
+
 	],
-		
 
 
 
+
+   Architecture:[
+    {
+		type: 'doc',
+		id: 'concepts/platform',
+		label: "Platform Overview"
+	},
+    {
+		type: 'doc',
+		id: 'concepts/cloud',
+		label: "Cloud Architecture"
+	},
+	],
 
   API:[
 	{

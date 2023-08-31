@@ -88,9 +88,8 @@ You want to know if the Web server is started:
 <!-- REF #WebServerClass.certificateFolder.Syntax -->**.certificateFolder** : string<!-- END REF -->
 
 
-Path of the <!-- REF #WebServerClass.certificateFolder.Summary -->folder where the certificate files are locatedt<!-- END REF --> The path is formatted in POSIX full path using filesystems. When using this property in the `settings` parameter of the [`.start()`](#start) function, it can be a [`Folder` object](FolderClass.md).
+Path of the <!-- REF #WebServerClass.certificateFolder.Summary -->folder where the certificate files are located<!-- END REF -->. The path is formatted in POSIX full path using filesystems. When using this property in the `settings` parameter of the [`.start()`](#start) function, it can be a [`Folder` object](FolderClass.md).
 
-<!-- END REF -->
 
 <!-- REF WebServerClass.characterSet.Desc -->
 
@@ -264,6 +263,7 @@ Default compression threshold = 1024 bytes
 The <!-- REF #WebServerClass.HTTPEnabled.Summary -->HTTP protocol statet<!-- END REF -->
 
 <!-- END REF -->
+
 
 <!-- REF WebServerClass.HTTPPort.Desc -->
 
