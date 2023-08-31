@@ -54,12 +54,15 @@ Enhance the **File Upload** component to align with your application's requireme
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Size Limit</span>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.
+        <span style={{fontWeight: 'bold'}}>Size Limit</span>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. <br/>
+		If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.        
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
+		<img alt="explorer" src={require('./img/fileUpload_SizLimitError.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
