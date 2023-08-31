@@ -175,8 +175,8 @@ const sidebars = {
 			label: 'Model',
 			items: ['studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
-				'studio/model/functions',
 				'studio/model/attributes',
+				'studio/model/functions',
 				'studio/model/import',
 
 			],
@@ -363,17 +363,17 @@ const sidebars = {
     {
 		type: 'doc',
 		id: 'cloud/getStarted',
-		label: "Basics"
+		label: "Console Basics"
 	},
 	{
 		type: 'doc',
-		id: 'cloud/monitor',
-		label: "Monitoring"
+		id: 'cloud/application-management',
+		label: "Application Management"
 	},
 	{
 		type: 'doc',
-		id: 'cloud/account',
-		label: "Account Management"
+		id: 'cloud/deployment',
+		label: "Release Management and Deployment"
 	},
 
 	],
@@ -385,7 +385,12 @@ const sidebars = {
     {
 		type: 'doc',
 		id: 'concepts/platform',
-		label: "Qodly Platform Overview"
+		label: "Platform Overview"
+	},
+    {
+		type: 'doc',
+		id: 'concepts/cloud',
+		label: "Cloud Architecture"
 	},
 	],
 

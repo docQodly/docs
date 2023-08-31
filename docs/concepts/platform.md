@@ -7,54 +7,14 @@ The Qodly platform is a fully integrated environment where you can develop, test
 
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
 
-Qodly is a hybrid **low-code** application development platform. It means that, to develop an application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you.
 
-In the **development** environment, Qodly Studio connects to Qodly Server and interacts with all the server layers to develop and build the application through dedicated editors (model, web forms, etc.). In the **staging** and **production** environments, Qodly Server is also used to handle and process requests from the browsers. 
-
-
-## Qodly Cloud
+## Qodly Platform
 
 
 ![schema-cloud](img/cloud.png)
 
-### Cloud technologies
 
-Qodly Cloud is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).  
-
-Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
-
-### Environments and services
-
-For every application, [Qodly Server](../concepts/platform.md#qodly-server) is deployed on three different instances called **environments**: 
-
-- **development**: in this environment, developers can create, design, improve their Qodly application
-- **staging**: in this environment, developers, product managers, or quality team can test the application and its features in a configuration similar to the production environment
-- **production**: in this environment, users can connect and use your final application. 
-
-Each environment proposes different services:
-
-||Development|Staging|Production|
-|---|---|---|---|
-|Access to Qodly Studio|X|||
-|Invite developers|X|||
-|Invite users||X|X|
-|Data Backup and Restore|||X|
-|Updates|X|X|X|
-
-User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. 
-
-Every developer or application user needs to be [declared in QIS](xxx) with an appropriate [role](../studio/roles/dataAccessRestrictions.md). Roles allow you to assign assign different permissions at database level for user sessions.
-
-Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
-
-
-[Click here for more information about the Qodly Cloud architecture](../cloud/getStarted.md)
-
-### Qodly Cloud Management Console 
-
-The Qodly Cloud Management Console (QCMC) allows you to create, configure, and monitor all your Qodly applications:
-
-![console](img/console.png)
+[Click here for more information about the Qodly Cloud architecture](cloud.md)
 
 
 ## Qodly Studio

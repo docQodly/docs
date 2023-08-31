@@ -3,11 +3,11 @@ id: import
 title: Import data
 ---
 
-The Model editor proposes an advanced wizard to help you import data from a local CSV of text file in any datastore class. This feature allows you to simply and quickly migrate data. 
+The Model editor proposes an advanced wizard to help you import data from a local CSV or text file in any datastore class. This feature allows you to simply and quickly migrate data. 
 
 To import data from a CSV or text file:
 
-1. In the outline area, click on the **Import from CSV** button at the right side of the dataclass in which you want to import data:
+1. In the outline area, select the dataclass in which you want to import data and click on its **Import from CSV** button:
 
 ![csv](img/import1.png)
 
@@ -19,7 +19,7 @@ You should pay attention to the following recommendations:
 
 - The file format must be text (.csv or .txt). However, you will be able to define the column separator.
 - A blank ID field will be automatically filled 
-- The file size is limited to 100 MB
+- The file size is limited to 100 MB.
 
 Once the file is selected, the lower part of the panel displays the import options:
 

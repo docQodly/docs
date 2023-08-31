@@ -3,7 +3,9 @@ id: coding
 title: Coding
 ---
 
-In Qodly Studio, you use [events](design-webforms/events.md) in conjunction with class functions and methods to manage the information inside your web application.
+Qodly is a hybrid **low-code** application development platform. It means that, to develop an application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you. 
+
+However, you will often have to write some code. In Qodly Studio, you use [events](design-webforms/events.md) in conjunction with class functions and methods to manage the information inside your web application.
 
 
 ## Methods and Classes

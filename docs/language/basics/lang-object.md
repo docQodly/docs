@@ -196,13 +196,13 @@ When using the object notation, the **null** value is supported though the `null
  if(myColl[2]==null)
 ```
 
-For more information, please refer to the [`null`](../language.md#null) description.
+For more information, please refer to the [`null`](lang-null-undefined.md#null) description.
 
 ### Undefined value
 
 Evaluating an object property can sometimes produce an **undefined** value. Typically when trying to read or assign undefined expressions, the QodlyScript will generate errors. This does not happen in the following cases:
 
-- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](../language.md#clearvariable) with them:
+- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](lang-variables.md#clearvariable) with them:
 
 ```qs
      var o : object
