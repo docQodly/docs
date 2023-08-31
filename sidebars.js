@@ -363,7 +363,7 @@ const sidebars = {
     {
 		type: 'doc',
 		id: 'cloud/getStarted',
-		label: "Console Basics"
+		label: "Qodly Applications"
 	},
 	{
 		type: 'doc',
