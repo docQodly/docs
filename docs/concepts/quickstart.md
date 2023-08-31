@@ -3,72 +3,70 @@ id: quickstart
 title: Quickstart
 ---
 
-The first step in getting started with the Qodly experience is to create an account on the Qodly cloud platform, then head to the Sandbox environment where anything goes!
+To begin your Qodly experience, follow these steps to create an account on the Qodly Central Management Console (QCMC) and explore the Sandbox environment.
 
 
 ## Step 1: Create your account
 
-1. Connect to [**cloud.qodly.com/signup**](https://cloud.qodly.com/signup) and create your account in a few clicks. 
+1. Go to [**cloud.qodly.com/signup**](https://cloud.qodly.com/signup) and create your account in a few clicks. 
 
-![installation](img/qs1.png)
+    <img alt="explorer" src={require('./img/qs1.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-2. Copy the verification code you received by email and click **Confirm account**.
+2. Copy the verification code from your email and click **Confirm account**.
 
-![installation](img/qs2.png)
+    <img alt="explorer" src={require('./img/qs2.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-3. Provide some additional information to complete your profile:
+3. Provide additional information to complete your profile:
 
-![installation](img/qs3.png)
+    <img alt="explorer" src={require('./img/qs3.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-4. Click **Submit**: you enter immediately the Qodly Cloud Management Console. 
-
-
-## Step 2: Create your sandbox and let Qodly prepare your environment
+4. Click **Submit** to access the Qodly Cloud Management Console.
 
 
-1. Select a Template to create your sandbox application.
+## Step 2: Set Up Your Sandbox and Environment
 
-You have two options:
+1. Choose a Template to create your sandbox application. Two options are available:
 
-
-- **create a sandbox from scratch**: your sandbox will be created empty, without any code or data. But no worries, the **Welcome tour** will guide you step by step through Qodly Studio. Select the **Blank app** template,
-- **create a sandbox from a sample**: your sandbox will contain the code and data of the sample application. It is very helpful to get started with examples of screens, code and data modeling.
-
-
-![installation](img/qs4.png)
+    - **Create a sandbox from scratch**: Begin with an empty sandbox and follow the **Welcome Tour** within Qodly Studio. Select the Blank app template.
+    - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.
+    <br/><br/>
+    <img alt="explorer" src={require('./img/qs4.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
+2. The sandbox environment will be prepared automatically. This process takes just a few seconds.
 
-2. The sandbox environment is automatically prepared... You just have to wait a few seconds.
-
-![installation](img/qs5.png)
+    <img alt="explorer" src={require('./img/qs5.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
-## Step 3: Go to Qodly Studio and follow the Welcome Tour
+## Step 3: Navigate Qodly Studio and Begin the Welcome Tour
 
-The environment is now ready, it's time to open the Qodly Studio and start creating your new web site.
+With the environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
 
-1. Click on the **Studio** button on the right side of your application line:
 
-![installation](img/qs6.png)
+1. Click the **Studio** button located on the right side of your application line:
 
-2. Click **Next** to start the Welcome Tour and enjoy your journey in Qodly Studio!
+    <img alt="explorer" src={require('./img/qs6.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-![installation](img/qs7.png)
+2. Click **Next** to start the Welcome Tour within Qodly Studio!
 
-:::note
+    <img alt="explorer" src={require('./img/qs7.png').default} style={{borderRadius: '6px', height: '50%', width: '50%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-You can skip and reactivate the Welcome Tour at any time in the [Qodly Studio Settings](../studio/settings.md#activate-welcome-tour). 
+    <br/><br/>
 
-![installation](img/qs8.png)
+    :::note
 
-:::
+    You can skip or reactivate the Welcome Tour anytime through [Qodly Studio Settings](../studio/settings.md#activate-welcome-tour). 
 
+    <img alt="explorer" src={require('./img/qs8.png').default} style={{borderRadius: '6px', height: '50%', width: '50%'}} />
+
+    :::
+
+<br/><br/>
 
 :::tip
 
-To find out more, follow the [**Create your first app**](xxxx) video tutorial, which guide you step by step in the creation of your first application with Qodly Studio.
+To learn more, check out the step-by-step video tutorial on [**Create your first app**](xxxx) with Qodly Studio.
 
-You can also browse our [**Youtube Channel**](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg). 
+Additionally, feel free to explore our [**Youtube Channel**](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg). 
 
 :::
