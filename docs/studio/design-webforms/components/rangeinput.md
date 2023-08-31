@@ -28,7 +28,7 @@ The **Range Input** component contains an embedded **Slider Container** and a **
 
 ## Properties Customization
 
-### <u>Range Input Component</u>
+### Range Input Component
 
 Enhance the **Range Input** component to align with your application's requirements using the following customization options:
 
@@ -54,7 +54,7 @@ Enhance the **Range Input** component to align with your application's requireme
     </Column.List>
 
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 Within the **Range Input** component, an embedded **Label** allows for further customization of the following properties:
 
@@ -68,7 +68,7 @@ Within the **Range Input** component, an embedded **Label** allows for further c
 </Column.List>
 
 
-### <u>Embedded Slider Container</u>
+### Embedded Slider Container
 
 Within the **Range Input** component, an embedded **Slider Container** allows for further customization of the following properties:
 
@@ -89,7 +89,7 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
 
 The **Range Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### <u>Data Binding</u>
+### Data Binding
 To associate data with the Range Input component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Range Input component.
@@ -106,7 +106,7 @@ To associate data with the Range Input component, follow these steps:
 - **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
 
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Interacting with user input data is straightforward. When you bind a datasource to the **Range Input** component, you can access and make use of the input content.
 
@@ -121,7 +121,7 @@ Here's a glimpse of how the **Range Input** component will look and behave in ac
 
 ## Triggers and Events
 
-### <u>Range Input Component</u>
+### Range Input Component
 
 The **Range Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -135,7 +135,7 @@ The **Range Input** component can respond to various events, enabling dynamic us
 |On Change| Calls for an action when the value of the Input changes. This typically occurs when the user enters or modifies text in the Input field. |
 
 
-### <u>Embedded Slider Container</u>
+### Embedded Slider Container
 
 The embedded **Slider Container** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 
@@ -150,7 +150,7 @@ The embedded **Slider Container** can also respond to various events, allowing f
 |On Keyup| Calls for an action when a keyboard key is released while the Slider Container is in focus|
 
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 

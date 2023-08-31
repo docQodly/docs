@@ -72,7 +72,7 @@ Enhance the **DataTable** component to align with your application's requirement
 
 The **DataTable** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
-### <u>Data Binding</u>
+### Data Binding
 
 To associate data with the **DataTable** component, follow these steps:
 
@@ -87,7 +87,7 @@ To associate data with the **DataTable** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Enhance DataTable interactivity by binding functions to events like `onheaderclick` and `oncellclick`. These events respond to user actions and retrieve event-specific details using the [webEvent](../../../language/WebForm.md#webevent) command.
 
@@ -115,7 +115,7 @@ Common attributes for `onheaderclick` and `oncellclick`:
 |name| Text | The datasource of the column.|
 |row| Number | The number of the clicked row.|
 
-### <u>Dynamic Attribute Display</u>
+### Dynamic Attribute Display
 
 
 <Column.List align="center" justifyContent="between">

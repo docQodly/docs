@@ -28,7 +28,7 @@ Buttons are indispensable in a wide range of scenarios where user engagement and
 
 ## Properties Customization
 
-### <u>Button Component</u>
+### Button Component
 
 Enhance the **Button** component to align with your application's requirements using the following customization options:
 
@@ -43,7 +43,7 @@ Enhance the **Button** component to align with your application's requirements u
 	</Column.Item>
 </Column.List>
 
-### <u>Embedded Icon</u>
+### Embedded Icon
 
 
 <Column.List align="center" justifyContent="between">
@@ -64,7 +64,7 @@ When it comes to data-binding, it's important to note that the **Button** compon
 
 ## Triggers and Events
 
-### <u>Button Component</u>
+### Button Component
 
 The **Button** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -78,7 +78,7 @@ The **Button** component can respond to various events, enabling dynamic user ex
 |On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
 |On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
 
-### <u>Embedded Icon</u>
+### Embedded Icon
 
 The embedded **Icon** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 

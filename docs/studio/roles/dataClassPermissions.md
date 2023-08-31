@@ -9,24 +9,24 @@ With the presence of the `Guest` privilege, users with no role affected access n
 
 However, refining this privilege's scope involves Dataclasses permissions. Agents whose sessions haven't been verified should encounter an error, prompting them to contact their admin to finalize the setup of their account before proceeding with client bookings.
 
---- 
+ 
 ## Understanding DataClass Permissions 
 
 DataClass Permissions empower you with the ability to finely shape and control access to specific DataClasses within your application's Datastore. These permissions dictate what actions and interactions users are allowed to perform on individual DataClasses.
 
----
+
 
 ##  Implementing DataClass Permissions 
 
 Building upon the previous transition from the `Restricted` to `Guest` privilege with read access extension, careful data exposure management is imperative. Achieved through precise DataClass permissions, this involves excluding the `Guest` privilege from specific Dataclasses, effectively blocking access to designated resources.
 
-### <u> Inherited Permissions </u>
+### Inherited Permissions 
 
 Permissions of the `Guest` privilege are automatically inherited across various privileges. This parallels the behavior observed in the `Restricted` privilege, where the capability of reading from the Datastore is evident.
 
 <img alt="explorer" src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
 
-### <u> Setting DataClass Permissions </u>
+### Setting DataClass Permissions 
 
 DataClass-level permissions possess the power to supersede those set at the DataStore level. Consider the example of sensitive Dataclasses such as Employee, efficiently controlled through the `Restricted` privilege. 
 
@@ -43,11 +43,11 @@ Strategically setting DataClass permissions in the `Restricted` privilege grants
 A similar approach applies to confidential Reporting documents and Bookings. The `ManageReports` privilege is granted total permissions for the Reporting resource, and `ManageBookings` similarly gains full control over the Booking resource. 
 
 
-### <u> Hierarchy and Overrides </u>
+### Hierarchy and Overrides 
 
 While higher-level permissions cascade down to more specific levels, they remain adaptable. These permissions can be overridden or supplemented as required, affording a dynamic approach to access control.
 
----
+
 
 ## Model Editor Approach
 

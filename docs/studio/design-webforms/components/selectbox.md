@@ -73,7 +73,7 @@ Enhance the Select Box component to align with your application's requirements u
 
 The **Select Box** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
-### <u>Data Binding</u>
+### Data Binding
 
 To associate data with the **Select Box** component, follow these steps:
 
@@ -88,7 +88,7 @@ To associate data with the **Select Box** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Data Display</u>
+### Data Display
 
 To associate data iterated over a datasource, you can follow these additional steps:
 
@@ -111,7 +111,7 @@ To associate data iterated over a datasource, you can follow these additional st
 </Column.List>
 
 
-### <u>Dynamic Attribute Display</u>
+### Dynamic Attribute Display
 
 
 <Column.List align="center" justifyContent="between">

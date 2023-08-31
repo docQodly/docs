@@ -35,6 +35,17 @@
 }
 
 
+/* remove underlined text  from table of contents */
+.table-of-contents u {
+  text-decoration: none !important; 
+}
+/* h2 titles */
+h2 {
+  border-bottom: thin solid #666666 !important;
+  padding-bottom: 0.25em !important;
+}
+
+
 /* *************************** */
 /* ************* components SVGs ************* */
 .selectBoxComponentSVG{

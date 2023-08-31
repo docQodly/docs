@@ -29,7 +29,7 @@ The **Checkbox** component serve various purposes in user interfaces, including:
 
 ## Properties Customization
 
-### <u>Checkbox Component</u>
+### Checkbox Component
 
 Enhance the **Checkbox** component to align with your application's requirements using the following customization options:
 
@@ -66,7 +66,7 @@ Enhance the **Checkbox** component to align with your application's requirements
 </Column.List>
 
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 Within the **Checkbox** component, an embedded **Label** allows for further customization of the following properties:
 
@@ -85,7 +85,7 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
 
 The **Checkbox** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
-### <u>Data Binding</u>
+### Data Binding
 To associate data with the Checkbox component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Checkbox component.
@@ -98,7 +98,7 @@ To associate data with the Checkbox component, follow these steps:
 	</Column.Item>
 </Column.List>
 
-### <u>Server-Side Interaction</u>
+### Server-Side Interaction
 
 Interacting with user input data is straightforward. When you bind a datasource to the **Checkbox** component, you can access and make use of the input content.
 
@@ -107,7 +107,7 @@ Subsequently, you can utilize this input value in various ways, such as within a
 
 ## Triggers and Events
 
-### <u>Checkbox Component</u>
+### Checkbox Component
 
 The **Checkbox** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
@@ -119,7 +119,7 @@ The **Checkbox** component can respond to various events, enabling dynamic user 
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
 
-### <u>Embedded Label</u>
+### Embedded Label
 
 The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
 
