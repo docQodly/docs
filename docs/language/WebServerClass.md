@@ -93,8 +93,6 @@ You want to know if the Web server is started:
 |---------|--- |:---:|------|
 |Result|collection|->|Collection of the available Web Server objects||<!-- END REF -->
 
-#### Description
-
 The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application. <!-- END REF -->. 
 
 A Qodly application can contain anywhere from one to several Web servers: 
@@ -126,10 +124,6 @@ We want to know how many running web servers are available:
  result=string(vRun)+" web server(s) running on "+string(wSList.length)+" available."
  
 ```
-
-#### See also
-
-[`webServer`](#webserver)
 
 ## .certificateFolder
 
