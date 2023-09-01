@@ -90,6 +90,16 @@ If *toDecode* contains an invalid base64 contents, an empty string or blob value
 This example lets you transfer a picture via a blob:
 
 ```qs
+ var sourceBlob, targetBlob : blob
+ var mypicture : picture
+ var base64Text : string
+ mypicture=ds.People.get(1).photo
+ pictureToBlob(mypicture,sourceBlob,".JPG")
+ base64Decode(sourceBlob,base64Text) //Encoding of string
+ // the binary is now available as character strings in base64Text
+ 
+ base64Decode(base64Text,targetBlob) //Decoding of text
+  // the binary encoded in base 64 is now available as a BLOB in blobTarget
 
 ```
 
@@ -119,7 +129,8 @@ An UUID is a 16-byte number (128 bits). It contains 32 hexadecimal characters. I
 Generation of a UUID in a variable: 
 
 ```qs
-
+ var MyUUID : string
+ MyUUID=generateUUID
 ```
 
 ## generateDigest
@@ -174,6 +185,27 @@ If you use the command with an empty string/blob, it does not return void but a 
 This example compares two images using the MD5 algorithm:
 
 ```qs
+ var vPict1,vPict2 : picture
+ var FirstBlob,SecondBlob : blob
+ var result : string
+ 
+ READ PICTURE FILE("c:\\myPhotos\\photo1.png")
+ if(OK==1)
+    READ PICTURE FILE("c:\\myPhotos\\photo2.png")
+    if(OK==1)
+       pictureToBlob(vPict1,FirstBlob,".png")
+       pictureToBlob(vPict2,SecondBlob,".png")
+ 
+       MD5_1=generatedigest(FirstBlob,kMD5Digest)
+       MD5_2=generatedigest(SecondBlob,kMD5Digest)
+ 
+       if(MD5_1!=MD5_2)
+          result="These two images are different."
+       else
+          result="These two images are identical."
+       end
+    end
+ end
 
 ```
 
@@ -182,6 +214,11 @@ This example compares two images using the MD5 algorithm:
 These examples illustrate how to retrieve the digest key of a string:
 
 ```qs
+ var key1, key2 : string
+ key1=generateDigest("The quick brown fox jumps over the lazy dog.",kMD5Digest)
+  // key1 is "e4d909c290d0fb1ca068ffaddf22cbd0"
+ key2=generateDigest("The quick brown fox jumps over the lazy dog.",kSHA1Digest)
+  // key2 is "408d94384216f890ff7a0c3528e8bed1e0b01621"
 
 ```
 
@@ -190,6 +227,19 @@ These examples illustrate how to retrieve the digest key of a string:
 This example only accepts the "admin" user with the password "123" that does not match a qodly user:
 
 ```qs
+  //On REST Authentication database method
+  
+ #declare( user: string, password: string, digestMode: boolean)-> boolean1:boolean
+ 
+ if(user=="admin")
+    if(digestMode)
+       boolean1=(password==generateDigest("123",4D digest))
+    else
+       boolean1=(password=="123")
+    end
+ else
+    boolean1=false
+ end
 
 ```
 
@@ -242,7 +292,17 @@ bcrypt is a password hashing function based on the Blowfish cipher. In addition 
 This example generates a password hash using bcrypt with a cost factor 4. 
 
 ```qs
-
+ declare(password : string , userId : integer)
+ var hash : string
+ var options : object
+ var user : cs.UserEntity
+ 
+ options=newObject("algorithm","bcrypt","cost",4)
+ 
+ hash=generatePasswordHash(password,options)
+ user=ds.User.get(userId)
+ user.hash=hash
+ user.save()
  
 ```
 
@@ -293,6 +353,14 @@ Only bcrypt algorithm is supported. If your hash was not generated using bcrypt,
 This example verifies a password hash previously created by [`generatePasswordHash`](#generatepasswordhash) and stored in a [Users] table with a newly entered password:
 
 ```qs
+ declare(password : string , userId : integer)
+ var result : string
+ 
+ if(verifyPasswordHash(password,ds.Users.get(userId).hash))
+    result="Good password"
+ else
+    result="Password error"
+ end
 
 ```
 
