@@ -35,15 +35,15 @@ The `base64Encode` command <!-- REF #_command_.base64Encode.Summary --> encodes 
 
 Base64 encoding modifies 8-bit coded data so that they do not keep more than 7 useful bits. This encoding is required, for example, for handling blobs using xml. Base64URL is an alernative encoding with a specific processing for URLs and filenames (see [rfc4648](#https://tools.ietf.org/html/rfc4648#section-5)). 
 
-Pass in *toEncode* a text or blob value to encode.
+Pass in *toEncode* a string or blob value to encode.
 
 :::note 
 
-When you pass a text value, the command encodes the utf-8 representation of the text.
+When you pass a string value, the command encodes the utf-8 representation of the string.
 
 :::
 
-If you pass the *encoded* parameter, it receives the encoded contents of *toEncode* as text or blob at the end of command execution. In this case, the *toEncode* parameter itself is not modified by the command. 
+If you pass the *encoded* parameter, it receives the encoded contents of *toEncode* as string or blob at the end of command execution. In this case, the *toEncode* parameter itself is not modified by the command. 
 
 If you omit the *encoded* parameter, the command directly modifies the *toEncode* parameter.
 
@@ -69,9 +69,9 @@ By default if the * parameter is omitted, the command uses a Base64 encoding. If
 
 #### Description
 
-The `base64Decode` command <!-- REF #_command_.base64Decode.Summary -->  decodes the text or blob value coded in Base64 or Base64URL format passed in the toDecode parameter<!-- END REF -->. For more information on Base64 and Base64URL formats, please refer to the [`base64Encode`](#base64encode) command description. 
+The `base64Decode` command <!-- REF #_command_.base64Decode.Summary -->  decodes the string or blob value coded in Base64 or Base64URL format passed in the toDecode parameter<!-- END REF -->. For more information on Base64 and Base64URL formats, please refer to the [`base64Encode`](#base64encode) command description. 
 
-Pass in *toDecode* the Base64 or Base64URL encoded text or blob value to decode. 
+Pass in *toDecode* the Base64 or Base64URL encoded string or blob value to decode. 
 
 If you pass the *decoded* parameter, the command decodes the contents of *toDecode* in the *decoded* parameter -- the *toDecode* parameter is left untouched. If you omit the *decoded* parameter, the command directly modifies the contents of the *toDecode* parameter.
 
@@ -98,8 +98,8 @@ This example lets you transfer a picture via a blob:
  base64Decode(sourceBlob,base64Text) //Encoding of string
  // the binary is now available as character strings in base64Text
  
- base64Decode(base64Text,targetBlob) //Decoding of text
-  // the binary encoded in base 64 is now available as a BLOB in blobTarget
+ base64Decode(base64Text,targetBlob) //Decoding of string
+  // the binary encoded in base 64 is now available as a blob in blobTarget
 
 ```
 
@@ -116,7 +116,7 @@ This example lets you transfer a picture via a blob:
 <!-- REF #_command_.generateUUID.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|string|<-|New UUID as non-canonical text (32 characters)|<!-- END REF -->
+|Result|string|<-|New UUID as non-canonical string (32 characters)|<!-- END REF -->
 
 #### Description
 
@@ -142,8 +142,8 @@ Generation of a UUID in a variable:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |param|any|->|blob or string for which to get digest key|
-|algorithm|integer|->|		Algorithm used to return key:
-0 = MD5 Digest, 1 = SHA1 Digest, 2 = 4D digest, 3 = SHA-256 digest, 4 = SHA-512 digest|
+|algorithm|integer|->|Algorithm used to return key:
+0 = kMD5Digest, 1 = kSHA1Digest, 3 = kSHA256Digest, 4 = kSHA512Digest|
 |*||->|Encode digest in Base64URL|
 |Result|string|<-|Value of digest key|<!-- END REF -->
 
@@ -157,7 +157,7 @@ In the *algorithm* parameter, pass a value designating which hash function to us
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|k4DRESTDigest|2|Internal algorithm of 4D, useful in the context of the On REST Authentication database method when you want to use your own list of users.|
+|k4DRESTDigest|2|Internal algorithm of Qodly.|
 |kMD5Digest|0|Message Digest 5 algorithm. A series of 128 bits returned as a string of 32 hexadecimal characters.|
 |kSHA1Digest|1|Secure Hash 1 algorithm. A series of 160 bits returned as a string of 40 hexadecimal characters.|
 |kSHA256Digest|3|(SHA-2 family) SHA-256 is a series of 256 bits returned as a string of 64 hexadecimal characters.|
@@ -172,7 +172,7 @@ It is not recommended to use MD5 and SHA algorithms to handle passwords; if you 
 
 By default if the * parameter is omitted, the returned digest is encoded in hexadecimal. Pass the * parameter if you want it to be encoded in Base64URL. 
 
-The value returned for the same object is the same on all the platforms (macOS/Windows). The calculation is performed based on the representation in UTF-8 of the text passed in the parameter. 
+The value returned for the same object is the same on all the platforms (macOS/Windows). The calculation is performed based on the representation in UTF-8 of the string passed in the parameter. 
 
 :::note
 
@@ -180,36 +180,7 @@ If you use the command with an empty string/blob, it does not return void but a 
 
 :::
 
-#### Example 1
-
-This example compares two images using the MD5 algorithm:
-
-```qs
- var vPict1,vPict2 : picture
- var FirstBlob,SecondBlob : blob
- var result : string
- 
- READ PICTURE FILE("c:\\myPhotos\\photo1.png")
- if(OK==1)
-    READ PICTURE FILE("c:\\myPhotos\\photo2.png")
-    if(OK==1)
-       pictureToBlob(vPict1,FirstBlob,".png")
-       pictureToBlob(vPict2,SecondBlob,".png")
- 
-       MD5_1=generatedigest(FirstBlob,kMD5Digest)
-       MD5_2=generatedigest(SecondBlob,kMD5Digest)
- 
-       if(MD5_1!=MD5_2)
-          result="These two images are different."
-       else
-          result="These two images are identical."
-       end
-    end
- end
-
-```
-
-#### Example 2
+#### Example
 
 These examples illustrate how to retrieve the digest key of a string:
 
@@ -219,27 +190,6 @@ These examples illustrate how to retrieve the digest key of a string:
   // key1 is "e4d909c290d0fb1ca068ffaddf22cbd0"
  key2=generateDigest("The quick brown fox jumps over the lazy dog.",kSHA1Digest)
   // key2 is "408d94384216f890ff7a0c3528e8bed1e0b01621"
-
-```
-
-#### Example 3
-
-This example only accepts the "admin" user with the password "123" that does not match a qodly user:
-
-```qs
-  //On REST Authentication database method
-  
- #declare( user: string, password: string, digestMode: boolean)-> boolean1:boolean
- 
- if(user=="admin")
-    if(digestMode)
-       boolean1=(password==generateDigest("123",4D digest))
-    else
-       boolean1=(password=="123")
-    end
- else
-    boolean1=false
- end
 
 ```
 
@@ -350,7 +300,7 @@ Only bcrypt algorithm is supported. If your hash was not generated using bcrypt,
 
 #### Example
 
-This example verifies a password hash previously created by [`generatePasswordHash`](#generatepasswordhash) and stored in a [Users] table with a newly entered password:
+This example verifies a password hash previously created by [`generatePasswordHash`](#generatepasswordhash) and stored in a **Users** table with a newly entered password:
 
 ```qs
  declare(password : string , userId : integer)
@@ -366,7 +316,7 @@ This example verifies a password hash previously created by [`generatePasswordHa
 
 :::note
  
-The password is never stored on disk, only the hash. Using a remote 4D application, the hash could be produced on the client side. If instead, you use a JavaScript (or similar) based front end, the best practice for security is to create the hash on the server side. Of course, you should use a TLS encrypted network connection for security, as this requires transferring the password over the network.
+The password is never stored on disk, only the hash. Using a remote application, the hash could be produced on the client side. If instead, you use a JavaScript (or similar) based front end, the best practice for security is to create the hash on the server side. Of course, you should use a TLS encrypted network connection for security, as this requires transferring the password over the network.
 
 :::
 
