@@ -3,7 +3,7 @@ id: overview
 title: Overview
 ---
 
-Development in Qodly is based upon Qodly Studio. 
+Development in Qodly is based upon **Qodly Studio**. 
 
 Qodly Studio is a new way of building business web applications. Our vision is to provide developers a 100% web-browser-based experience by allowing them to:
 
@@ -16,6 +16,22 @@ Qodly Studio is a new way of building business web applications. Our vision is t
 * configure fine-tuned privileges and roles 
 
 At the end of the road, developers will be able to build complete web business applications using only a web browser and very few coding. There is no JavaScript involved.
+
+## Requirements
+
+The Qodly Studio supports the following web browsers for development:
+
+- Chrome
+- Edge
+- FireFox
+
+The recommended resolution is 1920x1080.
+
+:::info
+
+Deployed Qodly applications run on all browsers of the market, with no specific requirements. 
+
+:::
 
 ## Accessing Qodly Studio
 
