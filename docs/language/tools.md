@@ -10,7 +10,10 @@ title: Tools
 |---|
 |[<!-- INCLUDE #_command_.base64Encode.Syntax -->](#base64encode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64encode.Summary -->|
 |[<!-- INCLUDE #_command_.base64Decode.Syntax -->](#base64decode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64Decode.Summary -->|
-|[<!-- INCLUDE #_command_.generateUUID.Syntax -->](#generateUUID)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateUUID.Summary -->|
+|[<!-- INCLUDE #_command_.generateUUID.Syntax -->](#generateuuid)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateUUID.Summary -->|
+|[<!-- INCLUDE #_command_.generateDigest.Syntax -->](#generatedigest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateDigest.Summary -->|
+|[<!-- INCLUDE #_command_.generatePasswordHash.Syntax -->](#generatepasswordhash)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generatePasswordHash.Summary -->|
+|[<!-- INCLUDE #_command_.verifyPasswordHash.Syntax -->](#verifypasswordhash)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.verifyPasswordHash.Summary -->|
 
 
 ## base64Encode
