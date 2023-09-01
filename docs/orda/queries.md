@@ -649,8 +649,8 @@ A text formula in *queryString* receives a parameter:
 
 ```qs
   //checkName method
- declare(exclude : string) -> result : Boolean
- result=(Position(exclude,this.lastname)=0)
+ declare(exclude : string) -> result : boolean
+ result=(position(exclude,this.lastname)=0)
 ```
 
 Using the same **checkName** method, a `formula` object as placeholder receives a parameter:
