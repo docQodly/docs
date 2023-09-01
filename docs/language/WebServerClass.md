@@ -116,10 +116,14 @@ You can use the *name* property of the Web server object to identify the databas
 We want to know how many running web servers are available:
 
 ```qs
-
-
+ var wSList : collection
+ var vRun : integer
+ var result : string
  
-
+ wSList=webServerList
+ vRun=wSList.countValues(True,"isRunning")
+ result=string(vRun)+" web server(s) running on "+string(wSList.length)+" available."
+ 
 ```
 
 #### See also
