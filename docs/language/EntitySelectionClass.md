@@ -484,7 +484,7 @@ We want to find out the total number of employees for a company without counting
 <!-- REF #EntitySelectionClass.copy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|option |integer|->|`ck shared`: return a shareable entity selection|
+|option |integer|->|`kShared`: return a shareable entity selection|
 |Result|4D.EntitySelection|<-|Copy of the entity selection|
 <!-- END REF -->
 
@@ -494,7 +494,7 @@ The `.copy()` function <!-- REF #EntitySelectionClass.copy().Summary -->returns 
 
 > This function does not modify the original entity selection.
 
-By default, if the *option* parameter is omitted, the function returns a new, [alterable](../orda/data#shareable-or-alterable-entity-selections) entity selection (even if the function is applied to a [shareable](../orda/data#shareable-or-alterable-entity-selections) entity selection). Pass the `ck shared` constant in the *option* parameter if you want to create a shareable entity selection.
+By default, if the *option* parameter is omitted, the function returns a new, [alterable](../orda/data#shareable-or-alterable-entity-selections) entity selection (even if the function is applied to a [shareable](../orda/data#shareable-or-alterable-entity-selections) entity selection). Pass the `kShared` constant in the *option* parameter if you want to create a shareable entity selection.
 
 
 #### Example   
@@ -514,7 +514,7 @@ use(storage)
     end
  
     use(storage.products)
-       storage.products=localSel.copy(ck shared)
+       storage.products=localSel.copy(kShared)
     end
 end
 ```
@@ -533,7 +533,7 @@ end
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath|string|->|Path of attribute whose distinct values you want to get|	
-|option|integer|->|`dk diacritical`, `dk count values`|
+|option|integer|->|`kDiacritical`, `kCountValues`|
 |Result|collection|<-|collection with only distinct values|
 <!-- END REF -->
 
@@ -556,16 +556,16 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 |Constant|Value|Comment|
 |---|---|---|
-|`dk diacritical`|8|Evaluation is case sensitive and differentiates accented characters. By default if omitted, a non-diacritical evaluation is performed|
-|`dk count values`|32|Return the count of entities for every distinct value. When this option is passed, `.distinct()` returns a collection of objects containing a pair of `{"value":*value*; "count":*count*}` properties.|
+|`kDiacritical`|8|Evaluation is case sensitive and differentiates accented characters. By default if omitted, a non-diacritical evaluation is performed|
+|`kCountValues`|32|Return the count of entities for every distinct value. When this option is passed, `.distinct()` returns a collection of objects containing a pair of `{"value":*value*; "count":*count*}` properties.|
 
 :::note
 
-The `dk count values` option is only available with storage attributes of type boolean, string, number, and date. 
+The `kCountValues` option is only available with storage attributes of type boolean, string, number, and date. 
 
 :::
 
-By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `dk diacritical` constant in the *option* parameter.
+By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `kDiacritical` constant in the *option* parameter.
 
 An error is returned if:
 
@@ -591,7 +591,7 @@ You want to get the number of different job names in the company:
 
 ```qs
 var jobs : collection
-jobs=ds.Employee.all().distinct("jobName",dk count values)  
+jobs=ds.Employee.all().distinct("jobName",kCountValues)  
 //jobs[0]={"value":"Developer","count":17}
 //jobs[1]={"value":"Office manager","count":5}
 //jobs[2]={"value":"Accountant","count":2}
@@ -656,7 +656,7 @@ paths=ds.Employee.all().distinctPaths("fullData")
 <!-- REF #EntitySelectionClass.drop().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`dk stop dropping on first error`: stops method execution on first non-droppable entity|
+|mode|integer|->|`kStopDroppingOnFirstError`: stops method execution on first non-droppable entity|
 |Result|4D.EntitySelection|<-|Empty entity selection if successful, else entity selection containing non-droppable entity(ies)|
 <!-- END REF -->
 
@@ -670,11 +670,11 @@ Removing entities is permanent and cannot be undone. It is recommended to call t
 
 :::
 
-If a locked entity is encountered during the execution of `.drop()`, it is not removed. By default, the function processes all entities of the entity selection and returns non-droppable entities in the entity selection. If you want the method to stop execution at the first encountered non-droppable entity, pass the `dk stop dropping on first error` constant in the *mode* parameter.
+If a locked entity is encountered during the execution of `.drop()`, it is not removed. By default, the function processes all entities of the entity selection and returns non-droppable entities in the entity selection. If you want the method to stop execution at the first encountered non-droppable entity, pass the `kStopDroppingOnFirstError` constant in the *mode* parameter.
 
 #### Example   
 
-Example without the `dk stop dropping on first error` option:
+Example without the `kStopDroppingOnFirstError` option:
 
 ```qs
  var employees, notDropped : cs.EmployeeSelection
@@ -688,13 +688,13 @@ Example without the `dk stop dropping on first error` option:
  end
 ```
 
-Example with the `dk stop dropping on first error` option:
+Example with the `kStopDroppingOnFirstError` option:
 
 ```qs
  var employees, notDropped : cs.EmployeeSelection
  var info : string
  employees=ds.Employee.query("firstName=:1","S@")
- notDropped=employees.drop(dk stop dropping on first error) //notDropped is an entity selection containing the first not dropped entity
+ notDropped=employees.drop(kStopDroppingOnFirstError) //notDropped is an entity selection containing the first not dropped entity
  if(notDropped.length==0) //The delete action is successful, all the entities have been deleted
     info="You have dropped "+string(employees.length)+" employees") //The dropped entity selection remains in memory
  else
@@ -719,7 +719,7 @@ Example with the `dk stop dropping on first error` option:
 |---------|--- |:---:|------|
 |attributePath |string|->|Attribute path whose values must be extracted to the new collection	|
 |targetPath|string|->|Target attribute path or attribute name|	
-|option|integer|->|`ck keep null`: include null attributes in the returned collection (ignored by default)|
+|option|integer|->|`kKeepNull`: include null attributes in the returned collection (ignored by default)|
 |Result|collection|<-|collection containing extracted values|
 <!-- END REF -->
 
@@ -741,7 +741,7 @@ This function accepts two syntaxes.
 
 With this syntax, `.extract()` populates the returned collection with the *attributePath* values of the entity selection.
 
-By default, entities for which *attributePath* is *null* or undefined are ignored in the resulting collection. You can pass the `ck keep null` constant in the *option* parameter to include these values as **null** elements in the returned collection.
+By default, entities for which *attributePath* is *null* or undefined are ignored in the resulting collection. You can pass the `kKeepNull` constant in the *option* parameter to include these values as **null** elements in the returned collection.
 
 *	Dataclass attributes with [.kind](DataClassClass.md#attributename) = "relatedEntity" are extracted as a collection of entities (duplications are kept).
 *	Dataclass attributes with [.kind](DataClassClass.md#attributename) = "relatedEntities" are extracted as a collection of entity selections.
@@ -779,7 +779,7 @@ Given the following table and relation:
   //
   //addresses is a collection of entities related to dataclass Address
   //Null values for address are extracted
- addresses=ds.Teachers.all().extract("address",ck keep null)
+ addresses=ds.Teachers.all().extract("address",kKeepNull)
   //
   //
   //mailing is a collection of objects with properties "who" and "to"
@@ -953,7 +953,7 @@ For more information, please refer to the [Ordered or unordered entity selection
  var employee : cs.EmployeeEntity
  var isOrdered : boolean
  var info : string
- employees=ds.Employee.newSelection(dk keep ordered)
+ employees=ds.Employee.newSelection(kKeepOrdered)
  employee=ds.Employee.get(714) // Gets the entity with primary key 714
  
   //In an ordered entity selection, we can add the same entity several times (duplications are kept)
@@ -1333,7 +1333,7 @@ You can add as many objects in the criteria collection as necessary.
 |---------|--- |:---:|------|
 |formulaString|string|->|formula string|	
 |formulaObj|4D.Formula|->|formula object|	
-|sortOrder |integer|->|`dk ascending` (default) or `dk descending`|	
+|sortOrder |integer|->|`kAscending` (default) or `kDescending`|	
 |settings|object|->|Parameter(s) for the formula|
 |Result|4D.EntitySelection|<-|New ordered entity selection|
 <!-- END REF -->
@@ -1357,8 +1357,8 @@ By default if you omit the *sortOrder* parameter, the resulting entity selection
 
 |Constant|	Value|	Comment|
 |---|---|---|
-|dk ascending|	0	|Ascending sort order (default)|
-|dk descending|	1	|Descending sort order|
+|kAscending|	0	|Ascending sort order (default)|
+|kDescending|	1	|Descending sort order|
 
 Within the *formulaString* or *formulaObj*, the processed entity and thus its attributes are available through the `This` command (for example, `this.lastName`). 
 
@@ -1372,7 +1372,7 @@ Sorting students using a formula provided as text:
  var es1, es2 : cs.StudentsSelection
  es1=ds.Students.query("nationality=:1","French")
  es2=es1.orderByFormula("length(this.lastname)") //ascending by default
- es2=es1.orderByFormula("length(this.lastname)",dk descending)
+ es2=es1.orderByFormula("length(this.lastname)",kDescending)
 ```
 
 Same sort order but using a formula object:
@@ -1383,7 +1383,7 @@ Same sort order but using a formula object:
  es1=ds.Students.query("nationality=:1","French")
  vFormula=formula(length(this.lastname))
  es2=es1.orderByFormula(vFormula) // ascending by default
- es2=es1.orderByFormula(vFormula,dk descending)
+ es2=es1.orderByFormula(vFormula,kDescending)
 ```
 
 
@@ -1409,7 +1409,7 @@ In this example, the "marks" object field in the **Students** dataClass contains
  schoolB.args=newObject("english",1,"math",2,"history",3) // Coefficients to compute an average
  
   //Order students according to school B criteria
- es2=es1.entitySelection.orderByFormula(vFormula,dk descending,schoolB)
+ es2=es1.entitySelection.orderByFormula(vFormula,kDescending,schoolB)
 ```
 
 ```qs
@@ -1696,7 +1696,7 @@ sum=sel.sum("salary")
 |---------|--- |:---:|------|
 |filterString |string|->|string with entity attribute path(s) to extract|	
 |filterCol |collection|->|collection of entity attribute path(s) to extract|	
-|options|integer|->|`dk with primary key`: adds the primary key<br/>`dk with stamp`: adds the stamp|	
+|options|integer|->|`kWithPrimaryKey`: adds the primary key<br/>`kWithStamp`: adds the stamp|	
 |begin|integer|	->|Designates the starting index|	
 |howMany|integer|->|Number of entities to extract|
 |Result|collection|<-|collection of objects containing attributes and values of entity selection|
@@ -1728,7 +1728,7 @@ If a filter is specified for an attribute of the `relatedEntities` kind:
 
 
 
-In the *options* parameter, you can pass the `dk with primary key` and/or `dk with stamp` selector(s) to add the entity's primary keys and/or stamps in extracted objects.
+In the *options* parameter, you can pass the `kWithPrimaryKey` and/or `kWithStamp` selector(s) to add the entity's primary keys and/or stamps in extracted objects.
 
 The *begin* parameter allows you to indicate the starting index of the entities to extract. You can pass any value between 0 and entity selection length-1.
 
@@ -1814,7 +1814,7 @@ var employees : cs.EmployeeSelection
 
 employeesCollection=newCollection
 employees=ds.Employee.all()
-employeesCollection=employees.toCollection("",dk with primary key+dk with stamp)
+employeesCollection=employees.toCollection("",kWithPrimaryKey+kWithStamp)
 ```
 
 Returns:

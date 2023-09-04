@@ -130,7 +130,6 @@ The following table lists the bitwise operators and their effects:
 |Operation|Example|Result|
 |---|---|---|
 |Bitwise AND|0x0000FFFF & 0xFF00FF00|0x0000FF00|
-
 |Bitwise OR (inclusive)|0x0000FFFF &#124; 0xFF00FF00| 0xFF00FFFF
 |Bitwise OR (exclusive)|0x0000FFFF \^&#124; 0xFF00FF00| 0xFF0000FF|
 |Left Bit Shift|0x0000FFFF << 8|0x00FFFF00|

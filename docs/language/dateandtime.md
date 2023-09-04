@@ -70,7 +70,7 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
 
 #### Description
 
-The `currentDate` command <!-- REF #_command_.currentDate.Summary --> returns the current date from the server<!-- END REF -->.
+The `currentDate` command <!-- REF #_command_.currentDate.Summary -->returns the current date from the server<!-- END REF -->.
 
 
 #### Example
@@ -102,7 +102,7 @@ In the following example we assign the current date to a string variable:
 
 #### Description
 
-The `currentTime` command <!-- REF #_command_.currentTime.Summary --> returns the current time from the server (GMT)<!-- END REF -->.
+The `currentTime` command <!-- REF #_command_.currentTime.Summary -->returns the current time from the server (GMT)<!-- END REF -->.
 
 The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md#string) or [`timeString`](#timestring) to obtain the string form of the time expression returned by `currentTime`.
 

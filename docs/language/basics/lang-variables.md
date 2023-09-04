@@ -98,3 +98,26 @@ When the method finishes, the variable is erased from memory. This is fine when 
 If you want to share values between methods, you can pass the variables as [parameters](lang-parameters.md) to the called methods. 
 
 If you want to store value during the session, it is recommended to use the [session storage](../SessionClass.md#storage) shared object.   
+
+
+## clearVariable
+
+<!-- REF #_command_.clearVariable.Syntax -->**clearVariable** ( *variable* : any )<!-- END REF -->
+
+<!-- REF #_command_.clearVariable.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|variable|any|->|Variable to clear|<!-- END REF -->
+
+
+#### Description
+
+The `clearVariable` command <!-- REF #_command_.clearVariable.Summary -->resets *variable* to its [default type value](lang-data-types.md) (i.e., empty string, 0 for numeric variables, null for objects, etc.)<!-- END REF -->. The variable still exists in memory. 
+
+:::note
+
+You do not need to clear variables when the method or function in which it was created completes execution; Qodly clears them automatically.
+
+:::
+
+

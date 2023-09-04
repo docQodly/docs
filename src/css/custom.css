@@ -2,10 +2,13 @@
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
- */
+ *
+--ifm-color-primary: #7D52E2;
+
 /* You can override the default Infima variables here. */
+
 :root {
-  --ifm-color-primary: #7D52E2;
+  --ifm-color-primary: #5C2EC9;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -29,11 +32,27 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+
+a:hover {
+  text-decoration: none !important;
+}
+
+
 @font-face {
   font-family: Roboto;
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
+
+/* remove underlined text  from table of contents */
+.table-of-contents u {
+  text-decoration: none !important; 
+}
+/* h2 titles */
+h2 {
+  border-bottom: thin solid #666666 !important;
+  padding-bottom: 0.25em !important;
+}
 
 /* *************************** */
 /* ************* components SVGs ************* */

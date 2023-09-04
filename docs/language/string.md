@@ -225,12 +225,12 @@ By default, `compareStrings` functions as if the "<" (less than) operator is use
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u> OR <u>sk diacritic insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>sk case insensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
-|sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk width insensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in <a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>sk strict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>sk strict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk strict</u></li></ul>|
+|kCaseInsensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>kCharCodes</u> OR <u>kDiacriticInsensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>kKanaInsensitive</u></li><li><u>kWidthInsensitive</u></li><li><u>kStrict</u></li></ul>|
+|kCharCodes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>&nbsp;</p><p>Can be combined with:<span>&nbsp;</span><u>kCaseInsensitive</u>&nbsp;</p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
+|kDiacriticInsensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>kKanaInsensitive</u></li><li><u>kWidthInsensitive</u></li><li><u>kStrict</u></li></ul>|
+|kKanaInsensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>kStrict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>kKanaInsensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>kStrict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li></ul>|
+|kStrict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kWidthInsensitive</u></li></ul>|
+|kWidthInsensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in <a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>kStrict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>kStrict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kStrict</u></li></ul>|
 
 :::caution
 
@@ -259,11 +259,11 @@ You want to compare the following strings:
  string2="Alpha Bravo Charlie Delta Echo Fox-Trot"
  
   //compare the strings using the character code
- myResult=compareStrings(string1,string2,sk char codes)
+ myResult=compareStrings(string1,string2,kCharCodes)
   // myResult = 1
  
   //compare the strings using the character code but ignoring any capitalization
- myResult=compareStrings(string1,string2,sk char codes+sk case insensitive)
+ myResult=compareStrings(string1,string2,kCharCodes+kCaseInsensitive)
   // myResult = 0
  
 ```
@@ -276,8 +276,8 @@ The following examples illustrate the specific impact of options in **Japanese d
  var myResult : integer
 //default is kana insensitive
  myResult=compareStrings("イロハ","いろは") // equal
- myResult=compareStrings("イロハ","いろは",sk strict)      // not equal
- result=compareStrings("イロハ","いろは",sk kana insensitive) // equal
+ myResult=compareStrings("イロハ","いろは",kStrict)      // not equal
+ result=compareStrings("イロハ","いろは",kKanaInsensitive) // equal
  
 ```
 
@@ -285,8 +285,8 @@ The following examples illustrate the specific impact of options in **Japanese d
  var myResult : integer
 //default is case insensitive
  myResult=compareStrings("さつき","さっき") // equal
- myResult=compareStrings("さつき","さっき",sk strict) // not equal
- myResult=compareStrings("さつき","さっき",sk case insensitive) // equal
+ myResult=compareStrings("さつき","さっき",kStrict) // not equal
+ myResult=compareStrings("さつき","さっき",kCaseInsensitive) // equal
  
 ```
 
@@ -296,8 +296,8 @@ The following examples illustrate the specific impact of options in **Japanese d
  myResult=compareStrings("ete","été") // equal in non-Japanese data language
  myResult=compareStrings("ete","été") // not equal in Japanese data language
  myResult=compareStrings("うがい","うかい") // not equal
- myResult=compareStrings("うがい","うかい",sk strict) // not equal
- myResult=compareStrings("うがい","うかい",sk diacritic insensitive) // equal
+ myResult=compareStrings("うがい","うかい",kStrict) // not equal
+ myResult=compareStrings("うがい","うかい",kDiacriticInsensitive) // equal
  
 ```
 
@@ -903,12 +903,12 @@ To modify this functioning, you can pass:
 
 |Constant|Value|Comment|
 |:----|:----|:----|
-|sk case insensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk char codes</u> OR <u>sk diacritic insensitive</u></li><li><u>sk whole word</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk char codes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>Can be combined with: <u>sk case insensitive</u></p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
-|sk diacritic insensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk whole word</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>sk kana insensitive</u></li><li><u>sk width insensitive</u></li><li><u>sk strict</u></li></ul>|
-|sk kana insensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>sk strict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>sk kana insensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>sk strict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
-|sk strict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li><li><u>sk kana insensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>sk width insensitive</u></li></ul>|
-|sk whole word|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>sk case insensitive</u></li><li><u>sk diacritic insensitive</u></li></ul>|
+|kCaseInsensitive|2|<p>Strings are compared according to the current data language with no consideration of capitalization differences. Note that diacritical marks are taken into consideration. For example, "A" is considered the same as "a", however&nbsp;"a" is not considered the same as "&agrave;" .&nbsp;By default, Qodly string comparison is case insensitive.&nbsp;</p><p>Can be combined with:&nbsp;</p><ul><li><u>kCharCodes</u> OR <u>kDiacriticInsensitive</u></li><li><u>kWholeWord</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>kKanaInsensitive</u></li><li><u>kWidthInsensitive</u></li><li><u>kStrict</u></li></ul>|
+|kCharCodes|1|<p>Strings are compared according to character codes. Current data language settings are not taken into account during the comparison.&nbsp;</p><p>Can be combined with: <u>kCaseInsensitive</u></p><p>Only for "a-z" or "A-Z" ranges. (e.g., Alpha = alpha, but Alpha # &acirc;lph&agrave;)</p>|
+|kDiacriticInsensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kWholeWord</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>kKanaInsensitive</u></li><li><u>kWidthInsensitive</u></li><li><u>kStrict</u></li></ul>|
+|kKanaInsensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>kStrict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>kKanaInsensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>kStrict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li></ul>|
+|kStrict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kWidthInsensitive</u></li></ul>|
+|kWholeWord|32|<p>Strings are compared according to the current data language. Only strings that are complete words are considered. Matching strings within other strings are not considered. For example, "where" is not considered when found within "somewhere".</p><p>Can be combined with:&nbsp;</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li></ul>|
 
 :::caution
 
@@ -957,7 +957,7 @@ In the following example, you want to find all instances of a string and replace
  myText="Hello Joelle et joel!"
  find="joel"
  replace="Joël"
- option=sk case insensitive+sk diacritic insensitive
+ option=kCaseInsensitive+kDiacriticInsensitive
  
  p=0
  repeat
@@ -1069,8 +1069,8 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 |Constant|Value|Comment|
 |---------|--- |---|------|
-|sk ignore empty strings|1|Remove empty strings from the resulting collection (they are ignored)|
-|sk trim spaces|2|Trim space characters at the beginning and end of substrings|
+|kIgnoreEmptyStrings|1|Remove empty strings from the resulting collection (they are ignored)|
+|kTrimSpaces|2|Trim space characters at the beginning and end of substrings|
 
 #### Example 1
 
@@ -1081,8 +1081,8 @@ In the *options* parameter, you can pass one or a combination of the following c
  
  myText="John,Doe,120 jefferson st.,Riverside,, NJ, 08075"
  myCol=splitString(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
- myCol=splitString(myText,",",sk ignore empty strings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
- myCol=splitString(myText,",",sk ignore empty strings+sk trim spaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
+ myCol=splitString(myText,",",kIgnoreEmptyStrings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
+ myCol=splitString(myText,",",kIgnoreEmptyStrings+kTrimSpaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
  
 ```
 
@@ -1156,21 +1156,21 @@ If *expression* is a numeric expression (number or integer), you can pass an opt
 If *expression* is a date expression, the string is returned using the default format specified in the system.
 In the *format* parameter, you can pass one of the constants described below.
 
-In this case, you can also pass a time in the *addTime* parameter. This parameter lets you combine a date with a time so that you can generate time stamps in compliance with current standards (`ISO Date GMT` and `Date RFC 1123` constants). These formats are particularly useful in the context of XML and Web processing. The *addTime* parameter can only be used when the *expression* parameter is a date. 
+In this case, you can also pass a time in the *addTime* parameter. This parameter lets you combine a date with a time so that you can generate time stamps in compliance with current standards (`kISODateGMT` and `kDateRFC1123` constants). These formats are particularly useful in the context of XML and Web processing. The *addTime* parameter can only be used when the *expression* parameter is a date. 
 
 |Constant|Type|Value|Comment|
 |:----|:----|:----|:----|
-|Blank if null date|integer|100|- instead of 0|
-|Date RFC 1123|integer|10| |
-|Internal date abbreviated|integer|6|Feb 18, 2023|
-|Internal date long|integer|5|February 18, 2023|
-|Internal date short|integer|7|02/18/2023|
-|Internal date short special|integer|4|02/18/23 (but 02/18/1896 or 02/18/2096)|
-|ISO Date|integer|8|2023-02-18T00:00:00|
-|ISO Date GMT|integer|9|2023-02-18T16:11:53Z|
-|System date abbreviated|integer|2|Sat, February 18, 2023|
-|System date long|integer|3|Saturday, February 18, 2023|
-|System date short|integer|1|02/18/2023|
+|kBlankIfNullDate|integer|100|- instead of 0|
+|kDateRFC1123|integer|10| |
+|kInternalDateAbbreviated|integer|6|Feb 18, 2023|
+|kInternalDateLong|integer|5|February 18, 2023|
+|kInternalDateShort|integer|7|02/18/2023|
+|kInternalDateShortSpecial|integer|4|02/18/23 (but 02/18/1896 or 02/18/2096)|
+|kISODate|integer|8|2023-02-18T00:00:00|
+|kISODateGMT|integer|9|2023-02-18T16:11:53Z|
+|kSystemDateAbbreviated|integer|2|Sat, February 18, 2023|
+|kSystemDateLong|integer|3|Saturday, February 18, 2023|
+|kSystemDateShort|integer|1|02/18/2023|
 
 :::note
 
@@ -1183,18 +1183,18 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 ```qs
  var vtResult : string
  vsResult=string(currentDate) //vsResult gets "02/18/23"
- vsResult=string(currentDate,Internal date long) // vsResult gets "February 18, 2023"
- vsResult=string(currentDate,ISO Date GMT) // vsResult gets "2023-02-18T00:00:00" in France
+ vsResult=string(currentDate,kInternalDateLong) // vsResult gets "February 18, 2023"
+ vsResult=string(currentDate,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
 
 ```
 
 **Notes for combined date/time formats:**
 
-* The `ISO Date GMT` format corresponds to the ISO8601 standard, containing a date and a time expressed with respect to the time zone (GMT).
+* The `kISODateGMT` format corresponds to the ISO8601 standard, containing a date and a time expressed with respect to the time zone (GMT).
 
 	 ```qs
 	 var mydate : string
-	 mydate=string(currentDate,ISO Date GMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
+	 mydate=string(currentDate,kISODateGMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
 	
 	```
 
@@ -1203,24 +1203,24 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 	```qs
 	 var mydate : string
-	 mydate=string(!18/02/2023!,ISO Date GMT) // returns 2023-02-17T22:00:00Z in France
+	 mydate=string(!18/02/2023!,kISODateGMT) // returns 2023-02-17T22:00:00Z in France
 	
 	```
 
-* The `ISO Date` format is similar to the `ISO Date GMT`, except that it expresses the date and time without respect to the time zone. Note that since this format does not comply with the ISO8601 standard, its use should be reserved for very specific purposes.
+* The `kISODate` format is similar to the `kISODateGMT`, except that it expresses the date and time without respect to the time zone. Note that since this format does not comply with the ISO8601 standard, its use should be reserved for very specific purposes.
 
 	```qs
 	 var mydate : string
-	 mydate=string(!18/02/2023!,ISO Date) // returns 2023-02-18T00:00:00 regardless of the time zone
-     mydate=string(currentDate,ISO Date,currentTime) // returns 2023-02-18T18:11:53
+	 mydate=string(!18/02/2023!,kISODate) // returns 2023-02-18T00:00:00 regardless of the time zone
+     mydate=string(currentDate,kISODate,currentTime) // returns 2023-02-18T18:11:53
 	
 	```
  
-* The `Date RFC 1123` format formats a date/time combination according to the standard defined by RFC 822 and 1123. You need this format for example to set the expiration date for cookies in an HTTP header.
+* The `kDateRFC1123` format formats a date/time combination according to the standard defined by RFC 822 and 1123. You need this format for example to set the expiration date for cookies in an HTTP header.
 
 	```qs
 	 var mydate : string
-	 mydate=string(currentDate,Date RFC 1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
+	 mydate=string(currentDate,kDateRFC1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
 	
 	```
 
@@ -1228,7 +1228,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 	
 	```qs
 	 var mydate : string
-	 mydate=string(currentDate,Date RFC 1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
+	 mydate=string(currentDate,kDateRFC1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
 	
 	```
 
@@ -1238,30 +1238,30 @@ If *expression* is a time expression, the string is returned using the default *
 
 |Constant|Type|Value|Comment|
 |:----|:----|:----|:----|
-|Blank if null time|integer|100| instead of 0|
-|HH MM|integer|2|01:02|
-|HH MM AM PM|integer|5|01:02|
-|HH MM SS|integer|1|01:02:03|
-|Hour min|integer|4|1 hour 2 minutes|
-|Hour min sec|integer|3|1 hour 2 minutes 3 seconds|
-|ISO time|integer|8|0000-00-00T01:02:03|
-|Min sec|integer|7|62 minutes 3 seconds|
-|MM SS|integer|6|62:03:00|
-|System time long|integer|11|1:02:03 AM HNEC (Mac only)|
-|System time long abbreviated|integer|10|1•02•03 AM (Mac only)|
-|System time short|integer|9|01:02:03|
+|kBlankIfNullTime|integer|100| instead of 0|
+|kHHMM|integer|2|01:02|
+|kHHMMAMPM|integer|5|01:02|
+|kHHMMSS|integer|1|01:02:03|
+|kHourMin|integer|4|1 hour 2 minutes|
+|kHourMinSec|integer|3|1 hour 2 minutes 3 seconds|
+|kISOTime|integer|8|0000-00-00T01:02:03|
+|kMinSec|integer|7|62 minutes 3 seconds|
+|kMMSS|integer|6|62:03:00|
+|kSystemTimeLong|integer|11|1:02:03 AM HNEC (Mac only)|
+|kSystemTimeLongAbbreviated|integer|10|1•02•03 AM (Mac only)|
+|kSystemTimeShort|integer|9|01:02:03|
 
 Notes:
 
-* The `ISO Time` format corresponds to the ISO8601 standard and contains, in theory, a date and a time. Since this format does not support combined dates/times; the date part is filled with 0s. This format expresses the local time.
-* The `Blank if null time` constant must be added to the format; it indicates that in the case of a null value, Qodly must return an empty string instead of zeros.
+* The `kISOTime` format corresponds to the ISO8601 standard and contains, in theory, a date and a time. Since this format does not support combined dates/times; the date part is filled with 0s. This format expresses the local time.
+* The `kBlankIfNullTime` constant must be added to the format; it indicates that in the case of a null value, Qodly must return an empty string instead of zeros.
 
 These examples assume that the current time is 5:30 PM and 45 seconds:
 
 ```qs
 	 var vsResult : string
-	 vsResult=string(currentTime) // $vsResult gets "17:30:45"
- 	 vsResult=string(currentTime,Hour Min Sec) // $vsResult gets "17 hours 30 minutes 45 seconds"
+	 vsResult=string(currentTime) // vsResult gets "17:30:45"
+ 	 vsResult=string(currentTime,kHourMinSec) // vsResult gets "17 hours 30 minutes 45 seconds"
 	
 ```
 

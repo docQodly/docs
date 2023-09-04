@@ -152,7 +152,7 @@ result=o.full_name("John","Smith")
 //equivalent to result=fullName("param1","param2")
 ```
 
-Combined with the [`this`](../language.md#this) keyword, such object methods allow writing powerful generic code. For example:
+Combined with the [`this`](lang-classes.md#this) keyword, such object methods allow writing powerful generic code. For example:
 
 ```qs
 //fullName2 method

@@ -11,7 +11,7 @@ The [ORDA technology](../concepts/platform/#the-orda-concept) is based upon an a
 
 As a result, ORDA exposes the whole database as a set of data model objects, including **model objects** as well as **data objects**.  
  
-![schema](img/orda-schema3.png)
+![schema](img/orda-schema4.png)
 
 ### Objects have Classes
 
@@ -77,9 +77,9 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
+When handled through the code, the datastore is an object named DataStore, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
-The datastore object itself cannot be copied as an object:
+The DataStore object itself cannot be copied as an object:
 
 ```qs 
 mydatastore=objectCopy(ds) //returns null
@@ -95,10 +95,10 @@ The datastore properties are however enumerable:
   //names contains the names of all the dataclasses
 ```
 
-### DataStore Class
+### DataStoreImplementation Class
 
 
-A database exposes its own DataStore class in the `cs` class store. 
+A database exposes its own DataStoreImplementation class, named DataStore, in the `cs` class store. 
 
 - **Extends**: 4D.DataStoreImplementation 
 - **Class name in *cs* class store**: DataStore

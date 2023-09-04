@@ -12,13 +12,13 @@ const config = {
   baseUrl: '/docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
-  noIndex: true,
+  noIndex: false,
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -87,36 +87,36 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'concepts/platform',
+            docId: 'concepts/quickstart',
             position: 'left',
             label: 'Getting Started',
           },
-  		  {
+  		  /*{
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
             label: 'Dashboard',
-          },
-
-		  /*{
-            type: 'doc',
-            docId: '/category/concepts',
-            position: 'left',
-            label: 'Platform',
           },*/
+
 		  {
             type: 'doc',
             docId: 'studio/overview',
             position: 'left',
-            label: 'Studio',
+            label: 'Develop',
           },
 		   {
             type: 'doc',
-            docId: 'orda/data-model',
+            docId: 'cloud/getStarted',
             position: 'left',
-            label: 'Programming',
+            label: 'Run & Manage',
           },
-		
+		  {
+            type: 'doc',
+            docId: 'concepts/platform',
+            position: 'left',
+            label: 'Architecture',
+          },
+		  
 		 /*{
             type: 'doc',
             docId: '/category/API',
@@ -167,7 +167,7 @@ const config = {
           items: [
             {
               label: "Tutorials",
-              to: "https://www.youtube.com/playlist?list=PLcUzCPYm5QO-2WoG87EdZFIccbewCURJm",
+              to: "https://qodly.com/tutorials",
             },
             {
               label: "Get Support",
@@ -179,6 +179,10 @@ const config = {
           title: "Company",
           items: [
             {
+              label: "About Qodly",
+              to: "https://qodly.com/about-us",
+            },
+			{
               label: "About 4D",
               to: "https://us.4d.com/about-us",
             },

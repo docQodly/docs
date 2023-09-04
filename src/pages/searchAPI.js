@@ -21,7 +21,7 @@ export default function RedirectAPI() {
               let finalUrl = ""
               if(!memberWanted)
               {
-                finalUrl = "${url}" + "language/" + commandFile + "#" + commandWanted.toLowerCase();
+                finalUrl = "${url}" + commandFile + "#" + commandWanted.toLowerCase();
               }
               else
               {

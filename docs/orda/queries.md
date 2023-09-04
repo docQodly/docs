@@ -190,6 +190,61 @@ You will not get the expected result because the null value will be evaluated by
 vSingles=ds.Person.query("spouse == null") //correct syntax
 ``` 
 
+### Not equal to in collections
+
+When searching within dataclass object attributes containing collections, the "not equal to *value*" comparator (`!==` or `#`) will find elements where ALL properties are different from *value* (and not those where AT LEAST one property is different from *value*, which is how work other comparators). Basically, it is equivalent to search for "Not(find collection elements where property equals *value*"). For example, with the following entities:
+
+```
+Entity 1:
+ds.Class.name: "A"
+ds.Class.info:
+    { "coll" : [ {
+                "val":1,
+                "val":1
+            } ] }
+
+Entity 2:
+ds.Class.name: "B"
+ds.Class.info:
+    { "coll" : [ {
+                "val":1,
+                "val":0
+            } ] }
+
+Entity 3:
+ds.Class.name: "C"
+ds.Class.info:
+    { "coll" : [ {
+                "val":0,
+                "val":0
+            } ] }
+```
+
+Consider the following results:
+
+```qs
+ds.Class.query("info.coll[].val == :1",0) 
+// returns B and C
+// finds "entities with 0 in at least one val property"
+
+ds.Class.query("info.coll[].val != :1",0)
+// returns A only
+// finds "entities where all val properties are different from 0"
+// which is the equivalent to 
+ds.Class.query(not("info.coll[].val == :1",0)) 
+```
+
+If you want to implement a query that finds entities where "at least one property is different from *value*", you need to use a special notation using a letter in the `[]`:
+
+```qs
+ds.Class.query("info.coll[a].val != :1",0)  
+// returns A and B
+// finds "entities where at least one val property is different from 0"
+```
+
+You can use any letter from the alphabet as the `[a]` notation.
+
+
 
 ### Linking collection attribute query arguments
 
@@ -594,8 +649,8 @@ A text formula in *queryString* receives a parameter:
 
 ```qs
   //checkName method
- declare(exclude : string) -> result : Boolean
- result=(Position(exclude,this.lastname)=0)
+ declare(exclude : string) -> result : boolean
+ result=(position(exclude,this.lastname)=0)
 ```
 
 Using the same **checkName** method, a `formula` object as placeholder receives a parameter:

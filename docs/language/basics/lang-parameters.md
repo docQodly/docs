@@ -178,7 +178,7 @@ function getValue -> v : integer
 
 ## Parameter indirection (${N})
 
-QodlyScript methods accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](../language.md#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression. `${N}` is called a **generic parameter**.  
+QodlyScript methods accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression. `${N}` is called a **generic parameter**.  
 
 
 
@@ -205,7 +205,7 @@ Result=MySum("##0.00",125,2,33.5,24) //"182.70"
 Result=MySum("000",1,2,200) //"203"
 ```
 
-Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`countParameters`](../language.md#countparameters) command. For example:
+Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`countParameters`](#countparameters) command. For example:
 
 ```qs
 //foo method
@@ -446,5 +446,152 @@ person.Age //50
 ```
 
 When you execute the `CreatePerson` method, person.Age will be 50 everywhere since the same object reference is handled by both methods.
+
+
+## copyParameters
+
+<!-- REF #_command_.copyParameters.Syntax -->**copyParameters**() : collection<br/>**copyParameters** ( *startFrom* : integer ) : collection<!-- END REF -->
+
+<!-- REF #_command_.copyParameters.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|startFrom|integer|->|Starting index (included)|
+|Result|any|<-|New collection containing parameters actually passed|<!-- END REF -->
+
+
+#### Description
+
+The `copyParameters` command <!-- REF #_command_.copyParameters.Summary -->returns a new collection containing all parameters actually passed to a method or a function<!-- END REF -->. This command is useful when you need to forward a various number of parameters from a method or function to another method or function.
+
+In the *startFrom* optional parameter, you can pass the index of the parameter from which to start collecting parameters to forward. The *startFrom* parameter itself is included. 
+
+When called inside a formula, `copyParameters` returns the parameters passed explicitely using [`apply()`](../FunctionClass.md#apply) or [`call()`](../FunctionClass.md#call) (and not those passed to the parent method or function). 
+
+`copyParameters` returns an empty collection if:
+
+- it is not called in a method or function that has been called by another method or function,
+- no parameter was passed to the parent method or function.
+
+
+#### Example 1
+
+Calling a different function depending on the first parameter and passing other parameters to this function:
+
+```qs
+function selectTask(task : string)
+switch
+  :(task=="Task1")
+	 this.task1(copyParameters(2))
+  :(task=="Task2")
+	 this.task2(copyParameters(2))
+end
+```
+
+Or, calling another function on another object with `apply()` and pass the parameters:
+
+```qs
+function doSomething(param : string , extraParam : variant)
+  this.delegate.doSomething.apply(this.delegate,copyParameters)
+```
+
+#### Example 2
+
+Since the command returns a collection, it can be used with [`.join()`](../CollectionClass.md#join) to build for example a html list:
+
+```qs
+
+  // Class
+function list (type : string) -> string
+  //type of list is "u" or "o"
+	var value : collection
+	var html : string
+	value=copyParameters(2)
+	html="<"+type+"l><li>"
+	html+=value.join("</li><li>")
+	html+="</li></"+type+"l>"
+	return html
+ 
+  // Method
+var htmlList : string 
+htmlList=c.list("u","Alpha","Bravo","Charlie")
+  // htmlList = <ul><li>Alpha</li><li>Bravo</li><li>Charlie</li></ul>
+```
+
+
+## countParameters
+
+<!-- REF #_command_.countParameters.Syntax -->**countParameters** : integer<!-- END REF -->
+
+
+<!-- REF #_command_.countParameters.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|integer|<-|Number of parameters actually passed|<!-- END REF -->
+
+#### Description
+
+The `countParameters` command <!-- REF #_command_.countParameters.Summary -->returns the number of parameters passed to a method<!-- END REF -->. 
+ 
+
+#### Example 1
+
+Qodly methods accept optional parameters, starting from the right. For example, you can call the method `MyMethod(a,b
+,c,d)` in the following ways:
+
+```qs
+ MyMethod(a,b,c,d)
+ MyMethod(a,b,c)
+ MyMethod(a,b) 
+ MyMethod(a) 
+ MyMethod 
+```
+
+Using `countParameters` from within `MyMethod`, you can detect the actual number of parameters and perform different operations depending on what you have received:
+
+``` 
+//Do_Things method
+
+#declare(p1 : string , p2 : time , p3 : integer)
+var info : string
+info = p1
+if(countParameters>=3)
+    Do_something(p3,p1)
+else
+    if(countParameters>=2)
+       Do_something_else(p2,p1)
+    end
+end
+```
+
+You can then write:
+
+```qs
+Do_Things(vtSomeText) //will only fill info
+Do_Things(vtSomeText , vTime ) //will fill info and call Do_something_else
+Do_Things(vtSomeText , 0 , vNum) //will fill info and call Do_something
+```
+
+#### Example 2
+
+Qodly methods accept a variable number of parameters of the same type, starting from the right. Using `countParameters` and the `${N}` syntax you can access those parameters as variants in a `for` loop. This example is a function that returns the greatest number received as parameter:
+
+```qs
+//MaxOf method
+#declare() -> result : number 
+var i : integer
+result=${1}
+for(i,2,countParameters)
+    if(${i}>result)
+       result=${i}
+    end
+end
+```
+
+After this method has been added to your application, you can write calls like:
+
+```qs
+vrResult=MaxOf(12,50,200,3) //200
+vrResult=MaxOf(r1,r2,r3,r4,r5,r6)
+```
 
 

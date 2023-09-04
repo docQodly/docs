@@ -441,7 +441,7 @@ c2=c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
 <!-- REF #collection.copy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|option|integer|->|`ck shared`: return a shared collection|
+|option|integer|->|`kShared`: return a shared collection|
 |groupWithCol |collection|->|Shared collection to be grouped with the resulting collection|
 |groupWithObj |object|->|Shared object to be grouped with the resulting collection|
 |Result|collection|<-|Deep copy of the original collection|<!-- END REF -->
@@ -458,7 +458,7 @@ If passed, the *option* parameter can contain the following constant:
 
 |option	|Description|
 |---|---|
-|`ck shared`|By default, `copy()` returns a regular (not shared) collection, even if the command is applied to a shared collection. Pass the `ck shared` constant to create a shared collection. In this case, you can use the *groupWith* parameter to associate the shared collection with another collection or object (see below).|
+|`kShared`|By default, `copy()` returns a regular (not shared) collection, even if the command is applied to a shared collection. Pass the `kShared` constant to create a shared collection. In this case, you can use the *groupWith* parameter to associate the shared collection with another collection or object (see below).|
 
 The *groupWithCol* or *groupWithObj* parameters allow you to designate a collection or an object with which the resulting collection should be associated.
 
@@ -482,7 +482,7 @@ sharedobject=newSharedObject
 text=file("/SOURCES/lastnames.txt").getText()
 lastnames=jsonParse(text) //lastnames is a regular collection
 
-sharedLastnames=lastnames.copy(ck shared) //sharedLastnames is a shared collection
+sharedLastnames=lastnames.copy(kShared) //sharedLastnames is a shared collection
 
 //Now we can put sharedLastnames into sharedobject
 use(sharedobject)
@@ -502,7 +502,7 @@ sharedColl1=newSharedcollection(newSharedObject("lastname","Smith"))
 sharedColl2=newSharedcollection(newSharedObject("lastname","Brown"))
 
 //copyColl belongs to the same shared group as sharedColl2
- copyColl=sharedColl1.copy(ck shared,sharedColl2)
+ copyColl=sharedColl1.copy(kShared,sharedColl2)
  use(sharedColl2)
     sharedColl2.combine(copyColl)
  end
@@ -519,7 +519,7 @@ var text : string
 text=file("/SOURCES/lastnames.txt").getText()
 lastnames=jsonParse(text) //lastnames is a regular collection
 
-sharedLastnames=lastnames.copy(ck shared) // shared copy
+sharedLastnames=lastnames.copy(kShared) // shared copy
 
 use(storage)
     storage.lastnames=sharedLastnames
@@ -658,7 +658,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |propertyPath|string|->|Path of attribute whose distinct values you want to get|
-|options|integer|->|`ck diacritical`, `ck count values`|
+|options|integer|->|`kDiacritical`, `kCountValues`|
 |Result|collection|<-|New collection with only distinct values|<!-- END REF -->
 
 
@@ -676,8 +676,8 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 |Constant|Value|Comment|
 |---|---|---|
-|`ck diacritical`|8|Evaluation is case sensitive and differentiates accented characters. By default if omitted, a non-diacritical evaluation is performed|
-|`ck count values`|32|Return the count of elements for every distinct value. When this option is passed, `.distinct()` returns a collection of objects containing a pair of `{"value":value,"count":count}` attributes.|
+|`kDiacritical`|8|Evaluation is case sensitive and differentiates accented characters. By default if omitted, a non-diacritical evaluation is performed|
+|`kCountValues`|32|Return the count of elements for every distinct value. When this option is passed, `.distinct()` returns a collection of objects containing a pair of `{"value":value,"count":count}` attributes.|
 
 
 #### Examples
@@ -690,9 +690,9 @@ In the *options* parameter, you can pass one or a combination of the following c
  c.push(newObject("size",3))
  c.push(newObject("size",1))
  c2=c.distinct() //c2=["a","b","c",{"size":1},{"size":3},{"size":1}]
- c2=c.distinct(ck diacritical) //c2: ["a","A","b","B","c",{"size":1},{"size":3},{"size":1}]
+ c2=c.distinct(kDiacritical) //c2: ["a","A","b","B","c",{"size":1},{"size":3},{"size":1}]
  c2=c.distinct("size") //c2: [1,3]
- c3=c.distinct("size",ck count values) //c3: [{value:1,count:2},{value:3,count:1}]
+ c3=c.distinct("size",kCountValues) //c3: [{value:1,count:2},{value:3,count:1}]
 
 ```
 
@@ -712,7 +712,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |collection2|collection|->|collection to compare|
-|option|integer|->|`ck diacritical`: diacritical evaluation ("A" # "a" for example)
+|option|integer|->|`kDiacritical`: diacritical evaluation ("A" # "a" for example)
 |Result|boolean|<-|true if collections are identical, false otherwise|<!-- END REF -->
 
 
@@ -720,7 +720,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 The `.equal()` function <!-- REF #collection.equal().Summary -->compares the collection with collection2 <!-- END REF -->and returns **true** if they are identical (deep comparison).
 
-By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `ck diacritical` constant in the option parameter.
+By default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the `kDiacritical` constant in the option parameter.
 
 >Elements with **null** values are not equal to Undefined elements.
 
@@ -744,7 +744,7 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
 
  c=newCollection(newObject("a",1,"b","orange"),2,3)
  c2=newCollection(newObject("a",1,"b","ORange"),2,3)
- b=c.equal(c2,ck diacritical) //false
+ b=c.equal(c2,kDiacritical) //false
 ```
 
 <!-- END REF -->
@@ -850,7 +850,7 @@ b=c.every(f,Is number) //b=false
 |---------|--- |:---:|------|
 |propertyPath|string|->|Object property path whose values must be extracted to the new collection|
 |targetpath|string|->|Target property path or property name|
-|option|integer|->|`ck keep null`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
+|option|integer|->|`kKeepNull`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
 |Result|collection|<-|new collection containing extracted values|<!-- END REF -->
 
 
@@ -864,7 +864,7 @@ The contents of the returned collection depends on the *targetPath* parameter:
 
 *	If the *targetPath* parameter is omitted, `.extract()` populates the new collection with the *propertyPath* values of the original collection.
 
-	By default, elements for which *propertyPath* is null or undefined are ignored in the resulting collection. You can pass the `ck keep null` constant in the *option* parameter to include these values as null elements in the returned collection.
+	By default, elements for which *propertyPath* is null or undefined are ignored in the resulting collection. You can pass the `kKeepNull` constant in the *option* parameter to include these values as null elements in the returned collection.
 
 
 *	If one or more *targetPath* parameter(s) are passed, `.extract()` populates the new collection with the *propertyPath* properties and each element of the new collection is an object with *targetPath* properties filled with the corresponding *propertyPath* properties. null values are kept (*option* parameter is ignored with this syntax).
@@ -880,7 +880,7 @@ c.push(newObject("zip",5321))
 c.push(newObject("name","Blountsville"))
 c.push(42)
 c2=c.extract("name") // c2: [Cleveland,Blountsville]
-c2=c.extract("name",ck keep null) //c2: [Cleveland,null,Blountsville,null]
+c2=c.extract("name",kKeepNull) //c2: [Cleveland,null,Blountsville,null]
 ```
 
 
@@ -1582,7 +1582,7 @@ Any type of element accepted by a collection can be inserted, even another colle
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |delimiter|string|->|Separator to use between elements|
-|option|integer|->|`ck ignore null or empty`: ignore null and empty strings in the result|
+|option|integer|->|`kIgnoreNullOrEmpty`: ignore null and empty strings in the result|
 |Result|string |<-|String containing all elements of the collection, separated by delimiter|<!-- END REF -->
 
 
@@ -1592,7 +1592,7 @@ The `.join()` function <!-- REF #collection.join().Summary -->converts all eleme
 
 >This function does not modify the original collection.
 
-By default, null or empty elements of the collection are returned in the resulting string. Pass the `ck ignore null or empty` constant in the *option* parameter if you want to remove them from the resulting string.
+By default, null or empty elements of the collection are returned in the resulting string. Pass the `kIgnoreNullOrEmpty` constant in the *option* parameter if you want to remove them from the resulting string.
 
 #### Example
 
@@ -1602,7 +1602,7 @@ By default, null or empty elements of the collection are returned in the resulti
  var t1,t2 : string
  c=newCollection(1,2,3,"Paris",null,"",4,5)
  t1=c.join("|") //1|2|3|Paris|null||4|5
- t2=c.join("|",ck ignore null or empty) //1|2|3|Paris|4|5
+ t2=c.join("|",kIgnoreNullOrEmpty) //1|2|3|Paris|4|5
 ```
 
 <!-- END REF -->
@@ -1899,7 +1899,7 @@ If the collection is empty, `.min()` returns `undefined`.
 |---------|--- |:---:|------|
 |pathStrings|string|->|Property path(s) on which to order the collection|
 |pathobjects|collection|->|collection of criteria objects|
-|ascOrDesc|integer|->|`ck ascending` or `ck descending` (scalar values)|
+|ascOrDesc|integer|->|`kAscending` or `kDescending` (scalar values)|
 |Result|collection |<-|Ordered copy of the collection (shallow copy)|<!-- END REF -->
 
 
@@ -1912,7 +1912,7 @@ This function returns a *shallow copy*, which means that objects or collections 
 
 >This function does not modify the original collection.
 
-If you pass no parameter, the function orders scalar values in the collection in ascending order (other element types such as objects or collections are returned unordered). You can modify this automatic order by passing the `ck ascending` or `ck descending` constants in the *ascOrDesc* parameter (see below).
+If you pass no parameter, the function orders scalar values in the collection in ascending order (other element types such as objects or collections are returned unordered). You can modify this automatic order by passing the `kAscending` or `kDescending` constants in the *ascOrDesc* parameter (see below).
 
 You can also pass a criteria parameter to define how the collection elements must be sorted. Three syntaxes are supported for this parameter:
 
@@ -1931,8 +1931,8 @@ You can also pass a criteria parameter to define how the collection elements mus
 
 	|Constant|Value|Comment|
 	|---|---|---|
-	|ck ascending|0|Elements are ordered in ascending order (default)|
-	|ck descending|1|Elements are ordered in descending order
+	|kAscending|0|Elements are ordered in ascending order (default)|
+	|kDescending|1|Elements are ordered in descending order
 
 	This syntax orders scalar values in the collection only (other element types such as objects or collections are returned unordered).
 
@@ -1957,8 +1957,8 @@ Ordering a collection of numbers in ascending and descending order:
  for(vCounter,1,10)
     c.push(Random)
  end
- c2=c.orderBy(ck ascending)
- c3=c.orderBy(ck descending)
+ c2=c.orderBy(kAscending)
+ c3=c.orderBy(kDescending)
 ```
 
 

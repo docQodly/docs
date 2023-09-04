@@ -16,7 +16,7 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 
 ### Pathnames
 
-`file` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
+`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
 
 
 ### Commands
@@ -57,10 +57,10 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 |[<!-- INCLUDE #document.size.Syntax -->](#size)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.size.Summary -->|
 
 
-## file
+## File
 
 
-<!-- REF #_command_.File.Syntax -->**file** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
+<!-- REF #_command_.File.Syntax -->**File** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
 
 
 <!-- REF #_command_.File.Params -->
@@ -72,7 +72,7 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 
 #### Description
 
-The `file` command <!-- REF #_command_.File.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
+The `File` command <!-- REF #_command_.File.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
 
 In the *path* parameter, pass a [filesystem path string](basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
 
@@ -129,7 +129,7 @@ Creation of a preferences file in the project folder:
 
 ```qs
  var created : boolean
- created=file("/PACKAGE/SpecialPrefs/settings.myPrefs").create()
+ created=File("/PACKAGE/SpecialPrefs/settings.myPrefs").create()
 ```
 <!-- END REF -->
 
@@ -180,6 +180,8 @@ You want to create a symbolic link to a file in your resources folder:
 | |  ||Does not require any parameters|<!-- END REF -->
 
 #### Description
+
+
 
 
 The `.delete()` function <!-- REF #FileClass.delete().Summary -->deletes the file<!-- END REF -->.
@@ -312,10 +314,10 @@ The `.breakModeRead` and `.breakModeWrite` indicate the processing to apply to e
 
 |Break mode as text|Break mode as number (constant)|Description|
 |---|---|---|
-|"native"|1 (`Document with native format`)|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) under macOS, CRLF (carriage return + line feed) under Windows|
-|"crlf"|2 (`Document with CRLF`)|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|"cr"|3 (`Document with CR`)|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|"lf"|4 (`Document with LF`)|Line breaks are converted to LF (line feed), the default Unix and macOS format|
+|"native"|1 (`kDocumentWithNativeFormat`)|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) under Unix and macOS, CRLF (carriage return + line feed) under Windows|
+|"crlf"|2 (`kDocumentWithCRLF`)|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
+|"cr"|3 (`kDocumentWithCR`)|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
+|"lf"|4 (`kDocumentWithLF`)|Line breaks are converted to LF (line feed), the default Unix and macOS format|
 
 > The *Break mode as text* value is case sensitive.
 
@@ -443,11 +445,11 @@ In *breakMode*, you can pass a number indicating the processing to apply to end-
 
 |Constant|Value|Comment|
 |--------|-----|-------|
-|`Document unchanged`|0|No processing|
-|`Document with native format`|1|(Default) Line breaks are converted to the native format of the operating system: LF (line feed) on macOS, CRLF (carriage return + line feed) on Windows|
-|`Document with CRLF`|2|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
-|`Document with CR`|3|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
-|`Document with LF`|4|Line breaks are converted to LF (line feed), the default Unix and macOS format|
+|`kDocumentUnchanged`|0|No processing|
+|`kDocumentWithNativeFormat`|1|(Default) Line breaks are converted to the native format of the operating system (line feed on Unix)|
+|`kDocumentWithCRLF`|2|Line breaks are converted to CRLF (carriage return + line feed), the default Windows format|
+|`kDocumentWithCR`|3|Line breaks are converted to CR (carriage return), the default Classic Mac OS format|
+|`kDocumentWithLF`|4|Line breaks are converted to LF (line feed), the default Unix and macOS format|
 
 By default, when you omit the *breakMode* parameter, line breaks are processed in native mode (1).
 

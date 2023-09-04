@@ -148,10 +148,10 @@ There are several ways to bind a datasource to a component:
 
 :::note Shortcuts
 
-If you drag and drop an entity selection attribute to a [Select box](components.md#select-box) or [Matrix](components.md#matrix) component, the *$This.attributeName* binding is automatically done:
+If you drag and drop an entity selection attribute to a [Select box](components/selectbox.md) or [Matrix](components/matrix.md) component, the *$This.attributeName* binding is automatically done:
 ![alt-text](img/matrix-3.png)
 
-For [images](components.md#images), the binding is automatically displayed in the Data Access panel:
+For [images](components/image.md), the binding is automatically displayed in the Data Access panel:
 
 ![alt-text](img/matrix-4.png)
 
@@ -162,7 +162,7 @@ For [images](components.md#images), the binding is automatically displayed in th
 
 You can use components to iterate on data. These components allow you to select an item among the data as an independent datasource.
 
-The following components are iterative: [**datatable**](components.md#matrix), [**matrix**](components.md#matrix), and [**select box**](components.md#select-box).
+The following components are iterative: [**datatable**](components/datatable.md), [**matrix**](components/matrix.md), and [**select box**](components/selectbox.md).
 
 Iterative components can be bound to two data sources:
 

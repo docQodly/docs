@@ -30,11 +30,6 @@ const sidebars = {
    */
    
   GetStarted:[
-    {
-      type: 'doc',
-      id: 'concepts/platform',
-      label: "Qodly Platform Overview"
-    },
 	 {
       type: 'doc',
       id: 'concepts/quickstart',
@@ -161,33 +156,17 @@ const sidebars = {
         ],
     },
     */
-    {
+	/*   
+   {
       type: 'doc',
       id: 'resources',
       label: "Resources"
-    }, 
+    },
+	*/	
   ],
   
-    Console:[
-    {
-		type: 'doc',
-		id: 'cloud/getStarted',
-		label: "Basics"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/monitor',
-		label: "Monitoring"
-	},
-	{
-		type: 'doc',
-		id: 'cloud/account',
-		label: "Account Management"
-	},
-
-	],
   
-  Studio:[
+  Develop:[
 	{
 			type: 'doc',
 			id: 'studio/overview',
@@ -196,10 +175,12 @@ const sidebars = {
 	{
 			type: 'category',
 			label: 'Model',
-			items: ['studio/model/model-overview',
-				'studio/model/model-editor-interface',
+			items: ['studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
 				'studio/model/attributes',
+				'studio/model/functions',
+				'studio/model/import',
+
 			],
 	},
 	{
@@ -209,29 +190,28 @@ const sidebars = {
 					{
 						type: 'category',
 						label: 'Components',
-						link: {
-							type: 'doc',
-							id: 'studio/design-webforms/components',
-							},
-						items: ['studio/design-webforms/selectbox',
-							'studio/design-webforms/stylebox',
-							'studio/design-webforms/tabs',
-							'studio/design-webforms/webformloader',
-							'studio/design-webforms/matrix',
-							'studio/design-webforms/datatable',
-							'studio/design-webforms/text',
-							'studio/design-webforms/button',
-							'studio/design-webforms/textinput',
-							'studio/design-webforms/image',
-							'studio/design-webforms/fileupload',
-							'studio/design-webforms/radio',
-							'studio/design-webforms/rangeinput',
-							'studio/design-webforms/selectinput',
-							'studio/design-webforms/icon',
-							'studio/design-webforms/checkbox',
+						items: [
+							'studio/design-webforms/components/componentsBasics',
+							'studio/design-webforms/components/stylebox',
+							'studio/design-webforms/components/selectbox',
+							'studio/design-webforms/components/tabs',
+							'studio/design-webforms/components/webformloader',
+							'studio/design-webforms/components/matrix',
+							'studio/design-webforms/components/datatable',
+							'studio/design-webforms/components/text',
+							'studio/design-webforms/components/button',
+							'studio/design-webforms/components/textinput',
+							'studio/design-webforms/components/image',
+							'studio/design-webforms/components/fileupload',
+							'studio/design-webforms/components/radio',
+							'studio/design-webforms/components/rangeinput',
+							'studio/design-webforms/components/selectinput',
+							'studio/design-webforms/components/icon',
+							'studio/design-webforms/components/checkbox',
 						],
 					},
-				'studio/design-webforms/properties',
+				'studio/design-webforms/craftedComponents',
+				'studio/design-webforms/templates',
 				'studio/design-webforms/styling',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
@@ -275,10 +255,8 @@ const sidebars = {
             },
 			'studio/roles/includingPrivileges'
         ],
-    }
-],
-Programming:[
-	{
+    },
+    {
 			type: 'category',
 			label: 'Programming Guide',
 			items: ['orda/data-model','orda/data','orda/queries',
@@ -353,6 +331,7 @@ Programming:[
 			'language/DataClassClass',
 			'language/DataStoreClass',
 			'language/dateandtime',
+			'language/debug',
 			'language/EmailObjectClass',
 			'language/EntityClass',
 			'language/EntitySelectionClass',
@@ -362,9 +341,7 @@ Programming:[
 			'language/FunctionClass',
 			'language/HTTPRequestClass',
 			'language/IMAPTransporterClass',
-			'language/interruptions',
 			'language/json',
-			'language/language',
 			'language/MailAttachmentClass',
 			'language/math',
 			'language/object',
@@ -382,11 +359,42 @@ Programming:[
 			'language/ZipFolderClass',
 			],
 		},
+],
+
+    Run:[
+    {
+		type: 'doc',
+		id: 'cloud/getStarted',
+		label: "Qodly Applications"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/application-management',
+		label: "Application Management"
+	},
+	{
+		type: 'doc',
+		id: 'cloud/deployment',
+		label: "Release Management and Deployment"
+	},
+
 	],
-		
 
 
 
+
+   Architecture:[
+    {
+		type: 'doc',
+		id: 'concepts/platform',
+		label: "Platform Overview"
+	},
+    {
+		type: 'doc',
+		id: 'concepts/cloud',
+		label: "Cloud Architecture"
+	},
+	],
 
   API:[
 	{

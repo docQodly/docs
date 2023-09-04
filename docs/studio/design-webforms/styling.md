@@ -98,7 +98,7 @@ Once a local or shared class is created, you can hover over it in the Styles Lib
 
 ## Customizing DataTable Styles
 
-The [DataTable component](components.md#datatable) styles can be highly customized thanks to the support of specific CSS classes adressing all parts of the table:
+The [DataTable component](components/datatable.md) styles can be highly customized thanks to the support of specific CSS classes adressing all parts of the table:
 
 ![data-table](img/datatable-schema.jpg)
 

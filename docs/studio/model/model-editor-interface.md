@@ -1,104 +1,80 @@
 ---
 id: model-editor-interface
-title: Model Editor Interface
+title: Model Editor
 ---
-The Data Model Editor allows you to define the Model
-( database structure) for your application.
 
-A model is a description of how data will be accessed and stored into
-structures called "datastore classes." In each datastore class, you
-create attributes that store, calculate data, or refer to data in other
-datastore classes (relation attributes). As well as functions to
-interact with the data in your model.
+The Data Model Editor allows you to create and modify the **model** for your application. A model is a description of how data will be accessed and stored into structures called "datastore classes".
 
-To open your project\'s active model you double click on  ![alt-text](img/model-icon.png) in your project's sidebar menu.
+In Qodly, following the [ORDA concepts](../../concepts/platform.md#the-orda-concept), in each datastore class, you create attributes that store, calculate data, or refer to data in other datastore classes (relation attributes), as well as functions to interact with the data in your model.
+
+Included in the model view are also the permissions, allowing you to assign access right at any level of the model (datastore, dataclass, attributes and functions).
+
+You access your current project's model in the **Model Editor** by double-clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
+
+By default in blank applications, the model does not contain any default dataclasses; you have to create the datastore classes. 
 
 The Data Model Editor is made up of the following areas:
 
 -   Workspace
 -   Toolbar
--   Miniature Overview Area
--   Datastore Classes Area
--   Properties Area (coming soon)
+-   Miniature overview area
+-   Outline
+-   Properties area
 
-### Workspace
 
-In the workspace is where you create a datastore model for your Qodly
-project. A datastore model is made up of one or more datastore classes
-containing attributes, you can also create relation attributes , which
-are links between datastore classes.
+## Workspace
 
-Below is an example datastore model for a simple structure of employees
-and companies:
+In the workspace, you create a datastore model for your Qodly project. A datastore model is made up of one or more datastore classes, containing attributes and functions, and you can also create relation attributes which are links between datastore classes. Below is an example datastore model for a simple structure of employees and companies:
 
-\*\*screenshot of the datastore classes\*\*
+![model](img/model-example.png)
 
-You can identify the currently selected datastore class by its
-highlighted border in the workspace. In our example, the Company
-datastore class is selected.
+You can identify the currently selected datastore class by its highlighted border in the workspace. In our example, the Employee datastore class is selected. Note that the panel color of datastore classes can be customized. You can move a datastore class in the workspace by a select and drag action.
 
-You can move a datastore class in the Workspace by a select and drag
-action.
+## Toolbar
 
-### Toolbar
+The toolbar bordering the top of your workspace contains the following buttons:
 
-The toolbar bordering the top of your workspace contains 3 actions:
+- **Fit view**: By clicking on the ![alt-text](img/fitview-icon.png) icon you will get a fitted view of your entire model in the workspace area.
+- **Reload model** ![alt-text](img/fitview-icon.png): Reloads the model definition. This button is useful when you modify model functions or properties in different browser windows. 
+- **Zoom setting** ![alt-text](img/zoom-feature.png): Controls the percentage of zoom in your workspace area. Note that you can also use the **mouse wheel** to modify the zoom setting. 
 
-**On the left side:**
+## Miniature Overview Area 
 
--   Fit view : By clicking on the ![alt-text](img/fitview-icon.png) icon you will get a fitted view of your entire datastore classes Model in the Workspace area.
-
--   ![alt-text](img/fitview-icon.png) reload model :
-
-**On the right side:**
-
--   Zoom feature ![alt-text](img/zoom-feature.png) : Controls the percentage of zoom in your workspace area, press either the + (Plus sign) or - (Minus sign) to make the Data model in your workspace larger or smaller.
-
-### Miniature Overview Area 
-
-The Miniature Area allows you to view an overview of your model at a
-smaller scale. This feature is especially useful when you have a large
-number of datastore classes and you want to quickly visualize them.
+The Miniature Area allows you to view an overview of your model at a smaller scale. This feature is especially useful when you have a large number of datastore classes and you want to quickly visualize them.
 
 ![alt-text](img/miniature-overview-area.png)
 
-### 
 
-### Datastore Classes Area
+## Outline
 
-All the datastore classes in your datastore model are listed in this
-area:
+On the left side of the model editor, the Outline lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level) defined in your model:
 
-![alt-text](img/datastore-classes-area.png)
+![alt-text](img/outline.png)
 
-You can select the datastore class in the workspace by clicking on it in
-the list.
+Use the **Search** area to dynamically reduce the list of displayed datastore classes and datastore functions to those that contain the entered character(s). 
 
-From this area, you can execute any of the following actions for a
-specific datastore class:
+![alt-text](img/search.png)
 
--   ![alt-text](img/fitview-icon.png) fit to view : to show a fitted view of the selected datastore class in your workspace area.
+You can expand a dataclass name to display its attributes:
 
--   ![alt-text](img/importfromcvs-icon.png) import from CSV : Allows you to import data from a CSV file.
+![alt-text](img/attributeExpand.png)
 
--   You can delete the datastore class completely by clicking on the ![alt-text](img/deletedatastoreclass-icon.png) icon.
 
-### Properties Area
+You can select the datastore class in the workspace by clicking on it in the list.
 
-The model properties area is coming soon.
+From this area, you can execute any of the following actions for a specific datastore class:
 
-#### Datastore Class Properties Area 
+-   ![alt-text](img/fitview-icon.png) fit to view: to show a fitted view of the selected datastore class in your workspace area.
+-   ![alt-text](img/importfromcvs-icon.png) import from CSV: Allows you to import data from a CSV file in this dataclass. See XXXX
+-   ![alt-text](img/deletedatastoreclass-icon.png): Removes the dataclass from the project.
 
-For a datastore class, the Properties area contains **Panel color**,
-**Primary key**, **Class** **name** and **Section name**, **Scope**,
-**Page size**, a **Records definitely deleted** and **Include in log
-file** check cases and an area **Comment** for writing comments.
 
-#### Attribute Properties Area 
+:::info
 
-For an attribute, the properties available differ depending on the
-attribute type (test this theory).
+Removing a dataclass from the model does not remove its associated functions. 
 
-#### Datastore Class Functions Properties Area 
+:::
 
-The Properties tab is available for datastore class functions.
+## Properties Area 
+
+The Properties area displays the properties for the selected element: datastore class, attribute, or function. 

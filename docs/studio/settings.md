@@ -3,7 +3,7 @@ id: settings
 title: Settings
 ---
 
-The Settings panel allows you to customize the Web Studio interface for the current user and the current application. 
+The Settings panel allows you to customize the Qodly Studio interface for the current user and the current application. 
 
 To open the Settings panel, click on the **Settings** button from the Explorer or the toolbar:
  
@@ -17,7 +17,7 @@ The following pages are available:
 
 ## User
 
-This page contains settings related to the Web Studio user interface.
+This page contains settings related to the Qodly Studio user interface.
 
 #### Show Renderer Pop Over
 
@@ -25,7 +25,7 @@ Displays or not a pop over when the renderer and the Studio use [different URL s
 
 #### Tooltip Behavior
 
-Defines how to display the [component tooltip](design-webforms/components.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
+Defines how to display the [component tooltip](design-webforms/components/componentsBasics.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
 
 - **Show after timeout**: The tooltip is displayed after a the defined timeout (and kept onscreen until the user moves the mouse). 
 - **Hide after timeout**: The tooltip is immediately displayed and hidden after a the defined timeout.
@@ -40,7 +40,7 @@ Shows or hides the tips icons ![helper](img/helper-tip.png) in the webform edito
 
 #### Activate Welcome Tour
 
-Enables or disables the display of the Welcome tour dialogs boxes that introduce you to the main features of the Web studio.  
+Enables or disables the display of the Welcome tour dialogs boxes that introduce you to the main features of the Qodly Studio.  
 
 
 ## Application

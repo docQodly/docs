@@ -197,7 +197,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### See also
 
-[`throw`](interruptions.md#throw)
+[`throw`](debug.md#throw)
 
 
 ### .setMessage()

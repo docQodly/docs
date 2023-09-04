@@ -25,7 +25,7 @@ Within the realm of <span style={{color:'#B174E5',fontWeight: 'bold'}}>QDroid</s
 
 ---
 
-### <u>Configuring an event</u>
+### Configuring an event
 
 <br />
 
