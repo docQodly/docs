@@ -1,11 +1,31 @@
 .features {
   display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  padding: 2rem;
+  padding-top: 3rem;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .featureSvg {
-  height: 160px;
-  width: 160px;
+  height: 80px;
+  width: 80px;
+}
+
+.feature {
+  padding-top: 10px;
+  max-width: 256px;
+  max-height: 256px;
+  min-height: 256px;
+
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+}
+
+.featuresRow {
+  vertical-align: bottom;
+  margin: 0px auto;
 }

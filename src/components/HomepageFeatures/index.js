@@ -1,64 +1,84 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const FeatureList = [
   {
-    title: 'Qodly Studio',
-    Svg: require('@site/static/img/qodly-studio.svg').default,
+    title: 'Getting Started',
+    Svg: require('@site/static/img/q-get-started.svg').default,
     description: (
       <>
-        Create and design web business apps in an intuitive and
-        comprehensive environment, using a simple browser.
+        Connect to the Qodly console and enter
+		the application building world!
       </>
     ),
+		link: "concepts/quickstart"
   },
   {
-    title: 'Qodly Server',
-    Svg: require('@site/static/img/qodly-server.svg').default,
+    title: 'Develop',
+    Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        A powerful and secured server running the QodlyScript language
-		and ready to handle the most demanding applications. 
+        Create and design business apps in an intuitive and
+        integrated environment, using a simple browser. 
       </>
     ),
+	link: "studio/overview"
   },
   {
-    title: 'Qodly Cloud Console',
-    Svg: require('@site/static/img/qodly-cloud.svg').default,
+    title: 'Run & Manage',
+    Svg: require('@site/static/img/q-dep-run-mng.svg').default,
     description: (
       <>
-        A comprehensive dashboard to launch and monitor your
-        applications on the Qodly Cloud dedicated infrastructure.
+        Launch and monitor your Qodly applications using a 
+        comprehensive console in our cloud infrastructure.
       </>
     ),
+		link: "cloud/getStarted"
+  },
+  {
+    title: 'Architecture',
+    Svg: require('@site/static/img/q-architecture.svg').default,
+    description: (
+      <>
+        Explore the Qodly architecture, technologies, 
+		and main concepts.
+      </>
+    ),
+		link: "concepts/platform"
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({Svg, title, description, link}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
+    <div className={styles.feature}>
+          <Link to={useBaseUrl(link)}>
+
+       <div className="text--center">
+        <Svg className={styles.featureSvg} role="test" />
+	  </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
+      </Link>
+
     </div>
+
   );
 }
 
 export default function HomepageFeatures() {
   return (
+    <div class={styles.featuresRow}>
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
-        </div>
-      </div>
     </section>
+    </div>
+
   );
 }
