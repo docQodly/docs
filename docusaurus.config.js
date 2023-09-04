@@ -167,7 +167,7 @@ const config = {
           items: [
             {
               label: "Tutorials",
-              to: "https://www.youtube.com/playlist?list=PLcUzCPYm5QO-2WoG87EdZFIccbewCURJm",
+              to: "https://qodly.com/tutorials",
             },
             {
               label: "Get Support",
@@ -179,6 +179,10 @@ const config = {
           title: "Company",
           items: [
             {
+              label: "About Qodly",
+              to: "https://qodly.com/about-us",
+            },
+			{
               label: "About 4D",
               to: "https://us.4d.com/about-us",
             },
