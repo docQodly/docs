@@ -43,6 +43,11 @@ a:hover {
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
+.row.footer__links {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(3, auto);
+}
 
 /* remove underlined text  from table of contents */
 .table-of-contents u {
