@@ -1,3 +1,6 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css);
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -40,16 +43,20 @@ a:hover {
 .hero{
   background-image: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188)) !important;
 }
+.hero .hero__title{
+  color: white;
+}
+.hero .hero__subtitle{
+  color: white;
+}
 
 @font-face {
   font-family: Roboto;
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
-.row.footer__links {
-  display: grid;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(3, auto);
+.footer.footer--dark{
+  padding-bottom: 10px !important;
 }
 
 /* remove underlined text  from table of contents */
