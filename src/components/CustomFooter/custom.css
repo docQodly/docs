@@ -1,0 +1,261 @@
+
+/* Styles for links */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.ft-title {
+  color: #fff;
+  font-family: "Merriweather", serif;
+  font-size: 1.375rem;
+  padding-bottom: 0.625rem;
+}
+
+.ft-main {
+  padding: 1.25rem 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 29.8125rem /* 477px */) {
+  .ft-main {
+    justify-content: space-evenly;
+  }
+}
+@media only screen and (min-width: 77.5rem /* 1240px */) {
+  .ft-main {
+    justify-content: space-evenly;
+  }
+}
+.ft-main-item {
+  padding: 1.25rem;
+  min-width: 12.5rem;
+}
+
+/* Styles for subscribe email */
+
+.footer .submit {
+  background-image: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188));
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  padding: 11px 35px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  height: 51px;
+}
+
+.footer .input-main {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #ebebeb;
+  border-radius: 100px;
+  margin-right: 15px;
+  margin-right: -40px;
+  width: 375px;
+}
+
+.footer .input-main svg {
+  width: 30px;
+  height: auto;
+  fill: #a2a2a2;
+  margin-right: 10px;
+}
+
+.footer .input-main input {
+  height: 26px;
+  width: 80%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #a2a2a2;
+  font-size: 1rem;
+}
+
+.footer .input-main input::placeholder {
+  color: #a2a2a2;
+}
+
+
+.footer .form-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .description {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  max-width: 500px;
+}
+
+.footer .title {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.footer .container {
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .footer .img-head {
+    margin-top: 75px;
+  }
+  .footer .form-box {
+    display: grid;
+  }
+  .footer .input-main {
+    margin-right: 0;
+  }
+  .footer .submit {
+    margin-top: 16px;
+  }
+  .footer .description {
+    font-size: 1rem;
+    margin: 0 35px;
+  }
+  .footer .title {
+    font-size: 1.5rem;
+  }
+  .footer .form-box {
+    margin-top: 25px;
+  }
+  .footer .container {
+    border-radius: 15px;
+    width: 100%;
+  }
+}
+
+
+
+/************************** Social Icons *********************/
+
+/* Wrapper */
+.icon-button {
+  border-radius: 2.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  width: 2.6rem;
+}
+
+/* Circle */
+.icon-button span {
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transition: all 0.3s;
+  width: 0;
+}
+
+.icon-button:hover span {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 2.6rem;
+  margin: -1.3rem;
+}
+
+/* Icons */
+.icon-button i {
+  background: none;
+  height: 2.6rem;
+  left: 0;
+  line-height: 2.6rem;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 2.6rem;
+  z-index: 10;
+}
+
+/* Social media specific styles */
+
+.slack span {
+  background-color: white;
+}
+.facebook span {
+  background-color: #3B5998;
+}
+.twitter span {
+  background-color: black;
+}
+.youtube span {
+  background-color: #bb0000;
+}
+.linkedin span {
+  background-color: #0077B5;
+}
+
+
+.icon-button .slack {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="127"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="%23E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="%2336C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="%232EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="%23ECB22E"/></svg>');  height: 1.6rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  background-size: contain;
+  top: 25%;
+  left: 25%;
+}
+.icon-button .fa-facebook-f {
+  color: #3B5998;
+}
+.icon-button .fa-x-twitter {
+  color: black;
+}
+.icon-button .fa-youtube {
+  color: #bb0000;
+}
+.icon-button .fa-linkedin-in {
+  color: #0077B5;
+}
+
+.icon-button:hover i {
+  color: white;
+}
+
+@media all and (max-width: 680px) {
+  .icon-button {
+    border-radius: 1.6rem;
+    font-size: 0.8rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    width: 1.6rem;
+  }
+
+  .icon-button:hover span {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 1.6rem;
+    margin: -0.8rem;
+  }
+
+  /* Icons */
+  .icon-button i {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    width: 1.6rem;
+  }
+
+}
