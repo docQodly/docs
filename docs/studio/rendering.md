@@ -34,12 +34,13 @@ Webforms can be rendered in the Qodly Studio IDE or in a browser window. Note th
 This button allows you to render the current page directly in the webform editor window. 
 
 In this case, the webform is rendered by the Qodly Studio embedded web server. This allows you to see all dataclasses, functions and attributes, even if they are not exposed as REST resources (they are greyed out), or even if permission actions are configured.
+Note that such preview is done with **Admin** privileges, and uses the **Admin** account you registered with. To preview your application or a given webform with actual users privileges, use **Preview form in a new tab** or **Preview (all site**).
 
 
 ### Preview in a browser window
 
 You can render the current webform or the whole website in a browser window. In both cases, the webform is rendered by Qodly web renderer engine. The renderer engine **applies the REST resource restrictions and permission actions** that might have been configured defined in your Qodly project. This means that only exposed resources are rendered in the browser. 
-
+Note that such preview is done with the logged in user's privileges. At your first preview, or when your session has expired, your browser will ask to log in with a Qodly user account, and use this account's privileges to render your application.
 
 #### Preview form in a new tab
 
