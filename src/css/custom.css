@@ -43,6 +43,12 @@ a:hover {
 .hero{
   background-image: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188)) !important;
 }
+.hero .hero__title{
+  color: white;
+}
+.hero .hero__subtitle{
+  color: white;
+}
 
 @font-face {
   font-family: Roboto;
