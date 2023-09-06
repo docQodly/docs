@@ -122,10 +122,10 @@ a:hover {
     border-radius: 0;
     display: block;
     height: 0;
-    left: 50%;
+    left: 25%;
     margin: 0;
     position: relative;
-    top: 50%;
+    top: 25%;
     transition: all 0.3s;
     width: 0;
   }
@@ -135,114 +135,75 @@ a:hover {
     border-radius: 2.6rem;
     margin: -1.3rem;
   }
-  /* slack */
-  & li:has(a[src="slack"]){
-    & a {
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="127"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="%23E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="%2336C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="%232EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="%23ECB22E"/></svg>');
-      width: 1.3rem;
-      height: 1.3rem;
-      background-size: cover;
-      top: 25%;
-      left: 25%;
-      display: flex;
-      position: relative;
-      -webkit-text-fill-color: transparent;
-    }
-    &:hover::before {
-      background-color: white;
-    }
-  }
-  /* facebook */
-  & li:has(a[src="facebook"]){
-    & a {
-      background-image: url('../../static/img/brand-facebook-f.svg');
-      width: 0.85rem;
-      height: 1.3rem;
-      background-size: contain;
-      top: 25%;
-      left: 35%;
-      display: flex;
-      position: relative;
-      -webkit-text-fill-color: transparent;
-    }
-    &:hover {
-      & a{
-        background-image: url('../../static/img/brand-facebook-f-white.svg');
-      }
-    }
-    &:hover::before {
-      background-color: #3B5998;
-    }
-  }
-  /* twitter */
-  & li:has(a[src="twitter"]){
-    & a {
-      background-image: url('../../static/img/brand-twitter.svg');
-      width: 1.24rem;
-      height: 1.4rem;
-      background-size: cover;
-      top: 23%;
-      left: 25%;
-      display: flex;
-      position: relative;
-      -webkit-text-fill-color: transparent;
-    }
-    &:hover {
-      & a{
-        background-image: url('../../static/img/brand-twitter-white.svg');
-      }
-    }
-    &:hover::before {
-      background-color: black;
-    }
-  }
-  /* youtube */
-  & li:has(a[src="youtube"]){
-    & a {
-      background-image: url('../../static/img/brand-youtube.svg');
-      width: 1.6rem;
-      height: 1.4rem;
-      background-size: cover;
-      top: 22%;
-      left: 20%;
-      display: flex;
-      position: relative;
-      -webkit-text-fill-color: transparent;
-    }
-    &:hover {
-      & a{
-        background-image: url('../../static/img/brand-youtube-white.svg');
-      }
-    }
-    &:hover::before {
-      background-color: #bb0000;
-    }
-  }
-  /* linkedin */
-  & li:has(a[src="linkedin"]){
-    & a {
-      background-image: url('../../static/img/brand-linkedin.svg');
-      width: 1.24rem;
-      height: 1.4rem;
-      background-size: cover;
-      top: 25%;
-      left: 30%;
-      display: flex;
-      position: relative;
-      -webkit-text-fill-color: transparent;
-    }
-    &:hover {
-      & a{
-        background-image: url('../../static/img/brand-linkedin-white.svg');
-      }
-    }
-    &:hover::before {
-      background-color: #0077B5;
-    }
-  }
-  
 }
 
+.row.footer__links > :nth-child(3) ul li > a{
+  z-index: 1;
+  width: 1.3rem;
+  height: 1.28rem;
+  display: flex;
+  position: relative;
+  -webkit-text-fill-color: transparent;
+  background-size: contain;
+}
+
+/* slack */
+.row.footer__links > :nth-child(3) ul li:has(a[src="slack"]) a{
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="127"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="%23E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="%2336C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="%232EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="%23ECB22E"/></svg>');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="slack"]):hover::before {
+  background-color: white;
+}
+
+/* facebook */
+.row.footer__links > :nth-child(3) ul li:has(a[src="facebook"]) a{
+  background-image: url('../../static/img/brand-facebook-f.svg');
+  width: 0.75rem;
+  height: 1.15rem;
+  margin-left: 0.3rem;
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="facebook"]):hover a {
+  background-image: url('../../static/img/brand-facebook-f-white.svg');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="facebook"]):hover::before {
+  background-color: #3B5998;
+}
+
+/* twitter */
+.row.footer__links > :nth-child(3) ul li:has(a[src="twitter"]) a{
+  background-image: url('../../static/img/brand-twitter.svg');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="twitter"]):hover a {
+  background-image: url('../../static/img/brand-twitter-white.svg');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="twitter"]):hover::before {
+  background-color: black;
+}
+
+/* youtube */
+.row.footer__links > :nth-child(3) ul li:has(a[src="youtube"]) a{
+  background-image: url('../../static/img/brand-youtube.svg');
+  height: 1.2rem;
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="youtube"]):hover a {
+  background-image: url('../../static/img/brand-youtube-white.svg');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="youtube"]):hover::before {
+  background-color: #bb0000;
+}
+
+/* linkedin */
+.row.footer__links > :nth-child(3) ul li:has(a[src="linkedin"]) a{
+  background-image: url('../../static/img/brand-linkedin.svg');
+  width: 1.12rem;
+  margin-left: 0.2rem;
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="linkedin"]):hover a {
+  background-image: url('../../static/img/brand-linkedin-white.svg');
+}
+.row.footer__links > :nth-child(3) ul li:has(a[src="linkedin"]):hover::before {
+  background-color: #0077B5;
+}
 
 
 /* *************************** */
