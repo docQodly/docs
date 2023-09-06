@@ -37,6 +37,9 @@ a:hover {
   text-decoration: none !important;
 }
 
+.hero{
+  background-image: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188)) !important;
+}
 
 @font-face {
   font-family: Roboto;
