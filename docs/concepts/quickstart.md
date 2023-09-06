@@ -65,8 +65,6 @@ With the environment ready, it's time to access Qodly Studio and follow the Welc
 
 :::tip
 
-To learn more, check out the step-by-step video tutorial on [**Create your first app**](xxxx) with Qodly Studio.
-
-Additionally, feel free to explore our [**Youtube Channel**](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg). 
+To learn more, feel free to explore our [**Youtube Channel**](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg). 
 
 :::
