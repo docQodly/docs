@@ -134,6 +134,72 @@ const config = {
 		  */
         ],
       },
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "Support",
+            items: [
+              {
+                label: "Tutorials",
+                to: "https://qodly.com/tutorials",
+              },
+              {
+                label: "Get Support",
+                to: "https://support.4d.com/",
+              },
+            ],
+          },
+          {
+            title: "Company",
+            items: [
+              {
+                label: "About Qodly",
+                to: "https://qodly.com/about-us",
+              },
+        {
+                label: "About 4D",
+                to: "https://us.4d.com/about-us",
+              },
+              {
+                label: "Contact us",
+                to: "mailto:contact@qodly.com",
+              },
+            ],
+          },
+          {
+            title: "Follow Us",
+            items: [
+              {
+                label: "Slack",
+                to: "https://join.slack.com/t/qodly/shared_invite/zt-20ieeffts-NU57SOXcbakmWgIMnJpStQ",
+                src: 'slack',
+              },
+              {
+                label: "Facebook",
+                to: "https://www.facebook.com/qodlyby4d",
+                src: 'facebook',
+              },
+              {
+                label: "Twitter",
+                to: "https://twitter.com/qodlyby4d",
+                src: 'twitter',
+              },
+              {
+                label: "Youtube Channels",
+                to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
+                src: 'youtube',
+              },
+              {
+                label: "Linkedin",
+                to: "https://linkedin.com/showcase/qodly",
+                src: 'linkedin',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
+       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
