@@ -36,6 +36,7 @@
 }
 
 
+/* General */
 a:hover {
   text-decoration: none !important;
 }
@@ -55,19 +56,193 @@ a:hover {
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
-.footer.footer--dark{
-  padding-bottom: 10px !important;
-}
-
 /* remove underlined text  from table of contents */
 .table-of-contents u {
   text-decoration: none !important; 
 }
 /* h2 titles */
-h2 {
+.theme-doc-markdown h2 {
   border-bottom: thin solid #666666 !important;
   padding-bottom: 0.25em !important;
 }
+
+
+
+/************************* Footer *************************/
+
+
+/*copy rights*/
+.footer{
+  padding: 0 !important;
+}
+.footer .container {
+  padding: 0;
+  max-width: 100%;
+}
+.footer__bottom{
+  background-color: rgb(38, 45, 56);
+  width: 100%;
+  padding: 0.75rem;
+}
+.footer .container .row.footer__links{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(3, auto);
+}
+.footer .container .row.footer__links .col{
+  min-width: 200px;
+}
+.footer .container .row.footer__links .footer__title{
+  color: #fff;
+  font-family: "Roboto", serif;
+  font-size: 20px;
+  padding-bottom: 0.25em !important;
+  border-bottom: thin solid #666666 !important;
+}
+/*Social links*/
+.row.footer__links > :nth-child(3) ul {
+  display: flex;
+  & li {
+    background: none;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 2.6rem;
+    z-index: 10;
+    margin: 0 5px;
+  }
+  & li::before {
+    content: '';
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transition: all 0.3s;
+    width: 0;
+  }
+  & li:hover::before{
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 2.6rem;
+    margin: -1.3rem;
+  }
+  /* slack */
+  & li:has(a[src="slack"]){
+    & a {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="127"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="%23E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="%2336C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="%232EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="%23ECB22E"/></svg>');
+      width: 1.3rem;
+      height: 1.3rem;
+      background-size: cover;
+      top: 25%;
+      left: 25%;
+      display: flex;
+      position: relative;
+      -webkit-text-fill-color: transparent;
+    }
+    &:hover::before {
+      background-color: white;
+    }
+  }
+  /* facebook */
+  & li:has(a[src="facebook"]){
+    & a {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%233b5998}</style><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>');
+      width: 0.85rem;
+      height: 1.3rem;
+      background-size: contain;
+      top: 25%;
+      left: 35%;
+      display: flex;
+      position: relative;
+      -webkit-text-fill-color: transparent;
+    }
+    &:hover {
+      & a{
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23ffffff}</style><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>');
+      }
+    }
+    &:hover::before {
+      background-color: #3B5998;
+    }
+  }
+  /* twitter */
+  & li:has(a[src="twitter"]){
+    & a {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23000000}</style><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>');
+      width: 1.24rem;
+      height: 1.4rem;
+      background-size: cover;
+      top: 23%;
+      left: 25%;
+      display: flex;
+      position: relative;
+      -webkit-text-fill-color: transparent;
+    }
+    &:hover {
+      & a{
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23ffffff}</style><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>');
+      }
+    }
+    &:hover::before {
+      background-color: black;
+    }
+  }
+  /* youtube */
+  & li:has(a[src="youtube"]){
+    & a {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23bb0000}</style><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>');
+      width: 1.6rem;
+      height: 1.4rem;
+      background-size: cover;
+      top: 22%;
+      left: 20%;
+      display: flex;
+      position: relative;
+      -webkit-text-fill-color: transparent;
+    }
+    &:hover {
+      & a{
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23ffffff}</style><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>');
+      }
+    }
+    &:hover::before {
+      background-color: #bb0000;
+    }
+  }
+  /* linkedin */
+  & li:has(a[src="linkedin"]){
+    & a {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%230077b5}</style><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>');
+      width: 1.24rem;
+      height: 1.4rem;
+      background-size: cover;
+      top: 25%;
+      left: 30%;
+      display: flex;
+      position: relative;
+      -webkit-text-fill-color: transparent;
+    }
+    &:hover {
+      & a{
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:%23ffffff}</style><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>');
+      }
+    }
+    &:hover::before {
+      background-color: #0077B5;
+    }
+  }
+  
+}
+
+
 
 /* *************************** */
 /* ************* components SVGs ************* */
