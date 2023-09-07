@@ -56,14 +56,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/docQodly/docs/edit/main",
+            "https://github.com/qodly/docs/edit/main",
         },
         blog: {
         //  showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/docQodly/docs',
+            'https://github.com/qodly/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
