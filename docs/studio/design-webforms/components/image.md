@@ -12,7 +12,7 @@ The **Image** component is a UI element that enables you to integrate images int
 The **Image** component offers versatile solutions for enhancing your web application's visual experience:
 
 - **Static Images**: Display fixed visual elements, such as logos, icons, and decorative images.
-- **Dynamic Conten**: Display dynamic content fetched from datasources.
+- **Dynamic Content**: Display dynamic content fetched from datasources.
 - **Data Visualization**: Display charts, graphs, and diagrams as images, enabling the visualization of complex data in a more accessible and engaging manner.
 
 
