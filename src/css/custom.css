@@ -51,6 +51,13 @@ a:hover {
   color: white;
 }
 
+[data-theme="dark"] .featuresRow_src-components-HomepageFeatures-styles-module h3 {
+  color: white !important;
+}
+[data-theme="dark"] .featuresRow_src-components-HomepageFeatures-styles-module p {
+  color: white !important;
+}
+
 @font-face {
   font-family: Roboto;
   src: url(/static/fonts/Roboto-Regular.ttf);
@@ -67,10 +74,25 @@ a:hover {
 }
 
 
-
 /************************* Footer *************************/
-
-
+@media screen and (max-width: 680px) {
+  .footer .container .row.footer__links {
+    display: block !important;
+    margin-left: 10px !important;
+  }
+  .footer .container .row.footer__links .col {
+    min-width: auto !important;
+  }
+}
+@media screen and (max-width: 240px) {
+  .row.footer__links > :nth-child(3) .footer__items {
+    display: block !important;
+  }
+  .row.footer__links > :nth-child(3) .footer__item{
+    margin-top: 30px !important;
+    margin-left: 20px !important;
+  }
+}
 
 /*copy rights*/
 .footer{
