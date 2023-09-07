@@ -61,7 +61,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 - <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
                 <span style={{fontWeight: 'bold'}}>Placeholder</span>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.<br/><br/>
-                <li><span style={{fontWeight: 'bold'}}>Input Type</span>: Select the appropriate input type to match the nature of the expected data. Available types include:</li>
+                <span style={{fontWeight: 'bold'}}>Input Type</span>: Select the appropriate input type to match the nature of the expected data. Available types include:
                 &nbsp;&nbsp;&nbsp;&nbsp; &bull; &nbsp; <span style={{fontWeight: 'bold'}}>text</span>: Standard alphanumeric data.<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp; &bull; &nbsp; <span style={{fontWeight: 'bold'}}>number</span>: Numerical values only.<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp; &bull; &nbsp; <span style={{fontWeight: 'bold'}}>password</span>: Concealed input for sensitive data.<br/>
@@ -153,7 +153,7 @@ To associate data with the Text Input component, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
-        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type text. For instance, you can select an entity, such as <code>package</code>.</li>
+        <span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type text. For instance, you can select an entity, such as <code>package</code>.
 	</Column.Item>
 	<Column.Item width="50%">
         <img alt="explorer" src={require('./img/textInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
