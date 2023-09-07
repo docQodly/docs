@@ -2822,9 +2822,18 @@ The `.sort()` function <!-- REF #collection.sort().Summary -->sorts the elements
 
 >This function modifies the original collection.
 
-If `.sort()` is called with no parameters, only scalar values (number, text, date, booleans) are sorted. Elements are sorted by default in ascending order, according to their type.
+If `.sort()` is called with no parameters, only scalar values (number, text, date, booleans) are sorted. Elements are sorted by default in ascending order, according to their type. If the collection contains elements of different types, they are first grouped by type and sorted afterwards. Types are returned in the following order:
 
-If you want to sort the collection elements in some other order or sort any type of element, you must supply in *formula* ([formula object](FunctionClass.md)) or *methodName* (string) a comparison callback that compares two values and returns **true** if the first value is lower than the second value. You can provide additional parameters to the callback if necessary.
+1.	null
+2.	booleans
+3.	strings
+4.	numbers
+5.	objects
+6.	collections
+7.	dates
+
+
+If you want to sort the collection elements in some other order or sort any type of element, you must supply in *formula* ([formula object](FunctionClass.md)) or *methodName* (string) a callback that defines the sort order.  The return value should be a boolean that indicates the relative order of the two elements: **true** if *$1.value* is less than *$1.value2*, **false** if *$1.value* is greater than *$1.value2*. You can provide additional parameters to the callback if necessary.
 
 The callback receives the following parameters:
 
@@ -2837,15 +2846,6 @@ If you used a method, you must set the following parameter:
 
 - *$1.result* (boolean): **true** if *$1.value < $1.value2*, **false** otherwise.
 
-If the collection contains elements of different types, they are first grouped by type and sorted afterwards. Types are returned in the following order:
-
-1.	null
-2.	booleans
-3.	strings
-4.	numbers
-5.	objects
-6.	collections
-7.	dates
 
 #### Example 1
 
