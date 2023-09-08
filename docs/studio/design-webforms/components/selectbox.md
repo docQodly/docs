@@ -32,39 +32,47 @@ The Select Box component finds application in various scenarios where a single v
 
 Enhance the Select Box component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Placeholder</span>: Display a text as a dimmed placeholder in the select box. 
+        <ul>
+            <li><strong>Placeholder</strong>: Display a text as a dimmed placeholder in the select box.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_Placeholder.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/selectBox_Placeholder.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Number of items</span>: Specify the maximum number of items to display simultaneously in the component.
+        <ul>
+            <li><strong>Number of items</strong>: Specify the maximum number of items to display simultaneously in the component.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_NumberOfItems.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/selectBox_NumberOfItems.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Show length</span>: Adds a string indicating the total number of items within the component. You can customize this pattern to suit your requirements, ensuring users have a clear understanding of the available options.
+        <ul>
+            <li><strong>Show length</strong>: Adds a string indicating the total number of items within the component. You can customize this pattern to suit your requirements, ensuring users have a clear understanding of the available options.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_ShowLength.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/selectBox_ShowLength.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Enable search</span>: Adds a search area to the top of the component. This empowers users to filter the displayed options by entering specific characters. Developers have the flexibility to define the datasource attribute(s) to be searched within, enhancing the efficiency of option discovery.
+        <ul>
+            <li><strong>Enable search</strong>: Adds a search area to the top of the component. This empowers users to filter the displayed options by entering specific characters. Developers have the flexibility to define the datasource attribute(s) to be searched within, enhancing the efficiency of option discovery.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_EnableSearch.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/selectBox_EnableSearch.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -73,20 +81,26 @@ Enhance the Select Box component to align with your application's requirements u
 
 The **Select Box** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
+:::info 
+The datasource for the **Select Box** component can take the form of either an `ORDA entity selection` or an `array`.
+:::
+
 ### Data Binding
 
 To associate data with the **Select Box** component, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Navigate to the Properties Panel</span>: Access the Data Access category located within the Properties panel for the Select Box component.</li>
-        <br/>
-        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the Select Box. For instance, you can select an entity selection, such as the <code>Destination</code> dataclass.</li>
+        <ul>
+            <li><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Select Box component.</li> <br/>
+			<li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Select Box. For instance, you can select an entity selection, such as the <code>Destination</code> dataclass.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_DataBinding.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/selectBox_DataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
 
 ### Data Display
 
@@ -100,14 +114,16 @@ To associate data iterated over a datasource, you can follow these additional st
 
     - **Properties Panel**: In the next step, you'll configure them through the `Data Access` category in the Properties panel. 
 
-- <Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Choose the Iterator</span>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.</li> <br/>
-        <li><span style={{fontWeight: 'bold'}}>Choose the Attribute</span>: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could be attributes like the name of the destination, the country, or any other relevant information. </li>
-    </Column.Item>
-    <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ul>
+            <li><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.</li> <br/>
+			<li><strong>Choose the Attribute</strong>: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could be attributes like the name of the destination, the country, or any other relevant information.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="35%">
+         <img alt="explorer" src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
 </Column.List>
 
 

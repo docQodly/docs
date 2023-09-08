@@ -201,7 +201,7 @@ You can pass any number of values of the following supported types:
 
 Unlike standard (not shared) collections, shared collections do not support pictures and objects or collections that are not shared.  
 
-::: 
+:::
 
 
 #### Example
@@ -234,7 +234,7 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 #### Description
 
-The `.at()` function <!-- REF #collection.at().Summary -->returns the item at position *index*, allowing for positive and negative integers<!-- END REF -->. 
+The `.at()` function <!-- REF #collection.at().Summary -->returns the item at position *index*, allowing for positive and negative integers<!-- END REF -->.
 
 
 
@@ -242,14 +242,14 @@ The `.at()` function <!-- REF #collection.at().Summary -->returns the item at po
 
 Negative integers count back from the last item in the collection.
 
-The function returns Undefined if *index* is beyond collection limits. 
+The function returns Undefined if *index* is beyond collection limits.
 
 #### Example
 
 
 
 ```qs
-var col : collection 
+var col : collection
 col=newCollection(10, 20, 30, 40, 50)
 element=col.at(0) // 10
 element=col.at(1) // 20
@@ -464,7 +464,7 @@ The *groupWithCol* or *groupWithObj* parameters allow you to designate a collect
 
 :::note
 
-Datastore, dataclass, and entity objects are not copiable. If `.copy()` is called with them, `null` values are returned. 
+Datastore, dataclass, and entity objects are not copiable. If `.copy()` is called with them, `null` values are returned.
 
 :::
 
@@ -1207,7 +1207,7 @@ The `.first()` function <!-- REF #collection.first().Summary -->returns the firs
 
 >This function does not modify the original collection.
 
-The function returns Undefined if the collection is empty. 
+The function returns Undefined if the collection is empty.
 
 #### Example
 
@@ -1245,7 +1245,7 @@ first=emptyCol.first() // returns undefined
 
 The `.flat()` function <!-- REF #collection.flat().Summary -->creates a new collection with all sub-collection elements concatenated into it recursively up to the specified *depth*<!-- END REF -->.
 
-By default, if the *depth* parameter is omitted, only the first level of the nested collection structure will be flattened. 
+By default, if the *depth* parameter is omitted, only the first level of the nested collection structure will be flattened.
 
 >This function does not modify the original collection.
 
@@ -1290,7 +1290,7 @@ col.flat(MAXLONG)
 
 #### Description
 
-The `.flatMap()` function <!-- REF #collection.flatMap().Summary -->creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1<!-- END REF -->. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s). 
+The `.flatMap()` function <!-- REF #collection.flatMap().Summary -->creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1<!-- END REF -->. Optionally, you can pass parameters to *formula* or *methodName* using the *param* parameter(s).
 
 This function is identical to a [`map()`](#map) call followed by a [`flat()`](#flat) call of depth 1.
 
@@ -1629,7 +1629,7 @@ The `.last()` function <!-- REF #collection.last().Summary -->returns the last e
 
 >This function does not modify the original collection.
 
-The function returns undefined if the collection is empty. 
+The function returns undefined if the collection is empty.
 
 #### Example
 
@@ -2833,7 +2833,7 @@ If `.sort()` is called with no parameters, only scalar values (number, text, dat
 7.	dates
 
 
-If you want to sort the collection elements in some other order or sort any type of element, you must supply in *formula* ([formula object](FunctionClass.md)) or *methodName* (string) a callback that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: **true** if *$1.value* is less than *$1.value2*, **false** if *$1.value* is greater than *$1.value2*. You can provide additional parameters to the callback if necessary.
+If you want to sort the collection elements in some other order or sort any type of element, you must supply in *formula* ([formula object](FunctionClass.md)) or *methodName* (string) a callback that defines the sort order.  The return value should be a boolean that indicates the relative order of the two elements: **true** if *$1.value* is less than *$1.value2*, **false** if *$1.value* is greater than *$1.value2*. You can provide additional parameters to the callback if necessary.
 
 The callback receives the following parameters:
 

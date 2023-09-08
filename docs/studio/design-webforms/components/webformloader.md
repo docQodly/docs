@@ -22,7 +22,7 @@ The **Webform Loader** component offers a multitude of applications, enhancing t
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        The <span style={{fontWeight: 'bold'}}>Webform Loader</span> component functions by displaying a designated webform within the current webform. The webform to be displayed is determined based on the initial value set for the Webform Loader component. This initial value can be configured using either of the following methods:
+        The <strong>Webform Loader</strong> component functions by displaying a designated webform within the current webform. The webform to be displayed is determined based on the initial value set for the Webform Loader component. This initial value can be configured using either of the following methods:
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/webformLoader_InitialValue.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
@@ -33,7 +33,7 @@ The **Webform Loader** component offers a multitude of applications, enhancing t
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Direct Configuration</span>: Utilize the Properties panel of the Webform Loader to directly choose the target webform from a dropdown list.<br/><br/>
+        <strong>Direct Configuration</strong>: Utilize the Properties panel of the Webform Loader to directly choose the target webform from a dropdown list.<br/><br/>
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/webformLoader_DirectConfiguration.png').default} style={{borderRadius: '6px'}} />
@@ -42,7 +42,7 @@ The **Webform Loader** component offers a multitude of applications, enhancing t
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Dynamic Binding</span>: Establish a binding with a datasource of type Text. By binding the component to this datasource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Webform Loader. The initial value should correspond to the name of the target webform you intend to display. 
+        <strong>Dynamic Binding</strong>: Establish a binding with a <strong>datasource of type Text</strong>. By binding the component to this datasource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Webform Loader. The initial value should correspond to the name of the target webform you intend to display. 
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/webformLoader_DynamicBinding.png').default} style={{borderRadius: '6px'}} />

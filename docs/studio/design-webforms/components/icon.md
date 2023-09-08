@@ -22,13 +22,15 @@ The **Icon** component serves various purposes within user interfaces, including
 
 Enhance the **Icon** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" >
-        <Column.Item width="50%">
-                <span style={{fontWeight: 'bold'}}>Icon</span>: Select the desired icon from a predefined list of icons. 
-        </Column.Item>
-        <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px', width: '60%'}} />
-        </Column.Item>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ul>
+            <li><strong>Icon</strong>: Select the desired icon from a predefined list of icons. </li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="30%">
+         <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
 </Column.List>
 
 
