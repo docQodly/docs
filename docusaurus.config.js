@@ -50,8 +50,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-		path: 'docs',
-		routeBasePath: '/',
+		      path: 'docs',
+		      routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -67,6 +67,10 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-391275429',
+          anonymizeIP: true,
         },
       }),
     ],
