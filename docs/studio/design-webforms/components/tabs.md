@@ -31,12 +31,12 @@ The Tabs component proves invaluable across a range of scenarios where content o
 Enhance the Tabs component to align with your application's requirements using the following customization options:
 
 - **Variant Selection**: Choose the variant that aligns with your design:
-    
-    - <Column.List align="center" justifyContent="between">
+    <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-            <li><span style={{fontWeight: 'bold'}}>Line Variant</span>: Select the "Line" variant for tabs with an underlined styling effect.</li>
-            <br/>
-            <li><span style={{fontWeight: 'bold'}}>Enclosed Variant</span>: Opt for the "Enclosed" variant to showcase tabs with a bordered presentation. This choice adds an additional layer of style to your tabs.</li>
+            <ul>
+                <li><strong>Line Variant</strong>: Select the "Line" variant for tabs with an underlined styling effect.</li> <br/>
+                <li><strong>Enclosed Variant</strong>: Opt for the "Enclosed" variant to showcase tabs with a bordered presentation. This choice adds an additional layer of style to your tabs.</li> 
+            </ul>
         </Column.Item>
         <Column.Item width="35%">
             <img alt="explorer" src={require('./img/tabs_VariantSelection.png').default} style={{borderRadius: '6px'}} />
@@ -47,27 +47,28 @@ Enhance the Tabs component to align with your application's requirements using t
 
     - **Using the Plus Button**: Add new tabs effortlessly by clicking the `+` button within the Tabs component. Each tab can be individually configured, allowing you to fine-tune attributes such as:
 
-        - <Column.List align="center" justifyContent="between">
-            <Column.Item width="60%">
-                <li><span style={{fontWeight: 'bold'}}>Title Customization</span>: Modify tab titles to precisely reflect the content or functionality associated with each tab.</li>
-                <br/>
-                <li><span style={{fontWeight: 'bold'}}>Tab Duplication</span>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
-                <br/>
-                <li><span style={{fontWeight: 'bold'}}>Tab Removal</span>: Delete tabs that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
-                <br/>
-                <li><span style={{fontWeight: 'bold'}}>Moving Tab</span>: Arrange tabs to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon</li>
-            </Column.Item>
-            <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/tabs_PlusButtonAddition.png').default} style={{borderRadius: '6px'}} />
-            </Column.Item>
-        </Column.List>
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+            <ul>
+                <li><strong>Title Customization</strong>: Modify tab titles to precisely reflect the content or functionality associated with each tab.</li> <br/>
+                <li><strong>Tab Duplication</strong>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
+                <li><strong>Tab Removal</strong>: Delete tabs that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
+                <li><strong>Moving Tab</strong>:  Arrange tabs to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+            <img alt="explorer" src={require('./img/tabs_PlusButtonAddition.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <br/>
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-            <span style={{fontWeight: 'bold'}}>Direct Canvas Addition</span>: Directly add new tabs onto the canvas using the <code>+</code> icon.
+            <strong>Direct Canvas Addition</strong>: Directly add new tabs onto the canvas using the <code>+</code> icon.
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/tab_CanvasAddition.png').default} style={{borderRadius: '6px'}} />
+            <img alt="explorer" src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 

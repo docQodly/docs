@@ -33,35 +33,40 @@ The **Checkbox** component serve various purposes in user interfaces, including:
 
 Enhance the **Checkbox** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label Position</span>: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        <ul>
+                <li><strong>Label Position</strong>: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.</li>
+        </ul>
 	</Column.Item>
-	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+	<Column.Item width="30%">
+                <img alt="explorer" src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
 
 - **Variant Selection**: Choose the variant that aligns with your design:
-    
-    - <Column.List align="center" justifyContent="between">
+
+    <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-            <li><span style={{fontWeight: 'bold'}}>Checkbox Variant</span>: Select this for the standard checkbox style. </li>
-            <br/>
-            <li><span style={{fontWeight: 'bold'}}>Switch Variant</span>: Choose this for a switch-like appearance. </li>
+            <ul>
+                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.</li><br/>
+                <li><strong>Switch Variant</strong>: Choose this for a switch-like appearance.</li>
+            </ul>
         </Column.Item>
-        <Column.Item width="35%">
+        <Column.Item width="31%">
             <img alt="explorer" src={require('./img/checkbox_VariantSelection.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Size</span>: Choose from small, medium, or large sizes for the Checkbox component.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        <ul>
+                <li><strong>Size</strong>: Choose from small, medium, or large sizes for the Checkbox component.</li>
+        </ul>
 	</Column.Item>
-	<Column.Item width="34%">
-        <img alt="explorer" src={require('./img/checkbox_Size.png').default} style={{borderRadius: '6px'}} />
+	<Column.Item width="30%">
+                <img alt="explorer" src={require('./img/checkbox_Size.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -70,12 +75,14 @@ Enhance the **Checkbox** component to align with your application's requirements
 
 Within the **Checkbox** component, an embedded **Label** allows for further customization of the following properties:
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        <ul>
+                <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.</li>
+        </ul>
 	</Column.Item>
-	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+	<Column.Item width="30%">
+                <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -85,18 +92,18 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
 
 The **Checkbox** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
 
+:::info 
+The datasource for the **Checkbox** component should be binary, with values limited to `true` or `false`.
+:::
+
+
 ### Data Binding
 To associate data with the Checkbox component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Checkbox component.
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the relevant Datasource that will capture the user's selected choice.</li>
-	</Column.Item>
-	<Column.Item width="35%">
-	</Column.Item>
-</Column.List>
+- **Define the Datasource**: Specify the relevant Datasource that will capture the user's selected choice.
+
 
 ### Server-Side Interaction
 

@@ -34,10 +34,12 @@ Enhance the **Matrix** component to align with your application's requirements u
 
 - **Orientation**: Developers can choose between horizontal and vertical orientations for the Matrix. This choice affects the arrangement of Stylebox components and the presence of scrollbars.
 
-    - <Column.List align="center" justifyContent="between">
+    <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-            <li><span style={{fontWeight: 'bold'}}>Vertical Orientation (Default)</span>: By default, the Matrix component is oriented vertically. This means that Stylebox components are stacked from top to bottom. If the content surpasses the defined height, a vertical scrollbar will automatically be shown, facilitating vertical scrolling to access all the content.</li> <br/>
-            <li><span style={{fontWeight: 'bold'}}>Horizontal Orientation</span>: When the Matrix component is configured with a horizontal orientation, Stylebox components are arranged from left to right. If the content exceeds the available width, a horizontal scrollbar will automatically appear, enabling users to scroll through the content horizontally.</li>
+            <ul>
+                <li><strong>Vertical Orientation (Default)</strong>: By default, the Matrix component is oriented vertically. This means that Stylebox components are stacked from top to bottom. If the content surpasses the defined height, a vertical scrollbar will automatically be shown, facilitating vertical scrolling to access all the content.</li>
+                <li><strong>Horizontal Orientation</strong>: When the Matrix component is configured with a horizontal orientation, Stylebox components are arranged from left to right. If the content exceeds the available width, a horizontal scrollbar will automatically appear, enabling users to scroll through the content horizontally.</li>
+            </ul>
         </Column.Item>
         <Column.Item width="35%">
             <img alt="explorer" src={require('./img/matrix_orientations.gif').default} style={{borderRadius: '6px'}} />
@@ -47,18 +49,23 @@ Enhance the **Matrix** component to align with your application's requirements u
 
 ## Data Integration
 
-The **Matrix** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
+The **Matrix** component is data-bound, meaning it relies on an external datasource to populate its options. This allows the component to display and interact with data.
 
+:::info 
+The datasource for the **Matrix** component can take the form of either an `ORDA entity selection` or an `array`.
+:::
 
 ### Data Binding
 
 To associate data with the **Matrix** component, follow these steps:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Navigate to the Properties Panel</span>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
-        <br/>
-        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
+        <ul>
+            <li><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
+            <br/>
+            <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/matrix_DataBinding.png').default} style={{borderRadius: '6px'}} />
@@ -103,14 +110,16 @@ To display data iterated over a datasource, you can follow these additional step
 
     Follow these steps to implement this approach:
 
-    - <Column.List align="center" justifyContent="between">
+    <Column.List align="center" justifyContent="between">
         <Column.Item width="50%">
-            <li> Integrate the Matrix component within the interface.</li>
-            <li> Select a direct datasource like <code>Rooms</code> for the main Matrix.</li> 
-            <li> Embed another Matrix for each iterated data within the main Matrix.</li> 
-            <li> Choose a Related Entity datasource like <code>$This.roomOptionsSelection</code> for the embedded Matrix.</li>
-            <li> Integrate buttons within the embeded Matrix for each iterated data.</li> 
-            <li> Bind the desired function, e.g., <code>selectRoomOption</code>, to the button click event using <code>This</code>.</li> 
+            <ul>
+                <li> Integrate the Matrix component within the interface.</li>
+                <li> Select a direct datasource like <code>Rooms</code> for the main Matrix.</li> 
+                <li> Embed another Matrix for each iterated data within the main Matrix.</li> 
+                <li> Choose a Related Entity datasource like <code>$This.roomOptionsSelection</code> for the embedded Matrix.</li>
+                <li> Integrate buttons within the embeded Matrix for each iterated data.</li> 
+                <li> Bind the desired function, e.g., <code>selectRoomOption</code>, to the button click event using <code>This</code>.</li> 
+            </ul>
         </Column.Item>
         <Column.Item width="50%">
             <img alt="explorer" src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px'}} />
