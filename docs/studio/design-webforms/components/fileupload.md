@@ -33,56 +33,66 @@ The **File Upload** component finds valuable application in diverse scenarios, i
 
 Enhance the **File Upload** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
+        <ul>
+            <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/fileUpload_Label.png').default} style={{borderRadius: '6px'}} />
+                <img alt="explorer" src={require('./img/fileUpload_Label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Icon Position</span>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden.
+        <ul>
+            <li><strong>Icon Position</strong>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/fileUpload_IconPosition.png').default} style={{borderRadius: '6px'}} />
+                <img alt="explorer" src={require('./img/fileUpload_IconPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Size Limit</span>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. <br/>
-		If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.        
+        <ul>
+            <li><strong>Size Limit</strong>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. </li> <br/>
+			If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
-		<img alt="explorer" src={require('./img/fileUpload_SizLimitError.png').default} style={{borderRadius: '6px'}} />
+                <img alt="explorer" src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
+				<img alt="explorer" src={require('./img/fileUpload_SizLimitError.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Media Type</span>: Specify the supported file types that can be uploaded using the component. Supported types include text, image, video, and audio.
+        <ul>
+            <li><strong>Media Type</strong>: Specify the supported file types that can be uploaded using the component. Supported types include text, image, video, and audio.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/fileUpload_MediaType.png').default} style={{borderRadius: '6px'}} />
+                <img alt="explorer" src={require('./img/fileUpload_MediaType.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
 
 ### Embedded Icon
 
+Within the **File Upload** component, an embedded **Icon** allows for further customization of the following properties: 
+
 <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
-                Within the <span style={{fontWeight: 'bold'}}>File Upload</span> component, an embedded <span style={{fontWeight: 'bold'}}>Icon</span> allows for further customization of the following properties: <br/><br/>
-                <li><span style={{fontWeight: 'bold'}}>Icon</span>: When the icon visibility is configured in the File Upload component's customization properties, you can select an icon from an icon picker list.</li>
-        </Column.Item>
-        <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
+	<Column.Item width="60%">
+        <ul>
+            <li><strong>Icon</strong>: When the icon visibility is configured in the File Upload component's customization properties, you can select an icon from an icon picker list.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="30%">
+            <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
 </Column.List>
 
 
@@ -92,13 +102,16 @@ The **File Upload** component uses data-binding to link user interactions with t
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-		Bind the component to an attribute of Blob or Picture type within an entity datasource. This attribute will store the uploaded file.
+		Bind the component to an attribute of Blob or Picture type within an entity datasource. This specific attribute will serve as the storage location for the uploaded file.
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
+:::info 
+The datasource for the **File Upload** component can take the form of either a `Blob` or a `Picture`.
+:::
 
 ## Showcase
 

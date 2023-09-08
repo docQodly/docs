@@ -32,28 +32,33 @@ Buttons are indispensable in a wide range of scenarios where user engagement and
 
 Enhance the **Button** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.</li>
-        <br/>
-        <li><span style={{fontWeight: 'bold'}}>Icon Position</span>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden for a seamless integration into your design.</li>
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+        <ul>
+            <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.</li>
+            <br/>
+            <li><strong>Icon Position</strong>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden for a seamless integration into your design.</li>
+        </ul>
 	</Column.Item>
-	<Column.Item width="35%">
+	<Column.Item width="30%">
         <img alt="explorer" src={require('./img/button_PropertiesCustomization.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
+
 ### Embedded Icon
 
+Within the <strong>Button</strong> component, an embedded <strong>Icon</strong> allows for further customization of the following properties:
 
 <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
-                Within the <span style={{fontWeight: 'bold'}}>Button</span> component, an embedded <span style={{fontWeight: 'bold'}}>Icon</span> allows for further customization of the following properties: <br/><br/>
-                <li><span style={{fontWeight: 'bold'}}>Icon</span>: When the icon visibility is configured in the Button component's customization properties, you can select an icon from an icon picker list.</li>
-        </Column.Item>
-        <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
+	<Column.Item width="65%">
+        <ul>
+            <li><strong>Icon</strong>: When the icon visibility is configured in the Button component's customization properties, you can select an icon from an icon picker list.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
 </Column.List>
 
 

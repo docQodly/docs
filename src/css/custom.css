@@ -1,3 +1,6 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css);
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -33,26 +36,197 @@
 }
 
 
+/* General */
 a:hover {
   text-decoration: none !important;
 }
 
+.hero{
+  background-image: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188)) !important;
+}
+.hero .hero__title{
+  color: white;
+}
+.hero .hero__subtitle{
+  color: white;
+}
+
+[data-theme="dark"] .featuresRow_src-components-HomepageFeatures-styles-module h3 {
+  color: white !important;
+}
+[data-theme="dark"] .featuresRow_src-components-HomepageFeatures-styles-module p {
+  color: white !important;
+}
 
 @font-face {
   font-family: Roboto;
   src: url(/static/fonts/Roboto-Regular.ttf);
 }
 
-
 /* remove underlined text  from table of contents */
 .table-of-contents u {
   text-decoration: none !important; 
 }
 /* h2 titles */
-h2 {
+.theme-doc-markdown h2 {
   border-bottom: thin solid #666666 !important;
   padding-bottom: 0.25em !important;
 }
+
+
+/************************* Footer *************************/
+@media screen and (max-width: 680px) {
+  .footer .container .row.footer__links {
+    display: block !important;
+    margin-left: 10px !important;
+  }
+  .footer .container .row.footer__links .col {
+    min-width: auto !important;
+  }
+}
+@media screen and (max-width: 240px) {
+  .row.footer__links > :nth-child(3) .footer__items {
+    display: block !important;
+  }
+  .row.footer__links > :nth-child(3) .footer__item{
+    margin-top: 30px !important;
+    margin-left: 20px !important;
+  }
+}
+
+/*copy rights*/
+.footer{
+  padding: 0 !important;
+}
+.footer .container {
+  padding: 0;
+  max-width: 100%;
+}
+.footer__bottom{
+  background-color: rgb(38, 45, 56);
+  width: 100%;
+  padding: 0.75rem;
+}
+.footer .container .row.footer__links{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(3, auto);
+}
+.footer .container .row.footer__links .col{
+  min-width: 200px;
+}
+.footer .container .row.footer__links .footer__title{
+  color: #fff;
+  font-family: "Roboto", serif;
+  font-size: 20px;
+  padding-bottom: 0.25em !important;
+  border-bottom: thin solid #666666 !important;
+}
+/*Social links*/
+.row.footer__links > :nth-child(3) .footer__items {
+  display: flex;
+}
+.row.footer__links > :nth-child(3) .footer__item{
+  background: none;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 2.6rem;
+  z-index: 10;
+  margin: 0 5px;
+}
+.row.footer__links > :nth-child(3) .footer__item::before {
+  content: '';
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 25%;
+  margin: 0;
+  position: relative;
+  top: 25%;
+  transition: all 0.3s;
+  width: 0;
+}
+.row.footer__links > :nth-child(3) .footer__item:hover::before{
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 2.6rem;
+  margin: -1.3rem;
+}
+
+.row.footer__links > :nth-child(3) .footer__link-item{
+  z-index: 1;
+  width: 1.3rem;
+  height: 1.28rem;
+  display: flex;
+  position: relative;
+  -webkit-text-fill-color: transparent;
+  background-size: contain;
+}
+
+/* slack */
+.row.footer__links > :nth-child(3) .footer__link-item[src="slack"]{
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="127"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="%23E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="%2336C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="%232EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="%23ECB22E"/></svg>');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="slack"]):hover::before {
+  background-color: white;
+}
+
+/* facebook */
+.row.footer__links > :nth-child(3) .footer__link-item[src="facebook"]{
+  background-image: url('../../static/img/brand-facebook-f.svg');
+  width: 0.75rem;
+  height: 1.15rem;
+  margin-left: 0.3rem;
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="facebook"]):hover .footer__link-item {
+  background-image: url('../../static/img/brand-facebook-f-white.svg');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="facebook"]):hover::before {
+  background-color: #3B5998;
+}
+
+/* twitter */
+.row.footer__links > :nth-child(3) .footer__link-item[src="twitter"]{
+  background-image: url('../../static/img/brand-twitter.svg');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="twitter"]):hover .footer__link-item {
+  background-image: url('../../static/img/brand-twitter-white.svg');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="twitter"]):hover::before {
+  background-color: black;
+}
+
+/* youtube */
+.row.footer__links > :nth-child(3) .footer__link-item[src="youtube"]{
+  background-image: url('../../static/img/brand-youtube.svg');
+  height: 1.2rem;
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="youtube"]):hover .footer__link-item {
+  background-image: url('../../static/img/brand-youtube-white.svg');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="youtube"]):hover::before {
+  background-color: #bb0000;
+}
+
+/* linkedin */
+.row.footer__links > :nth-child(3) .footer__link-item[src="linkedin"]{
+  background-image: url('../../static/img/brand-linkedin.svg');
+  width: 1.12rem;
+  margin-left: 0.2rem;
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="linkedin"]):hover .footer__link-item {
+  background-image: url('../../static/img/brand-linkedin-white.svg');
+}
+.row.footer__links > :nth-child(3) .footer__item:has(.footer__link-item[src="linkedin"]):hover::before {
+  background-color: #0077B5;
+}
+
 
 /* *************************** */
 /* ************* components SVGs ************* */
