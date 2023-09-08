@@ -9,11 +9,11 @@ const config = {
   title: 'Qodly Developer Center',
   tagline: 'Welcome to the Qodly Documentation',
   url: "https://docQodly.github.io",
-  baseUrl: '/docs/',
+  baseUrl: "/docs/",
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
-
+  
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
@@ -71,7 +71,12 @@ const config = {
       }),
     ],
   ],
-
+  scripts: [
+    {
+      src: "/docs/" + 'js/analytics/analytics.js', //depends on baseUrl
+      async: true,
+    },
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -206,6 +211,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
 };
 
 module.exports = config;
