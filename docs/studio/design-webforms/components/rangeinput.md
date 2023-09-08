@@ -32,21 +32,25 @@ The **Range Input** component contains an embedded **Slider Container** and a **
 
 Enhance the **Range Input** component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label Position</span>: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.
+        <ul>
+            <li><strong>Label Position</strong>: Developers can tailor the label's position, placing it above, below, to the left, to the right, or even hidden.</li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/rangeInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+         <img alt="explorer" src={require('./img/rangeInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
 - **Orientation**: Developers can choose between horizontal and vertical orientations for the Matrix. This choice affects the arrangement of Stylebox components and the presence of scrollbars.
 
-    - <Column.List align="center" justifyContent="between">
+    <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-            <li><span style={{fontWeight: 'bold'}}>Vertical Orientation (Default)</span>: By default, the Range Input component is oriented vertically. This means that Slider container is stacked from top to bottom.</li> <br/>
-            <li><span style={{fontWeight: 'bold'}}>Horizontal Orientation</span>: When the Range Input component is configured with a horizontal orientation, Slider container is arranged from left to right.</li>
+            <ul>
+                <li><strong>Vertical Orientation (Default)</strong>: By default, the Range Input component is oriented vertically. This means that Slider container is stacked from top to bottom.</li> <br/>
+                <li><strong>Horizontal Orientation</strong>: When the Range Input component is configured with a horizontal orientation, Slider container is arranged from left to right.</li>
+            </ul>
         </Column.Item>
         <Column.Item width="35%">
             <img alt="explorer" src={require('./img/rangeInput_orientation.gif').default} style={{borderRadius: '6px'}} />
@@ -58,13 +62,15 @@ Enhance the **Range Input** component to align with your application's requireme
 
 Within the **Range Input** component, an embedded **Label** allows for further customization of the following properties:
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <span style={{fontWeight: 'bold'}}>Label</span>: Personalize the label to offer clear instructions or guidance.
-	</Column.Item>
-	<Column.Item width="35%">
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <ul>
+            <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
         <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
+    </Column.Item>
 </Column.List>
 
 
@@ -72,11 +78,13 @@ Within the **Range Input** component, an embedded **Label** allows for further c
 
 Within the **Range Input** component, an embedded **Slider Container** allows for further customization of the following properties:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <li><span style={{fontWeight: 'bold'}}>Minimum Value</span>: Set the minimum value that users can select within the range.</li> <br/>
-        <li><span style={{fontWeight: 'bold'}}>Maximum Value</span>: Define the maximum value that users can select within the range.</li> <br/>
-        <li><span style={{fontWeight: 'bold'}}>Step</span>: Determine the increment value when users interact with the component.</li>
+        <ul>
+            <li><strong>Minimum Value</strong>: Set the minimum value that users can select within the range.</li> <br/>
+            <li><strong>Maximum Value</strong>: Define the maximum value that users can select within the range.</li> <br/>
+            <li><strong>Step</strong>: Determine the increment value when users interact with the component.</li> <br/>
+        </ul>
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
@@ -84,24 +92,30 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
 </Column.List>
 
 
-
 ## Data Integration
 
 The **Range Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
+
+:::info 
+The datasource for the **Range Input** component should be a numeric value.
+:::
 
 ### Data Binding
 To associate data with the Range Input component, follow these steps:
 
 - **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Range Input component.
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <li><span style={{fontWeight: 'bold'}}>Define the Datasource</span>: Specify the appropriate Datasource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
-	</Column.Item>
-	<Column.Item width="45%">
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <ul>
+            <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="45%">
         <img alt="explorer" src={require('./img/rangeInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
+    </Column.Item>
 </Column.List>
+
 
 - **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
 
