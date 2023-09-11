@@ -9,11 +9,11 @@ const config = {
   title: 'Qodly Developer Center',
   tagline: 'Welcome to the Qodly Documentation',
   url: "https://docQodly.github.io",
-  baseUrl: '/docs/',
+  baseUrl: "/docs/",
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
-
+  
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
@@ -50,8 +50,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-		path: 'docs',
-		routeBasePath: '/',
+		      path: 'docs',
+		      routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -68,10 +68,19 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-391275429',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
-
+  scripts: [
+    {
+      src: "/docs/" + 'js/analytics/analytics.js', //depends on baseUrl
+      async: true,
+    },
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -206,6 +215,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
 };
 
 module.exports = config;

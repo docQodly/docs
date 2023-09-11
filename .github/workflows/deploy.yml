@@ -35,13 +35,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - name: Setup config file
-        run: |
-          if [ ${{ github.repository_owner }} == 'docQodly' ]; then
-            sed -i 's/noIndex:\ false/noIndex:\ true/g' docusaurus.config.js
-          else
-            sed -i 's/includeCurrentVersion:\ true/includeCurrentVersion:\ false/g' docusaurus.config.js
-          fi
       - name: Build
         run: |
           if [ -e package-lock.json ]; then
@@ -50,7 +43,11 @@ jobs:
           npm i
           fi
           export NODE_OPTIONS="--max-old-space-size=14336"
-          npm run build
+          if [ ${{ github.repository_owner }} == 'docQodly' ]; then
+            npm run build -- --config ./docusaurus.config_preprod.js
+          else
+            npm run build
+          fi
       - name: Release to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
