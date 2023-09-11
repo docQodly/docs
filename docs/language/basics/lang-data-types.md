@@ -11,7 +11,7 @@ In Qodly, data are handled according to their type in two places: the datastore 
 Although they are usually equivalent, some data types available at the datastore level are not directly available in the language and are automatically converted. Conversely, some data types can only be handled through the language. The following table lists all available data types and how they are supported/declared:
 
 |Data Types	|Variable declaration|Datastore support (type)|Default value|
-|---|----|---|
+|---|----|---|----|
 |[blob](lang-blob.md)	|`var blob`|blob|0 byte|
 ||`var 4D.Blob`|object|null|
 |[boolean](lang-boolean.md)	|`var boolean`|bool|false|

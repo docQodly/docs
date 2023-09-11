@@ -22,25 +22,25 @@ You refer to an expression by the data type it returns. There are several expres
 
 |Expression|Type|Description|
 |---|---|---|
-|"Hello"|String	|The word Hello is a string constant, indicated by the double quotation marks.|
-|"Hello " + "there"|	String|	Two strings, "Hello " and "there", are added together (concatenated) with the string concatenation operator (+). The string "Hello there" is returned.|
-|"Mr. " + person.name|	String|	Two strings are concatenated: the string "Mr. " and the current value of the name attribute in the person entity. If the attribute contains "Smith", the expression returns "Mr. Smith".|
-|Uppercase("smith")	|String	|This expression uses `Uppercase`, a command from the language, to convert the string "smith" to uppercase. It returns "SMITH".|
-|4	|Number |	This is a number constant, 4.|
-|4 * 2|	Number|	Two numbers, 4 and 2, are multiplied using the multiplication operator (*). The result is the number 8.|
-|!2023-01-25!|	Date|	This is a date constant for the date 1/25/2023 (January 25, 2023).|
-|Current date+ 30|	Date	|This is a date expression that uses the `Current date` command to get today’s date. It adds 30 days to today’s date and returns the new date.|
-|?8:05:30?	|Time|	This is a time constant that represents 8 hours, 5 minutes, and 30 seconds.|
-|?2:03:04? + ?1:02:03?	|Time	|This expression adds two times together and returns the time 3:05:07.|
-|True|	Boolean|	This command returns the Boolean value TRUE.|
-|10 != 20|Boolean	|This is a logical comparison between two numbers. The != sign means "is not equal to". Since 10 "is not equal to" 20, the expression returns TRUE.|
-|"ABC" == "XYZ"	|Boolean	|This is a logical comparison between two strings. They are not equal, so the expression returns FALSE.|
-|myPicture + 50	|Picture	|This expression takes the picture in myPicture, moves it 50 pixels to the right, and returns the resulting picture.|
-|JSON Parse(MyString)|	Object|	This is a command that returns MyString as an object (if proper format)|
-|JSON Parse(MyJSONArray)	|Collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
-|Form.pageNumber|Object property|An object property is an expression that can be of any supported type
-|Col[5]|Collection element|A collection element is an expression that can be of any supported type|  
-|entitySel[0]|Entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
+|"Hello"|string	|The word Hello is a string constant, indicated by the double quotation marks.|
+|"Hello " + "there"|	string|	Two strings, "Hello " and "there", are added together (concatenated) with the string concatenation operator (+). The string "Hello there" is returned.|
+|"Mr. " + person.name|	string|	Two strings are concatenated: the string "Mr. " and the current value of the name attribute in the person object. If the attribute contains "Smith", the expression returns "Mr. Smith".|
+|uppercase("smith")	|string	|This expression uses `uppercase`, a command from the language, to convert the string "smith" to uppercase. It returns "SMITH".|
+|4	|number |	This is a number constant, 4.|
+|4 * 2|	number|	Two numbers, 4 and 2, are multiplied using the multiplication operator (*). The result is the number 8.|
+|!2023-01-25!|	date|	This is a date constant for the date 1/25/2023 (January 25, 2023).|
+|currentDate+ 30|	date	|This is a date expression that uses the `currentDate` command to get today’s date. It adds 30 days to today’s date and returns the new date.|
+|?8:05:30?	|time|	This is a time constant that represents 8 hours, 5 minutes, and 30 seconds.|
+|?2:03:04? + ?1:02:03?	|time	|This expression adds two times together and returns the time 3:05:07.|
+|true|	boolean|	This command returns the boolean value true.|
+|10 != 20|boolean	|This is a logical comparison between two numbers. The != sign means "is not equal to". Since 10 "is not equal to" 20, the expression returns true.|
+|"ABC" == "XYZ"	|boolean|This is a logical comparison between two strings. They are not equal, so the expression returns false.|
+|myPicture + 50	|picture|This expression takes the picture in myPicture, moves it 50 pixels to the right, and returns the resulting picture.|
+|jsonParse(MyString)|	object|	This is a command that returns MyString as an object (if proper format)|
+|jsonParse(MyJSONArray)	|collection	|This is a command that returns MyJSONArray as a collection (if proper format)|
+|myForm.pageNumber|object property|An object property is an expression that can be of any supported type
+|Col[5]|collection element|A collection element is an expression that can be of any supported type|  
+|entitySel[0]|entity|A element of an ORDA entity selection is an expression of the entity type. This kind of expression is **non-assignable**|  
 
 ## Assignable vs non-assignable expressions
 
@@ -54,6 +54,7 @@ myVar="Hello" //assign "Hello" to myVar
 form.pageNumber=10 //assign 10 to form.pageNumber
 //form.pageTotal-form.pageNumber is not assignable:
 form.pageTotal-form.pageNumber=10 //error, non-assignable
+entitySel[1]=myEntity //error, non-assignable
 ```
 
 In general, expressions that use an operator are non-assignable. For example, `entity.firstName+" "+entity.lastName` is not assignable. 
