@@ -33,7 +33,11 @@ You can convert a local CSS to a shared CSS by clicking on the following button 
 
 ### Inspect button
 
-The **Inspect** option ![styles-library](img/inspect-button.png)  allows you to check where your CSS classes are used in your webforms. Toggle the option by clicking the icon, then mouse over a CSS class to highlight its location in your webform. 
+The **Inspect** option ![styles-library](img/inspect-button.png) allows you to check where your CSS classes are used in your webforms. 
+
+Toggle the option by clicking the icon, then mouse over a CSS class to highlight its location in your webform:
+
+![styles-library](img/cssinspect.png)
 
 ## Properties panel
 
@@ -45,11 +49,12 @@ Using the Properties panel, you can bind a CSS class to the element and define v
 
 ![styles-library](img/properties-panel.png)
 
-Some visual properties such as grid areas or datatable columns can be edited directly on the canvas.
+Some visual properties such as DataTable columns can be edited directly on the canvas.
 
 ### Example 
 
 To add a red background to a Button component: 
+
 * from the Styles library:
 drag the `bg-red-500` class from the Styles library and drop it on the Button component.
 
