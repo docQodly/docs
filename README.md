@@ -31,7 +31,7 @@ The `docusaurus.config_start.js` uses `docusaurus.config.js` with a few modifica
 #### For Blank Pages
 If you have a blank page and wish to showcase a "Coming Soon" message with an animation, please follow these steps:
 
-* Import the 'ComingSoon' component at the very beginning of your Markdown (md) file. Immediately after the import statement, insert <ComingSoon/>.
+* Import the 'ComingSoon' component at the very beginning of your Markdown (md) file. Immediately after the import statement, insert `<ComingSoon/>`.
 
 ```
 import ComingSoon from '@site/src/components/ComingSoon'
@@ -71,8 +71,9 @@ import ComingSoon from '@site/src/components/Column'
 
 * To implement it, follow these steps: 
 
-1- Define a <Column.List>: This list component holds together the individual items.
-2- Add <Column.Item> components within the <Column.List>: These components represent individual items within the list. You can specify the width for each item, allowing you to customize your layout.
+1- Define a `<Column.List>`: This list component holds together the individual items.
+
+2- Add `<Column.Item>` components within the `<Column.List>`: These components represent individual items within the list. You can specify the width for each item, allowing you to customize your layout.
 
 Here's an example:
 
@@ -87,7 +88,7 @@ Here's an example:
 </Column.List>
 ```
 
-In this example, the <Column.List> component is configured with `align="center"` and `justifyContent="between"`, resulting in the following behavior:
+In this example, the `<Column.List>` component is configured with `align="center"` and `justifyContent="between"`, resulting in the following behavior:
 
 - Vertical Alignment: Items are vertically aligned in the center of the container.
 - Horizontal Distribution: Items are evenly distributed horizontally with space between them.
@@ -120,8 +121,6 @@ The `justifyContent` property determines how items are distributed horizontally 
 
 
 #### Exploring Specific Combinations
-
-Explore some specific combinations:
 
 * justifyContent="start" and align="start": 
     Items are aligned to the start both horizontally and vertically within the container.
