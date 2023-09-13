@@ -215,7 +215,7 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 #### See also
 
-[objectIsShared](objects.md#objectisshared)
+[objectIsShared](object.md#objectisshared)
 
 
 
@@ -850,6 +850,7 @@ b=c.every(f,Is number) //b=false
 |---------|--- |:---:|------|
 |propertyPath|string|->|Object property path whose values must be extracted to the new collection|
 |targetpath|string|->|Target property path or property name|
+
 |option|integer|->|`kKeepNull`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
 |Result|collection|<-|new collection containing extracted values|<!-- END REF -->
 
