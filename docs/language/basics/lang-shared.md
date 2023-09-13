@@ -7,7 +7,7 @@ title: Shared objects and collections
 
 Shared objects and shared collections can be stored in standard `object` and `collection` type [variables](lang-variables.md), but must be instantiated using specific commands:
 
-- to create a shared object, use the [`newSharedObject`](../objects.md#newsharedobject) command,
+- to create a shared object, use the [`newSharedObject`](../object.md#newsharedobject) command,
 - to create a shared collection, use the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command.
 
 :::note
@@ -18,9 +18,9 @@ Shared objects and collections can be set as properties of standard (not shared)
 
 In order to modify a shared object/collection, the **use...end** structure must be called. Reading a shared object/collection value does not require **use...end**.
 
-To know if an object or a collection is shared, use the [`objectIsShared`](../objects.md#objectisshared) command. 
+To know if an object or a collection is shared, use the [`objectIsShared`](../object.md#objectisshared) command. 
 
-A unique, global catalog returned by the [`storage`](../objects.md#storage) command is always available throughout the project, and can be used to store all shared objects and collections. 
+A unique, global catalog returned by the [`storage`](../object.md#storage) command is always available throughout the project, and can be used to store all shared objects and collections. 
 
 ## Using shared objects or collections
 
@@ -67,15 +67,15 @@ However, it is necessary to read a shared object/collection within `use...end` w
 
 ### Duplication
 
-Calling [`objectCopy`](../objects.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
+Calling [`objectCopy`](../object.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
 
 ### Storage
 
-**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../objects.md#storage) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
+**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../object.md#storage) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
 
 Note that, unlike standard shared objects, the **storage** object does not create a shared group when shared objects/collections are added as its properties. This exception allows the **storage** object to be used without locking all connected shared objects or collections.
 
-For more information, refer to the [`storage` command description](../objects.md#storage).
+For more information, refer to the [`storage` command description](../object.md#storage).
 
 ## use...end
 

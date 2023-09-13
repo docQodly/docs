@@ -37,7 +37,7 @@ Objects must have been instantiated, otherwise trying to read or modify their pr
 
 Object instantiation can be done in one of the following ways:
 
-- using the [`newObject`](../objects.md#newobject) command,
+- using the [`newObject`](../object.md#newobject) command,
 - using the `{}` operator.
 
 :::info
@@ -49,7 +49,7 @@ Several commands and functions return objects, for example [`jsonParse`](../json
 
 ### `newObject` command
 
-The [`newObject`](../objects.md#newobject) command creates a new empty or prefilled object and returns its reference.
+The [`newObject`](../object.md#newobject) command creates a new empty or prefilled object and returns its reference.
 
 Examples:
 
@@ -111,7 +111,7 @@ col=o.col[5] //6
 You can create two types of objects:
 
 - regular (non-shared) objects, using the `newObject` command or object literal syntax (`{}`). These objects can be edited without any specific access control but cannot be shared between processes. 
-- shared objects, using the [`newSharedObject`](../objects.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
+- shared objects, using the [`newSharedObject`](../object.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
 
 
 ## Syntax basics

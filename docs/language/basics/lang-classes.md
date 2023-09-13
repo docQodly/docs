@@ -145,13 +145,13 @@ When QodlyScript does not find a function or a property in a class, it searches 
 
 #### `objectClass ( object ) -> object | null`
 
-[`objectClass`](../objects.md#objectclass) returns the class of the object passed in parameter.
+[`objectClass`](../object.md#objectclass) returns the class of the object passed in parameter.
 
 ### `instanceOf`
 
 #### `instanceOf ( object , class ) -> boolean`
 
-[`instanceOf`](../objects.md#instanceof) returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
+[`instanceOf`](../object.md#instanceof) returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
 
 
 ## Class keywords
