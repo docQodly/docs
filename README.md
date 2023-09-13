@@ -29,6 +29,7 @@ The `docusaurus.config_start.js` uses `docusaurus.config.js` with a few modifica
 
 1- Import the 'ComingSoon' component with the following code:
 `import ComingSoon from '@site/src/components/ComingSoon'`
+
 2- Place <ComingSoon/> wherever you'd like it to appear on the page
 If it's a blank page, you can simply include the 'Coming Soon' Component like this:
 ```
