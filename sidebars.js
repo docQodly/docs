@@ -156,11 +156,13 @@ const sidebars = {
         ],
     },
     */
-    {
+	/*   
+   {
       type: 'doc',
       id: 'resources',
       label: "Resources"
-    }, 
+    },
+	*/	
   ],
   
   

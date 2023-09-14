@@ -17,7 +17,7 @@ Variables are language objects; you can create and use variables that will never
 
 ## Declaring Variables
 
-You create variables by declaring them. When variables are declared, they are initialized to the [**default value corresponding to their type**](lang-data-types.md#default-values), which they will keep during the session as long as they have not been [assigned](#assigning-data). 
+You create variables by declaring them. When variables are declared, they are initialized to the [**default value corresponding to their type**](lang-data-types.md), which they will keep during the session as long as they have not been [assigned](#assigning-data). 
 
 You declare variables using the `var` keyword. It allows you to create basic variables (integer, string...) and to bind object variables with classes. To declare a variable of any type with the `var` keyword, use the following syntax:
 

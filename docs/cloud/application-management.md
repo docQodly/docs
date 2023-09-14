@@ -73,7 +73,7 @@ Per app, you can add your domain to be validated by your DNS. All the informatio
 
 ## Access to your files through sftp
 
-For every environment, you can access to your files on the server using the **Secure File Transfert Protocol** (sftp). You just need to click on the **Access files** button:
+For every environment, you can access to your files on the server using the **Secure File Transfer Protocol** (sftp). You just need to click on the **Access files** button:
 
 ![access-files](img/sftp.png)
 

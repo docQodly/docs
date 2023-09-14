@@ -3,7 +3,7 @@ id: cloud
 title: Qodly Cloud Architecture
 ---
 
-![cloud architecture](img/cloud-archi.svg)
+![cloud architecture](img/cloud-archi.png)
 
 
 ## Access

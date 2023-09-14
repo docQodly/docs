@@ -9,16 +9,16 @@ const config = {
   title: 'Qodly Developer Center',
   tagline: 'Welcome to the Qodly Documentation',
   url: "https://docQodly.github.io",
-  baseUrl: '/docs/',
+  baseUrl: "/docs/",
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-
+  favicon: 'img/favicon.svg',
+  
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
-  noIndex: true,
+  noIndex: false,
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -50,28 +50,37 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-		path: 'docs',
-		routeBasePath: '/',
+		      path: 'docs',
+		      routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/docQodly/docs/edit/main",
+            "https://github.com/qodly/docs/edit/main",
         },
         blog: {
         //  showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/docQodly/docs',
+            'https://github.com/qodly/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-391275429',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
-
+  scripts: [
+    {
+      src: "/docs/" + 'js/analytics/analytics.js', //depends on baseUrl
+      async: true,
+    },
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -134,68 +143,79 @@ const config = {
 		  */
         ],
       },
+      
       footer: {
-      style: "dark",
-      links: [
+        style: "dark",
+        links: [
+          {
+            title: "Support",
+            items: [
+              {
+                label: "Tutorials",
+                to: "https://qodly.com/tutorials",
+              },
+              {
+                label: "Get Support",
+                to: "https://support.4d.com/",
+              },
+            ],
+          },
+          {
+            title: "Company",
+            items: [
+              {
+                label: "About Qodly",
+                to: "https://qodly.com/about-us",
+              },
         {
-          title: "Community",
-          items: [
-            {
-              label: "Slack",
-              to: "https://join.slack.com/t/qodly/shared_invite/zt-20ieeffts-NU57SOXcbakmWgIMnJpStQ",
-            },
-            {
-              label: "Facebook",
-              to: "https://www.facebook.com/qodlyby4d",
-            },
-            {
-              label: "Twitter",
-              to: "https://twitter.com/qodlyby4d",
-            },
-            {
-              label: "Youtube Channels",
-              to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
-            },
-            {
-              label: "Linkedin",
-              to: "https://linkedin.com/showcase/qodly",
-            },
-          ],
-        },
-        {
-          title: "Support",
-          items: [
-            {
-              label: "Tutorials",
-              to: "https://www.youtube.com/playlist?list=PLcUzCPYm5QO-2WoG87EdZFIccbewCURJm",
-            },
-            {
-              label: "Get Support",
-              to: "https://support.4d.com/",
-            },
-          ],
-        },
-        {
-          title: "Company",
-          items: [
-            {
-              label: "About 4D",
-              to: "https://us.4d.com/about-us",
-            },
-            {
-              label: "Contact us",
-              to: "mailto:contact@qodly.com",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
-     },
+                label: "About 4D",
+                to: "https://us.4d.com/about-us",
+              },
+              {
+                label: "Contact us",
+                to: "mailto:contact@qodly.com",
+              },
+            ],
+          },
+          {
+            title: "Follow Us",
+            items: [
+              {
+                label: "Slack",
+                to: "https://join.slack.com/t/qodly/shared_invite/zt-20ieeffts-NU57SOXcbakmWgIMnJpStQ",
+                src: 'slack',
+              },
+              {
+                label: "Facebook",
+                to: "https://www.facebook.com/qodlyby4d",
+                src: 'facebook',
+              },
+              {
+                label: "Twitter",
+                to: "https://twitter.com/qodlyby4d",
+                src: 'twitter',
+              },
+              {
+                label: "Youtube Channels",
+                to: "https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg",
+                src: 'youtube',
+              },
+              {
+                label: "Linkedin",
+                to: "https://linkedin.com/showcase/qodly",
+                src: 'linkedin',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
+       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
+
 };
 
 module.exports = config;

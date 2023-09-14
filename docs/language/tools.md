@@ -8,7 +8,7 @@ title: Tools
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.base64Encode.Syntax -->](#base64encode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64encode.Summary -->|
+|[<!-- INCLUDE #_command_.base64Encode.Syntax -->](#base64encode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64Encode.Summary -->|
 |[<!-- INCLUDE #_command_.base64Decode.Syntax -->](#base64decode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64Decode.Summary -->|
 |[<!-- INCLUDE #_command_.generateUUID.Syntax -->](#generateuuid)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateUUID.Summary -->|
 |[<!-- INCLUDE #_command_.generateDigest.Syntax -->](#generatedigest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateDigest.Summary -->|
@@ -317,6 +317,7 @@ This example verifies a password hash previously created by [`generatePasswordHa
 :::note
  
 The password is never stored on disk, only the hash. Using a remote application, the hash could be produced on the client side. If instead, you use a JavaScript (or similar) based front end, the best practice for security is to create the hash on the server side. Of course, you should use a TLS encrypted network connection for security, as this requires transferring the password over the network.
+
 
 :::
 

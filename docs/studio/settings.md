@@ -21,7 +21,7 @@ This page contains settings related to the Qodly Studio user interface.
 
 #### Show Renderer Pop Over
 
-Displays or not a pop over when the renderer and the Studio use [different URL schemes](configuration/license-usage.md#url-schemes) (which could lead to wrong licence counting).
+Displays or not a pop over when the [renderer](rendering.md) and Qodly Studio use different URL schemes.
 
 #### Tooltip Behavior
 

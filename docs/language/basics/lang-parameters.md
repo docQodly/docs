@@ -49,7 +49,7 @@ Input and output values are [evaluated](#values-or-references) at the moment of 
 
 ### Initialization
 
-When parameters are declared, they are initialized to the [**default value corresponding to their type**](lang-data-types.md#default-values), which they will keep during the session as long as they have not been assigned. 
+When parameters are declared, they are initialized to the [**default value corresponding to their type**](lang-data-types.md), which they will keep during the session as long as they have not been assigned. 
 
 
 
