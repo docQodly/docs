@@ -518,7 +518,7 @@ For more information, see [Shared objects and collections](basics/lang-shared.md
 
 :::note
 
-The command returns `true` if you pass a [shareable entity selection](../concepts/orda/data#shareable-or-alterable-entity-selections) in *object*.
+The command returns `true` if you pass a [shareable entity selection](../orda/data.md#shareable-or-alterable-entity-selections)
 
 :::
 
