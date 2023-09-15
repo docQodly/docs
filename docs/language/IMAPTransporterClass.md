@@ -800,7 +800,7 @@ Mailbox name delimiter character.
 
 #### Example
 
-See [`getBoxList()` example](getboxlist).
+See [`getBoxList()` example](#getboxlist).
 
 <!-- END REF -->
 
