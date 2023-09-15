@@ -1476,7 +1476,7 @@ Returns:
 
 
 <!-- REF EntityClass.touched().Desc -->
-## .touched( )   
+## .touched()   
 
 <!-- REF #EntityClass.touched().Syntax -->
 **.touched()** : boolean<!-- END REF -->
