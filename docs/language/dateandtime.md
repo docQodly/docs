@@ -470,7 +470,7 @@ You can express any numerical value as a time:
 
 #### See also
 
-[`bool`](#../boolean#bool)<br/>[`string`](../string#string)<br/>[`timeString`](#timestring)<br/>[`timestamp`](#timestamp)
+[`bool`](#../boolean#bool)<br/>[`string`](./string#string)<br/>[`timeString`](#timestring)<br/>[`timestamp`](#timestamp)
 
 
 ## timeString
