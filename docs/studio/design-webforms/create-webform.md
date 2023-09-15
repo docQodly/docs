@@ -134,7 +134,7 @@ The Properties Panel offers a pair of distinctive modes:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="./components/webformloader">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/webformloader">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
     </Column.Item>
     <Column.Item width="30%">
         <img alt="explorer" src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
