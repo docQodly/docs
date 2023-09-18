@@ -72,19 +72,30 @@ When configuring a function event, the Contextual panel indicates whether the fu
 
 Within the Webform Editor, the **Datasources** section conveniently organizes available datasources:
 
-![alt-text](img/data-sources.png)
-
 This section includes:
 
-- A **Search** area for filtering the datasource list.
-
-- The **Catalog**, containing:
-    - Dataclasses from your application. Here, you can designate entities or entity selections from your Datastore, which will be handled by the server as datasources.
-    - Functions defined at the datastore level and within each dataclass.
-
-- **This Webform**: Datasources exclusive to the current webform.
-
-- **Namespaces**: Shared datasources organized by namespaces. You can create a namespace by clicking the `+` icon or when defining a shared datasource.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ul>
+            <li>A <strong>Search</strong> area for filtering the datasource list.</li>
+            <br/>
+            <li>The <strong>Catalog</strong>, containing:</li>
+            <br/>
+            <ul>
+                <li>Dataclasses from your application. Here, you can designate entities or entity selections from your Datastore, which will be handled by the server as datasources.</li>
+                <br/>
+                <li>Functions defined at the datastore level and within each dataclass.</li>
+            </ul>
+            <br/>
+            <li><strong>This Webform</strong>: Datasources exclusive to the current webform.</li>
+            <br/>
+            <li><strong>Namespaces</strong>: Shared datasources organized by namespaces. You can create a namespace by clicking the `+` icon or when defining a shared datasource.</li>
+        </ul>        
+	</Column.Item>
+	<Column.Item width="30%">
+        <img alt="explorer" src={require('./img/data-sources.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 
 ### From the Catalog
