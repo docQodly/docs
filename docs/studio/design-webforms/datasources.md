@@ -198,7 +198,7 @@ Iterative components can be bound to two types of datasources:
 	</Column.Item>
 </Column.List>
 
-### Storing data in a Datasource
+### Capturing Function Results in a Datasource
 
-You can store data in scalar and catalog datasources. For example, you can configure an event that calls a function and stores the result of that function in a datasource. For a practical example, please refer to the [example from the user events section](events.md#example-search-feature-using-the-onchange-event).
+You can capture the results of a function call and store them in a datasource. For example, you can configure an event that calls a function and then captures the outcome, saving it in a datasource. For a practical example, please refer to the [example from the user events section](events.md#example-search-feature-using-the-onchange-event).
 
