@@ -276,8 +276,7 @@ In "optimistic lock" mode, entities are not locked explicitly before updating th
 
 #### ORDA
 
-Object Relational Data Access. See [What is ORDA?](overview)
-
+Object Relational Data Access. See [What is ORDA?](#the-orda-concept)
 
 #### Pessimistic Lock  
 

@@ -49,7 +49,7 @@ Every [Qodly Server](../concepts/platform.md#qodly-server) is a container deploy
 
 User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. 
 
-Every developer or application user needs to be [declared in QIS](xxx) with an appropriate [role](../studio/roles/dataAccessRestrictions.md). Roles allow you to assign assign different permissions at database level for user sessions.
+Every developer or application user needs to be `declared in QIS` with an appropriate [role](../studio/roles/dataAccessRestrictions.md). Roles allow you to assign assign different permissions at database level for user sessions.
 
 Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
 
