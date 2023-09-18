@@ -125,8 +125,8 @@ To associate navigation actions with events, follow these steps:
         <Column.Item width="60%">
                 - <code>New Tab</code>: Induce the opening of a new browser tab.<br />
                 - <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.<br />
-                - <code>Webform Loader</code>: Access the intended webform through a dedicated [Webform loader](./components/webformloader).<br />
-                - <code>Webform Loader (Self)</code>: Reveals content within the existing [Webform loader](./components/webformloader).
+                - <code>Webform Loader</code>: Access the intended webform through a dedicated <a href="components/webformloader">Webform loader</a>.<br />
+                - <code>Webform Loader (Self)</code>: Reveals content within the existing <a href="components/webformloader">Webform loader</a>.
         </Column.Item>
         <Column.Item width="35%">
             <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
