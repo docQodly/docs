@@ -13,7 +13,7 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
-  
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
@@ -27,7 +27,7 @@ const config = {
     locales: ['en'],
   },
 
- plugins: [
+  plugins: [
     [require.resolve('@cmfcmf/docusaurus-search-local'), {
       // Options here
     }],
@@ -43,15 +43,15 @@ const config = {
       };
     }
   ],
-  
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-		      path: 'docs',
-		      routeBasePath: '/',
+          path: 'docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -59,7 +59,7 @@ const config = {
             "https://github.com/qodly/docs/edit/main",
         },
         blog: {
-        //  showReadingTime: true,
+          //  showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -89,9 +89,9 @@ const config = {
         logo: {
           alt: 'Qodly',
           //src: 'img/qodly-logo-dark.svg',
-		  //srcDark: 'img/qodly-logo-white.svg',
+          //srcDark: 'img/qodly-logo-white.svg',
           src: 'img/Qodly-beta-D.png',
-		  srcDark: 'img/Qodly-beta-W.png',
+          srcDark: 'img/Qodly-beta-W.png',
         },
         items: [
           {
@@ -100,50 +100,47 @@ const config = {
             position: 'left',
             label: 'Getting Started',
           },
-  		  /*{
+          /*{
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
             label: 'Dashboard',
           },*/
-
-		  {
+          {
             type: 'doc',
             docId: 'studio/overview',
             position: 'left',
             label: 'Develop',
           },
-		   {
+          {
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
             label: 'Run & Manage',
           },
-		  {
+          {
             type: 'doc',
             docId: 'concepts/platform',
             position: 'left',
             label: 'Architecture',
           },
-		  
-		 /*{
-            type: 'doc',
-            docId: '/category/API',
-            position: 'left',
-            label: 'API',
-          },
-		  */
-		  /*
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/docQodly/docs',
-            label: 'GitHub',
-            position: 'right',
-          },
-		  */
+          /*{
+              type: 'doc',
+              docId: '/category/API',
+              position: 'left',
+              label: 'API',
+            },
+          */
+          /*
+            {to: '/blog', label: 'Blog', position: 'left'},
+            {
+              href: 'https://github.com/docQodly/docs',
+              label: 'GitHub',
+              position: 'right',
+            },
+          */
         ],
       },
-      
       footer: {
         style: "dark",
         links: [
@@ -167,7 +164,7 @@ const config = {
                 label: "About Qodly",
                 to: "https://qodly.com/about-us",
               },
-        {
+              {
                 label: "About 4D",
                 to: "https://us.4d.com/about-us",
               },
@@ -209,13 +206,12 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
-       },
+        },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
-
 };
 
 module.exports = config;

@@ -77,7 +77,7 @@ To associate class functions with events, follow these steps:
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local variable visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared variable belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and data sharing.
+            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and data sharing.
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
@@ -125,8 +125,8 @@ To associate navigation actions with events, follow these steps:
         <Column.Item width="60%">
                 - <code>New Tab</code>: Induce the opening of a new browser tab.<br />
                 - <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.<br />
-                - <code>Webform Loader</code>: Access the intended webform through a dedicated [Webform loader](./components/webformloader).<br />
-                - <code>Webform Loader (Self)</code>: Reveals content within the existing [Webform loader](./components/webformloader).
+                - <code>Webform Loader</code>: Access the intended webform through a dedicated <a href="components/webformloader">Webform loader</a>.<br />
+                - <code>Webform Loader (Self)</code>: Reveals content within the existing <a href="components/webformloader">Webform loader</a>.
         </Column.Item>
         <Column.Item width="35%">
             <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
