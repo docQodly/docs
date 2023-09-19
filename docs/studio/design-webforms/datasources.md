@@ -4,7 +4,7 @@ title: Datasources
 ---
 import Column from '@site/src/components/Column'
 
-Datasources are integral to Qodly's architectural design, simplifying the development of web applications. **They act as data connectors, serving as references** that automatically activate events upon data changes. These datasources can be **linked** to webform components, providing an intuitive way to display and manage data within your application.
+Datasources are integral to Qodly's architectural design, simplifying the development of web applications. They act as **data connectors, serving as references** that automatically activate events upon data changes. These datasources can be **linked** to webform components, providing an intuitive way to display and manage data within your application.
 
 ## Understanding Datasources
 
@@ -24,7 +24,7 @@ You can also attach events to datasources, triggering specific actions when thes
 
 ### Catalog Datasources
 
-**Catalog datasources** (also known as **ORDA datasources**), serve as references to entities and entity selections that originate from the server and are based on the data model.
+Catalog datasources (also known as **ORDA datasources**), serve as references to entities and entity selections that originate from the server and are based on the data model.
 
 :::info 
 These datasources optimize data exchange by selectively requesting only the attributes displayed by the component from the server and then making them available in the browser.
@@ -32,7 +32,7 @@ These datasources optimize data exchange by selectively requesting only the attr
 
 ### Scalar Datasources
 
-**Scalar datasources**, on the other hand, are confined to the browser's local environment. They can be generated directly within the browser and subsequently transmitted to the server during a function call. Scalar datasources are versatile and can take on various data types, including String, Number, Boolean, Date, Object, or Collection.
+Scalar datasources, on the other hand, are confined to the browser's local environment. They can be generated directly within the browser and subsequently transmitted to the server during a function call. Scalar datasources are versatile and can take on various data types, including String, Number, Boolean, Date, Object, or Collection.
 
 :::info 
 It's crucial to emphasize that Scalar datasources do not originate from the Data model and, consequently, do not possess persistence.
@@ -49,7 +49,7 @@ Webform Datasources are scoped to the webform where they are defined. They can o
 Shared Datasources, on the other hand, are scoped to the entire application and can be utilized in multiple webforms within the same project.
 
 :::info 
-By default, when you [create a datasource](#creating-a-datasource) without specifying a namespace, you define a webform datasource.
+By default, when you [**create a datasource**](#creating-a-datasource) without specifying a namespace, you define a webform datasource.
 :::
 
 #### Shared functions 
@@ -70,9 +70,7 @@ When configuring a function event, the Contextual panel indicates whether the fu
 
 ## Creating a datasource 
 
-Within the Webform Editor, the **Datasources** section conveniently organizes available datasources:
-
-This section includes:
+Within the Webform Editor, the **Datasources** section conveniently organizes available datasources. This section includes:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -89,7 +87,7 @@ This section includes:
             <br/>
             <li><strong>This Webform</strong>: Datasources exclusive to the current webform.</li>
             <br/>
-            <li><strong>Namespaces</strong>: Shared datasources organized by namespaces. You can create a namespace by clicking the `+` icon or when defining a shared datasource.</li>
+            <li><strong>Namespaces</strong>: Shared datasources organized by namespaces. You can create a namespace by clicking the <code>+</code> icon or when defining a shared datasource.</li>
         </ul>        
 	</Column.Item>
 	<Column.Item width="30%">
@@ -103,7 +101,7 @@ This section includes:
 You can create webform or shared datasources directly from the Catalog <img alt="explorer" src={require('./img/Catalog.png').default} style={{borderRadius: '6px', width: '20%'}} />.
 
 1. In the Datasources section, choose **Catalog** > **Data Classes**.
-2. Click the `+` icon next to a dataclass.
+2. Click the `+` icon next to a Dataclass.
 3. Enter the name of the datasource. 
 4. Select either Entity or Entity Selection.
 5. Configure its settings, including initial value, page size, and depth (if needed).
@@ -118,7 +116,7 @@ You can create webform datasources exclusively from this location <img alt="expl
 
 1. Click the `+` icon near the **This Webform** line.
 2. Enter the name of the datasource.
-3. Select the scalar Type for the datasource. 
+3. Select the scalar type for the datasource. 
 
 :::info 
 If you select Entity selection or Entity, you create an ORDA datasource. You need then to select its Dataclass and configure its settings (initial value, page size or depth).
@@ -129,9 +127,10 @@ If you select Entity selection or Entity, you create an ORDA datasource. You nee
 
 Shared datasources can only be created from a namespace <img alt="explorer" src={require('./img/Namespace.png').default} style={{borderRadius: '6px', width: '20%'}} />.
 
-1. Click the `+` icon near a defined namespace.
+1. Click the `+` icon near a defined **Namespace**.
 2. Enter the name of the datasource.
-3. Specify the datasource Type.
+3. Specify the datasource type.
+
 :::info 
 If you select Entity selection or Entity, you create an ORDA datasource. You need then to select its Dataclass and configure its settings (initial value, page size or depth).
 :::
@@ -155,7 +154,7 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         The <strong>Inspect</strong> option allows you to see where your datasources are used within your webforms. 
-        <br/>
+        <br/><br/>
         Toggle the option by clicking the icon, then hover over a datasource to highlight its location in your webform.
 	</Column.Item>
 	<Column.Item width="40%">
@@ -175,10 +174,10 @@ Binding a datasource to a component can be accomplished through several methods:
 
 :::info Shortcuts
 
-For efficiency, if you drag and drop an Entity Selection attribute onto a [Select box](components/selectbox.md) or [Matrix](components/matrix.md) component, the **$This.attributeName** binding is automatically established:
+For efficiency, if you drag and drop an Entity Selection attribute onto a [**Select Box**](components/selectbox.md) or [**Matrix**](components/matrix.md) component, the **$This.attributeName** binding is automatically established:
 
 
-For [images](components/image.md), the binding is automatically displayed in the Data Access panel:
+For [**images**](components/image.md), the binding is automatically displayed in the Data Access panel:
 
 <img alt="explorer" src={require('./img/BindingDatasourceToComponent.gif').default} style={{borderRadius: '6px'}} />
 
