@@ -139,7 +139,6 @@ Please be aware that:
 The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
 :::
 
-
 ### Bind Standard Actions to Events
 
 To link standard actions with events, follow these steps:
@@ -189,6 +188,50 @@ To link standard actions with events, follow these steps:
         </Column.Item>
     </Column.List>
 
+### Navigate to External Links
+
+In addition to navigating to webforms, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events](#bind-navigation-actions-to-events), with a slight variation in the "Select Target" step:
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ul>
+            <li><span style={{fontWeight: 'bold'}}>Select Target</span>: Paste the desired external link URL into the "Select Target" field.</li>
+            <br/>
+            <li><span style={{fontWeight: 'bold'}}>Choose External Link</span>: Within the "Select Target" field's dropdown list, select <code>External Link</code>.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="35%">
+		<img alt="explorer" src={require('./img/externalLink.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <ul>
+            <li><span style={{fontWeight: 'bold'}}>Define Transition Method</span>: Similar to configuring webform navigation, you can specify how the external link will be presented. However, for external links, you have two options:</li>
+            <br/>
+            <ul>
+                <li><span style={{fontWeight: 'bold'}}>New Tab</span>: Induce the opening of a new browser tab.</li>
+                <br/>
+                <li><span style={{fontWeight: 'bold'}}>Current Tab</span>: Replace the ongoing browser tab with the chosen external link.</li>
+            </ul>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img alt="explorer" src={require('./img/externalLink2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+ 
+
+
+### Navigate to Shared Folder Content
+
+Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#navigate-to-external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the "Select Target" field.
+
+:::tip 
+When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
+:::
 
 ###  List of standard actions
 
