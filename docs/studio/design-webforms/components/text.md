@@ -70,6 +70,10 @@ Enhance the **Text** component to align with your application's requirements usi
 
 The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping a datasource of type `text`, `number`, `date`, or `duration` onto the webform, resulting in the automatic addition of a Text component with the datasource bound to it.
+:::
+
 ## Triggers and Events
 
 The **Text** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:

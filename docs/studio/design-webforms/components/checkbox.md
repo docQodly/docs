@@ -104,6 +104,9 @@ To associate data with the Checkbox component, follow these steps:
 
 - **Define the Datasource**: Specify the relevant Datasource that will capture the user's selected choice.
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the Checkbox component.
+:::
 
 ### Server-Side Interaction
 

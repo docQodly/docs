@@ -94,6 +94,19 @@ To associate data with the **DataTable** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the DataTable component.
+:::
+
+### Data Display
+
+When it comes to displaying columns in the DataTable component, you have two options:
+
+- **Property Customization in the Columns Area**: Modify column settings according to your preferences directly from the [Columns Area](#properties-customization).
+
+- **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the datasource onto the DataTable.
+
+
 
 ### Server-Side Interaction
 

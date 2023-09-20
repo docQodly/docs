@@ -119,6 +119,9 @@ To associate data with the Range Input component, follow these steps:
 
 - **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the Range Input component.
+:::
 
 ### Server-Side Interaction
 
