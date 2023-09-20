@@ -117,6 +117,9 @@ To enable data capture for the Radio component, follow these steps:
 	</Column.Item>
 </Column.List>
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the Radio component.
+:::
 
 ### Server-Side Interaction
 

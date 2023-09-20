@@ -101,6 +101,9 @@ To associate data with the **Select Box** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the Select Box component.
+:::
 
 ### Data Display
 
