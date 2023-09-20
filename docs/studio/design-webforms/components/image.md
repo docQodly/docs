@@ -55,7 +55,11 @@ For instance, if you've uploaded an image named "booking.png", you can set the i
 
 - **Direct Image Upload**: The Image component simplifies the process of adding new images. By clicking on the image component and uploading the desired picture, the image is automatically added to the Shared folder's <code>/$shared/assets/images</code> subdirectory. The component's image source is updated accordingly.
 
+<br/>
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping an image datasource onto the webform, which will automatically add an Image component with the datasource bound to it.
+:::
 
 ## Triggers and Events
 

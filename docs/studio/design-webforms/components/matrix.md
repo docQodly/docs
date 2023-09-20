@@ -72,6 +72,10 @@ To associate data with the **Matrix** component, follow these steps:
 	</Column.Item>
 </Column.List>
 
+:::tip 
+Alternatively, you can establish the connection by dragging and dropping the datasource onto the Matrix component.
+:::
+
 ### Data Display
 
 To display data iterated over a datasource, you can follow these additional steps:
