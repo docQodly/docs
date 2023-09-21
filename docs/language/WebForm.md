@@ -126,7 +126,11 @@ end
 
 #### Description
 
-The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object that references a webform<!-- END REF -->.
+The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object<!-- END REF -->, however, it **does not return a reference** to the underlying object. Instead, it provides a means to work with and effectively emulates the web form's properties and functions. 
+
+:::info
+This means that while you receive a 4D.WebForm object as a result, it is not a direct reference to the web form instance but a proxy object that allows you to interact with.
+:::
 
 Each property of the returned object is an object of the [4D.WebFormItem](#webformitem-class) class.
 
@@ -161,6 +165,10 @@ myForm=webForm //returns the web form as an object, each property is a component
 component=myForm.myImage //returns the myImage component of the web form
 
 ```
+
+:::info
+While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate web form components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
+:::
 
 ### .setError()
 
