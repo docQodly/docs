@@ -171,7 +171,22 @@ The Data Access properties encompass distinct options and fields tailored to eac
 - **DataSource**: Identifies the data source for component iteration.
 - **Selected Element**: Specifies the currently selected element within the component.
 - **Iterate with**: Utilizes a datasource for looping through the same dataset.
-- **Server Side**: Provides the means to exercise server-side control over a component's behavior. This involves assigning a server-side reference, essentially an "address" on the server, to the component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <ul>
+            <li><strong>Server Side</strong>: Provides the means to exercise server-side control over a component's behavior. This involves assigning a <code>Server Side</code> reference, essentially an "address" on the server, to a specific component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.</li>
+        </ul>        
+	</Column.Item>
+	<Column.Item width="40%">
+        <img alt="explorer" src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::info 
+Server Side allows you to control the component's behavior, such as [hiding](../../language/WebForm.md#hide), [showing](../../language/WebForm.md#show), [adding CSS classes](../../language/WebForm.md#addcssclass), or [removing CSS classes](../../language/WebForm.md#removecssclass) from it.
+:::
+
 
 ### Style Category
 
