@@ -98,43 +98,82 @@ Within the Webform Editor, the **Datasources** section conveniently organizes av
 
 ### From the Catalog
 
-You can create webform or shared datasources directly from the Catalog <img alt="explorer" src={require('./img/Catalog.png').default} style={{borderRadius: '6px', width: '20%'}} />.
+To create Webform or Shared datasources directly from the Catalog, follow these steps:
 
-1. In the Datasources section, choose **Catalog** > **Data Classes**.
-2. Click the `+` icon next to a Dataclass.
-3. Enter the name of the datasource. 
-4. Select either Entity or Entity Selection.
-5. Configure its settings, including initial value, page size, and depth (if needed).
-6. To create a shared datasource, specify a Namespace, for a webform (non-shared) datasource, leave the field empty. 
-7. Click **Confirm**. 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+                <ul>
+                        <li>In the Datasources section, choose <strong>Catalog</strong> > <strong>Data Classes</strong>.</li>
+                        <br/>
+                        <li>Click the <code>+</code> icon next to a defined Dataclass.</li>
+                        <br/>
+                        <li>Enter the name of the datasource. </li>
+                        <br/>
+                        <li>Select the datasource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA data source. Afterward, proceed to choose its Dataclass and configure its settings, including initial values, page size, and depth.</li>
+                        <br/>
+                        <li>To create a shared datasource, specify a <code>Namespace</code>, for a webform (non-shared) datasource, leave the field empty.</li>
+                </ul>        
+	</Column.Item>
+	<Column.Item width="45%">
+                <img alt="explorer" src={require('./img/Catalog.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-The newly created Entity or Entity Selection datasource will now appear in either the **This Webform** or **Namespaces** section, depending on your settings.
+:::info 
+Specifying a namespace places the datasource in the **Namespaces** section, while without a namespace, it is situated in the **This Webform** section.
+:::
 
 ### From This Webform
 
-You can create webform datasources exclusively from this location <img alt="explorer" src={require('./img/ThisWebform.png').default} style={{borderRadius: '6px', width: '25%'}} />.
+To create Webform datasources, follow these steps:
 
-1. Click the `+` icon near the **This Webform** line.
-2. Enter the name of the datasource.
-3. Select the scalar type for the datasource. 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+                <ul>
+                        <li>Click the <code>+</code> icon in the header of the <strong>This Webform</strong> section.</li>
+                        <br/>
+                        <li>Enter the name of the datasource. </li>
+                        <br/>
+                        <li>Choose the datasource type and configure its initial value according to the selected type.</li>
+                </ul>        
+	</Column.Item>
+	<Column.Item width="45%">
+                <img alt="explorer" src={require('./img/ThisWebform.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
 
 :::info 
-If you select Entity selection or Entity, you create an ORDA datasource. You need then to select its Dataclass and configure its settings (initial value, page size or depth).
+For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
 :::
 
 
 ### From a Namespace
 
-Shared datasources can only be created from a namespace <img alt="explorer" src={require('./img/Namespace.png').default} style={{borderRadius: '6px', width: '20%'}} />.
+To create Shared datasources, follow these steps:
 
-1. Click the `+` icon near a defined **Namespace**.
-2. Enter the name of the datasource.
-3. Specify the datasource type.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+                <ul>
+                        <li>Click the <code>+</code> icon next to a defined <strong>Namespace</strong>. <br/><br/>
+                        If you haven't created a Namespace yet or want to create an additional one, click the <code>+</code> icon in the header of the <strong>Namespaces</strong> section to establish one before proceeding to create a shared datasource within it.</li>
+                        <br/>
+                        <li>Enter the name of the datasource. </li>
+                        <br/>
+                        <li>Choose the datasource type and configure its initial value according to the selected type.</li>
+                </ul>        
+	</Column.Item>
+	<Column.Item width="45%">
+                <img alt="explorer" src={require('./img/Namespace.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
 
 :::info 
-If you select Entity selection or Entity, you create an ORDA datasource. You need then to select its Dataclass and configure its settings (initial value, page size or depth).
+For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
 :::
-4. Click **Confirm**. 
 
 ### Renaming a datasource
 
