@@ -2,63 +2,79 @@
 id: debugging
 title: Debugging
 ---
+import Column from '@site/src/components/Column'
 
-Errors are common. It would be unusual to write a substantial number of lines of code without generating any errors. Conversely, treating and/or fixing errors is normal, too!
+Errors are a common occurrence when writing code. It is unusual to write a substantial amount of code without encountering any errors. Fortunately, dealing with and resolving errors is a routine part of the development process.
 
-The Qodly development environment provides several debugging tools for all types of errors.
 
+In the Qodly development environment, you have access to a range of debugging tools to help you tackle different types of errors effectively.
 
 
 ## Starting a debug session
 
-To be able to execute your code line-by-line and evaluate expressions, you need to start a **debug session** on the server and *attach* it to your browser. To do this, click on the **Debug** button in the Studio toolbar:
+To execute your code line-by-line and evaluate expressions, you must initiate a **debug session** on the server and **attach** it to your browser. Follow these steps:
 
-![breakpoint](img/debug1.png)
 
-If the debug session has been correctly started, a green bullet is displayed on the button label:
+- Click the Debug button located in the Studio toolbar. <img alt="explorer" src={require('./img/debug1.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-![breakpoint](img/debug2.png)
+- If the debug session starts successfully, a green bullet will appear on the button label. <img alt="explorer" src={require('./img/debug2.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-When you start executing code in the debug session, the bullet becomes orange. 
+- Once you begin executing code within the debug session, the bullet will turn orange. <img alt="explorer" src={require('./img/debug3.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-You can only open one debug session per instance. If another instance of the application has already started a debug session (e.g. a debug session was launched from another browser), the debug button displays a warning message:
 
-![breakpoint](img/debug3.png)
+:::info
+You can only have one active debug session per instance. If another instance of the application has an active debug session (e.g., started from another browser), the debug button will display a warning message. <img alt="explorer" src={require('./img/debug4.png').default} style={{borderRadius: '6px', width: '20%'}} />
+:::
 
-In this case, you have to wait until the other debug session be closed before opening a new debug session.
+In such cases, you must wait until the other debug session is closed before starting a new one.
 
-### Stopping a debug session
 
-When you click on the **Debug** button in the Studio toolbar while a debug session has started, a warning dialog box asks you to confirm that you want to *detach* the debugger, i.e. close the debug session attached to your browser. Several options are proposed:
+## Stopping a debug session
 
-![breakpoint](img/debug-stop.png)
+If you wish to stop a debug session, follow these steps:
 
-- **Keep in progress**: Qodly continues the evaluation of the code until the end of the current method or function and then, the debugger is detached. 
-- **Stop**: The debugger is immediately detached. 
-- **Cancel**: The debugger is not detached. 
+- Click the **Debug** button in the Studio toolbar while a debug session is active.
+
+- A warning dialog box will prompt you to confirm whether you want to detach the debugger, effectively closing the debug session attached to your browser. You will have several options:  
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <ul>
+            <ul>
+                <li><strong>Keep in progress</strong>: Qodly will continue evaluating the code until the end of the current method or function, and then the debugger will be detached.</li><br/>
+                <li><strong>Stop</strong>: The debugger will be immediately detached.</li><br/>
+                <li><strong>Cancel</strong>: The debugger will not be detached.</li><br/>                                        
+            </ul>
+        </ul>
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/debug5.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
 
 ## Breakpoints
 
-Breakpoints pause the code execution (and display the debugger window if not already displayed) at a desired step. You set breakpoints on any line of code where you want the execution to be paused. 
+Breakpoints allow you to pause code execution at specific points in your code. You can set breakpoints on any line of code where you want the execution to halt. Here's how to create a breakpoint:
 
-To create a breakpoint, click in the left margin of the code editor. A red bullet is displayed:
+- Click in the left margin of the code editor. This action will display a red bullet. <img alt="explorer" src={require('./img/debug6.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
-![breakpoint](img/debug4.png)
+- When you launch the code, a yellow arrow will appear in the left margin to indicate where the execution paused and mark the next line to be executed. <img alt="explorer" src={require('./img/debug7.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
-When the code is launched, a yellow arrow is displayed in the left margin to show where the execution was paused, and mark the next line to be executed. The yellow arrow is called the *program counter*:
+- At this point, you can use the debugger panel at the bottom of the window to evaluate and debug your code.
+<img alt="explorer" src={require('./img/debug8.png').default} style={{borderRadius: '6px'}} />
 
-![breakpoint](img/debug5.png)
 
-At this step, you can use the debugger panel at the bottom of the window to evaluate and debug your code.
+### Breakpoint Status
 
-### Breakpoint status
+Breakpoints can have different statuses depending on the context, which are represented by their appearance and tip:
 
-Depending on the context, breakpoints can have different status, represented through the beakpoint appearance and tip.
 
 |Appearance|Status|Context|
 |---|---|---|
-|![breakpoint](img/debug6.png)|Breakpoint|The breakpoint is validated in the debug session and will stop execution| 
-|![breakpoint](img/debug8.png)|Draft breakpoint|The breakpoint is registered but no debug session is started | 
-|![breakpoint](img/debug7.png)|Unverified breakpoint|The method or function where the breakpoint is set is not correctly saved. You might have to fix the code| 
+| <img alt="explorer" src={require('./img/debug9.png').default} style={{borderRadius: '6px'}}/>|Breakpoint|The breakpoint is validated in the debug session and will pause code execution as expected.| 
+|<img alt="explorer" src={require('./img/debug10.png').default} style={{borderRadius: '6px'}}/>|Draft breakpoint|The method or function where the breakpoint is set has not been correctly saved. Please ensure you save your changes first for the breakpoint to be validated and take effect.| 
+|<img alt="explorer" src={require('./img/debug11.png').default} style={{borderRadius: '6px'}}/>|Unverified breakpoint|The breakpoint is saved, but no debug session is currently active. It will not pause code execution until a debug session is started.| 
 
 
