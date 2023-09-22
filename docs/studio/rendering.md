@@ -29,6 +29,12 @@ In the case of Qodly Studio, rendering takes a different path compared to conven
 
 
 
+When a webform is rendered for the end user, what is returned is the final HTML code and CSS that represent the webform's visual appearance and functionality.
+
+:::info
+The webform is transformed into an HTML/CSS representation that can be displayed and interacted with in a web browser. JSON is used internally for data representation and configuration but is not what the end user receives when viewing the webform.
+:::
+
 ## Runtime Rendering
 
 At **runtime**, webforms are generated and interpreted by the built-in renderer engine. This engine takes the JSON representation and transforms it into a functional, interactive form that end-users can engage with.
