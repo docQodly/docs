@@ -108,7 +108,7 @@ The Qodly Studio code editor includes standard type-ahead and autocompletion fea
 
 ### Command Palette
 
-Right-click in the code editor window and select **Command Palette** or press **F1** to display a palette containing all commands availabla in the code editor window, along with their shortcuts (if any). 
+Right-click in the code editor window and select **Command Palette** or press **F1** to display a palette containing all commands available in the code editor window, along with their shortcuts (if any). 
 
 ![code-editor](img/palette1.png)
 
