@@ -23,11 +23,21 @@ To execute your code line-by-line and evaluate expressions, you must initiate a 
 
 
 :::info
-You can only have one active debug session per instance. If another instance of the application has an active debug session (e.g., started from another browser), the debug button will display a warning message. <img alt="explorer" src={require('./img/debug4.png').default} style={{borderRadius: '6px', width: '20%'}} />
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="75%">
+        You can only have one active debug session per instance. If another instance of the application has an active debug session (e.g., started from another browser), the debug button will display a warning message.
+    </Column.Item>
+    <Column.Item width="20%">
+        <img alt="explorer" src={require('./img/debug4.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 :::
 
 In such cases, you must wait until the other debug session is closed before starting a new one.
 
+:::tip
+Verify that the method or function with the breakpoint is saved and not in [draft state](#breakpoint-status) for the breakpoint to take effect during debugging.
+:::
 
 ## Stopping a debug session
 
