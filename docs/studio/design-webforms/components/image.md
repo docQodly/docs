@@ -30,9 +30,6 @@ The **Image** component offers multiple options for displaying images:
 	</Column.Item>
 </Column.List>
 
-:::info 
-When using datasource binding, make sure to include `.__deferred.uri` to access the image's URI.
-:::
 
 <br/>
 
