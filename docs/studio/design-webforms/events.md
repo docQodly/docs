@@ -303,43 +303,7 @@ The time these **toast notifications** remain visible is typically managed by Qo
 :::
 
 
-## Examples
-
-### User events 
-
-In this 5-minute video example, the process of creating a "Hello User" scenario is demonstrated. Beginning with a basic database, the tutorial walks through enabling access to the studio, establishing a simple interface, and triggering a search to greet the user by their name.
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GwIdic4OhPQ" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-The objective here is to dynamically update a list of students displayed within a **Matrix** component based on what the end-user enters into an input field.
-
-In the provided scenario:
-
-* The **Input** element is bound to the local datasource `search` (of type Text).
-* The **Matrix** component presents a list of students through the `students` datasource, which is an entity selection.
-
-![search](img/search-component.png)
-
-To achieve the display of search results corresponding to the text entered into the **Text Input** component, a `search` function is required to execute a query:
-
-```qs
-exposed Function search($search : Text)->$result : cs.StudentsSelection
-	
-$search:="@"+$search+"@"
-	
-$result:=This.query("firstname = :1 or lastname = :1"; $search)   
-```
-
-An **on Change** event triggers the `search` function, passing the text input from the **Input** element as a parameter. 
-
-![search](img/search-event.png)
-
-This update to the `students` datasource leads to the **Matrix** component reflecting the updated list of students.
-
-
-### Datasource events 
+## Example of datasource events
 
 In this scenario: 
 
