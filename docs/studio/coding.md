@@ -52,17 +52,13 @@ To create a new method or class, follow these steps:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ul>
-			<li>A new entry, labeled as <code>UntitledN</code> appears in the list. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.</li>
+			<li>A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.</li>
 		</ul>
     </Column.Item>
     <Column.Item width="30%">
 		<img alt="explorer" src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
-
-:::info
-Remember to press Enter to create the method or class function.
-:::
 
 ### Duplicating
 
@@ -190,7 +186,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ul>
-          <li><strong>Save all</strong>: Should <code>User A</code> choose to [save](#saving) the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by <code>User B</code>. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.</li>
+          <li><strong>Save all</strong>: Should <code>User A</code> choose to <a href="#saving">save</a> the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by <code>User B</code>. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.</li>
         </ul>
     </Column.Item>
     <Column.Item width="30%">
