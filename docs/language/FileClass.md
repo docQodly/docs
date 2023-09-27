@@ -23,7 +23,7 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 
 ||
 |---|
-|[<!-- INCLUDE #_command_.File.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.File.Summary -->|
+|[<!-- INCLUDE #_command_.file.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.file.Summary -->|
 
 ### Functions and properties
 
@@ -57,13 +57,13 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 |[<!-- INCLUDE #document.size.Syntax -->](#size)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.size.Summary -->|
 
 
-## File
+## file
 
 
-<!-- REF #_command_.File.Syntax -->**File** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
+<!-- REF #_command_.file.Syntax -->**file** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
 
 
-<!-- REF #_command_.File.Params -->
+<!-- REF #_command_.file.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |path|string|->|File path|
@@ -72,7 +72,7 @@ created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 
 #### Description
 
-The `File` command <!-- REF #_command_.File.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
+The `file` command <!-- REF #_command_.file.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
 
 In the *path* parameter, pass a [filesystem path string](basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
 
@@ -180,6 +180,7 @@ You want to create a symbolic link to a file in your resources folder:
 | |  ||Does not require any parameters|<!-- END REF -->
 
 #### Description
+
 
 
 

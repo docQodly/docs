@@ -2,117 +2,216 @@
 id: coding
 title: Coding
 ---
+import Column from '@site/src/components/Column'
 
-Qodly is a hybrid **low-code** application development platform. It means that, to develop an application with Qodly, you will need a very small amount of code. In fact, you might sometimes need no piece of code, you just design the application and Qodly Studio creates all necessary code for you. 
-
-However, you will often have to write some code. In Qodly Studio, you use [events](design-webforms/events.md) in conjunction with class functions and methods to manage the information inside your web application.
-
-
-## Methods and Classes
-
-In QodlyScript, you can organize your code in two kinds of structures: **methods** and **classes**.
-
-- [**methods**](../language/basics/lang-methods.md) are independant pieces of code. They can be called from class functions or form other methods, but not directly from your components. For testing purposes, a method can also be executed from the Explorer:<br/>
-![code-editor](img/method-exec.png)
-- [**classes**](../language/basics/lang-classes.md) allow you to organize your code according to objects. Only class functions can be called from your components. 
-	- User classes allow you to set the behavior of your components. For example, to display or hide a component when an event occurs, you can use the [4D.WebFormItem class functions](../language/WebForm.md). 
-	- [ORDA classes](../orda/data-model.md) are used to configure your data model and your business logic.  
-
-Both code structures are handled in the code editor. 
-
-## Code Editor
-
-Qodly Studio has an embedded code editor that allows you to create, edit, and manage your methods and class functions. 
+Qodly is a groundbreaking hybrid **low-code** application development platform that redefines how you build applications. With Qodly, you'll find yourself needing only a minimal amount of code, and sometimes, no code at all. It's as simple as designing your application, and Qodly Studio takes care of generating all the necessary code on your behalf.
 
 
-### Managing methods and classes
+While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](design-webforms/events.md) in combination with class functions to effectively manage the intricacies of your web application.
 
-#### Creating
 
-To create a method or a class, click on the **+** button at the right side of a title area (**Methods** or **Classes**) in the Explorer.
+## Coding Structures
 
-![code-editor](img/code-create.png)
+In **QodlyScript**, you can structure your code using two fundamental constructs: methods and classes.
 
-A new "UntitledN" entry is added to the list of methods or classes and a new tab is created. The entry area is editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md) to the method or class. Press **Enter** to validate the modification.
+### Methods
+
+[Methods](../language/basics/lang-methods.md) are isolated blocks of code that serve various functions within your application. They can be invoked from class functions or other methods but cannot be directly accessed from components.
+
+
+### Classes
+
+[Classes](../language/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes:
+
+- User Classes: Used for controlling component behavior, such as displaying or hiding components in response to events using the [4D.WebFormItem class functions](../language/WebForm.md#webformitem-class).
+
+- [ORDA Classes](../orda/data-model.md): Employed to configure data models and implement business logic.
+
+
+## Method and Function Management
+
+When working with methods and classes in Qodly, it's essential to understand how to create, duplicate, rename, and delete them. Here's how you can effectively manage these aspects:
+
+### Creating
+
+To create a new method or class, follow these steps:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+			<li>In the Explorer, navigate to the appropriate category (Methods or Classes).</li>
+			<br/>
+			<li>Click the <code>+</code> button on the right side of the title area.</li>
+		</ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+			<li>A new entry, labeled as <code>UntitledN</code> appears in the list. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.</li>
+		</ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 :::info
-
-To actually create the method or class file, do not forget to press **Enter**.
-
+Remember to press Enter to create the method or class function.
 :::
 
-#### Duplicating
+### Duplicating
 
-You can create a new method or class by duplicating an existing one: the code it contains is copied and the new item named by default `*itemName*_copyN_`. 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        When duplicating existing methods or classes, Qodly suggests a naming convention in the <code>itemName_copy_N</code> format.
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_duplicate.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-![code-duplicate](img/code-delete.png)
+### Renaming
+
+To rename a method or class, you can either:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+			<li>Click on the icon at the right side of the item in the Explorer.</li>
+			<br/>
+			<li>Or, in the tab pop-up menu, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
+		</ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_rename.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+### Deleting
+
+Deleting a method or class is straightforward:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+			<li>In the Explorer, open the options menu for the item you wish to delete.</li>
+			<br/>
+			<li>Select <code>Delete</code>.</li>
+		</ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_delete.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+			<li>Confirm the deletion in the subsequent warning dialog.</li>
+		</ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_delete2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+### Tab Management
 
 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        To work on a method or class, you can open it in a tab by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
+		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_tabManagement.png').default} style={{borderRadius: '6px', width: '70%'}} />
+    </Column.Item>
+</Column.List>
 
-#### Renaming
+### Executing Methods
 
-To rename a method or a class:
+For testing purposes, a method can also be executed from the Explorer <img alt="explorer" src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} />. For more details about how to debug your code, please refer to the [Debugger](./debugging.md) section.
 
-- ![rename](img/code-rename.png)<br/>
-In the Explorer, click on the icon at the right side of the item to rename in the Explorer. The item name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
+## Code Preservation and Synchronization
 
-- ![code-editor](img/code-popup.png)<br/>
-Or, in the pop up menu of the item tab, select **Rename**. The tab name becomes editable, so that you can give a [compliant name](../language/basics/lang-identifiers.md). Press **Enter** to validate the modification.
-
-#### Deleting
-
-To delete a method or class, display the options menu from the right side of the item to delete and select **Delete**:
-
-![code-delete](img/code-delete.png)
-
-A warning dialog will ask you to confirm the deletion of the file associated to the method or class.
-
-### Opening and closing tabs
-
-To open a method or a class in a tab of the code editor window, double-click on the method or class name in the [Explorer]. If a tab containing the method or class code was already open, it is moved to front. Only one instance of a method or class code can be open in the same code editor window.
-
-To close a tab, you can click on the **[x]** button on the right side of the tab title. You can also right-click on a tab and select one of the closing commands from the tab pop up menu:
-
-![code-editor](img/code-popup.png)
-
+Ensure the integrity and consistency of your method and class code in Qodly with these preservation and synchronization tools.
 
 ### Saving
 
-When you write or edit code, modifications are automatically saved in method and class files stored on the server, on a regular basis.
-If you want to make sure a modification is immediately saved (for example if you want the new code to available for other developers), click **Save all** to force the save of all edited tabs. 
- 
+Your code modifications are automatically saved at regular intervals. However, if you want to ensure immediate saving, you can click `Save all` to save all edited tabs. <img alt="explorer" src={require('./img/coding_save.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-### Reload code
+### Reloading code
 
-When a class function or a method is open in the studio, and that class function or method is edited elsewhere, its Tab displays *(outdated)*, meaning that the code displayed is not the latest version. To obtain the latest version, right click the Tab and then choose **Reload**.
 
-![code-editor](img/code-editor.png)
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        If you're working on a class function or method, and it gets edited elsewhere, the tab displays <code>(outdated)</code>.  <br/> <br/>
+		To fetch the latest version, right-click the tab and choose <code>Reload</code>.
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/coding_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />
+    </Column.Item>
+</Column.List>
+
+### Collaborative Editing Behavior
+
+Methods and class functions in Qodly Studio feature real-time synchronization when multiple users are editing the same class function. These collaborative editing capabilities are accompanied by safeguards to prevent data loss in specific scenarios. Here's how it works:
+
+
+- **Automatic Synchronization**: Whenever a user edits and saves a method or class function, those changes are instantly synchronized across all open tabs where other users are working on the same class function. This guarantees that every user has access to the most current version of the code.
+
+- **Unsaved Changes and "Outdated" Status**: Consider the scenario where `User A` makes changes to a method or class function but neglects to save them, and then `User B`, who is also working on the same method or class function, makes different changes and saves them. In this scenario, `User A`'s method or class function tab, which contains unsaved changes, will recognize that it now holds outdated content compared to the version saved by `User B`. This recognition is indicated by an `outdated` status.
+
+- **Page Refresh and Data Persistence**: Qodly Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When `User A` initiates a page refresh, the following actions are performed:
+
+	- **Checking Local Storage**: Qodly Studio checks the local storage for any saved state data associated with the tab that `User A` was working on.
+
+	- **Retrieving Saved Data**: Upon discovery, Qodly Studio retrieves this stored data, which includes the current content of the method or class function that `User A` was editing.
+
+	- **Assessing the "Outdated" Status**: Additionally, the application assesses the `outdated` status based on an attribute within the tab state flags section. This attribute serves as an indicator of whether the current state is outdated compared to the version stored on the server.
+
+	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes. 
+
+
+- **Save Confirmation**: Should `User A` choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by `User B`. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.
+
+- **Data Loss Prevention**: If `User A` proceeds to save the outdated code, the changes made in their tab become the current version. Any prior unsaved changes in `User B`'s tab will be lost. 
+
+
+This collaborative editing behavior aligns with common practices in collaborative environments, offering users flexibility while minimizing the risk of data loss or conflicts during concurrent edits.
+
+## Code Editor
 
 ### LSP
 
-Qodly Studio relies on the [LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol) to provide you with advanced features such as code completion or syntax highlighting in the code editor. This technology requires that a connection be established between the LSP server and the code editor window. When it's not the case, a warning message indicates that the LSP is not loaded:
+Qodly Studio relies on the Language Server Protocol ([LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol)) to offer advanced coding features like code completion and syntax highlighting. <img alt="explorer" src={require('./img/lsp.png').default} style={{borderRadius: '6px', width: '15%'}} />
 
-![code-editor](img/lsp.png)
-
-You can still write and save your code, but LSP related features will be missing. It is recommended to **Reload** the LSP. 
+:::info
+Reloading is recommended in cases where a connection is not established. Without this connection, while you can still write and save your code, you will miss out on LSP-related features.
+:::
 
 
 ### Type-ahead features
 
-The Qodly Studio code editor includes standard type-ahead and autocompletion features, i.e. accurate contents is suggested in a list while you enter code. 
+The Qodly Studio code editor includes helpful type-ahead and auto-completion features. You can easily incorporate these suggestions into your code using the following methods:
 
-- The suggestion list appears automatically when you enter text.
-- Press the **Tab** key to write down the selected entry from the suggestion list. 
-- To display the suggestion list at any moment, press **Ctrl+Space bar**.
+- The suggestion list automatically appears as you start typing.
+- To insert the selected suggestion, simply press the `Tab` key.
+- At any point, you can manually trigger the suggestion list by pressing `Ctrl + Space bar`.
 
 
 ### Command Palette
 
-Right-click in the code editor window and select **Command Palette** or press **F1** to display a palette containing all commands available in the code editor window, along with their shortcuts (if any). 
+The Command Palette offers easy access to all available commands in the code editor, including any associated shortcuts. You can open it by right-clicking in the code editor window or pressing `F1`.
 
-![code-editor](img/palette1.png)
+<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px'}} />
 
-The entry area at the top of the palette allows you to filter the list of commands: 
+The palette includes a filtering option to find specific commands quickly.
 
-![code-editor](img/palette2.png)
+<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px'}} />
 
