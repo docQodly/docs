@@ -23,7 +23,7 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 
 [Classes](../language/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes:
 
-- User Classes: Used for controlling component behavior, such as displaying or hiding components in response to events using the [4D.WebFormItem class functions](../language/WebForm.md#webformitem-class).
+- User Classes: Used for controlling component behavior, such as displaying or hiding components in response to events using the [4D.WebFormItem class functions](../language/WebFormItemClass.md).
 
 - [ORDA Classes](../orda/data-model.md): Employed to configure data models and implement business logic.
 
