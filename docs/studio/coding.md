@@ -167,7 +167,16 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 
 - **Unsaved Changes and "Outdated" Status**: Consider the scenario where `User A` makes changes to a method or class function but neglects to save them, and then `User B`, who is also working on the same method or class function, makes different changes and saves them. In this scenario, `User A`'s method or class function tab, which contains unsaved changes, will recognize that it now holds outdated content compared to the version saved by `User B`. This recognition is indicated by an `outdated` status.
 
-- **Page Refresh**: Qodly Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When a user refreshes the page, the local storage is checked for any saved state data related to the tab. If the saved state data is found, it is retrieved, including the current content of the method or class function. Additionally, the `outdated` status is determined based on an attribute in the tab state flags section, which indicates whether the current state is outdated compared to the version stored on the server. This ensures that even after a page refresh, the user remains aware of any changes made by others, while still retaining their unsaved changes.
+- **Page Refresh and Data Persistence**: Qodly Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When `User A` initiates a page refresh, the following actions are performed:
+
+	- **Checking Local Storage**: Qodly Studio checks the local storage for any saved state data associated with the tab that `User A` was working on.
+
+	- **Retrieving Saved Data**: If the application finds saved state data, it retrieves this information, which includes the current content of the method or class function that `User A` was editing.
+
+	- **Assessing the "Outdated" Status**: Additionally, the application assesses the `outdated` status based on an attribute within the tab state flags section. This attribute serves as an indicator of whether the current state is outdated compared to the version stored on the server.
+
+	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes. 
+
 
 - **Save Confirmation**: Should `User A` choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by `User B`. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.
 
