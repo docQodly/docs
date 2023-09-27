@@ -147,11 +147,10 @@ Your code modifications are automatically saved at regular intervals. However, i
 
 ### Reloading code
 
-
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         If you're working on a class function or method, and it gets edited elsewhere, the tab displays <code>(outdated)</code>.  <br/> <br/>
-		To fetch the latest version, right-click the tab and choose <code>Reload</code>.
+		    To fetch the latest version, right-click the tab and choose <code>Reload</code>. This action initiates an immediate refresh of the code content directly from the server, ensuring that you are always working with the latest code, even if you haven't made any local edits.
     </Column.Item>
     <Column.Item width="30%">
 		<img alt="explorer" src={require('./img/coding_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />
@@ -177,8 +176,27 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 
 	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes. 
 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+          <li><strong>Reload Option</strong>: Within the method/class tab of Qodly Studio, you'll find the <a href="#reloading-code">Reload</a> feature. Upon selecting this option, a confirmation message will promptly appear, indicating that your local changes will be lost. Should <code>User A</code> choose to reload the content will trigger an immediate refresh of the code content directly from the server.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/codingCollaborative_reload.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-- **Save Confirmation**: Should `User A` choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by `User B`. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+          <li><strong>Save Confirmation</strong>: Should <code>User A</code> choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by <code>User B</code>. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="30%">
+		<img alt="explorer" src={require('./img/codingCollaborative_saveAll.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 - **Data Loss Prevention**: If `User A` proceeds to save the outdated code, the changes made in their tab become the current version, potentially overwriting `User B`'s changes.
 
