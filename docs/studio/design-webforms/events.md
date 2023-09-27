@@ -233,9 +233,9 @@ Accessing content stored in the **Shared** folder follows a process similar to [
 When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
 :::
 
-###  List of standard actions
+###  Standard actions
 
-Depending on the type of datasource, the following standard actions are accessible:
+Depending on the type of datasource, the following standard actions are available:
 
 |Datasource type|Action|Description|
 |---|---|---|
@@ -247,11 +247,12 @@ Depending on the type of datasource, the following standard actions are accessib
 ||Previous|Move to the previous entity within the entity selection|
 ||Next|Advance to the next entity within the entity selection|
 ||Last|Navigate to the last entity within the entity selection|
+||Clear|Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element|
 |Entity selection|Order By|Specify multiple attributes to sort and select direction|
-||Query|The query is provided as a string and supports the same syntax as an [ORDA query](https://developer.4d.com/docs/API/DataClassClass#query), except for formula (eval) and the settings object. Placeholders can be used with datasources or data as-is|
+||Query|The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is|
 ||Refresh|Reload the entire entity selection from the server|
 ||All|Load all entities of the same dataclass|
-||Empty|Create a new, empty selection of the same dataclass|
+||Clear|Remove any content and create a new, empty selection of the same dataclass|
 
 
 ### Chaining actions
