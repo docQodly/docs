@@ -1,10 +1,11 @@
 ---
-id: WebForm
+id: WebFormClass
 title: WebForm
 ---
 
 
-Qodly proposes several commands and functions allowing to handle your webform components. 
+The `4D.WebForm` class object provides an interface that allows you to handle your webform components. `4D.WebForm` objects are instantiated with the [`webForm`](#webform) command.
+
 
 
 ### Commands
@@ -16,7 +17,7 @@ Qodly proposes several commands and functions allowing to handle your webform co
 
 
 
-### Functions and properties (WebForm)
+### Functions and properties
 
 ||
 |---|
@@ -25,17 +26,6 @@ Qodly proposes several commands and functions allowing to handle your webform co
 |[<!-- INCLUDE #WebFormClass.setMessage().Syntax -->](#setmessage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setMessage().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setWarning().Syntax -->](#setwarning)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setWarning().Summary -->|
 
-
-
-
-### Functions and properties (WebFormItem)
-
-||
-|---|
-|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.hide().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.show().Summary -->|
 
 
 ## webEvent
@@ -50,9 +40,9 @@ Qodly proposes several commands and functions allowing to handle your webform co
 
 #### Description
 
-**webEvent** <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a webform component<!-- END REF -->.
+`webEvent` <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a webform component<!-- END REF -->.
 
-The function must be called in the context of a web form handled by the Qodly web server
+The command must be called in the context of a web form handled by the Qodly web server.
 
 **Result**
 
@@ -121,26 +111,25 @@ end
 <!-- REF #_command_.webForm.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.WebForm|<-|New `WebForm` object
+|Result|4D.WebForm|<-|New `WebForm` proxy object
 <!-- END REF -->
 
 #### Description
 
-The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` object<!-- END REF -->, however, it **does not return a reference** to the underlying object. Instead, it provides a means to work with and effectively emulates the web form's properties and functions. 
+The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` proxy object, providing a means to work with and effectively emulates the web form's properties and functions<!-- END REF -->.
+
 
 :::info
-This means that while you receive a 4D.WebForm object as a result, it is not a direct reference to the web form instance but a proxy object that allows you to interact with.
+
+Keep in mind that a `4D.WebForm`object  is a **proxy object**, and not a direct reference to the web form object itself. As a result for example, the `4D.WebForm` object does not expose all web form properties in the Debugger. 
+
 :::
 
-Each property of the returned object is an object of the [4D.WebFormItem](#webformitem-class) class.
+Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
 
 The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 
 
-
-## WebForm Class
-
-The `4D.WebForm` class object provides an interface that allows you to handle your webform components. `4D.WebForm` objects are instantiated with the [webForm](#webform) command.
 
 
 
@@ -167,7 +156,9 @@ component=myForm.myImage //returns the myImage component of the web form
 ```
 
 :::info
+
 While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate web form components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
+
 :::
 
 ### .setError()
@@ -272,102 +263,3 @@ webForm.setWarning("My warning message")
 If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the web form and disappears automatically after 5 seconds:
 
 ![](img/message-warning.png)
-
-
-## WebFormItem Class
-
-The `4D.WebFormItem` class allows you to handle the behavior of your webform components.
-
-`4D.WebFormItem` objects are properties of the [`4D.WebForm`](#webform-class) object returned by the [`webForm`](#webform) command. 
-
-When you call the [`webForm`](#webform) command, the returned `4D.WebForm` object holds as many `4D.WebFormItems` as there are components with `[server-side references](XXX)` in your webform.
-
-For example, `WebFormObject.myImage` refers to the image component with `myImage` as server reference.
-
-
-### .hide()
-
-<!-- REF #WebFormItemClass.hide().Syntax -->
-**.hide**()<!-- END REF -->
-
-<!-- REF #WebFormItemClass.hide().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-||||Does not require any parameters|
-<!-- END REF -->
-
-
-#### Description
-
-The `.hide()` function <!-- REF #WebFormItemClass.hide().Summary -->hides the component<!-- END REF -->.
-
-#### Example
-
-To call a function that hides an image when the user clicks a button: 
-
-1. Select the image component on the canvas, and enter a server-side reference in the Properties Panel > Server Side, for example "myImage".
-2. Create an exposed function named `isHidden` that contains the following code:
-
-```qs 
-exposed Function isHidden()
-
-var myComponent: 4D.WebFormItem
-
-myComponent=webForm.myImage
-myComponent.hide() // Hide the component that has "myImage" as server reference 
-```
-
-3. Select the Button component and add an `onclick` event to it.
-4. Attach the `isHidden` function to the event.
-
-
-### .show()
-
-<!-- REF #WebFormItemClass.show().Syntax -->
-**.show**()<!-- END REF -->
-
-
-<!-- REF #WebFormItemClass.show().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-||||Does not require any parameters|
-<!-- END REF -->
-
-
-#### Description
-
-The `.show()` function <!-- REF #WebFormItemClass.show().Summary -->makes the component visible<!-- END REF -->. If the component was already visible, the function does nothing.
-
-
-### .addCSSClass()
-
-<!-- REF #WebFormItemClass.addCSSClass().Syntax -->
-**.addCSSClass**(*className* : string)<!-- END REF -->
-
-<!-- REF #WebFormItemClass.addCSSClass().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to add to the component|
-<!-- END REF -->
-
-#### Description
-
-The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -->adds the class specified in *className* to the component<!-- END REF -->.
-
-
-### .removeCSSClass()
-
-
-<!-- REF #WebFormItemClass.removeCSSClass().Syntax -->
-**.removeCSSClass**(*className*: string)<!-- END REF -->
-
-<!-- REF #WebFormItemClass.removeCSSClass().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to remove from the component|
-<!-- END REF -->
-
-#### Description
-
-The `.removeCSSClass()` function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
-
