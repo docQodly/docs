@@ -121,7 +121,7 @@ The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebF
 
 :::info
 
-Keep in mind that a `4D.WebForm`object  is a **proxy object**, and not a direct reference to the web form object itself. As a result for example, the `4D.WebForm` object does not expose all web form properties in the Debugger. 
+Keep in mind that a `4D.WebForm` object  is a **proxy object**, and not a direct reference to the web form object itself. As a consequence for example, the `4D.WebForm` object does not expose all web form properties in the Debugger. 
 
 :::
 
