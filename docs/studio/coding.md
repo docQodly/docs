@@ -160,12 +160,14 @@ Your code modifications are automatically saved at regular intervals. However, i
 
 ### Collaborative Editing Behavior
 
-Methods and class functions in Qodly Studio feature real-time synchronization when multiple users are editing the same class function. These collaborative editing capabilities are accompanied by safeguards to prevent data loss in specific scenarios:
+Methods and class functions in Qodly Studio feature real-time synchronization when multiple users are editing the same class function. These collaborative editing capabilities are accompanied by safeguards to prevent data loss in specific scenarios. Here's how it works:
 
 
 - **Automatic Synchronization**: Whenever a user edits and saves a method or class function, those changes are instantly synchronized across all open tabs where other users are working on the same class function. This guarantees that every user has access to the most current version of the code.
 
 - **Unsaved Changes and "Outdated" Status**: Consider the scenario where `User A` makes changes to a method or class function but neglects to save them, and then `User B`, who is also working on the same method or class function, makes different changes and saves them. In this scenario, `User A`'s method or class function tab, which contains unsaved changes, will recognize that it now holds outdated content compared to the version saved by `User B`. This recognition is indicated by an `outdated` status.
+
+- **Page Refresh**: Qodly Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When a user refreshes the page, the local storage is checked for any saved state data related to the tab. If the saved state data is found, it is retrieved, including the current content of the method or class function. Additionally, the `outdated` status is determined based on an attribute in the tab state flags section, which indicates whether the current state is outdated compared to the version stored on the server. This ensures that even after a page refresh, the user remains aware of any changes made by others, while still retaining their unsaved changes.
 
 - **Save Confirmation**: Should `User A` choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by `User B`. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.
 
