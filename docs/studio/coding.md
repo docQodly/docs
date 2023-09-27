@@ -171,7 +171,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 
 	- **Checking Local Storage**: Qodly Studio checks the local storage for any saved state data associated with the tab that `User A` was working on.
 
-	- **Retrieving Saved Data**: If the application finds saved state data, it retrieves this information, which includes the current content of the method or class function that `User A` was editing.
+	- **Retrieving Saved Data**: Upon discovery, Qodly Studio retrieves this stored data, which includes the current content of the method or class function that `User A` was editing.
 
 	- **Assessing the "Outdated" Status**: Additionally, the application assesses the `outdated` status based on an attribute within the tab state flags section. This attribute serves as an indicator of whether the current state is outdated compared to the version stored on the server.
 
