@@ -178,11 +178,11 @@ function getValue -> v : integer
 
 ## Parameter indirection (${N})
 
-QodlyScript methods accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression. `${N}` is called a **generic parameter**.  
+QodlyScript methods and functions accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression. 
 
 
 
-### Using generic parameters
+### Using variadic parameters
 
 For example, consider a method that adds values and returns the sum formatted according to a format that is passed as a parameter. Each time this method is called, the number of values to be added may vary. We must pass the values as parameters to the method and the format in the form of a character string. The number of values can vary from call to call.
 
@@ -194,7 +194,7 @@ declare (format : string) -> result : string
 toSum=0
 for(i,2,countParameters)
    toSum=toSum+${i}
-End
+end
 result=string(toSum,format)
 ```
 
@@ -209,7 +209,7 @@ Note that even if you declared 0, 1, or more parameters in the method, you can a
 
 ```qs
 //foo method
-#declare(p1: string , p2 : string , p3 : date)
+declare (p1: string , p2 : string , p3 : date)
 var myLog : string
 for(i,1,countParameters)
 	myLog="param "+string(i)+" = "+string(${i})+"\r"
@@ -224,7 +224,70 @@ foo("hello","world",!01/01/2023!,42,?12:00:00?) //extra parameters are passed
 
 > Parameter indirection is best managed if you respect the following convention: if only some of the parameters are addressed by indirection, they should be passed after the others. 
 
+### Declaring variadic parameters 
 
+You declare a variable number of parameters using the "..." notation in the prototypes of your functions, class constructors and methods (variadic parameters). You specify the parameter's type following notation "..." with the desired type.
+
+```qs
+declare ( ... : text ) // Undefined number of 'text' parameters
+
+```
+
+```qs
+function myfunction ( ... : text)
+
+```
+
+
+When declaring multiple parameters, variadic notation must be employed at last position, for example:
+
+```qs
+declare ( param: real ; ... : text )
+
+```
+
+```qs
+function myfunction (var1: integer ; ... : text)
+```
+
+
+
+#### Example
+ 
+Here we have a method called `sumNumbers` that returns the calculated total for all the numbers passed as parameters:
+
+```qs
+
+declare( ... : real) : real 
+var number, total : real 
+
+forEach (i,1,countParameters)
+	total+==${number}
+end 
+
+return total
+
+```
+
+This method can be called with a variable number of *real* parameters. In case of wrong parameter type, an error will be returned before the method is executed :
+
+```qs
+
+total1=sumNumbers // returns 0 
+total2=sumNumbers(1, 2, 3, 4, 5) // returns 15
+total3=sumNumbers(1, 2, "hello", 4, 5) // error
+
+```
+
+:::note
+
+In case the type when using the "..." notation is omitted the parameters are considered as variants.
+
+```qs
+declare ( ... ) //  Parameters are considered variants
+```
+
+:::
 
 ## Wrong parameter type
 
