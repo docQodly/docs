@@ -180,7 +180,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 
 - **Save Confirmation**: Should `User A` choose to save the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by `User B`. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.
 
-- **Data Loss Prevention**: If `User A` proceeds to save the outdated code, the changes made in their tab become the current version. Any prior unsaved changes in `User B`'s tab will be lost. 
+- **Data Loss Prevention**: If `User A` proceeds to save the outdated code, the changes made in their tab become the current version, potentially overwriting `User B`'s changes.
 
 
 This collaborative editing behavior aligns with common practices in collaborative environments, offering users flexibility while minimizing the risk of data loss or conflicts during concurrent edits.
