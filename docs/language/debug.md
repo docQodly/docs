@@ -418,7 +418,7 @@ end
 
 #### See also
 
-[`.setError()`](WebForm.md#seterror)
+[`.setError()`](WebFormClass.md#seterror)
 
 
 
@@ -552,7 +552,7 @@ throw({message: "This is my error", deferred: true}) //Throws an error with mess
 
 #### See also
 
-[`.setError()`](WebForm.md#seterror)
+[`.setError()`](WebFormClass.md#seterror)
 
 
 ## trace

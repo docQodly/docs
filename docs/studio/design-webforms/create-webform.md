@@ -184,7 +184,7 @@ The Data Access properties encompass distinct options and fields tailored to eac
 </Column.List>
 
 :::info 
-Server Side allows you to control the component's behavior, such as [hiding](../../language/WebForm.md#hide), [showing](../../language/WebForm.md#show), [adding CSS classes](../../language/WebForm.md#addcssclass), or [removing CSS classes](../../language/WebForm.md#removecssclass) from it.
+Server Side allows you to control the component's behavior, such as [hiding](../../language/WebFormItemClass.md#hide), [showing](../../language/WebFormItemClass.md#show), [adding CSS classes](../../language/WebFormItemClass.md#addcssclass), or [removing CSS classes](../../language/WebFormItemClass.md#removecssclass) from it.
 :::
 
 
