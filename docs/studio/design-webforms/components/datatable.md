@@ -110,7 +110,7 @@ When it comes to displaying columns in the DataTable component, you have two opt
 
 ### Server-Side Interaction
 
-Enhance DataTable interactivity by binding functions to events like `onheaderclick` and `oncellclick`. These events respond to user actions and retrieve event-specific details using the [webEvent](../../../language/WebForm.md#webevent) command.
+Enhance DataTable interactivity by binding functions to events like `onheaderclick` and `oncellclick`. These events respond to user actions and retrieve event-specific details using the [webEvent](../../../language/WebFormClass.md#webevent) command.
 
 Common attributes for `onheaderclick` and `oncellclick`:
 

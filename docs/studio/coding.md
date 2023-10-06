@@ -14,6 +14,7 @@ While Qodly empowers you with its low-code capabilities, there are situations wh
 
 In **QodlyScript**, you can structure your code using two fundamental constructs: methods and classes.
 
+
 ### Methods
 
 [Methods](../language/basics/lang-methods.md) are isolated blocks of code that serve various functions within your application. They can be invoked from class functions or other methods but cannot be directly accessed from components.
@@ -26,6 +27,11 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 - User Classes: Used for controlling component behavior, such as displaying or hiding components in response to events using the [4D.WebFormItem class functions](../language/WebFormItemClass.md).
 
 - [ORDA Classes](../orda/data-model.md): Employed to configure data models and implement business logic.
+
+
+### .4qs files
+
+Each method and each class is stored in its own QodlyScript file (.4qs): `<methodName>.4qs` for methods and `<className>.4qs` for classes. 
 
 
 ## Method and Function Management

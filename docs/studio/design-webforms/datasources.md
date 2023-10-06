@@ -175,6 +175,37 @@ To create Shared datasources, follow these steps:
 For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
 :::
 
+### Standalone Entity vs Entity from ES
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Entities from Entity Selection Datasource</strong>: These entities originate from an entity selection datasource, particularly advantageous in situations necessitating navigation and bulk actions.
+	</Column.Item>
+	<Column.Item width="40%">
+	        <img alt="explorer" src={require('./img/EntitiesFromEntitySelection.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+<br/>
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Independently Created Standalone Entities</strong>: These entities have no affiliation with entity selections. They exist in isolation and are well-suited for the management of individual entities that do not require inclusion in larger selections or collections. Standalone entities are typically managed on a one-to-one basis.
+	</Column.Item>
+	<Column.Item width="40%">
+	        <img alt="explorer" src={require('./img/standaloneEntities.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::info
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                To distinguish between the two types of entities, look for the keyword <code>entity selection datasource Name</code> that appears after the child entity datasource, such as <code>products</code>.
+	</Column.Item>
+	<Column.Item width="38%">
+	        <img alt="explorer" src={require('./img/difference_betweenStandalone&Associated.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
+
 ### Renaming a datasource
 
 You can easily rename a datasource from the contextual panel. In doing so, Qodly Studio will automatically update references to the renamed datasource:
