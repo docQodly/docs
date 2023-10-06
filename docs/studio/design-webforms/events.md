@@ -50,9 +50,9 @@ To bind class functions, navigation actions or standard actions with events, fol
 
 - **Bind the Desired Action to the Event**: Next, select the type of action <img alt="explorer" src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '10%'}} /> you wish to bind to the event. You have three options:
 
-    - **Standard Action**: Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
-    - **Navigation Action**: Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
-    - **Class Function**: Use a custom function to handle the event.
+    - [Standard Action](#bind-standard-actions-to-events): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
+    - [Navigation Action](#bind-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
+    - [Class Function](#bind-class-functions-to-events): Use a custom function to handle the event.
 
 - **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img alt="explorer" src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '20%'}} /> displayed on the left side of events that have already been configured (if any).
 
@@ -304,6 +304,19 @@ Data model class functions can be linked to events, utilizing parameters from da
 		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+<br/>
+
+:::tip
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        You can choose to display the function prototype in either table (default) or line format. To switch between these displays, simply click the expand icon <img alt="explorer" src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'5%'}} /> located in the upper right corner of the area.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/toggleFunctionPrototype.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
 
 <br/>
 
