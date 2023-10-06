@@ -97,6 +97,42 @@ Keep in mind that:
 In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
 :::
 
+### Preview Section
+
+In the preview section, various capabilities are available when actions are bound to a specific event, depending on the type of action. It's worth mentioning that standard actions have no effect in this context.
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+        <strong>Preview Function Code</strong>: Selecting a function bound to a particular event allows you to preview its content within the preview section.
+	</Column.Item>
+	<Column.Item width="55%">
+		<img alt="explorer" src={require('./img/preview_previewFunctionCode.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+        <strong>Edit Function Code</strong>: To directly open and edit a function associated with a specific event, simply select the function and click on the function edit icon <img alt="explorer" src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
+	</Column.Item>
+	<Column.Item width="55%">
+		<img alt="explorer" src={require('./img/preview_EditFunctionCode.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+        <strong>Open Linked Webform</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the webform associated with that event, using the same icon <img alt="explorer" src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
+	</Column.Item>
+	<Column.Item width="55%">
+		<img alt="explorer" src={require('./img/preview_OpenLinkedWebform.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
 ## Configuring events
 
 The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application.
