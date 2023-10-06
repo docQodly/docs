@@ -18,23 +18,86 @@ Events can be set to trigger either when end-users perform specific actions or w
 
 ### User events
 
-You can configure events to activate in response to specific actions carried out by end-users, like clicking buttons.
+You can configure events to activate in response to specific actions performed by end-users, such as clicking buttons, moving the mouse cursor, and more. 
+
+Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](create-webform.md).
 
 ### Datasource events
 
-In addition to events triggered by end-user actions, events can also be automated to respond when datasources undergo changes. The primary event available for datasources is the `On Change` event.
+Besides events triggered by end-user actions, events can also be automated to respond when datasources undergo changes. The primary event for datasources is the `On Change` event.
 
-The `On Change` event, when attached to a datasource, triggers in the following cases:
+When the `On Change` event is linked to a datasource, it will trigger in the following scenarios:
 
 |Trigger|Description|
 |---|---|
 |Datasource|<li>The reference pointed to by the datasource changes in the web browser (not on the server)</li><li>The entity is [touched](../../language/EntityClass.md#touched)</li>|
-|Entity attribute|The contents of the entity attribute change|
-|Scalar datasource|The contents of the scalar datasource change|
+|Entity datasource|The contents of the entity attribute change|
 |Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
+|Scalar datasource|The contents of the scalar datasource change|
+
+## Managing events
+
+The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application.
+
+### Adding an Event
+
+To bind class functions, navigation actions or standard actions with events, follow these steps:
+
+- **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./create-webform.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-webform) area.
+
+- **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img alt="explorer" src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource. 
 
 
-## Configuring an event
+- **Bind the Desired Action to the Event**: Next, select the type of action <img alt="explorer" src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '10%'}} /> you wish to bind to the event. You have three options:
+
+    - **Standard Action**: Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
+    - **Navigation Action**: Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
+    - **Class Function**: Use a custom function to handle the event.
+
+- **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img alt="explorer" src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '20%'}} /> displayed on the left side of events that have already been configured (if any).
+
+
+- **Configure Event Properties**: Complete the remaining steps specific to each action type, as detailed in the respective sections within the [Configuring Events](#configuring-events) section.
+
+:::tip
+You can define different actions for the same event.
+:::
+
+
+### Removing an Event
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        To remove a defined action, simply click on the trash icon <img alt="explorer" src={require('./img/trash.png').default} style={{borderRadius: '6px', width: '5%'}} /> located within the event box. This action will result in the removal of the event that is bound to an action.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/events_deleteEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+### Toggling Event Execution
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        To manage whether an event should execute during rendering, you can toggle its execution status using the toggle icon <img alt="explorer" src={require('./img/toggle.png').default} style={{borderRadius: '6px', width: '7%'}} />. This allows you to enable or disable the event as needed to meet your specific requirements.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/events_toggleExecution.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+This feature is valuable for scenarios like debugging or temporarily pausing specific event executions without removing them from your application entirely.
+
+### Chaining actions
+
+Keep in mind that:
+
+:::tip 
+In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
+:::
+
+## Configuring events
 
 The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application. To streamline the configuration of event actions, refer to the subsequent guidelines:
 
@@ -254,14 +317,6 @@ Depending on the type of datasource, the following standard actions are availabl
 ||All|Load all entities of the same dataclass|
 ||Clear|Remove any content and create a new, empty selection of the same dataclass|
 
-
-### Chaining actions
-
-Keep in mind that:
-
-:::tip 
-In event coordination, actions are linked together sequentially. Pay attention to the alignment of each action with its predecessor, contributing to the overall flow and effectiveness of the process.
-:::
 
 ## Providing feedback
 
