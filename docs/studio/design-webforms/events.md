@@ -103,11 +103,11 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 ### Bind Standard Actions to Events
 
-Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. To link standard actions with events, follow these steps:
+Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. To bind standard actions with events, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Select and Assign</span>: Choose a component or datasource to access compatible events in the Contextual panel. Then, assign a standard action to your desired event by clicking <code>Add a Standard Action</code>.
+        <strong>Select and Assign</strong>: Choose a component or datasource to access compatible events in the Contextual panel. Then, assign a standard action to your desired event by clicking <code>Add a Standard Action</code>.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img alt="explorer" src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
@@ -118,7 +118,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            For <span style={{fontWeight: 'bold'}}>Scalar datasources</span>: offer the ability either copy its content into another datasrouce of the same type or clear its content.
+            For <strong>Scalar datasources</strong>: offer the ability either copy its content into another datasrouce of the same type or clear its content.
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/contextualPanel_scalarDatasourcesStandardActions.png').default} style={{borderRadius: '6px'}} />
@@ -127,7 +127,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            For <span style={{fontWeight: 'bold'}}>Entity selections</span>: offer the ability to arrange and choose attributes for sorting. You can query, refresh, load all entities of a particular data class, and create new empty selections.
+            For <strong>Entity selections</strong>: offer the ability to arrange and choose attributes for sorting. You can query, refresh, load all entities of a particular data class, and create new empty selections.
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/contextualPanel_entitySelectionStandardActions.png').default} style={{borderRadius: '6px'}} />
@@ -136,7 +136,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-           For <span style={{fontWeight: 'bold'}}>Entities from Entity Selections Datasources</span>: you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
+           For <strong>Entities from Entity Selections Datasources</strong>: you can create new ones, save them, reload them, or even drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/contextualPanel_entityStandardActions.png').default} style={{borderRadius: '6px'}} />
@@ -145,7 +145,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            While <span style={{fontWeight: 'bold'}}>Independently Created Standalone Entities</span>: permits only direct actions like create, remove, or reload, as navigation actions are not applicable in this context, with the possibility to even clear it.
+            While <strong>Independently Created Standalone Entities</strong>: permits only direct actions like create, remove, or reload, as navigation actions are not applicable in this context, with the possibility to even clear it.
         </Column.Item>
         <Column.Item width="40%">
             <img alt="explorer" src={require('./img/contextualPanel_entityStandaloneStandardActions.png').default} style={{borderRadius: '6px'}} />
@@ -205,11 +205,11 @@ Here's an overview of available standard actions:
 
 ### Bind Navigation Actions to Events
 
-To associate navigation actions with events, follow these steps:
+Navigation actions allow you to navigate to a target webform. To bind navigation actions with events, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Select and Assign</span>: Choose a component or datasource to access compatible events in the Contextual panel. Then, assign a navigation action to your desired event by clicking <code>Add a Navigation Action</code>.
+        <strong>Select and Assign</strong>: Choose a component or datasource to access compatible events in the Contextual panel. Then, assign a navigation action to your desired event by clicking <code>Add a Navigation Action</code>.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img alt="explorer" src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
@@ -243,13 +243,11 @@ The feature for providing feedback is not applicable in the context of navigatio
 
 ### Bind Class Functions to Events
 
-To associate class functions with events, follow these steps:
-
-- **Select a component or a datasource**: The Contextual panel will present you with a list of compatible events tailored to your selection.
+Data model class functions can be linked to events, utilizing parameters from datasources or static values, with the option to assign the result to a datasource as needed. To bind class functions with events, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Add a Function Event</span>: Click on <code>Add a Function Event</code> to assign a class function to a desired event.
+        <strong>Select and Assign</strong>: Choose a component or datasource to access compatible events in the Contextual panel. Then, assign a class function to your desired event by clicking <code>Add a Function Event</code>.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img alt="explorer" src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
@@ -258,42 +256,81 @@ To associate class functions with events, follow these steps:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <span style={{fontWeight: 'bold'}}>Select a Function</span>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> which perform various setup actions and user interface adjustments when an employee logs into the system. This data can then be stored in a local or shared datasource, such as the <code>user</code> datasource.
+        <strong>Select a Function</strong>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> and store the returned result in a local or shared datasource, such as <code>user</code> datasource. <br/><br/>
+        You can link the following class functions to events:
+        <ul>
+            <li>Exposed <a href="../../orda/data-model#datastoreimplementation-class">datastore class functions</a></li>
+            <li>Exposed <a href="../../orda/data-model#dataclass-class">dataclass class functions</a></li>
+            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a></li>
+        </ul>
 	</Column.Item>
 	<Column.Item width="40%">
 		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-- **Pass Parameters**: You can expand the capabilities of class functions by passing parameters in two ways:
+<br/>
+
+- **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the function parameter(s) should be filled:
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            <span style={{fontWeight: 'bold'}}>Values</span>: Provide different types of values directly to the class function as parameters. Whether it's a string, number, boolean, or any other supported data type, simply select the desired type from the dropdown list, and your class function will receive the value with precision and accuracy.
+            <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img alt="explorer" src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
         </Column.Item>
-        <Column.Item width="40%">
+        <Column.Item width="42%">
             <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
+
+    The following types are supported as hard-coded values:
+    <table>
+        <thead>
+            <tr> <th>Type</th> <th>Description</th> <th>Example</th> </tr>
+        </thead>
+        <tbody>
+            <tr> <td>String</td> <td>Any string value</td> <td>Hello World</td> </tr>
+            <tr> <td>Object</td> <td>JSON syntax</td> <td>&#123;"age": 12, "name": "Smith"&#125;</td> </tr>
+            <tr> <td>Array</td> <td>Collection of values</td> <td>[10, 20, 30]</td> </tr>
+            <tr> <td>Number</td> <td>Any numeric value</td> <td>42</td> </tr>
+            <tr> <td>Date</td> <td>A short-format date</td> <td>20/12/2024</td> </tr>
+            <tr> <td>Boolean</td> <td>True or False</td> <td>False</td> </tr>
+        </tbody>
+    </table>
 
     <br />
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
-            <span style={{fontWeight: 'bold'}}>Datasources</span>: Pass local or shared datasources as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. These shared variables can be accessed and utilized across multiple webforms, ensuring consistent states and data sharing.
+            <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
+            Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
         </Column.Item>
-        <Column.Item width="40%">
+        <Column.Item width="42%">
             <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
+- **Selecting a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <ul>
+                <li>If your class function defines a specific name for the result, that name will be displayed in the label within the return parameter section. For example, if you have a function like <code> exposed function toggleComponent() -> isComponentVisible: boolean</code>, the result label would be <code>isComponentVisible</code>.</li> <br/>
+                <li>However, if your class function does not specify a result name, the default label <code>$0</code> will be used in the return parameter section.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/returnValue_$0.png').default} style={{borderRadius: '6px'}} />
+            <br/><br/><br/><br/><br/>
+            <img alt="explorer" src={require('./img/returnValue_named.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
 
+<br/>
 
 - <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-		<span style={{fontWeight: 'bold'}}>Provide Feedback</span>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. 
+	<Column.Item width="55%">
+		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. 
 	</Column.Item>
-	<Column.Item width="35%">
+	<Column.Item width="40%">
 		<img alt="explorer" src={require('./img/contextualPanel_provideFeedback.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -314,9 +351,9 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><span style={{fontWeight: 'bold'}}>Select Target</span>: Paste the desired external link URL into the "Select Target" field.</li>
+            <li><strong>Select Target</strong>: Paste the desired external link URL into the "Select Target" field.</li>
             <br/>
-            <li><span style={{fontWeight: 'bold'}}>Choose External Link</span>: Within the "Select Target" field's dropdown list, select <code>External Link</code>.</li>
+            <li><strong>Choose External Link</strong>: Within the "Select Target" field's dropdown list, select <code>External Link</code>.</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -327,12 +364,12 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li><span style={{fontWeight: 'bold'}}>Define Transition Method</span>: Similar to configuring webform navigation, you can specify how the external link will be presented. However, for external links, you have two options:</li>
+            <li><strong>Define Transition Method</strong>: Similar to configuring webform navigation, you can specify how the external link will be presented. However, for external links, you have two options:</li>
             <br/>
             <ul>
-                <li><span style={{fontWeight: 'bold'}}>New Tab</span>: Induce the opening of a new browser tab.</li>
+                <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li>
                 <br/>
-                <li><span style={{fontWeight: 'bold'}}>Current Tab</span>: Replace the ongoing browser tab with the chosen external link.</li>
+                <li><strong>Current Tab</strong>: Replace the ongoing browser tab with the chosen external link.</li>
             </ul>
         </ul>
     </Column.Item>
@@ -350,27 +387,6 @@ Accessing content stored in the **Shared** folder follows a process similar to [
 :::tip 
 When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
 :::
-
-###  Standard actions
-
-Depending on the type of datasource, the following standard actions are available:
-
-|Datasource type|Action|Description|
-|---|---|---|
-|Entity|New| Generate a new entity from the corresponding dataclass|
-||Save|Save the entity|
-||Refresh|Reload entity values from the server|
-||Remove|Delete the entity|
-||First|Navigate to the first entity within the entity selection|
-||Previous|Move to the previous entity within the entity selection|
-||Next|Advance to the next entity within the entity selection|
-||Last|Navigate to the last entity within the entity selection|
-||Clear|Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element|
-|Entity selection|Order By|Specify multiple attributes to sort and select direction|
-||Query|The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is|
-||Refresh|Reload the entire entity selection from the server|
-||All|Load all entities of the same dataclass|
-||Clear|Remove any content and create a new, empty selection of the same dataclass|
 
 
 ## Providing feedback
