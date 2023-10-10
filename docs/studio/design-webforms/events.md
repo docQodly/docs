@@ -310,20 +310,40 @@ Data model class functions can be linked to events, utilizing parameters from da
 	</Column.Item>
 </Column.List>
 
-2. <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <strong>Select a Function</strong>: Browse through the list of available functions. Choose a suitable class function like <code>onLoad</code> and store the returned result in a local or shared datasource, such as <code>user</code> datasource. <br/><br/>
-        You can link the following class functions to events:
-        <ul>
-            <li>Exposed <a href="../../orda/data-model#datastoreimplementation-class">datastore class functions</a></li>
-            <li>Exposed <a href="../../orda/data-model#dataclass-class">dataclass class functions</a></li>
-            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a></li>
-        </ul>
-	</Column.Item>
-	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_classFunctionWithoutParams.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
+2. **Select a Function**: Browse the available functions and select an appropriate class function. You can link the following class functions to events:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <ul>
+                <li>Exposed <a href="../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/keyword_Datastore.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <ul>
+                <li>Exposed <a href="../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/keyword_Dataclass.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+            <ul>
+                <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Datasource</code> keyword, encompass shared functions when these entities serve as shared datasources.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="40%">
+            <img alt="explorer" src={require('./img/keyword_Namespace.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
 
 <br/>
 
