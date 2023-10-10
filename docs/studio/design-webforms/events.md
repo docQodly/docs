@@ -217,7 +217,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
 <br />
 
-### Navigation Actions - Webforms
+### Navigation - Webforms
 
 Navigation actions allow you to navigate to a target webform. To bind navigation actions with events, follow these steps:
 
@@ -252,7 +252,7 @@ Navigation actions allow you to navigate to a target webform. To bind navigation
 The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
 :::
 
-### Navigation Actions - External Links
+### Navigation - External Links
 
 In addition to navigating to webforms, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for webforms](#navigation-actions---webforms), with a slight variation in the "Select Target" step:
 
@@ -289,7 +289,7 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
  
 
 
-### Navigation Actions - Shared Folder Content
+### Navigation - Shared Folder
 
 Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#navigation-actions---external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the "Select Target" field. Ensure that the path begins with `/$shared`.
 
