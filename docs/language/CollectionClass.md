@@ -2805,7 +2805,7 @@ You want to know if at least one collection value is >0.
 ## .sort()
 
 
-<!-- REF #collection.sort().Syntax -->**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : collection<br/>**.sort**( *methodName* : string { , *...extraParam* : any } ) : collection <!-- END REF -->
+<!-- REF #collection.sort().Syntax -->**.sort**() : collection<br/>**.sort**( *formula* : 4D.Function { , *...extraParam* : any } ) : collection<br/>**.sort**( *methodName* : string { , *...extraParam* : any } ) : collection <!-- END REF -->
 
 
 <!-- REF #collection.sort().Params -->
