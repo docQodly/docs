@@ -29,16 +29,16 @@ Collection elements are numbered from 0.
 You can assign a value to a collection element or get a collection element value:
 
 ```qs
- myCol[10]="My new element"
- myVar=myCol[0]
+ myCol[10] = "My new element"
+ myVar = myCol[0]
 ```
 
 If you assign an element's index that surpasses the last existing element of the collection, the collection is automatically resized and all new intermediary elements are assigned a null value:
 
 ```qs
  var myCol : collection
- myCol=newCollection("A","B")
- myCol[5]="Z"
+ myCol = newCollection("A","B")
+ myCol[5] = "Z"
   //myCol[2]: null
   //myCol[3]: null
   //myCol[4]: null
@@ -68,11 +68,11 @@ Examples:
 ```qs
  var colVar : collection //creation of collection type variable
   //instantiation of the collection and assignment to the variable
- colVar=newCollection 
+ colVar = newCollection 
  
  var colFilled : collection
   //instantiation and assignment of a prefilled collection
- colFilled=newCollection("a","b",1,42,{}) 
+ colFilled = newCollection("a","b",1,42,{}) 
 
 ```
 
@@ -88,10 +88,10 @@ Examples:
 
 ```qs
 var col1,col2,users : collection
-col1=[] //empty collection
-col2=[1,2,3,4,5,6] //collection of numbers
+col1 = [] //empty collection
+col2 = [1,2,3,4,5,6] //collection of numbers
 //collection of objects
-users=[{name: "Alice", \
+users = [{name: "Alice", \
     height: 183, \
     eyecolor: "hazel", \
     id: col2[5]\
@@ -119,15 +119,15 @@ Qodly collection references benefit from dedicated class functions. Collection f
 For example:
 
 ```qs
-newCol=col.copy() //deep copy of col to newCol
+newCol = col.copy() //deep copy of col to newCol
 col.push(10,100) //add 10 and 100 to the collection
 ```
 
 Some functions return the original collection after modification, so that you can run the calls in a sequence:
 
 ```qs
- col=newCollection(5,20)
- col2=col.push(10,100).sort() //col2==[5,10,20,100]
+ col = newCollection(5,20)
+ col2 = col.push(10,100).sort() //col2 == [5,10,20,100]
 ```
 
 

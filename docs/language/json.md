@@ -185,13 +185,13 @@ Conversion of scalar values:
 
  var vc, vel, vh, vd : string
 
- vc=jsonStringify("Eureka!") // "Eureka!"
- vel=jsonStringify(120) // "120"
+ vc = jsonStringify("Eureka!") // "Eureka!"
+ vel = jsonStringify(120) // "120"
  
- vh=jsonStringify(?20:00:00?) // "72000" seconds since midnight
+ vh = jsonStringify(?20:00:00?) // "72000" seconds since midnight
 
  
- vd=jsonStringify(!28/08/2013!) // "2013-08-27T22:00:00.000Z" (Paris timezone)
+ vd = jsonStringify(!28/08/2013!) // "2013-08-27T22:00:00.000Z" (Paris timezone)
 
 ```
 
@@ -202,10 +202,10 @@ Conversion of a string containing special characters:
 ```qs
 var s, p : string
 
- s=jsonStringify("{\"name\":\"john\"}")
-  // s="{\\"name\\":\\"john\\"}"
- p=jsonParse(s)
-  // p={"name":"john"}
+ s = jsonStringify("{\"name\":\"john\"}")
+  // s = "{\\"name\\":\\"john\\"}"
+ p = jsonParse(s)
+  // p = {"name":"john"}
 
 ```
 

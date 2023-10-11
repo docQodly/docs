@@ -16,7 +16,7 @@ To use the Users class functions, you must instantiate a Qodly users interface o
 ```qs
 	//instantiate the Users interface
 var usersInterface : cs.Qodly.Users
-usersInterface=cs.Qodly.Users.new()
+usersInterface = cs.Qodly.Users.new()
 ```
 
 
@@ -87,8 +87,8 @@ exposed Function getCurrentUser() : Object
     var user : Object
     var usersInterface : cs.Qodly.Users
 
-usersInterface=cs.Qodly.Users.new()
-user=usersInterface.getCurrentUser()
+usersInterface = cs.Qodly.Users.new()
+user = usersInterface.getCurrentUser()
 return user
 ```
 
@@ -125,8 +125,8 @@ exposed Function getAllUsers() : Collection
     var users:Collection
     var usersInterface:cs.Qodly.Users 
 
-usersInterface=cs.Qodly.Users.new()
-users=usersInterface.getAllUsers()
+usersInterface = cs.Qodly.Users.new()
+users = usersInterface.getAllUsers()
 
 return users
 ```

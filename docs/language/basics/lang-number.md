@@ -40,16 +40,16 @@ Negative numbers are specified with the minus sign (-). For example:
 |Longint division |Number \ Number |Number |5 \ 2 |2|
 |Modulo |Number % Number |Number |5 % 2 |1|
 |Exponentiation |Number ^ Number |Number |2 ^ 3| 8|
-|Equality |Number == Number |Boolean |10 == 10 |true|
-   ||||10 == 11| false|
-|Inequality |Number != Number |Boolean |10 != 11 |true|
-   ||||10 != 10 |false|
+|Equality |Number  ==  Number |Boolean |10  ==  10 |true|
+   ||||10  ==  11| false|
+|Inequality |Number  !=  Number |Boolean |10  !=  11 |true|
+   ||||10  !=  10 |false|
 |Greater than |Number > Number |Boolean |11 > 10 |true|
    ||||10 > 11 |false|
 |Less than |Number < Number |Boolean |10 < 11 |true|
   |||| 11 < 10 |false|
-|Greater than or equal to |Number >= Number |Boolean |11 >= 10 |true|
-   ||||10 >= 11 |false|
+|Greater than or equal to |Number >=  Number |Boolean |11 >=  10 |true|
+   ||||10 >=  11 |false|
 |Less than or equal to |Number <= Number |Boolean |10 <= 11 |true|
   |||| 11 <= 10 |false|
 

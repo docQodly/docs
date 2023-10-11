@@ -55,10 +55,10 @@ Examples:
 
 ```qs
  var obVar : object //declaration of an object type variable
- obVar=newObject //instantiation and assignment to the variable
+ obVar = newObject //instantiation and assignment to the variable
  
  var obFilled : object 
- obFilled=newObject("name","Smith","age",42) //instantiation and assignment of a prefilled object
+ obFilled = newObject("name","Smith","age",42) //instantiation and assignment of a prefilled object
 ```
 
 
@@ -80,10 +80,10 @@ Examples:
  var a : string
  var b : integer
  var c : object
- a="foo"
- b=42
- c={}
- o3={ a:a, b:b, c:c } // {"a":"foo",b":42,"c":{}}
+ a = "foo"
+ b = 42
+ c = {}
+ o3 = { a:a, b:b, c:c } // {"a":"foo",b":42,"c":{}}
 ```
 
 
@@ -101,8 +101,8 @@ o = {\
     }
 
 o.form1()  //52
-result=o.form2(o.ob2.message)  // Hello World
-col=o.col[5] //6
+result = o.form2(o.ob2.message)  // Hello World
+col = o.col[5] //6
 ```
 
 
@@ -128,7 +128,7 @@ With object notation, object properties can be accessed in two ways:
 Example:
 
 ```qs
-     employee.name="Smith"
+     employee.name = "Smith"
 ```
 
 - using a string within square brackets:
@@ -137,16 +137,16 @@ Example:
 Examples:
 
 ```qs
-     vName=employee["name"]
+     vName = employee["name"]
      //or also:
-     property="name"
-	 vName=employee[property]
+     property = "name"
+	 vName = employee[property]
 ```
 
 Since an object property value can be an object or a collection, object notation accepts a sequence of symbols to access sub-properties, for example:
 
 ```qs
- vAge=employee.children[2].age
+ vAge = employee.children[2].age
 ```
 
 Object notation is available on any language element that can contains or returns an object, i.e:
@@ -155,16 +155,16 @@ Object notation is available on any language element that can contains or return
     Examples:
     
 ```qs
-     age=myObjVar.employee.age //variable
-     addr=myEntity.data_obj.address //attribute
-     city=addr.city //property of an object
-     val=myCollection[3].subvalue //collection element
+     age = myObjVar.employee.age //variable
+     addr = myEntity.data_obj.address //attribute
+     city = addr.city //property of an object
+     val = myCollection[3].subvalue //collection element
 ```
 - **QuodlyScript commands** that return objects.
     Example:
     
 ```qs
-     storage.mydata.prop2=10
+     storage.mydata.prop2 = 10
 ```
     
 - **Methods** that return objects.
@@ -173,10 +173,10 @@ Object notation is available on any language element that can contains or return
 ```qs
       //myMethod1
      declare -> result : object
-     result=newObject("a",10,"b",20)
+     result = newObject("a",10,"b",20)
      
       //myMethod2
-     value=myMethod1.a //10
+     value = myMethod1.a //10
 ```
 
 - **Collections**
@@ -192,8 +192,8 @@ Object notation is available on any language element that can contains or return
 When using the object notation, the **null** value is supported though the `null` command. This command can be used to assign or compare the null value to object properties or collection elements, for example:
 
 ```qs
- myObject.address.zip=null
- if(myColl[2]==null)
+ myObject.address.zip = null
+ if(myColl[2] == null)
 ```
 
 For more information, please refer to the [`null`](lang-null-undefined.md#null) description.
@@ -207,8 +207,8 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 ```qs
      var o : object
      var val : integer
-     val=10 //val:10
-     val=o.a //o.a is undefined (no error), and assigning this value clears the variable
+     val = 10 //val:10
+     val = o.a //o.a is undefined (no error), and assigning this value clears the variable
       //val:0
 ```
 
@@ -216,7 +216,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 ```qs
      var c : collection //variable created but no collection is instanciated
-     size=c.length //size = 0
+     size = c.length //size = 0
 ```
 
 - An undefined value passed as parameter to a project method is automatically converted to 0 or "" according to the declared parameter type.
@@ -253,8 +253,8 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 
 ```qs
      var o : object
-     o=newObject("a",2)
-     o.a=o.b //o.a=0
+     o = newObject("a",2)
+     o.a = o.b //o.a = 0
 ```
 
 - Assigning an undefined value to a non existing object property does nothing.
@@ -262,7 +262,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 When expressions of a given type are expected in your code, you can make sure they have the correct type even when evaluated to `undefined` by surrounding them with the appropriate QodlyScript cast command: `string`, `num`, `date`, `time`, `bool`. These commands return an empty value of the specified type when the expression evaluates to `undefined`. For example:
 
 ```qs
- myString=lowercase(string(o.a.b)) //make sure you get a string value even if undefined
+ myString = lowercase(string(o.a.b)) //make sure you get a string value even if undefined
   //to avoid errors in the code
 ```
 
@@ -274,13 +274,13 @@ When expressions of a given type are expected in your code, you can make sure th
 ```qs
   // Using newObject
  var myObj : object //declares an object variable 
- myObj=newObject //instanciates object and assigns to the variable
- myObj.age=56
- age=myObj.age //56
+ myObj = newObject //instanciates object and assigns to the variable
+ myObj.age = 56
+ age = myObj.age //56
  
   // Alternate code
  var myObj2 : object 
- myObj2={"age":42} //instanciates object and adds the age property
+ myObj2 = {"age":42} //instanciates object and adds the age property
  myObj2.age //42
  
 ```
@@ -289,29 +289,29 @@ When expressions of a given type are expected in your code, you can make sure th
 
 ```qs
  var Emp : object
- Emp=newObject
- Emp.city="London" //creates the city property and sets its value to "London"
- Emp.city="Paris" //modifies the city property
- Emp.phone={"office":"123456789","home":"0011223344"}
+ Emp = newObject
+ Emp.city = "London" //creates the city property and sets its value to "London"
+ Emp.city = "Paris" //modifies the city property
+ Emp.phone = {"office":"123456789","home":"0011223344"}
   //creates the phone property and sets its value to an object
 ```
 
 - Get a value in a sub-object:
 
 ```qs
- vCity=Emp.city //"Paris"
- vPhone=Emp.phone.home //"0011223344"
+ vCity = Emp.city //"Paris"
+ vPhone = Emp.phone.home //"0011223344"
 ```
 - You can access properties as strings using the `[]` operator 
 
 ```qs
- Emp["city"]="Berlin" //modifies the city property
+ Emp["city"] = "Berlin" //modifies the city property
   //this can be useful for creating properties through variables
  var addr : string
  var i : integer
- addr="address"
+ addr = "address"
  for(i,1,4)
-    Emp[addr+string(i)]=""
+    Emp[addr+string(i)] = ""
  end
   // creates 4 empty properties "address1...address4" in the Emp object
 ```

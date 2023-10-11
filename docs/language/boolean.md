@@ -43,14 +43,14 @@ This command is useful when the code expects a boolean value, and when the evalu
 
 ```qs
 var result : boolean
-result=bool(1)  //true
-result=bool(0)  //false
-result=bool("hello")  //false
+result = bool(1)  //true
+result = bool(0)  //false
+result = bool("hello")  //false
 
 var o : object
-o={test: 42}
-result=bool(o.test)  //true
-result=bool(o.otherTest)  //false
+o = {test: 42}
+result = bool(o.test)  //true
+result = bool(o.otherTest)  //false
 
 ```
 
@@ -81,7 +81,7 @@ The following example sets the variable *vbOptions* to false:
 
 ```qs
  var vbOptions : boolean
- vbOptions=false
+ vbOptions = false
 ```
 
 #### See also
@@ -110,9 +110,9 @@ This example first assigns **true** to a variable, then changes the variable val
 
 ```qs
  var vResult : boolean
- vResult=true // vResult is set to true
- vResult=not(vResult) // vResult is set to false
- vResult=not(vResult) // vResult is set to true
+ vResult = true // vResult is set to true
+ vResult = not(vResult) // vResult is set to false
+ vResult = not(vResult) // vResult is set to true
 ```
 
 #### See also
@@ -140,7 +140,7 @@ The following example sets the variable *vbOptions* to true:
 
 ```qs
  var vbOptions : boolean
- vbOptions=true
+ vbOptions = true
 ```
 
 #### See also

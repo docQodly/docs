@@ -274,8 +274,8 @@ You want to copy a Pictures *folder* from the resources folder to the data folde
 
 ```qs
 var userImages, copiedImages : 4D.Folder
-userImages=folder("/RESOURCES/Pictures/")
-copiedImages=userImages.copyTo(folder("/DATA"),kOverwrite)
+userImages = folder("/RESOURCES/Pictures/")
+copiedImages = userImages.copyTo(folder("/DATA"),kOverwrite)
 ```
 
 <!-- END REF -->
@@ -308,7 +308,7 @@ A `File` object or null if *path* is invalid.
 
 ```qs
 var myPDF : 4D.File
-myPDF=folder("/DATA").file("Pictures/info.pdf")
+myPDF = folder("/DATA").file("Pictures/info.pdf")
 ```
 
 <!-- END REF -->
@@ -352,10 +352,10 @@ You want to know if there are invisible files in the project folder:
 ```qs
  var all, noInvisible : collection
  var info : string
- all=folder("/PACKAGE").files()
- noInvisible=folder("/PACKAGE").files(kIgnoreInvisible)
- if(all.length!=noInvisible.length)
-    info="Project folder contains hidden files."
+ all = folder("/PACKAGE").files()
+ noInvisible = folder("/PACKAGE").files(kIgnoreInvisible)
+ if(all.length != noInvisible.length)
+    info = "Project folder contains hidden files."
  end
 ```
 
@@ -365,7 +365,7 @@ You want to get all files that are not invisible in the Resources folder:
 
 ```qs
  var recursive : collection
- recursive=folder("/RESOURCES").files(kRecursive+kIgnoreInvisible)
+ recursive = folder("/RESOURCES").files(kRecursive+kIgnoreInvisible)
 ```
 
 <!-- END REF -->
@@ -399,7 +399,7 @@ A `folder` object or null if *path* is invalid.
 
 ```qs
  var mypicts : 4D.Folder
- mypicts=folder("/RESOURCES").folder("Pictures")
+ mypicts = folder("/RESOURCES").folder("Pictures")
 ```
 
 <!-- END REF -->
@@ -440,7 +440,7 @@ You want the collection of all folders and subfolders of the database folder:
 
 ```qs
  var allFolders : collection
- allFolders=folder("/PACKAGE").folders(kRecursive)
+ allFolders = folder("/PACKAGE").folders(kRecursive)
 ```
 
 <!-- END REF -->

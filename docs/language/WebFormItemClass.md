@@ -55,7 +55,7 @@ exposed Function isHidden()
 
 var myComponent: 4D.WebFormItem
 
-myComponent=webForm.myImage
+myComponent = webForm.myImage
 myComponent.hide() // Hide the component that has "myImage" as server reference 
 ```
 

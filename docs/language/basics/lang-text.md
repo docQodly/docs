@@ -48,16 +48,16 @@ In the following example, the **Carriage return** character (escape sequence `\r
 |---|---|---|---|---|
 |Concatenation |String + String |String |"abc" + "def" |"abcdef"|
 |Repetition |String * Number |String  |"ab" * 3 |"ababab"|
-|Equality |String == String |Boolean |"abc" == "abc" |True|
-|  | ||"abc" == "abd" |False|
-|Inequality |String != String |Boolean |"abc" != "abd" |True|
-|   |||"abc" != "abc" |False|
+|Equality |String  ==  String |Boolean |"abc"  ==  "abc" |True|
+|  | ||"abc"  ==  "abd" |False|
+|Inequality |String  !=  String |Boolean |"abc"  !=  "abd" |True|
+|   |||"abc"  !=  "abc" |False|
 |Greater than |String > String |Boolean  |"abd" > "abc" |True
 |   |||"abc" > "abc" |False|
 |Less than |String < String |Boolean |"abc" < "abd" |True|
 |   |||"abc" < "abc" |False|
-|Greater than or equal to |String >= String |Boolean  |"abd" >= "abc" |True|
-|   |||"abc" >= "abd" |False|
+|Greater than or equal to |String >=  String |Boolean  |"abd" >=  "abc" |True|
+|   |||"abc" >=  "abd" |False|
 |Less than or equal to |String <= String |Boolean  |"abc" <= "abd" |True|
 |   |||"abd" <= "abc" |False|
 |Contains keyword |String % String |Boolean  |"Alpha Bravo" % "Bravo" |True|
@@ -69,20 +69,20 @@ In the following example, the **Carriage return** character (escape sequence `\r
 ## String comparisons
 
 - Strings are compared on a character-by-character basis (except in the case of searching by [keywords](#keywords), see below).
-- When strings are compared, the case of the characters is ignored; thus, `"a"=="A"` returns `true`.
+- When strings are compared, the case of the characters is ignored; thus, `"a" == "A"` returns `true`.
 - When strings are compared, diacritical characters are ignored. For example, the following expressions return `true`:
 
 ```qs
-     "n"=="ñ"
-     "n"=="Ñ"
-     "A"=="å"
+     "n" == "ñ"
+     "n" == "Ñ"
+     "A" == "å"
       // and so on
 ```
 
 To test if the case of two characters is different or to take diacritical characters into account, compare their character codes. For example, the following expression returns `false`:
 
 ```qs
-characterCode("A")==characterCode("a") // false because 65 is not equal to 97
+characterCode("A") == characterCode("a") // false because 65 is not equal to 97
 ```
 
 
@@ -91,48 +91,48 @@ characterCode("A")==characterCode("a") // false because 65 is not equal to 97
 The QodlyScript supports **@** as a wildcard character. This character can be used in any string comparison to match any number of characters. For example, the following expression is `true`:
 
 ```qs
-	"abcdefghij"=="abc@" //true
+	"abcdefghij" == "abc@" //true
 ```
 
 The wildcard character must be used within the second operand (the string on the right side) in order to match any number of characters. The following expression is `false`, because the `@` is considered only as one character in the first operand:
 
 ```qs
-    "abc@"=="abcdefghij" //false
+    "abc@" == "abcdefghij" //false
 ```
 
 The wildcard means "one or more characters or nothing". The following expressions are `true`:
 
 ```qs
-     "abcdefghij"=="abcdefghij@" //true
-     "abcdefghij"=="@abcdefghij" //true
-     "abcdefghij"=="abcd@efghij" //true
-     "abcdefghij"=="@abcdefghij@"//true
-     "abcdefghij"=="@abcde@fghij@"//true
+     "abcdefghij" == "abcdefghij@" //true
+     "abcdefghij" == "@abcdefghij" //true
+     "abcdefghij" == "abcd@efghij" //true
+     "abcdefghij" == "@abcdefghij@"//true
+     "abcdefghij" == "@abcde@fghij@"//true
 ```
 
 On the other hand, whatever the case, a string comparison with two consecutive wildcards will always return `false`:
 
 ```qs
-	"abcdefghij"=="abc@@fg" //false
+	"abcdefghij" == "abc@@fg" //false
 ```
 
 When the comparison operator is or contains a `<` or `>` symbol, only comparison with a single wildcard located at the end of the operand is supported:
 
 ```qs
-     "abcd"<="abc@" // Valid comparison
-     "abcd"<="abc@ef" //Not a valid comparison
+     "abcd"  <= "abc@" // Valid comparison
+     "abcd"  <= "abc@ef" //Not a valid comparison
 ```
 
 If you want to execute comparisons or queries using `@` as a character (and not as a wildcard), you need to use the `characterCode(At sign)` instruction. Imagine, for example, that you want to know if a string ends with the `@` character. The following expression (if `vsValue` is not empty) is always `true`:
 
 ```qs
-(vsValue[[length(vsValue)]]=="@") //always true
+(vsValue[[length(vsValue)]] == "@") //always true
 ```
 
 The following expression will be evaluated correctly:
 
 ```qs
-(characterCode(vsValue[[length(vsValue)]])!=64)  
+(characterCode(vsValue[[length(vsValue)]]) != 64)  
 ```
 
 
@@ -150,7 +150,7 @@ Unlike other string comparisons, searching by keywords looks for "words" in "tex
 
 :::note
 
-QodlyScript uses the ICU library for comparing strings (using `<>==!=` operators) and detecting keywords. For more information about the rules implemented, please refer to the following address: <http://www.unicode.org/reports/tr29/#Word_Boundaries>.
+QodlyScript uses the ICU library for comparing strings (using `<>==  != ` operators) and detecting keywords. For more information about the rules implemented, please refer to the following address: <http://www.unicode.org/reports/tr29/#Word_Boundaries>.
 
 :::
 
@@ -170,8 +170,8 @@ If the character reference symbols appear on the left side of the assignment ope
 ```qs  
 var vsName : string
 vsName = "hello"
-if(vsName!="")
-    vsName[[1]]=uppercase(vsName[[1]])
+if(vsName != "")
+    vsName[[1]] = uppercase(vsName[[1]])
 end  
 //"Hello"
 ```
@@ -180,8 +180,8 @@ Otherwise, if the character reference symbols appear within an expression, they 
 
 ```qs
 //The following example tests if the last character of vtText is an At sign "@"
- if(vtText!="")
-    if(characterCode(substring(vtText,length(vtText),1))==At sign)
+ if(vtText != "")
+    if(characterCode(substring(vtText,length(vtText),1)) == At sign)
   //...
     end
  end
@@ -189,8 +189,8 @@ Otherwise, if the character reference symbols appear within an expression, they 
 
 ```qs 
   //Using the character reference syntax, you would write in a simpler manner:
- if(vtText!="")
-    if(characterCode(vtText[[length(vtText)]])==At sign)
+ if(vtText != "")
+    if(characterCode(vtText[[length(vtText)]]) == At sign)
   // ...
     end
  end
@@ -205,13 +205,13 @@ The following method capitalizes the first character of each word of the text re
  
  declare (source : string) -> capitalized : string
  var vlLen,vlChar : integer
- capitalized=source
- vlLen=length(capitalized)
+ capitalized = source
+ vlLen = length(capitalized)
  if(vlLen>0)
-    capitalized[[1]]=uppercase(capitalized[[1]])
+    capitalized[[1]] = uppercase(capitalized[[1]])
     for(vlChar,1,vlLen-1)
-       if(position(capitalized[[vlChar]]," !&()-{}:;<>?/,.=+*")>0)
-          capitalized[[vlChar+1]]=uppercase(capitalized[[vlChar+1]])
+       if(position(capitalized[[vlChar]]," !&()-{}:;<>?/,. = +*")>0)
+          capitalized[[vlChar+1]] = uppercase(capitalized[[vlChar+1]])
        end
     end
  end
@@ -221,6 +221,6 @@ For example, the line:
 
 ```qs
 var cap : string
-cap=Capitalize_text("hello, my name is jane doe and i'm running for president!")
+cap = Capitalize_text("hello, my name is jane doe and i'm running for president!")
 //cap: "Hello, My Name Is Jane Doe And I'm Running For President!"
 ```

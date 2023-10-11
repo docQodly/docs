@@ -71,9 +71,9 @@ The attribute value type depends on the attribute [kind](DataClassClass.md#attri
 
 ```qs
  var myEntity : cs.EmployeeEntity
- myEntity=ds.Employee.new() //Create a new entity
- myEntity.name="Dupont" // assign 'Dupont' to the 'name' attribute
- myEntity.firstname="John" //assign 'John' to the 'firstname' attribute
+ myEntity = ds.Employee.new() //Create a new entity
+ myEntity.name = "Dupont" // assign 'Dupont' to the 'name' attribute
+ myEntity.firstname = "John" //assign 'John' to the 'firstname' attribute
  myEntity.save() //save the entity
 ```
 
@@ -109,10 +109,10 @@ This function can only be used with entities already saved in the database. It c
 
 ```qs
  var emp, empCloned : cs.EmployeeEntity
- emp=ds.Employee.get(672)
- empCloned=emp.clone()
+ emp = ds.Employee.get(672)
+ empCloned = emp.clone()
  
- emp.lastName="Smith" //Updates done on emp are not done on empCloned
+ emp.lastName = "Smith" //Updates done on emp are not done on empCloned
 
 
 ```
@@ -168,13 +168,13 @@ If one of the compared entities is **Null**, an error is raised.
 ```qs
  var diff1, diff2 : collection
  var employee, clone : cs.EmployeeEntity
- employee=ds.Employee.query("ID=1001").first()
- clone=employee.clone()
- employee.firstName="MARIE"
- employee.lastName="SOPHIE"
- employee.salary=500
- diff1=clone.diff(employee) // All differences are returned
- diff2=clone.diff(employee,newCollection("firstName","lastName"))
+ employee = ds.Employee.query("ID = 1001").first()
+ clone = employee.clone()
+ employee.firstName = "MARIE"
+ employee.lastName = "SOPHIE"
+ employee.salary = 500
+ diff1 = clone.diff(employee) // All differences are returned
+ diff2 = clone.diff(employee,newCollection("firstName","lastName"))
   // Only differences on firstName and lastName are returned
 ```
 
@@ -220,27 +220,27 @@ diff2:
  var vCompareResult1, vCompareResult2, vCompareResult3, attributesToInspect : collection
  var e1, e2 : cs.EmployeeEntity
  var c : cs.CompanyEntity
- vCompareResult1=newCollection
- vCompareResult2=newCollection
- vCompareResult3=newCollection
- attributesToInspect:=newCollection
+ vCompareResult1 = newCollection
+ vCompareResult2 = newCollection
+ vCompareResult3 = newCollection
+ attributesToInspect: = newCollection
  
- e1=ds.Employee.get(636)
- e2=ds.Employee.get(636)
+ e1 = ds.Employee.get(636)
+ e2 = ds.Employee.get(636)
  
- e1.firstName=e1.firstName+" update"
- e1.lastName=e1.lastName+" update"
+ e1.firstName = e1.firstName+" update"
+ e1.lastName = e1.lastName+" update"
  
- c=ds.Company.get(117)
- e1.employer=c
- e2.salary=100
+ c = ds.Company.get(117)
+ e1.employer = c
+ e2.salary = 100
  
  attributesToInspect.push("firstName")
  attributesToInspect.push("lastName")
  
- vCompareResult1=e1.diff(e2)
- vCompareResult2=e1.diff(e2,attributesToInspect)
- vCompareResult3=e1.diff(e2,e1.touchedAttributes())
+ vCompareResult1 = e1.diff(e2)
+ vCompareResult2 = e1.diff(e2,attributesToInspect)
+ vCompareResult3 = e1.diff(e2,e1.touchedAttributes())
 ```
 
 vCompareResult1 (all differences are returned):
@@ -392,14 +392,14 @@ Example without `kForceDropIfStampChanged` option:
  var employee : cs.EmployeeEntity
  var status : object
  var info : string
- employees=ds.Employee.query("lastName=:1","Smith")
- employee=employees.first()
- status=employee.drop()
+ employees = ds.Employee.query("lastName = :1","Smith")
+ employee = employees.first()
+ status = employee.drop()
  switch
     :(status.success)
-       info="You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
-    :(status.status=kStatusStampHasChanged)
-       info=status.statusText
+       info = "You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
+    :(status.status = kStatusStampHasChanged)
+       info = status.statusText
  end
 ```
 
@@ -412,14 +412,14 @@ Example with `kForceDropIfStampChanged` option:
  var employee : cs.EmployeeEntity
  var status : object
  var info : string
- employees=ds.Employee.query("lastName=:1","Smith")
- employee=employees.first()
- status=employee.drop(kForceDropIfStampChanged)
+ employees = ds.Employee.query("lastName = :1","Smith")
+ employee = employees.first()
+ status = employee.drop(kForceDropIfStampChanged)
  switch
     :(status.success)
-       info="You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
-    :(status.status=kStatusEntityDoesNotExistAnymore)
-       info=status.statusText
+       info = "You have dropped "+employee.firstName+" "+employee.lastName) //The dropped entity remains in memory
+    :(status.status = kStatusEntityDoesNotExistAnymore)
+       info = status.statusText
  end
 ``` 
 
@@ -452,9 +452,9 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 ```qs
  var employees : cs.EmployeeSelection
  var employee, firstEmployee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
- employee=employees[2]
- firstEmployee=employee.first() //firstEmployee is the first entity of the employees entity selection
+ employees = ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
+ employee = employees[2]
+ firstEmployee = employee.first() //firstEmployee is the first entity of the employees entity selection
 ```
 
 <!-- END REF -->
@@ -515,7 +515,7 @@ The following code will create an entity with manager and employer related entit
  var o : object
  var entity : cs.EmpEntity
 
- entity=ds.Emp.new()
+ entity = ds.Emp.new()
  entity.fromObject(o)
  entity.save()
 ```
@@ -576,10 +576,10 @@ The following generic code duplicates any entity:
  var entityNew : 4D.Entity
  var status : object
   
- entityNew=entity.getDataClass().new() //create a new entity in the parent dataclass
+ entityNew = entity.getDataClass().new() //create a new entity in the parent dataclass
  entityNew.fromObject(entity.toObject()) //get all attributes
- entityNew[entity.getDataClass().getInfo().primaryKey]=Null //reset the primary key
- status=entityNew.save() //save the duplicated entity
+ entityNew[entity.getDataClass().getInfo().primaryKey] = Null //reset the primary key
+ status = entityNew.save() //save the duplicated entity
 ```
 
 <!-- END REF -->
@@ -616,9 +616,9 @@ Primary keys can be numbers (integer) or strings. You can "force" the returned p
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : string
- employees=ds.Employee.query("lastName=:1","Smith")
- employee=employees[0]
- info="The primary key is "+employee.getKey(kKeyAsString)
+ employees = ds.Employee.query("lastName = :1","Smith")
+ employee = employees[0]
+ info = "The primary key is "+employee.getKey(kKeyAsString)
 ```
 
 <!-- END REF -->
@@ -651,13 +651,13 @@ If the entity does not belong to an entity selection, the function returns null.
  var emp : cs.EmployeeEntity
  var employees, employees2 : cs.EmployeeSelection
  var info : string
- emp=ds.Employee.get(672) // This entity does not belong to any entity selection
- employees=emp.getSelection() // employees is Null
+ emp = ds.Employee.get(672) // This entity does not belong to any entity selection
+ employees = emp.getSelection() // employees is Null
  
- employees2=ds.Employee.query("lastName=:1","Smith") //This entity selection contains 6 entities
- emp=employees2[0]  //This entity belongs to an entity selection
+ employees2 = ds.Employee.query("lastName = :1","Smith") //This entity selection contains 6 entities
+ emp = employees2[0]  //This entity belongs to an entity selection
  
- info="The entity selection contains "+string(emp.getSelection().length)+" entities"
+ info = "The entity selection contains "+string(emp.getSelection().length)+" entities"
 ```
 
 <!-- END REF -->
@@ -696,14 +696,14 @@ For a new entity (never saved), the function returns 0. To know if an entity has
  var entity : cs.EmployeeEntity
  var stamp : integer
  
- entity=ds.Employee.new()
- entity.lastname="Smith"
+ entity = ds.Employee.new()
+ entity.lastname = "Smith"
  entity.save()
- stamp=entity.getStamp() //stamp=1
+ stamp = entity.getStamp() //stamp = 1
  
- entity.lastname="Wesson"
+ entity.lastname = "Wesson"
  entity.save()
- stamp=entity.getStamp() //stamp=2
+ stamp = entity.getStamp() //stamp = 2
 ```
 
 <!-- END REF -->
@@ -743,12 +743,12 @@ The resulting value is included between 0 and the length of the entity selection
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : string
- employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
- employee=employees[1] //This entity belongs to an entity selection
- info="The index of the entity in its own entity selection is "+string(employee.indexOf()) //1
+ employees = ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
+ employee = employees[1] //This entity belongs to an entity selection
+ info = "The index of the entity in its own entity selection is "+string(employee.indexOf()) //1
  
- employee=ds.Employee.get(725) //This entity does not belong to an entity selection
- info="The index of the entity is "+string(employee.indexOf()) // -1
+ employee = ds.Employee.get(725) //This entity does not belong to an entity selection
+ info = "The index of the entity is "+string(employee.indexOf()) // -1
 ```
 
 <!-- END REF -->
@@ -781,10 +781,10 @@ The `.isNew()` function <!-- REF #EntityClass.isNew().Summary --> returns true i
  var emp : cs.EmployeeEntity
  var info : string
  
- emp=ds.Employee.new()
+ emp = ds.Employee.new()
  
  if(emp.isNew())
-    info="This is a new entity"
+    info = "This is a new entity"
  end
 ```
 
@@ -817,9 +817,9 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 ```qs
  var employees : cs.EmployeeSelection
  var employee, lastEmployee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
- employee=employees[0]
- lastEmployee=employee.last() //lastEmployee is the last entity of the employees entity selection
+ employees = ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
+ employee = employees[0]
+ lastEmployee = employee.last() //lastEmployee is the last entity of the employees entity selection
 ```
 
 <!-- END REF -->
@@ -902,13 +902,13 @@ Example with error:
  var employee : cs.EmployeeEntity
  var status : object
  var info : string
- employee=ds.Employee.get(716)
- status=employee.lock()
+ employee = ds.Employee.get(716)
+ status = employee.lock()
  switch
     :(status.success)
-       info="You have locked "+employee.firstName+" "+employee.lastName
-    :(status.status=kStatusStampHasChanged)
-       info=status.statusText
+       info = "You have locked "+employee.firstName+" "+employee.lastName
+    :(status.status = kStatusStampHasChanged)
+       info = status.statusText
  end
 ```
 
@@ -921,13 +921,13 @@ Example with `kReloadIfStampChanged` option:
  var employee : cs.EmployeeEntity
  var status : object
  var info : string
- employee=ds.Employee.get(717)
- status=employee.lock(kReloadIfStampChanged)
+ employee = ds.Employee.get(717)
+ status = employee.lock(kReloadIfStampChanged)
  switch
     :(status.success)
-       info="You have locked "+employee.firstName+" "+employee.lastName
-    :(status.status=kStatusEntityDoesNotExistAnymore)
-       info=status.statusText
+       info = "You have locked "+employee.firstName+" "+employee.lastName
+    :(status.status = kStatusEntityDoesNotExistAnymore)
+       info = status.statusText
  end
 ```
 
@@ -961,9 +961,9 @@ If there is no valid next entity in the entity selection (i.e. you are on the la
 ```qs
  var employees : cs.EmployeeSelection
  var employee, nextEmployee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
- employee=employees[0]
- nextEmployee=employee.next() //nextEmployee is the second entity of the employees entity selection
+ employees = ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
+ employee = employees[0]
+ nextEmployee = employee.next() //nextEmployee is the second entity of the employees entity selection
 
 ```
 
@@ -996,9 +996,9 @@ If there is no valid previous entity in the entity selection (i.e. you are on th
 ```qs
  var employees : cs.EmployeeSelection
  var employee, previousEmployee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
- employee=employees[1]
- previousEmployee=employee.previous() //previousEmployee is the first entity of the employees entity selection
+ employees = ds.Employee.query("lastName = :1","H@") //This entity selection contains 3 entities
+ employee = employees[1]
+ previousEmployee = employee.previous() //previousEmployee is the first entity of the employees entity selection
 ```
 
 <!-- END REF -->
@@ -1048,15 +1048,15 @@ The object returned by `.reload()` contains the following properties:
  var result : object
  var info : string
  
- employees=ds.Employee.query("lastName=:1","Hollis")
- employee=employees[0]
- employee.firstName="Mary"
- result=employee.reload()
+ employees = ds.Employee.query("lastName = :1","Hollis")
+ employee = employees[0]
+ employee.firstName = "Mary"
+ result = employee.reload()
  switch
     :(result.success)
-       info="Reload has been done"
-    :(result.status=kStatusEntityDoesNotExistAnymore)
-       info="The entity has been dropped"
+       info = "Reload has been done"
+    :(result.status = kStatusEntityDoesNotExistAnymore)
+       info = "The entity has been dropped"
  end
 ```
 
@@ -1138,12 +1138,12 @@ Creating a new entity:
  var status : object
  var employee : cs.EmployeeEntity
  var info : string
- employee=ds.Employee.new()
- employee.firstName="Mary"
- employee.lastName="Smith"
- status=employee.save()
+ employee = ds.Employee.new()
+ employee.firstName = "Mary"
+ employee.lastName = "Smith"
+ status = employee.save()
  if(status.success)
-    info="Employee created"
+    info = "Employee created"
  end
 ```
 
@@ -1155,15 +1155,15 @@ Updating an entity without `kAutoMerge` option:
  var status : object
  var employee : cs.EmployeeEntity
  var employees : cs.EmployeeSelection
- employees=ds.Employee.query("lastName=:1","Smith")
- employee=employees.first()
- employee.lastName="Mac Arthur"
- status=employee.save()
+ employees = ds.Employee.query("lastName = :1","Smith")
+ employee = employees.first()
+ employee.lastName = "Mac Arthur"
+ status = employee.save()
  switch
     :(status.success)
-       info="Employee updated"
-    :(status.status=kStatusStampHasChanged)
-       info=status.statusText
+       info = "Employee updated"
+    :(status.status = kStatusStampHasChanged)
+       info = status.statusText
  end
 ```
 
@@ -1178,15 +1178,15 @@ Updating an entity with `kAutoMerge` option:
  var employees : cs.EmployeeSelection
  var info : string
  
- employees=ds.Employee.query("lastName=:1","Smith")
- employee=employees.first()
- employee.lastName="Mac Arthur"
- status=employee.save(kAutoMerge)
+ employees = ds.Employee.query("lastName = :1","Smith")
+ employee = employees.first()
+ employee.lastName = "Mac Arthur"
+ status = employee.save(kAutoMerge)
  switch
     :(status.success)
-       info="Employee updated"
-    :(status.status=kStatusAutomergeFailed)
-       info=status.statusText
+       info = "Employee updated"
+    :(status.status = kStatusAutomergeFailed)
+       info = status.statusText
  end
 ```
 
@@ -1250,7 +1250,7 @@ The following structure will be used throughout all examples of this section:
 Without filter parameter:
 
 ```qs
-employeeObject=employeeSelected.toObject()
+employeeObject = employeeSelected.toObject()
 ```
 
 Returns:
@@ -1283,7 +1283,7 @@ Returns:
 Extracting the primary key and the stamp:
 
 ```qs
-employeeObject=employeeSelected.toObject("",kWithPrimaryKey+kWithStamp)
+employeeObject = employeeSelected.toObject("",kWithPrimaryKey+kWithStamp)
 ```
 
 Returns:
@@ -1316,7 +1316,7 @@ Returns:
 Expanding all the properties of `relatedEntities`:
 
 ```qs
-employeeObject=employeeSelected.toObject("directReports.*")
+employeeObject = employeeSelected.toObject("directReports.*")
 ```
 
 ```json
@@ -1385,7 +1385,7 @@ employeeObject=employeeSelected.toObject("directReports.*")
 Extracting some properties of `relatedEntities`:
 
 ```qs
- employeeObject=employeeSelected.toObject("firstName, directReports.lastName")
+ employeeObject = employeeSelected.toObject("firstName, directReports.lastName")
 ```
  
 Returns:
@@ -1412,8 +1412,8 @@ Returns:
 Extracting a `relatedEntity` with simple form:
 
 ```qs
- coll=newCollection("firstName","employer")
- employeeObject=employeeSelected.toObject(coll)
+ coll = newCollection("firstName","employer")
+ employeeObject = employeeSelected.toObject(coll)
 ```
 
 Returns:
@@ -1432,7 +1432,7 @@ Returns:
 Extracting all the properties of a `relatedEntity`:
 
 ```qs
- employeeObject=employeeSelected.toObject("employer.*")
+ employeeObject = employeeSelected.toObject("employer.*")
 ```
 
 Returns:
@@ -1454,10 +1454,10 @@ Returns:
 Extracting some properties of a `relatedEntity`:
 
 ```qs
- col=newCollection
+ col = newCollection
  col.push("employer.name")
  col.push("employer.revenues")
- employeeObject=employeeSelected.toObject(col)
+ employeeObject = employeeSelected.toObject(col)
 ```
 
 Returns:
@@ -1501,8 +1501,8 @@ In this example, we check to see if it is necessary to save the entity:
 
 ```qs
  var emp : cs.EmployeeEntity
- emp=ds.Employee.get(672)
- emp.firstName=emp.firstName //Even if updated with the same value, the attribute is marked as touched
+ emp = ds.Employee.get(672)
+ emp.firstName = emp.firstName //Even if updated with the same value, the attribute is marked as touched
  
  if(emp.touched()) //if at least one of the attributes has been changed
     emp.save()
@@ -1541,11 +1541,11 @@ If no entity attribute has been touched, the method returns an empty collection.
  var touchedAttributes : collection
  var emp : cs.EmployeeEntity
  
- touchedAttributes=newCollection()
- emp=ds.Employee.get(725)
- emp.firstName=emp.firstName //Even if updated with the same value, the attribute is marked as touched
- emp.lastName="Martin"
- touchedAttributes=emp.touchedAttributes()
+ touchedAttributes = newCollection()
+ emp = ds.Employee.get(725)
+ emp.firstName = emp.firstName //Even if updated with the same value, the attribute is marked as touched
+ emp.lastName = "Martin"
+ touchedAttributes = emp.touchedAttributes()
   //touchedAttributes: ["firstName","lastName"]
 ```
 
@@ -1558,16 +1558,16 @@ If no entity attribute has been touched, the method returns an empty collection.
  var emp : cs.EmployeeEntity
  var company : cs.CompanyEntity
  
- touchedAttributes=newCollection()
+ touchedAttributes = newCollection()
  
- emp=ds.Employee.get(672)
- emp.firstName=emp.firstName
- emp.lastName="Martin"
+ emp = ds.Employee.get(672)
+ emp.firstName = emp.firstName
+ emp.lastName = "Martin"
  
- company=ds.Company.get(121)
- emp.employer=company
+ company = ds.Company.get(121)
+ emp.employer = company
  
- touchedAttributes=emp.touchedAttributes()
+ touchedAttributes = emp.touchedAttributes()
  
   //touchedAttributes: ["firstName","lastName","employer","employerID"]
 ```
@@ -1604,11 +1604,11 @@ A record is automatically unlocked when it is no longer referenced by any entiti
 >When a record is locked, it must be unlocked from the locking process and on the entity reference which put the lock. For example:
 
 ```qs
- e1=ds.Emp.all()[0]
- e2=ds.Emp.all()[0]
- res=e1.lock() //res.success=true
- res=e2.unlock() //res.success=false
- res=e1.unlock() //res.success=true
+ e1 = ds.Emp.all()[0]
+ e2 = ds.Emp.all()[0]
+ res = e1.lock() //res.success = true
+ res = e2.unlock() //res.success = false
+ res = e1.unlock() //res.success = true
 ```
 
 **Result**
@@ -1626,12 +1626,12 @@ The object returned by `.unlock()` contains the following property:
  var status : object
  var info : string
  
- employee=ds.Employee.get(725)
- status=employee.lock()
+ employee = ds.Employee.get(725)
+ status = employee.lock()
  ... //processing
- status=employee.unlock()
+ status = employee.unlock()
  if(status.success)
-    info="The entity is now unlocked"
+    info = "The entity is now unlocked"
  end
 ```
 

@@ -5,7 +5,7 @@ title: Operators
 
 An operator is a symbol or a group of symbols that you use to check, modify, or combine values. You are already familiar with many operators. For example, `1 + 2` uses the addition (or plus sign) operator to add two numbers together, and the result is 3. Comparison operators, like = or >, let you compare two or more values. 
 
-The QodlyScript language supports the operators you may already know from other languages like C or JavaScript. The assignment operator is `=` and the equal to operator is `==`. [Basic operators](#basic-operators) such as arithmetic operators (+, -, *, /, %...) and comparison operators (=, >, >=...) can be used with numbers, but also with boolean, text, date, time, or picture data types. Like JavaScript, the Qodly language supports the concept of [truthy and falsy values](#truthy-and-falsy), which in use in [short-cicrcuit operators](#short-circuit-operators). 
+The QodlyScript language supports the operators you may already know from other languages like C or JavaScript. The assignment operator is `=` and the equal to operator is `==`. [Basic operators](#basic-operators) such as arithmetic operators (+, -, *, /, %...) and comparison operators ( = , >, >= ...) can be used with numbers, but also with boolean, text, date, time, or picture data types. Like JavaScript, the Qodly language supports the concept of [truthy and falsy values](#truthy-and-falsy), which in use in [short-cicrcuit operators](#short-circuit-operators). 
 
 
 ## Terminology
@@ -21,13 +21,13 @@ The values that operators affect are operands. In the expression `1 + 2`, the + 
 
 ## Assignment operator
 
-The **assignment operator** (`a=b`) initializes or updates the value of `a` with the value of `b`:
+The **assignment operator** (`a = b`) initializes or updates the value of `a` with the value of `b`:
 
 ```qs
-myNumber=3 //assigns 3 to myNumber variable  
-myDate=!2023/01/21! //assigns a date literal
-myLength=length("Acme") //assigns the result of the command (4) to myLength
-col=newCollection //col is initialized with an empty collection
+myNumber = 3 //assigns 3 to myNumber variable  
+myDate = !2023/01/21! //assigns a date literal
+myLength = length("Acme") //assigns the result of the command (4) to myLength
+col = newCollection //col is initialized with an empty collection
 ```
 
 > Do NOT confuse the assignment operator `=` with the equality comparison operator `==`.
@@ -50,11 +50,11 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 
 ## Compound assignment operators
 
-QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+=`):
+QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+ = `):
 
 ```qs
-a=1 
-a+=2 // a=3
+a = 1 
+a+ = 2 // a = 3
 ```
 
 
@@ -62,32 +62,32 @@ The following compound assignment operators are supported:
 
 |Operator|Syntax|Assigns|Example
 |---|---|---|---|
-|Addition|Text += Text|Text|`t+=" World"  //t=t+" World"`|
-||Number += Number |Number|`n+=5 //n=n+5`|
-||Date += Number |Date|`d+=5 //d=d+5`|
-||Time += Time |Time|`t1+=t2 //t1=t1+t2`|
-||Time += Number |Number |`t1+=5 //t1=t1+5`|
-||Picture += Picture|Picture|`p1+=p2 //p1=p1+p2 (add p2 to the right of p1)`|
-||Picture += Number|Picture|`p1+=5 //p1=p1+5 (move p1 horizontally 5 pixels to the right)`|
-|Subtraction|Number -= Number |Number|`n-=5 //n=n-5`|
-||Date -= Number |Date|`d-=5 //d=d-5`|
-||Time -= Time |Time|`t1-=t2 //t1=t1-t2`|
-||Time -= Number |Number |`t1-=5 //t1=t1-5`|
-||Picture -= Number|Picture|`p1-=5 //p1=p1-5 (move p1 horizontally 5 pixels to the left)`|
-|Division|Number /= Number |Number|`n/=5 //n=n/5`|
-||Time /= Time |Time|`t1/=t2 //t1=t1/t2`|
-||Time /= Number |Number |`t1/=5 //t1=t1/5`|
-||Picture /= Picture|Picture|`p1/=p2 //p1=p1/p2 (add p2 to the bottom of p1)`|
-||Picture /= Number|Picture|`p1/=5 //p1=p1/5 (move p1 vertically 5 pixels)`|
-|Multiplication|Text *= Number |Text|`t*="abc"  //t=t*"abc"`|
-||Number *= Number |Number|`n*=5 //n=n*5`|
-||Time *= Time |Time|`t1*=t2 //t1=t1*t2`|
-||Time *= Number |Number |`t1*=5 //t1=t1*5`|
-||Picture *= Number|Picture|`p1*=5 //p1=p1*5 (resize p1 by 5)`|
+|Addition|Text + =  Text|Text|`t+ = " World"  //t = t+" World"`|
+||Number + =  Number |Number|`n+ = 5 //n = n+5`|
+||Date + =  Number |Date|`d+ = 5 //d = d+5`|
+||Time + =  Time |Time|`t1+ = t2 //t1 = t1+t2`|
+||Time + =  Number |Number |`t1+ = 5 //t1 = t1+5`|
+||Picture + =  Picture|Picture|`p1+ = p2 //p1 = p1+p2 (add p2 to the right of p1)`|
+||Picture + =  Number|Picture|`p1+ = 5 //p1 = p1+5 (move p1 horizontally 5 pixels to the right)`|
+|Subtraction|Number - =  Number |Number|`n- = 5 //n = n-5`|
+||Date - =  Number |Date|`d- = 5 //d = d-5`|
+||Time - =  Time |Time|`t1- = t2 //t1 = t1-t2`|
+||Time - =  Number |Number |`t1- = 5 //t1 = t1-5`|
+||Picture - =  Number|Picture|`p1- = 5 //p1 = p1-5 (move p1 horizontally 5 pixels to the left)`|
+|Division|Number / =  Number |Number|`n/ = 5 //n = n/5`|
+||Time / =  Time |Time|`t1/ = t2 //t1 = t1/t2`|
+||Time / =  Number |Number |`t1/ = 5 //t1 = t1/5`|
+||Picture / =  Picture|Picture|`p1/ = p2 //p1 = p1/p2 (add p2 to the bottom of p1)`|
+||Picture / =  Number|Picture|`p1/ = 5 //p1 = p1/5 (move p1 vertically 5 pixels)`|
+|Multiplication|Text * =  Number |Text|`t* = "abc"  //t = t*"abc"`|
+||Number * =  Number |Number|`n* = 5 //n = n*5`|
+||Time * =  Time |Time|`t1* = t2 //t1 = t1*t2`|
+||Time * =  Number |Number |`t1* = 5 //t1 = t1*5`|
+||Picture * =  Number|Picture|`p1* = 5 //p1 = p1*5 (resize p1 by 5)`|
 
 These operators apply on any [assignable expressions](lang-expressions.md#assignable-vs-non-assignable-expressions) (except pictures as object properties or collection elements).
 
-The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+=1` the `getPointer` method is called only once.
+The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+ = 1` the `getPointer` method is called only once.
 
 > [Character indexing in text](lang-text.md#character-reference-symbols) and [byte indexing in blob](lang-blob.md#accessing-a-scalar-blobs-bytes) do not support these operators.
 > 
@@ -95,33 +95,33 @@ The operation "source `operator` value" is not strictly equivalent to "source = 
 
 ```qs
 // Addition
-x=2
-x+=5 //x=7
+x = 2
+x+ = 5 //x = 7
 
-t="Hello" 
-t+=" World" //t="Hello World" 
+t = "Hello" 
+t+ = " World" //t = "Hello World" 
 
-d=!2000-11-10!
-d+=10 //d=!2000-11-20!
+d = !2000-11-10!
+d+ = 10 //d = !2000-11-20!
 
 // Subtraction
-x1=10
-x1-=5 //x1=5
+x1 = 10
+x1- = 5 //x1 = 5
 
-d1=!2000-11-10!
-d1-=10 // d1=!2000-10-31!
+d1 = !2000-11-10!
+d1- = 10 // d1 = !2000-10-31!
 
 // Division
-x3=10
-x3/=2 // x3=5
+x3 = 10
+x3/ = 2 // x3 = 5
 
 
 // Multiplication
-x2=10
-x2*=5 // x2=10
+x2 = 10
+x2* = 5 // x2 = 10
 
-t2="Hello" 
-t2*=2 // t2="HelloHello"
+t2 = "Hello" 
+t2* = 2 // t2 = "HelloHello"
 
 ```
 
@@ -156,11 +156,11 @@ The following table summarizes the different cases for the **&&** operator:
 ```qs
 var v : variant
 
-v="Hello" && "World" //"World"
-v=false && 0 // false
-v=0 && false // false
-v=5 && !00-00-00! // 00/00/00
-v=5 && 10 && "hello" //"hello"
+v = "Hello" && "World" //"World"
+v = false && 0 // false
+v = 0 && false // false
+v = 5 && !00-00-00! // 00/00/00
+v = 5 && 10 && "hello" //"hello"
 ```
 
 #### Example 2
@@ -174,7 +174,7 @@ So you can write this:
 ```qs
 var tax : variant
 
-tax=item.taxRate && (item.price*item.taxRate)
+tax = item.taxRate && (item.price*item.taxRate)
 ```
 
 *tax* will be `null` if *taxRate* is `null` (or `undefined`), otherwise it will store the result of the calculation.
@@ -184,7 +184,7 @@ tax=item.taxRate && (item.price*item.taxRate)
 Short-circuit operators are useful in tests such as:
 
 ```qs
-if((myObject!=null) && (myObject.value>10))
+if((myObject != null) && (myObject.value>10))
 	//code
 end
 ```
@@ -217,7 +217,7 @@ Say you have a dataclass named Employee. Some employees have entered a phone num
 ```qs
 var phone : string
 
-phone=emp.phone || "n/a"
+phone = emp.phone || "n/a"
 ```
 
 In which case `phone` will store either a phone number or the "n/a" string. 
@@ -231,7 +231,7 @@ The following example checks if there is a maiden name and stores it in a variab
 ```qs
 var name: string
 
-name=person.maidenName || person.name
+name = person.maidenName || person.name
 ```
 
 ### Precedence
@@ -266,8 +266,8 @@ The syntax is as follows:
 var age : integer
 var beverage : string
 
-age=26
-beverage=(age>=21) ? "Beer" : "Juice"
+age = 26
+beverage = (age>= 21) ? "Beer" : "Juice"
 
 // beverage : "Beer"
 ```
@@ -280,7 +280,7 @@ This example stores a person's full name in a variable, and handles the case whe
 var fullname : string
 
 // If one of the names is missing, store the one that exists, otherwise store an empty string
-fullname=(person.firstname && person.lastname) ? (person.firstname+" "+person.lastname) : (person.lastname || person.firstname) || ""
+fullname = (person.firstname && person.lastname) ? (person.firstname+" "+person.lastname) : (person.lastname || person.firstname) || ""
 ```
 
 ## Truthy and falsy
@@ -311,7 +311,7 @@ In QodlyScript, **truthy** and **falsy** evaluation reflects the **usability** o
 For example, when you use a [short-circuit OR operator](#short-circuit-or-operator-):
 
 ```qs
-value=object.value || defaultValue
+value = object.value || defaultValue
 ```
 
 ... you get the default value whenever *object* does not contain the `value` property OR when it is *null*. So this operator checks the existence or usability of the value instead of a specific value. Note that because the numerical value 0 exists and is usable, it is not treated specially, thus it is **truthy**.
@@ -319,5 +319,5 @@ value=object.value || defaultValue
 Regarding values representing collections, objects, or strings, "empty" values are considered **falsy**. It is handy when you want to assign a default value whenever an empty one is encountered.
 
 ```qs
-phone=emp.phone || "n/a"
+phone = emp.phone || "n/a"
 ```

@@ -46,17 +46,17 @@ Since a signal object is a [shared object](basics/lang-shared.md), you can use i
  var signal : 4D.Signal
 
   // Creation of a signal
- signal=newSignal
+ signal = newSignal
 
   // call main process and execute OpenForm method
  callWorker(1,"OpenForm",signal)
   // do another calculation
  ...
   // Waiting for the end of the process
- signaled=signal.wait()
+ signaled = signal.wait()
 
   // Processing of the results
- calc=signal.result+...
+ calc = signal.result+...
 ```
 
 ***OpenForm*** method :
@@ -64,14 +64,14 @@ Since a signal object is a [shared object](basics/lang-shared.md), you can use i
 ```qs
  declare (signal : 4D.Signal)  
  var form : object
- form=newObject("value",0)
+ form = newObject("value",0)
 
   // Process the form object
- form=...
+ form = ...
 
   // Add a new attribute to your signal shared object to pass your result to the other process:
  use(signal)
-    signal.result=form.value
+    signal.result = form.value
  end
 
   // Trigger the signal to the waiting process
@@ -138,15 +138,15 @@ Here is a typical example of a worker that sets a signal:
 ```4d
  var signal : 4D.Signal
  var info : string
- signal=newSignal("This is my first signal")
+ signal = newSignal("This is my first signal")
 
  callWorker("myworker","doSomething",signal)
- signaled=signal.wait(1) //wait for 1 second max
+ signaled = signal.wait(1) //wait for 1 second max
 
  if(signaled)
-    info="myworker finished the work. Result: "+signal.myresult
+    info = "myworker finished the work. Result: "+signal.myresult
  else
-    info="myworker has not finished in less than 1s"
+    info = "myworker has not finished in less than 1s"
  end
 ```
 
@@ -158,7 +158,7 @@ The ***doSomething*** method could be like:
   //any processing
   //...
  use(signal)
-    signal.myresult=processingResult  //return the result
+    signal.myresult = processingResult  //return the result
  end
  signal.trigger() // The work is finished
 ```

@@ -20,8 +20,8 @@ formula objects can be encapsulated in object properties:
 
 ```qs
  var f : 4D.Function
- f=newObject
- f.comp=formula(1+2)
+ f = newObject
+ f.comp = formula(1+2)
 ```
 
 This property is an "object function", i.e. a function which is bound to its parent object. To execute a function stored in an object property, use the **()** operator after the property name, such as:
@@ -39,7 +39,7 @@ Syntax with brackets is also supported:
 Note that, even if it does not have parameters (see below), an object function to be executed must be called with () parenthesis. Calling only the object property will return a new reference to the formula (and will not execute it):
 
 ```qs
- o=f.comp //returns the formula object in o
+ o = f.comp //returns the formula object in o
 ```
 
 You can also execute a function using the [`apply()`](#apply) and [`call()`](#call) functions:
@@ -57,8 +57,8 @@ You can pass parameters to your formulas using sequentially numbered "$" variabl
 ```qs
 
  var f : object
- f=newObject
- f.comp=formula(1+$1)
+ f = newObject
+ f.comp = formula(1+$1)
  f.comp(5) //returns 6
 ```
 
@@ -67,9 +67,9 @@ Or using the [.call()](#call) function:
 ```qs
  var f : 4D.Function
  var r : integer
- f=formula($1+$2)
- r=f.call(null,5,5) //r: 10
- r=f.call(null,10,yearOf(currentDate)) //r: 2033
+ f = formula($1+$2)
+ r = f.call(null,5,5) //r: 10
+ r = f.call(null,10,yearOf(currentDate)) //r: 2033
 ```
 
 #### Parameters to a single method
@@ -80,17 +80,17 @@ For more convenience, when the formula is made of a single method, parameters ca
  var f : 4D.Function
  var t : string
 
- f=formula(myMethod)
+ f = formula(myMethod)
   //Writing formula(myMethod($1,$2)) is not necessary
- t=f.call(null,"Hello","World") //returns "Hello World"
- t=f.call() //returns "How are you?"
+ t = f.call(null,"Hello","World") //returns "Hello World"
+ t = f.call() //returns "How are you?"
 
   //myMethod
  declare (param1 : string, param2 : string)->return : string
- if(countParameters=2)
-    return=param1+" "+param2
+ if(countParameters = 2)
+    return = param1+" "+param2
  else
-    return="How are you?"
+    return = "How are you?"
  end
 ```
 
@@ -142,8 +142,8 @@ The returned formula can be called with:
 
 ```qs
  var f : 4D.Function
- f=formula(1+2)
- o=newObject("myFormula",f)
+ f = formula(1+2)
+ o = newObject("myFormula",f)
 
   //three different ways to call the formula
  f.call(o) //returns 3
@@ -166,12 +166,12 @@ A simple formula:
 
 ```qs
  var f : 4D.Function
- f=formula(1+2)
+ f = formula(1+2)
 
  var o : object
- o=newObject("f",f)
+ o = newObject("f",f)
 
- result=o.f() // returns 3
+ result = o.f() // returns 3
 ```
 
 #### Example 2
@@ -181,11 +181,11 @@ A formula using variables:
 ```qs
  var value : integer
 
- value=10
- o=newObject("f",formula(value))
- value=20
+ value = 10
+ o = newObject("f",formula(value))
+ value = 20
 
- result=o.f() // returns 10
+ result = o.f() // returns 10
 ```
 
 
@@ -194,8 +194,8 @@ A formula using variables:
 A simple formula using parameters:
 
 ```qs
- o=newObject("f",formula($1+$2))
- result=o.f(10,20) //returns 30
+ o = newObject("f",formula($1+$2))
+ result = o.f(10,20) //returns 30
 ```
 
 
@@ -204,8 +204,8 @@ A simple formula using parameters:
 A formula using a method with parameters:
 
 ```qs
- o=newObject("f",formula(myMethod))
- result=o.f("param1","param2") // equivalent to result=myMethod("param1","param2")
+ o = newObject("f",formula(myMethod))
+ result = o.f("param1","param2") // equivalent to result = myMethod("param1","param2")
 ```
 
 
@@ -214,10 +214,10 @@ A formula using a method with parameters:
 Using `this`:
 
 ```qs
- o=newObject("fullName",formula(this.firstName+" "+this.lastName))
- o.firstName="John"
- o.lastName="Smith"
- result=o.fullName() //returns "John Smith"
+ o = newObject("fullName",formula(this.firstName+" "+this.lastName))
+ o.firstName = "John"
+ o.lastName = "Smith"
+ result = o.fullName() //returns "John Smith"
 ```
 
 #### Example 6
@@ -227,18 +227,18 @@ Calling a formula using object notation:
 ```qs
  var feta, robot : object
  var calc : 4D.Function
- robot=newObject("name","Robot","price",543,"quantity",2)
- feta=newObject("name","Feta","price",12.5,"quantity",5)
+ robot = newObject("name","Robot","price",543,"quantity",2)
+ feta = newObject("name","Feta","price",12.5,"quantity",5)
 
- calc=formula(this.total=this.price*this.quantity)
+ calc = formula(this.total = this.price*this.quantity)
 
   //sets the formula to object properties
- feta.calc=calc
- robot.calc=calc
+ feta.calc = calc
+ robot.calc = calc
 
   //call the formula
- feta.calc() // feta={name:Feta,price:12.5,quantity:5,total:62.5,calc:"[object formula]"}
- robot.calc() // robot={name:Robot,price:543,quantity:2,total:1086,calc:"[object formula]"}
+ feta.calc() // feta = {name:Feta,price:12.5,quantity:5,total:62.5,calc:"[object formula]"}
+ robot.calc() // robot = {name:Robot,price:543,quantity:2,total:1086,calc:"[object formula]"}
 ```
 
 
@@ -298,10 +298,10 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 
 ```qs
  var f : 4D.Function
- f=formula($1+$2+$3)
+ f = formula($1+$2+$3)
 
- c=newCollection(10,20,30)
- result=f.apply(null,c) // returns 60
+ c = newCollection(10,20,30)
+ result = f.apply(null,c) // returns 60
 ```
 
 
@@ -310,13 +310,13 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 ```qs
  var calc : 4D.Function
  var feta, robot : object
- robot=newObject("name","Robot","price",543,"quantity",2)
- feta=newObject("name","Feta","price",12.5,"quantity",5)
+ robot = newObject("name","Robot","price",543,"quantity",2)
+ feta = newObject("name","Feta","price",12.5,"quantity",5)
 
- calc=formula(this.total=this.price*this.quantity)
+ calc = formula(this.total = this.price*this.quantity)
 
- calc.apply(feta) // feta={name:Feta,price:12.5,quantity:5,total:62.5}
- calc.apply(robot) // robot={name:Robot,price:543,quantity:2,total:1086}
+ calc.apply(feta) // feta = {name:Feta,price:12.5,quantity:5,total:62.5}
+ calc.apply(robot) // robot = {name:Robot,price:543,quantity:2,total:1086}
 ```
 
 <!-- END REF -->
@@ -352,8 +352,8 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
 ```qs
  var f : 4D.Function
  var result : string
- f=formula(uppercase($1))
- result=f.call(null,"hello") // returns "HELLO"
+ f = formula(uppercase($1))
+ result = f.call(null,"hello") // returns "HELLO"
 ```
 
 #### Example 2
@@ -362,9 +362,9 @@ Note that `.call()` is similar to [`.apply()`](#apply) except that parameters ar
  var f : 4D.Function
  var o : object
  var result : integer
- o=newObject("value",50)
- f=formula(this.value*2)
- result=f.call(o) // returns 100
+ o = newObject("value",50)
+ f = formula(this.value*2)
+ result = f.call(o) // returns 100
 ```
 
 <!-- END REF -->
@@ -388,8 +388,8 @@ This property is **read-only**.
 ```qs
  var of : 4D.Function
  var tf : string
- of=formula(string(currentTime,HH MM AM PM))
- tf=of.source //"string(currentTime,HH MM AM PM)"
+ of = formula(string(currentTime,HH MM AM PM))
+ tf = of.source //"string(currentTime,HH MM AM PM)"
 ```
 
 

@@ -21,34 +21,34 @@ Thanks to the Qodly object *refcounting*, a file handle is automatically deleted
 ```qs
 var f : 4D.File
 var fhandle : 4D.FileHandle
-f=file("/PACKAGE/example.txt")
+f = file("/PACKAGE/example.txt")
 
 //Writing line by line from the start
-fhandle=f.open("write")
-text="Hello World"
+fhandle = f.open("write")
+text = "Hello World"
 for (line, 1, 4)
     fhandle.writeLine(text+string(line))
 end
 
 //Writing line by line from the end
-fhandle=f.open("append")
-text="Hello New World!"
+fhandle = f.open("append")
+text = "Hello New World!"
 for (line, 1, 4)
     fhandle.writeLine(text+string(line))
 end
 
 //Reading using a stop character and an object parameter
-o=newObject()
-o.mode="read"
-o.charset="UTF-8"
-o.breakModeRead=Document with CRLF
-stopChar="!"
-fhandle=f.open(o)
-text=fhandle.readText(stopChar)
+o = newObject()
+o.mode = "read"
+o.charset = "UTF-8"
+o.breakModeRead = Document with CRLF
+stopChar = "!"
+fhandle = f.open(o)
+text = fhandle.readText(stopChar)
 
 //Reading line by line
-lines=newCollection()
-fhandle=f.open("read")
+lines = newCollection()
+fhandle = f.open("read")
 while (Not(fhandle.eof))
 	lines.push(fhandle.readLine())
 end

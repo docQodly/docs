@@ -12,7 +12,7 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 
 ```qs
  var c : collection //declaration of collection type variable
- c=newCollection() //initialization of the collection and assignment to the variable
+ c = newCollection() //initialization of the collection and assignment to the variable
  c.push("Hello",42,{o : "World"}) // c contains [Hello,42,{"o":"World"}]
 ```
 
@@ -106,7 +106,7 @@ Optionally, you can prefill the new collection by passing one or several *value*
 Otherwise, you can add or modify elements subsequently through assignment. For example:
 
 ```qs
- myCol[10]="My new element"
+ myCol[10] = "My new element"
 ```
 
 If the new element index is beyond the last existing element of the collection, the collection is automatically resized and all new intermediary elements are assigned a **null** value.
@@ -126,7 +126,7 @@ You want to create a new empty collection and assign it to a collection variable
 
 ```qs
  var myCol : collection
- myCol=newCollection()
+ myCol = newCollection()
   //myCol: []
 ```
 
@@ -136,7 +136,7 @@ You want to create a prefilled collection:
 
 ```qs
  var filledColl : collection
- filledColl=newCollection(33,"mike","november",currentdate)
+ filledColl = newCollection(33,"mike","november",currentdate)
   //filledColl:[33,"mike","november","2023-04-28T00:00:00.000Z"]
 ```
 
@@ -146,9 +146,9 @@ You create a new collection and then add a new element:
 
 ```qs
  var coll : collection
- coll=newCollection("a","b","c")
+ coll = newCollection("a","b","c")
   //coll:["a","b","c"]
- coll[9]="z" //add a 10th element with value "z"
+ coll[9] = "z" //add a 10th element with value "z"
   //coll.length: 10
   //coll: ["a","b","c",null,null,null,null,null,null,"z"]
 ```
@@ -207,9 +207,9 @@ Unlike standard (not shared) collections, shared collections do not support pict
 #### Example
 
 ```qs
- mySharedCol=newSharedcollection("alpha","omega")
+ mySharedCol = newSharedcollection("alpha","omega")
  use(mySharedCol)
-    mySharedCol[1]="beta"
+    mySharedCol[1] = "beta"
  end
 ```
 
@@ -250,12 +250,12 @@ The function returns Undefined if *index* is beyond collection limits.
 
 ```qs
 var col : collection
-col=newCollection(10, 20, 30, 40, 50)
-element=col.at(0) // 10
-element=col.at(1) // 20
-element=col.at(-1) // 50
-element=col.at(-2) // 40
-element=col.at(10) // undefined
+col = newCollection(10, 20, 30, 40, 50)
+element = col.at(0) // 10
+element = col.at(1) // 20
+element = col.at(-1) // 50
+element = col.at(-2) // 40
+element = col.at(10) // undefined
 ```
 
 <!-- END REF -->
@@ -297,8 +297,8 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vAvg : integer
- col=newCollection(10,20,"Monday",true,6)
- vAvg=col.average() //12
+ col = newCollection(10,20,"Monday",true,6)
+ vAvg = col.average() //12
 ```
 
 #### Example 2
@@ -306,11 +306,11 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vAvg : integer
- col=newCollection()
+ col = newCollection()
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Gross","salary",10500))
- vAvg=col.average("salary") //23500
+ vAvg = col.average("salary") //23500
 ```
 
 <!-- END REF -->
@@ -339,7 +339,7 @@ The `.clear()` function <!-- REF #collection.clear().Summary -->removes all elem
 
 ```qs
 var col : collection
-col=newCollection(1,2,5)
+col = newCollection(1,2,5)
 col.clear()
 //col.length: 0
 ```
@@ -360,7 +360,7 @@ col.clear()
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |col2|collection|->|collection to combine|
-|index|integer|->|Position to which insert elements to combine in collection (default=length+1)|
+|index|integer|->|Position to which insert elements to combine in collection (default = length+1)|
 |Result|collection|<-|Original collection containing combined element(s)|<!-- END REF -->
 
 
@@ -375,7 +375,7 @@ By default, *col2* elements are added at the end of the orginal collection. You 
 >**Warning**: Keep in mind that collection elements are numbered from 0.
 
 *	If *index* > the length of the collection, the actual starting *index* will be set to the length of the collection.
-*	If *index* < 0, it is recalculated as *index=index+length* (it is considered as the offset from the end of the collection).
+*	If *index* < 0, it is recalculated as *index = index+length* (it is considered as the offset from the end of the collection).
 *	If the calculated value is negative, *index* is set to 0.
 
 
@@ -383,8 +383,8 @@ By default, *col2* elements are added at the end of the orginal collection. You 
 
 ```qs
 var c, fruits : collection
-c=newCollection(1,2,3,4,5,6)
-fruits=newCollection("Orange","Banana","Apple","Grape")
+c = newCollection(1,2,3,4,5,6)
+fruits = newCollection("Orange","Banana","Apple","Grape")
 c.combine(fruits,3) //[1,2,3,"Orange","Banana","Apple","Grape",4,5,6]
 ```
 
@@ -420,11 +420,11 @@ If *value* is a collection, all its elements are added as new elements at the en
 
 ```qs
 var c,c2, fruits : collection
-c=newCollection(1,2,3,4,5)
-fruits=newCollection("Orange","Banana","Apple","Grape")
+c = newCollection(1,2,3,4,5)
+fruits = newCollection("Orange","Banana","Apple","Grape")
 fruits.push(newObject("Intruder","Tomato"))
-c2=c.concat(fruits) //[1,2,3,4,5,"Orange","Banana","Apple","Grape",{"Intruder":"Tomato"}]
-c2=c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
+c2 = c.concat(fruits) //[1,2,3,4,5,"Orange","Banana","Apple","Grape",{"Intruder":"Tomato"}]
+c2 = c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
 ```
 
 <!-- END REF -->
@@ -477,16 +477,16 @@ var sharedobject : object
 var lastnames,sharedLastnames : collection
 var text : string
 
-sharedobject=newSharedObject
+sharedobject = newSharedObject
 
-text=file("/SOURCES/lastnames.txt").getText()
-lastnames=jsonParse(text) //lastnames is a regular collection
+text = file("/SOURCES/lastnames.txt").getText()
+lastnames = jsonParse(text) //lastnames is a regular collection
 
-sharedLastnames=lastnames.copy(kShared) //sharedLastnames is a shared collection
+sharedLastnames = lastnames.copy(kShared) //sharedLastnames is a shared collection
 
 //Now we can put sharedLastnames into sharedobject
 use(sharedobject)
-    sharedobject.lastnames=sharedLastnames
+    sharedobject.lastnames = sharedLastnames
 end
 ```
 
@@ -498,11 +498,11 @@ We want to combine *sharedColl1* and *sharedColl2*. Since they belong to differe
 ```qs
 var sharedColl1,sharedColl2,copyColl : collection
 
-sharedColl1=newSharedcollection(newSharedObject("lastname","Smith"))
-sharedColl2=newSharedcollection(newSharedObject("lastname","Brown"))
+sharedColl1 = newSharedcollection(newSharedObject("lastname","Smith"))
+sharedColl2 = newSharedcollection(newSharedObject("lastname","Brown"))
 
 //copyColl belongs to the same shared group as sharedColl2
- copyColl=sharedColl1.copy(kShared,sharedColl2)
+ copyColl = sharedColl1.copy(kShared,sharedColl2)
  use(sharedColl2)
     sharedColl2.combine(copyColl)
  end
@@ -516,13 +516,13 @@ We have a regular collection (*lastnames*) and we want to put it in the **Storag
 var lastnames,sharedLastnames : collection
 var text : string
 
-text=file("/SOURCES/lastnames.txt").getText()
-lastnames=jsonParse(text) //lastnames is a regular collection
+text = file("/SOURCES/lastnames.txt").getText()
+lastnames = jsonParse(text) //lastnames is a regular collection
 
-sharedLastnames=lastnames.copy(kShared) // shared copy
+sharedLastnames = lastnames.copy(kShared) // shared copy
 
 use(storage)
-    storage.lastnames=sharedLastnames
+    storage.lastnames = sharedLastnames
 end
 ```
 
@@ -557,13 +557,13 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 ```qs
  var col : collection
  var count1,count2 : number
- col=newCollection(20,30,null,40)
+ col = newCollection(20,30,null,40)
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Gross","salary",10500))
  col.push(newObject("lastName","Henry","salary",12000))
- count1=col.count() //count1: 7
- count2=col.count("name") //count2: 3
+ count1 = col.count() //count1: 7
+ count2 = col.count("name") //count2: 3
 
 ```
 
@@ -609,8 +609,8 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 ```qs
  var col : collection
  var vCount : integer
- col=newCollection(1,2,5,5,5,3,6,4)
- vCount=col.countValues(5) // vCount: 3
+ col = newCollection(1,2,5,5,5,3,6,4)
+ vCount = col.countValues(5) // vCount: 3
 ```
 
 
@@ -619,13 +619,13 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 ```qs
  var col : collection
  var vCount : integer
- col=newCollection()
+ col = newCollection()
  col.push(newObject("name","Smith","age",5))
  col.push(newObject("name","Wesson","age",2))
  col.push(newObject("name","Jones","age",3))
  col.push(newObject("name","Henry","age",4))
  col.push(newObject("name","Gross","age",5))
- vCount=col.countValues(5,"age") //vCount=2
+ vCount = col.countValues(5,"age") //vCount = 2
 ```
 
 
@@ -635,10 +635,10 @@ The optional *propertyPath* parameter allows you to count values inside a collec
  var numbers, letters : collection
  var vCount : integer
 
- letters=newCollection("a","b","c")
- numbers=newCollection(1,2,letters,3,4,5)
+ letters = newCollection("a","b","c")
+ numbers = newCollection(1,2,letters,3,4,5)
 
- vCount=numbers.countValues(letters) //vCount: 1
+ vCount = numbers.countValues(letters) //vCount: 1
 ```
 
 
@@ -684,15 +684,15 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection()
+ c = newCollection()
  c.push("a","b","c","A","B","c","b","b")
  c.push(newObject("size",1))
  c.push(newObject("size",3))
  c.push(newObject("size",1))
- c2=c.distinct() //c2=["a","b","c",{"size":1},{"size":3},{"size":1}]
- c2=c.distinct(kDiacritical) //c2: ["a","A","b","B","c",{"size":1},{"size":3},{"size":1}]
- c2=c.distinct("size") //c2: [1,3]
- c3=c.distinct("size",kCountValues) //c3: [{value:1,count:2},{value:3,count:1}]
+ c2 = c.distinct() //c2 = ["a","b","c",{"size":1},{"size":3},{"size":1}]
+ c2 = c.distinct(kDiacritical) //c2: ["a","A","b","B","c",{"size":1},{"size":3},{"size":1}]
+ c2 = c.distinct("size") //c2: [1,3]
+ c3 = c.distinct("size",kCountValues) //c3: [{value:1,count:2},{value:3,count:1}]
 
 ```
 
@@ -730,21 +730,21 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
  var c, c2 : collection
  var b : boolean
 
- c=newCollection(newObject("a",1,"b","orange"),2,3)
- c2=newCollection(newObject("a",1,"b","orange"),2,3,4)
- b=c.equal(c2) // false
+ c = newCollection(newObject("a",1,"b","orange"),2,3)
+ c2 = newCollection(newObject("a",1,"b","orange"),2,3,4)
+ b = c.equal(c2) // false
 
- c=newCollection(newObject("1","a","b","orange"),2,3)
- c2=newCollection(newObject("a",1,"b","orange"),2,3)
- b=c.equal(c2) // false
+ c = newCollection(newObject("1","a","b","orange"),2,3)
+ c2 = newCollection(newObject("a",1,"b","orange"),2,3)
+ b = c.equal(c2) // false
 
- c=newCollection(newObject("a",1,"b","orange"),2,3)
- c2=newCollection(newObject("a",1,"b","ORange"),2,3)
- b=c.equal(c2) // true
+ c = newCollection(newObject("a",1,"b","orange"),2,3)
+ c2 = newCollection(newObject("a",1,"b","ORange"),2,3)
+ b = c.equal(c2) // true
 
- c=newCollection(newObject("a",1,"b","orange"),2,3)
- c2=newCollection(newObject("a",1,"b","ORange"),2,3)
- b=c.equal(c2,kDiacritical) //false
+ c = newCollection(newObject("a",1,"b","orange"),2,3)
+ c2 = newCollection(newObject("a",1,"b","ORange"),2,3)
+ b = c.equal(c2,kDiacritical) //false
 ```
 
 <!-- END REF -->
@@ -795,9 +795,9 @@ In all cases, at the point when the `.every()` function encounters the first col
 
 By default, `.every()` tests the whole collection. Optionally, you can pass in *startFrom* the index of the element from which to start the test.
 
-*	If *startFrom* >= the collection's length, **false** is returned, which means the collection is not tested.
-*	If *startFrom* < 0, it is considered as the offset from the end of the collection ( *startFrom=startFrom+length*).
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom* >=  the collection's length, **false** is returned, which means the collection is not tested.
+*	If *startFrom* < 0, it is considered as the offset from the end of the collection ( *startFrom = startFrom+length*).
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 
 #### Example 1
@@ -807,12 +807,12 @@ var c : collection
 var b : boolean
 var f : 4D.Function
 
-f=formula($1.value>0)
-c=newCollection()
+f = formula($1.value>0)
+c = newCollection()
 c.push(5,3,1,4,6,2)
-b=c.every(f) //returns true
+b = c.every(f) //returns true
 c.push(-1)
-b=c.every(f) //returns false
+b = c.every(f) //returns false
 ```
 
 #### Example 2
@@ -824,13 +824,13 @@ var c : collection
 var b : boolean
 var f : 4D.Function
 
-f=formula(valueType($1.value)==$2
-c=newCollection()
+f = formula(valueType($1.value) == $2
+c = newCollection()
 c.push(5,3,1,4,6,2)
-b=c.every(f,Is number) //b=true
-c=c.push(newObject("name","Cleveland","zc",35049))
-c=c.push(newObject("name","Blountsville","zc",35031))
-b=c.every(f,Is number) //b=false
+b = c.every(f,Is number) //b = true
+c = c.push(newObject("name","Cleveland","zc",35049))
+c = c.push(newObject("name","Blountsville","zc",35031))
+b = c.every(f,Is number) //b = false
 ```
 
 
@@ -875,13 +875,13 @@ The contents of the returned collection depends on the *targetPath* parameter:
 
 ```qs
 var c : collection
-c=newCollection()
+c = newCollection()
 c.push(newObject("name","Cleveland"))
 c.push(newObject("zip",5321))
 c.push(newObject("name","Blountsville"))
 c.push(42)
-c2=c.extract("name") // c2: [Cleveland,Blountsville]
-c2=c.extract("name",kKeepNull) //c2: [Cleveland,null,Blountsville,null]
+c2 = c.extract("name") // c2: [Cleveland,Blountsville]
+c2 = c.extract("name",kKeepNull) //c2: [Cleveland,null,Blountsville,null]
 ```
 
 
@@ -890,7 +890,7 @@ c2=c.extract("name",kKeepNull) //c2: [Cleveland,null,Blountsville,null]
 
 ```qs
 var c : collection
-c=newCollection()
+c = newCollection()
 c.push(newObject("zc",35060))
 c.push(newObject("name",null,"zc",35049))
 c.push(newObject("name","Cleveland","zc",35049))
@@ -898,8 +898,8 @@ c.push(newObject("name","Blountsville","zc",35031))
 c.push(newObject("name","Adger","zc",35006))
 c.push(newObject("name","Clanton","zc",35046))
 c.push(newObject("name","Clanton","zc",35045))
-c2=c.extract("name","City") //c2: [{City:null},{City:Cleveland},{City:Blountsville},{City:Adger},{City:Clanton},{City:Clanton}]
-c2=c.extract("name","City","zc","Zip") //c2: [{Zip:35060},{City:null,Zip:35049},{City:Cleveland,Zip:35049},{City:Blountsville,Zip:35031},{City:Adger,Zip:35006},{City:Clanton,Zip:35046},{City:Clanton,Zip:35045}]
+c2 = c.extract("name","City") //c2: [{City:null},{City:Cleveland},{City:Blountsville},{City:Adger},{City:Clanton},{City:Clanton}]
+c2 = c.extract("name","City","zc","Zip") //c2: [{Zip:35060},{City:null,Zip:35049},{City:Cleveland,Zip:35049},{City:Blountsville,Zip:35031},{City:Adger,Zip:35006},{City:Clanton,Zip:35046},{City:Clanton,Zip:35045}]
 ```
 
 
@@ -930,14 +930,14 @@ The `.fill()` function <!-- REF #collection.fill().Summary -->fills the collecti
 
 >This function modifies the original collection.
 
-*	If the *startFrom* parameter is omitted, *value* is set to all collection elements (*startFrom*=0).
-*	If the *startFrom* parameter is passed and *end* omitted, *value* is set to collection elements starting at *startFrom* to the last element of the collection (*end*==length).
+*	If the *startFrom* parameter is omitted, *value* is set to all collection elements (*startFrom* = 0).
+*	If the *startFrom* parameter is passed and *end* omitted, *value* is set to collection elements starting at *startFrom* to the last element of the collection (*end* == length).
 *	If both the *startFrom* parameter and *end* are passed, *value* is set to collection elements starting at *startFrom* to the element *end*.
 
 In case of inconsistency, the following rules apply:
 
-*	If *startFrom* < 0, it is recalculated as *startFrom=startFrom+length* (it is considered as the offset from the end of the collection). If the calculated value is negative, *startFrom* is set to 0.
-*	If *end* < 0 , it is recalculated as *end=end+length*.
+*	If *startFrom* < 0, it is recalculated as *startFrom = startFrom+length* (it is considered as the offset from the end of the collection). If the calculated value is negative, *startFrom* is set to 0.
+*	If *end* < 0 , it is recalculated as *end = end+length*.
 *	If *end* < *startFrom* (passed or calculated values), the method does nothing.
 
 
@@ -945,11 +945,11 @@ In case of inconsistency, the following rules apply:
 
 ```qs
  var c : collection
- c=newCollection(1,2,3,"Lemon",null,"",4,5)
+ c = newCollection(1,2,3,"Lemon",null,"",4,5)
  c.fill("2") // c:[2,2,2,2,2,2,2,2]
  c.fill("Hello",5) // c:[2,2,2,2,2,Hello,Hello,Hello]
  c.fill(0,1,5) // c:[2,0,0,0,0,Hello,Hello,Hello]
- c.fill("world",1,-5) //-5+8=3 -> c:[2,"world","world",0,0,Hello,Hello,Hello]
+ c.fill("world",1,-5) //-5+8 = 3 -> c:[2,"world","world",0,0,Hello,Hello,Hello]
 ```
 
 
@@ -1009,8 +1009,8 @@ You want to get the collection of text elements whose length is smaller than 6:
 
 ```qs
 var col,colNew : collection
-col=newCollection("hello","world","red horse",66,"tim","san jose","miami")
-colNew=col.filter(formula((valueType($1.value)==Is text) && (length($1.value)<$2)), 6)
+col = newCollection("hello","world","red horse",66,"tim","san jose","miami")
+colNew = col.filter(formula((valueType($1.value) == Is text) && (length($1.value)<$2)), 6)
   //colNew:["hello","world","tim","miami"]
 ```
 
@@ -1022,13 +1022,13 @@ You want to filter elements according to their value type:
  var c,c2,c3 : collection
  var f : 4D.Function
 
- f=formula(valueType($1.value)==$2)
- c=newCollection(5,3,1,4,6,2)
+ f = formula(valueType($1.value) == $2)
+ c = newCollection(5,3,1,4,6,2)
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
- c2=c.filter(f,Is number) // c2=[5,3,1,4,6,2]
- c3=c.filter(f,Is object)
-  // c3=[{name:Cleveland,zc:35049},{name:Blountsville,zc:35031}]
+ c2 = c.filter(f,Is number) // c2 = [5,3,1,4,6,2]
+ c3 = c.filter(f,Is object)
+  // c3 = [{name:Cleveland,zc:35049},{name:Blountsville,zc:35031}]
 ```
 
 <!-- END REF -->
@@ -1081,10 +1081,10 @@ It can set the following parameter(s):
 
 By default, `.find()` searches in the whole collection. Optionally, you can pass in *startFrom* the index of element from which to start the search.
 
-*	If *startFrom* >= the collection's length, -1 is returned, which means the collection is not searched.
-*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom=startFrom+length*).
+*	If *startFrom* >=  the collection's length, -1 is returned, which means the collection is not searched.
+*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom = startFrom+length*).
 	**Note**: Even if *startFrom* is negative, the collection is still searched from left to right.
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 
 #### Example 1
@@ -1093,8 +1093,8 @@ You want to get the first text element with a length smaller than 5:
 
 ```qs
 var col : collection
-col=newCollection("hello","world",4,"red horse","tim","san jose")
-value=col.find(formula((valueType($1.value)==Is text) && (length($1.value)<$2)), 5) //value: "tim"
+col = newCollection("hello","world",4,"red horse","tim","san jose")
+value = col.find(formula((valueType($1.value) == Is text) && (length($1.value)<$2)), 5) //value: "tim"
 ```
 
 #### Example 2
@@ -1104,14 +1104,14 @@ You want to find a city name within a collection:
 ```qs
 var c : collection
 var c2 : object
-c=newCollection()
+c = newCollection()
 c.push(newObject("name", "Cleveland", "zc", 35049))
 c.push(newObject("name", "Blountsville", "zc", 35031))
 c.push(newObject("name", "Adger", "zc", 35006))
 c.push(newObject("name", "Clanton", "zc", 35046))
 c.push(newObject("name", "Clanton", "zc", 35045))
 
-c2=c.find(formula($1.value.name==$2), "Clanton")  //c2={name:Clanton,zc:35046}
+c2 = c.find(formula($1.value.name == $2), "Clanton")  //c2 = {name:Clanton,zc:35046}
 
 ```
 <!-- END REF -->
@@ -1163,10 +1163,10 @@ It can set the following parameter(s):
 
 By default, `.findIndex()` searches in the whole collection. Optionally, you can pass in *startFrom* the index of element from which to start the search.
 
-*	If *startFrom* >= the collection's length, -1 is returned, which means the collection is not searched.
-*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom=startFrom+length*).
+*	If *startFrom* >=  the collection's length, -1 is returned, which means the collection is not searched.
+*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom = startFrom+length*).
 	**Note**: Even if *startFrom* is negative, the collection is still searched from left to right.
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 #### Example
 
@@ -1175,14 +1175,14 @@ You want to find the position of the first city name within a collection:
 ```qs
 var c : collection
 var val2,val3 : integer
-c=newCollection()
+c = newCollection()
 c.push(newObject("name","Cleveland","zc",35049))
 c.push(newObject("name","Blountsville","zc",35031))
 c.push(newObject("name","Adger","zc",35006))
 c.push(newObject("name","Clanton","zc",35046))
 c.push(newObject("name","Clanton","zc",35045))
-val2=c.findIndex(formula($1.value.name==$2),"Clanton") // val2: 3
-val3=c.findIndex(val2+1,formula($1.value.name==$2),"Clanton") //val3:4
+val2 = c.findIndex(formula($1.value.name == $2),"Clanton") // val2: 3
+val3 = c.findIndex(val2+1,formula($1.value.name == $2),"Clanton") //val3:4
 ```
 
 <!-- END REF -->
@@ -1216,12 +1216,12 @@ The function returns Undefined if the collection is empty.
 ```qs
 var col, emptyCol : collection
 var first : variant
-col=newCollection(10, 20, 30, "hello", 50)
-first=col.first() // 10
+col = newCollection(10, 20, 30, "hello", 50)
+first = col.first() // 10
 
-emptyCol=newCollection() //empty
-// first=emptyCol[0] //would return error
-first=emptyCol.first() // returns undefined
+emptyCol = newCollection() //empty
+// first = emptyCol[0] //would return error
+first = emptyCol.first() // returns undefined
 ```
 <!-- END REF -->
 
@@ -1238,7 +1238,7 @@ first=emptyCol.first() // returns undefined
 <!-- REF #collection.flat().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|depth|integer |->|How deep a nested collection structure should be flattened. Default=1|
+|depth|integer |->|How deep a nested collection structure should be flattened. Default = 1|
 |Result|collection |<-|Flattened collection|<!-- END REF -->
 
 
@@ -1255,19 +1255,19 @@ By default, if the *depth* parameter is omitted, only the first level of the nes
 
 
 ```qs
-col=newCollection(1, 2, newCollection(3, 4))
+col = newCollection(1, 2, newCollection(3, 4))
 col.flat()
 // [1, 2, 3, 4]
 
-col=newCollection(1, 2, newCollection(3, 4, newCollection(5, 6)))
+col = newCollection(1, 2, newCollection(3, 4, newCollection(5, 6)))
 col.flat()
 // [1, 2, 3, 4, [5, 6]]
 
-col=newCollection(1, 2, newCollection(3, 4, newCollection(5, 6)))
+col = newCollection(1, 2, newCollection(3, 4, newCollection(5, 6)))
 col.flat(2)
 // [1, 2, 3, 4, 5, 6]
 
-col=newCollection(1, 2, newCollection(3, 4, 5, 6, newCollection(7, 8, newCollection(9, 10))))
+col = newCollection(1, 2, newCollection(3, 4, 5, 6, newCollection(7, 8, newCollection(9, 10))))
 col.flat(MAXLONG)
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
@@ -1321,12 +1321,12 @@ It can set the following parameter(s):
 
 ```qs
 var col , result : collection
-col=newCollection(1, 2, 3, 4)
+col = newCollection(1, 2, 3, 4)
 
-result=col.map(formula(newCollection($1.value*2))
+result = col.map(formula(newCollection($1.value*2))
  // [[2],[4],[6],[8]]
 
-result=col.flatMap(formula(newCollection($1.value*2))
+result = col.flatMap(formula(newCollection($1.value*2))
 // [2,4,6,8]
 ```
 
@@ -1334,12 +1334,12 @@ result=col.flatMap(formula(newCollection($1.value*2))
 
 ```
 var col, result : collection
-col=newCollection("Hello how", "", "are you ?")
+col = newCollection("Hello how", "", "are you ?")
 
-result=col.map(formula(splitString($1.value, " ")))
+result = col.map(formula(splitString($1.value, " ")))
 // [["Hello", "how"], [], ["are", "you", "?"]]
 
-result=col.flatMap(formula(splitString($1.value, " ")))
+result = col.flatMap(formula(splitString($1.value, " ")))
 // ["Hello", "how", "are", "you", "?"]
 ```
 
@@ -1350,9 +1350,9 @@ You want to compute the percentage of each value in the collection to the total:
 ```qs
 var c, c2 : collection
 var f : 4D.Function
-c=newCollection(1, 4, 9, 10, 20)
-f=formula(newCollection($1.value,round(($1.value/$2)*100, 2)))
-c2=c.flatMap(f, c.sum())
+c = newCollection(1, 4, 9, 10, 20)
+f = formula(newCollection($1.value,round(($1.value/$2)*100, 2)))
+c2 = c.flatMap(f, c.sum())
   //c2: [1, 2.27, 4, 9.09,9, 20.45,10, 22.73, 20, 45.45]
 ```
 
@@ -1393,9 +1393,9 @@ In *toSearch*, pass the expression to find in the collection. You can pass:
 
 Optionally, you can pass the index of collection from which to start the search in *startFrom*.
 
-*	If *startFrom* >= collection's length, False is returned, which means the collection is not searched.
-*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom=startFrom+length*). Note that even if *startFrom* is negative, the collection is still searched from left to right.
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom* >=  collection's length, False is returned, which means the collection is not searched.
+*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom = startFrom+length*). Note that even if *startFrom* is negative, the collection is still searched from left to right.
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 #### Example
 
@@ -1405,14 +1405,14 @@ Optionally, you can pass the index of collection from which to start the search 
  var col : collection
  var in : boolean
  var obj : object
- obj=newObject("value", 10)
- col=newCollection(1,2,"Henry",5,3,"Albert",6,4,"Alan",5,obj)
- in=col.includes(3) //true
- in=col.includes(5,6) //true
- in=col.includes("al@") //true
- in=col.includes("Hello") //false
- in=col.includes(obj)  //true
- in=col.includes(newObject("value", 10)) //false
+ obj = newObject("value", 10)
+ col = newCollection(1,2,"Henry",5,3,"Albert",6,4,"Alan",5,obj)
+ in = col.includes(3) //true
+ in = col.includes(5,6) //true
+ in = col.includes("al@") //true
+ in = col.includes("Hello") //false
+ in = col.includes(obj)  //true
+ in = col.includes(newObject("value", 10)) //false
 ```
 
 <!-- END REF -->
@@ -1455,21 +1455,21 @@ In *toSearch*, pass the expression to find in the collection. You can pass:
 
 Optionally, you can pass the index of collection from which to start the search in *startFrom*.
 
-*	If *startFrom* >= the collection's length, -1 is returned, which means the collection is not searched.
-*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom=startFrom+length*).
+*	If *startFrom* >=  the collection's length, -1 is returned, which means the collection is not searched.
+*	If *startFrom* < 0, it is considered as the offset from the end of the collection (*startFrom = startFrom+length*).
 	**Note**: Even if *startFrom* is negative, the collection is still searched from left to right.
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 #### Example
 
 ```qs
  var col : collection
  var i : integer
- col=newCollection(1,2,"Henry",5,3,"Albert",6,4,"Alan",5)
- i=col.indexOf(3) //i=4
- i=col.indexOf(5,5) //i=9
- i=col.indexOf("al@") //i=5
- i=col.indexOf("Hello") //i=-1
+ col = newCollection(1,2,"Henry",5,3,"Albert",6,4,"Alan",5)
+ i = col.indexOf(3) //i = 4
+ i = col.indexOf(5,5) //i = 9
+ i = col.indexOf("al@") //i = 5
+ i = col.indexOf("Hello") //i = -1
 ```
 
 <!-- END REF -->
@@ -1510,15 +1510,15 @@ For a detailed description of the *queryString* and *value* parameters, please r
 
 ```qs
  var c, icol : collection
- c=newCollection()
+ c = newCollection()
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
 
  c.push(newObject("name","Adger","zc",35006))
  c.push(newObject("name","Clanton","zc",35046))
  c.push(newObject("name","Clanton","zc",35045))
- icol=c.indices("name = :1","Cleveland") // icol: [0]
- icol=c.indices("zc > 35040") // icol: [0,3,4]
+ icol = c.indices("name = :1","Cleveland") // icol: [0]
+ icol = c.indices("zc > 35040") // icol: [0,3,4]
 ```
 
 <!-- END REF -->
@@ -1552,7 +1552,7 @@ In *index*, pass the position where you want the element to be inserted in the c
 >**Warning**: Keep in mind that collection elements are numbered from 0.
 
 *	If *index* > the length of the collection, actual starting index will be set to the length of the collection.
-*	If *index* <0, it is recalculated as *index=index+length* (it is considered as the offset from the end of the collection).
+*	If *index* <0, it is recalculated as *index = index+length* (it is considered as the offset from the end of the collection).
 *	If the calculated value is negative, index is set to 0.
 
 Any type of element accepted by a collection can be inserted, even another collection.
@@ -1561,7 +1561,7 @@ Any type of element accepted by a collection can be inserted, even another colle
 
 ```qs
  var col : collection
- col=newCollection("a","b","c","d") //col:["a","b","c","d"]
+ col = newCollection("a","b","c","d") //col:["a","b","c","d"]
  col.insert(2,"X") //col:["a","b","X","c","d"]
  col.insert(-2,"Y") //col:["a","b","X","Y","c","d"]
  col.insert(-10,"Hi") //col:["Hi","a","b","X","Y","c","d"]
@@ -1601,9 +1601,9 @@ By default, null or empty elements of the collection are returned in the resulti
 ```qs
  var c : collection
  var t1,t2 : string
- c=newCollection(1,2,3,"Paris",null,"",4,5)
- t1=c.join("|") //1|2|3|Paris|null||4|5
- t2=c.join("|",kIgnoreNullOrEmpty) //1|2|3|Paris|4|5
+ c = newCollection(1,2,3,"Paris",null,"",4,5)
+ t1 = c.join("|") //1|2|3|Paris|null||4|5
+ t2 = c.join("|",kIgnoreNullOrEmpty) //1|2|3|Paris|4|5
 ```
 
 <!-- END REF -->
@@ -1638,12 +1638,12 @@ The function returns undefined if the collection is empty.
 ```qs
 var col, emptyCol : collection
 var last : variant
-col=newCollection(10, 20, 30, "hello", 50)
-last=col.last() // 50
+col = newCollection(10, 20, 30, "hello", 50)
+last = col.last() // 50
 
-emptyCol=newCollection() //empty
-// last=emptyCol[emptyCol.length-1] //returns an error
-last=emptyCol.last() // returns Undefined
+emptyCol = newCollection() //empty
+// last = emptyCol[emptyCol.length-1] //returns an error
+last = emptyCol.last() // returns Undefined
 
 ```
 
@@ -1684,10 +1684,10 @@ In *toSearch*, pass the expression to find in the collection. You can pass:
 
 Optionally, you can pass the index of collection from which to start a reverse search in *startFrom*.
 
-*	If *startFrom* >= the collection's length minus one (coll.length-1), the whole collection is searched (default).
-*	If *startFrom* < 0, it is recalculated as *startFrom=startFrom+length* (it is considered as the offset from the end of the collection). If the calculated value is negative, -1 is returned (the collection is not searched).
+*	If *startFrom* >=  the collection's length minus one (coll.length-1), the whole collection is searched (default).
+*	If *startFrom* < 0, it is recalculated as *startFrom = startFrom+length* (it is considered as the offset from the end of the collection). If the calculated value is negative, -1 is returned (the collection is not searched).
 	**Note:** Even if *startFrom* is negative, the collection is still searched from right to left.
-*	If *startFrom* == 0, -1 is returned, which means the collection is not searched.
+*	If *startFrom*  ==  0, -1 is returned, which means the collection is not searched.
 
 #### Example
 
@@ -1695,12 +1695,12 @@ Optionally, you can pass the index of collection from which to start a reverse s
 ```qs
  var col : collection
  var pos1,pos2,pos3,pos4,pos5 : integer
- col=splitString("a,b,c,d,e,f,g,h,i,j,e,k,e",",") //col.length: 13
- pos1=col.lastIndexOf("e") //returns 12
- pos2=col.lastIndexOf("e",6) //returns 4
- pos3=col.lastIndexOf("e",15) //returns 12
- pos4=col.lastIndexOf("e",-2) //returns 10
- pos5=col.lastIndexOf("x") //returns -1
+ col = splitString("a,b,c,d,e,f,g,h,i,j,e,k,e",",") //col.length: 13
+ pos1 = col.lastIndexOf("e") //returns 12
+ pos2 = col.lastIndexOf("e",6) //returns 4
+ pos3 = col.lastIndexOf("e",15) //returns 12
+ pos4 = col.lastIndexOf("e",-2) //returns 10
+ pos5 = col.lastIndexOf("x") //returns -1
 ```
 
 <!-- END REF -->
@@ -1728,9 +1728,9 @@ The `.length` property is initialized when the collection is created. Adding or 
 ```qs
  var col : collection //col.length initialized to 0
  var vSize : integer
- col=newCollection("one","two","three") //col.length updated to 3
- col[4]="five" //col.length updated to 5
- vSize=col.remove(0,3).length //vSize: 2
+ col = newCollection("one","two","three") //col.length updated to 3
+ col[4] = "five" //col.length updated to 5
+ vSize = col.remove(0,3).length //vSize: 2
 ```
 
 <!-- END REF -->
@@ -1785,8 +1785,8 @@ It can set the following parameter(s):
 
 ```qs
 var c, c2 : collection
-c=newCollection(1, 4, 9, 10, 20)
-c2=c.map(formula(round(($1.value/$2)*100, 2)), c.sum())
+c = newCollection(1, 4, 9, 10, 20)
+c2 = c.map(formula(round(($1.value/$2)*100, 2)), c.sum())
   //c2: [2.27,9.09,20.45,22.73,45.45]
 ```
 
@@ -1828,13 +1828,13 @@ If the collection is empty, `.max()` returns `undefined`.
 ```qs
  var col : collection
  var max, maxSal, maxName : variant
- col=newCollection(200,150,55)
+ col = newCollection(200,150,55)
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Alabama","salary",10500))
- max=col.max() //{name:Alabama,salary:10500}
- maxSal=col.max("salary") //50000
- maxName=col.max("name") //"Wesson"
+ max = col.max() //{name:Alabama,salary:10500}
+ maxSal = col.max("salary") //50000
+ maxName = col.max("name") //"Wesson"
 ```
 
 <!-- END REF -->
@@ -1874,13 +1874,13 @@ If the collection is empty, `.min()` returns `undefined`.
 ```qs
  var col : collection
  var min, minSal, minName : variant
- col=newCollection(200,150,55)
+ col = newCollection(200,150,55)
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Alabama","salary",10500))
- min=col.min() //55
- minSal=col.min("salary") //10000
- minName=col.min("name") //"Alabama"
+ min = col.min() //55
+ minSal = col.min("salary") //10000
+ minName = col.min("name") //"Alabama"
 ```
 
 <!-- END REF -->
@@ -1954,12 +1954,12 @@ Ordering a collection of numbers in ascending and descending order:
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection()
+ c = newCollection()
  for(vCounter,1,10)
     c.push(Random)
  end
- c2=c.orderBy(kAscending)
- c3=c.orderBy(kDescending)
+ c2 = c.orderBy(kAscending)
+ c3 = c.orderBy(kDescending)
 ```
 
 
@@ -1969,24 +1969,24 @@ Ordering a collection of objects based on a text formula with property names:
 
 ```qs
  var c, c2 : collection
- c=newCollection()
+ c = newCollection()
  for(vCounter,1,10)
     c.push(newObject("id",vCounter,"value",random))
  end
- c2=c.orderBy("value desc")
- c2=c.orderBy("value desc, id")
- c2=c.orderBy("value desc, id asc")
+ c2 = c.orderBy("value desc")
+ c2 = c.orderBy("value desc, id")
+ c2 = c.orderBy("value desc, id asc")
 ```
 
 Ordering a collection of objects with a property path:
 
 ```qs
  var c, c2 : collection
- c=newCollection()
+ c = newCollection()
  c.push(newObject("name","Cleveland","phones",newObject("p1","01","p2","02")))
  c.push(newObject("name","Blountsville","phones",newObject("p1","00","p2","03")))
 
- c2=c.orderBy("phones.p1 asc")
+ c2 = c.orderBy("phones.p1 asc")
 ```
 
 
@@ -1996,25 +1996,25 @@ Ordering a collection of objects using a collection of criteria objects:
 
 ```qs
  var crit, c, c2 : collection
- crit=newCollection()
- c=newCollection()
+ crit = newCollection()
+ c = newCollection()
  for(vCounter,1,10)
     c.push(newObject("id",vCounter,"value",random))
  end
  crit.push(newObject("propertyPath","value","descending",true))
  crit.push(newObject("propertyPath","id","descending",false))
- c2=c.orderBy(crit)
+ c2 = c.orderBy(crit)
 ```
 
 Ordering with a property path:
 
 ```qs
  var crit, c, c2 : collection
- c=newCollection()
+ c = newCollection()
  c.push(newObject("name","Cleveland","phones",newObject("p1","01","p2","02")))
  c.push(newObject("name","Blountsville","phones",newObject("p1","00","p2","03")))
- crit=newCollection(newObject("propertyPath","phones.p2","descending",true))
- c2=c.orderBy(crit)
+ crit = newCollection(newObject("propertyPath","phones.p2","descending",true))
+ c2 = c.orderBy(crit)
 ```
 
 
@@ -2075,10 +2075,10 @@ You want to sort a collection of strings in numerical order rather than alphabet
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection()
+ c = newCollection()
  c.push("33","4","1111","222")
- c2=c.orderBy() //c2: ["1111","222","33","4"], alphabetical order
- c3=c.orderByMethod(formula(num($1.value)<num($1.value2))) // c3: ["4","33","222","1111"]
+ c2 = c.orderBy() //c2: ["1111","222","33","4"], alphabetical order
+ c3 = c.orderByMethod(formula(num($1.value)<num($1.value2))) // c3: ["4","33","222","1111"]
 ```
 
 
@@ -2088,8 +2088,8 @@ You want to sort a collection of strings on their length:
 
 ```qs
  var fruits, c2 : collection
- fruits=newCollection("Orange","Apple","Grape","pear","Banana","fig","Blackberry","Passion fruit")
- c2=fruits.orderByMethod(formula(length(string($1.value))>length(string($1.value2))))
+ fruits = newCollection("Orange","Apple","Grape","pear","Banana","fig","Blackberry","Passion fruit")
+ c2 = fruits.orderByMethod(formula(length(string($1.value))>length(string($1.value2))))
   //c2:[Passion fruit,Blackberry,Orange,Banana,Apple,Grape,pear,fig]
 ```
 
@@ -2099,14 +2099,14 @@ You want to sort a collection by character code or language:
 
 ```qs
 var strings1, strings2 : collection
-strings1=newCollection("Alpha","Charlie","alpha","bravo","Bravo","charlie")
+strings1 = newCollection("Alpha","Charlie","alpha","bravo","Bravo","charlie")
 
 //using the character code:
-strings2=strings1.orderByMethod(formula(sortcollection),sk character codes)
+strings2 = strings1.orderByMethod(formula(sortcollection),sk character codes)
 // result : ["Alpha","Bravo","Charlie","alpha","bravo","charlie"]
 
 //using the language:
-strings2=strings1.orderByMethod(formula(sortcollection),sk strict)
+strings2 = strings1.orderByMethod(formula(sortcollection),sk strict)
 // result : ["alpha","Alpha","bravo","Bravo","charlie","Charlie"]
 ```
 
@@ -2116,7 +2116,7 @@ The ***sortcollection*** method:
 var $1: object
 var $2: integer // sort option
 
-$1.result=(compareStrings($1.value,$1.value2,$2)<0)
+$1.result = (compareStrings($1.value,$1.value2,$2)<0)
 ```
 
 <!-- END REF -->
@@ -2153,12 +2153,12 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 ```qs
  var stack : collection
  var result : variant
- stack=newCollection() //stack:[]
+ stack = newCollection() //stack:[]
  stack.push(1,2) //[1,2]
- result=stack.pop() //[1], returns 2
+ result = stack.pop() //[1], returns 2
  stack.push(newCollection(4,5)) //[1,[4,5]]
- result=stack.pop() //[1], returns [4,5]
- result=stack.pop() //[], returns 1
+ result = stack.pop() //[1], returns [4,5]
+ result = stack.pop() //[], returns 1
 ```
 
 
@@ -2192,7 +2192,7 @@ The `.push()` function <!-- REF #collection.push().Summary -->appends one or mor
 
 ```qs
  var col : collection
- col=newCollection(1,2) //col:[1,2]
+ col = newCollection(1,2) //col:[1,2]
  col.push(3) //[1,2,3]
  col.push(6,newObject("firstname","John","lastname","Smith"))
   //col:[1,2,3,6,{firstname:John,lastname:Smith}
@@ -2206,8 +2206,8 @@ You want to sort the resulting collection:
 
 ```qs
  var col, sortedCol : collection
- col=newCollection(5,3,9) //col:[5,3,9]
- sortedCol=col.push(7,50).sort()
+ col = newCollection(5,3,9) //col:[5,3,9]
+ sortedCol = col.push(7,50).sort()
   //col:[5,3,9,7,50]
   //sortedCol:[3,5,7,9,50]
 ```
@@ -2263,14 +2263,14 @@ Formulas are not supported by the `collection.query()` function, neither in the 
 
 ```qs
  var c, c2, c3 : collection
- c=newCollection()
+ c = newCollection()
  c.push(newObject("name","Cleveland","zc",35049))
  c.push(newObject("name","Blountsville","zc",35031))
  c.push(newObject("name","Adger","zc",35006))
  c.push(newObject("name","Clanton","zc",35046))
  c.push(newObject("name","Clanton","zc",35045))
- c2=c.query("name = :1","Cleveland") //c2:[{name:Cleveland,zc:35049}]
- c3=c.query("zc > 35040") //c3:[{name:Cleveland,zc:35049},{name:Clanton,zc:35046},{name:Clanton,zc:35045}]
+ c2 = c.query("name = :1","Cleveland") //c2:[{name:Cleveland,zc:35049}]
+ c3 = c.query("zc > 35040") //c3:[{name:Cleveland,zc:35049},{name:Clanton,zc:35046},{name:Clanton,zc:35045}]
 ```
 
 
@@ -2280,7 +2280,7 @@ Formulas are not supported by the `collection.query()` function, neither in the 
 
 ```qs
  var c : collection
- c=newCollection()
+ c = newCollection()
  c.push(newObject("name","Smith","dateHired",!22-05-2002!,"age",45))
  c.push(newObject("name","Wesson","dateHired",!30-11-2017!))
  c.push(newObject("name","Winch","dateHired",!16-05-2018!,"age",36))
@@ -2292,29 +2292,29 @@ Formulas are not supported by the `collection.query()` function, neither in the 
 This example returns persons whose name contains "in":
 
 ```qs
- col=c.query("name = :1","@in@")
+ col = c.query("name = :1","@in@")
   //col:[{name:Winch...},{name:Sterling...}]
 ```
 
 This example returns persons whose name does not begin with a string from a variable (entered by the user, for example):
 
 ```qs
- col=c.query("name != :1",aString+"@")
-  //if astring="W"
+ col = c.query("name  !=  :1",aString+"@")
+  //if astring = "W"
   //col:[{name:Smith...},{name:Sterling...},{name:Mark...}]
 ```
 
 This example returns persons whose age is not known (property set to null or undefined):
 
 ```qs
- col=c.query("age=null") //placeholders not allowed with "null"
+ col = c.query("age = null") //placeholders not allowed with "null"
   //col:[{name:Wesson...},{name:Sterling...},{name:Mark...}]
 ```
 
 This example returns persons hired more than 90 days ago:
 
 ```qs
- col=c.query("dateHired < :1",(currentDate-90))
+ col = c.query("dateHired < :1",(currentDate-90))
   //col:[{name:Smith...},{name:Sterling...},{name:Mark...}] if today is 01/10/2018
 ```
 
@@ -2378,8 +2378,8 @@ The callback sets the following parameter(s):
 
 ```qs
 var c : collection
-c=newCollection(5,3,5,1,3,4,4,6,2,2)
-r=c.reduce(formula($1.accumulator*=$1.value), 1)  //returns 86400
+c = newCollection(5,3,5,1,3,4,4,6,2,2)
+r = c.reduce(formula($1.accumulator* = $1.value), 1)  //returns 86400
 ```
 
 
@@ -2389,19 +2389,19 @@ This example allows reducing several collection elements to a single one:
 
 ```qs
  var c,r : collection
- c=newCollection()
+ c = newCollection()
  c.push(newCollection(0,1))
  c.push(newCollection(2,3))
  c.push(newCollection(4,5))
  c.push(newCollection(6,7))
- r=c.reduce(formula(Flatten)) //r:[0,1,2,3,4,5,6,7]
+ r = c.reduce(formula(Flatten)) //r:[0,1,2,3,4,5,6,7]
 ```
 
 With the following ***Flatten*** method:
 
 ```qs
- if($1.accumulator=null)
-    $1.accumulator=newCollection()
+ if($1.accumulator = null)
+    $1.accumulator = newCollection()
  end
  $1.accumulator.combine($1.value)
 ```
@@ -2461,8 +2461,8 @@ The callback sets the following parameter(s):
 
 ```qs
 var c : collection
-c=newCollection(5,3,5,1,3,4,4,6,2,2)
-r=c.reduceRight(formula($1.accumulator*=$1.value), 1)  //returns 86400
+c = newCollection(5,3,5,1,3,4,4,6,2,2)
+r = c.reduceRight(formula($1.accumulator* = $1.value), 1)  //returns 86400
 
 ```
 
@@ -2475,20 +2475,20 @@ This example allows reducing several collection elements to a single one:
 
 ```qs
  var c,r : collection
- c=newCollection()
+ c = newCollection()
  c.push(newCollection(0,1))
  c.push(newCollection(2,3))
  c.push(newCollection(4,5))
  c.push(newCollection(6,7))
- r=c.reduceRight(formula(Flatten)) //r:[6,7,4,5,2,3,0,1]
+ r = c.reduceRight(formula(Flatten)) //r:[6,7,4,5,2,3,0,1]
 ```
 
 With the following ***Flatten*** method:
 
 ```qs
 	//Flatten project method
- if($1.accumulator=null)
-    $1.accumulator=newCollection()
+ if($1.accumulator = null)
+    $1.accumulator = newCollection()
  end
  $1.accumulator.combine($1.value)
 ```
@@ -2522,7 +2522,7 @@ In *index*, pass the position where you want the element to be removed from the 
 
 >**Warning**: Keep in mind that collection elements are numbered from 0. If *index* is greater than the length of the collection, actual starting index will be set to the length of the collection.
 
-*	If *index* < 0, it is recalculated as *index=index+length* (it is considered as the offset from the end of the collection).
+*	If *index* < 0, it is recalculated as *index = index+length* (it is considered as the offset from the end of the collection).
 *	If the calculated value < 0, *index* is set to 0.
 *	If the calculated value > the length of the collection, *index* is set to the length.
 
@@ -2538,7 +2538,7 @@ If you try to remove an element from an empty collection, the method does nothin
 
 ```qs
  var col : collection
- col=newCollection("a","b","c","d","e","f","g","h")
+ col = newCollection("a","b","c","d","e","f","g","h")
  col.remove(3) // ["a","b","c","e","f","g","h"]
  col.remove(3,2) // ["a","b","c","g","h"]
  col.remove(-8,1) // ["b","c","g","h"]
@@ -2584,16 +2584,16 @@ By default, new elements are filled will **null** values. You can specify the va
 
 ```qs
  var c : collection
- c=newCollection()
+ c = newCollection()
  c.resize(10) // c:[null,null,null,null,null,null,null,null,null,null]
 
- c=newCollection()
+ c = newCollection()
  c.resize(10,0) // c:[0,0,0,0,0,0,0,0,0,0]
 
- c=newCollection(1,2,3,4,5)
+ c = newCollection(1,2,3,4,5)
  c.resize(10,newObject("name","X")) //c:[1,2,3,4,5,{name:X},{name:X},{name:X},{name:X},{name:X}]
 
- c=newCollection(1,2,3,4,5)
+ c = newCollection(1,2,3,4,5)
  c.resize(2) //c:[1,2]
 
 ```
@@ -2628,8 +2628,8 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 
 ```qs
  var c, c2 : collection
- c=newCollection(1,3,5,2,4,6)
- c2=c.reverse() //c2:[6,4,2,5,3,1]
+ c = newCollection(1,3,5,2,4,6)
+ c2 = c.reverse() //c2:[6,4,2,5,3,1]
 ```
 
 <!-- END REF -->
@@ -2665,8 +2665,8 @@ If the collection is empty, this function does nothing.
 ```qs
  var c : collection
  var val : variant
- c=newCollection(1,2,4,5,6,7,8)
- val=c.shift()
+ c = newCollection(1,2,4,5,6,7,8)
+ val = c.shift()
   // val:1
   // c:[2,4,5,6,7,8]
 ```
@@ -2701,9 +2701,9 @@ The `.slice()` function <!-- REF #collection.slice().Summary -->returns a portio
 
 The returned collection contains the element specified by *startFrom* and all subsequent elements up to, but not including, the element specified by *end*. If only the *startFrom* parameter is specified, the returned collection contains all elements from *startFrom* to the last element of the original collection.
 
-*	If *startFrom* < 0, it is recalculated as *startFrom=startFrom+length* (it is considered as the offset from the end of the collection).
+*	If *startFrom* < 0, it is recalculated as *startFrom = startFrom+length* (it is considered as the offset from the end of the collection).
 *	If the calculated value < 0, *startFrom* is set to 0.
-*	If *end* < 0 , it is recalculated as *end=end+length*.
+*	If *end* < 0 , it is recalculated as *end = end+length*.
 *	If *end < startFrom* (passed or calculated values), the method does nothing.
 
 #### Example
@@ -2711,11 +2711,11 @@ The returned collection contains the element specified by *startFrom* and all su
 
 ```qs
  var c, nc : collection
- c=newCollection(1,2,3,4,5)
- nc=c.slice(0,3) //nc:[1,2,3]
- nc=c.slice(3) //nc:[4,5]
- nc=c.slice(1,-1) //nc:[2,3,4]
- nc=c.slice(-3,-2) //nc:[3]
+ c = newCollection(1,2,3,4,5)
+ nc = c.slice(0,3) //nc:[1,2,3]
+ nc = c.slice(3) //nc:[4,5]
+ nc = c.slice(1,-1) //nc:[2,3,4]
+ nc = c.slice(-3,-2) //nc:[3]
 ```
 
 <!-- END REF -->
@@ -2769,9 +2769,9 @@ In any case, at the point where `.some()` function encounters the first collecti
 
 By default, `.some()` tests the whole collection. Optionally, you can pass the index of an element from which to start the test in *startFrom*.
 
-*	If *startFrom* >= the collection's length, **False** is returned, which means the collection is not tested.
+*	If *startFrom* >=  the collection's length, **False** is returned, which means the collection is not tested.
 *	If *startFrom* < 0, it is considered as the offset from the end of the collection.
-*	If *startFrom* == 0, the whole collection is searched (default).
+*	If *startFrom*  ==  0, the whole collection is searched (default).
 
 
 #### Example
@@ -2781,16 +2781,16 @@ You want to know if at least one collection value is >0.
 ```qs
  var c : collection
  var b : boolean
- c=newCollection()
+ c = newCollection()
  c.push(-5,-3,-1,-4,-6,-2)
- b=c.some(formula($1.value>0)) // b:false
+ b = c.some(formula($1.value>0)) // b:false
  c.push(1)
- b=c.some(formula($1.value>0)) // b:true
+ b = c.some(formula($1.value>0)) // b:true
 
- c=newCollection()
+ c = newCollection()
  c.push(1,-5,-3,-1,-4,-6,-2)
- b=c.some(formula($1.value>0)) //b:true
- b=c.some(1,formula($1.value>0)) //b:false
+ b = c.some(formula($1.value>0)) //b:true
+ b = c.some(1,formula($1.value>0)) //b:false
 ```
 
 
@@ -2853,8 +2853,8 @@ If you used a method, you must set the following parameter:
 
 ```qs
  var col, col2 : collection
- col=newCollection("Tom",5,"Mary",3,"Henry",1,"Jane",4,"Artie",6,"Chip",2)
- col2=col.sort() // col2:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
+ col = newCollection("Tom",5,"Mary",3,"Henry",1,"Jane",4,"Artie",6,"Chip",2)
+ col2 = col.sort() // col2:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
   // col:["Artie","Chip","Henry","Jane","Mary","Tom",1,2,3,4,5,6]
 ```
 
@@ -2862,17 +2862,17 @@ If you used a method, you must set the following parameter:
 
 ```qs
  var col, col2 : collection
- col=newCollection(10,20)
- col2=col.push(5,3,1,4,6,2).sort() //col2:[1,2,3,4,5,6,10,20]
+ col = newCollection(10,20)
+ col2 = col.push(5,3,1,4,6,2).sort() //col2:[1,2,3,4,5,6,10,20]
 ```
 
 #### Example 3
 
 ```qs
 var col, col2, col3 : collection
-col=newCollection(33,4,66,1111,222)
-col2=col.sort() //numerical sort: [4,33,66,222,1111]
-col3=col.sort(formula(String($1.value)<String($1.value2))) //alphabetical sort: [1111,222,33,4,66]
+col = newCollection(33,4,66,1111,222)
+col2 = col.sort() //numerical sort: [4,33,66,222,1111]
+col3 = col.sort(formula(String($1.value)<String($1.value2))) //alphabetical sort: [1111,222,33,4,66]
 ```
 
 <!-- END REF -->
@@ -2914,8 +2914,8 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vSum : number
- col=newCollection(10,20,"Monday",true,2)
- vSum=col.sum() //32
+ col = newCollection(10,20,"Monday",true,2)
+ vSum = col.sum() //32
 ```
 
 #### Example 2
@@ -2923,11 +2923,11 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 ```qs
  var col : collection
  var vSum : number
- col=newCollection()
+ col = newCollection()
  col.push(newObject("name","Smith","salary",10000))
  col.push(newObject("name","Wesson","salary",50000))
  col.push(newObject("name","Gross","salary",10500,5))
- vSum=col.sum("salary") //vSum:70500,5
+ vSum = col.sum("salary") //vSum:70500,5
 ```
 
 <!-- END REF -->
@@ -2965,7 +2965,7 @@ If several values are passed, they are inserted all at once, which means that th
 
 ```qs
  var c : collection
- c=newCollection(1,2)
+ c = newCollection(1,2)
  c.unshift(4) // c:[4,1,2]
  c.unshift(5) //c:[5,4,1,2]
  c.unshift(6,7) // c:[6,7,5,4,1,2]

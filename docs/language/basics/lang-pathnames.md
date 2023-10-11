@@ -6,7 +6,7 @@ title: Pathnames
 File and folder functions, properties, and commands allow you to handle files and folders as objects. This makes file and folder management powerful and flexible. For example, to create a new file in the resources folder, you can write:
 
 ```qs
-ok=file("/RESOURCES/Archives/JohnQ.prefs").create()
+ok = file("/RESOURCES/Archives/JohnQ.prefs").create()
 ```
 
 File and folder objects support `fileSystem pathnames`, which provide contextual path to main application folders.
@@ -42,8 +42,8 @@ QodlyScript uses the POSIX syntax. With this syntax:
 In POSIX syntax, you will generally use `filesystem` pathnames with [`file`](../FileClass.md#file) and [`folder`](../FolderClass.md#folder) commands, for example:
 
 ```qs
-pathFile=file("/DATA/Archives/file 2.txt")
-pathFolder=folder("/RESOURCES/Pictures")
+pathFile = file("/DATA/Archives/file 2.txt")
+pathFolder = folder("/RESOURCES/Pictures")
 ```
 
 
@@ -54,14 +54,14 @@ pathFolder=folder("/RESOURCES/Pictures")
 
 ```qs
 	//ERROR
-ko=folder("myFolder").create() //relative pathname with constructor
+ko = folder("myFolder").create() //relative pathname with constructor
 ```
 
 If you want to handle files or folders in various locations (project folder, system folders, etc.), you must use [`filesystems`](#filesystem-pathnames). For example, you can write:
 
 ```qs
-okFolder=folder("/PACKAGE/myFolder").create() //folder created at the project level
-okFile=file("/DATA/Prefs/tempo.txt").create() //file created in the data folder
+okFolder = folder("/PACKAGE/myFolder").create() //folder created at the project level
+okFile = file("/DATA/Prefs/tempo.txt").create() //file created in the data folder
 ```
 
 
@@ -70,12 +70,12 @@ okFile=file("/DATA/Prefs/tempo.txt").create() //file created in the data folder
 The flexibility of file and folder functions offers you various possibilities for handling files and folders, like in the following examples:
 
 ```qs
-f=folder("/DATA").folder("archive/jan2023")
+f = folder("/DATA").folder("archive/jan2023")
 
-f2=folder("/DATA/archive/jan2023").file("total.txt")
+f2 = folder("/DATA/archive/jan2023").file("total.txt")
 
-f3=folder("/DATA/archive/jan2023")
+f3 = folder("/DATA/archive/jan2023")
 
-f4=file("/DATA/info.txt")
+f4 = file("/DATA/info.txt")
 
 ```

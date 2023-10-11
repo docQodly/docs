@@ -40,7 +40,7 @@ The  [`methodCalledOnError`](../debug.md#methodcalledonerror) command allows you
 
 ```qs
  var methCurrent : string
- methCurrent=methodCalledOnError(ek local)
+ methCurrent = methodCalledOnError(ek local)
  onErrCall("NewMethod",ek local)
   ...//Processing with specific error handling
   //Reinstallation of previous method
@@ -90,9 +90,9 @@ Here is a simple error-handling system:
 // errorMethod project method  
 var errNum : integer
 var message : string
-errNum=lastErrors[0].errCode
-if(errNum != 1006) //this is not a user interruption
-   message="Error "+string(errNum)+" occurred ("+lastErrors[0].message+").")
+errNum = lastErrors[0].errCode
+if(errNum  !=  1006) //this is not a user interruption
+   message = "Error "+string(errNum)+" occurred ("+lastErrors[0].message+").")
 end
 ```
 
@@ -104,8 +104,8 @@ If you mainly want the standard error messages to be hidden, you can install an 
 onErrCall("emptyMethod") //emptyMethod exists but is empty
 var errNum : integer
 var errText : string
-if (errNum==-43)
-	errText="File not found."
+if (errNum == -43)
+	errText = "File not found."
 end
 onErrCall("")
 ```
