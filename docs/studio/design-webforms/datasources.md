@@ -149,7 +149,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
 :::
 
 
-### From a Namespace
+### From a Namespace (shared datasource)
 
 To create Shared datasources, follow these steps:
 
