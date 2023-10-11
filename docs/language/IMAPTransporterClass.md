@@ -87,16 +87,18 @@ The function returns an [**IMAP transporter object**](#imap-transporter-object).
 #### Example
 
 ```qs
-server = newObject
+var server : object
+var transporter : 4D.IMAPTransporter
+var status : object
+var info : string
+
+server = newObject()
 server.host = "imap.gmail.com" //Mandatory
 server.port = 993
 server.user = "qodly@gmail.com"
 server.password = "XXXXXXXX"
 server.logFile = "LogTest.txt" //log to save in the Logs folder
 
-var transporter : 4D.IMAPTransporter
-var status : object
-var info : string
 transporter = 4D.IMAPTransporter.new(server)
 
 status = transporter.checkConnection()
@@ -146,6 +148,7 @@ The *keywords* parameter lets you define the flags to add to *msgIDs*. You can u
 |$seen |boolean  |true to add the "seen" flag to the message|
 |$flagged |boolean  |true to add the "flagged" flag to the message|
 |$answered |boolean  |true to add the "answered" flag to the message|
+
 |$deleted |boolean | true to add the "deleted" flag to the message|
 |`<custom flag>` |boolean | true to add the custom flag to the message|
 
@@ -173,7 +176,7 @@ The function returns an object describing the IMAP status:
 var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : object
 
-options = newObject
+options = newObject()
 options.host = "imap.gmail.com"
 options.port = 993
 options.user = "qodly@gmail.com"
@@ -255,7 +258,7 @@ settings = newObject("host", "domain.com", "user", "xxxx", "password", "xxxx", "
 
 imap = 4D.IMAPTransporter.new(settings)
 
-msg = newObject
+msg = newObject()
 msg.from = "xxxx@domain.com"
 msg.subject = "Lorem Ipsum"
 msg.stringBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -337,7 +340,7 @@ To copy a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -363,7 +366,7 @@ To copy all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -424,11 +427,11 @@ The function returns an object describing the IMAP status:
 To create a new "Invoices" mailbox:
 
 ```qs
- var info : string
- var transporter : 4D.IMAPTransporter
- var options, status : object
+var info : string
+var transporter : 4D.IMAPTransporter
+var options, status : object
 
-Options = newObject
+options = newObject()
 
 options.host = "imap.gmail.com"
 options.user = "test@gmail.com"
@@ -493,7 +496,7 @@ To delete a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -519,7 +522,7 @@ To delete all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -582,7 +585,7 @@ var pw, name, info : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options = newObject
+options = newObject()
 
 pw = "XXXXXX" //password
 
@@ -640,7 +643,7 @@ var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : object
 var ids : collection
 
-options = newObject
+options = newObject()
 options.host = "imap.gmail.com"
 options.port = 993
 options.user = "qodly@gmail.com"
@@ -698,6 +701,7 @@ The `boxInfo` object returned contains the following properties:
 #### Example
 
 ```qs
+ var server : object
  var transporter : 4D.IMAPTransporter
  var boxInfo : object
  var info : string
@@ -753,6 +757,7 @@ If the account does not contain any mailboxes, an empty collection is returned.
 #### Example
 
 ```qs
+ var server : object
  var transporter : 4D.IMAPTransporter
  var boxList : collection
  var info, split : string
@@ -852,7 +857,7 @@ You want to get the message with ID = 1:
  var info, mail, boxInfo : variant
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -939,7 +944,7 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
  var server,boxInfo,result : object
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -1008,7 +1013,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
  var blob : blob
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com"
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -1080,7 +1085,7 @@ To move a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -1106,7 +1111,7 @@ To move all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "4d@gmail.com"
@@ -1156,7 +1161,7 @@ The function returns a collection of strings (unique IDs).
  var server,boxInfo,status : object
  var mailIds : collection
 
- server = newObject
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.port = 993
  server.user = "qodly@gmail.com"
@@ -1240,7 +1245,7 @@ The function returns an object describing the IMAP status:
 var options,boxInfo,status : object
 var transporter : 4D.IMAPTransporter
 
-options = newObject
+options = newObject()
 options.host = "imap.gmail.com"
 options.port = 993
 options.user = "qodly@gmail.com"
@@ -1304,7 +1309,7 @@ var options, status : object
 var transporter : 4D.IMAPTransporter
 var info : string
 
-options = newObject
+options = newObject()
 
 options.host = "imap.gmail.com"
 options.user = "test@gmail.com"
@@ -1519,12 +1524,12 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 
 ```qs
  var server, boxinfo : object
- server = newObject
+ var transporter : 4D.IMAPTransporter
+ server = newObject()
  server.host = "imap.gmail.com" //Mandatory
  server.user = "4d@gmail.com"
  server.password = "XXXXXXXX"
 
- var transporter : 4D.IMAPTransporter
  transporter = 4D.IMAPTransporter.new(server)
  boxInfo = transporter.selectBox("INBOX")
 ```
@@ -1571,7 +1576,7 @@ var name, info : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options = newObject
+options = newObject()
 
 options.host = "imap.gmail.com"
 options.user = "test@gmail.com"
@@ -1632,7 +1637,7 @@ var info, name : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options = newObject
+options = newObject()
 
 
 options.host = "imap.gmail.com"

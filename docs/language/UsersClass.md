@@ -82,9 +82,9 @@ The function returns a Qodly user object that contains the following properties:
 To implement a `getCurrentUser()` function in a custom class:
 
 ```qs
-exposed Function getCurrentUser() : Object
+exposed function getCurrentUser() : object
 
-    var user : Object
+    var user : object
     var usersInterface : cs.Qodly.Users
 
 usersInterface = cs.Qodly.Users.new()
@@ -101,7 +101,7 @@ return user
 <!--REF #Users.getAllUsers().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Collection|<-|Collection of Qodly user objects|<!-- END REF -->
+|Result|collection|<-|Collection of Qodly user objects|<!-- END REF -->
 
 
 #### Description
@@ -120,10 +120,10 @@ To implement a `getAllUsers()` function in a custom class:
 
 
 ```qs
-exposed Function getAllUsers() : Collection
+exposed function getAllUsers() : collection
    
-    var users:Collection
-    var usersInterface:cs.Qodly.Users 
+    var users : collection
+    var usersInterface : cs.Qodly.Users 
 
 usersInterface = cs.Qodly.Users.new()
 users = usersInterface.getAllUsers()

@@ -183,7 +183,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myError()
+exposed function myError()
 
 webForm.setError("My error message")
 
@@ -221,7 +221,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myMessage()
+exposed function myMessage()
 
 webForm.setMessage("My information message")
 
@@ -254,7 +254,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myWarning()
+exposed function myWarning()
 
 webForm.setWarning("My warning message")
 
