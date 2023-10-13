@@ -35,6 +35,11 @@ const sidebars = {
       id: 'concepts/quickstart',
       label: "Quickstart"
     },
+	{
+      type: 'doc',
+      id: 'notes/release-notes',
+      label: "Release Notes"
+    },
 	/*{
         type: 'category',
         label: 'Qodly Hero Handbook',
