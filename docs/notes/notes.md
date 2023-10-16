@@ -17,10 +17,8 @@ title: Release Notes
 - Support for variadic parameters declaration
 
 
-#### Cloud
-
 ### Fixes
 
-#### Studio
-#### Server
-#### Cloud
+
+
+
