@@ -4,7 +4,7 @@ title: Release Notes
 ---
 
 
-## 1.0.0
+## 1.0.0-rc.37
 
 ### New features
 
@@ -42,8 +42,6 @@ title: Release Notes
 - Support for variadic parameters declaration
 
 
-#### Cloud
-
 ### Fixes
 
 #### Studio
@@ -74,6 +72,3 @@ title: Release Notes
 - Fixed `datatable` issue: Impossible to center the header.
 - Fixed a line offset bug in the `debugger`.
 - Fixed an issue related to null value in dates.
-
-#### Server
-#### Cloud
