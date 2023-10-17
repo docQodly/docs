@@ -35,6 +35,22 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* release notes tabs*/
+.qodly-tabs {
+  font-size: 15px;
+  box-shadow: 0px 0px 2px currentcolor;
+  display: inline-block;
+  border-radius: 50px;
+}
+.qodly-tabs li {
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+.qodly-tabs li[aria-selected="true"] {
+  color: white;
+  border-radius: 50px;
+  background: linear-gradient(to right, rgb(204, 117, 202), rgb(129, 53, 212), rgb(72, 55, 188));
+}
 
 /* General */
 a:hover {
