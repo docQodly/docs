@@ -124,6 +124,12 @@ const config = {
             position: 'left',
             label: 'Architecture',
           },
+          {
+            type: 'doc',
+            docId: 'notes/v1',
+            position: 'left',
+            label: 'Release Notes',
+          },
           /*{
               type: 'doc',
               docId: '/category/API',
@@ -206,7 +212,7 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
-        },
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
