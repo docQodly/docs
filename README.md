@@ -179,6 +179,7 @@ import ReleaseNotes from '@site/src/components/ReleaseNotes';
     </ReleaseNotes.Item>
 </ReleaseNotes.Items>
 ```
+<img width="529" alt="Screenshot 2023-10-17 at 17 28 36" src="https://github.com/docQodly/docs/assets/39849568/a86823a0-866e-4bc1-9a53-707d6b54fb3a">
 
 ### Integration the 'ComingSoon' Component
 
