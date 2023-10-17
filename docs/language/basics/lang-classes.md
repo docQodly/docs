@@ -67,11 +67,13 @@ When naming classes, you should keep in mind the following rules:
 
 A user class in Qodly is defined by a specific [method file](../../studio/coding.md#methods-and-classes) (.4qs), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
 
+```
 Project folder
  Project
   Sources
    Classes
     Polygon.4qs
+```
 
 ## Class stores
 
@@ -323,11 +325,18 @@ When both functions are defined, the computed property is **read-write**. If onl
 
 The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](lang-object.md).
 
-:::info
+:::note
 
 Assigning *undefined* to an object property clears its value while preserving its type. In order to do that, the `function get` is first called to retrieve the value type, then the `function set` is called with an empty value of that type.
 
 :::
+
+:::info
+
+In addition to `function get` and `function set`, [ORDA classes](../../orda/data-model.md) also support the [`function query`](../../orda/data-model.md#function-query-attributename) and [`function orderBy`](../../orda/data-model.md#function-orderby-attributename) computed properties (named **calculated attributes**).
+
+:::
+
 
 #### Example 1
 
