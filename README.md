@@ -25,6 +25,160 @@ The `docusaurus.config_start.js` uses `docusaurus.config.js` with a few modifica
 
 ## Added features
 
+### Integration the 'ReleaseNotes' Component
+
+1. Import the 'ReleaseNotes' component at the very beginning of your Markdown (md) file:
+
+```
+import ReleaseNotes from '@site/src/components/ReleaseNotes';
+```
+
+2. Add the root element `<ReleaseNotes.Items>` for a list of release note items:
+
+```
+<ReleaseNotes.Items>
+</ReleaseNotes.Items>
+```
+
+3. Inside the `<ReleaseNotes.Items>` element, Add as much as you need of `<ReleaseNotes.Item>` elements to represents specific versions:
+
+```
+<ReleaseNotes.Items>
+    <ReleaseNotes.Item>
+    </ReleaseNotes.Item>
+
+    <ReleaseNotes.Item>
+    </ReleaseNotes.Item>
+</ReleaseNotes.Items>
+```
+
+4. Inside each `<ReleaseNotes.Item>` element, Add a `<ReleaseNotes.Timeline>` element to create a timeline for the release notes:
+
+```
+<ReleaseNotes.Items>
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+</ReleaseNotes.Items>
+```
+
+5. Inside each `<ReleaseNotes.Timeline>` element, Add a `<ReleaseNotes.Meta>` element to hold the metadata related to a release, such as the version number within the `<ReleaseNotes.Version>` element or the release date within the `<ReleaseNotes.ReleaseDate>` element:
+
+```
+<ReleaseNotes.Items>
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.1</ReleaseNotes.Version>
+            </ReleaseNotes.Meta>
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.0</ReleaseNotes.Version>
+                <ReleaseNotes.ReleaseDate>September 2023</ReleaseNotes.ReleaseDate>
+            </ReleaseNotes.Meta>
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+</ReleaseNotes.Items>
+```
+
+6. Inside each `<ReleaseNotes.Timeline>` element, Add a `<ReleaseNotes.Connector>` to create a visual separation between release notes:
+
+```
+<ReleaseNotes.Items>
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.1</ReleaseNotes.Version>
+            </ReleaseNotes.Meta>
+            <ReleaseNotes.Connector />
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.0</ReleaseNotes.Version>
+                <ReleaseNotes.ReleaseDate>September 2023</ReleaseNotes.ReleaseDate>
+            </ReleaseNotes.Meta>
+            <ReleaseNotes.Connector />
+        </ReleaseNotes.Timeline>
+    </ReleaseNotes.Item>
+</ReleaseNotes.Items>
+```
+
+7. Inside each `<ReleaseNotes.Item>` element, Add a `<ReleaseNotes.Content>` for the actual content of the release notes for a specific version. In this case, it should be structured as a series of tabs.
+
+```
+<ReleaseNotes.Items>
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.1</ReleaseNotes.Version>
+            </ReleaseNotes.Meta>
+            <ReleaseNotes.Connector />
+        </ReleaseNotes.Timeline>
+        <ReleaseNotes.Content>
+            <Tabs groupId="version" className="qodly-tabs">
+                <TabItem value="Studio">
+                    <h3> What's New </h3>
+                    <ul>
+                        <li>Feature 1.</li>
+                        <li>Feature 2.</li>
+                    </ul>
+                    <h3> Improvements </h3>
+                    <ul>
+                        <li>Improvement 1.</li>
+                        <li>Improvement 2.</li>
+                    </ul>
+                    <h3> Bug Fixes </h3>
+                    <ul>
+                        <li>Bug Fix 1.</li>
+                        <li>Bug Fix 2.</li>
+                    </ul>
+                </TabItem>
+                <TabItem value="Server">
+                    Status Quo Maintained 
+                </TabItem>
+                <TabItem value="Cloud">
+                    Status Quo Maintained 
+                </TabItem>
+            </Tabs>
+        </ReleaseNotes.Content>
+    </ReleaseNotes.Item>
+    <ReleaseNotes.Item>
+        <ReleaseNotes.Timeline>
+            <ReleaseNotes.Meta>
+                <ReleaseNotes.Version>v1.0.0</ReleaseNotes.Version>
+                <ReleaseNotes.ReleaseDate>September 2023</ReleaseNotes.ReleaseDate>
+            </ReleaseNotes.Meta>
+            <ReleaseNotes.Connector />
+        </ReleaseNotes.Timeline>
+        <ReleaseNotes.Content>
+            <Tabs groupId="version" className="qodly-tabs">
+                <TabItem value="Studio">
+                    Status Quo Maintained 
+                </TabItem>
+                <TabItem value="Server">
+                    Status Quo Maintained 
+                </TabItem>
+                <TabItem value="Cloud">
+                    Status Quo Maintained 
+                </TabItem>
+            </Tabs> 
+        </ReleaseNotes.Content>
+    </ReleaseNotes.Item>
+</ReleaseNotes.Items>
+```
 
 ### Integration the 'ComingSoon' Component
 
