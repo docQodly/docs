@@ -1,4 +1,4 @@
-let config =require("./docusaurus.config_preprod")
+let config =require("./docusaurus.config")
 
 let newConfig = config;
 newConfig.presets[0][1].docs.path="docsPostProcessed/docs"
