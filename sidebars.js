@@ -173,6 +173,11 @@ const sidebars = {
 			label: "Overview"
 	},
 	{
+		type: 'doc',
+		id: 'notes/release-notes',
+		label: "Release Notes"
+    },
+	{
 			type: 'category',
 			label: 'Model',
 			items: ['studio/model/model-editor-interface',

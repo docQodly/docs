@@ -48,13 +48,13 @@ The `addToDate` command <!-- REF #_command_.addToDate.Summary -->adds *years*, *
  var vdInOneYear, vdNextMonth, vdTomorrow : date
 
   // This line calculates the date in one year, same day
- vdInOneYear=addToDate(currentDate,1,0,0)
+ vdInOneYear = addToDate(currentDate,1,0,0)
  
   // This line calculates the date next month, same day
- vdNextMonth=addToDate(currentDate,0,1,0)
+ vdNextMonth = addToDate(currentDate,0,1,0)
  
-  // This line does the same thing as vdTomorrow=currentDate+1
- vdTomorrow=addToDate(currentDate,0,0,1)
+  // This line does the same thing as vdTomorrow = currentDate+1
+ vdTomorrow = addToDate(currentDate,0,0,1)
  
 ```
 
@@ -79,7 +79,7 @@ In the following example we assign the current date to a string variable:
 
 ```qs
  var vCurrentDate : string
- vCurrentDate="The date is "+string(currentDate)+"."
+ vCurrentDate = "The date is "+string(currentDate)+"."
  
 ```
 
@@ -114,10 +114,10 @@ The following example shows you how to time the length of an operation. Here, *L
 ```qs
  var vhStartTime, vhEndTime : time
  var vCurrentTime : string
- vhStartTime=((currentDate-!1980-01-01!)*86400)+currentTime //Save the start time, seconds after 1.1.1980
+ vhStartTime = ((currentDate-!1980-01-01!)*86400)+currentTime //Save the start time, seconds after 1.1.1980
  LongOperation //Perform the operation
- vhEndTime=((currentDate-!1980-01-01!)*86400)+currentTime
- vCurrentTime="The operation took "+string(vhEndTime-vhStartTime)+" seconds." //how long it took
+ vhEndTime = ((currentDate-!1980-01-01!)*86400)+currentTime
+ vCurrentTime = "The operation took "+string(vhEndTime-vhStartTime)+" seconds." //how long it took
  
 ```
 
@@ -128,10 +128,10 @@ The following example extracts the hours, minutes, and seconds from the current 
 ```qs
  var vhNow : time
  var vCurrentTime : string
- vhNow=currentTime
- vCurrentTime="Current hour is: "+string(vhNow\3600)
- vCurrentTime="Current minute is: "+string((vhNow\60)%60)
- vCurrentTime="Current second is: "+string(vhNow%60)
+ vhNow = currentTime
+ vCurrentTime = "Current hour is: "+string(vhNow\3600)
+ vCurrentTime = "Current minute is: "+string((vhNow\60)%60)
+ vCurrentTime = "Current second is: "+string(vhNow%60)
  
 ```
 
@@ -184,13 +184,13 @@ The following examples show various cases:
 ```qs
  var vdDate, vdDate2, vdDate3, vdDate4, vdDate5 : date
  var vobj : object
- vdDate=date("12/25/94") //returns 12/25/94 on a US system
- vdDate2=date("40/40/94") //00/00/00
- vdDate3=date("It was the 6/30, we were in 2016") //06/30/16
- vobj=newObject("expDate","2020-11-17T00:00:00.0000")
- vdDate4=date(vobj.expDate) //11/17/20
+ vdDate = date("12/25/94") //returns 12/25/94 on a US system
+ vdDate2 = date("40/40/94") //00/00/00
+ vdDate3 = date("It was the 6/30, we were in 2016") //06/30/16
+ vobj = newObject("expDate","2020-11-17T00:00:00.0000")
+ vdDate4 = date(vobj.expDate) //11/17/20
 
- vdDate5=date(vobj.creationDate) //00/00/00
+ vdDate5 = date(vobj.creationDate) //00/00/00
  
 ```
 
@@ -201,8 +201,8 @@ The following examples show various cases:
 ```qs
  var vDate : date
  var vtDateISO : string
- vtDateISO="2013-06-05T20:00:00"
- vDate=date(vtDateISO)
+ vtDateISO = "2013-06-05T20:00:00"
+ vDate = date(vtDateISO)
   //vDate represents June 5th, 2013 regardless of the system language
  
 ```
@@ -214,10 +214,10 @@ You want to get a date from an object attribute, whatever the current attribute 
 ```qs
  var vDate : date
  var myObj : object
- if(valueType(myObj.myDate)==Is date) //it's stored as date, no need to convert
-    vDate=myObj.myDate
+ if(valueType(myObj.myDate) == Is date) //it's stored as date, no need to convert
+    vDate = myObj.myDate
  else //it's stored as string
-    vDate=date(myObj.myDate)
+    vDate = date(myObj.myDate)
  end
  
 ```
@@ -274,22 +274,22 @@ The following example is a function that returns the current day as a string:
 ```qs
  var viDay : integer
  var myResult: string
- viDay=dayNumber(currentDate) // viDay gets the current day number
+ viDay = dayNumber(currentDate) // viDay gets the current day number
  switch
-    :(viDay==1)
-       myResult="Sunday"
-    :(viDay==2)
-       myResult="Monday"
-    :(viDay==3)
-       myResult="Tuesday"
-    :(viDay==4)
-       myResult="Wednesday"
-    :(viDay==5)
-       myResult="Thursday"
-    :(viDay==6)
-       myResult="Friday"
-    :(viDay==7)
-       myResult="Saturday"
+    :(viDay == 1)
+       myResult = "Sunday"
+    :(viDay == 2)
+       myResult = "Monday"
+    :(viDay == 3)
+       myResult = "Tuesday"
+    :(viDay == 4)
+       myResult = "Wednesday"
+    :(viDay == 5)
+       myResult = "Thursday"
+    :(viDay == 6)
+       myResult = "Friday"
+    :(viDay == 7)
+       myResult = "Saturday"
  end
  
 ```
@@ -328,8 +328,8 @@ The following example illustrates the use of `dayOf`. The results are assigned t
 
 ```qs
  var vResult : integer
- vResult=dayOf(!12/25/92!) // vResult gets 25
- vResult=dayOf(currentDate) // vResult gets day of current date
+ vResult = dayOf(!12/25/92!) // vResult gets 25
+ vResult = dayOf(currentDate) // vResult gets day of current date
  
 ```
 
@@ -416,8 +416,8 @@ To compare the value returned by this function, Qodly provides the following pre
 
 ```qs
  var vResult : integer
- vResult=monthOf(!12/25/92!) // vResult gets 12
- vResult=monthOf(currentDate) // vResult gets month of current date
+ vResult = monthOf(!12/25/92!) // vResult gets 12
+ vResult = monthOf(currentDate) // vResult gets month of current date
  
 ```
 
@@ -461,9 +461,9 @@ You can express any numerical value as a time:
 
 ```qs
  var vTime : time
- vTime=time(10000)
+ vTime = time(10000)
   //vTime is 02:46:40
- vTime2=time((60*60)+(20*60)+5200)
+ vTime2 = time((60*60)+(20*60)+5200)
   //vTime2 is 02:46:40
  
 ```
@@ -504,7 +504,7 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 
 ```qs
  var vTimeString : string
- vTimeString="46800 seconds is "+timeString(46800)
+ vTimeString = "46800 seconds is "+timeString(46800)
  
 ```
 
@@ -545,8 +545,8 @@ You can use `timestamp` in a log file to know precisely when the events occurred
 var logWithTimestamp : string
 var myFile : 4D.File
  
-myFile=file("/LOGS/TimestampProject.log")
-logWithTimestamp=timestamp+char(Tab)+"log with timestamp"+char(Carriage return)
+myFile = file("/LOGS/TimestampProject.log")
+logWithTimestamp = timestamp+char(Tab)+"log with timestamp"+char(Carriage return)
 myFile.setContent(logWithTimestamp)
  
 ```
@@ -582,11 +582,11 @@ The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *
 
 ```qs
  var vResult : integer
- vResult=yearOf(!12/25/92!) // vResult gets 1992
- vResult=yearOf(!12/25/1992!) // vResult gets 1992
- vResult=yearOf(!12/25/1892!) // vResult gets 1892
- vResult=yearOf(!12/25/2092!) // vResult gets 2092
- vResult=yearOf(currentDate) // vResult gets year of current date
+ vResult = yearOf(!12/25/92!) // vResult gets 1992
+ vResult = yearOf(!12/25/1992!) // vResult gets 1992
+ vResult = yearOf(!12/25/1892!) // vResult gets 1892
+ vResult = yearOf(!12/25/2092!) // vResult gets 2092
+ vResult = yearOf(currentDate) // vResult gets year of current date
  
 ```
 

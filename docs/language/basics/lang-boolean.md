@@ -16,17 +16,17 @@ This example sets a boolean variable based on the value of a numeric variable. I
 ```qs
 var myBoolean : boolean
 var myVar : integer
-if(myVar==1)
-	myBoolean=true //myBoolean is set to true
+if(myVar == 1)
+	myBoolean = true //myBoolean is set to true
 else
-	myBoolean=false //myBoolean is set to false
+	myBoolean = false //myBoolean is set to false
 end if
 ```
 
 This example can be simplified into one line.
 
 ```qs
-myBoolean=(myButton==1)
+myBoolean = (myButton == 1)
 ```
 
 ## Logical operators
@@ -41,12 +41,12 @@ In boolean contexts, it is usually recommended to use [short-circuit logical ope
 
 |Operation	|Syntax	|Returns	|Expression	|Value|
 |---|---|---|---|---|
-|AND|Boolean & Boolean	|Boolean	|("A" == "A") & (15 != 3)	|true|
-||||("A" == "B") & (15 != 3)	|false|
-||||("A" == "B") & (15 == 3)	|false|
-|OR	|Boolean  &#124; Boolean	|Boolean	|("A" == "A") &#124; (15 != 3)	|true|
-||||("A" == "B") &#124;  (15 != 3)	|true|
-||||("A" == "B") &#124;  (15 == 3)	|false|
+|AND|Boolean & Boolean	|Boolean	|("A"  ==  "A") & (15  !=  3)	|true|
+||||("A"  ==  "B") & (15  !=  3)	|false|
+||||("A"  ==  "B") & (15  ==  3)	|false|
+|OR	|Boolean  &#124; Boolean	|Boolean	|("A"  ==  "A") &#124; (15  !=  3)	|true|
+||||("A"  ==  "B") &#124;  (15  !=  3)	|true|
+||||("A"  ==  "B") &#124;  (15  ==  3)	|false|
 
 The following is the truth table for the AND logical operator:
 

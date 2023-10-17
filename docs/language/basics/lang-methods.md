@@ -18,7 +18,7 @@ A method is executed when its name is called, with or without [parameters](lang-
 //methodA
 //methodA calls methodB with one parameter
 var t : string
-t=methodB("world") //t == "hello world"
+t = methodB("world") //t  ==  "hello world"
 ```
 
 ```qs
@@ -46,11 +46,11 @@ The maximum size of a method is limited to 2 GB of text or 32,000 lines of code.
 You can write a single statement on several lines by terminating each line of the statement with a trailing backslash `\` character. The QodlyScript language will consider all the lines at once. For example, both the following statements are equivalent:
 
 ```qs
-str=string("hello world!")
+str = string("hello world!")
 ```
 
 ```qs
-str=string("hello"+\
+str = string("hello"+\
 " world"+\
 +"!")
 ```
@@ -124,7 +124,7 @@ Then `three_days_later` can be encapsulated in any object and called:
 
 ```qs
 var o : object
-o=newObject("threeDays";formula(three_days_later))
+o = newObject("threeDays";formula(three_days_later))
 o.threeDays() //returns the date in three days
 ```
 
@@ -139,17 +139,17 @@ You can also [pass parameters](lang-parameters.md) to your formula when you call
 ```qs
 //fullName method
 var $0,$1,$2 : string
-$0=$1+" "+$2
+$0 = $1+" "+$2
 ```
 
 Encapsulate `fullName` in an object:
 
 ```qs
 var o : object
-o=newObject("full_name",formula(fullName))
-result=o.full_name("John","Smith") 
+o = newObject("full_name",formula(fullName))
+result = o.full_name("John","Smith") 
 //result = "John Smith"
-//equivalent to result=fullName("param1","param2")
+//equivalent to result = fullName("param1","param2")
 ```
 
 Combined with the [`this`](lang-classes.md#this) keyword, such object methods allow writing powerful generic code. For example:
@@ -157,24 +157,24 @@ Combined with the [`this`](lang-classes.md#this) keyword, such object methods al
 ```qs
 //fullName2 method
 var $0 : string
-$0=this.firstName+" "+this.lastName
+$0 = this.firstName+" "+this.lastName
 ```
 
 Then the method acts like a new, calculated attribute that can be added to other attributes:
 
 ```qs
 var o : object
-o=newObject("firstName","Jim","lastName","Wesson")
-o.fullName=formula(fullName2) //add the method  
+o = newObject("firstName","Jim","lastName","Wesson")
+o.fullName = formula(fullName2) //add the method  
 
-result=o.fullName2() 
+result = o.fullName2() 
 //result = "Jim Wesson"
 ```
 
 Note that, even if it does not have parameters, an object method to be executed must be called with `()` parenthesis. Calling only the object property will return a new reference to the formula (and will not execute it):
 
 ```qs
-o=f.message //returns the formula object in o
+o = f.message //returns the formula object in o
 ```
 
 ## Recursive Methods

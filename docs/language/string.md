@@ -61,8 +61,8 @@ If *newChars* is an empty string (""), `changeString` returns *source* unchanged
 
 ```qs
 var vtResult : string
-vtResult=changeString("Acme","CME",2) //vtResult gets "ACME"
-vtResult=changeString("November","Dec",1) //vtResult gets "December"
+vtResult = changeString("Acme","CME",2) //vtResult gets "ACME"
+vtResult = changeString("November","Dec",1) //vtResult gets "December"
 
 ```
 
@@ -100,7 +100,7 @@ In editing a method, the command `char` is commonly used to specify characters t
 ```qs
 
 var myText : string
-myText ="hello"+char(carriageReturn)+"world"
+myText  = "hello"+char(carriageReturn)+"world"
 ```
 
 #### See also
@@ -133,14 +133,14 @@ The [`char`](#char) function is the counterpart of `characterCode`. It returns t
 Uppercase and lowercase characters are considered equal within a comparison. You can use `characterCode` to differentiate between uppercase and lowercase characters. Thus, this line returns true:
 
 ```qs
-("A"=="a")
+("A" == "a")
 
 ```
 
 On the other hand, this line returns False:
 
 ```qs
- (characterCode("A")==characterCode("a"))
+ (characterCode("A") == characterCode("a"))
 
 ```
 
@@ -150,7 +150,7 @@ This example returns the code of the first character of the string "ABC":
 
 ```qs
  var GetCode : integer
- GetCode=characterCode("ABC") //GetCode gets 65, the characterCode of A
+ GetCode = characterCode("ABC") //GetCode gets 65, the characterCode of A
 
 ```
 
@@ -163,9 +163,9 @@ The following example tests for carriage returns and tabs:
  var vtText : string
  for(vlChar,1,length(vtText))
     switch
-       :(vtText[[vlChar]]==char(Carriage return))
+       :(vtText[[vlChar]] == char(Carriage return))
   //do something
-       :(vtText[[vlChar]]==char(Tab))
+       :(vtText[[vlChar]] == char(Tab))
   // do something else
        :(...)
   //...
@@ -180,11 +180,11 @@ When executed multiple times on large texts, this test will run faster when comp
  var vlChar, vlCode  : integer
  var vtText : string
  for(vlChar,1,length(vtText))
-    vlCode=characterCode(vtText[[vlChar]])
+    vlCode = characterCode(vtText[[vlChar]])
     switch
-       :(vlCode==Carriage return)
+       :(vlCode == Carriage return)
   //do something
-       :(vlCode==Tab)
+       :(vlCode == Tab)
   //do something else
        :(...)
   //...
@@ -230,7 +230,7 @@ By default, `compareStrings` functions as if the "<" (less than) operator is use
 |kDiacriticInsensitive|4|<p>Strings are compared according to the current data language, however the diacritical mark (e.g., accent or symbol) of letters is ignored. For example, "a" is considered the same as "&agrave;".&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li></ul><p>This constant implies the use of the following constants (which can also be combined for improved readability):</p><ul><li><u>kKanaInsensitive</u></li><li><u>kWidthInsensitive</u></li><li><u>kStrict</u></li></ul>|
 |kKanaInsensitive|8|<p>For Japanese language. Controls the distinction between Hiragana and Katakana syllables.&nbsp;From a semantic point of view, the difference between Hiragana and Katakana is usually significant, but to capture as many results as possible, the default mode in Qodly is to ignore the difference (kana insensitive). For example, "あ" is considered the same as "ア".&nbsp;The<span>&nbsp;</span><u>kStrict</u><span>&nbsp;</span>option performs a kana sensitive comparison.<span>&nbsp;</span><span>kKanaInsensitive</span><span>&nbsp;</span>can be used to partially relax the rule to be kana insensitive.&nbsp;</p><p><strong>Note:</strong><span>&nbsp;</span>The data language must be set to Japanese to use this option. For all other languages, the option is ignored and<span>&nbsp;</span>[`compareStrings`](#comparestrings)<span>&nbsp;</span>will work as if<span>&nbsp;</span><u>kStrict</u>&nbsp;was specified. In other words, setting this option in a non-Japanese context would actually make the comparison kana sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li></ul>|
 |kStrict|0|<p>Strings are compared for exact matches according to the current data language.&nbsp;In most cases, capitalization and diacritical marks of letters are taken into account during the comparison.&nbsp;</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kWidthInsensitive</u></li></ul>|
-|kWidthInsensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in <a href="http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>kStrict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>kStrict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kStrict</u></li></ul>|
+|kWidthInsensitive|16|<p>For Japanese language. Corresponds to the "East Asian Width" Unicode standard, as defined in <a href = "http://www.unicode.org/reports/tr11/">Unicode Standard Annex #11</a>. From a semantic point of view, the difference between a "narrow" and "wide" character or a "full width" and "half width" character is usually insignificant, which is the default mode in Qodly. For example, "ｱ" is considered the same as "ア". The&nbsp;<u>kStrict</u><span>&nbsp;</span>option performs a width sensitive comparison.&nbsp;</p><p><strong>Note:</strong> The data language must be set to Japanese to use this option. For all other languages, the option is ignored and [`compareStrings`](#comparestrings) will work as if <u>kStrict</u> was specified. In other words, setting this option in a non-Japanese context would actually make the comparison width sensitive (the opposite effect).</p><p>Can be combined with:</p><ul><li><u>kCaseInsensitive</u></li><li><u>kDiacriticInsensitive</u></li><li><u>kKanaInsensitive</u></li></ul><p>This constant implies the use of the following constant (which can also be combined for improved readability):</p><ul><li><u>kStrict</u></li></ul>|
 
 :::caution
 
@@ -255,15 +255,15 @@ You want to compare the following strings:
 ```qs
  var string1, string2 : string
  var myResult : integer
- string1="alpha Bravo charlie Delta Echo Fox-Trot"
- string2="Alpha Bravo Charlie Delta Echo Fox-Trot"
+ string1 = "alpha Bravo charlie Delta Echo Fox-Trot"
+ string2 = "Alpha Bravo Charlie Delta Echo Fox-Trot"
  
   //compare the strings using the character code
- myResult=compareStrings(string1,string2,kCharCodes)
+ myResult = compareStrings(string1,string2,kCharCodes)
   // myResult = 1
  
   //compare the strings using the character code but ignoring any capitalization
- myResult=compareStrings(string1,string2,kCharCodes+kCaseInsensitive)
+ myResult = compareStrings(string1,string2,kCharCodes+kCaseInsensitive)
   // myResult = 0
  
 ```
@@ -275,29 +275,29 @@ The following examples illustrate the specific impact of options in **Japanese d
 ```qs
  var myResult : integer
 //default is kana insensitive
- myResult=compareStrings("イロハ","いろは") // equal
- myResult=compareStrings("イロハ","いろは",kStrict)      // not equal
- result=compareStrings("イロハ","いろは",kKanaInsensitive) // equal
+ myResult = compareStrings("イロハ","いろは") // equal
+ myResult = compareStrings("イロハ","いろは",kStrict)      // not equal
+ result = compareStrings("イロハ","いろは",kKanaInsensitive) // equal
  
 ```
 
 ```qs
  var myResult : integer
 //default is case insensitive
- myResult=compareStrings("さつき","さっき") // equal
- myResult=compareStrings("さつき","さっき",kStrict) // not equal
- myResult=compareStrings("さつき","さっき",kCaseInsensitive) // equal
+ myResult = compareStrings("さつき","さっき") // equal
+ myResult = compareStrings("さつき","さっき",kStrict) // not equal
+ myResult = compareStrings("さつき","さっき",kCaseInsensitive) // equal
  
 ```
 
 ```qs
  var myResult : integer
  //default is diacritic sensitive when the data language is set to Japanese (different to all other languages)
- myResult=compareStrings("ete","été") // equal in non-Japanese data language
- myResult=compareStrings("ete","été") // not equal in Japanese data language
- myResult=compareStrings("うがい","うかい") // not equal
- myResult=compareStrings("うがい","うかい",kStrict) // not equal
- myResult=compareStrings("うがい","うかい",kDiacriticInsensitive) // equal
+ myResult = compareStrings("ete","été") // equal in non-Japanese data language
+ myResult = compareStrings("ete","été") // not equal in Japanese data language
+ myResult = compareStrings("うがい","うかい") // not equal
+ myResult = compareStrings("うがい","うかい",kStrict) // not equal
+ myResult = compareStrings("うがい","うかい",kDiacriticInsensitive) // equal
  
 ```
 
@@ -312,10 +312,10 @@ For example:
 
 ```qs
  var myResult : integer
- myResult=compareStrings("いすず","いすゞ") // equal if setting is disabled
- myResult=compareStrings("いすず","いすゞ") // not equal if setting is enabled
- myResult=compareStrings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
- myResult=compareStrings("ラーメン",&NBSP,"ﾗｰﾒﾝ") // not equal if setting is disabled
+ myResult = compareStrings("いすず","いすゞ") // equal if setting is disabled
+ myResult = compareStrings("いすず","いすゞ") // not equal if setting is enabled
+ myResult = compareStrings("ラーメン","ﾗｰﾒﾝ") // equal if setting is enabled
+ myResult = compareStrings("ラーメン",&NBSP,"ﾗｰﾒﾝ") // not equal if setting is disabled
  
 ```
 
@@ -566,9 +566,9 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 
 ```qs
  var vtResult, vtOtherVar : string
- vtResult=deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
- vtResult=deleteString("Indentation",6,2) // vtResult gets "Indention"
- vtResult=deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
+ vtResult = deleteString("Lamborghini",6,6) // vtResult gets "Lambo"
+ vtResult = deleteString("Indentation",6,2) // vtResult gets "Indention"
+ vtResult = deleteString(vtOtherVar,3,32000) // vtResult gets the first two characters of vtOtherVar
  
 ```
 
@@ -606,9 +606,9 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 ```qs
  var vtResult : string
- vtResult=insertString("The tree"," green",4) // vtResult gets "The green  tree"
- vtResult=insertString("Shut","o",3) // vtResult gets "Shout"
- vtResult=insertString("Indention","ta",6) // vtResult gets "Indentation"
+ vtResult = insertString("The tree"," green",4) // vtResult gets "The green  tree"
+ vtResult = insertString("Shut","o",3) // vtResult gets "Shout"
+ vtResult = insertString("Indention","ta",6) // vtResult gets "Indentation"
  
 ```
 
@@ -635,7 +635,7 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 :::note
 
-When you want to check whether a string contains any characters, including ignorable characters, you must use the test `if(length(vtAnyText)==0)` rather than `if(vtAnyText=="")`. If the string contains for example `char(1)`, which is an ignorable character, `length(vtAnyText)` does return 1 but `vtAnyText==""` returns true.
+When you want to check whether a string contains any characters, including ignorable characters, you must use the test `if(length(vtAnyText) == 0)` rather than `if(vtAnyText == "")`. If the string contains for example `char(1)`, which is an ignorable character, `length(vtAnyText)` does return 1 but `vtAnyText == ""` returns true.
 
 :::
 
@@ -643,8 +643,8 @@ When you want to check whether a string contains any characters, including ignor
 
 ```qs
  var vtResult : string
- vlResult=length("Topaz") // vlResult gets 5
- vlResult=length("Citizen") // vlResult gets 7
+ vlResult = length("Topaz") // vlResult gets 5
+ vlResult = length("Citizen") // vlResult gets 7
  
 ```
 
@@ -673,9 +673,9 @@ The following project method capitalizes the string or text received as paramete
 
 ```qs
  declare (myText : string) -> myCapText : string
- myCapText=lowercase(myText)
+ myCapText = lowercase(myText)
  if(length(myCapText)>0)
-    myCapText[[1]]==uppercase(myCapText[[1]])
+    myCapText[[1]] == uppercase(myCapText[[1]])
  end
 
 ```
@@ -686,8 +686,8 @@ This example compares the results obtained according to whether or not the `*` p
 
 ```qs
  var thestring : string 
- thestring=lowercase("DÉJÀ VU") // thestring is "deja vu"
- thestring=lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
+ thestring = lowercase("DÉJÀ VU") // thestring is "deja vu"
+ thestring = lowercase("DÉJÀ VU",*) // thestring is "déjà vu"
 
 ```
 
@@ -738,13 +738,13 @@ Search in text by position. You want to fidn all tags in a text:
  declare (myText : string) -> result : collection
  var start : integer
  var vfound : boolean
- start=1
- result=newCollection
+ start = 1
+ result = newCollection
  repeat
-    vfound=matchRegex("<.*>",myText,start,pos_found,length_found)
+    vfound = matchRegex("<.*>",myText,start,pos_found,length_found)
     if(vfound)
        result.push(substring(myText,pos_found,length_found))
-       start=pos_found+length_found
+       start = pos_found+length_found
     end
  until(not(vfound))
 
@@ -760,11 +760,11 @@ Add a star to the end of one of the two previous syntaxes.
  var pos_found, length_found : integer
  var vfound : string
 
- vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found)
+ vfound = matchRegex("a.b","---a-b---",1,pos_found,length_found)
   // returns true
- vfound=matchRegex("a.b","---a-b---",1,pos_found,length_found,*)
+ vfound = matchRegex("a.b","---a-b---",1,pos_found,length_found,*)
   // returns false
- vfound=matchRegex("a.b","---a-b---",4,pos_found,length_found,*)
+ vfound = matchRegex("a.b","---a-b---",4,pos_found,length_found,*)
   // returns true
 
 ```
@@ -828,12 +828,12 @@ The following example illustrates how `num` works when passed a string argument.
 
 ```qs
  var vResult : number
- vResult=num("ABCD") // vResult gets 0
- vResult=num("A1B2C3") // vResult gets 123
- vResult=num("123") // vResult gets 123
- vResult=num("123.4") // vResult gets 123.4
- vResult=num("–123") // vResult gets –123
- vResult=num("–123e2") // vResult gets –12300
+ vResult = num("ABCD") // vResult gets 0
+ vResult = num("A1B2C3") // vResult gets 123
+ vResult = num("123") // vResult gets 123
+ vResult = num("123.4") // vResult gets 123.4
+ vResult = num("–123") // vResult gets –123
+ vResult = num("–123e2") // vResult gets –12300
 
 ```
 
@@ -844,9 +844,9 @@ This example compares the results obtained depending on the separator:
 ```qs
  var thestring : string
  var thenum : number
- thestring="33 333,33"
- thenum=num(thestring) // 3333333
- thenum=num(thestring,",") // 33333.33
+ thestring = "33 333,33"
+ thenum = num(thestring) // 3333333
+ thenum = num(thestring,",") // 33333.33
 
 ```
 
@@ -885,7 +885,7 @@ By default, the search begins at the first character of *aString*. The *start* p
 The *lengthFound* parameter, returns the length of the string actually found by the search. This parameter is necessary to be able to correctly manage letters that can be written using one or more characters (e.g.: æ and ae, ß and ss, etc.).
 If the * parameter is passed (see below), these letters are not considered as equivalent (æ # ae); in this mode, *lengthFound* is always equal to the length of *find* (if an occurrence is found). 
 
-By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a=A, a=à and so on) and does not take "ignorable" characters into account (Unicode specification). Ignorable characters include all characters in unicode C0 Control subset (U+0000 to U+001F, ascii character control set) except printable ones (U+0009 TAB, U+0010 LF, U+0011 VT, U+0012 FF and U+0013 CR). 
+By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a = A, a = à and so on) and does not take "ignorable" characters into account (Unicode specification). Ignorable characters include all characters in unicode C0 Control subset (U+0000 to U+001F, ascii character control set) except printable ones (U+0009 TAB, U+0010 LF, U+0011 VT, U+0012 FF and U+0013 CR). 
 
 To modify this functioning, you can pass: 
 
@@ -922,13 +922,13 @@ You cannot use the @ wildcard character with `position`. For example, if you pas
 ```qs
  var length, vlResult : integer
  var vtText1, vtText2  : string
- vlResult=position("ll","Willow") // vlResult gets 3
- vlResult=position(vtText1,vtText2) // Returns first occurrence of vtText1 in vtText2
- vlResult=position("day","Today is the first day",1) // vlResult gets 3
- vlResult=position("day","Today is the first day",4) // vlResult gets 20
- vlResult=position("DAY","Today is the first day",1,*) // vlResult gets 0
+ vlResult = position("ll","Willow") // vlResult gets 3
+ vlResult = position(vtText1,vtText2) // Returns first occurrence of vtText1 in vtText2
+ vlResult = position("day","Today is the first day",1) // vlResult gets 3
+ vlResult = position("day","Today is the first day",4) // vlResult gets 20
+ vlResult = position("DAY","Today is the first day",1,*) // vlResult gets 0
  
- vlResult=position("œ","Bœuf",1,length) // vlResult =2, length = 1
+ vlResult = position("œ","Bœuf",1,length) // vlResult  = 2, length = 1
 
 ```
 
@@ -939,11 +939,11 @@ In the following example, the *lengthFound* parameter can be used to search for 
 ```qs
  var start, lengthfound, vlResult : integer
  var myText : string
- start=1
+ start = 1
  repeat
-    vlResult=position("aegis",myText,start,lengthfound)
-    start=start+lengthfound
- until(vlResult==0)
+    vlResult = position("aegis",myText,start,lengthfound)
+    start = start+lengthfound
+ until(vlResult == 0)
 
 ```
 
@@ -954,18 +954,18 @@ In the following example, you want to find all instances of a string and replace
 ```qs
  var lengthFound, find, replace, option, p  : integer
  var myText : string
- myText="Hello Joelle et joel!"
- find="joel"
- replace="Joël"
- option=kCaseInsensitive+kDiacriticInsensitive
+ myText = "Hello Joelle et joel!"
+ find = "joel"
+ replace = "Joël"
+ option = kCaseInsensitive+kDiacriticInsensitive
  
- p=0
+ p = 0
  repeat
-    p=position(find,myText,p+1,lengthFound,option)
+    p = position(find,myText,p+1,lengthFound,option)
     if(p>0)
-       myText=substring(myText,1,p-1)+replace+substring(myText,p+lengthFound)
+       myText = substring(myText,1,p-1)+replace+substring(myText,p+lengthFound)
     end
- until(p<=0) //result: myText -> Hello Joëlle and Joël!
+ until(p  <= 0) //result: myText -> Hello Joëlle and Joël!
 
 ```
 
@@ -999,7 +999,7 @@ If *howMany* is specified, `replaceString` will replace only the number of occur
 
 If *oldString* is an empty string, `replaceString` returns the unchanged *source*.
 
-By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a=A, a=à and so on) and does not take "ignorable" characters such as characters whose code < 9 into account (Unicode specification).
+By default, the command makes global comparisons that take linguistic particularities and letters that may be written with one or more characters (for example æ = ae) into account. On the other hand, it is not diacritical (a = A, a = à and so on) and does not take "ignorable" characters such as characters whose code < 9 into account (Unicode specification).
 
 To modify this functioning, pass the asterisk * as the last parameter. In this case, comparisons will be based on character codes. You must pass the * parameter:
 
@@ -1013,9 +1013,9 @@ The following example illustrates the use of `replaceString`. The results, descr
 
 ```qs
  var vtResult, vtOtherVar : string
- vtResult=replaceString("Willow"," ll","d") // Result gets "Widow"
- vtResult=replaceString("Shout","o","") // Result gets "Shut"
- vtResult=replaceString(vtOtherVar,Char(Tab),",",*) // Replaces all tabs in vtOtherVar with commas
+ vtResult = replaceString("Willow"," ll","d") // Result gets "Widow"
+ vtResult = replaceString("Shout","o","") // Result gets "Shut"
+ vtResult = replaceString(vtOtherVar,Char(Tab),",",*) // Replaces all tabs in vtOtherVar with commas
 
 ```
 
@@ -1025,7 +1025,7 @@ The following example eliminates CRs and TABs from the text in *vtResult*:
 
 ```qs
  var vtResult : string
- vtResult=replaceString(replaceString(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
+ vtResult = replaceString(replaceString(vtResult,Char(Carriage return),"",*),Char(Tab),"",*)
 
 ```
 
@@ -1035,8 +1035,8 @@ The following example illustrates the use of the * parameter in the case of a di
 
 ```qs
  var vtResult : string
- vtResult=replaceString("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
- vtResult=replaceString("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
+ vtResult = replaceString("Crème brûlée","Brulee","caramel") //Result gets "Crème caramel"
+ vtResult = replaceString("Crème brûlée","Brulee","caramel",*) //Result gets "Crème brûlée"
 
 ```
 
@@ -1077,12 +1077,12 @@ In the *options* parameter, you can pass one or a combination of the following c
 ```qs
  var myText : string
  var myCol : collection 
- col=newCollection
+ col = newCollection
  
- myText="John,Doe,120 jefferson st.,Riverside,, NJ, 08075"
- myCol=splitString(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
- myCol=splitString(myText,",",kIgnoreEmptyStrings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
- myCol=splitString(myText,",",kIgnoreEmptyStrings+kTrimSpaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
+ myText = "John,Doe,120 jefferson st.,Riverside,, NJ, 08075"
+ myCol = splitString(myText,",") //["John","Doe","120 jefferson st.","Riverside",""," NJ"," 08075"]
+ myCol = splitString(myText,",",kIgnoreEmptyStrings) //["John","Doe","120 jefferson st.","Riverside"," NJ"," 08075"]
+ myCol = splitString(myText,",",kIgnoreEmptyStrings+kTrimSpaces) //["John","Doe","120 jefferson st.","Riverside","NJ","08075"]
  
 ```
 
@@ -1093,9 +1093,9 @@ The *separator* parameter can be a multiple-character string:
 ```qs
  var myText : string
  var myCol : collection
- myText="Name<tab>Smith<tab>age<tab>40"
- myCol=splitString(myText,"<tab>")
-  //myCol=["Name","Smith","age","40"]
+ myText = "Name<tab>Smith<tab>age<tab>40"
+ myCol = splitString(myText,"<tab>")
+  //myCol = ["Name","Smith","age","40"]
  
 ```
 
@@ -1144,8 +1144,8 @@ If *expression* is a numeric expression (number or integer), you can pass an opt
 |string(0 ?+ 14;"&x")|0x4000|
 |string(0 ?+ 14;"&$")|$4000|
 |string(50.3;"&xml")|50.3|Always "." as decimal separator|
-|string(num(1=1);"True;;False")|True|
-|string(num(1=2);"True;;False")|False|
+|string(num(1 = 1);"True;;False")|True|
+|string(num(1 = 2);"True;;False")|False|
 |string(log(-1))| |Undefined number|
 |string(1/0)|INF|Positive infinite number|
 |string(-1/0)|-INF|Negative infinite number|
@@ -1182,9 +1182,9 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 
 ```qs
  var vtResult : string
- vsResult=string(currentDate) //vsResult gets "02/18/23"
- vsResult=string(currentDate,kInternalDateLong) // vsResult gets "February 18, 2023"
- vsResult=string(currentDate,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
+ vsResult = string(currentDate) //vsResult gets "02/18/23"
+ vsResult = string(currentDate,kInternalDateLong) // vsResult gets "February 18, 2023"
+ vsResult = string(currentDate,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
 
 ```
 
@@ -1194,7 +1194,7 @@ Here are a few examples of simple formats (assuming that the current date is 02/
 
 	 ```qs
 	 var mydate : string
-	 mydate=string(currentDate,kISODateGMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
+	 mydate = string(currentDate,kISODateGMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
 	
 	```
 
@@ -1203,7 +1203,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 	```qs
 	 var mydate : string
-	 mydate=string(!18/02/2023!,kISODateGMT) // returns 2023-02-17T22:00:00Z in France
+	 mydate = string(!18/02/2023!,kISODateGMT) // returns 2023-02-17T22:00:00Z in France
 	
 	```
 
@@ -1211,8 +1211,8 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 	```qs
 	 var mydate : string
-	 mydate=string(!18/02/2023!,kISODate) // returns 2023-02-18T00:00:00 regardless of the time zone
-     mydate=string(currentDate,kISODate,currentTime) // returns 2023-02-18T18:11:53
+	 mydate = string(!18/02/2023!,kISODate) // returns 2023-02-18T00:00:00 regardless of the time zone
+     mydate = string(currentDate,kISODate,currentTime) // returns 2023-02-18T18:11:53
 	
 	```
  
@@ -1220,7 +1220,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 	```qs
 	 var mydate : string
-	 mydate=string(currentDate,kDateRFC1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
+	 mydate = string(currentDate,kDateRFC1123,currentTime) // returns, for example Sat, 18 Feb 2023 13:07:20 GMT
 	
 	```
 
@@ -1228,7 +1228,7 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 	
 	```qs
 	 var mydate : string
-	 mydate=string(currentDate,kDateRFC1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
+	 mydate = string(currentDate,kDateRFC1123) // returns Fri, 17 Feb 2023 22:00:00 GMT
 	
 	```
 
@@ -1260,8 +1260,8 @@ These examples assume that the current time is 5:30 PM and 45 seconds:
 
 ```qs
 	 var vsResult : string
-	 vsResult=string(currentTime) // vsResult gets "17:30:45"
- 	 vsResult=string(currentTime,kHourMinSec) // vsResult gets "17 hours 30 minutes 45 seconds"
+	 vsResult = string(currentTime) // vsResult gets "17:30:45"
+ 	 vsResult = string(currentTime,kHourMinSec) // vsResult gets "17 hours 30 minutes 45 seconds"
 	
 ```
 
@@ -1322,9 +1322,9 @@ When you use this command in a multi-style context, you need to convert any Wind
 
 ```qs
  var vsResult : string
- vsResult=substring("08/04/62",4,2) // vsResult gets "04"
- vsResult=substring("Emergency",1,6) // vsResult gets "Emerge"
- vsResult=substring(var,2) // vsResult gets all characters except the first
+ vsResult = substring("08/04/62",4,2) // vsResult gets "04"
+ vsResult = substring("Emergency",1,6) // vsResult gets "Emerge"
+ vsResult = substring(var,2) // vsResult gets all characters except the first
  
 ```
 
@@ -1357,8 +1357,8 @@ This example compares the results obtained according to whether or not the * par
 
 ```qs
  var thestring : string 
- thestring=uppercase("hélène") // thestring is "HELENE"
- thestring=uppercase("hélène",*) // thestring is "HÉLÈNE"
+ thestring = uppercase("hélène") // thestring is "HELENE"
+ thestring = uppercase("hélène",*) // thestring is "HÉLÈNE"
 
 ```
 

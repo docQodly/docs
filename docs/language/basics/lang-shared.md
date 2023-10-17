@@ -36,9 +36,9 @@ Modifications can be applied to shared objects and shared collections:
 However, all modification instructions in a shared object or collection must be surrounded by the `use...end` keywords, otherwise an error is generated.
 
 ```qs
-s_obj=newSharedObject("prop1","alpha")
+s_obj = newSharedObject("prop1","alpha")
 use(s_obj)
-   s_obj.prop1="omega"
+   s_obj.prop1 = "omega"
 end
 ```
 
@@ -110,30 +110,30 @@ If a function of the [collection class](../CollectionClass.md) modifies a shared
 The following examples highlight specific rules when handling shared groups:
 
 ```qs
- ob1=newSharedObject
- ob2=newSharedObject
+ ob1 = newSharedObject
+ ob2 = newSharedObject
  use(ob1)
-    ob1.a=ob2  //group 1 is created
+    ob1.a = ob2  //group 1 is created
  end
  
- ob3=newSharedObject
- ob4=newSharedObject
+ ob3 = newSharedObject
+ ob4 = newSharedObject
  use(ob3)
-    ob3.a=ob4  //group 2 is created
+    ob3.a = ob4  //group 2 is created
  end
  
  use(ob1) //use an object from group 1
-    ob1.b=ob4  //ERROR
+    ob1.b = ob4  //ERROR
   //ob4 already belongs to another group
   //assignment is not allowed
  end
  
  use(ob3)
-    ob3.a=null //remove any reference to ob4 from group 2
+    ob3.a = null //remove any reference to ob4 from group 2
  end
  
  use(ob1) //use an object from group 1
-    ob1.b=ob4  //ERROR
+    ob1.b = ob4  //ERROR
   //ob4 still belongs to group 2
   //assignment is not allowed
  end

@@ -17,14 +17,14 @@ For example, you could create a `Person` class with the following definition:
 ```qs  
 //Class: Person
  constructor(firstname : string, lastname : string)
- this.firstName=firstname
- this.lastName=lastname
+ this.firstName = firstname
+ this.lastName = lastname
 
 function get fullName() -> fullName : string
- fullName=this.firstName+" "+this.lastName
+ fullName = this.firstName+" "+this.lastName
  
 function sayHello() -> welcome : string
- welcome="Hello "+this.fullName
+ welcome = "Hello "+this.fullName
 ```
 
 In a method, creating a "Person":
@@ -32,9 +32,9 @@ In a method, creating a "Person":
 ```
 var person : cs.Person //object of Person class  
 var hello : string
-person=cs.Person.new("John","Doe")
+person = cs.Person.new("John","Doe")
 //person:{firstName: "John", lastName: "Doe", fullName: "John Doe"}
-hello=person.sayHello() //"Hello John Doe"
+hello = person.sayHello() //"Hello John Doe"
 ```
 
 ## Creating classes
@@ -98,7 +98,7 @@ It returns all user classes defined in the opened project, as well as [Data Mode
 You want to create a new instance of an object of `myClass`:
 
 ```qs
-instance=cs.myClass.new()
+instance = cs.myClass.new()
 ```
 
 ### `4D`
@@ -118,7 +118,7 @@ The `4D` command <!-- REF #_command_.4D.Summary -->returns a *Class Store* objec
 You want to create a new key in the `CryptoKey` class:
 
 ```qs
-key=4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
+key = 4D.CryptoKey.new(newObject("type","ECDSA","curve","prime256v1"))
 ```
 
 
@@ -206,11 +206,11 @@ Within a class function, the `this` command is used as the object instance. For 
 
 ```qs  
 function setFullname(firstname : string, lastname : string)
- this.firstName=firstname
- this.lastName=lastname
+ this.firstName = firstname
+ this.lastName = lastname
 
 function getFullname()->fullname : string
- fullname=this.firstName+" "+uppercase(this.lastName)
+ fullname = this.firstName+" "+uppercase(this.lastName)
 ```
   
 For a class function, the `currentMethodName` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
@@ -243,7 +243,7 @@ You declare the return parameter (optional) by adding an arrow (`->`) and the re
 
 ```qs
 function add(x : variant, y : integer)->result : integer
- result=x+y
+ result = x+y
 ```
 
 You can also declare the return parameter by adding only `: type` and use the [`return expression`](lang-parameters.md#return-expression) (it will also end the function execution). For example:
@@ -259,13 +259,13 @@ function add(x : variant, y : integer): integer
 ```qs
 // Class: Rectangle
 constructor(width : integer, height : integer)
- this.name="Rectangle"
- this.height=height
- this.width=width
+ this.name = "Rectangle"
+ this.height = height
+ this.width = width
 
 // Function definition
 function getArea()->result : integer
- result=(this.height)*(this.width)
+ result = (this.height)*(this.width)
 ```
 
 ```qs
@@ -275,8 +275,8 @@ function getArea()->result : integer
 var rect : cs.Rectangle
 var area : number
 
-rect=cs.Rectangle.new(50,100)  
-area=rect.getArea() //5000
+rect = cs.Rectangle.new(50,100)  
+area = rect.getArea() //5000
 ```
 
 #### Example 2
@@ -337,22 +337,22 @@ Assigning *undefined* to an object property clears its value while preserving it
 property firstName, lastName : string
 
 constructor(firstname : string, lastname : string)
- this.firstName=firstname
- this.lastName=lastname
+ this.firstName = firstname
+ this.lastName = lastname
 
 function get fullName() -> fullName : string
- fullName=this.firstName+" "+this.lastName
+ fullName = this.firstName+" "+this.lastName
 
 function set fullName( fullName : string )
- p=position(" ", fullName)
- this.firstName=substring(fullName, 1; p-1)
- this.lastName=substring(fullName, p+1)
+ p = position(" ", fullName)
+ this.firstName = substring(fullName, 1; p-1)
+ this.lastName = substring(fullName, p+1)
 ```
 
 ```qs
 //in a method
-fullName=person.fullName // Function get fullName() is called
-person.fullName="John Smith" // Function set fullName() is called
+fullName = person.fullName // Function get fullName() is called
+person.fullName = "John Smith" // Function set fullName() is called
 ```
 
 #### Example 2
@@ -360,14 +360,14 @@ person.fullName="John Smith" // Function set fullName() is called
 ```qs
 function get fullAddress()->result : object
  
- result=newObject
+ result = newObject
  
- result.fullName=this.fullName
- result.address=this.address
- result.zipCode=this.zipCode
- result.city=this.city
- result.state=this.state
- result.country=this.country 
+ result.fullName = this.fullName
+ result.address = this.address
+ result.zipCode = this.zipCode
+ result.city = this.city
+ result.state = this.state
+ result.country = this.country 
 ```
 
 ### `constructor`
@@ -394,15 +394,15 @@ You can create and type instance properties inside the constructor (see example)
 // Class: MyClass
 // Class constructor of MyClass
 constructor (name : string)
- this.name=name
+ this.name = name
 ```
 
 ```qs
 // in a method
 // you can instantiate an object
 var o : cs.MyClass
-o=cs.MyClass.new("HelloWorld")  
-// o == {"name":"HelloWorld"}
+o = cs.MyClass.new("HelloWorld")  
+// o  ==  {"name":"HelloWorld"}
 ```
 
 
@@ -459,9 +459,9 @@ In a method:
 
 ```qs
 var o : cs.MyClass
-o=cs.MyClass.new() //o:{}
-o.name="John" //o:{"name":"John"}
-o.age="Smith"  //error with check syntax
+o = cs.MyClass.new() //o:{}
+o.name = "John" //o:{"name":"John"}
+o.age = "Smith"  //error with check syntax
 ```
 
 ### `extends <ClassName>`
@@ -504,12 +504,12 @@ constructor (side : integer)
  super(side,side)
  // In derived classes, super must be called 
  // before you can use 'this'
- this.name="Square"
+ this.name = "Square"
 
 
 
  function getArea() -> result : integer
-  result=this.height*this.width
+  result = this.height*this.width
 ```
 
 
@@ -538,7 +538,7 @@ The `super` command <!-- REF #_command_.super.Summary -->makes calls to the supe
 ```qs
 constructor(t1 : string, t2 : string)
 super(t1) //calls superclass constructor with a string param
-this.param=t2 // use second param
+this.param = t2 // use second param
 ```
 
 2. Inside a [class function](#function), `super` designates the prototype of the superclass and allows to call a function of the superclass hierarchy.
@@ -555,15 +555,15 @@ This example illustrates the use of `super` in a class constructor. The command 
   //Class: Rectangle
  
 constructor(height : integer, width : integer)
-  this.name="Rectangle"
-  this.height=height
-  this.width=width
+  this.name = "Rectangle"
+  this.height = height
+  this.width = width
  
 function sayName()
   return("Hi, I am a "+this.name+".")
  
 function getArea()-> area : integer
-  area=this.height*this.width
+  area = this.height*this.width
 ```
 
 ```qs
@@ -580,7 +580,7 @@ super(side, side)
  
   // In derived classes, super must be called before you
   // can use 'This'
-this.name="Square"
+this.name = "Square"
 ```
 
 #### Example 2  
@@ -593,7 +593,7 @@ You created a Rectangle class with a function:
   //Class: Rectangle
  
 function nbSides() -> sides : text
-  sides="I have 4 sides"
+  sides = "I have 4 sides"
 ```
 
 You also created the Square class with a function calling the superclass function:
@@ -605,7 +605,7 @@ You also created the Square class with a function calling the superclass functio
 extends Rectangle
  
 function description() -> desc : text
-  desc=super.nbSides()+" which are all equal"
+  desc = super.nbSides()+" which are all equal"
 ```
 
 ```qs
@@ -614,8 +614,8 @@ Then you can write in a method:
 
 var square : object
 var info : text
-square=cs.Square.new()
-info=square.description() //I have 4 sides which are all equal
+square = cs.Square.new()
+info = square.description() //I have 4 sides which are all equal
 ```
 
 
@@ -639,8 +639,8 @@ In most cases, the value of `this` is determined by how a function is called. It
 When executing a formula object created by the [`formula`](../FunctionClass.md#formula) or [`formulaFromString`](../FunctionClass.md#formula) commands, `this` returns a reference to the object currently processed by the formula. For example:
 
 ```qs
-o=newObject("prop",42,"f",formula(this.prop))
-val=o.f() //42
+o = newObject("prop",42,"f",formula(this.prop))
+val = o.f() //42
 ```
 
 When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
@@ -652,13 +652,13 @@ constructor
  
  // Create properties on this as
  // desired by assigning to them
- this.a=42 
+ this.a = 42 
 ```
 
 ```qs
 // in a method  
-o=cs.ob.new()
-val=o.a //42
+o = cs.ob.new()
+val = o.a //42
 ```
 
 > When calling the superclass constructor in a constructor using the [super](#super) keyword, keep in mind that `this` must not be called before the superclass constructor, otherwise an error is generated.
@@ -675,10 +675,10 @@ function f()
 Then you can write in a project method:
 
 ```qs
-o=cs.ob.new()
-o.a=5
-o.b=3
-val=o.f() //8
+o = cs.ob.new()
+o.a = 5
+o.b = 3
+val = o.f() //8
 
 ```
 
@@ -691,19 +691,19 @@ You want to use a project method as a formula encapsulated in an object:
 ```qs
 var person : object
 var g : string
-person=newObject()
-person.firstName="John"
-person.lastName="Smith"
-person.greeting=formula(Greeting)
+person = newObject()
+person.firstName = "John"
+person.lastName = "Smith"
+person.greeting = formula(Greeting)
 
-g=person.greeting("hello") // returns "hello John Smith"
-g=person.greeting("hi") // returns "hi John Smith"
+g = person.greeting("hello") // returns "hello John Smith"
+g = person.greeting("hi") // returns "hi John Smith"
 ```
 
 With the `Greeting` method:
 
 ```qs
 declare(param : string) -> vMessage : text
-vMessage=param+" "+this.firstName+" "+this.lastName
+vMessage = param+" "+this.firstName+" "+this.lastName
 ```
 

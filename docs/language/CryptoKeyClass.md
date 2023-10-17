@@ -15,16 +15,16 @@ The following sample code signs and verifies a message using a new ECDSA key pai
 ```qs
  // Generate a new ECDSA key pair
 var key : 4D.CryptoKey
-key=4D.CryptoKey.new(newobject("type","ECDSA","curve","prime256v1"))
+key = 4D.CryptoKey.new(newobject("type","ECDSA","curve","prime256v1"))
 
   // Get signature as base64
 var message, signature : string
-message="hello world"
-signature=key.sign(message,newobject("hash","SHA256"))
+message = "hello world"
+signature = key.sign(message,newobject("hash","SHA256"))
 
   // Verify signature
 var status : object
-status=key.verify(message,signature,newobject("hash","SHA256"))
+status = key.verify(message,signature,newobject("hash","SHA256"))
 assert(status.success)
 ```
 

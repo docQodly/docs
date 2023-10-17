@@ -74,7 +74,7 @@ The `.clearPrivileges()` function <!-- REF #SessionClass.clearPrivileges().Summa
 var isGuest : boolean  
 
 session.clearPrivileges()
-isGuest=session.isGuest() //isGuest is True
+isGuest = session.isGuest() //isGuest is True
 ```
 
 <!-- END REF -->
@@ -96,7 +96,7 @@ This property is **read-only**. It is automatically recomputed if the [`.idleTim
 
 ```qs
 var expiration : string
-expiration=session.expirationDate //eg "2021-11-05T17:10:42Z"
+expiration = session.expirationDate //eg "2021-11-05T17:10:42Z"
 ```
 
 <!-- END REF -->
@@ -162,10 +162,10 @@ This property is **read write**.
 ```qs
 if (session.isGuest())
 		// A Guest session will close after 60 minutes of inactivity
-	session.idleTimeout=60
+	session.idleTimeout = 60
 else
 		// Other sessions will close after 120 minutes of inactivity
-	session.idleTimeout=120
+	session.idleTimeout = 120
 end
 
 ```
@@ -256,8 +256,8 @@ var userOK : boolean
 
 if (userOK) //The user has been approved
   var info : object
-  info=newObject
-  info.privileges=newCollection("WebAdmin")
+  info = newObject
+  info.privileges = newCollection("WebAdmin")
   session.setPrivileges(info)
 end
 
@@ -286,9 +286,9 @@ This property is **read only** itself but it returns a read-write object.
 You want to store the client IP in the `.storage` property:
 
 ```qs
-if (session.storage.clientIP=null) //first access
+if (session.storage.clientIP = null) //first access
     use (session.storage)
-        session.storage.clientIP=newSharedObject("value", clientIP)
+        session.storage.clientIP = newSharedObject("value", clientIP)
     end
 end
 

@@ -52,7 +52,7 @@ You created the Polygon class:
   //Class: Polygon
  
  constructor(size1 : integer, size2 : integer)
- this.area=size1*size2
+ this.area = size1*size2
 ```
 
 Then, in a method, you can write:
@@ -60,11 +60,11 @@ Then, in a method, you can write:
 ```qs
  var poly : object
  var instance : boolean
- poly=cs.Polygon.new(4,3)
+ poly = cs.Polygon.new(4,3)
  
- instance=instanceOf(poly,cs.Polygon) //true
- instance=instanceOf(poly,4D.Object) //true
- instance=instanceOf(poly,cs.Circle) //false
+ instance = instanceOf(poly,cs.Polygon) //true
+ instance = instanceOf(poly,4D.Object) //true
+ instance = instanceOf(poly,cs.Circle) //false
 ```
 
 
@@ -94,7 +94,7 @@ The `newObject` command <!-- REF #_command_.newObject.Summary -->creates a new e
 `newObject` is rarely necessary. It is usually recommended to create directly object literals with the `{}` operator, for example:
 
 ```qs
-o={a:"foo",b:42}
+o = {a:"foo",b:42}
 ```
 
 :::
@@ -122,15 +122,15 @@ Create empty or filled objects:
 
 ```qs
 var obj1, obj2, obj3, obj4 : object
-obj1=newObject
+obj1 = newObject
   // obj1 = {}
-obj2=newObject("name","Smith")
+obj2 = newObject("name","Smith")
   // obj2 = {name:Smith}
-obj3=newObject("name","Smith","age",40)
+obj3 = newObject("name","Smith","age",40)
   // obj3 = {name:Smith,age:40}
   
   // Note that this is equivalent to:
-obj4={name:"Smith",age:40}
+obj4 = {name:"Smith",age:40}
 ```
 
 
@@ -178,16 +178,16 @@ Unlike standard (not shared) objects, shared objects do not support pictures and
 
 ```qs
 var contact : object
-contact=newSharedObject("name","Smith","firstname","John")
+contact = newSharedObject("name","Smith","firstname","John")
 ```
 
 #### Example 2
 
 ```qs
 var s_obj : object
-s_obj=newSharedObject("prop1","alpha")
+s_obj = newSharedObject("prop1","alpha")
 use(s_obj)
-    s_obj.prop1="omega"
+    s_obj.prop1 = "omega"
 end
 ```
 
@@ -222,16 +222,16 @@ You created the Polygon class:
   //Class: Polygon
  
  constructor(size1 : integer, size2 : integer)
- this.area=size1*size2
+ this.area = size1*size2
 ```
 
 Then, in a method, you can write:
 
 ```qs
  var poly, class : object
- poly=cs.Polygon.new(4,3)
+ poly = cs.Polygon.new(4,3)
  
- class=objectClass(poly)
+ class = objectClass(poly)
   //class contains Class: Polygon
 ```
 
@@ -280,15 +280,15 @@ This example illustrates the deep copy of an object containing a sub-object:
 ```qs
 var ob1, ob2, ob3 : object
 
-ob1={info: {a: 20; b: 30}}  
+ob1 = {info: {a: 20; b: 30}}  
 	//ob1: {"info":{"a":20,"b":30}}
-ob2=ob1 //another reference to the same object 
+ob2 = ob1 //another reference to the same object 
 	//ob2: {"info":{"a":20,"b":30}}
-ob3=objectCopy(ob1) //deep copy of the object
+ob3 = objectCopy(ob1) //deep copy of the object
 	//ob3: {"info":{"a":20,"b":30}}
 	
-ob1.info.b=1000 //modify ob1 and thus ob2
-ob3.info.a=5000 //modify the deep copy
+ob1.info.b = 1000 //modify ob1 and thus ob2
+ob3.info.a = 5000 //modify the deep copy
 	//ob1: {"info":{"a":20,"b":1000}}
 	//ob2: {"info":{"a":20,"b":1000}}
 	//ob3: {"info":{"a":5000,"b":30}}
@@ -305,14 +305,14 @@ We want to copy the regular (non shared) *person* object into the *sharedPerson*
  var person, copy, sharedPerson : object
  var text : string
  
- text=documentToString(file("/SOURCES/person.txt")
- person=jsonParse(text) //person is a standard object
- sharedPerson=newSharedObject()
- copy=objectCopy(person,ck shared) //copy is a shared object
+ text = documentToString(file("/SOURCES/person.txt")
+ person = jsonParse(text) //person is a standard object
+ sharedPerson = newSharedObject()
+ copy = objectCopy(person,ck shared) //copy is a shared object
  
   //So it can be put in sharedPerson
  use(sharedObject)
-    sharedObject.person=copy
+    sharedObject.person = copy
  end
 
 ```
@@ -326,11 +326,11 @@ We want to copy *sharedObj* in *sharedColl* but since they belong to different s
  var sharedColl : collection
  
   //sharedObj belongs to a shared group
- sharedObj=newSharedObject("lastname","Smith","address",newSharedObject("city","New York"))
+ sharedObj = newSharedObject("lastname","Smith","address",newSharedObject("city","New York"))
   //sharedColl belongs to another shared group
- sharedColl=newSharedCollection(newSharedObject("lastname","Brown"))
+ sharedColl = newSharedCollection(newSharedObject("lastname","Brown"))
  
- objCopy=objectCopy(sharedObj,ck shared,sharedColl)
+ objCopy = objectCopy(sharedObj,ck shared,sharedColl)
   //objCopy is now in the same shared group as sharedColl
  
   //So objCopy can be put in sharedColl without error
@@ -375,18 +375,18 @@ var individual, persons : object
 var names, ages : collection
 var result1, result2 : string
  
-persons=newObject
-persons["John"]=42
-persons["Andy"]=24
-persons["Mary"]=30
-persons["Paul"]=50
+persons = newObject
+persons["John"] = 42
+persons["Andy"] = 24
+persons["Mary"] = 30
+persons["Paul"] = 50
  
-result1="The average age is "+string(objectValues(persons).average())
-result1=result1+"/rThere are "+string(objectKeys(persons).length)+" persons"
+result1 = "The average age is "+string(objectValues(persons).average())
+result1 = result1+"/rThere are "+string(objectKeys(persons).length)+" persons"
  
-ages=objectEntries(persons).query("value>:1",25)
-result2="There are "+string(ages.length)+" persons who are over 25"
-result2=result2+"/rTheir names are: "+ages.extract("key").join("-")
+ages = objectEntries(persons).query("value>:1",25)
+result2 = "There are "+string(ages.length)+" persons who are over 25"
+result2 = result2+"/rTheir names are: "+ages.extract("key").join("-")
 ```
 
 
@@ -427,11 +427,11 @@ If you pass the *property* parameter, the command checks whether this property e
 ```qs
  var obj : object
  var def : boolean
- def=objectIsDefined(obj) //false, obj is not initialized
+ def = objectIsDefined(obj) //false, obj is not initialized
  
- obj=newObject("Name","Martin")
+ obj = newObject("Name","Martin")
  objectRemove(obj, "Name")
- def=objectIsDefined(obj) //true, obj is empty but initialized
+ def = objectIsDefined(obj) //true, obj is empty but initialized
 ```
 
 #### Example 2 
@@ -439,7 +439,7 @@ If you pass the *property* parameter, the command checks whether this property e
 ```qs
  var obj : object
  
- obj=newObject("Name","Smith", "Age", 42)  
+ obj = newObject("Name","Smith", "Age", 42)  
  ...
  if(objectIsDefined(obj,"Age")
  	...
@@ -449,7 +449,7 @@ If you pass the *property* parameter, the command checks whether this property e
 This test is equivalent to:
 
 ```qs
- if(valueType(obj,"Age")!=Is undefined)
+ if(valueType(obj,"Age") != Is undefined)
 ```
 
 #### See also
@@ -479,17 +479,17 @@ The `objectIsEmpty` command <!-- REF #_command_.objectIsEmpty.Summary -->returns
  var ref : object
  var empty, def : boolean
  
- empty=objectIsEmpty(ref) // true
- def=objectIsDefined(ref) // false
+ empty = objectIsEmpty(ref) // true
+ def = objectIsDefined(ref) // false
  
- ref={name : "Susie", age : 4}
- empty=objectIsEmpty(ref) // false
- def=objectIsDefined(ref) // true
+ ref = {name : "Susie", age : 4}
+ empty = objectIsEmpty(ref) // false
+ def = objectIsDefined(ref) // true
  
  objectRemove(ref,"name")
  objectRemove(ref,"age")
- empty=objectIsEmpty(ref) // true
- def=objectIsDefined(ref) // true
+ empty = objectIsEmpty(ref) // true
+ def = objectIsDefined(ref) // true
 ```
 
 #### See also
@@ -547,12 +547,12 @@ Only first-level property names are returned (property names of sub-objects are 
 var person : object
 var col : collection
  
-person=newObject
-person.lastName="Smith"
-person.firstName="Jenny"
-person.children=newObject("Mary",12,"Mark",8)
+person = newObject
+person.lastName = "Smith"
+person.firstName = "Jenny"
+person.children = newObject("Mary",12,"Mark",8)
  
-col=objectKeys(person)
+col = objectKeys(person)
  
   //col[0]:"lastName"
   //col[1]:"firstName"
@@ -592,7 +592,7 @@ If the *property* is not found at the first level of *object*, the command does 
 ```qs
  var obj : object
 
- obj={name : "Smith", info: {a: 20, b: 30}}
+ obj = {name : "Smith", info: {a: 20, b: 30}}
  objectRemove(obj, "name")
 	//obj: {"info": {"a": 20, "b": 30}} 
  objectRemove(obj.info, "b")
@@ -626,12 +626,12 @@ The order of values within the returned collection follows the definition order 
  var person : object
  var col : collection
  
- person=newObject
- person.lastName="Smith"
- person.firstName="Jenny"
- person.children=newObject("Mary",12,"Mark",8)
+ person = newObject
+ person.lastName = "Smith"
+ person.firstName = "Jenny"
+ person.children = newObject("Mary",12,"Mark",8)
  
- col=objectValues(person)
+ col = objectValues(person)
  
   //col[0]:"Smith"
   //col[1]:"Jenny"
@@ -676,7 +676,7 @@ Initializing the `storage` object:
 
 ```qs
  use(storage)
-    storage.counters=newSharedObject("customers",0,"invoices",0)
+    storage.counters = newSharedObject("customers",0,"invoices",0)
  end
 ```
 
@@ -686,10 +686,10 @@ A standard way to set `storage` values:
 
 ```qs
  use(storage)
-    storage.mydata:=newSharedObject
+    storage.mydata: = newSharedObject
     use(storage.mydata)
-       storage.mydata.prop1="Smith"
-       storage.mydata.prop2=100
+       storage.mydata.prop1 = "Smith"
+       storage.mydata.prop2 = 100
     end
  end
 ```
@@ -702,17 +702,17 @@ A standard way to set `storage` values:
  declare -> counterValue : integer
  var counter : object //create a reference to counter for the process
  
- if(counter==null) //if this reference is null, get if from storage
+ if(counter == null) //if this reference is null, get if from storage
     use(storage) //Use of storage needed only once!
-       if(storage.counter==null)
-          storage.counter=newSharedObject("operation",0)
+       if(storage.counter == null)
+          storage.counter = newSharedObject("operation",0)
        end
-       counter=storage.counter //Get the reference of the counter shared object
+       counter = storage.counter //Get the reference of the counter shared object
     end
  end
  use(counter) //directly use the shared object counter (no need to use storage!)
-    counter.operation=counter.operation+1
-    counterValue=counter.operation
+    counter.operation = counter.operation+1
+    counterValue = counter.operation
  end
 
 :::note

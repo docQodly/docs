@@ -42,7 +42,7 @@ title: Math
 
 ```qs
 var vlVector : number
-vlVector=abs(-10.3) //10.3
+vlVector = abs(-10.3) //10.3
 
 ```
 
@@ -71,7 +71,7 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 ```qs
 	var vPi : string
- 	vPi="Pi is equal to: "+string(arctan(1)*4)
+ 	vPi = "Pi is equal to: "+string(arctan(1)*4)
 
 ```
 
@@ -129,8 +129,8 @@ The following example takes a monetary value expressed as a number, and extracts
 
 ```qs
  var vDollars, vCents, vAmount : number
- vDollars=int(vAmount) //Get the dollars
- vCents=dec(vAmount)*100 // Get the fractional part
+ vDollars = int(vAmount) //Get the dollars
+ vCents = dec(vAmount)*100 // Get the fractional part
 
 ```
 
@@ -165,7 +165,7 @@ The following example assigns the exponential of 1 to vrE (the log of vrE is 1):
 
 ```qs
  var vrE : number
- vrE=exp(1) // vrE gets 2.17828...
+ vrE = exp(1) // vrE gets 2.17828...
 ```
 
 #### See also
@@ -193,8 +193,8 @@ The following example illustrates how `int` works for both positive and negative
 
 ```qs
  var vlResult : number
- vlResult=int(123.4) // vlResult gets 123
- vlResult=int(-123.4) // vlResult gets –124
+ vlResult = int(123.4) // vlResult gets 123
+ vlResult = int(-123.4) // vlResult gets –124
 ```
 
 #### See also
@@ -226,7 +226,7 @@ Qodly provides the predefined constant *e number* (2.71828...).
 
 ```qs
  var vLog : string
- vLog=string(log(exp(1))
+ vLog = string(log(exp(1))
  
 ```
 
@@ -270,9 +270,9 @@ The following example illustrates how the `mod` function works with different ar
 
 ```qs
  var vlResult : number
- vlResult=mod(3,2) // vlResult gets 1
- vlResult=mod(4,2) // vlResult gets 0
- vlResult=mod(3.5,2) // vlResult gets 0
+ vlResult = mod(3,2) // vlResult gets 1
+ vlResult = mod(4,2) // vlResult gets 0
+ vlResult = mod(3.5,2) // vlResult gets 0
  
 ```
 
@@ -302,10 +302,10 @@ The following example illustrates how `round` works with different arguments:
 
 ```qs
  var vlResult : number
- vlResult=round(16.857,2) // vlResult gets 16.86
- vlResult=round(32345.67,-3) // vlResult gets 32000
- vlResult=round(29.8725,3) // vlResult gets 29.873
- vlResult=round(-1.5,0) // vlResult gets –2
+ vlResult = round(16.857,2) // vlResult gets 16.86
+ vlResult = round(32345.67,-3) // vlResult gets 32000
+ vlResult = round(29.8725,3) // vlResult gets 29.873
+ vlResult = round(-1.5,0) // vlResult gets –2
  
 ```
 
@@ -342,7 +342,7 @@ The following example assigns a random integer between 10 and 30 to the *vlResul
 
 ```qs
  var vlResult : integer
- vlResult=(random%21)+10
+ vlResult = (random%21)+10
  
 ```
 
@@ -366,9 +366,9 @@ Given two real numbers *a* and *b*, if `abs(a-b)` is greater than the epsilon, t
 
 By default, Qodly sets the epsilon value to 10 power minus 6 (10^-6). Please note that the epsilon value should always be positive. Examples:
 
-* 0.00001=0.00002 returns false, because the difference 0.00001 is greater than 10^-6.
-* 0.000001=0.000002 returns true, because the difference 0.000001 is not greater than 10^-6.
-* 0.000001=0.000003 returns false, because the difference 0.000002 is greater than 10^-6.
+* 0.00001 = 0.00002 returns false, because the difference 0.00001 is greater than 10^-6.
+* 0.000001 = 0.000002 returns true, because the difference 0.000001 is not greater than 10^-6.
+* 0.000001 = 0.000003 returns false, because the difference 0.000002 is greater than 10^-6.
 
 Using `setRealComparisonLevel`, you can increase or decrease the epsilon value as you require.
 
@@ -443,7 +443,7 @@ The following example assigns the value 1.414213562373 to the variable *vrSquare
 
 ```qs
  var vrSquareRootOfTwo : number
- vrSquareRootOfTwo=squareRoot(2)
+ vrSquareRootOfTwo = squareRoot(2)
  
 ```
 
@@ -454,7 +454,7 @@ The following method returns the hypotenuse of the right triangle whose two legs
 
 ```qs
  declare ( legA : number , legB : number) -> hypothenuse : number
- hypothenuse:=squareRoot((legA^2)+(legB^2)) 
+ hypothenuse: = squareRoot((legA^2)+(legB^2)) 
 ```
 
 
@@ -507,10 +507,10 @@ If *places* is positive, *number* is truncated to *places* decimal places. If *p
 
 ```qs
  var vlResult : number
- vlResult=trunc(216.897,1) // vlResult gets 216.8
- vlResult=trunc(216.897,-1) // vlResult gets 210
- vlResult=trunc(-216.897,1) // vlResult gets –216.9
- vlResult=trunc(-216.897,-1) // vlResult gets –220
+ vlResult = trunc(216.897,1) // vlResult gets 216.8
+ vlResult = trunc(216.897,-1) // vlResult gets 210
+ vlResult = trunc(-216.897,1) // vlResult gets –216.9
+ vlResult = trunc(-216.897,-1) // vlResult gets –220
  
 ```
 

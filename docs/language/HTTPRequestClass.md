@@ -14,9 +14,9 @@ Create a `MyHttpRequestOptions` class for the request options:
 
 ```qs
 constructor(method : string, headers : object, body : string)
-	this.method=method
-	this.headers=headers
-	this.body=body
+	this.method = method
+	this.headers = headers
+	this.body = body
 
 Function onResponse(request : 4D.HTTPRequest, event : object)
 //My onResponse method, if you want to handle the request asynchronously
@@ -29,14 +29,14 @@ You can now create your request:
 
 ```qs
 var headers : object
-headers=newObject()
-headers["field1"]="value1"
+headers = newObject()
+headers["field1"] = "value1"
 
 var myHttpRequestOptions : cs.MyHttpRequestOptions
 myHttpRequestOptions = cs.MyHttpRequestOptions.new("GET", headers, "")
 
 var request : 4D.HTTPRequest
-request=4D.HTTPRequest.new("www.google.com", myHttpRequestOptions)
+request = 4D.HTTPRequest.new("www.google.com", myHttpRequestOptions)
 request.wait() //If you want to handle the request synchronously
 //Now you can use request.response to access the result of the request or request.error to check the error that happened.
 ```
@@ -98,7 +98,7 @@ For example, you can pass the following strings:
 ```
     http://www.myserver.com
     www.myserver.com/path
-    http://www.myserver.com/path?name="jones"
+    http://www.myserver.com/path?name = "jones"
     https://www.myserver.com/login
     http://123.45.67.89:8083
     http://john:smith@123.45.67.89:8083
@@ -117,7 +117,7 @@ In the *options* parameter, pass an object that can contain the following proper
 |dataType|string|Type of the response body attribute. Values: "text", "blob", "object", or "auto". If "auto", the type of the body content will be deduced from its MIME type (object for JSON, text for text, javascript, xml, http message and url encoded form, blob otherwise)|"auto"|
 |decodeData|boolean|If true, the data received in the `onData` callback is uncompressed|false|
 |encoding|string|Used only in case of requests with a `body` (`post` or `put` methods). Encoding of the request body content if it's a text, ignored if content-type is set inside the headers|"UTF-8"|
-|headers|object|Headers of the request. Syntax: `headers.key=value` (*value* can be a collection if the same key must appear multiple times)|Empty object|
+|headers|object|Headers of the request. Syntax: `headers.key = value` (*value* can be a collection if the same key must appear multiple times)|Empty object|
 |method|string|"POST", "GET", or other method|"GET"|
 |minTLSVersion|string|Sets the minimum version of TLS: "`TLSv1_0`", "`TLSv1_1`", "`TLSv1_2`", "`TLSv1_3`"|"`TLSv1_2`"|
 |onData|[function](FunctionClass.md)|Callback when data from the body is received. It receives two objects as parameters (see below)|undefined|

@@ -11,7 +11,7 @@ The following example creates a preferences file in the project folder:
 
 ```code4d
 var created : boolean
-created=file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
+created = file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create()
 ```
 
 ### Pathnames
@@ -129,7 +129,7 @@ Creation of a preferences file in the project folder:
 
 ```qs
  var created : boolean
- created=File("/PACKAGE/SpecialPrefs/settings.myPrefs").create()
+ created = File("/PACKAGE/SpecialPrefs/settings.myPrefs").create()
 ```
 <!-- END REF -->
 
@@ -162,8 +162,8 @@ A `4D.File` object with the `isAlias` property set to **true**.
 You want to create a symbolic link to a file in your resources folder:
 
 ```qs
- myFile=file("/RESOURCES/Archives/ReadMe.txt")
- aliasFile=myFile.createAlias(file("/RESOURCES"),"ReadMe")
+ myFile = file("/RESOURCES/Archives/ReadMe.txt")
+ aliasFile = myFile.createAlias(file("/RESOURCES"),"ReadMe")
 ```
 <!-- END REF -->
 
@@ -199,10 +199,10 @@ You want to delete a specific file in the project folder:
 ```qs
  var tempo : 4D.File
  var info : string
- tempo=file("PACKAGE/SpecialPrefs/settings.prefs")
+ tempo = file("PACKAGE/SpecialPrefs/settings.prefs")
  if(tempo.exists)
     tempo.delete()
-    info="User preference file deleted."
+    info = "User preference file deleted."
  end
 ```
 <!-- END REF -->
@@ -265,8 +265,8 @@ The moved `file` object.
 #### Example
 
 ```qs
-myFolder=folder("/RESOURCES/Contents")
-myFile=myFolder.file("Infos.txt")
+myFolder = folder("/RESOURCES/Contents")
+myFile = myFolder.file("Infos.txt")
 myFile.moveTo(myFolder.folder("Archives"),"Infos_old.txt")
 ```
 <!-- END REF -->
@@ -331,8 +331,8 @@ You want to create a file handle for reading the "ReadMe.txt" file:
 var f : 4D.File
 var fhandle : 4D.FileHandle
 
-f=file("/SOURCES/ReadMe.txt")
-fhandle=f.open("read")
+f = file("/SOURCES/ReadMe.txt")
+fhandle = f.open("read")
 
 ```
 <!-- END REF -->
@@ -373,8 +373,8 @@ The renamed `file` object.
 You want to rename "ReadMe.txt" in "ReadMe_new.txt":
 
 ```qs
- toRename=file("/SOURCES/ReadMe.txt")
- newName=toRename.rename(toRename.name+"_new"+toRename.extension)
+ toRename = file("/SOURCES/ReadMe.txt")
+ newName = toRename.rename(toRename.name+"_new"+toRename.extension)
 ```
 <!-- END REF -->
 
@@ -401,8 +401,8 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
- myFile="/SOURCES/Archives/data.txt")
- vEntity=ds.myClass.all().first() //get an entity
+ myFile = "/SOURCES/Archives/data.txt")
+ vEntity = ds.myClass.all().first() //get an entity
  myFile.setContent(vEntity.infoBlob)
  vEntity.save()
 
@@ -460,7 +460,7 @@ By default, when you omit the *breakMode* parameter, line breaks are processed i
 
 ```qs
 var myFile : 4D.File
-myFile=file("/SOURCES/Hello.txt")
+myFile = file("/SOURCES/Hello.txt")
 myFile.setText("Hello world")
 ```
 <!-- END REF -->

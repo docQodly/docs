@@ -69,14 +69,14 @@ var myString : string
 
 // Store text in a 4D.Blob
 convertFromString("Hello, World!", "UTF-8", myBlob)
-is4DBlob=instanceOf(myBlob, 4D.Blob);   //True
+is4DBlob = instanceOf(myBlob, 4D.Blob)  //True
 
-myString=convertToString(myBlob, "UTF-8")
+myString = convertToString(myBlob, "UTF-8")
 // myString contains "Hello, World!"
 
 // Create a new 4D.Blob from myBlob
-myNewBlob=myBlob.slice(0,5)
+myNewBlob = myBlob.slice(0,5)
 
-myString=convertToString(myNewBlob, "UTF-8")
+myString = convertToString(myNewBlob, "UTF-8")
 // myString contains "Hello"
 ```

@@ -91,11 +91,11 @@ In the above image:
 var event : object
 var myForm : 4D.WebForm
 
-myForm=webForm
-event=webEvent
-componentRef=event.caller
+myForm = webForm
+event = webEvent
+componentRef = event.caller
 
-if (event.eventType=="onmouseover")  // event is onmouseover 
+if (event.eventType == "onmouseover")  // event is onmouseover 
 	myForm["helpOn_"+componentRef].show()  // show the help on "orderNumber" by showing  
 	// the text component with reference "helpOn_orderNumber" 
 else 
@@ -150,8 +150,8 @@ The returned objects are of the [`4D.WebFormItem`](#webformitem-class) class. Th
 var myForm: 4D.WebForm
 var component: 4D.WebFormItem
 
-myForm=webForm //returns the web form as an object, each property is a component
-component=myForm.myImage //returns the myImage component of the web form
+myForm = webForm //returns the web form as an object, each property is a component
+component = myForm.myImage //returns the myImage component of the web form
 
 ```
 
@@ -183,7 +183,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myError()
+exposed function myError()
 
 webForm.setError("My error message")
 
@@ -221,7 +221,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myMessage()
+exposed function myMessage()
 
 webForm.setMessage("My information message")
 
@@ -254,7 +254,7 @@ The function returns a response with a `200 OK` status and a `__WEBFORM` object 
 #### Example
 
 ```qs 
-exposed Function myWarning()
+exposed function myWarning()
 
 webForm.setWarning("My warning message")
 

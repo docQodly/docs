@@ -80,7 +80,7 @@ You want to know if the Web server is started:
 
 ```qs
  var vRun : boolean
- vRun=webServer.isRunning
+ vRun = webServer.isRunning
 ```
 
 ## webServerList
@@ -119,9 +119,9 @@ We want to know how many running web servers are available:
  var vRun : integer
  var result : string
  
- wSList=webServerList
- vRun=wSList.countValues(True,"isRunning")
- result=string(vRun)+" web server(s) running on "+string(wSList.length)+" available."
+ wSList = webServerList
+ vRun = wSList.countValues(True,"isRunning")
+ result = string(vRun)+" web server(s) running on "+string(wSList.length)+" available."
  
 ```
 
@@ -619,9 +619,9 @@ The function returns an object describing the Web server launch status. This obj
  var settings,result : object
  var webServer : 4D.WebServer
 
- settings={ HSTSEnabled: true, defaultHomepage:"myHomepage.html" }
+ settings = { HSTSEnabled: true, defaultHomepage:"myHomepage.html" }
 
- result=webServer.start(settings)
+ result = webServer.start(settings)
  if(result.success)
   //...
  end

@@ -105,7 +105,7 @@ The [`stringBody`](#stringbody) and [`htmlBody`](#htmlbody) properties are only 
     "value": "I have the most brilliant plan. Let me tell you all about it."
   },
   "p0002": {
-    "value": "<!DOCTYPE html><html><head><title></title><style type=\"string/css\">div{font-size:16px}</style></head><body><div>I have the most brilliant plan. Let me tell you all about it.</div></body></html>"
+    "value": "<!DOCTYPE html><html><head><title></title><style type = \"string/css\">div{font-size:16px}</style></head><body><div>I have the most brilliant plan. Let me tell you all about it.</div></body></html>"
   }
 }
 ```
@@ -145,20 +145,20 @@ var mime: blob
 var transporter : 4D.SMTPTransporter
 var mail,server,status: object
 
-mime=file("/PACKAGE/Mails/templateMail.txt").getContent())
+mime = file("/PACKAGE/Mails/templateMail.txt").getContent())
 
-mail=mailConvertFromMIME(mime)
-mail.to="smith@mail.com"
-mail.subject="Hello world"
+mail = mailConvertFromMIME(mime)
+mail.to = "smith@mail.com"
+mail.subject = "Hello world"
 
-server=newObject
-server.host="smtp.gmail.com"
-server.port=465
-server.user="test@gmail.com"
-server.password="XXXX"
+server = newObject
+server.host = "smtp.gmail.com"
+server.port = 465
+server.user = "test@gmail.com"
+server.password = "XXXX"
 
-transporter=4S.SMTPTransporter.new(server)
-status=transporter.send(mail)
+transporter = 4S.SMTPTransporter.new(server)
+status = transporter.send(mail)
 ```
 
 
@@ -196,19 +196,19 @@ If the *options* parameter is omitted, the mail mode UTF8 configuration is used 
 ```qs
 var mail: object
 var mime: string
-mail=newObject
+mail = newObject
 
 // Creation of a mail
-mail.from="tsales@massmarket.com"
-mail.subject="Terrific Sale! This week only!"
-mail.stringBody="string format email"
-mail.htmlBody="<html><body>HTML format email</body></html>"
-mail.to=newcollection
+mail.from = "tsales@massmarket.com"
+mail.subject = "Terrific Sale! This week only!"
+mail.stringBody = "string format email"
+mail.htmlBody = "<html><body>HTML format email</body></html>"
+mail.to = newcollection
 mail.to.push(newObject("email","noreply@4d.com"))
 mail.to.push(newObject("email","test@4d.com"))
 
 // transform the mail object in MIME
-mime=mailConvertToMIME(mail)
+mime = mailConvertToMIME(mail)
 
 // Contents of mime:
 // MIME-Version: 1.0
@@ -218,16 +218,16 @@ mime=mailConvertToMIME(mail)
 // From: tsales@massmarket.com
 // To: noreply@qodly.com
 // To: test@qodly.com
-// Content-Type: multipart/alternative, boundary="E0AE5773D5E95245BBBD80DD0687E218"
+// Content-Type: multipart/alternative, boundary = "E0AE5773D5E95245BBBD80DD0687E218"
 // Subject: Terrific Sale! This week only!
 //
 // --E0AE5773D5E95245BBBD80DD0687E218
-// Content-Type: string/plain, charset="UTF-8"
+// Content-Type: string/plain, charset = "UTF-8"
 // Content-Transfer-Encoding: quoted-printable
 //
 // string format email
 // --E0AE5773D5E95245BBBD80DD0687E218
-// Content-Type: string/html, charset="UTF-8"
+// Content-Type: string/html, charset = "UTF-8"
 // Content-Transfer-Encoding: quoted-printable
 //
 // <html><body>HTML format email</body></html>
@@ -269,7 +269,7 @@ The `.bodyStructure` object contains the following properties:
 |partID|string|Identifies the part uniquely within the email|
 |type|string|(mandatory) Value of the Content-Type header field of the part|
 |charset|string|Value of the charset parameter of the Content-Type header field|
-|encoding|string|If `isEncodingProblem==true`, the Content-Transfer-Encoding value is added (by default undefined)|
+|encoding|string|If `isEncodingProblem == true`, the Content-Transfer-Encoding value is added (by default undefined)|
 |disposition|string|Value of the Content-Disposition header field of the part|
 |language|collection of strings|List of language tags, as defined in [RFC3282](https://tools.ietf.org/html/rfc3282), in the Content-Language header field of the part, if present.|
 |location|string|URI, as defined in [RFC2557](https://tools.ietf.org/html/rfc2557), in the Content-Location header field of the part, if present.|
@@ -395,8 +395,8 @@ Reserved keywords:
 #### Example
 
 ```qs
- mail.keywords["flagged"]=True
- mail.keywords["qodly"]=True
+ mail.keywords["flagged"] = True
+ mail.keywords["qodly"] = True
 ```
 
 ## .messageId

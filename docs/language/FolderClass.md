@@ -13,7 +13,7 @@ The following example creates a "JohnSmith" folder object:
 
 ```qs
 var curfolder : 4D.Folder 
-curfolder=folder("/PACKAGE/JohnSmith")
+curfolder = folder("/PACKAGE/JohnSmith")
 ```
 
 ### Pathnames
@@ -127,7 +127,7 @@ Create an empty folder in the database folder:
 
 ```qs
 var created : boolean
-created=folder("/PACKAGE/SpecialPrefs").create()
+created = folder("/PACKAGE/SpecialPrefs").create()
 ```
 
 #### Example 2
@@ -137,11 +137,11 @@ Creation of the "/Archives2019/January/" folder in the database folder:
 ```qs
 var newFolder : 4D.Folder
 var info : string
-newFolder=folder("/PACKAGE/Archives2019/January")
+newFolder = folder("/PACKAGE/Archives2019/January")
 if(newFolder.create())
- info="The "+newFolder.name+" folder was created."
+ info = "The "+newFolder.name+" folder was created."
 else
- info="Impossible to create a "+newFolder.name+" folder."
+ info = "Impossible to create a "+newFolder.name+" folder."
 end
 ```
 
@@ -176,8 +176,8 @@ You want to create a symbolic link to an archive folder in your database folder:
 
 ```qs
 var myFolder : 4D.Folder
-myFolder=folder("/PACKAGE/Documents/Archives/2019/January")
-aliasFile=myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
+myFolder = folder("/PACKAGE/Documents/Archives/2019/January")
+aliasFile = myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
 ```
 <!-- END REF -->
 
@@ -277,8 +277,8 @@ You want to move and rename a folder:
 
 ```qs
  var tomove, tomove2 : 4D.Folder
- tomove=folder("/RESOURCES/Pictures")
- tomove2=tomove.moveTo(folder("/RESOURCES/Archives"),"Pic_Archives")
+ tomove = folder("/RESOURCES/Pictures")
+ tomove2 = tomove.moveTo(folder("/RESOURCES/Archives"),"Pic_Archives")
 ```
 <!-- END REF -->
 
@@ -317,6 +317,6 @@ The renamed `folder` object.
 
 ```qs
  var toRename : 4D.Folder
- toRename=folder("/RESOURCES/Pictures").rename("Images")
+ toRename = folder("/RESOURCES/Pictures").rename("Images")
 ```
 <!-- END REF -->

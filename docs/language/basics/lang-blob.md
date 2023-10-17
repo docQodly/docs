@@ -44,10 +44,10 @@ var myBlob: blob
 var myBlobObject: 4D.Blob
 var is4DBlob: boolean
 var type: integer
-myBlobObject=4D.Blob.new()
+myBlobObject = 4D.Blob.new()
 
-type=valueType(myblobObject) // 38 (object)
-is4DBlob=instanceOf(myblobObject,4D.Blob) //True
+type = valueType(myblobObject) // 38 (object)
+is4DBlob = instanceOf(myblobObject,4D.Blob) //True
 ```
 
 ## Passing blobs as parameters
@@ -58,10 +58,10 @@ You can pass a scalar blob or a `4D.Blob` to any QodlyScript command that takes 
 var myBlob, myNewBlob: 4D.Blob
 var myString: string
 convertFromString("Hello, World!", "UTF-8", myBlob)
-myString=convertToText(myBlob,"UTF-8")
+myString = convertToText(myBlob,"UTF-8")
  //myString contains "Hello, World!"
-myNewBlob=myBlob.slice(0,5)
-myString=convertToText(myNewBlob,"UTF-8")
+myNewBlob = myBlob.slice(0,5)
+myString = convertToText(myNewBlob,"UTF-8")
  //myString contains "Hello"
 ```
 
@@ -80,15 +80,15 @@ var myBlob: blob
 var myObject : object
 
 // Assign that blob to a property of myObject named "blob"
-myObject=newObject("blob",myBlob)
+myObject = newObject("blob",myBlob)
 
 // The blob stored in myBlob is automatically converted to a 4D.Blob
 var type : boolean
-type=instanceOf(myObject.blob,4D.Blob)  //true
+type = instanceOf(myObject.blob,4D.Blob)  //true
 
 // Conversion from 4D.Blob to blob
-myBlob=myObject.blob
-type=valueType(myBlob) // blob
+myBlob = myObject.blob
+type = valueType(myBlob) // blob
 ```
 
 :::note
@@ -109,7 +109,7 @@ You can access individual bytes of a scalar blob using curly brackets `{}`. With
 var myBlob : blob
 var byte : integer
 convertFromText("Hello, World!", "UTF-8", myBlob)
-byte=myBlob{1} //101 (character code for "e")
+byte = myBlob{1} //101 (character code for "e")
 
 ```
 
@@ -123,7 +123,7 @@ Use square brackets `[]` to directly access a specific byte in a `4D.Blob`
 var myBlob : 4D.Blob
 var byte : integer
 convertFromText("Hello, World!", "UTF-8", myBlob)
-byte=myBlob[1] //101 
+byte = myBlob[1] //101 
 ```
 
 Since a `4D.Blob` cannot be altered, you can read the bytes of a `4D.Blob` using this syntax, but not modify them.
@@ -136,6 +136,6 @@ Unlike blob objects, scalar blobs can be altered. For example:
 var myBlob : blob
 var myString : string
 convertFromText("Hello, World!", "UTF-8", myBlob)
-myBlob{1}=characterCode("A") //replace the 1st byte
-myString=convertToText(myBlob,"UTF-8") //HAllo, World!
+myBlob{1} = characterCode("A") //replace the 1st byte
+myString = convertToText(myBlob,"UTF-8") //HAllo, World!
 ```

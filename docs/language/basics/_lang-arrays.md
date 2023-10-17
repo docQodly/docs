@@ -40,13 +40,13 @@ You reference the elements in an array by using curly braces ({…}). A number i
 ```qs
  var vText : Text
  ARRAY TEXT(atNames;5)
- atNames{1}="Richard"
- atNames{2}="Sarah"
- atNames{3}="Sam"
- atNames{4}="Jane"
- atNames{5}="John"
+ atNames{1} = "Richard"
+ atNames{2} = "Sarah"
+ atNames{3} = "Sam"
+ atNames{4} = "Jane"
+ atNames{5} = "John"
  For(vlElem,1,5)
-    vText=String(vlElem)+" "+atNames{vlElem}+"/")
+    vText = String(vlElem)+" "+atNames{vlElem}+"/")
  End for
 ```
 Note the syntax atNames{vlElem}. Rather than specifying a numeric literal such as atNames{3}, you can use a numeric variable to indicate which element of an array you are addressing. Using the iteration provided by a loop structure (`For...End for`, `Repeat...Until` or `While...End while`), compact pieces of code can address all or part of the elements in an array.
@@ -63,9 +63,9 @@ An array always has an element zero. There is no restriction in using it with th
 
 ```qs
 ARRAY TEXT(atName,2)
-atName{0}="Array of names"
-atName{1}="Smith" 
-atName{2}="Wesson" 
+atName{0} = "Array of names"
+atName{1} = "Smith" 
+atName{2} = "Wesson" 
 ...
 ``` 
 

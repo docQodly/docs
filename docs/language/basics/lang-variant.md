@@ -25,24 +25,24 @@ A same variant variable can be assigned contents of different types. Unlike regu
 ```qs
 var variant : variant
 
-variant="hello world"
-vtype=type(variant) // 12 (Is variant)
-vtypeVal=valueType(variant) // 2 (Is text)
+variant = "hello world"
+vtype = type(variant) // 12 (Is variant)
+vtypeVal = valueType(variant) // 2 (Is text)
 
-variant=42
-vtype=type(variant) // 12 (Is variant)
-vtypeVal=valueType(variant) // 1 (Is number)
+variant = 42
+vtype = type(variant) // 12 (Is variant)
+vtypeVal = valueType(variant) // 1 (Is number)
 ```
 
 You can use variant variables wherever variables are expected, you only need to make sure than the variable content data type is of the expected type. When accessing variant variables, only their current value is taken into account. For example:
 
 ```qs
 var v,v2,t,t2 : Variant
-v="hello world"
-v2=v //assign variable to another variable
+v = "hello world"
+v2 = v //assign variable to another variable
 
-t=type(v) // 12 (Is variant)
-t2=type(v2) // 2 (Is text)
+t = type(v) // 12 (Is variant)
+t2 = type(v2) // 2 (Is text)
 ```
 
 Variant can be used to declare method parameters that can be of various types. In this case, you can build your code by testing the parameter value type, for example:
@@ -50,9 +50,9 @@ Variant can be used to declare method parameters that can be of various types. I
 ```qs
 declare (param : variant)
 switch
-: (valueType(param)==Is longint)
+: (valueType(param) == Is longint)
 ...
-: (valueType(param)==Is text)
+: (valueType(param) == Is text)
 ...
 end
 ```

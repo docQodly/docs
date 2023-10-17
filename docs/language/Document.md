@@ -122,9 +122,9 @@ This property is **read-only**.
 **Example**  
 
 ```qs
- myFile=file("/RESOURCES/Archives/ReadMe.txt")
+ myFile = file("/RESOURCES/Archives/ReadMe.txt")
  if(myFile.isWritable)
-    myNewFile=myFile.setText("Added text")
+    myNewFile = myFile.setText("Added text")
  end
 ```
 
@@ -273,8 +273,8 @@ You want to copy a picture *file* from the user's document folder to the applica
 
 ```qs
 var source, copy : 4D.File
-source=file("/RESOURCES/Pictures/photo.png")
-copy=source.copyTo(folder("/PACKAGE"),kOverwrite)
+source = file("/RESOURCES/Pictures/photo.png")
+copy = source.copyTo(folder("/PACKAGE"),kOverwrite)
 ```
 
 <!-- END REF -->
@@ -307,9 +307,9 @@ To save a document's contents in a `Blob` attribute:
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
- myFile=file("/RESOURCES/Archives/data.txt")
- vEntity=ds.myClass.all().first() //get an entity
- vEntity.infoBlob=myFile.getContent()
+ myFile = file("/RESOURCES/Archives/data.txt")
+ vEntity = ds.myClass.all().first() //get an entity
+ vEntity.infoBlob = myFile.getContent()
  vEntity.save()
 
 ```
@@ -377,8 +377,8 @@ When you execute this code:
 ```qs
  var myFile : 4D.File
  var txt : string
- myFile=file("/RESOURCES/Billing.txt") //UTF-8 by default
- txt=myFile.getText()
+ myFile = file("/RESOURCES/Billing.txt") //UTF-8 by default
+ txt = myFile.getText()
 ```
 
 ... you get the following for `txt`:
@@ -390,7 +390,7 @@ with `\t` (tab) as separator and `\r\n` (CRLF) as line delimiter.
 Here is another example with the same file, but a different line delimiter:
 
 ```qs
- txt=myFile.getText("UTF-8", kDocumentWithLF)
+ txt = myFile.getText("UTF-8", kDocumentWithLF)
 ```
 
 In this case, the contents of `txt` are as follows:

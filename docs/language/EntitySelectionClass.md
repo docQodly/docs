@@ -4,7 +4,7 @@ title: EntitySelection
 ---
 
 
-An entity selection is an object containing one or more reference(s) to [entities](../orda/data-model.md#entity) belonging to the same [Dataclass](../orda/data-model.md#dataclass). An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass. 
+An entity selection is an object containing one or more reference(s) to [entities](../orda/data-model.md#entity) belonging to the same [Dataclass](../orda/data-model.md#dataclass). An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass.
 
 Entity selections can be created from existing selections using various functions of the [`DataClass` class](DataClassClass.md) such as [`.all()`](DataClassClass.md#all) or [`.query()`](DataClassClass.md#query), or functions of the `EntityClass` class itself, such as [`.and()`](#and) or [`orderBy()`](#orderby). You can also create blank entity selections using the [`dataClass.newSelection()`](DataClassClass.md#newselection) function.
 
@@ -47,7 +47,7 @@ Entity selections can be created from existing selections using various function
 
 
 <!-- REF EntitySelectionClass.index.Desc -->
-## &#91;*index*&#93; 
+## &#91;*index*&#93;
 
 
 <!-- REF EntitySelectionClass.index.Syntax -->
@@ -70,14 +70,14 @@ Note that the corresponding entity is reloaded from the datastore.
 `EntitySelection[index]` is a [non assignable expression](basics/lang-expressions.md#assignable-vs-non-assignable-expressions), which means that it cannot be used as en editable entity reference with functions like [`.lock()`](EntityClass.md#lock) or [`.save()`](EntityClass.md#save). To work with the corresponding entity, you need to assign the returned expression to an assignable expression, such as a variable. Examples:
 
 ```qs
- sel=ds.Employee.all() //create the entity selection
+ sel = ds.Employee.all() //create the entity selection
   //invalid statements:
- result=sel[0].lock() //will NOT work
- sel[0].lastName="Smith" //will NOT work
- result=sel[0].save() //will NOT work
+ result = sel[0].lock() //will NOT work
+ sel[0].lastName = "Smith" //will NOT work
+ result = sel[0].save() //will NOT work
   //valid code:
- entity=sel[0]  //OK
- entity.lastName="Smith" //OK
+ entity = sel[0]  //OK
+ entity.lastName = "Smith" //OK
  entity.save() //OK
 ```
 
@@ -89,8 +89,8 @@ Note that the corresponding entity is reloaded from the datastore.
 ```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@")
- employee=employees[2]  // The 3rd entity of the employees entity selection is reloaded from the datastore
+ employees = ds.Employee.query("lastName = :1","H@")
+ employee = employees[2]  // The 3rd entity of the employees entity selection is reloaded from the datastore
 ```
 
 <!-- END REF -->
@@ -111,20 +111,20 @@ Note that the corresponding entity is reloaded from the datastore.
 
 #### Description
 
-The `.at()` function <!-- REF #EntitySelectionClass.at().Summary -->returns the entity at position *index*, allowing for positive and negative integer<!-- END REF -->. 
+The `.at()` function <!-- REF #EntitySelectionClass.at().Summary -->returns the entity at position *index*, allowing for positive and negative integer<!-- END REF -->.
 
 If *index* is negative (from -1 to -n with n : length of the entity selection), the returned entity will be based on the reverse order of the entity selection.
 
-The function returns null if *index* is beyond entity selection limits. 
+The function returns null if *index* is beyond entity selection limits.
 
 #### Example
 
 ```qs
 var employees : cs.EmployeeSelection
 var emp1, emp2 : cs.EmployeeEntity
-employees=ds.Employee.query("lastName = :1","H@")
-emp1=employees.at(2)  //3rd entity of the employees entity selection 
-emp2=employees.at(-3) //starting from the end, 3rd entity
+employees = ds.Employee.query("lastName = :1","H@")
+emp1 = employees.at(2)  //3rd entity of the employees entity selection
+emp2 = employees.at(-3) //starting from the end, 3rd entity
 	//of the employees entity selection
 ```
 
@@ -153,7 +153,7 @@ Any dataclass attribute can be used as a property of an entity selection to retu
 
 When a relation attribute is used as a property of an entity selection, the result is always another entity selection, even if only one entity is returned. In this case, if no entities are returned, the result is an empty entity selection.
 
-If the attribute does not exist in the entity selection, an error is returned. 
+If the attribute does not exist in the entity selection, an error is returned.
 
 
 
@@ -169,8 +169,8 @@ Projection of storage values:
 
 ```qs
  var firstNames : collection
- entitySelection=ds.Employee.all()
- firstNames=entitySelection.firstName // firstName type is string
+ entitySelection = ds.Employee.all()
+ firstNames = entitySelection.firstName // firstName type is string
 ```
 
 The resulting collection is a collection of strings, for example:
@@ -189,19 +189,19 @@ Projection of related entity:
 
 ```qs
  var es, entitySelection : cs.EmployeeSelection
- entitySelection=ds.Employee.all()
- es=entitySelection.employer // employer is related to a Company dataClass
+ entitySelection = ds.Employee.all()
+ es = entitySelection.employer // employer is related to a Company dataClass
 ```
 
 The resulting object is an entity selection of Company with duplications removed (if any).
 
-#### Example 3 
- 
+#### Example 3
+
 Projection of related entities:
 
 ```qs
  var es : cs.EmployeeSelection
- es=ds.Employee.all().directReports // directReports is related to Employee dataclass
+ es = ds.Employee.all().directReports // directReports is related to Employee dataclass
 ```
 
 The resulting object is an entity selection of Employee with duplications removed (if any).
@@ -212,7 +212,7 @@ The resulting object is an entity selection of Employee with duplications remove
 
 
 <!-- REF EntitySelectionClass.add().Desc -->
-## .add() 
+## .add()
 
 
 <!-- REF #EntitySelectionClass.add().Syntax -->
@@ -228,20 +228,20 @@ The resulting object is an entity selection of Employee with duplications remove
 
 #### Description
 
-The `.add()` function <!-- REF #EntitySelectionClass.add().Summary -->adds the specified *entity* to the entity selection and returns the modified entity selection<!-- END REF -->. 
+The `.add()` function <!-- REF #EntitySelectionClass.add().Summary -->adds the specified *entity* to the entity selection and returns the modified entity selection<!-- END REF -->.
 
 >This function modifies the original entity selection.
 
 :::caution
 
-The entity selection must be *alterable*, i.e. it has been created for example by [`.newSelection()`](DataClassClass.md#newselection), otherwise `.add()` will return an error. Shareable entity selections do not accept the addition of entities. For more information, please refer to the [Shareable or alterable entity selections](../orda/data.md#shareable-or-alterable-entity-selections) section. 
+The entity selection must be *alterable*, i.e. it has been created for example by [`.newSelection()`](DataClassClass.md#newselection), otherwise `.add()` will return an error. Shareable entity selections do not accept the addition of entities. For more information, please refer to the [Shareable or alterable entity selections](../orda/data.md#shareable-or-alterable-entity-selections) section.
 
 :::
 
 *	If the entity selection is [ordered](../orda/data-model.md#ordered-or-unordered-entity-selection), *entity* is added at the end of the selection. If a reference to the same entity already belongs to the entity selection, it is duplicated and a new reference is added.
 *	If the entity selection is [unordered](../orda/data-model#ordered-or-unordered-entity-selection), *entity* is added anywhere in the selection, with no specific order.
 
-The modified entity selection is returned by the function, so that function calls can be chained. 
+The modified entity selection is returned by the function, so that function calls can be chained.
 
 An error occurs if *entity* and the entity selection are not related to the same Dataclass. If *entity* is Null, no error is raised.
 
@@ -250,9 +250,9 @@ An error occurs if *entity* and the entity selection are not related to the same
 ```qs
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
- employees=ds.Employee.newSelection()
- employee=ds.Employee.new()
- employee.lastName="Smith"
+ employees = ds.Employee.newSelection()
+ employee = ds.Employee.new()
+ employee.lastName = "Smith"
  employee.save()
  employees.add(employee) //The employee entity is added to the employees entity selection
 ```
@@ -265,11 +265,11 @@ Calls to the function can be chained:
  var sel : cs.ProductSelection
  var p1,p2,p3 : cs.ProductEntity
 
- p1=ds.Product.get(10)
- p2=ds.Product.get(11)
- p3=ds.Product.get(12)
- sel=ds.Product.newSelection()
- sel=sel.add(p1).add(p2).add(p3)
+ p1 = ds.Product.get(10)
+ p2 = ds.Product.get(11)
+ p3 = ds.Product.get(12)
+ sel = ds.Product.newSelection()
+ sel = sel.add(p1).add(p2).add(p3)
 ```
 
 <!-- END REF -->
@@ -277,7 +277,7 @@ Calls to the function can be chained:
 
 
 <!-- REF EntitySelectionClass.and().Desc -->
-## .and() 
+## .and()
 
 <!-- REF #EntitySelectionClass.and().Syntax -->
 **.and**( *entity* : 4D.Entity ) : 4D.EntitySelection<br/>**.and**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
@@ -287,7 +287,7 @@ Calls to the function can be chained:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |entity |4D.Entity|->|Entity to intersect with|
-|entitySelection |4D.EntitySelection|->|Entity selection to intersect with|	
+|entitySelection |4D.EntitySelection|->|Entity selection to intersect with|
 |Result|4D.EntitySelection|<-|New entity selection with the result of intersection with logical AND operator|
 <!-- END REF -->
 
@@ -305,7 +305,7 @@ You can compare [ordered and/or unordered entity selections](../orda/data-model#
 
 :::
 
-If the original entity selection or the *entitySelection* parameter is empty, or if the *entity* is Null, an empty entity selection is returned. 
+If the original entity selection or the *entitySelection* parameter is empty, or if the *entity* is Null, an empty entity selection is returned.
 
 If the original entity selection and the parameter are not related to the same dataclass, an error is raised.
 
@@ -316,13 +316,13 @@ If the original entity selection and the parameter are not related to the same d
 ```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@")   
+ employees = ds.Employee.query("lastName = :1","H@")   
   //The employees entity selection contains the entity
   //with primary key 710 and other entities
   //for ex. "Colin Hetrick" / "Grady Harness" / "Sherlock Holmes" (primary key 710)
- employee=ds.Employee.get(710) // Returns "Sherlock Holmes"
- 
- result=employees.and(employee) //result is an entity selection containing   
+ employee = ds.Employee.get(710) // Returns "Sherlock Holmes"
+
+ result = employees.and(employee) //result is an entity selection containing   
   //only the entity with primary key 710 ("Sherlock Holmes")
 ```
 
@@ -333,9 +333,9 @@ We want to have a selection of employees named "Jones" who live in New York:
 
 ```qs
  var sel1, sel2, sel3 : cs.EmployeeSelection
- sel1=ds.Employee.query("name=:1","Jones")
- sel2=ds.Employee.query("city=:1","New York")
- sel3=sel1.and(sel2)
+ sel1 = ds.Employee.query("name = :1","Jones")
+ sel2 = ds.Employee.query("city = :1","New York")
+ sel3 = sel1.and(sel2)
 ```
 
 <!-- END REF -->
@@ -361,7 +361,7 @@ The `.average()` function <!-- REF #EntitySelectionClass.average().Summary -->re
 
 Pass in the *attributePath* parameter the attribute path to evaluate.
 
-Only numerical values are taken into account for the calculation. Note however that, if the *attributePath* of the entity selection contains mixed value types, `.average()` takes all scalar elements into account to calculate the average value. 
+Only numerical values are taken into account for the calculation. Note however that, if the *attributePath* of the entity selection contains mixed value types, `.average()` takes all scalar elements into account to calculate the average value.
 
 :::note
 
@@ -377,15 +377,15 @@ An error is returned if:
 *	*attributePath* designates an attribute that does not exist in the entity selection dataclass.
 
 
-#### Example 
- 
+#### Example
+
 We want to obtain a list of employees whose salary is higher than the average salary:
 
 ```qs
  var averageSalary : number
  var moreThanAv : cs.EmployeeSelection
- averageSalary=ds.Employee.all().average("salary")
- moreThanAv=ds.Employee.query("salary > :1",averageSalary)
+ averageSalary = ds.Employee.all().average("salary")
+ moreThanAv = ds.Employee.query("salary > :1",averageSalary)
 ```
 
 <!-- END REF -->
@@ -419,14 +419,14 @@ If *entity* and the entity selection do not belong to the same dataclass, an err
  var employees : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
  var info : string
- 
- employees=ds.Employee.query("lastName=:1","H@")
- employee=ds.Employee.get(610)
- 
+
+ employees = ds.Employee.query("lastName = :1","H@")
+ employee = ds.Employee.get(610)
+
  if(employees.contains(employee))
-    info="The entity with primary key 610 has a last name beginning with H"
+    info = "The entity with primary key 610 has a last name beginning with H"
  else
-    info="The entity with primary key 610 does not have a last name beginning with H"
+    info = "The entity with primary key 610 does not have a last name beginning with H"
  end
 ```
 
@@ -466,9 +466,9 @@ We want to find out the total number of employees for a company without counting
 ```qs
  var sel : cs.EmployeeSelection
  var count : number
- 
- sel=ds.Employee.query("employer = :1","Acme, Inc")
- count=sel.count("jobtitle")
+
+ sel = ds.Employee.query("employer = :1","Acme, Inc")
+ count = sel.count("jobtitle")
 ```
 
 <!-- END REF -->
@@ -503,18 +503,18 @@ You want to copy a regular entity selection to a shared entity selection in the 
 
 ```qs
 localSel : cs.ProductSelection
-localSel=ds.Products.newSelection() //create an empty selection
+localSel = ds.Products.newSelection() //create an empty selection
 ...
   // The localSel entity selection is updated with another one
 localSel.add(selectedProducts)
- 
+
 use(storage)
-	if(storage.products==null)
-		storage.products=newSharedObject()
+	if(storage.products == null)
+		storage.products = newSharedObject()
     end
- 
+
     use(storage.products)
-       storage.products=localSel.copy(kShared)
+       storage.products = localSel.copy(kShared)
     end
 end
 ```
@@ -532,14 +532,14 @@ end
 <!-- REF #EntitySelectionClass.distinct().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|attributePath|string|->|Path of attribute whose distinct values you want to get|	
+|attributePath|string|->|Path of attribute whose distinct values you want to get|
 |option|integer|->|`kDiacritical`, `kCountValues`|
 |Result|collection|<-|collection with only distinct values|
 <!-- END REF -->
 
 #### Description
 
-The `.distinct()` function <!-- REF #EntitySelectionClass.distinct().Summary -->returns a collection containing only distinct (different) values from the *attributePath* in the entity selection<!-- END REF -->. 
+The `.distinct()` function <!-- REF #EntitySelectionClass.distinct().Summary -->returns a collection containing only distinct (different) values from the *attributePath* in the entity selection<!-- END REF -->.
 
 The returned collection is automatically sorted. **Null** values are not returned.
 
@@ -550,7 +550,7 @@ In the *attributePath* parameter, pass the entity attribute whose distinct value
 3.	numbers
 4.	dates
 
-You can use the `[]` notation to designate a collection when *attributePath* is a path within an object (see examples). 
+You can use the `[]` notation to designate a collection when *attributePath* is a path within an object (see examples).
 
 In the *options* parameter, you can pass one or a combination of the following constants:
 
@@ -561,7 +561,7 @@ In the *options* parameter, you can pass one or a combination of the following c
 
 :::note
 
-The `kCountValues` option is only available with storage attributes of type boolean, string, number, and date. 
+The `kCountValues` option is only available with storage attributes of type boolean, string, number, and date.
 
 :::
 
@@ -578,23 +578,23 @@ You want to get a collection containing a single element per country name:
 
 ```qs
  var countries : collection
- countries=ds.Employee.all().distinct("address.country")
+ countries = ds.Employee.all().distinct("address.country")
 ```
 
 `nicknames` is a collection and `extra` is an object attribute:
 
 ```qs
-values=ds.Employee.all().distinct("extra.nicknames[].first")
+values = ds.Employee.all().distinct("extra.nicknames[].first")
 ```
 
 You want to get the number of different job names in the company:
 
 ```qs
 var jobs : collection
-jobs=ds.Employee.all().distinct("jobName",kCountValues)  
-//jobs[0]={"value":"Developer","count":17}
-//jobs[1]={"value":"Office manager","count":5}
-//jobs[2]={"value":"Accountant","count":2}
+jobs = ds.Employee.all().distinct("jobName",kCountValues)  
+//jobs[0] = {"value":"Developer","count":17}
+//jobs[1] = {"value":"Office manager","count":5}
+//jobs[2] = {"value":"Accountant","count":2}
 //...
 ```
 
@@ -628,18 +628,18 @@ You want to get all paths stored in a *fullData* object attribute:
 
 ```qs
 var paths : collection
-paths=ds.Employee.all().distinctPaths("fullData")
-//paths[0]="age"
-//paths[1]="Children"
-//paths[2]="Children[].age"
-//paths[3]="Children[].name"
-//paths[4]="Children.length"
+paths = ds.Employee.all().distinctPaths("fullData")
+//paths[0] = "age"
+//paths[1] = "Children"
+//paths[2] = "Children[].age"
+//paths[3] = "Children[].name"
+//paths[4] = "Children.length"
 ///...
 ```
 
 :::note
 
-*length* is automatically added as path for nested collection properties. 
+*length* is automatically added as path for nested collection properties.
 
 :::
 
@@ -679,12 +679,12 @@ Example without the `kStopDroppingOnFirstError` option:
 ```qs
  var employees, notDropped : cs.EmployeeSelection
  var info : string
- employees=ds.Employee.query("firstName=:1","S@")
- notDropped=employees.drop() // notDropped is an entity selection containing all the not dropped entities
- if(notDropped.length==0) //The delete action is successful, all the entities have been deleted
-    info="You have dropped "+string(employees.length)+" employees" //The dropped entity selection remains in memory
+ employees = ds.Employee.query("firstName = :1","S@")
+ notDropped = employees.drop() // notDropped is an entity selection containing all the not dropped entities
+ if(notDropped.length == 0) //The delete action is successful, all the entities have been deleted
+    info = "You have dropped "+string(employees.length)+" employees" //The dropped entity selection remains in memory
  else
-    info="Problem during drop, try later"
+    info = "Problem during drop, try later"
  end
 ```
 
@@ -693,12 +693,12 @@ Example with the `kStopDroppingOnFirstError` option:
 ```qs
  var employees, notDropped : cs.EmployeeSelection
  var info : string
- employees=ds.Employee.query("firstName=:1","S@")
- notDropped=employees.drop(kStopDroppingOnFirstError) //notDropped is an entity selection containing the first not dropped entity
- if(notDropped.length==0) //The delete action is successful, all the entities have been deleted
-    info="You have dropped "+string(employees.length)+" employees") //The dropped entity selection remains in memory
+ employees = ds.Employee.query("firstName = :1","S@")
+ notDropped = employees.drop(kStopDroppingOnFirstError) //notDropped is an entity selection containing the first not dropped entity
+ if(notDropped.length == 0) //The delete action is successful, all the entities have been deleted
+    info = "You have dropped "+string(employees.length)+" employees") //The dropped entity selection remains in memory
  else
-    info="Problem during drop, try later"
+    info = "Problem during drop, try later"
  end
 ```
 
@@ -718,14 +718,14 @@ Example with the `kStopDroppingOnFirstError` option:
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |attributePath |string|->|Attribute path whose values must be extracted to the new collection	|
-|targetPath|string|->|Target attribute path or attribute name|	
+|targetPath|string|->|Target attribute path or attribute name|
 |option|integer|->|`kKeepNull`: include null attributes in the returned collection (ignored by default)|
 |Result|collection|<-|collection containing extracted values|
 <!-- END REF -->
 
 #### Description
 
-The `.extract()` function <!-- REF #EntitySelectionClass.extract().Summary -->returns a collection containing *attributePath* values extracted from the entity selection<!-- END REF -->. 
+The `.extract()` function <!-- REF #EntitySelectionClass.extract().Summary -->returns a collection containing *attributePath* values extracted from the entity selection<!-- END REF -->.
 
 *attributePath* can refer to:
 
@@ -749,13 +749,13 @@ By default, entities for which *attributePath* is *null* or undefined are ignore
 
 **.extract ( attributePath , targetPath { , ...attributePathN , ... targetPathN}) : collection**
 
-With this syntax, `.extract()` populates the returned collection with the *attributePath* properties. Each element of the returned collection is an object with *targetPath* properties filled with the corresponding *attributePath* properties. Null values are kept (*option* parameter is ignored with this syntax). 
+With this syntax, `.extract()` populates the returned collection with the *attributePath* properties. Each element of the returned collection is an object with *targetPath* properties filled with the corresponding *attributePath* properties. Null values are kept (*option* parameter is ignored with this syntax).
 
 If several *attributePath* are given, a *targetPath* must be given for each. Only valid pairs [*attributePath*, *targetPath*] are extracted.
 
 *	Dataclass attributes with [.kind](DataClassClass.md#attributename) = "relatedEntity" are extracted as an entity.
 *	Dataclass attributes with [.kind](DataClassClass.md#attributename) = "relatedEntities" are extracted as an entity selection.
- 
+
 :::note
 
 Entities of a collection of entities accessed by [] are not reloaded from the datastore.
@@ -775,31 +775,31 @@ Given the following table and relation:
   //firstnames is a collection of Strings
 
 
- firstnames=ds.Teachers.all().extract("firstname")
+ firstnames = ds.Teachers.all().extract("firstname")
   //
   //addresses is a collection of entities related to dataclass Address
   //Null values for address are extracted
- addresses=ds.Teachers.all().extract("address",kKeepNull)
+ addresses = ds.Teachers.all().extract("address",kKeepNull)
   //
   //
   //mailing is a collection of objects with properties "who" and "to"
-  //"who" property content is string type 
+  //"who" property content is string type
   //"to" property content is entity type (Address dataclass)
- mailing=ds.Teachers.all().extract("lastname","who","address","to")
+ mailing = ds.Teachers.all().extract("lastname","who","address","to")
   //
   //
   //mailing is a collection of objects with properties "who" and "city"
-  //"who" property content is string type 
-  //"city" property content is string type 
- mailing=ds.Teachers.all().extract("lastname","who","address.city","city")
+  //"who" property content is string type
+  //"city" property content is string type
+ mailing = ds.Teachers.all().extract("lastname","who","address.city","city")
   //
   //teachers is a collection of objects with properties "where" and "who"
   //"where" property content is string
   //"who" property content is an entity selection (Teachers dataclass)
- teachers=ds.Address.all().extract("city","where","teachers","who")
+ teachers = ds.Address.all().extract("city","where","teachers","who")
   //
   //teachers is a collection of entity selections
- teachers=ds.Address.all().extract("teachers")
+ teachers = ds.Address.all().extract("teachers")
 ```
 
 <!-- END REF -->
@@ -821,12 +821,12 @@ Given the following table and relation:
 
 #### Description
 
-The `.first()` function <!-- REF #EntitySelectionClass.first().Summary -->returns a reference to the entity in the first position of the entity selection<!-- END REF -->. 
+The `.first()` function <!-- REF #EntitySelectionClass.first().Summary -->returns a reference to the entity in the first position of the entity selection<!-- END REF -->.
 
 The result of this function is similar to:
 
 ```qs
- entity=entitySel[0]
+ entity = entitySel[0]
 ```
 
 There is, however, a difference between both statements when the selection is empty:
@@ -835,10 +835,10 @@ There is, however, a difference between both statements when the selection is em
 ```qs
  var entitySel : cs.EmpSelection
  var entity : cs.EmpEntity
- entitySel=ds.Emp.query("lastName = :1","Nonexistentname") //no matching entity
+ entitySel = ds.Emp.query("lastName = :1","Nonexistentname") //no matching entity
   //entity selection is then empty
- entity=entitySel.first() //returns Null
- entity=entitySel[0]  //generates an error
+ entity = entitySel.first() //returns Null
+ entity = entitySel[0]  //generates an error
 ```
 
 #### Example   
@@ -847,9 +847,9 @@ There is, however, a difference between both statements when the selection is em
 ```qs
  var entitySelection : cs.EmpSelection
  var entity : cs.EmpEntity
- entitySelection=ds.Emp.query("salary > :1",100000)
- if(entitySelection.length!=0)
-    entity=entitySelection.first()
+ entitySelection = ds.Emp.query("salary > :1",100000)
+ if(entitySelection.length != 0)
+    entity = entitySelection.first()
  end
 ```
 
@@ -874,7 +874,7 @@ There is, however, a difference between both statements when the selection is em
 
 #### Description
 
-The `.getDataClass()` function <!-- REF #EntitySelectionClass.getDataClass().Summary -->returns the dataclass of the entity selection<!-- END REF -->. 
+The `.getDataClass()` function <!-- REF #EntitySelectionClass.getDataClass().Summary -->returns the dataclass of the entity selection<!-- END REF -->.
 
 This function is mainly useful in the context of generic code.
 
@@ -885,17 +885,17 @@ The following generic code duplicates all entities of the entity selection:
 ```qs
   //duplicate_entities method
   //duplicate_entities(entity_selection)
- 
+
  declare ( entitySelection : 4D.EntitySelection )  
  var dataClass : 4D.DataClass
  var entity, duplicate : 4D.Entity
  var status : object
- dataClass=entitySelection.getDataClass()
+ dataClass = entitySelection.getDataClass()
  forEach(entity,entitySelection)
-    duplicate=dataClass.new()
+    duplicate = dataClass.new()
     duplicate.fromObject(entity.toObject())
-    duplicate[dataClass.getInfo().primaryKey]=null //reset the primary key
-    status=duplicate.save()
+    duplicate[dataClass.getInfo().primaryKey] = null //reset the primary key
+    status = duplicate.save()
  end
 ```
 
@@ -917,7 +917,7 @@ The following generic code duplicates all entities of the entity selection:
 
 #### Description
 
-The `.isAlterable()` function <!-- REF #EntitySelectionClass.isAlterable().Summary -->returns true if the entity selection is alterable<!-- END REF -->, and false if the entity selection is not alterable. 
+The `.isAlterable()` function <!-- REF #EntitySelectionClass.isAlterable().Summary -->returns true if the entity selection is alterable<!-- END REF -->, and false if the entity selection is not alterable.
 
 For more information, please refer to the [Shareable or alterable entity selections](../orda/data#shareable-or-alterable-entity-selections) section.
 
@@ -953,17 +953,17 @@ For more information, please refer to the [Ordered or unordered entity selection
  var employee : cs.EmployeeEntity
  var isOrdered : boolean
  var info : string
- employees=ds.Employee.newSelection(kKeepOrdered)
- employee=ds.Employee.get(714) // Gets the entity with primary key 714
- 
+ employees = ds.Employee.newSelection(kKeepOrdered)
+ employee = ds.Employee.get(714) // Gets the entity with primary key 714
+
   //In an ordered entity selection, we can add the same entity several times (duplications are kept)
  employees.add(employee)
  employees.add(employee)
  employees.add(employee)
- 
- isOrdered=employees.isOrdered()
+
+ isOrdered = employees.isOrdered()
  if(isOrdered)
-    info="The entity selection is ordered and contains "+string(employees.length)+" employees"
+    info = "The entity selection is ordered and contains "+string(employees.length)+" employees"
  end
 ```
 
@@ -987,12 +987,12 @@ For more information, please refer to the [Ordered or unordered entity selection
 
 #### Description
 
-The `.last()` function <!-- REF #EntitySelectionClass.last().Summary -->returns a reference to the entity in last position of the entity selection<!-- END REF -->. 
+The `.last()` function <!-- REF #EntitySelectionClass.last().Summary -->returns a reference to the entity in last position of the entity selection<!-- END REF -->.
 
 The result of this function is similar to:
 
 ```qs
- entity=entitySel[length-1]
+ entity = entitySel[length-1]
 ```
 
 If the entity selection is empty, the function returns null.
@@ -1004,9 +1004,9 @@ If the entity selection is empty, the function returns null.
 ```qs
  var entitySelection : cs.EmpSelection
  var entity : cs.EmpEntity
- entitySelection=ds.Emp.query("salary < :1",50000)
- if(entitySelection.length!=0)
-    entity=entitySelection.last()
+ entitySelection = ds.Emp.query("salary < :1",50000)
+ if(entitySelection.length != 0)
+    entity = entitySelection.last()
  end
 ```
 
@@ -1029,13 +1029,13 @@ The `.length` property <!-- REF #EntitySelectionClass.length.Summary -->returns 
 Entity selections always have a `.length` property.
 
 
-#### Example 
+#### Example
 
 ```qs
  var vSize : integer
  var info : string
- vSize=ds.Employee.query("gender = :1","male").length
- info=string(vSize)+" male employees found."
+ vSize = ds.Employee.query("gender = :1","male").length
+ info = string(vSize)+" male employees found."
 ```
 
 
@@ -1087,8 +1087,8 @@ We want to find the highest salary among all the female employees:
 ```qs
  var sel : cs.EmpSelection
  var maxSalary : number
- sel=ds.Employee.query("gender = :1","female")
- maxSalary=sel.max("salary")
+ sel = ds.Employee.query("gender = :1","female")
+ maxSalary = sel.max("salary")
 ```
 
 <!-- END REF -->
@@ -1129,8 +1129,8 @@ In this example, we want to find the lowest salary among all the female employee
 ```qs
  var sel : cs.EmpSelection
  var minSalary : number
- sel=ds.Employee.query("gender = :1","female")
- minSalary:=sel.min("salary")
+ sel = ds.Employee.query("gender = :1","female")
+ minSalary: = sel.min("salary")
 ```
 
 <!-- END REF -->
@@ -1156,7 +1156,7 @@ In this example, we want to find the lowest salary among all the female employee
 The `.minus()` function <!-- REF #EntitySelectionClass.minus().Summary -->excludes from the entity selection to which it is applied the *entity* or the entities of *entitySelection* and returns the resulting entity selection<!-- END REF -->.
 
 *	If you pass *entity* as parameter, the function creates a new entity selection without *entity* (if *entity* belongs to the entity selection). If *entity* was not included in the original entity selection, a new reference to the entity selection is returned.
-*	If you pass *entitySelection* as parameter, the function returns an entity selection containing the entities belonging to the original entity selection without the entities belonging to *entitySelection*. 
+*	If you pass *entitySelection* as parameter, the function returns an entity selection containing the entities belonging to the original entity selection without the entities belonging to *entitySelection*.
 
 >You can compare [ordered and/or unordered entity selections](../orda/data-model#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
 
@@ -1167,32 +1167,32 @@ If *entitySelection* is empty or if *entity* is null, a new reference to the ori
 If the original entity selection and the parameter are not related to the same dataclass, an error is raised.
 
 
-#### Example 1 
+#### Example 1
 
 ```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
- 
- employees=ds.Employee.query("lastName = :1","H@") 
+
+ employees = ds.Employee.query("lastName = :1","H@")
   // The employees entity selection contains the entity with primary key 710 and other entities
   // for ex. "Colin Hetrick", "Grady Harness", "Sherlock Holmes" (primary key 710)
- 
- employee=ds.Employee.get(710) // Returns "Sherlock Holmes"
- 
- result=employees.minus(employee) //result contains "Colin Hetrick", "Grady Harness"
+
+ employee = ds.Employee.get(710) // Returns "Sherlock Holmes"
+
+ result = employees.minus(employee) //result contains "Colin Hetrick", "Grady Harness"
 ```
 
 
 
-#### Example 2 
+#### Example 2
 
 We want to have a selection of female employees named "Jones" who live in New York :
 
 ```qs
  var sel1, sel2, sel3 : cs.EmployeeSelection
- sel1=ds.Employee.query("name =:1","Jones")
- sel2=ds.Employee.query("city=:1","New York")
- sel3=sel1.and(sel2).minus(ds.Employee.query("gender='male'"))
+ sel1 = ds.Employee.query("name  = :1","Jones")
+ sel2 = ds.Employee.query("city = :1","New York")
+ sel3 = sel1.and(sel2).minus(ds.Employee.query("gender = 'male'"))
 ```
 
 <!-- END REF -->
@@ -1232,9 +1232,9 @@ If the original entity selection and the parameter are not related to the same d
 
 ```qs
  var employees1, employees2, result : cs.EmployeeSelection
- employees1=ds.Employee.query("lastName = :1","H@") //Returns "Colin Hetrick","Grady Harness"
- employees2=ds.Employee.query("firstName = :1","C@") //Returns "Colin Hetrick", "Cath Kidston"
- result=employees1.or(employees2) //result contains "Colin Hetrick", "Grady Harness","Cath Kidston"
+ employees1 = ds.Employee.query("lastName = :1","H@") //Returns "Colin Hetrick","Grady Harness"
+ employees2 = ds.Employee.query("firstName = :1","C@") //Returns "Colin Hetrick", "Cath Kidston"
+ result = employees1.or(employees2) //result contains "Colin Hetrick", "Grady Harness","Cath Kidston"
 ```
 
 #### Example 2  
@@ -1242,11 +1242,11 @@ If the original entity selection and the parameter are not related to the same d
 ```qs
  var employees, result : cs.EmployeeSelection
  var employee : cs.EmployeeEntity
- employees=ds.Employee.query("lastName = :1","H@") // Returns "Colin Hetrick","Grady Harness", "Sherlock Holmes"
- employee=ds.Employee.get(686) //the entity with primary key 686 does not belong to the $employees entity selection
+ employees = ds.Employee.query("lastName = :1","H@") // Returns "Colin Hetrick","Grady Harness", "Sherlock Holmes"
+ employee = ds.Employee.get(686) //the entity with primary key 686 does not belong to the $employees entity selection
   //It matches the employee "Mary Smith"
- 
- result=employees.or(employee) //result contains "Colin Hetrick", "Grady Harness", "Sherlock Holmes", "Mary Smith"
+
+ result = employees.or(employee) //result contains "Colin Hetrick", "Grady Harness", "Sherlock Holmes", "Mary Smith"
 ```
 
 <!-- END REF -->
@@ -1261,14 +1261,14 @@ If the original entity selection and the parameter are not related to the same d
 <!-- REF #EntitySelectionClass.orderBy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|pathString |string	|->|Attribute path(s) and sorting instruction(s) for the entity selection|	
-|pathObjects |collection|->|collection of criteria objects|	
+|pathString |string	|->|Attribute path(s) and sorting instruction(s) for the entity selection|
+|pathObjects |collection|->|collection of criteria objects|
 |Result|4D.EntitySelection|<-|New entity selection in the specified order|
 <!-- END REF -->
 
 #### Description
 
-The `.orderBy()` function <!-- REF #EntitySelectionClass.orderBy().Summary -->returns a new [ordered](../orda/data-model#ordered-or-unordered-entity-selection) entity selection containing all entities of the entity selection in the order specified by *pathString* or *pathObjects* criteria<!-- END REF -->. 
+The `.orderBy()` function <!-- REF #EntitySelectionClass.orderBy().Summary -->returns a new [ordered](../orda/data-model#ordered-or-unordered-entity-selection) entity selection containing all entities of the entity selection in the order specified by *pathString* or *pathObjects* criteria<!-- END REF -->.
 
 > This function does not modify the original entity selection.
 
@@ -1302,19 +1302,19 @@ You can add as many objects in the criteria collection as necessary.
 
 ```qs
 // order by formula
- sortedEntitySelection=entitySelection.orderBy("firstName asc, salary desc")
- sortedEntitySelection=entitySelection.orderBy("firstName")
- 
+ sortedEntitySelection = entitySelection.orderBy("firstName asc, salary desc")
+ sortedEntitySelection = entitySelection.orderBy("firstName")
+
   // order by collection with or without sort orders
- orderColl=newCollection
+ orderColl = newCollection
  orderColl.push(newObject("propertyPath","firstName","descending",false))
  orderColl.push(newObject("propertyPath","salary","descending",true))
- sortedEntitySelection=entitySelection.orderBy(orderColl)
- 
- orderColl=newCollection
+ sortedEntitySelection = entitySelection.orderBy(orderColl)
+
+ orderColl = newCollection
  orderColl.push(newObject("propertyPath","manager.lastName"))
  orderColl.push(newObject("propertyPath","salary"))
- sortedEntitySelection=entitySelection.orderBy(orderColl)
+ sortedEntitySelection = entitySelection.orderBy(orderColl)
 ```
 
 
@@ -1331,9 +1331,9 @@ You can add as many objects in the criteria collection as necessary.
 <!-- REF #EntitySelectionClass.orderByFormula().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formulaString|string|->|formula string|	
-|formulaObj|4D.Formula|->|formula object|	
-|sortOrder |integer|->|`kAscending` (default) or `kDescending`|	
+|formulaString|string|->|formula string|
+|formulaObj|4D.Formula|->|formula object|
+|sortOrder |integer|->|`kAscending` (default) or `kDescending`|
 |settings|object|->|Parameter(s) for the formula|
 |Result|4D.EntitySelection|<-|New ordered entity selection|
 <!-- END REF -->
@@ -1360,7 +1360,7 @@ By default if you omit the *sortOrder* parameter, the resulting entity selection
 |kAscending|	0	|Ascending sort order (default)|
 |kDescending|	1	|Descending sort order|
 
-Within the *formulaString* or *formulaObj*, the processed entity and thus its attributes are available through the `This` command (for example, `this.lastName`). 
+Within the *formulaString* or *formulaObj*, the processed entity and thus its attributes are available through the `This` command (for example, `this.lastName`).
 
 You can pass parameter(s) to the formula using the `args` property (object) of the `settings` parameter: the formula receives the `settings.args` object in a special variable named `$1`.
 
@@ -1370,9 +1370,9 @@ Sorting students using a formula provided as text:
 
 ```qs
  var es1, es2 : cs.StudentsSelection
- es1=ds.Students.query("nationality=:1","French")
- es2=es1.orderByFormula("length(this.lastname)") //ascending by default
- es2=es1.orderByFormula("length(this.lastname)",kDescending)
+ es1 = ds.Students.query("nationality = :1","French")
+ es2 = es1.orderByFormula("length(this.lastname)") //ascending by default
+ es2 = es1.orderByFormula("length(this.lastname)",kDescending)
 ```
 
 Same sort order but using a formula object:
@@ -1380,36 +1380,36 @@ Same sort order but using a formula object:
 ```qs
  var es1, es2 : cs.StudentsSelection
  var vFormula : 4D.Function
- es1=ds.Students.query("nationality=:1","French")
- vFormula=formula(length(this.lastname))
- es2=es1.orderByFormula(vFormula) // ascending by default
- es2=es1.orderByFormula(vFormula,kDescending)
+ es1 = ds.Students.query("nationality = :1","French")
+ vFormula = formula(length(this.lastname))
+ es2 = es1.orderByFormula(vFormula) // ascending by default
+ es2 = es1.orderByFormula(vFormula,kDescending)
 ```
 
 
 #### Example 2  
 
-A formula is given as a formula object with parameters; `settings.args` object is received in the `$1` variable in the ***computeAverage*** method. 
+A formula is given as a formula object with parameters; `settings.args` object is received in the `$1` variable in the ***computeAverage*** method.
 
 In this example, the "marks" object field in the **Students** dataClass contains students' grades for each subject. A single formula object is used to compute a student's average grade with different coefficients for schoolA and schoolB.
 
 ```qs
  var es1, es2 : cs.StudentsSelection
  var vFormula, schoolA, schoolB : object
- es1=ds.Students.query("nationality=:1","French")
- vFormula=formula(computeAverage($1))
- 
- schoolA=newObject() //settings object
- schoolA.args=newObject("english",1,"math",1,"history",1) // Coefficients to compute an average
- 
+ es1 = ds.Students.query("nationality = :1","French")
+ vFormula = formula(computeAverage($1))
+
+ schoolA = newObject() //settings object
+ schoolA.args = newObject("english",1,"math",1,"history",1) // Coefficients to compute an average
+
   //Order students according to school A criteria
- es2=es1.entitySelection.orderByFormula(vFormula,schoolA)
- 
- schoolB=newObject() //settings object
- schoolB.args=newObject("english",1,"math",2,"history",3) // Coefficients to compute an average
- 
+ es2 = es1.entitySelection.orderByFormula(vFormula,schoolA)
+
+ schoolB = newObject() //settings object
+ schoolB.args = newObject("english",1,"math",2,"history",3) // Coefficients to compute an average
+
   //Order students according to school B criteria
- es2=es1.entitySelection.orderByFormula(vFormula,kDescending,schoolB)
+ es2 = es1.entitySelection.orderByFormula(vFormula,kDescending,schoolB)
 ```
 
 ```qs
@@ -1419,19 +1419,19 @@ In this example, the "marks" object field in the **Students** dataClass contains
  declare (coefList : object) -> result : integer
  var subject : string
  var vAverage, vSum : integer
- 
- vAverage=0
- vSum=0
- 
+
+ vAverage = 0
+ vSum = 0
+
  forEach(subject,coefList)
-    vSum=vSum+coefList[subject]
+    vSum = vSum+coefList[subject]
  end
- 
+
  forEach(subject,this.marks)
-    vAverage=vAverage+(this.marks[subject]*coefList[subject])
+    vAverage = vAverage+(this.marks[subject]*coefList[subject])
  end
- 
- result=vAverage/vSum
+
+ result = vAverage/vSum
 ```
 
 <!-- END REF -->
@@ -1464,21 +1464,21 @@ If no matching entities are found, an empty `EntitySelection` is returned.
 
 For detailed information on how to build a query using *queryString*, *value*, and *querySettings* parameters, please refer to the DataClass [`.query()`](DataClassClass.md#query) function description.
 
->By default if you omit the **order by** statement in the *queryString*, the returned entity selection is [not ordered](../orda/data-model#ordered-or-unordered-entity-selection). 
+>By default if you omit the **order by** statement in the *queryString*, the returned entity selection is [not ordered](../orda/data-model#ordered-or-unordered-entity-selection).
 
 #### Example 1  
 
 
 ```qs
  var entitySelectionTemp, myEntitySel : cs.EmployeeSelection
- entitySelectionTemp=ds.Employee.query("lastName = :1","M@")
- myEntitySel=entitySelectionTemp.query("manager.lastName = :1","S@")
+ entitySelectionTemp = ds.Employee.query("lastName = :1","M@")
+ myEntitySel = entitySelectionTemp.query("manager.lastName = :1","S@")
 ```
 
 
 #### Example 2  
 
-More examples of queries can be found in the DataClass [`.query()`](DataClassClass.md#query) page. 
+More examples of queries can be found in the DataClass [`.query()`](DataClassClass.md#query) page.
 
 #### See also
 
@@ -1500,7 +1500,7 @@ More examples of queries can be found in the DataClass [`.query()`](DataClassCla
 
 The `.queryPath` property <!-- REF #EntitySelectionClass.queryPath.Summary -->contains a detailed description of the query as it was actually performed by Qodly<!-- END REF -->. This property is available for `EntitySelection` objects generated through queries if the `"queryPath":true` property was passed in the *querySettings* parameter of the [`.query()`](#query) function.
 
-For more information, refer to the **querySettings parameter** paragraph in the Dataclass[`.query()`](DataClassClass.md#query) page. 
+For more information, refer to the **querySettings parameter** paragraph in the Dataclass[`.query()`](DataClassClass.md#query) page.
 
 <!-- END REF -->
 
@@ -1518,7 +1518,7 @@ For more information, refer to the **querySettings parameter** paragraph in the 
 
 The `.queryPlan` property <!-- REF #EntitySelectionClass.queryPlan.Summary --> contains a detailed description of the query just before it is executed (i.e., the planned query)<!-- END REF -->. This property is available for `EntitySelection` objects generated through queries if the `"queryPlan":true` property was passed in the *querySettings* parameter of the [`.query()`](#query) function.
 
-For more information, refer to the **querySettings parameter** paragraph in the Dataclass[`.query()`](DataClassClass.md#query) page. 
+For more information, refer to the **querySettings parameter** paragraph in the Dataclass[`.query()`](DataClassClass.md#query) page.
 
 <!-- END REF -->
 
@@ -1539,11 +1539,11 @@ For more information, refer to the **querySettings parameter** paragraph in the 
 
 #### Description
 
-The `.selected()` function <!-- REF #EntitySelectionClass.selected().Summary -->returns an object describing the position(s) of *selectedEntities* in the original entity selection<!-- END REF -->. 
+The `.selected()` function <!-- REF #EntitySelectionClass.selected().Summary -->returns an object describing the position(s) of *selectedEntities* in the original entity selection<!-- END REF -->.
 
 >This function does not modify the original entity selection.
 
-Pass in the *selectedEntities* parameter an entity selection containing entities for which you want to know the position in the original entity selection. *selectedEntities* must be an entity selection belonging to the same dataclass as the original entity selection, otherwise an error 1587 - "The entity selection comes from an incompatible dataclass" is raised. 
+Pass in the *selectedEntities* parameter an entity selection containing entities for which you want to know the position in the original entity selection. *selectedEntities* must be an entity selection belonging to the same dataclass as the original entity selection, otherwise an error 1587 - "The entity selection comes from an incompatible dataclass" is raised.
 
 #### Result
 
@@ -1555,7 +1555,7 @@ The returned object contains the following properties:
 |ranges[].start|integer|First entity index in the range|
 |ranges[].end|integer|Last entity index in the range|
 
-If a `ranges` property contains a single entity, `start` = `end`. Index starts at 0.
+If a `ranges` property contains a single entity, `start = `end`. Index starts at 0.
 
 
 The function returns an empty collection in the `ranges` property if the original entity selection or the *selectedEntities* entity selection is empty.
@@ -1566,13 +1566,13 @@ The function returns an empty collection in the `ranges` property if the origina
 var invoices, cashSel, creditSel : cs.InvoicesSelection
 var result1, result2 : object
 
-invoices=ds.Invoices.all()
+invoices = ds.Invoices.all()
 
-cashSel=ds.Invoices.query("payment = :1", "Cash")
-creditSel=ds.Invoices.query("payment IN :1", newCollection("Cash", "Credit Card"))
+cashSel = ds.Invoices.query("payment = :1", "Cash")
+creditSel = ds.Invoices.query("payment IN :1", newCollection("Cash", "Credit Card"))
 
-result1=invoices.selected(cashSel)
-result2=invoices.selected(creditSel)
+result1 = invoices.selected(cashSel)
+result2 = invoices.selected(creditSel)
 
 //result1 = {ranges:[{start:0;end:0},{start:3;end:3},{start:6;end:6}]}
 //result2 = {ranges:[{start:0;end:1},{start:3;end:4},{start:6;end:7}]}
@@ -1609,31 +1609,31 @@ The `.slice()` function <!-- REF #EntitySelectionClass.slice().Summary -->return
 
 The returned entity selection contains the entities specified by *startFrom* and all subsequent entities up to, but not including, the entity specified by *end*. If only the *startFrom* parameter is specified, the returned entity selection contains all entities from *startFrom* to the last entity of the original entity selection.
 
-*	If *startFrom* < 0, it is recalculated as *startFrom:=startFrom+length* (it is considered as the offset from the end of the entity selection). If the calculated value < 0, *startFrom* is set to 0.
-*	If *startFrom >= length*, the function returns an empty entity selection.
-*	If *end* < 0, it is recalculated as *end:=end+length*.
-*	If *end < startFrom* (passed or calculated values), the method does nothing. 
+*	If *startFrom* < 0, it is recalculated as *startFrom: = startFrom+length* (it is considered as the offset from the end of the entity selection). If the calculated value < 0, *startFrom* is set to 0.
+*	If *startFrom >=  length*, the function returns an empty entity selection.
+*	If *end* < 0, it is recalculated as *end: = end+length*.
+*	If *end < startFrom* (passed or calculated values), the method does nothing.
 
-If the entity selection contains entities that were dropped in the meantime, they are also returned. 
+If the entity selection contains entities that were dropped in the meantime, they are also returned.
 
-#### Example 1 
+#### Example 1
 
 You want to get a selection of the first 9 entities of the entity selection:
 
 ```qs
 var sel, sliced : cs.EmployeeSelection
-sel=ds.Employee.query("salary > :1",50000)
-sliced=sel.slice(0,9) //
+sel = ds.Employee.query("salary > :1",50000)
+sliced = sel.slice(0,9) //
 ```
 
 
-#### Example 2 
+#### Example 2
 
 Assuming we have ds.Employee.all().length = 10
 
 ```qs
 var slice : cs.EmployeeSelection
-slice=ds.Employee.all().slice(-1,-2) //tries to return entities from index 9 to 8, 
+slice = ds.Employee.all().slice(-1,-2) //tries to return entities from index 9 to 8,
 	//but since 9 > 8, returns an empty entity selection
 
 ```
@@ -1671,14 +1671,14 @@ An error is returned if:
 
 
 
-#### Example 
+#### Example
 
 ```qs
 var sel : cs.EmployeeSelection
 var sum : number
- 
-sel=ds.Employee.query("salary < :1",20000)
-sum=sel.sum("salary")
+
+sel = ds.Employee.query("salary < :1",20000)
+sum = sel.sum("salary")
 ```
 
 <!-- END REF -->
@@ -1694,10 +1694,10 @@ sum=sel.sum("salary")
 <!-- REF #EntitySelectionClass.toCollection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|filterString |string|->|string with entity attribute path(s) to extract|	
-|filterCol |collection|->|collection of entity attribute path(s) to extract|	
-|options|integer|->|`kWithPrimaryKey`: adds the primary key<br/>`kWithStamp`: adds the stamp|	
-|begin|integer|	->|Designates the starting index|	
+|filterString |string|->|string with entity attribute path(s) to extract|
+|filterCol |collection|->|collection of entity attribute path(s) to extract|
+|options|integer|->|`kWithPrimaryKey`: adds the primary key<br/>`kWithStamp`: adds the stamp|
+|begin|integer|	->|Designates the starting index|
 |howMany|integer|->|Number of entities to extract|
 |Result|collection|<-|collection of objects containing attributes and values of entity selection|
 <!-- END REF -->
@@ -1732,7 +1732,7 @@ In the *options* parameter, you can pass the `kWithPrimaryKey` and/or `kWithStam
 
 The *begin* parameter allows you to indicate the starting index of the entities to extract. You can pass any value between 0 and entity selection length-1.
 
-The *howMany* parameter lets you specify the number of entities to extract, starting with the one specified in *begin*. Dropped entities are not returned but are taken into account according to *howMany*. For example, if *howMany*= 3 and there is 1 dropped entity, only 2 entities are extracted.
+The *howMany* parameter lets you specify the number of entities to extract, starting with the one specified in *begin*. Dropped entities are not returned but are taken into account according to *howMany*. For example, if *howMany* =  3 and there is 1 dropped entity, only 2 entities are extracted.
 
 If *howMany* > length of the entity selection, the method returns (length - *begin*) objects.
 
@@ -1754,10 +1754,10 @@ Example without filter or options parameter:
 ```qs
  var employeesCollection : collection
  var employees : cs.EmployeeSelection
- 
- employeesCollection=newCollection
- employees=ds.Employee.all()
- employeesCollection=employees.toCollection()
+
+ employeesCollection = newCollection
+ employees = ds.Employee.all()
+ employeesCollection = employees.toCollection()
 ```
 
 Returns:
@@ -1812,9 +1812,9 @@ Example with options:
 var employeesCollection : collection
 var employees : cs.EmployeeSelection
 
-employeesCollection=newCollection
-employees=ds.Employee.all()
-employeesCollection=employees.toCollection("",kWithPrimaryKey+kWithStamp)
+employeesCollection = newCollection
+employees = ds.Employee.all()
+employeesCollection = employees.toCollection("",kWithPrimaryKey+kWithStamp)
 ```
 
 Returns:
@@ -1871,13 +1871,13 @@ Example with slicing and filtering on properties:
 var employeesCollection, filter : collection
 var employees : cs.EmployeeSelection
 
-employeesCollection=newCollection
-filter=newCollection
+employeesCollection = newCollection
+filter = newCollection
 filter.push("firstName")
 filter.push("lastName")
- 
-employees=ds.Employee.all()
-employeesCollection=employees.toCollection(filter,0,0,2)
+
+employees = ds.Employee.all()
+employeesCollection = employees.toCollection(filter,0,0,2)
 ```
 
 Returns:
@@ -1904,8 +1904,8 @@ Example with `relatedEntity` type with simple form:
 
 ```qs
 var employeesCollection : collection
-employeesCollection=newCollection
-employeesCollection=employees.toCollection("firstName,lastName,employer")
+employeesCollection = newCollection
+employeesCollection = employees.toCollection("firstName,lastName,employer")
 ```
 
 returns:
@@ -1942,9 +1942,9 @@ Example with *filterCol* parameter:
 
 ```qs
 var employeesCollection, coll : collection
-employeesCollection=newCollection
-coll=newCollection("firstName","lastName")
-employeesCollection=employees.toCollection(coll)
+employeesCollection = newCollection
+coll = newCollection("firstName","lastName")
+employeesCollection = employees.toCollection(coll)
 ```
 
 Returns:
@@ -1968,12 +1968,12 @@ Example with extraction of all properties of a relatedEntity:
 
 ```qs
 var employeesCollection, coll : collection
-employeesCollection=newCollection
-coll=newCollection
+employeesCollection = newCollection
+coll = newCollection
 coll.push("firstName")
 coll.push("lastName")
 coll.push("employer.*")
-employeesCollection=employees.toCollection(coll)
+employeesCollection = employees.toCollection(coll)
 ```
 
 Returns:
@@ -2022,8 +2022,8 @@ Example with extraction of some properties of a relatedEntity:
 
 ```qs
 var employeesCollection : collection
-employeesCollection=newCollection
-employeesCollection=employees.toCollection("firstName, lastName, employer.name")
+employeesCollection = newCollection
+employeesCollection = employees.toCollection("firstName, lastName, employer.name")
 ```
 
 ```json
@@ -2058,8 +2058,8 @@ Example with extraction of some properties of `relatedEntities`:
 
 ```qs
  var employeesCollection : collection
- employeesCollection=newCollection
- employeesCollection=employees.toCollection("firstName, lastName, directReports.firstName")
+ employeesCollection = newCollection
+ employeesCollection = employees.toCollection("firstName, lastName, directReports.firstName")
 ```
 
 Returns:
@@ -2110,8 +2110,8 @@ Example with extraction of all properties of `relatedEntities`:
 
 ```qs
 var employeesCollection : collection
-employeesCollection=newCollection
-employeesCollection=employees.toCollection("firstName, lastName, directReports.*")
+employeesCollection = newCollection
+employeesCollection = employees.toCollection("firstName, lastName, directReports.*")
 
 ```
 

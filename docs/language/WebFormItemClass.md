@@ -51,11 +51,11 @@ To call a function that hides an image when the user clicks a button:
 2. Create an exposed function named `isHidden` that contains the following code:
 
 ```qs 
-exposed Function isHidden()
+exposed function isHidden()
 
-var myComponent: 4D.WebFormItem
+var myComponent : 4D.WebFormItem
 
-myComponent=webForm.myImage
+myComponent = webForm.myImage
 myComponent.hide() // Hide the component that has "myImage" as server reference 
 ```
 
