@@ -31,7 +31,8 @@ The `docusaurus.config_start.js` uses `docusaurus.config.js` with a few modifica
 #### For Blank Pages
 If you have a blank page and wish to showcase a "Coming Soon" message with an animation, please follow these steps:
 
-* Import the 'ComingSoon' component at the very beginning of your Markdown (md) file. Immediately after the import statement, insert `<ComingSoon/>`.
+1. Import the 'ComingSoon' component at the very beginning of your Markdown (md) file.
+2. Immediately after the import statement, insert `<ComingSoon/>`.
 
 ```
 import ComingSoon from '@site/src/components/ComingSoon'
@@ -42,13 +43,13 @@ import ComingSoon from '@site/src/components/ComingSoon'
 #### For Sections on Pages with Existing Content
 If you have a page with pre-existing content and would like to include the "Coming Soon" message within a specific section that has not yet been developed, here's what to do:
 
-* Import the 'ComingSoon' component at the very beginning of your Markdown (md) file:
+1. Import the 'ComingSoon' component at the very beginning of your Markdown (md) file:
 
 ```
 import ComingSoon from '@site/src/components/ComingSoon'
 ```
 
-* In the section that has not yet been crafted, place <ComingSoon/> right after its title:
+2. In the section that has not yet been crafted, place <ComingSoon/> right after its title:
 
 ```
 ## Section Finished
@@ -63,17 +64,15 @@ Some content
 
 To use the `Column` component, you'll need to define both a `List` component and an `Item` component. Here's how it works:
 
-* Import the `Column` component at the very beginning of your Markdown (md) file:
+1. Import the `Column` component at the very beginning of your Markdown (md) file:
 
 ```
 import ComingSoon from '@site/src/components/Column'
 ```
 
-* To implement it, follow these steps: 
+2. Define a `<Column.List>`: This list component holds together the individual items.
 
-1- Define a `<Column.List>`: This list component holds together the individual items.
-
-2- Add `<Column.Item>` components within the `<Column.List>`: These components represent individual items within the list. You can specify the width for each item, allowing you to customize your layout.
+3. Add `<Column.Item>` components within the `<Column.List>`: These components represent individual items within the list. You can specify the width for each item, allowing you to customize your layout.
 
 Here's an example:
 

@@ -567,7 +567,7 @@ The properties of the object are processed according to their order of creation.
 
 #### Example
 
-You want to switch the names to uppercase in the following object:
+You want to switch the property names to uppercase in the following object:
 
 ```qs
 {
@@ -579,9 +579,9 @@ You want to switch the names to uppercase in the following object:
 You can write:
 
 ```qs
- forEach(property,vObject)
-    if(valueType(vObject[property]) == Is text)
-       vObject[property] = uppercase(vObject[property])
+ forEach(props,vObject)
+    if(valueType(vObject[props]) == Is text)
+       vObject[props] = uppercase(vObject[props])
     end
  end
 ```
@@ -620,11 +620,11 @@ For example:
 #### Example
 
 ```qs
- var col,col2 : Collection
+ var col,col2 : collection
  col = newCollection("a","b","c","d","e")
  col2 = newCollection(1,2,3)
  var item : string
- ForEach(item,col,0,3)
+ forEach(item,col,0,3)
     col2.push(item)
  end
   //col2:[1,2,3,"a","b","c"]
@@ -691,7 +691,7 @@ var text : string
 for (i, 0, 9)
 	if (i == 3)
 		continue //go directly to the next iteration
-	end if
+	end
 	text = text+string(i)
 end
 // text: "012456789"
@@ -718,10 +718,10 @@ while (true) //infinite loop
 	logConsole(message)
 	if (i == 5)
 		return //stops the loop
-	end if
+	end
 	message+ = string(i)+"B\r"  // until 4
 	logConsole(message)
-end while
+end
 message+ = string(i)+"C\r"  //never executed
 logConsole(message)
 
@@ -733,7 +733,7 @@ The *logConsole* method:
 declare (log : string)
 var f : 4D.File
 var fhandle : 4D.FileHandle
-f = Folder(Database folder).file("console.txt")
+f = folder("/PACKAGE/info").file("console.txt")
 
 fhandle = f.open("write")
 fhandle.writeLine(log)
