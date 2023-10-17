@@ -1,0 +1,75 @@
+.release-notes-item {
+  display: flex;
+  margin-bottom: 64px;
+}
+
+.release-notes-timeline {
+  width: 120px;
+  display: flex;
+}
+
+.release-notes-timeline > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.release-notes-meta{
+  text-align: center;
+  height: 60px;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.release-notes-version {
+  font-size: large;
+  font-weight: bold;
+}
+
+.release-notes-release-date {
+  font-size: 12px;
+}
+.release-notes-connector {
+  position: relative;
+  height: 100%;
+}
+
+.release-notes-connector > div {
+    margin-top: 16px;
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: var(--ifm-link-color);
+    height: calc(100% + 24px);
+}
+.release-notes-connector > div:before {
+  content: '';
+  position: absolute;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--ifm-link-color);
+  border-radius: 100%;
+  top: -4px;
+}
+.release-notes-connector > div:after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--ifm-link-color);
+  border-radius: 100%;
+  bottom: -4px;
+}
+
+.release-notes-item:last-child .release-notes-connector {
+  opacity: 0;
+}
+
+.release-notes-content{
+  width: 100%;
+  padding: 0 16px;
+}
