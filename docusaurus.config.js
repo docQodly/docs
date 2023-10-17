@@ -124,12 +124,6 @@ const config = {
             position: 'left',
             label: 'Architecture',
           },
-          {
-            type: 'doc',
-            docId: 'notes/v1',
-            position: 'left',
-            label: 'Release Notes',
-          },
           /*{
               type: 'doc',
               docId: '/category/API',
@@ -160,6 +154,10 @@ const config = {
               {
                 label: "Get Support",
                 to: "https://support.4d.com/",
+              },
+              {
+                label: "Release Notes",
+                to: "notes/v1",
               },
             ],
           },
