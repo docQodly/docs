@@ -4,7 +4,7 @@ title: Release Notes
 ---
 
 
-## 1.0.0-rc.37
+## 1.0.0
 
 ### New features
 
