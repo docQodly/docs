@@ -45,7 +45,7 @@ The data type list contains [predefined data types](../../concepts/platform.md#q
 
 The type to select depend on the category of attribute to create.
 
-You create **storage**, **relation** and **alias** attributes from the datastore class in the Model editor. **Calculated** attributes must be [created by code](#calculated-attributes). However, they are displayed in the datastore class:
+You create **storage**, **relation** and **alias** attributes from the datastore class in the Model editor. **Calculated** attributes must be [created by code](#calculated-attributes). However, they are displayed in the datastore class, grouped at the bottom of the class:
 
 ![calc](img/calculated1.png)
 

@@ -9,17 +9,17 @@ In Qodly, following the [ORDA concepts](../../concepts/platform.md#the-orda-conc
 
 Included in the model view are also the permissions, allowing you to assign access right at any level of the model (datastore, dataclass, attributes and functions).
 
-You access your current project's model in the **Model Editor** by double-clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
+You access your current project's model in the **Model Editor** by clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
+
+:::note
+
+You can also open your model as a [json file](#json-view).  
+
+:::
 
 By default in blank applications, the model does not contain any default dataclasses; you have to create the datastore classes. 
 
-The Data Model Editor is made up of the following areas:
-
--   Workspace
--   Toolbar
--   Miniature overview area
--   Outline
--   Properties area
+The Data Model Editor is made up of several areas, including a workspace, a toolbar with a contextual menu, a miniature overview area, an outline and a properties area.
 
 
 ## Workspace
@@ -35,8 +35,14 @@ You can identify the currently selected datastore class by its highlighted borde
 The toolbar bordering the top of your workspace contains the following buttons:
 
 - **Fit view**: By clicking on the ![alt-text](img/fitview-icon.png) icon you will get a fitted view of your entire model in the workspace area.
-- **Reload model** ![alt-text](img/fitview-icon.png): Reloads the model definition. This button is useful when you modify model functions or properties in different browser windows. 
 - **Zoom setting** ![alt-text](img/zoom-feature.png): Controls the percentage of zoom in your workspace area. Note that you can also use the **mouse wheel** to modify the zoom setting. 
+
+
+## Reload
+
+![alt-text](img/reloadmodel-icon.png)
+
+The **Reload** command of the model tab contextual menu reloads the model definition from the server. This button is useful when you modify model functions or properties in different browser windows. 
 
 ## Miniature Overview Area 
 
@@ -65,7 +71,7 @@ You can select the datastore class in the workspace by clicking on it in the lis
 From this area, you can execute any of the following actions for a specific datastore class:
 
 -   ![alt-text](img/fitview-icon.png) fit to view: to show a fitted view of the selected datastore class in your workspace area.
--   ![alt-text](img/importfromcvs-icon.png) import from CSV: Allows you to import data from a CSV file in this dataclass. See XXXX
+-   ![alt-text](img/importfromcvs-icon.png) import from CSV: Allows you to [import data](import.md) from a CSV file in this dataclass. 
 -   ![alt-text](img/deletedatastoreclass-icon.png): Removes the dataclass from the project.
 
 
@@ -75,6 +81,34 @@ Removing a dataclass from the model does not remove its associated functions.
 
 :::
 
+## Data Model Classes Button
+
+The Data Model Classes button allows you to generate the [QodlyScript classes](../../orda/data-model.md) related to your data model. You can generate all classes at once for the model or separately for a selected dataclass.
+
+![model-classes](img/class-button.png)
+
+For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
+
 ## Properties Area 
 
-The Properties area displays the properties for the selected element: datastore class, attribute, or function. 
+The Properties area displays the properties for the selected element: [datastore class](datastore-classes.md#datastore-class-properties), [attribute](attributes.md#properties), or [function](functions.md#permissions). 
+
+
+## JSON View
+
+A model is based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). This feature is useful for troubleshooting or to copy/paste selected parts.   
+
+To open the JSON view of your model, select **Model** from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**:
+
+![json](img/openastext.png)
+
+The model is opened in JSON format in the code editor. 
+
+![json](img/code-view.png)
+
+:::warning
+
+Editing the JSON code can invalidate the document and generate errors.
+
+:::
+
