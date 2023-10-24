@@ -17,7 +17,7 @@ The Webform Editor furnishes an array of tools for tailoring your application's 
 
 ![interface](img/web-form-editor-interface.png)
 
-1. **Explorer**: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access project definition files for roles, privileges, data model, and settings.
+1. **Explorer**: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access JSON definition files (../../coding.md#json-view) for [webforms](#json-view), [roles and privileges](../roles/rolesPrivilegesOverview.md#json-view), and [data model](../model/model-editor-interface.md#json-view).
 2. **Tabs**: These keep track of your currently opened elements, including webforms and methods.
 3. **Components**: Fundamental building blocks of your application.
 4. **Data Sources**: Create and explore datasources.
@@ -80,7 +80,6 @@ The Webform Editor furnishes an array of tools for tailoring your application's 
     
     <br/>
 
-    Note that:
     :::info
     The Sanity Check serves as an informative tool. Even if errors are present, a webform can still be saved. 
     :::
@@ -208,4 +207,18 @@ Discover numerous customization avenues that empower you to fine-tune components
 For additional styling insights, refer to the [**Styling**](styling.md) section.
 :::
 
+
+## JSON View
+
+A webform is based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). 
+
+To open the JSON view of your webform, select it from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**.
+
+You can view, copy, or edit the JSON code. 
+
+:::warning
+
+Editing the JSON code can invalidate the document and generate errors.
+
+:::
 

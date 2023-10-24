@@ -9,7 +9,13 @@ In Qodly, following the [ORDA concepts](../../concepts/platform.md#the-orda-conc
 
 Included in the model view are also the permissions, allowing you to assign access right at any level of the model (datastore, dataclass, attributes and functions).
 
-You access your current project's model in the **Model Editor** by double-clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
+You access your current project's model in the **Model Editor** by clicking on ![alt-text](img/model-icon.png) in your project's sidebar.
+
+:::note
+
+You can also open your model as a [json file](../coding.md#json-view).  
+
+:::
 
 By default in blank applications, the model does not contain any default dataclasses; you have to create the datastore classes. 
 
@@ -65,7 +71,7 @@ You can select the datastore class in the workspace by clicking on it in the lis
 From this area, you can execute any of the following actions for a specific datastore class:
 
 -   ![alt-text](img/fitview-icon.png) fit to view: to show a fitted view of the selected datastore class in your workspace area.
--   ![alt-text](img/importfromcvs-icon.png) import from CSV: Allows you to import data from a CSV file in this dataclass. See XXXX
+-   ![alt-text](img/importfromcvs-icon.png) import from CSV: Allows you to [import data](import.md) from a CSV file in this dataclass. 
 -   ![alt-text](img/deletedatastoreclass-icon.png): Removes the dataclass from the project.
 
 
@@ -78,3 +84,25 @@ Removing a dataclass from the model does not remove its associated functions.
 ## Properties Area 
 
 The Properties area displays the properties for the selected element: datastore class, attribute, or function. 
+
+
+## JSON View
+
+A model is based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). 
+
+To open the JSON view of your model, select **Model** from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**:
+
+![json](img/openastext.png)
+
+The model is opened in JSON format in the code editor. 
+
+![json](img/code-view.png)
+
+You can view, copy, or edit the JSON model. 
+
+:::warning
+
+Editing the JSON code can invalidate the document and generate errors.
+
+:::
+

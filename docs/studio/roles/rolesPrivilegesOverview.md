@@ -117,3 +117,20 @@ exposed function linkAccount()
 ```
 
 For more detailed information, refer to the [Sessions](../../language/SessionClass.md) and [Users](../../language/UsersClass.md) sections.
+
+
+
+## JSON View
+
+Roles and privileges are based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). 
+
+To open the JSON view of your roles and privileges definition, select **Roles and Privileges** from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**.
+
+You can view, copy, or edit the JSON code. 
+
+:::warning
+
+Editing the JSON code can invalidate the document and generate errors.
+
+:::
+
