@@ -122,7 +122,7 @@ For more detailed information, refer to the [Sessions](../../language/SessionCla
 
 ## JSON View
 
-Roles and privileges are based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). 
+Roles and privileges are based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). This feature is useful for troubleshooting or to copy/paste selected parts. 
 
 To open the JSON view of your roles and privileges definition, select **Roles and Privileges** from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**.
 
