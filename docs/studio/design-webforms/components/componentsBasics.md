@@ -69,6 +69,8 @@ You have the flexibility to drop components directly onto the webform itself, as
 
 Your webforms can use datasource attributes of type string, number, date, time, or duration data types. When they are displayed within components, you can select their display format in the Properties area:
 
+![formats](img/formats.png)
+
 :::info
 Available formats depend on the data type of the attribute and on the component itself. 
 :::
@@ -146,7 +148,7 @@ Available formats depend on the data type of the attribute and on the component 
         <Column.Item width="60%">
         <ul>
                 <ul>
-                        <li>For <strong>Time</strong>:</li> <br/>
+                        <li>For <strong>Duration</strong>:</li> <br/>
                         <ul>
                                 <li><strong>without seconds</strong>: Displays the time without seconds.</li> 
                                 <li><strong>with seconds</strong>: Displays the time with seconds.</li>
@@ -156,26 +158,5 @@ Available formats depend on the data type of the attribute and on the component 
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
-        <ul>
-                <ul>
-                        <li>For <strong>Duration</strong>:</li> <br/>
-                        <ul>
-                                <li><strong>Simple</strong>: (Examples with duration = 52 830 000 ms) 14:40:30.</li> 
-                                <li><strong>Distance</strong>: about 15 hours</li>
-                                <li><strong>Distance with suffix</strong>: in about 15 hours</li> 
-                                <li><strong>Strict Distance</strong>: 15 hours</li>
-                                <li><strong>Strict Distance with suffix</strong>: in 15 hours</li>
-                        </ul>
-                        <br/>See also <a href="https://date-fns.org/v2.30.0/docs/formatDistance">formatDistance</a> and <a href="https://date-fns.org/v2.30.0/docs/formatDistanceStrict">formatDistanceStrict</a> in the date-fns library.
-                </ul>
-        </ul>
-        </Column.Item>
-        <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/format_duration.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
