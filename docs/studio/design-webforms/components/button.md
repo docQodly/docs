@@ -61,8 +61,7 @@ Within the <strong>Button</strong> component, an embedded <strong>Icon</strong> 
 	</Column.Item>
 </Column.List>
 
-
-## Data Binding
+## Data Integration
 
 When it comes to data-binding, it's important to note that the **Button** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified datasources, the **Button** component primarily focuses on initiating actions and interactions within the user interface.
 

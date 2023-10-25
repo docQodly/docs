@@ -45,7 +45,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 |---|---|
 |Move| Reposition the selected component on the canvas.|
 |Select Parent Component| Select the parent component of the current selection.|
-|Delete Component| Remove the selected component from the canvas.|
+|Delete Component| Remove the selected component from the canvas. As an alternative solution, you can use the shortcut **Alt + Shift + Delete (⌥ + ⇧ + Delete for Mac)**.|
 |Export Styles| Export the overridden CSS properties to a new CSS class.|
 |Open Events Panel| Binding events to the selected component.|
  
@@ -65,19 +65,23 @@ You have the flexibility to drop components directly onto the webform itself, as
 |Clear content| Clear content within the selected component. As an alternative solution, you can use the shortcut **Alt + E (⌥ + E for Mac)**|
 
 
-## Formats
+## Data Formatting
 
-Your webforms can use datasource attributes of type string, number, date, time, or duration data types. When they are displayed within components, you can select their display format in the Properties area:
-
-![formats](img/formats.png)
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                Your webforms can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
 
 :::info
-Available formats depend on the data type of the attribute and on the component itself. 
+Formatting options may vary based on the specific data type of the attribute and the type of component being used.
 :::
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-        <ul>
                 <ul>
                         <li>For <strong>Text (string)</strong>:</li> <br/>
                         <ul>
@@ -87,7 +91,6 @@ Available formats depend on the data type of the attribute and on the component 
                                 <li><strong>Capitalize Each Word</strong>: Capitalizes the first letter of each word.</li> 
                         </ul>
                 </ul>
-        </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
@@ -98,7 +101,6 @@ Available formats depend on the data type of the attribute and on the component 
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-        <ul>
                 <ul>
                         <li>For <strong>Number</strong>:</li> <br/>
                         <ul>
@@ -110,7 +112,6 @@ Available formats depend on the data type of the attribute and on the component 
                         <br/>
                         Refer to the <a href="https://support.microsoft.com/en-us/office/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5">Review guidelines</a> for customizing <code>number formats</code>.
                 </ul>
-        </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
@@ -121,7 +122,6 @@ Available formats depend on the data type of the attribute and on the component 
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-        <ul>
                 <ul>
                         <li>For <strong>Date</strong>:</li> <br/>
                         <ul>
@@ -135,7 +135,6 @@ Available formats depend on the data type of the attribute and on the component 
                         Check the <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. <br/>
                         For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
                 </ul>
-        </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
@@ -146,7 +145,6 @@ Available formats depend on the data type of the attribute and on the component 
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-        <ul>
                 <ul>
                         <li>For <strong>Duration</strong>:</li> <br/>
                         <ul>
@@ -154,9 +152,24 @@ Available formats depend on the data type of the attribute and on the component 
                                 <li><strong>with seconds</strong>: Displays the time with seconds.</li>
                         </ul>
                 </ul>
-        </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
+
+## Data Integration
+
+This section serves as a fundamental introduction to the integration of data sources with components. It's essential to note that each component has its own dedicated section on its respective page, including the following subsections:
+
+- **Data Binding**: This step configures the connection between a component and a data source, determining where the component retrieves its data.
+
+- **Data Display**: After binding data, this section guides you in visually presenting data within the component, including configuring its appearance and additional components.
+
+- **Dynamic Attribute Display**: This section explains how a component can automatically display attributes of a selected data source, offering detailed information without extra interactions.
+
+- **Server-Side Interaction**: This section explains obtaining user selections in a server-side context when a datasource is bound to a component, enabling content retrieval and use.
+
+:::note
+Please note that the following subsections (Data Binding, Data Display, Dynamic Attribute Display, and Server-Side Interaction) may or may not be applicable to all components. Their presence or absence depends on the specific component's functionality and use case. 
+:::

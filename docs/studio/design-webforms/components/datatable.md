@@ -55,7 +55,7 @@ Enhance the **DataTable** component to align with your application's requirement
                         <ul>
                                 <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.</li><br/>
                                 <li><strong>Source</strong>: The source attribute specifies the datasource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's DataSource. This determines the content to be displayed in the column cells.</li><br/>
-                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#formats">Formats</a> for a description of available formats.</li><br/>
+                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li><br/>
                                 <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).</li><br/>
                                 <li><strong>Sorting</strong>: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.</li>
                         </ul>
@@ -84,10 +84,10 @@ To associate data with the **DataTable** component, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-                <ul>
-                        <li><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.</li><br/>
-                        <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
-                </ul>
+                <ol>
+                        <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.</li><br/>
+                        <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
+                </ol>
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/dataTable_DataBinding.png').default} style={{borderRadius: '6px'}} />
@@ -106,7 +106,26 @@ When it comes to displaying columns in the DataTable component, you have two opt
 
 - **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the datasource onto the DataTable.
 
+### Dynamic Attribute Display
 
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="65%">
+                The <code>Data Table</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+	</Column.Item>
+	<Column.Item width="30%">
+                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
+	</Column.Item>
+	<Column.Item width="25%">
+                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	</Column.Item>
+</Column.List>
 
 ### Server-Side Interaction
 
@@ -135,27 +154,6 @@ Common attributes for `onheaderclick` and `oncellclick`:
 |index| Number | The index of the clicked column header (starting from 0).|
 |name| Text | The datasource of the column.|
 |row| Number | The number of the clicked row.|
-
-### Dynamic Attribute Display
-
-
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="65%">
-                The <code>Data Table</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
-	</Column.Item>
-	<Column.Item width="30%">
-                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-                These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
-	</Column.Item>
-	<Column.Item width="25%">
-                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
-	</Column.Item>
-</Column.List>
 
 
 ## User Experience Features

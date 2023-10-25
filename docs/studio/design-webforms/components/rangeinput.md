@@ -103,13 +103,13 @@ The datasource for the **Range Input** component should be a numeric value.
 ### Data Binding
 To associate data with the Range Input component, follow these steps:
 
-- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Range Input component.
+1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Range Input component.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        <ul>
-            <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
-        </ul>
+        <ol>
+            <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
+        </ol>
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/rangeInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
@@ -117,7 +117,7 @@ To associate data with the Range Input component, follow these steps:
 </Column.List>
 
 
-- **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
+3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
 
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping the datasource onto the Range Input component.

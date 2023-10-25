@@ -61,11 +61,11 @@ To associate data with the **Matrix** component, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <ul>
-            <li><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
+        <ol>
+            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
             <br/>
-            <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
-        </ul>
+            <li value="é"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
+        </ol>
 	</Column.Item>
 	<Column.Item width="35%">
         <img alt="explorer" src={require('./img/matrix_DataBinding.png').default} style={{borderRadius: '6px'}} />
@@ -80,56 +80,22 @@ Alternatively, you can establish the connection by dragging and dropping the dat
 
 To display data iterated over a datasource, you can follow these additional steps:
 
-- **Access the Matrix**: Within the Matrix component, locate the embedded Stylebox.
-- **Add a Component**: Add a Text component or other relevant components within the Stylebox.
+1. **Access the Matrix**: Within the Matrix component, locate the embedded Stylebox.
+2. **Add a Component**: Add a Text component or other relevant components within the Stylebox.
 <img alt="explorer" src={require('./img/matrix_DataDisplay.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
 
-- **Configure the Component**: Click on the component you've added to enter its editing mode. The process of configuring components varies based on their type:
+3. **Configure the Component**: Click on the component you've added to enter its editing mode. The process of configuring components varies based on their type:
 
     - **Toggle Datasource**: Prepare to connect the component to the datasource in the next step by using the `Toggle Datasource` button.
 
     - **Properties Panel**: In the next step, you'll configure them through the `Data Access` category in the Properties panel. 
 
-- **Choose the Iterator**: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.
+4. **Choose the Iterator**: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.
 
 
-- **Choose the Attribute**: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could include related entity selections. For example, use an embedded Matrix within the same Matrix to present various choices like room options (with/without breakfast).
+5. **Choose the Attribute**: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could include related entity selections. For example, use an embedded Matrix within the same Matrix to present various choices like room options (with/without breakfast).
 
     <img alt="explorer" src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
-
-
-### Server-Side Interaction
-
-- **Direct Datasource Interaction**: When using a direct datasource like `Rooms`, you can bind functions to button clicks using `$This`. This functionality enables the execution of functions such as "selectRoom" upon button clicks.
-
-    Follow these steps to achieve this functionality:
-
-    - Integrate the Matrix component within the interface.
-    - Select a direct datasource like <code>Rooms</code> for the Matrix.
-    - Embed buttons within the Matrix for each iterated data.
-    - Bind the desired function, , e.g., <code>selectRoom</code>, to the button click event using <code>$This</code>.
-
-
-- **Related Entity Interaction**: Alternatively, you can leverage related entity selections from the primary datasource, such as `$This.roomOptionsSelection`. This method involves embedding another Matrix within the main Matrix to handle each iterated data. This allows you to access options associated with a particular room, such as services offered.
-
-    Follow these steps to implement this approach:
-
-    <Column.List align="center" justifyContent="between">
-        <Column.Item width="50%">
-            <ul>
-                <li> Integrate the Matrix component within the interface.</li>
-                <li> Select a direct datasource like <code>Rooms</code> for the main Matrix.</li> 
-                <li> Embed another Matrix for each iterated data within the main Matrix.</li> 
-                <li> Choose a Related Entity datasource like <code>$This.roomOptionsSelection</code> for the embedded Matrix.</li>
-                <li> Integrate buttons within the embeded Matrix for each iterated data.</li> 
-                <li> Bind the desired function, e.g., <code>selectRoomOption</code>, to the button click event using <code>This</code>.</li> 
-            </ul>
-        </Column.Item>
-        <Column.Item width="50%">
-            <img alt="explorer" src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
 
 ### Dynamic Attribute Display
 
@@ -152,6 +118,32 @@ To display data iterated over a datasource, you can follow these additional step
 	</Column.Item>
 </Column.List>
 
+### Server-Side Interaction
+
+You can associate functions with embedded components in the **Matrix** component using `$This`. This capability enables the execution of functions from the entity class of the datasource that is providing data and being iterated upon in response to event triggers, such as button clicks.
+
+
+To implement this functionality, follow these steps:
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+		<ol start="1">
+        	<li>Integrate the Matrix component into the interface.</li> <br/><br/>
+			<li>Select a datasource like <code>Rooms</code> for the Matrix.</li> <br/><br/>
+			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> <br/><br/>
+            <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> <br/><br/>
+            <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element datasource as a parameter to the function.</li> 
+		</ol>
+	</Column.Item>
+	<Column.Item width="50%">
+        <img alt="explorer" src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img alt="explorer" src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	</Column.Item>
+</Column.List>
+
+:::tip
+The same principle applies to Related Entity Interaction when you have embedded Matrices within the primary Matrix to manage each iterated data. You can link the intended function to the embedded Matrix's component event using `$This`.
+:::
 
 ## Showcase
 
