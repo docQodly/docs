@@ -46,7 +46,7 @@ Enhance the **Text** component to align with your application's requirements usi
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Format Support</strong>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. </li>
+            <li><strong>Format Support</strong>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#formats">Formats</a> for a description of available formats.</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -83,6 +83,7 @@ Alternatively, you can establish the connection by dragging and dropping a datas
 The **Text** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
+
 |---|---|
 |On Click| Calls for an action when the user clicks on the component. |
 |On DblClick| Calls for an action when the user double-clicks on the component. |

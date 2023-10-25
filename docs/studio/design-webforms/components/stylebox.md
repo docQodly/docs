@@ -23,10 +23,10 @@ The **Stylebox** component serves as a versatile container designed to enhance c
 ## Data Binding
 When you drag and drop a datasource attribute to a **Stylebox**, the following automatic creations occur:
 
-- **Entity Attribute**: Generates a component linked to **entity.attribute** based on its type.
+- **Entity Attribute**: Generates a [Text component](text.md) linked to **entity.attribute** based on its type.
 <img alt="explorer" src={require('./img/styleBox_dataBinding_entityAttribute.gif').default} style={{borderRadius: '6px'}} />
 
-- **Length of a Selection**: Establishes a Text component reflecting **selection.length**.
+- **Length of a Selection**: Establishes a [Text component](text.md) reflecting **selection.length**.
 <img alt="explorer" src={require('./img/styleBox_dataBinding_length.gif').default} style={{borderRadius: '6px'}} />
 
 

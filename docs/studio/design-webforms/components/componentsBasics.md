@@ -63,3 +63,119 @@ You have the flexibility to drop components directly onto the webform itself, as
 |Copy content| Copy content. As an alternative solution, you can use the shortcut **Alt + ⇧ + C (⌥ + ⇧ + C for Mac)**|
 |Clear styles| Clear the styles of the selected component (resets the overridden CSS properties). As an alternative solution, you can use the shortcut **Alt + J (⌥ + J for Mac)**|
 |Clear content| Clear content within the selected component. As an alternative solution, you can use the shortcut **Alt + E (⌥ + E for Mac)**|
+
+
+## Formats
+
+Your webforms can use datasource attributes of type string, number, date, time, or duration data types. When they are displayed within components, you can select their display format in the Properties area:
+
+:::info
+Available formats depend on the data type of the attribute and on the component itself. 
+:::
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+        <ul>
+                <ul>
+                        <li>For <strong>Text (string)</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>UPPERCASE</strong>: Converts all characters to uppercase.</li> 
+                                <li><strong>lowercase</strong>: Converts all characters to lowercase.</li>
+                                <li><strong>Capitalize</strong>: Capitalizes the first letter of the text.</li> 
+                                <li><strong>Capitalize Each Word</strong>: Capitalizes the first letter of each word.</li> 
+                        </ul>
+                </ul>
+        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+        <ul>
+                <ul>
+                        <li>For <strong>Number</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>0</strong>: Standard numerical format.</li> 
+                                <li><strong>0%</strong>: Displays the number as a percentage.</li>
+                                <li><strong>#,##0</strong>: Adds thousands separators to the number.</li> 
+                                <li><strong>#,##0.00</strong>: Adds thousands separators and displays two decimal places.</li> 
+                        </ul>
+                        <br/>
+                        Refer to the <a href="https://support.microsoft.com/en-us/office/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5">Review guidelines</a> for customizing <code>number formats</code>.
+                </ul>
+        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+        <ul>
+                <ul>
+                        <li>For <strong>Date</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>Date short</strong>: Displays the date in a short format.</li> 
+                                <li><strong>Date long</strong>: Displays the date in a long format.</li>
+                                <li><strong>Date abbreviated</strong>: Displays the date with abbreviated month name.</li> 
+                                <li><strong>ISO date GMT</strong>: Displays the date in ISO 8601 format with GMT time zone.</li> 
+                                <li><strong>UTC String</strong>: Displays the date in a UTC format.</li>
+                        </ul>
+                        <br/>
+                        Check the <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. <br/>
+                        For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
+                </ul>
+        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+        <ul>
+                <ul>
+                        <li>For <strong>Time</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>without seconds</strong>: Displays the time without seconds.</li> 
+                                <li><strong>with seconds</strong>: Displays the time with seconds.</li>
+                        </ul>
+                </ul>
+        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+        <ul>
+                <ul>
+                        <li>For <strong>Duration</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>Simple</strong>: (Examples with duration = 52 830 000 ms) 14:40:30.</li> 
+                                <li><strong>Distance</strong>: about 15 hours</li>
+                                <li><strong>Distance with suffix</strong>: in about 15 hours</li> 
+                                <li><strong>Strict Distance</strong>: 15 hours</li>
+                                <li><strong>Strict Distance with suffix</strong>: in 15 hours</li>
+                        </ul>
+                        <br/>See also <a href="https://date-fns.org/v2.30.0/docs/formatDistance">formatDistance</a> and <a href="https://date-fns.org/v2.30.0/docs/formatDistanceStrict">formatDistanceStrict</a> in the date-fns library.
+                </ul>
+        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/format_duration.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>

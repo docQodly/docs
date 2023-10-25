@@ -82,7 +82,7 @@ Enhance the Select Box component to align with your application's requirements u
 The **Select Box** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
 :::info 
-The datasource for the **Select Box** component can take the form of either an `ORDA entity selection` or an `array`.
+The datasource for the **Select Box** component can take the form of either an `ORDA entity selection` or a `collection`.
 :::
 
 ### Data Binding
@@ -109,7 +109,7 @@ Alternatively, you can establish the connection by dragging and dropping the dat
 
 To associate data iterated over a datasource, you can follow these additional steps:
 
-- **Access the Select Box**: Within the Select Box component, locate the embedded Stylebox.
+- **Access the Stylebox Box**: Within the Select Box component, locate the embedded Stylebox.
 - **Add a Component**: Add a Text component or other relevant components within the Stylebox.
 - **Configure the Component**: Click on the component you've added to enter its editing mode. The process of configuring components varies based on their type:
 
@@ -150,6 +150,8 @@ To associate data iterated over a datasource, you can follow these additional st
         <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
+
+For more information, see the [Iterative components](../datasources.md#iterative-components) section.
 
 
 ## Showcase
