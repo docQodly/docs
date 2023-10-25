@@ -95,14 +95,15 @@ Within the **File Upload** component, an embedded **Icon** allows for further cu
 	</Column.Item>
 </Column.List>
 
-
-## Data Binding
+## Data Integration
 
 The **File Upload** component uses data-binding to link user interactions with the underlying data structure.
 
 :::info 
 The datasource for the **File Upload** component can take the form of either a `Blob` or a `Picture`.
 :::
+
+### Data Binding
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">

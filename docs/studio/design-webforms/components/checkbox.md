@@ -100,9 +100,9 @@ The datasource for the **Checkbox** component should be binary, with values limi
 ### Data Binding
 To associate data with the Checkbox component, follow these steps:
 
-- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Checkbox component.
+1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Checkbox component.
 
-- **Define the Datasource**: Specify the relevant Datasource that will capture the user's selected choice.
+2. **Define the Datasource**: Specify the relevant Datasource that will capture the user's selected choice.
 
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping the datasource onto the Checkbox component.

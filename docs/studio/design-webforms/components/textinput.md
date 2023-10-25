@@ -87,7 +87,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 <br/>
 
 - **Input Format**: Specify the desired format for the entered data. <br/>
-See <a href="componentsBasics#formats">Formats</a> for a description of available formats.
+See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.
 
 <br/>
 
@@ -105,13 +105,13 @@ The datasource for the **Text Input** component should be of type `text`, `numbe
 ### Data Binding
 To associate data with the Text Input component, follow these steps:
 
-- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Text Input component.
+1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Text Input component.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <ul>
-                <li><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type text. For instance, you can select an entity, such as <code>package</code>.</li>
-        </ul>
+        <ol>
+                <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type text. For instance, you can select an entity, such as <code>package</code>.</li>
+        </ol>
 	</Column.Item>
 	<Column.Item width="40%">
                 <img alt="explorer" src={require('./img/textInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
@@ -119,7 +119,7 @@ To associate data with the Text Input component, follow these steps:
 </Column.List>
 
 
-- **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>package.name</code>.
+3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>package.name</code>.
 
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping the datasource onto the Text Input component.

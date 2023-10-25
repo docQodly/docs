@@ -99,13 +99,13 @@ The **Select Input** component provides selections from a predefined set of opti
 ### Data Binding
 To associate data with the Select Input component, follow these steps:
 
-- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Select Input component.
+1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Select Input component.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <ul>
-                <li><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected input.</li>
-        </ul>
+        <ol>
+                <li value="2"><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected input.</li>
+        </ol>
 	</Column.Item>
 	<Column.Item width="35%">
                 <img alt="explorer" src={require('./img/selectInput_DataBinding.png').default} style={{borderRadius: '6px'}} />

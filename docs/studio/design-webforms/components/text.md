@@ -46,7 +46,7 @@ Enhance the **Text** component to align with your application's requirements usi
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Format Support</strong>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#formats">Formats</a> for a description of available formats.</li>
+            <li><strong>Format Support</strong>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -70,7 +70,11 @@ When the hyperlink directs to a file path within the `Shared` folder, it doesn't
 This follows the same concept as [Navigate to Shared Folder Content](../events.md#navigate-to-shared-folder-content) through the [External Link](../events.md#navigate-to-external-links) option.
 :::
 
-## Data Binding
+## Data Integration
+
+The **Text** component is not limited to static text, it is also data-bound, which means it depends on a datasource to populate its options.
+
+### Data Binding
 
 The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
 
