@@ -3,80 +3,82 @@ id: application-management
 title: Application Management
 ---
 
-When you click on an application in the Apps list, you open its dedicated panel. You can view the status of every [environment](getStarted.md#environments-and-services):
+When you select an application from the Apps list, it opens a dedicated panel where you can perform various actions:
+
+## View Environment Status
+
+You have two options to check the status of every environment:
+
+- In the `Overview`, you can see the status of each [environment](getStarted.md#environments-and-services) represented by an icon:
 
 ![app](img/app1.png)
 
-Click on the left side tabs to control your apps individually for every environment. 
+- Alternatively, you can click on the left-side tabs to manage your apps individually for each environment:
+
+![app](img/app1.2.png)
 
 ## Stop or restart Qodly Server
 
-This action can be useful to reset the Server memory. 
+Useful for resetting server memory.
 
 ![app](img/app2.png)
 
 
-## Go to Qodly Studio
+## Open Qodly Studio
 
-You can directly open your application instance in Qodly Studio (**Development** and **Staging** [environments](getStarted.md#environments-and-services) only):
+You can directly access your application in Qodly Studio in two ways:
 
-- Click on the **Studio** button in the Overview page
+- By clicking the **Studio** button on the Overview page
 
 ![studio](img/studio1.png)
 
-- Or,  click on the "Studio URL" in the **General** tab for the open environment:
+- Or, by clicking the "Studio URL" in the **General** tab for the current environment.
 
 ![studio](img/studio2.png)
 
 
-## Monitor your resources
+## Monitor Resources
 
-Click on the **Metrics** tab of an environment to monitor the resources for this environment: 
+Access the **Metrics** tab of an environment to monitor its resources.
 
 ![metrics](img/metrics.png)
 
 
-## Update your Qodly Server 
+## Update Qodly Server 
 
-Click on the cloud icon to update your Qodly Server with latest updates provided by Qodly Platform:
+Click the cloud icon to update your Qodly Server with the latest provided by the Qodly Platform.
+
 
 ![update](img/update.png)
 
 
-## Invite other developers or users
+## Invite Developers and Users
 
-Click on the **Team** tab to display the list of developers and users who are registered to the application. 
-
-Click on the **Add user** button to invite users:
+In the **Team** tab, view the list of registered developers and users. Invite users by clicking the **Add user** button and providing their details, including "First Name", "Last Name", "Email Address", and "Profile" (a [role defined in Qodly Studio](../studio/roles/rolesPrivilegesOverview.md)).
 
 ![invite](img/invite1.png)
 
-For every user, you need to provide their "First Name", "Last Name", "Email address", and "Profile". The Profile is a Role you [defined in the application with Qodly Studio](../studio/roles/rolesPrivilegesOverview.md). 
-
-
-## Schedule and restore your backups
+## Schedule and Restore Backups
 
 ![backup](img/backup.png)
 
 
-## Preview your app
+## Preview Your App
 
-In the Application Access area, click on the **Preview URL** to open the [home page](../studio/settings.md#start-page) of your application.
-
-![publish](img/publish.png)
-
-## Add custom domain
-
-Per app, you can add your domain to be validated by your DNS. All the information will be provided by QCMC.
+Click the **Preview URL** in the Application Access area to open your application's [home page](../studio/settings.md#start-page).
 
 ![publish](img/publish.png)
 
-## Access to your files through sftp
+## Add Custom Domain
 
-For every environment, you can access to your files on the server using the **Secure File Transfer Protocol** (sftp). You just need to click on the **Access files** button:
+Per app, you can add a domain for validation (details provided by QCMC).
+
+![publish](img/publish.png)
+
+## Access Files via SFTP
+
+For every environment, access your files on the server using the **Secure File Transfer Protocol** (SFTP) by clicking the **Access files** button.
 
 ![access-files](img/sftp.png)
 
-
-With your favorite ftp client (Filezilla for instance), you can access and manage your files. 
-
+With your preferred FTP client (e.g., Filezilla), you can access and manage your files.
