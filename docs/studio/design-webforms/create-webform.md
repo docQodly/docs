@@ -6,29 +6,43 @@ import Column from '@site/src/components/Column'
 
 ## Creating a webform
 
-In Qodly, the foundation of your work begins with a webform, a container encompassing all other components (buttons, style boxes, etc.) within your application.
+In Qodly, the foundation of your work begins with a webform, a container encompassing all other components (buttons, style boxes, etc.) within your application. You can create a webform using one of the three methods:
 
-* From the homepage, select **Webform** and input a name for the new webform
-* Within the Webform Editor, access the **New +** tab and choose **Webform**
-
-## Overview
-
-The Webform Editor furnishes an array of tools for tailoring your application's interface and content:
-
-![interface](img/web-form-editor-interface.png)
-
-1. **Explorer**: Showcases your project's webforms, methods, classes, shared elements (like images), and debugger sessions. Each element features a contextual menu (**...**) for actions such as **Delete**, **Duplicate**, **Open** or **Edit**. You can also access JSON definition files (../../coding.md#json-view) for [webforms](#json-view), [roles and privileges](../roles/rolesPrivilegesOverview.md#json-view), and [data model](../model/model-editor-interface.md#json-view).
-2. **Tabs**: These keep track of your currently opened elements, including webforms and methods.
-3. **Components**: Fundamental building blocks of your application.
-4. **Data Sources**: Create and explore datasources.
-5. **Styles Library**: Houses pre-defined and customized styles for components.
-6. **Outline**: Offers a view of your webform's structure and facilitates element navigation.
-7. **Canvas**: Here, components, styles, and datasources come together. Drag and drop components onto the canvas, then further refine by adding CSS classes and datasources. Preview or render your webforms.
-8. **Properties panel**: Allows advanced style customization and facilitates datasource binding to components.
-9. **Contextual panel**: Establish event links, code associations, edit CSS styles, and more.
-10. **Header**: Save and preview your work, access the Data Explorer, and configure additional settings.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ol>
+            <li>On the Qodly Studio <strong>homepage</strong>, select <code>Webform</code> and name the new webform in the creation modal.</li><br/><br/><br/><br/><br/>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Webforms</code>. </li><br/><br/><br/><br/>
+            <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for <code>Webform</code>.</li>
+        </ol>
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/homepageNewWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img alt="explorer" src={require('./img/plusWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img alt="explorer" src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
+	</Column.Item>
+</Column.List>
 
 
+
+## Webform Editor Overview
+
+Empowering your application's interface and content customization, the Webform Editor offers a versatile toolkit:
+
+<img alt="explorer" src={require('./img/WebformEditorOverview.png').default} style={{borderRadius: '6px'}} />
+
+1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview webforms.
+2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
+3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
+4. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
+5. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
+6. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
+7. [**Properties panel**](#properties-panel): Customizes component attributes for tailored behavior and appearance.
+8. [**Header panel**](#header-panel): Simplifies project management for streamlined tracking.
+9. **Device toolbar**: Simulates how a website looks and functions on various devices and screen sizes for testing and optimization.
+10. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
+11. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
+12. **Tabs**: Organizes open elements, including webforms, [class functions](../coding#classes), [methods](../coding#methods), [model](../model/model-editor-interface.md), [roles and priviliges](../roles/rolesPrivilegesOverview.md) and [settings](../settings.md).
 
 ## Breadcrumbs
 

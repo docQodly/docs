@@ -36,7 +36,7 @@ Access to Qodly Studio is granted to developers once they complete a series of a
 - Clicking on the [Studio](../cloud/application-management#open-qodly-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/application-management#open-qodly-studio) in the General tab for the open environment.
 
-## Overview of Qodly Studio Interface
+## Qodly Studio Homepage Overview
 
 When you first step into Qodly Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
 
