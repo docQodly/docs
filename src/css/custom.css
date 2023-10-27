@@ -38,8 +38,14 @@
 img {
   border-radius: 6px;
 }
+
 img[alt="qodlyOverview"] {
   width: 3%;
+}
+
+.longCode-block{
+  max-height: 400px; 
+  overflow: auto; 
 }
 /* release notes tabs*/
 .qodly-tabs {
