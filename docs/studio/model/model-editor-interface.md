@@ -2,6 +2,7 @@
 id: model-editor-interface
 title: Model Editor
 ---
+import Column from '@site/src/components/Column'
 
 The Data Model Editor allows you to create and modify the **model** for your application. A model is a description of how data will be accessed and stored into structures called "datastore classes".
 
@@ -94,21 +95,22 @@ For more information, please refer to [this section](../../orda/data-model.md#cr
 The Properties area displays the properties for the selected element: [datastore class](datastore-classes.md#datastore-class-properties), [attribute](attributes.md#properties), or [function](functions.md#permissions). 
 
 
-## JSON View
+## Model JSON Representation
 
-A model is based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). This feature is useful for troubleshooting or to copy/paste selected parts.   
+In Qodly Studio, the model possesses a JSON representation that is useful for troubleshooting or to copy/paste selected parts.
 
-To open the JSON view of your model, select **Model** from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**:
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+        This representation can be accessed through a text editor by selecting the <code>Model</code> in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
+	</Column.Item>
+	<Column.Item width="45%">
+        <img alt="json" src={require('./img/openastext.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-![json](img/openastext.png)
+<br/>
 
-The model is opened in JSON format in the code editor. 
+The model is opened in JSON format in the text editor:
 
 ![json](img/code-view.png)
-
-:::warning
-
-Editing the JSON code can invalidate the document and generate errors.
-
-:::
 
