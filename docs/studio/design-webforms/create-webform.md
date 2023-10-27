@@ -222,15 +222,388 @@ For additional styling insights, refer to the [**Styling**](styling.md) section.
 :::
 
 
-## JSON View
+## Webform JSON Representation
 
-A webform is based upon a JSON file that you can open directly as text in the [Code editor](../coding.md#code-editor). This feature is useful for troubleshooting or to copy/paste selected parts.   
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        In Qodly Studio, every webform possesses a unique JSON representation. <br/><br/>
+        This representation can be accessed through a text editor by selecting the webform in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
+	</Column.Item>
+	<Column.Item width="40%">
+        <img alt="explorer" src={require('./img/textEditor.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-To open the JSON view of your webform, select it from the Explorer, click on the options menu (...) on the right side and select **Open With > Text Editor**.
+### Purpose
 
-:::warning
+The JSON representation serves as a fundamental blueprint for the webform. Its primary purposes include:
 
-Editing the JSON code can invalidate the document and generate errors.
+- **Secure Preservation**: It securely preserves the webform in a structured, machine-readable format.
 
+- **Consistent Modification**: It simplifies the process of modifying component-related details to customize the webform or resolve issues.
+
+- **Easy Replication**: It allows users to effortlessly replicate the entire webform, including its design and functionality, by copying and pasting it into another web form's text editor.
+
+:::tip Notably:
+This process ensures the seamless replication of even local datasources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target webform.
 :::
 
+### Example
+
+Let's explore the JSON representation of a webform that includes a [Webform Loader](./components/webformloader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
+
+<img alt="explorer" src={require('./img/webformJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
+
+The JSON representation of the webform is structured as follows:
+
+<div class="longCode-block">
+
+```javascript
+{
+  "metadata": {
+    "v": "1.0",
+    "datasources": [
+      {
+        "id": "homeWebform",
+        "type": "scalar",
+        "namespace": "",
+        "dataType": "string",
+        "initialValue": "home"
+      },
+      {
+        "id": "version",
+        "type": "scalar",
+        "namespace": "",
+        "dataType": "string",
+        "initialValue": ""
+      }
+    ],
+    "styles": [
+      {
+        "name": "comforterBrush",
+        "content": "self {\n\tfont-family: \"Comforter Brush\", cursive !important;\n}",
+        "parentId": null,
+        "id": "Ub8fl59kqIYbend2op18M"
+      }
+    ]
+  },
+  "components": {
+    "ROOT": {
+      "type": {
+        "resolvedName": "Container"
+      },
+      "isCanvas": true,
+      "props": {
+        "classNames": [],
+        "events": [
+          {
+            "type": "method",
+            "dataclass": "DataStore",
+            "events": [
+              "onload"
+            ],
+            "id": "77VxabQYTbMyky6JW2MmJm",
+            "method": "ds.loadUser",
+            "params": [],
+            "returns": {
+              "name": "$0",
+              "type": "Variable",
+              "datasource": "userManagement:user"
+            }
+          }
+        ],
+        "className": "bg-white h-full w-full px-6",
+        "airyMode": false,
+        "style": {
+          "paddingTop": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingLeft": "0px"
+        },
+        "serverSideRef": "webformRef"
+      },
+      "displayName": "Webform",
+      "custom": {},
+      "parent": "",
+      "hidden": false,
+      "nodes": [
+        "JT1BLTebtT",
+        "bXx3gBHhJA"
+      ],
+      "linkedNodes": {}
+    },
+    "JT1BLTebtT": {
+      "type": {
+        "resolvedName": "StyleBox"
+      },
+      "isCanvas": true,
+      "props": {
+        "events": [],
+        "style": {
+          "backgroundColor": "#ffffffff",
+          "display": "flex",
+          "paddingLeft": "0px",
+          "paddingRight": "0px",
+          "gap": "20px",
+          "paddingTop": "0px",
+          "paddingBottom": "0px",
+          "borderBottomColor": "#FFBC00",
+          "borderBottomWidth": "4px",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "flexWrap": "wrap",
+          "alignContent": "center",
+          "width": "100%",
+          "minWidth": "100%",
+          "height": "10%"
+        },
+        "serverSideRef": ""
+      },
+      "displayName": "Stylebox",
+      "custom": {
+        "displayName": "Header"
+      },
+      "parent": "ROOT",
+      "hidden": false,
+      "nodes": [
+        "0aNlvNGY8X",
+        "KeLZVvKaHp"
+      ],
+      "linkedNodes": {}
+    },
+    "0aNlvNGY8X": {
+      "type": {
+        "resolvedName": "Text"
+      },
+      "isCanvas": false,
+      "props": {
+        "events": [],
+        "doc": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "TravelTrove ",
+                "italic": false,
+                "underlined": false,
+                "strikethrough": false,
+                "bold": true
+              },
+              {
+                "type": "datasource",
+                "datasource": "version",
+                "children": [
+                  {
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "bold": true,
+                    "text": "v"
+                  }
+                ],
+                "dsType": "string",
+                "format": ""
+              },
+              {
+                "text": ""
+              }
+            ]
+          }
+        ],
+        "datasource": "version",
+        "style": {
+          "fontSize": "40px",
+          "textAlign": "center",
+          "fontFamily": "New Tegomin",
+          "paddingLeft": "10px",
+          "paddingRight": "10px",
+          "paddingBottom": "10px",
+          "paddingTop": "10px"
+        },
+        "classNames": [
+          "comforterBrush"
+        ],
+        "serverSideRef": "textRef"
+      },
+      "displayName": "Text",
+      "custom": {},
+      "parent": "JT1BLTebtT",
+      "hidden": false,
+      "nodes": [],
+      "linkedNodes": {}
+    },
+    "vQwIVqfzaG": {
+      "type": {
+        "resolvedName": "StyleBox"
+      },
+      "isCanvas": true,
+      "props": {
+        "events": [],
+        "style": {
+          "minHeight": "40px",
+          "display": "flex",
+          "alignItems": "center"
+        }
+      },
+      "displayName": "Stylebox",
+      "custom": {},
+      "parent": "vt5ll-8J-n",
+      "hidden": false,
+      "nodes": [],
+      "linkedNodes": {}
+    },
+    "KeLZVvKaHp": {
+      "type": {
+        "resolvedName": "Radio"
+      },
+      "isCanvas": false,
+      "props": {
+        "classNames": [
+          "radio-selectedItem"
+        ],
+        "events": [],
+        "defaultValue": "home",
+        "mode": "single",
+        "type": "tabs",
+        "options": [
+          {
+            "label": "HOME",
+            "value": "home",
+            "id": "8SFueBkpxWtmqTmEHa92ew"
+          },
+          {
+            "label": "TOURS",
+            "value": "tours",
+            "id": "fLxd7NcKBA9xzUTwf8NXPj"
+          },
+          {
+            "label": "DESTINATIONS",
+            "value": "destinations",
+            "id": "f9mqtjJG2nap5EJKaMqKM5"
+          }
+        ],
+        "datasource": "Ui:mainWebform",
+        "style": {
+          "color": "#000000ff",
+          "textTransform": "uppercase",
+          "fontWeight": "700"
+        },
+        "serverSideRef": "radioOptionsRef"
+      },
+      "displayName": "Radio",
+      "custom": {},
+      "parent": "JT1BLTebtT",
+      "hidden": false,
+      "nodes": [],
+      "linkedNodes": {}
+    },
+    "bXx3gBHhJA": {
+      "type": {
+        "resolvedName": "WebformLoader"
+      },
+      "isCanvas": false,
+      "props": {
+        "events": [],
+        "style": {
+          "width": "100%",
+          "height": "90%",
+          "paddingLeft": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingTop": "0px"
+        },
+        "datasource": "Ui:mainWebform",
+        "webform": "home",
+        "classNames": [],
+        "serverSideRef": "webformLoaderRef"
+      },
+      "displayName": "Webform Loader",
+      "custom": {},
+      "parent": "ROOT",
+      "hidden": false,
+      "nodes": [],
+      "linkedNodes": {}
+    }
+  }
+}
+```
+
+</div>
+
+### Dissection
+
+The JSON representation of the webform consists of two major elements: `metadata` and `components`.
+
+1. **metadata**: Contains metadata related to the webform.
+<ul>
+    <li><code>v</code> : Version of the webform.</li> 
+    <br/>
+    <li><code>datasources</code> : An array of local datasources scoped to the webform, with the following sub-attributes:</li>
+    <ul>
+        <li><code>id</code> : Identifier for each datasource.</li>
+        <li><code>type</code> : Specifies the type of the datasource.</li>
+        <li><code>namespace</code> : Denotes the namespace of the datasource, which is empty if the datasource is local.</li>
+        <li><code>dataType</code> : Represents the data type of the datasource.</li>
+        <li><code>initialValue</code> : Indicates the initial value of the datasource name.</li>
+    </ul> 
+    <br/>
+    <li><code>styles</code> : An array of local css classes scoped to the webform. It includes the following sub-attributes:</li>
+    <ul>
+        <li><code>name</code> : Name of the css class.</li>
+        <li><code>content</code> : The actual CSS content of the CSS class.</li>
+        <li><code>parentId</code> : Identifier of the parent CSS class, if applicable.</li>
+        <li><code>id</code> : Unique identifier for each CSS class.</li>
+        <li><code>scope</code> : Specifies the scope of the style, states local all the time as the styles are oly diplsay an array of local css classes scoped to the webform.</li>
+    </ul> 
+</ul> 
+
+2. **components**: Represents the individual components used in the webform. Each component shares these common attributes:
+
+    - `type`: 
+        - `resolvedName`: Specifies the component's type.<br/><br/>
+    - `isCanvas`: Indicates if the component functions as a canvas.<br/><br/>
+    - `props`:
+        - `classNames`: An array of CSS classes applied to the component, whether they are local, shared, or theme-specific.
+        - `events`: An array of events associated with the component.
+        - `style`: Defines CSS styling properties for the component.
+        - `serverSideRef`: Refers to a server-side resource.<br/><br/>
+    - `displayName`: Represents the name of the component.<br/><br/>
+    - `custom`:
+        - `displayName`: The name of a custom component, particularly when it's a component used from existing templates.<br/><br/>
+    - `parent`: Identifies the parent component.
+    - `hidden`: Indicates if the component is hidden.
+    - `nodes`: An array of child components nested within the current component.
+    - `linkedNodes`: An object of component elements linked to this particular component.
+
+    <br/><br/>
+
+    :::info
+    Each specific component may have additional attributes under the `props` section, such as airyMode for the `ROOT` component, or other component-specific details.
+    :::
+    Specific components may have additional attributes under the `props` section, like: 
+
+    - **ROOT** (Container):
+        - `className`: The CSS class name for styling.
+        - `airyMode`: Indicates whether airy mode is enabled for the component.
+
+    - **0ANLVNGY8X** (TEXT):
+        - `doc`:
+            - `type`: Describe the type of the Text component.
+            - `children`: 
+                - `type`: If this attribute is visible with a value of "datasource", it means that portion of the text content is bound to a datasource. If not, then it's static text.
+                - `datasource`: The name of the datasource bound to the portion of the text content.
+                - `children`: Specifies the text content visual formatting.
+                - `dsType`: The data type of the datasource.
+                - `format`: Specifies the data formatting for the datasource.
+        - `datasource`: The name of the datasource bound to the component.
+
+    - **KELZVVKAHP** (RADIO):
+        - `defaultValue`: Sets the default value for the radio.
+        - `mode`: Specifies the radio selection mode.
+        - `type`: Determines the display type of the radio.
+        - `options`: Lists the available radio options.
+        - `datasource`: The name of the datasource bound to the component.
+
+    - **bXx3gBHhJA** (Webform Loader):
+        - `webform`: The name of the webform set as an initial value.
+        - `datasource`: The name of the datasource bound to the component.
