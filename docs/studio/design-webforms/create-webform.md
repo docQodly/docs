@@ -207,7 +207,7 @@ Discover numerous customization avenues that empower you to fine-tune components
 
 | Section       | Description |
 |-----------------|-------------|
-| CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the Style Library for comprehensive style options and additional details. |
+| CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the [Styles Library](styling.md) for additional details. |
 | Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
 | Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings.                                              |
 | Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
@@ -217,10 +217,16 @@ Discover numerous customization avenues that empower you to fine-tune components
 | Borders         | Define borders using attributes like thickness, color, and style to visually distinguish the component.                                   |
 | Border radius   | Adjust component corner curvature for various shapes and styles. |
 
-:::info 
-For additional styling insights, refer to the [**Styling**](styling.md) section.
+:::info
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+      To reset the value of a particular attribute to the one stored on the server within the Style category, just click on the attribute's name and choose <code>Reset Value</code>.
+	</Column.Item>
+	<Column.Item width="40%">
+        <img alt="explorer" src={require('./img/resetValue.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 :::
-
 
 ## Webform JSON Representation
 

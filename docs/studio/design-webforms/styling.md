@@ -1,43 +1,142 @@
 ---
 id: styling
-title: Styling
+title: Styles Library
 ---
+import Column from '@site/src/components/Column'
 
-Once a component is on the Canvas, you can customize its look using styling tools.
+After placing a component on the Canvas, you have the freedom to tailor its appearance using a variety of styling tools.
 
-## Styles Library 
+## Overview 
 
-One way of styling components is by dragging CSS classes from the Styles Library and dropping them on the components.
+The Styles Library provides a powerful way to style your components. You can do this by simply dragging CSS classes from the Styles Library and dropping them onto the components.
 
-The Styles Library offers three types of styles: 
-* Local: Styles you create
-* Theme: Predefined CSS classes
-* Shared: Shared CSS classes
+The Styles Library provides three distinct types of CSS classes: 
 
-![styles-library](img/styles-library.png)
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <ul>
+          <li><strong>Local</strong>: These CSS classes are specific to the Webforms in which they are created and do not have an icon next to them.</li>
+          <li><strong>Theme</strong>: Predefined CSS classes designed for standard themes, which can be applied across all Webforms in your application. You can recognize them by this icon <img alt="styles-library" src={require('./img/theme.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
+          <li><strong>Shared</strong>: CSS classes that are shareable and can be used across all Webforms within your application. These are identifiable by this unique icon <img alt="styles-library" src={require('./img/shared.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/styles-library.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-Local styles can only be used in the Webforms in which they are created, while theme and shared CSS classes are usable by all Webforms through the whole project.
+## Managing CSS Classes 
 
-Theme classes cannot be modified. 
+### Adding a CSS Class
 
-To create a local CSS class, click the "+" button and enter a name and let the **Export as Shared** option unchecked.
-To create a shared CSS class, check the **Export as Shared** option. 
+To add a CSS class, click the <img alt="styles-library" src={require('./img/addCssClass.png').default} style={{borderRadius: '6px', width: '3%'}} /> button, give it a name, and then choose the appropriate type:
 
-Local and shared CSS class code can be edited in the Contextual panel at the bottom. 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <ul>
+          <li>For a <strong>local CSS class</strong>: Leave the "Create as Shared" option unchecked. </li> <br/>
+          <li>For a <strong>shared CSS class</strong>: Check the "Create as Shared" option.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/createCssClass.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-You can convert a local CSS to a shared CSS by clicking on the following button in the Contextual panel:
+:::info
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    An alternative method to establish a new CSS class is through the properties panel, within the Style category. You can input your desired name, for example "newCssClass", into the CSS field. <br/>
+    If this name doesn't correspond to any existing CSS classes, you will be prompted with the option to create a new one.
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/createCssClass2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
 
-![CSS-convert](img/shared-stylesheet.png)
+### Editing a CSS Class
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+    To edit a CSS class code, click the edit button <img alt="styles-library" src={require('./img/edit.png').default} style={{borderRadius: '6px', width: '4%'}} /> within the Styles Library next to the class's name. This action will open it in the contextual panel.
+	</Column.Item>
+	<Column.Item width="30%">
+    <img alt="styles-library" src={require('./img/editClass.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- Both **Local** and **Shared** CSS class codes can be modified in the [Contextual panel](../design-webforms/create-webform#contextual-panel) at the interface's bottom.
+
+  <img alt="styles-library" src={require('./img/editCSSClassCode.png').default} style={{borderRadius: '6px'}} />
+
+<br/><br/>
+
+:::info
+The changes will affect all the components utilizing this CSS class.
+:::
 
 
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <strong>Theme</strong> classes, however, are non-editable, they can only be viewed by clicking on the <img alt="styles-library" src={require('./img/view.png').default} style={{borderRadius: '6px', width: '5%'}} /> button next to their name in the Styles Library.
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/cannotEditThemeCSSClassCode.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-### Inspect button
 
-The **Inspect** option ![styles-library](img/inspect-button.png) allows you to check where your CSS classes are used in your webforms. 
+:::info
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    An alternative approach to edit a CSS class is to navigate to the Style category, where you can check which CSS classes affect your component and access them using the edit button <img alt="styles-library" src={require('./img/edit2.png').default} style={{borderRadius: '6px', width: '4%'}} />.
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/editCSSClassCode2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
 
-Toggle the option by clicking the icon, then mouse over a CSS class to highlight its location in your webform:
+### Renaming a CSS Class
 
-![styles-library](img/cssinspect.png)
+Inside the Contextual panel, you'll find a field with the class name <img alt="styles-library" src={require('./img/classNameField.png').default} style={{borderRadius: '6px', width: '35%'}} /> and an edit button <img alt="styles-library" src={require('./img/rename.png').default} style={{borderRadius: '6px', width: '3%'}} /> next to it. Click on it to rename the class.
+
+:::info
+Theme CSS classes cannot be renamed.
+:::
+
+### Deleting a CSS Class 
+
+To remove a CSS class, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Styles Library.
+
+:::info
+Theme CSS classes cannot be deleted.
+:::
+
+### Converting a Local CSS Class to Shared
+
+Inside the Contextual panel, you'll find a field with the class name <img alt="styles-library" src={require('./img/shared-stylesheet.png').default} style={{borderRadius: '6px', width: '35%'}} /> and a share button <img alt="styles-library" src={require('./img/share.png').default} style={{borderRadius: '6px', width: '3%'}} /> next to it. Click on it to transform a local CSS class into a shared one.
+
+### Tracking CSS Classes Usage
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    The <strong>Inspect</strong> option allows you to see where your CSS classes are used within your webforms. 
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="explorer" src={require('./img/inspect-button2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="35%">
+    Toggle the option by clicking the button, then hover over a CSS class to highlight its location in your webform.
+	</Column.Item>
+	<Column.Item width="60%">
+		<img alt="explorer" src={require('./img/cssinspect.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 ## Properties panel
 
@@ -93,12 +192,6 @@ This exports the [new style properties](#overriding-style-properties) of the ele
 If both a shared and a local CSS classes have the same name:
 - in the Webform source, the shared CSS is placed first and the local one is placed in second
 - as a result, if one of them is applied to a component, they are both applied and some local CSS properties may override the shared ones.
-
-
-
-### Editing a CSS class
-
-Once a local or shared class is created, you can hover over it in the Styles Library and click the **Edit Class** button next to its name to edit the CSS directly. The changes apply to all the components using this class.
 
 
 ## Customizing DataTable Styles
