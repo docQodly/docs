@@ -559,7 +559,7 @@ The JSON representation of the webform consists of two major elements: `metadata
         <li><code>content</code> : The actual CSS content of the CSS class.</li>
         <li><code>parentId</code> : Identifier of the parent CSS class, if applicable.</li>
         <li><code>id</code> : Unique identifier for each CSS class.</li>
-        <li><code>scope</code> : Specifies the scope of the style, states local all the time as the styles are oly diplsay an array of local css classes scoped to the webform.</li>
+        <li><code>scope</code> : Defines the scope in which the style operates, remaining local at all times, as the styles exclusively represent an array of local CSS classes confined to the webform.</li>
     </ul> 
 </ul> 
 
