@@ -143,15 +143,16 @@ Formatting options may vary based on the specific data type of the attribute and
 
 <br/>
 
+
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
                 <ul>
-                        <li>For <strong>Duration</strong>:</li> <br/>
+                        <li>For <strong>Duration</strong>:</li> 
                         <ul>
-                                <li><strong>without seconds</strong>: Displays the time without seconds.</li> 
-                                <li><strong>with seconds</strong>: Displays the time with seconds.</li>
-                        </ul>
-                </ul>
+                                <li><strong>Simple</strong>: 14:40:30.</li> 
+                                <li><strong>Distance</strong>: about 15 hours.</li>
+								<li><strong>Distance with Suffix</strong>: in about 15 hours.</li>                                                                                            <li><strong>Strict Distance</strong>: 15 hours.</li>                                                                                                                    <li><strong>Strict Distance with Suffix</strong>: in 15 hours.</li>
+                </ul><i><b>Note:</b> Examples with duration 52 830 000 ms.</i>                        </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
