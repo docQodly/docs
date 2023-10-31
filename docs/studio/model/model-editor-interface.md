@@ -114,3 +114,8 @@ The model is opened in JSON format in the text editor:
 
 ![json](img/code-view.png)
 
+:::warning
+
+Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes.md#rename-a-datastore-class).
+
+:::
