@@ -42,12 +42,6 @@ The Data Explorer window opens in a new tab, displaying data available in your a
 
 The Data Explorer provides an overall access to the [data model](../studio/model/model-editor-interface.md).
 
-You can switch to the **dark mode** display theme using the selector at the bottom of the page:
-
-![dark-mode](img/dark.png)
-
-![dark-mode](img/dataExplorer2.png)
-
 The page contains several areas:
 
 - On the left side are the **Dataclasses area** and **Attributes area**, allowing you can select the dataclasses and attributes to display. Attributes are ordered according to their creation order. Primary key and indexed attributes have a specific icon. You can filter the list of dataclass names and attribute names using the respective search areas.
@@ -68,6 +62,12 @@ The page contains several areas:
 ![related](img/dataExplorerRelated.png)
   - **Ctrl+Click** (Windows) or **Command+Click** (macOS) on a related attribute name in the right side area displays the values of the attribute in an independant, floating area:<br/>
 ![floating-area](img/dataExplorerFloat.png)
+
+You can switch to the **dark mode** display theme using the selector at the bottom of the page:
+
+![dark-mode](img/dark.png)
+
+![dark-mode](img/dataExplorer2.png)
 
 ## Updating contents
 
