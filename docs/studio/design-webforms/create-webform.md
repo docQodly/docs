@@ -246,7 +246,7 @@ The JSON representation serves as a fundamental blueprint for the webform. Its p
 
 - **Secure Preservation**: It securely preserves the webform in a structured, machine-readable format.
 
-- **Consistent Modification**: It simplifies the process of modifying component-related details to customize the webform or resolve issues.
+- **Consistent Modification**: It simplifies the process of modifying component-related details to customize the webform, resolve issues, or perform global search and replace operation.
 
 - **Easy Replication**: It allows users to effortlessly replicate the entire webform, including its design and functionality, by copying and pasting it into another web form's text editor.
 
@@ -412,6 +412,7 @@ The JSON representation of the webform is structured as follows:
               },
               {
                 "text": ""
+
               }
             ]
           }
