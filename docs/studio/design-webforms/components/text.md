@@ -87,7 +87,6 @@ Alternatively, you can establish the connection by dragging and dropping a datas
 The **Text** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
 |Event|Description|
-
 |---|---|
 |On Click| Calls for an action when the user clicks on the component. |
 |On DblClick| Calls for an action when the user double-clicks on the component. |

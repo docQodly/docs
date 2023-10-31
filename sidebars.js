@@ -94,6 +94,11 @@ const sidebars = {
 			label: "Settings"
 		},
 		{
+			type: 'doc',
+			id: 'data-explorer/data-explorer',
+			label: "Data Explorer"
+		},
+		{
 			type: 'category',
 			label: 'Coding and Debugging',
 			items: ['studio/coding',

@@ -36,6 +36,7 @@ Access to Qodly Studio is granted to developers once they complete a series of a
 - Clicking on the [Studio](../cloud/application-management#open-qodly-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/application-management#open-qodly-studio) in the General tab for the open environment.
 
+
 ## Qodly Studio Homepage Overview
 
 When you first step into Qodly Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
@@ -65,8 +66,8 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
     - **Create New**: Offers convenient quick links for:
         - ![qodlyOverview](./img/overview_webform.png) Webform: Speedily initiate the creation of a new Webform.
-        - ![qodlyOverview](./img/overview_class.png) Class: Easily generate a new Class.
-        - ![qodlyOverview](./img/overview_method.png) Method: Easily generate a new Method.
-        - ![qodlyOverview](./img/overview_data.png) Data: Provide access to the Data Explorer, facilitating data-related operations.
+        - ![qodlyOverview](./img/overview_class.png) Class: Generate a new Class.
+        - ![qodlyOverview](./img/overview_method.png) Method: Generate a new Method.
+        - ![qodlyOverview](./img/overview_data.png) Data: Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
     - **Recent Files**: Displays the most recently accessed files, allowing you to quickly revisit your recent work.
     - **What's New**: Keeps you updated with the latest news and announcements from the Qodly team.
