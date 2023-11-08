@@ -220,7 +220,7 @@ Discover numerous customization avenues that empower you to fine-tune components
 :::info
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-      To reset the value of a particular attribute to the one stored on the server within the Style category, just click on the attribute's name and choose <code>Reset Value</code>.
+      To restore the value of an attribute within the Style category to its default value, simply click on the attribute's name and select <code>Reset Value</code>.
 	</Column.Item>
 	<Column.Item width="40%">
         <img alt="explorer" src={require('./img/resetValue.png').default} style={{borderRadius: '6px'}} />
@@ -591,7 +591,7 @@ The JSON representation of the webform consists of two major elements: `metadata
 
     - **ROOT** (Container):
         - `className`: The CSS class name for styling.
-        - `airyMode`: Indicates whether airy mode is enabled for the component.
+        - `airyMode`: Indicates whether airy mode is enabled for the webform.
 
     - **0ANLVNGY8X** (TEXT):
         - `doc`:
@@ -614,3 +614,58 @@ The JSON representation of the webform consists of two major elements: `metadata
     - **bXx3gBHhJA** (Webform Loader):
         - `webform`: The name of the webform set as an initial value.
         - `datasource`: The name of the datasource bound to the component.
+
+### Syntax Check
+
+The syntax check identify and rectify syntax errors and other formatting issues within the JSON representation. These errors are not only highlighted but also accompanied by descriptive messages that facilitate pinpointing the exact problem. Below are some common examples of syntax errors that can be detected:
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+      <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code>  is absent between key-value pairs in an object or elements in an array.
+	</Column.Item>
+	<Column.Item width="30%">
+      <img alt="explorer" src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+      <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
+	</Column.Item>
+	<Column.Item width="30%">
+      <img alt="explorer" src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+      <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
+	</Column.Item>
+	<Column.Item width="30%">
+      <img alt="explorer" src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+      <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
+	</Column.Item>
+	<Column.Item width="30%">
+      <img alt="explorer" src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+      <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
+	</Column.Item>
+	<Column.Item width="30%">
+      <img alt="explorer" src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::warning
+It is essential to exercise caution when editing the JSON representation, as the syntax check does not validate whether attribute names match the expected ones or if there are issues with the attribute names. Similarly, it does not necessarily catch issues where a boolean value is used in place of a string value. 
+
+These discrepancies may not trigger errors, but they can potentially corrupt your webform or, in more severe cases, break it until the errors are rectified. Therefore, thorough validation of attribute names and values is crucial to ensure the integrity and functionality of your webform.
+:::

@@ -136,3 +136,7 @@ In Qodly Studio, the Roles and privileges possesses a JSON representation that i
 <br/>
 
 You can view, copy, or edit the JSON representation. 
+
+:::warning
+It is essential to exercise caution when editing the JSON representation, as the syntax check does not validate whether attribute names match the expected ones or if there are issues with the attribute names.
+:::
