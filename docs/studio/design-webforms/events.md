@@ -20,7 +20,7 @@ Events can be set to trigger either when end-users perform specific actions or w
 
 You can configure events to activate in response to specific actions performed by end-users, such as clicking buttons, moving the mouse cursor, and more. 
 
-Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](create-webform.md).
+Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](components/stylebox.md#triggers-and-events).
 
 ### Datasource events
 
@@ -291,7 +291,7 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
 
 ### Navigation - Shared Folder
 
-Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#navigation-actions---external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the "Select Target" field. Ensure that the path begins with `/$shared`.
+Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#navigation---external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the "Select Target" field. Ensure that the path begins with `/$shared`.
 
 :::tip 
 When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
@@ -400,7 +400,7 @@ Data model class functions can be linked to events, utilizing parameters from da
         </Column.Item>
     </Column.List>
 
-4. **Selecting a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
+4. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
@@ -421,7 +421,7 @@ Data model class functions can be linked to events, utilizing parameters from da
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-		When you make modifications to the function prototype in the code editor, such as adding or removing parameters or changing their types, and you want these changes to be applied to the Action configuration area, you can easily do so by clicking the `Refresh` button. Qodly will then re-parse the function prototype to reflect the updated information while preserving the already assigned data sources as parameters.
+		When you make modifications to the function prototype in the code editor, such as adding or removing parameters or changing their types, and you want these changes to be applied to the Action configuration area, you can easily do so by clicking the Refresh button. Qodly will then re-parse the function prototype to reflect the updated information while preserving the already assigned data sources as parameters.
 	</Column.Item>
 	<Column.Item width="35%">
 		<img alt="explorer" src={require('./img/refreshFunction.png').default} style={{borderRadius: '6px'}} />
@@ -433,6 +433,16 @@ Data model class functions can be linked to events, utilizing parameters from da
 
 5. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
+		<strong>Add Parameter</strong>: If your function accepts a <a href="../../language/basics/lang-parameters#optional-parameters">variable number of parameters</a>, you can use this button to declare and bind one or more appropriate parameter(s). They will be passed to the function in the defined order when called for the event.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img alt="explorer" src={require('./img/contextualPanel_addParam.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+6. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
 		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. 
 	</Column.Item>
 	<Column.Item width="40%">
@@ -440,8 +450,6 @@ Data model class functions can be linked to events, utilizing parameters from da
 	</Column.Item>
 </Column.List>
 
-
-On top of that:
 
 :::tip 
 A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.

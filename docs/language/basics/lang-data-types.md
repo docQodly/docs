@@ -20,7 +20,7 @@ Although they are usually equivalent, some data types available at the datastore
 |[null](lang-null-undefined.md)	|-	|-|null|
 |[number](lang-number.md)|`var integer`, `var number`|number|0|
 |[object](lang-object.md)	|`var object`|object|null|
-|[picture](lang-picture.md)	|`var picture`|image|`pictureSize`==0|
+|[picture](lang-picture.md)	|`var picture`|image|`pictureSize` == 0|
 |[string](lang-text.md)	|`var string`|string|""|
 |[time](lang-time.md) |`var time`|number|00:00:00|
 |[undefined](lang-null-undefined.md)	|-	|-|undefined|
@@ -123,8 +123,8 @@ Numerical object properties are always considered number values:
 ```
 var o : object
 var vType : integer
-o=newObject("value",42)
-vType=valueType(o.value) //vType=kNumber
+o = newObject("value",42)
+vType = valueType(o.value) //vType = kNumber
 ```
 
 ::: 
@@ -135,11 +135,11 @@ You want to handle the various possible types of an object property value:
 
 ```qs
 switch
-	:(valueType(o.value)==kNumber)
+	:(valueType(o.value) == kNumber)
   //handle a numeric value
-    :(valueType(o.value)==kString)
+    :(valueType(o.value) == kString)
   //handle a string
-    :(valueType(o.value)==kObject)
+    :(valueType(o.value) == kObject)
   //handle a sub-object
        ...
 end
@@ -152,10 +152,10 @@ You want to sum up all numeric values in a collection:
 ```qs
 var col : collection
 var colSum : number
-col=newCollection("Hello",20,"World2",15,50,currentDate,true,10)
+col = newCollection("Hello",20,"World2",15,50,currentDate,true,10)
 for(i,0,col.length-1) //-1 since collections start at 0
-	if(valueType(col[i])==kNumber)
-       colSum=colSum+col[i]
+	if(valueType(col[i]) == kNumber)
+       colSum = colSum+col[i]
     end
 end
 ```

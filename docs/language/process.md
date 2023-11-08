@@ -56,10 +56,10 @@ This command should only be used for searching errors or administration purposes
 You want to stop the first process of a processes collection:
 
 ```qs
-  //variable =curItemPosition
+  //variable  = curItemPosition
  
   // Retrieve the list of process on the server
- activity=getProcessActivity(kProcessesOnly).processes 
+ activity = getProcessActivity(kProcessesOnly).processes 
  ...
   // The selected process is stopped on the server
  abortProcessByID(activity[0].ID)
@@ -122,7 +122,7 @@ The code called from the button:
 
 ```qs
 var vYear: integer
-vYear=2015 // could have been selected by the user in the form
+vYear = 2015 // could have been selected by the user in the form
 callWorker("myWorker",formula(workerMethod),vYear)
 
 ```
@@ -365,9 +365,9 @@ callWorker(vWorkerName,"theWorker","end")
    
 declare (param : text)
 switch
-    :(param=="call") //the worker is called
+    :(param == "call") //the worker is called
        ... //do something
-    :(param=="end") //the worker is asked to kill itself
+    :(param == "end") //the worker is asked to kill itself
       killWorker()
 end
 ```
@@ -421,7 +421,7 @@ If the process does not exist, which means you did not pass in *process* a numbe
 
 After the call:
 
-- *procName* returns the name of the process. If the process was started by the Web server, its name is "Web Process#" followed by an UUID. If the process has been aborted (and its “slot” not reused yet), the name of the process is still returned. To detect if a process is aborted, test `procState=-1` (see below).
+- *procName* returns the name of the process. If the process was started by the Web server, its name is "Web Process#" followed by an UUID. If the process has been aborted (and its “slot” not reused yet), the name of the process is still returned. To detect if a process is aborted, test `procState = -1` (see below).
 - *procState* returns the state of the process at the moment of the call. This parameter can return one of the values provided by the following constants:
 
 |Constant|Value|
@@ -578,16 +578,16 @@ result = semaphore_proof
  
   // Start of method
  var L_MyError : integer
- L_MyError=1
+ L_MyError = 1
  
  var t_Sema : string
- t_Sema="tictac"
+ t_Sema = "tictac"
  
  if(semaphore(t_Sema,300))
   // We expected 300 ticks but the semaphore
   // was not released by the one that placed it:
   // we end up here
-    L_MyError=-1
+    L_MyError = -1
  
  else
  
@@ -602,13 +602,13 @@ result = semaphore_proof
  end
  
  var t_Message : string
- if(L_MyError==-1)
-    t_Message="The semaphore "+t_Sema+" has blocked access to the rest of the code"
+ if(L_MyError == -1)
+    t_Message = "The semaphore "+t_Sema+" has blocked access to the rest of the code"
  else
-    t_Message="OK"
+    t_Message = "OK"
  end
  
- result={code : L_MyError, message : t_Message)
+ result = {code : L_MyError, message : t_Message)
   // The calling method receives an error code and an explanation in plain text
 ```
 

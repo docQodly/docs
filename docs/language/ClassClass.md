@@ -61,7 +61,7 @@ To create a new instance of the Person class:
 
 ```qs
 var person : cs.Person  
-person=cs.Person.new() //create the new instance  
+person = cs.Person.new() //create the new instance  
 //person contains functions of the class
 ```
 
@@ -70,15 +70,15 @@ To create a new instance of the Person class with parameters:
 ```qs
 //Class: Person.4dm
 constructor(firstname : string, lastname : string, age : integer)
-	this.firstName=firstname
-	this.lastName=lastname
-	this.age=age
+	this.firstName = firstname
+	this.lastName = lastname
+	this.age = age
 ```
 
 ```qs
 //In a method
 var person : cs.Person  
-person=cs.Person.new("John","Doe",40)  
+person = cs.Person.new("John","Doe",40)  
 //person.firstName : "John"
 //person.lastName : "Doe"
 //person.age : 40
@@ -107,13 +107,13 @@ This property is **read-only**.
 
 ```qs
 var sup: variant
-sup=4D.File.superclass //Document
-sup=4D.Document.superclass //Object
-sup=4D.Object.superclass //null
+sup = 4D.File.superclass //Document
+sup = 4D.Document.superclass //Object
+sup = 4D.Object.superclass //null
 
 // If you created a MyFile class  
 // with `extends File`
-sup=cs.MyFile.superclass //File
+sup = cs.MyFile.superclass //File
 
 ```
 

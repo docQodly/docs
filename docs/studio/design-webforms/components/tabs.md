@@ -73,7 +73,7 @@ Enhance the Tabs component to align with your application's requirements using t
     </Column.List>
 
 
-## Data Binding
+## Data Integration
 
 When it comes to data-binding, it's important to note that the **Tabs** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified datasources, the **Tabs** component primarily focuses on organizing and presenting content through clickable tabs.
 

@@ -54,7 +54,7 @@ The datastore is opened automatically and available directly through `ds`.
 Using the datastore on the Qodly database:
 
 ```qs
- result=ds.Employee.query("firstName = :1","S@")
+ result = ds.Employee.query("firstName = :1","S@")
 ```
 
 
@@ -108,11 +108,11 @@ Each dataclass in a datastore is available as a property of the [DataStore objec
 ```qs
  var emp : cs.Employee
  var sel : cs.EmployeeSelection
- emp=ds.Employee //emp contains the Employee dataclass
- sel=emp.all() //gets an entity selection of all employees
+ emp = ds.Employee //emp contains the Employee dataclass
+ sel = emp.all() //gets an entity selection of all employees
 
   //you could also write directly:
- sel=ds.Employee.all()
+ sel = ds.Employee.all()
 ```
 
 
@@ -224,15 +224,15 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
  var error : boolean
 
  ds.startTransaction()
- person=ds.Persons.query("lastname==:1","Peters").first()
+ person = ds.Persons.query("lastname == :1","Peters").first()
 
- if(person!=null)
-    person.lastname="Smith"
-    status=person.save()
+ if(person != null)
+    person.lastname = "Smith"
+    status = person.save()
  end
  ...
  ...
- if(lastErrors[0].errCode!=0)
+ if(lastErrors[0].errCode != 0)
     ds.cancelTransaction()
  else
     ds.validateTransaction()

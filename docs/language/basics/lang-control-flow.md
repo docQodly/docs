@@ -5,7 +5,7 @@ title: Control flow
 
 Regardless of the simplicity or complexity of a method or function, you will always use one or more of three types of programming structures. Programming structures control the flow of execution, whether and in what order statements are executed within the code. There are three types of structures:
 
-- **Sequential**: a sequential structure is a simple, linear structure. A sequence is a series of statements that QodlyScript executes one after the other, from first to last. A one-line routine, frequently used for components, is the simplest case of a sequential structure. For example: `employee.lastName=uppercase(employee.lastName)`
+- **Sequential**: a sequential structure is a simple, linear structure. A sequence is a series of statements that QodlyScript executes one after the other, from first to last. A one-line routine, frequently used for components, is the simplest case of a sequential structure. For example: `employee.lastName = uppercase(employee.lastName)`
 - **Branching**: A branching structure allows the code to test a condition and take alternative paths, depending on the result. The condition is a boolean expression, an expression that evaluates `true` or `false`. One branching structure is the [`if...else...end`](#ifelseend) structure, which directs program flow along one of two paths. The other branching structure is the [`switch...else...end`](#switchelseend) structure, which directs program flow to one of many paths.
 - **Looping**: When writing methods, it is very common to find that you need a sequence of statements to repeat a number of times. To deal with this need, the QodlyScript language provides the following looping structures:
 
@@ -74,7 +74,7 @@ The [ternary operator](lang-operators.md#ternary-operator) allows writing one-li
 #### Example
 
 ```qs
-if (event.eventType=="onmouseover")
+if (event.eventType == "onmouseover")
 	webForm["helpOn_"+componentRef].show()
 else
 	webForm["helpOn_"+componentRef].hide()
@@ -147,7 +147,7 @@ As with the `if...else...end` structure, the `switch...else...end` structure als
 Each Boolean expression is prefaced by a colon (`:`). This combination of the colon and the Boolean expression is called a case. For example, the following line is a case:
 
 ```qs
-:(bValidate==1)
+:(bValidate == 1)
 ```
 
 Only the statements following the first true case (and up to the next case) will be executed. If none of the cases are true, none of the statements will be executed (if no `else` part is included).
@@ -160,30 +160,30 @@ This example tests a numeric variable and writes a corresponding text:
 
 ```qs
  switch
-    :(vResult==1) //Test if the number is 1
-       vText="One."
-    :(vResult==2) //Test if the number is 2
-       vText="Two."
-    :(vResult==3) //Test if the number is 3
-       vText="Three."
+    :(vResult == 1) //Test if the number is 1
+       vText = "One."
+    :(vResult == 2) //Test if the number is 2
+       vText = "Two."
+    :(vResult == 3) //Test if the number is 3
+       vText = "Three."
     else //If it is not 1, 2, or 3
-       vText="It was not one, two, or three."
+       vText = "It was not one, two, or three."
  end
 ```
 
 For comparison, here is the `if...else...end` version of the same code:
 
 ```qs
- if(vResult==1) //Test if the number is 1
-    vText="One."
+ if(vResult == 1) //Test if the number is 1
+    vText = "One."
  else
-    if(vResult==2) //Test if the number is 2
-       vText="Two."
+    if(vResult == 2) //Test if the number is 2
+       vText = "Two."
     else
-       if(vResult==3) //Test if the number is 3
-          vText="Three."
+       if(vResult == 3) //Test if the number is 3
+          vText = "Three."
        else //If it is not 1, 2, or 3
-          vText="It was not one, two, or three."
+          vText = "It was not one, two, or three."
        end
     end
  end
@@ -195,20 +195,20 @@ Consequently, when you want to implement hierarchical tests, you should make sur
 
 ```qs
  switch
-    :(vResult==1)
+    :(vResult == 1)
        ... //statement(s)
-    :((vResult==1) && (vCondition != 2)) //this case will never be detected
+    :((vResult == 1) && (vCondition  !=  2)) //this case will never be detected
        ... //statement(s)
  end
 ```
 
-In the code above, the presence of the second condition is not detected since the test "vResult==1" branches off the code before any further testing. For the code to operate properly, you can write it as follows:
+In the code above, the presence of the second condition is not detected since the test "vResult == 1" branches off the code before any further testing. For the code to operate properly, you can write it as follows:
 
 ```qs
  switch
-    :((vResult==1) && (vCondition != 2)) //this case will be detected first
+    :((vResult == 1) && (vCondition  !=  2)) //this case will be detected first
        ... //statement(s)
-    :(vResult==1)
+    :(vResult == 1)
        ... //statement(s)
  end
 ```
@@ -278,7 +278,7 @@ It is common to initialize the value tested in the Boolean expression immediatel
 The Boolean expression must be set by something inside the loop or else the loop will continue forever. The following loop continues forever because *NeverStop* is always true:
 
 ```qs
- NeverStop=true
+ NeverStop = true
  while(NeverStop)
  end
 ```
@@ -292,8 +292,8 @@ If you find yourself in such a situation, where a method is executing uncontroll
  var result : string
  index = 0
  while (index <= 10)
- 	result=result+string(index)+" "
- 	index += 1
+ 	result = result+string(index)+" "
+ 	index + =  1
  end
  //result: "0 1 2 3 4 5 6 7 8 9 10 "
 ```
@@ -324,9 +324,9 @@ Compare the following example with the example for the `while...end` loop.
  var result : string
  index = 0
  repeat
- 	result=result+string(index)+" "
- 	index += 1
- until(index >= 10)
+ 	result = result+string(index)+" "
+ 	index + =  1
+ until(index >=  10)
  //result: "0 1 2 3 4 5 6 7 8 9 "
 ```
 
@@ -376,7 +376,7 @@ The `break` and `continue` statements are [described below](#break-and-continue)
 ```qs
  for(vlChar,1,length(vtSomeText))
   //Do something with the character if it is a TAB
-    if(characterCode(vtSomeText[[vlChar]])=Tab)
+    if(characterCode(vtSomeText[[vlChar]]) = Tab)
   //...
     end
  end
@@ -403,7 +403,7 @@ In some cases, you may want to have a loop whose counter variable is decreasing 
 ```qs
  for(vlChar,length(vtSomeText),1,-1)
   //Do something with the character if it is a TAB
-    if(characterCode(vtSomeText[[vlChar]])=Tab)
+    if(characterCode(vtSomeText[[vlChar]]) = Tab)
   //...
     end
  end
@@ -435,21 +435,21 @@ Let's go back to the first `for...end` example. The following example executes 1
 It is interesting to see how the `while...end` loop and `repeat...until` loop would perform the same action. Here is the equivalent `while...end` loop:
 
 ```qs
- i=1 //Initialize the counter
- while(i<=100) //Loop 100 times
+ i = 1 //Initialize the counter
+ while(i  <= 100) //Loop 100 times
   //Do something
-    i=i+1 //Need to increment the counter
+    i = i+1 //Need to increment the counter
  end
 ```
 
 Here is the equivalent `repeat...until` loop:
 
 ```qs
- i=1 //Initialize the counter
+ i = 1 //Initialize the counter
  repeat
   //Do something
-    i=i+1 //Need to increment the counter
- until(i==100) //Loop 100 times
+    i = i+1 //Need to increment the counter
+ until(i == 100) //Loop 100 times
 ```
 
 :::tip
@@ -514,23 +514,23 @@ You want to compute some statistics for a collection of numbers:
 
 ```qs
  var nums : collection
- nums=newCollection(10,5001,6665,33,1,42,7850)
+ nums = newCollection(10,5001,6665,33,1,42,7850)
  var item,vEven,vOdd,vUnder,vOver : integer
  forEach(item,nums)
-    if(item%2==0)
-       vEven=vEven+1
+    if(item%2 == 0)
+       vEven = vEven+1
     else
-       vOdd=vOdd+1
+       vOdd = vOdd+1
     end
     switch
        :(item<5000)
-          vUnder=vUnder+1
+          vUnder = vUnder+1
        :(item>6000)
-          vOver=vOver+1
+          vOver = vOver+1
     end
  end
-  //vEven=3, vOdd=4
-  //vUnder=4, vOver=2
+  //vEven = 3, vOdd = 4
+  //vUnder = 4, vOver = 2
 ```
 
 ### Loop through entity selections
@@ -553,8 +553,8 @@ You want to raise the salary of all British employees in an entity selection:
 
 ```qs
  var emp : object
- forEach(emp,ds.Employees.query("country='UK'"))
-    emp.salary=emp.salary*1.03
+ forEach(emp,ds.Employees.query("country = 'UK'"))
+    emp.salary = emp.salary*1.03
     emp.save()
  end
 ```
@@ -567,7 +567,7 @@ The properties of the object are processed according to their order of creation.
 
 #### Example
 
-You want to switch the names to uppercase in the following object:
+You want to switch the property names to uppercase in the following object:
 
 ```qs
 {
@@ -579,9 +579,9 @@ You want to switch the names to uppercase in the following object:
 You can write:
 
 ```qs
- forEach(property,vObject)
-    if(valueType(vObject[property])==Is text)
-       vObject[property]=uppercase(vObject[property])
+ forEach(props,vObject)
+    if(valueType(vObject[props]) == Is text)
+       vObject[props] = uppercase(vObject[props])
     end
  end
 ```
@@ -608,23 +608,23 @@ The *begin* and *end* parameters can only be used in iterations through collecti
 
 If *end* is omitted or if *end* is greater than the number of elements in *Expression*, elements are iterated from *begin* until the last one (included).
 If the *begin* and *end* parameters are positive values, they represent actual positions of elements in *Expression*.
-If *begin* is a negative value, it is recalculed as `begin=begin+Expression size` (it is considered as the offset from the end of *Expression*). If the calculated value is negative, *begin* is set to 0.
+If *begin* is a negative value, it is recalculed as `begin = begin+Expression size` (it is considered as the offset from the end of *Expression*). If the calculated value is negative, *begin* is set to 0.
 **Note:** Even if begin is negative, the iteration is still performed in the standard order.
-If *end* is a negative value, it is recalculed as `end=end+Expression size`
+If *end* is a negative value, it is recalculed as `end = end+Expression size`
 
 For example:
 - a collection contains 10 elements (numbered from 0 to 9)
-- begin:-4 -> begin:-4+10=6 -> iteration starts at the 6th element (#5)
-- end:-2 -> end:-2+10=8 -> iteration stops before the 8th element (#7), i.e. at the 7th element.
+- begin:-4 -> begin:-4+10 = 6 -> iteration starts at the 6th element (#5)
+- end:-2 -> end:-2+10 = 8 -> iteration stops before the 8th element (#7), i.e. at the 7th element.
 
 #### Example
 
 ```qs
- var col,col2 : Collection
- col=newCollection("a","b","c","d","e")
- col2=newCollection(1,2,3)
+ var col,col2 : collection
+ col = newCollection("a","b","c","d","e")
+ col2 = newCollection(1,2,3)
  var item : string
- ForEach(item,col,0,3)
+ forEach(item,col,0,3)
     col2.push(item)
  end
   //col2:[1,2,3,"a","b","c"]
@@ -646,17 +646,17 @@ You can pass either keyword depending on your needs:
 #### Example
 
 ```qs
- colNum=newCollection(1,2,3,4,5,6,7,8,9,10)
+ colNum = newCollection(1,2,3,4,5,6,7,8,9,10)
  var total : integer
- total=0
+ total = 0
  forEach(num,colNum) while(total<30) //tested at the beginning
-    total=total+num
+    total = total+num
  end
  //total: 36 (1+2+3+4+5+6+7+8)
 
- total=1000
+ total = 1000
  forEach(num,colNum) until(total>30) //tested at the end
-    total=total+num
+    total = total+num
  end
  //total: 1001 (1000+1)
 ```
@@ -676,7 +676,7 @@ If the `break` statement is inside a nested loop (loop inside another loop), the
 
 ```qs
 for (vCounter,1,100)
-	if (vValue-vCounter==0) //if a condition becomes true
+	if (vValue-vCounter == 0) //if a condition becomes true
 		break //end of the for loop
 	end
 end
@@ -689,10 +689,10 @@ The `continue` statement terminates execution of the statements in the current i
 ```qs
 var text : string
 for (i, 0, 9)
-	if (i==3)
+	if (i == 3)
 		continue //go directly to the next iteration
-	end if
-	text=text+string(i)
+	end
+	text = text+string(i)
 end
 // text: "012456789"
 
@@ -713,16 +713,16 @@ var message : string
 var i : integer
 
 while (true) //infinite loop
-	i=i+1
-	message+=string(i)+"A\r"  // until 5
+	i = i+1
+	message+ = string(i)+"A\r"  // until 5
 	logConsole(message)
-	if (i==5)
+	if (i == 5)
 		return //stops the loop
-	end if
-	message+=string(i)+"B\r"  // until 4
+	end
+	message+ = string(i)+"B\r"  // until 4
 	logConsole(message)
-end while
-message+=string(i)+"C\r"  //never executed
+end
+message+ = string(i)+"C\r"  //never executed
 logConsole(message)
 
 ```
@@ -733,9 +733,9 @@ The *logConsole* method:
 declare (log : string)
 var f : 4D.File
 var fhandle : 4D.FileHandle
-f=Folder(Database folder).file("console.txt")
+f = folder("/PACKAGE/info").file("console.txt")
 
-fhandle=f.open("write")
+fhandle = f.open("write")
 fhandle.writeLine(log)
 ```
 

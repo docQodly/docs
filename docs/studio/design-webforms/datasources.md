@@ -109,7 +109,7 @@ To create Webform or Shared datasources directly from the Catalog, follow these 
                         <br/>
                         <li>Enter the name of the datasource. </li>
                         <br/>
-                        <li>Select the datasource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA data source. Afterward, proceed to choose its Dataclass and configure its settings, including initial values, page size, and depth.</li>
+                        <li>Select the datasource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA data source. Afterward, proceed to configure its settings, including initial values, page size, and depth.</li>
                         <br/>
                         <li>To create a shared datasource, specify a <code>Namespace</code>, for a webform (non-shared) datasource, leave the field empty.</li>
                 </ul>        
@@ -149,7 +149,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
 :::
 
 
-### From a Namespace
+### From a Namespace (shared datasource)
 
 To create Shared datasources, follow these steps:
 

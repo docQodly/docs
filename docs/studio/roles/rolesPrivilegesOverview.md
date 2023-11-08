@@ -2,7 +2,7 @@
 id: rolesPrivilegesOverview
 title: Roles and Privileges
 ---
-
+import Column from '@site/src/components/Column'
 
 In the realm of data security and access control, Qodly introduces a robust system of Roles and Privileges. These two fundamental concepts are at the heart of enforcing data access restrictions within the application. By understanding the intricacies of Roles and Privileges, you can ensure that each user accesses only the data pertinent to their designated role. 
 
@@ -117,3 +117,26 @@ exposed function linkAccount()
 ```
 
 For more detailed information, refer to the [Sessions](../../language/SessionClass.md) and [Users](../../language/UsersClass.md) sections.
+
+
+
+## Roles and privileges JSON Representation
+
+In Qodly Studio, the Roles and privileges possesses a JSON representation that is useful for troubleshooting or to copy/paste selected parts.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+        This representation can be accessed through a text editor by selecting the <code>Roles and privileges</code> in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
+	</Column.Item>
+	<Column.Item width="45%">
+        <img alt="json" src={require('./img/openastext.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<br/>
+
+You can view, copy, or edit the JSON representation. 
+
+:::warning
+It is essential to exercise caution when editing the JSON representation, as the syntax check does not validate whether attribute names match the expected ones or if there are issues with the attribute names.
+:::

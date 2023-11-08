@@ -49,8 +49,8 @@ Object properties can reference scalar values, ORDA elements, class functions, o
 Examples:
 
 ```qs
-myObject.myAttribute="10"
-value=$clientObj.data.address.city
+myObject.myAttribute = "10"
+value = $clientObj.data.address.city
 ```
 
 :::tip
@@ -102,7 +102,7 @@ When you call a method, you just type its name. However, some QodlyScript built-
 
 ```qs
  //This collection function accepts a method name
-strings2=strings1.orderByMethod("sortCollection",sk strict)
+strings2 = strings1.orderByMethod("sortCollection",sk strict)
 ```
 
 :::
@@ -121,8 +121,8 @@ Examples:
 
 ```qs
 for(vlRecord,1,100)
-vs_My_String="Hello there"
+vs_My_String = "Hello there"
 var _vAge : integer
-if(bValidate==1)
-vlProcessID=currentProcess()
+if(bValidate == 1)
+vlProcessID = currentProcess()
 ```

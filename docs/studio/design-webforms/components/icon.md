@@ -34,8 +34,7 @@ Enhance the **Icon** component to align with your application's requirements usi
 </Column.List>
 
 
-
-## Data Binding
+## Data Integration
 
 When it comes to data-binding, it's important to note that the **Icon** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified datasources, the main purpose of the **Icon** component is to provide a visual representation.
 

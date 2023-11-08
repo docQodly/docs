@@ -10,7 +10,7 @@ When you set up your Qodly database, you specify the names and types of attribut
 Once created, you can use a variable wherever you need it in your code. For example, you might need to store a string variable in an attribute of same type:
 
 ```qs
-myEntity.text=MyString //put the MyString variable contents into the text attribute
+myEntity.text = MyString //put the MyString variable contents into the text attribute
 ```
 
 Variables are language objects; you can create and use variables that will never appear on the screen. In your web forms, you can display variables on the screen, enter data into them, and print them in reports. 
@@ -70,12 +70,12 @@ var entity : cs.EmployeeEntity //ORDA entity class
 
 ## Assigning Data
 
-Data can be put into and copied out of variables. Putting data into a variable is called **assigning the data to the variable** and is done with the assignment operator (=). The assignment operator is also used to assign data to dataclass attributes.
+Data can be put into and copied out of variables. Putting data into a variable is called **assigning the data to the variable** and is done with the assignment operator ( = ). The assignment operator is also used to assign data to dataclass attributes.
 
 You write the name of the variable that you want to be assigned on the left side of the assignment operator. For example:
 
 ```qs
-MyNumber=3
+MyNumber = 3
 ```
 
 puts the number 3 into the variable *MyNumber*. If *MyNumber* already had a value, then the number 3 replaces it.
@@ -83,7 +83,7 @@ puts the number 3 into the variable *MyNumber*. If *MyNumber* already had a valu
 Of course, variables would not be very useful if you could not get data out of them. Once again, you use the assignment operator. If you need to put the value of *MyNumber* in an attribute called *size*, you would write *MyNumber* on the right side of the assignment operator:
 
 ```qs
-myEntity.size=MyNumber
+myEntity.size = MyNumber
 ```
 
 In this case, *myEntity.size* would be equal to 3. This example is rather simple, but it illustrates the fundamental way that data is transferred from one place to another by using the language.

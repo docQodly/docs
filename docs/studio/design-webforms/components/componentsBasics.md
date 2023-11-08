@@ -45,7 +45,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 |---|---|
 |Move| Reposition the selected component on the canvas.|
 |Select Parent Component| Select the parent component of the current selection.|
-|Delete Component| Remove the selected component from the canvas.|
+|Delete Component| Remove the selected component from the canvas. As an alternative solution, you can use the shortcut **Alt + Shift + Delete (⌥ + ⇧ + Delete for Mac)**.|
 |Export Styles| Export the overridden CSS properties to a new CSS class.|
 |Open Events Panel| Binding events to the selected component.|
  
@@ -63,3 +63,114 @@ You have the flexibility to drop components directly onto the webform itself, as
 |Copy content| Copy content. As an alternative solution, you can use the shortcut **Alt + ⇧ + C (⌥ + ⇧ + C for Mac)**|
 |Clear styles| Clear the styles of the selected component (resets the overridden CSS properties). As an alternative solution, you can use the shortcut **Alt + J (⌥ + J for Mac)**|
 |Clear content| Clear content within the selected component. As an alternative solution, you can use the shortcut **Alt + E (⌥ + E for Mac)**|
+
+
+## Data Formatting
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                Your webforms can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+:::info
+Formatting options may vary based on the specific data type of the attribute and the type of component being used.
+:::
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                <ul>
+                        <li>For <strong>Text (string)</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>UPPERCASE</strong>: Converts all characters to uppercase.</li> 
+                                <li><strong>lowercase</strong>: Converts all characters to lowercase.</li>
+                                <li><strong>Capitalize</strong>: Capitalizes the first letter of the text.</li> 
+                                <li><strong>Capitalize Each Word</strong>: Capitalizes the first letter of each word.</li> 
+                        </ul>
+                </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                <ul>
+                        <li>For <strong>Number</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>0</strong>: Standard numerical format.</li> 
+                                <li><strong>0%</strong>: Displays the number as a percentage.</li>
+                                <li><strong>#,##0</strong>: Adds thousands separators to the number.</li> 
+                                <li><strong>#,##0.00</strong>: Adds thousands separators and displays two decimal places.</li> 
+                        </ul>
+                        <br/>
+                        Refer to the <a href="https://support.microsoft.com/en-us/office/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5">Review guidelines</a> for customizing <code>number formats</code>.
+                </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                <ul>
+                        <li>For <strong>Date</strong>:</li> <br/>
+                        <ul>
+                                <li><strong>Date short</strong>: Displays the date in a short format.</li> 
+                                <li><strong>Date long</strong>: Displays the date in a long format.</li>
+                                <li><strong>Date abbreviated</strong>: Displays the date with abbreviated month name.</li> 
+                                <li><strong>ISO date GMT</strong>: Displays the date in ISO 8601 format with GMT time zone.</li> 
+                                <li><strong>UTC String</strong>: Displays the date in a UTC format.</li>
+                        </ul>
+                        <br/>
+                        Check the <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. <br/>
+                        For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
+                </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+<br/>
+
+
+<Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+                <ul>
+                        <li>For <strong>Duration</strong>:</li> 
+                        <ul>
+                                <li><strong>Simple</strong>: 14:40:30.</li> 
+                                <li><strong>Distance</strong>: about 15 hours.</li>
+								<li><strong>Distance with Suffix</strong>: in about 15 hours.</li>                                                                                            <li><strong>Strict Distance</strong>: 15 hours.</li>                                                                                                                    <li><strong>Strict Distance with Suffix</strong>: in 15 hours.</li>
+                </ul><i><b>Note:</b> Examples with duration 52 830 000 ms.</i>                        </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+                <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+</Column.List>
+
+## Data Integration
+
+This section serves as a fundamental introduction to the integration of data sources with components. It's essential to note that each component has its own dedicated section on its respective page, including the following subsections:
+
+- **Data Binding**: This step configures the connection between a component and a data source, determining where the component retrieves its data.
+
+- **Data Display**: After binding data, this section guides you in visually presenting data within the component, including configuring its appearance and additional components.
+
+- **Dynamic Attribute Display**: This section explains how a component can automatically display attributes of a selected data source, offering detailed information without extra interactions.
+
+- **Server-Side Interaction**: This section explains obtaining user selections in a server-side context when a datasource is bound to a component, enabling content retrieval and use.
+
+:::note
+Please note that the following subsections (Data Binding, Data Display, Dynamic Attribute Display, and Server-Side Interaction) may or may not be applicable to all components. Their presence or absence depends on the specific component's functionality and use case. 
+:::

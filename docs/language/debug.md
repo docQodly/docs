@@ -95,8 +95,8 @@ Before carrying out operations on an entity, the developer wants to make sure th
 ```qs
  var employee : cs.EmployeeEntity
  var status : Object
- employee=ds.Employee.get(717)
- status=employee.lock() 
+ employee = ds.Employee.get(717)
+ status = employee.lock() 
  assert(not(status.success))
   // triggers error -10518 if entity cannot be locked
 ```
@@ -108,7 +108,7 @@ An assertion can allow parameters passed to a project method to be tested in ord
 ```qs
   // Method that returns the number of a client according to its name passed in parameter
  declare (vName : string) // Name of client
- assert(vName!="","Search for a blank client name")
+ assert(vName != "","Search for a blank client name")
   // A blank name in this case is an aberrant value
   // If the assertion is false, the following error is thrown:
   // "Assert failed: Search for a blank client name"
@@ -151,8 +151,8 @@ Insertion of an assertion in the evaluation of an expression:
 ```qs
  var employee : cs.EmployeeEntity
  var status : Object
- employee=ds.Employee.get(717)
- status=employee.lock() 
+ employee = ds.Employee.get(717)
+ status = employee.lock() 
  if(asserted(not(status.success)))
   // triggers error -10518 if entity cannot be locked
  end
@@ -196,7 +196,7 @@ The command facilitates debugging by enabling the identification of the method c
 ```qs
 
 var currentCallChain : collection
-currentCallChain=callChain()
+currentCallChain = callChain()
 
 ```
 
@@ -328,10 +328,10 @@ If no method has been installed for the *scope*, an empty string ("") is returne
 
 ```qs
  var methCurrent, refs : string
- methCurrent=methodCalledOnError
+ methCurrent = methodCalledOnError
  onErrCall("NewMethod")
   //If the file cannot be opened, an error is generated
- refs=jsonParse(file("/PACKAGE/Project/Sources/Shared/assets/files/i18n.json").getText())
+ refs = jsonParse(file("/PACKAGE/Project/Sources/Shared/assets/files/i18n.json").getText())
   //Reinstallation of previous method
  onErrCall(methCurrent)
 ```
@@ -408,9 +408,9 @@ Here is a simple error-handling system:
 // errorMethod project method  
 var errNum : integer
 var message : string
-errNum=lastErrors[0].errCode
-if(errNum != 1006) //this is not a user interruption
-   message="Error "+string(errNum)+" occurred ("+lastErrors[0].message+").")
+errNum = lastErrors[0].errCode
+if(errNum  !=  1006) //this is not a user interruption
+   message = "Error "+string(errNum)+" occurred ("+lastErrors[0].message+").")
 end
 ```
 
@@ -536,8 +536,8 @@ It throws all current errors in **deferred mode**, meaning they will be added to
 ```qs
 var code : integer
 var description : string
-code=50042 //Custom code
-description="This is a custom error"
+code = 50042 //Custom code
+description = "This is a custom error"
 throw(code,description) //Throws an error with message "This is a custom error" and errCode = 50042
 ```
 

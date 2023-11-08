@@ -16,7 +16,7 @@ killWorker("pCounter") //Terminates execution of pCounter worker
 Parameters are passed to methods or class functions in the same way. For example, if a class function named `getArea()` accepts two parameters, a call to the class function might look like this: 
 
 ```
-area=o.getArea(50,100)
+area = o.getArea(50,100)
 ```
 
 Or, if a method named `Do_Something` accepts three parameters, a call to the method might look like this:
@@ -38,7 +38,7 @@ callWorker("myWorker","workerMethod","Hello",vName)
 Data can also be **returned** from methods and class functions. For example, the following line is a statement that uses the built-in command, `length`, to return the length of a string. The statement puts the value returned by `length` in a variable called *MyLength*. Here is the statement:
 
 ```qs
-MyLength=length("How did I get here?")
+MyLength = length("How did I get here?")
 ```
 
 Only one single output parameter can be declared per method or class function.
@@ -83,7 +83,7 @@ The following rules apply:
 For example, when you call a `getArea()` function with two parameters: 
 
 ```qs
-area=o.getArea(50,100)
+area = o.getArea(50,100)
 ```
 
 In the class function code, the value of each parameter is copied into the corresponding declared parameter:
@@ -91,7 +91,7 @@ In the class function code, the value of each parameter is copied into the corre
 ```qs    
 // Class: Polygon
 function getArea(width : integer, height : integer)-> area : integer
-	area=width*height
+	area = width*height
 ``` 
 
 >If the type is not defined, the parameter will be defined as [`variant`](lang-variant.md).
@@ -134,8 +134,8 @@ For example, you can write:
 
 ```qs
 var f : object
-f=newObject
-f.welcome=formula(uppercase($1+", "+$2+"!"))
+f = newObject
+f.welcome = formula(uppercase($1+", "+$2+"!"))
 f.welcome("hello","john") //"HELLO, JOHN!"
 ```
 
@@ -155,7 +155,7 @@ function square(x : integer)
 
 :::info
 
-Internally, `return x` executes `returnValue=x`, and returns to the caller. If `return` is used without an expression, the function or method returns a null value of the declared return type (if any), otherwise *undefined*.
+Internally, `return x` executes `returnValue = x`, and returns to the caller. If `return` is used without an expression, the function or method returns a null value of the declared return type (if any), otherwise *undefined*.
 
 :::
 
@@ -164,13 +164,13 @@ The `return` statement can be used along with the standard syntax for [returned 
 
 ```qs
 function getValue -> v : integer
-	v=10
+	v = 10
 	return 20
 	// returns 20
 
 function getValue -> v : integer
 	return 10
-	v=20 // never executed
+	v = 20 // never executed
 	// returns 10
 ```
 
@@ -191,18 +191,18 @@ Here is the method, named `MySum`:
 ```qs
 //MySum
 declare (format : string) -> result : string
-toSum=0
+toSum = 0
 for(i,2,countParameters)
-   toSum=toSum+${i}
+   toSum = toSum+${i}
 End
-result=string(toSum,format)
+result = string(toSum,format)
 ```
 
 The method's parameters must be passed in the correct order, first the format and then a variable number of values:
 
 ```qs
-Result=MySum("##0.00",125,2,33.5,24) //"182.70"
-Result=MySum("000",1,2,200) //"203"
+Result = MySum("##0.00",125,2,33.5,24) //"182.70"
+Result = MySum("000",1,2,200) //"203"
 ```
 
 Note that even if you declared 0, 1, or more parameters in the method, you can always pass the number of parameters that you want. Parameters are all available within the called method through the `${N}` syntax and extra parameters type is [variant](lang-variant.md) by default. You just need to make sure parameters exist, thanks to the [`countParameters`](#countparameters) command. For example:
@@ -212,7 +212,7 @@ Note that even if you declared 0, 1, or more parameters in the method, you can a
 #declare(p1: string , p2 : string , p3 : date)
 var myLog : string
 for(i,1,countParameters)
-	myLog="param "+string(i)+" = "+string(${i})+"\r"
+	myLog = "param "+string(i)+" = "+string(${i})+"\r"
 end
 ```
 
@@ -253,7 +253,7 @@ For example, using the `CreatePerson` method:
 ```qs
   //CreatePerson
 var person : object
-person=newObject("name","Smith","age",40)
+person = newObject("name","Smith","age",40)
 ChangeAge(person) 
 ```
 
@@ -263,8 +263,8 @@ In the `ChangeAge` method you can write:
   //ChangeAge
 declare (param : object)
 var result : string
-param.age=param.age+10
-result=param.name+" is "+string(param.age)+" years old." 
+param.age = param.age+10
+result = param.name+" is "+string(param.age)+" years old." 
 ```
 
 This provides a powerful way to define [optional parameters](#optional-parameters) (see also below). To handle missing parameters, you can either:
@@ -278,25 +278,25 @@ In the `ChangeAge` method above, both age and name properties are mandatory and 
   //ChangeAge
 declare (param : object)
 var result : string
-param.age=num(param.age)+10
-result=string(param.name)+" is "+string(param.age)+" years old."
+param.age = num(param.age)+10
+result = string(param.name)+" is "+string(param.age)+" years old."
 ```
 Then both parameters are optional; if they are not filled, the result will be " is 10 years old", but no error will be generated.
 
 Finally, with named parameters, maintaining or refactoring applications is very simple and safe. Imagine you later realize that adding 10 years is not always appropriate. You need another parameter to set how many years to add. You write:
 
 ```qs
-person={"name":"Smith","aAge":40,"toAdd":10}
+person = {"name":"Smith","aAge":40,"toAdd":10}
 ChangeAge(person)
 
 //ChangeAge
 declare (param : object)
 var result : string
-if (param.toAdd==null)
-	param.toAdd=10
+if (param.toAdd == null)
+	param.toAdd = 10
 end
-param.age=num(param.age)+param.toAdd
-result=string(param.name)+" is "+string(param.age)+" years old."
+param.age = num(param.age)+param.toAdd
+result = string(param.name)+" is "+string(param.age)+" years old."
 ```
 
 The power here is that you will not need to change your existing code. It will always work as in the previous version, but if necessary, you can use another value than 10 years.
@@ -310,8 +310,8 @@ With named variables, any parameter can be optional. In the above example, all p
 In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string { , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
 
 ```qs
-firstnames=ds.Teachers.all().extract("firstname") //1 parameter
-addresses=ds.Teachers.all().extract("address",ck keep null) //2 parameters
+firstnames = ds.Teachers.all().extract("firstname") //1 parameter
+addresses = ds.Teachers.all().extract("address",ck keep null) //2 parameters
 ```
 
 QodlyScript methods and functions also accept such optional parameters. You can declare any number of parameters. If you call a method or function with less parameters than declared, missing parameters are processed as default values in the called code, [according to their type](lang-data-types.md#default-values). For example:
@@ -319,12 +319,12 @@ QodlyScript methods and functions also accept such optional parameters. You can 
 ```qs
 // "concate" function of myClass
 function concate (param1 : string , param2 : string)-> result : string
-result=param1+" "+param2
+result = param1+" "+param2
 ```
 
 ```qs
   // Calling method
-class=cs.myClass.new()
+class = cs.myClass.new()
 class.concate("Hello") // "Hello "
 class.concate() // Displays " "
 ```
@@ -344,10 +344,10 @@ Using the `countParameters` command from within the called method, you can detec
 declare(param1 : text, param2 : text, param3 : object)
 
 ...// do action1
-if(countParameters>=3)
+if(countParameters>= 3)
     ...//do action2 
 else
-    if(countParameters>=2)
+    if(countParameters>= 2)
        ...//do action3
     end
 end
@@ -362,7 +362,7 @@ Append_Text(vt1,"",vobj) //do action1 and action2
 
 :::tip 
 
-When optional parameters are needed in your methods, you might also consider using [object properties as named parameters](#using-objects-properties-as-named-parameters) which provide a flexible way to handle variable numbers of parameters.  
+When optional parameters are needed in your methods, you might also consider using [object properties as named parameters](#using-object-properties-as-named-parameters) which provide a flexible way to handle variable numbers of parameters.  
 
 :::
 
@@ -374,13 +374,13 @@ When you pass a parameter, QodlyScript always evaluates the parameter expression
 ```qs
 	//Here is some code from the method myMethod
 var myVar, result : string
-myVar="williams"
+myVar = "williams"
 Do_Something(myVar)
-result=myVar //williams
+result = myVar //williams
  
 	//Here is the code of the method Do_Something
 declare ( param : string )
-result=uppercase(param) //WILLIAMS
+result = uppercase(param) //WILLIAMS
 ```
 
 The *result* value in `Do_Something` will be "WILLIAMS" and the *result* value in `myMethod` will be "williams". The method locally changed the value of the parameter, but this does not affect the value of the variable `myVar` passed as parameter by the method `myMethod`.
@@ -393,14 +393,14 @@ In some cases, you might want that the method `Do_Something` change the value of
 	//Here is some code from the method myMethod
 var myVar : object
 var result : text
-myVar=newObject("name","williams")
+myVar = newObject("name","williams")
 Do_Something(myVar)
-result=myVar.name //WILLIAMS
+result = myVar.name //WILLIAMS
 
 	//Here is the code of the method Do_Something
 declare ( param : object )
 var result : string
-result=uppercase(param.name) //WILLIAMS
+result = uppercase(param.name) //WILLIAMS
 ```
 
 2. Rather than having the method `Do_Something` "doing something," you can rewrite the method so it returns a value. Thus you would write:
@@ -408,13 +408,13 @@ result=uppercase(param.name) //WILLIAMS
 ```qs
 	//Here is some code from the method myMethod
 var myVar, result : string
-myVar="williams"
-myVar=Do_Something(myVar) 
-result=myVar //WILLIAMS
+myVar = "williams"
+myVar = Do_Something(myVar) 
+result = myVar //WILLIAMS
 
 	//Here is the code of the method Do_Something
 declare ( param : string ) -> result : string
-result=uppercase(param) //WILLIAMS
+result = uppercase(param) //WILLIAMS
 ```
 
 This second technique of returning a value by a subroutine is called "using a function".
@@ -431,7 +431,7 @@ For example, consider the `CreatePerson` method that creates an object and sends
 ```qs
   //CreatePerson
 var person : object
-person:=newObject("Name","Smith","Age",40)
+person: = newObject("Name","Smith","Age",40)
 ChangeAge(person)
 person.Age //50 
 ```
@@ -441,7 +441,7 @@ The `ChangeAge` method adds 10 to the Age attribute of the received object
 ```qs
   //ChangeAge
 declare (person : object)
-person.Age=person.Age+10
+person.Age = person.Age+10
 person.Age //50 
 ```
 
@@ -480,9 +480,9 @@ Calling a different function depending on the first parameter and passing other 
 ```qs
 function selectTask(task : string)
 switch
-  :(task=="Task1")
+  :(task == "Task1")
 	 this.task1(copyParameters(2))
-  :(task=="Task2")
+  :(task == "Task2")
 	 this.task2(copyParameters(2))
 end
 ```
@@ -505,15 +505,15 @@ function list (type : string) -> string
   //type of list is "u" or "o"
 	var value : collection
 	var html : string
-	value=copyParameters(2)
-	html="<"+type+"l><li>"
-	html+=value.join("</li><li>")
-	html+="</li></"+type+"l>"
+	value = copyParameters(2)
+	html = "<"+type+"l><li>"
+	html+ = value.join("</li><li>")
+	html+ = "</li></"+type+"l>"
 	return html
  
   // Method
 var htmlList : string 
-htmlList=c.list("u","Alpha","Bravo","Charlie")
+htmlList = c.list("u","Alpha","Bravo","Charlie")
   // htmlList = <ul><li>Alpha</li><li>Bravo</li><li>Charlie</li></ul>
 ```
 
@@ -554,10 +554,10 @@ Using `countParameters` from within `MyMethod`, you can detect the actual number
 #declare(p1 : string , p2 : time , p3 : integer)
 var info : string
 info = p1
-if(countParameters>=3)
+if(countParameters>= 3)
     Do_something(p3,p1)
 else
-    if(countParameters>=2)
+    if(countParameters>= 2)
        Do_something_else(p2,p1)
     end
 end
@@ -579,10 +579,10 @@ Qodly methods accept a variable number of parameters of the same type, starting 
 //MaxOf method
 #declare() -> result : number 
 var i : integer
-result=${1}
+result = ${1}
 for(i,2,countParameters)
     if(${i}>result)
-       result=${i}
+       result = ${i}
     end
 end
 ```
@@ -590,8 +590,8 @@ end
 After this method has been added to your application, you can write calls like:
 
 ```qs
-vrResult=MaxOf(12,50,200,3) //200
-vrResult=MaxOf(r1,r2,r3,r4,r5,r6)
+vrResult = MaxOf(12,50,200,3) //200
+vrResult = MaxOf(r1,r2,r3,r4,r5,r6)
 ```
 
 

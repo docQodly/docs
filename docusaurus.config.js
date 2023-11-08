@@ -4,6 +4,9 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const ghUrl = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'qodly/docs'}`;
+const isProduction = process.env.GITHUB_REPOSITORY_OWNER === 'qodly';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Qodly Developer Center',
@@ -18,7 +21,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
-  noIndex: false,
+  noIndex: !isProduction,
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -55,32 +58,31 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/qodly/docs/edit/main",
+          // editUrl: isProduction ? `${ghUrl}/edit/main`: undefined,
+          editUrl: `${ghUrl}/edit/main`,
         },
         blog: {
           //  showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/qodly/docs',
+          editUrl: ghUrl,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: {
+        gtag: isProduction ? {
           trackingID: 'G-391275429',
           anonymizeIP: true,
-        },
+        }: null,
       }),
     ],
   ],
-  scripts: [
+  scripts: isProduction ? [
     {
       src: "/docs/" + 'js/analytics/analytics.js', //depends on baseUrl
       async: true,
     },
-  ],
+  ]: [],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -206,7 +208,7 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 4D SAS - All rights reserved`,
-        },
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,

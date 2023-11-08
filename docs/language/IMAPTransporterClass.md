@@ -87,21 +87,23 @@ The function returns an [**IMAP transporter object**](#imap-transporter-object).
 #### Example
 
 ```qs
-server=newObject
-server.host="imap.gmail.com" //Mandatory
-server.port=993
-server.user="qodly@gmail.com"
-server.password="XXXXXXXX"
-server.logFile="LogTest.txt" //log to save in the Logs folder
-
+var server : object
 var transporter : 4D.IMAPTransporter
 var status : object
 var info : string
-transporter=4D.IMAPTransporter.new(server)
 
-status=transporter.checkConnection()
+server = newObject()
+server.host = "imap.gmail.com" //Mandatory
+server.port = 993
+server.user = "qodly@gmail.com"
+server.password = "XXXXXXXX"
+server.logFile = "LogTest.txt" //log to save in the Logs folder
+
+transporter = 4D.IMAPTransporter.new(server)
+
+status = transporter.checkConnection()
 if(not(status.success))
-   info="An error occurred: "+status.statusText
+   info = "An error occurred: "+status.statusText
 end
 ```
 
@@ -146,6 +148,7 @@ The *keywords* parameter lets you define the flags to add to *msgIDs*. You can u
 |$seen |boolean  |true to add the "seen" flag to the message|
 |$flagged |boolean  |true to add the "flagged" flag to the message|
 |$answered |boolean  |true to add the "answered" flag to the message|
+
 |$deleted |boolean | true to add the "deleted" flag to the message|
 |`<custom flag>` |boolean | true to add the custom flag to the message|
 
@@ -173,22 +176,22 @@ The function returns an object describing the IMAP status:
 var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : object
 
-options=newObject
-options.host="imap.gmail.com"
-options.port=993
-options.user="qodly@gmail.com"
-options.password="xxxxx"
+options = newObject()
+options.host = "imap.gmail.com"
+options.port = 993
+options.user = "qodly@gmail.com"
+options.password = "xxxxx"
 
 // Create transporter
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
 // Select mailbox
-boxInfo=transporter.selectBox("INBOX")
+boxInfo = transporter.selectBox("INBOX")
 
 // Mark all messages from INBOX as read/seen
-flags=newObject
-flags["$seen"]=true
-status=transporter.addFlags(kIMAPAll,flags)
+flags = newObject
+flags["$seen"] = true
+status = transporter.addFlags(kIMAPAll,flags)
 ```
 
 <!-- END REF -->
@@ -251,19 +254,19 @@ To save an email in the Drafts mailbox:
 var imap : 4D.IMAPTransporter
 var settings, status, msg: object
 
-settings=newObject("host", "domain.com", "user", "xxxx", "password", "xxxx", "port", 993)
+settings = newObject("host", "domain.com", "user", "xxxx", "password", "xxxx", "port", 993)
 
-imap=4D.IMAPTransporter.new(settings)
+imap = 4D.IMAPTransporter.new(settings)
 
-msg=newObject
-msg.from="xxxx@domain.com"
-msg.subject="Lorem Ipsum"
-msg.stringBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-msg.keywords=newObject
-msg.keywords["$seen"]=true //flag the message as read
-msg.keywords["$draft"]=true //flag the message as a draft
+msg = newObject()
+msg.from = "xxxx@domain.com"
+msg.subject = "Lorem Ipsum"
+msg.stringBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msg.keywords = newObject
+msg.keywords["$seen"] = true //flag the message as read
+msg.keywords["$draft"] = true //flag the message as a draft
 
-status=imap.append(msg, "Drafts")
+status = imap.append(msg, "Drafts")
 ```
 
 <!-- END REF -->
@@ -337,22 +340,22 @@ To copy a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("inbox")
+ boxInfo = transporter.selectBox("inbox")
 
   //get collection of message unique IDs
- mailIds=transporter.searchMails("subject \"New feature:\"")
+ mailIds = transporter.searchMails("subject \"New feature:\"")
 
   // copy found messages to the "documents" mailbox
- status=transporter.copy(mailIds,"documents")
+ status = transporter.copy(mailIds,"documents")
 ```
 
 #### Example 2
@@ -363,20 +366,20 @@ To copy all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
 
- boxInfo=transporter.selectBox("inbox")
+ boxInfo = transporter.selectBox("inbox")
 
   // copy all messages to the "documents" mailbox
- status=transporter.copy(kIMAPAll,"documents")
+ status = transporter.copy(kIMAPAll,"documents")
 ```
 
 <!-- END REF -->
@@ -424,24 +427,24 @@ The function returns an object describing the IMAP status:
 To create a new "Invoices" mailbox:
 
 ```qs
- var info : string
- var transporter : 4D.IMAPTransporter
- var options, status : object
+var info : string
+var transporter : 4D.IMAPTransporter
+var options, status : object
 
-Options=newObject
+options = newObject()
 
-options.host="imap.gmail.com"
-options.user="test@gmail.com"
-options.password="XXXX" 
+options.host = "imap.gmail.com"
+options.user = "test@gmail.com"
+options.password = "XXXX" 
 
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
-status=transporter.createBox("Invoices")
+status = transporter.createBox("Invoices")
 
 if(status.success)
-	info="Mailbox creation successful!"
+	info = "Mailbox creation successful!"
 else
-	info="Error: "+status.statusText
+	info = "Error: "+status.statusText
 end
 ```
 
@@ -493,22 +496,22 @@ To delete a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("Inbox")
+ boxInfo = transporter.selectBox("Inbox")
 
   //get collection of message unique IDs
- mailIds=transporter.searchMails("subject \"Reports\"")
+ mailIds = transporter.searchMails("subject \"Reports\"")
 
   // Delete selected messages
- status=transporter.delete(mailIds)
+ status = transporter.delete(mailIds)
 ```
 
 #### Example 2
@@ -519,19 +522,19 @@ To delete all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("Junk Email")
+ boxInfo = transporter.selectBox("Junk Email")
 
   // delete all messages in the current mailbox
- status=transporter.delete(kIMAPAll)
+ status = transporter.delete(kIMAPAll)
 ```
 
 <!-- END REF -->
@@ -582,24 +585,24 @@ var pw, name, info : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=newObject
+options = newObject()
 
-pw="XXXXXX" //password
+pw = "XXXXXX" //password
 
-options.host="imap.gmail.com"
-options.user="test@gmail.com"
-options.password=pw
+options.host = "imap.gmail.com"
+options.user = "test@gmail.com"
+options.password = pw
 
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
 // delete mailbox
-name="Bills"+transporter.getDelimiter()+"Nova Orion Industries"
-status=transporter.deleteBox(name)
+name = "Bills"+transporter.getDelimiter()+"Nova Orion Industries"
+status = transporter.deleteBox(name)
 
 if(status.success)
-	info="Mailbox deletion successful!"
+	info = "Mailbox deletion successful!"
 else
-	info="Error: "+status.statusText
+	info = "Error: "+status.statusText
 end
 ```
 
@@ -640,24 +643,24 @@ var transporter : 4D.IMAPTransporter
 var options,boxInfo,status : object
 var ids : collection
 
-options=newObject
-options.host="imap.gmail.com"
-options.port=993
-options.user="qodly@gmail.com"
-options.password="xxxxx"
+options = newObject()
+options.host = "imap.gmail.com"
+options.port = 993
+options.user = "qodly@gmail.com"
+options.password = "xxxxx"
 
 // Create transporter
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
 // Select mailbox
-boxInfo=transporter.selectBox("INBOX")
+boxInfo = transporter.selectBox("INBOX")
 
 // Find and delete all seen messages in INBOX
-ids=transporter.searchMails("SEEN")
-status=transporter.delete(ids)
+ids = transporter.searchMails("SEEN")
+status = transporter.delete(ids)
 
 // Purge all messages flagged as deleted
-status=transporter.expunge()
+status = transporter.expunge()
 ```
 
 <!-- END REF -->
@@ -698,13 +701,14 @@ The `boxInfo` object returned contains the following properties:
 #### Example
 
 ```qs
+ var server : object
  var transporter : 4D.IMAPTransporter
  var boxInfo : object
  var info : string
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
- boxInfo=transporter.getBoxInfo("INBOX")
- info="INBOX contains "+string(boxInfo.mailRecent)+" recent emails."
+ boxInfo = transporter.getBoxInfo("INBOX")
+ info = "INBOX contains "+string(boxInfo.mailRecent)+" recent emails."
 ```
 
 <!-- END REF -->
@@ -753,17 +757,18 @@ If the account does not contain any mailboxes, an empty collection is returned.
 #### Example
 
 ```qs
+ var server : object
  var transporter : 4D.IMAPTransporter
  var boxList : collection
  var info, split : string
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
- boxList=transporter.getBoxList()
+ boxList = transporter.getBoxList()
 
  forEach(box,boxList)
     if(box.interesting)
-       split=splitString(box.name,transporter.getDelimiter())
-       info="New emails are available in the box: "+split[split.length-1])
+       split = splitString(box.name,transporter.getDelimiter())
+       info = "New emails are available in the box: "+split[split.length-1])
     end
  end
 ```
@@ -852,20 +857,20 @@ You want to get the message with ID = 1:
  var info, mail, boxInfo : variant
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
   //create transporter
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("Inbox")
+ boxInfo = transporter.selectBox("Inbox")
 
   //get Email object with ID 1
- mail=transporter.getMail(1)
+ mail = transporter.getMail(1)
 ```
 
 <!-- END REF -->
@@ -939,22 +944,22 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
  var server,boxInfo,result : object
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
   //create transporter
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("INBOX")
+ boxInfo = transporter.selectBox("INBOX")
 
   if(boxInfo.mailCount>0)
 	// retrieve the headers of the last 20 messages
 	// without marking them as read
-    result=transporter.getMails(boxInfo.mailCount-20,boxInfo.mailCount,\
+    result = transporter.getMails(boxInfo.mailCount-20,boxInfo.mailCount,\
      	newObject("withBody",false,"updateSeen",false))
     forEach(mail,result.list)
     	// ...
@@ -1008,20 +1013,20 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
  var blob : blob
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com"
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com"
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
   //create transporter
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("Inbox")
+ boxInfo = transporter.selectBox("Inbox")
 
   //get BLOB
- blob=transporter.getMIMEAsblob(1)
+ blob = transporter.getMIMEAsblob(1)
 ```
 
 <!-- END REF -->
@@ -1080,22 +1085,22 @@ To move a selection of messages:
  var mailIds : collection
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("inbox")
+ boxInfo = transporter.selectBox("inbox")
 
   //get collection of message unique IDs
- mailIds=transporter.searchMails("subject \"New feature:\"")
+ mailIds = transporter.searchMails("subject \"New feature:\"")
 
   // Move found messages from the current mailbox to the "documents" mailbox
- status=transporter.move(mailIds,"documents")
+ status = transporter.move(mailIds,"documents")
 ```
 
 #### Example 2
@@ -1106,19 +1111,19 @@ To move all messages in the current mailbox:
  var server,boxInfo,status : object
  var transporter : 4D.IMAPTransporter
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="4d@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "4d@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("inbox")
+ boxInfo = transporter.selectBox("inbox")
 
   // move all messages in the current mailbox to the "documents" mailbox
- status=transporter.move(kIMAPAll,"documents")
+ status = transporter.move(kIMAPAll,"documents")
 ```
 
 <!-- END REF -->
@@ -1156,22 +1161,22 @@ The function returns a collection of strings (unique IDs).
  var server,boxInfo,status : object
  var mailIds : collection
 
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.port=993
- server.user="qodly@gmail.com"
- server.password="XXXXXXXX"
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.port = 993
+ server.user = "qodly@gmail.com"
+ server.password = "XXXXXXXX"
 
- transporter=4D.IMAPTransporter.new(server)
+ transporter = 4D.IMAPTransporter.new(server)
 
   //select mailbox
- boxInfo=transporter.selectBox("inbox")
+ boxInfo = transporter.selectBox("inbox")
 
   //get IDs for 5 last messages received
- mailIds=transporter.numToID((boxInfo.mailCount-5),boxInfo.mailCount)
+ mailIds = transporter.numToID((boxInfo.mailCount-5),boxInfo.mailCount)
 
   //delete the messages from the current mailbox
- status=transporter.delete(mailIds)
+ status = transporter.delete(mailIds)
 ```
 
 <!-- END REF -->
@@ -1240,22 +1245,22 @@ The function returns an object describing the IMAP status:
 var options,boxInfo,status : object
 var transporter : 4D.IMAPTransporter
 
-options=newObject
-options.host="imap.gmail.com"
-options.port=993
-options.user="qodly@gmail.com"
-options.password="xxxxx"
+options = newObject()
+options.host = "imap.gmail.com"
+options.port = 993
+options.user = "qodly@gmail.com"
+options.password = "xxxxx"
 
 // Create transporter
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
 // Select mailbox
-boxInfo=transporter.selectBox("INBOX")
+boxInfo = transporter.selectBox("INBOX")
 
 // Mark all messages from INBOX as unseen
-flags=newObject
-flags["$seen"]=true
-status=transporter.removeFlags(kIMAPAll,flags)
+flags = newObject
+flags["$seen"] = true
+status = transporter.removeFlags(kIMAPAll,flags)
 ```
 
 <!-- END REF -->
@@ -1304,21 +1309,21 @@ var options, status : object
 var transporter : 4D.IMAPTransporter
 var info : string
 
-options=newObject
+options = newObject()
 
-options.host="imap.gmail.com"
-options.user="test@gmail.com"
-options.password="XXXXX"
+options.host = "imap.gmail.com"
+options.user = "test@gmail.com"
+options.password = "XXXXX"
 
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
 // rename mailbox
-status=transporter.renameBox("Invoices", "Bills")
+status = transporter.renameBox("Invoices", "Bills")
 
 if(status.success)
-   info="Mailbox renaming successful!"
+   info = "Mailbox renaming successful!"
 else
-   info="Error: "+status.statusText
+   info = "Error: "+status.statusText
 end
 ```
 
@@ -1421,7 +1426,7 @@ Example: `searchCriteria = KEYWORD \Flagged \Draft`
 Examples:
 `2,4:7,9,12:*` is `2,4,5,6,7,9,12,13,14,15` for a mailbox with 15 messages.
 `searchCriteria = 1:5 ANSWERED` search in message selection from message sequence number 1 to 5 for messages which have the \Answered flag set.
-`searchCriteria= 2,4 ANSWERED` search in the message selection (message numbers 2 and 4) for messages which have the \Answered flag set.
+`searchCriteria =  2,4 ANSWERED` search in the message selection (message numbers 2 and 4) for messages which have the \Answered flag set.
 
 #### Authorized search-keys
 
@@ -1519,14 +1524,14 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 
 ```qs
  var server, boxinfo : object
- server=newObject
- server.host="imap.gmail.com" //Mandatory
- server.user="4d@gmail.com"
- server.password="XXXXXXXX"
-
  var transporter : 4D.IMAPTransporter
- transporter=4D.IMAPTransporter.new(server)
- boxInfo=transporter.selectBox("INBOX")
+ server = newObject()
+ server.host = "imap.gmail.com" //Mandatory
+ server.user = "4d@gmail.com"
+ server.password = "XXXXXXXX"
+
+ transporter = 4D.IMAPTransporter.new(server)
+ boxInfo = transporter.selectBox("INBOX")
 ```
 
 <!-- END REF -->
@@ -1571,21 +1576,21 @@ var name, info : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=newObject
+options = newObject()
 
-options.host="imap.gmail.com"
-options.user="test@gmail.com"
-options.password="XXXXXX"
+options.host = "imap.gmail.com"
+options.user = "test@gmail.com"
+options.password = "XXXXXX"
 
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
-name="Bills"+transporter.getDelimiter()+"Atlas Corp"
-status=transporter.subscribe(name)
+name = "Bills"+transporter.getDelimiter()+"Atlas Corp"
+status = transporter.subscribe(name)
 
 if(status.success)
-   info="Mailbox subscription successful!"
+   info = "Mailbox subscription successful!"
 else
-   info="Error: "+status.statusText
+   info = "Error: "+status.statusText
 end
 ```
 
@@ -1632,22 +1637,22 @@ var info, name : string
 var options, status : object
 var transporter : 4D.IMAPTransporter
 
-options=newObject
+options = newObject()
 
 
-options.host="imap.gmail.com"
-options.user="test@gmail.com"
-options.password=pw
+options.host = "imap.gmail.com"
+options.user = "test@gmail.com"
+options.password = pw
 
-transporter=4D.IMAPTransporter.new(options)
+transporter = 4D.IMAPTransporter.new(options)
 
-name="Bills"+transporter.getDelimiter()+"Atlas Corp"
-status=transporter.unsubscribe(name)
+name = "Bills"+transporter.getDelimiter()+"Atlas Corp"
+status = transporter.unsubscribe(name)
 
 if(status.success)
-   info="Mailbox unsubscription successful!"
+   info = "Mailbox unsubscription successful!"
 else
-   info="Error: "+status.statusText
+   info = "Error: "+status.statusText
 end
 ```
 

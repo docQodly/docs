@@ -9,46 +9,24 @@ on:
 
 jobs:
   checks:
-    if: github.event_name != 'push'
     runs-on: ubuntu-latest
-    name: 'Test build'
+    name: 'Build'
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
-      - name: Test Build
-        run: |
-          if [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          export NODE_OPTIONS="--max-old-space-size=14336"
-          npm run build
-  gh-release:
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    name: 'Build and update website'
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
+          node-version: '18.x'
       - name: Build
         run: |
           if [ -e package-lock.json ]; then
-          npm ci
+            npm ci
           else
-          npm i
+            npm i
           fi
           export NODE_OPTIONS="--max-old-space-size=14336"
-          if [ ${{ github.repository_owner }} == 'docQodly' ]; then
-            npm run build -- --config ./docusaurus.config_preprod.js
-          else
-            npm run build
-          fi
+          npm run build
       - name: Release to GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

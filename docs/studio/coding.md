@@ -137,7 +137,12 @@ Deleting a method or class is straightforward:
 
 ### Executing Methods
 
-For testing purposes, a method can also be executed from the Explorer <img alt="explorer" src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} />. For more details about how to debug your code, please refer to the [Debugger](./debugging.md) section.
+For testing purposes, a method can be executed from the Explorer <img alt="explorer" src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} /> <br/>
+Or directly from the toolbar <img alt="explorer" src={require('./img/coding_execute2.png').default} style={{borderRadius: '6px', width: '25%'}} />
+
+:::info
+For comprehensive information on debugging your code, please refer to the [Debugger](./debugging.md) section.
+:::
 
 ## Code Preservation and Synchronization
 

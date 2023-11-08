@@ -93,7 +93,7 @@ This example lets you transfer a picture via a blob:
  var sourceBlob, targetBlob : blob
  var mypicture : picture
  var base64Text : string
- mypicture=ds.People.get(1).photo
+ mypicture = ds.People.get(1).photo
  pictureToBlob(mypicture,sourceBlob,".JPG")
  base64Decode(sourceBlob,base64Text) //Encoding of string
  // the binary is now available as character strings in base64Text
@@ -130,7 +130,7 @@ Generation of a UUID in a variable:
 
 ```qs
  var MyUUID : string
- MyUUID=generateUUID
+ MyUUID = generateUUID
 ```
 
 ## generateDigest
@@ -186,9 +186,9 @@ These examples illustrate how to retrieve the digest key of a string:
 
 ```qs
  var key1, key2 : string
- key1=generateDigest("The quick brown fox jumps over the lazy dog.",kMD5Digest)
+ key1 = generateDigest("The quick brown fox jumps over the lazy dog.",kMD5Digest)
   // key1 is "e4d909c290d0fb1ca068ffaddf22cbd0"
- key2=generateDigest("The quick brown fox jumps over the lazy dog.",kSHA1Digest)
+ key2 = generateDigest("The quick brown fox jumps over the lazy dog.",kSHA1Digest)
   // key2 is "408d94384216f890ff7a0c3528e8bed1e0b01621"
 
 ```
@@ -247,11 +247,11 @@ This example generates a password hash using bcrypt with a cost factor 4.
  var options : object
  var user : cs.UserEntity
  
- options=newObject("algorithm","bcrypt","cost",4)
+ options = newObject("algorithm","bcrypt","cost",4)
  
- hash=generatePasswordHash(password,options)
- user=ds.User.get(userId)
- user.hash=hash
+ hash = generatePasswordHash(password,options)
+ user = ds.User.get(userId)
+ user.hash = hash
  user.save()
  
 ```
@@ -307,9 +307,9 @@ This example verifies a password hash previously created by [`generatePasswordHa
  var result : string
  
  if(verifyPasswordHash(password,ds.Users.get(userId).hash))
-    result="Good password"
+    result = "Good password"
  else
-    result="Password error"
+    result = "Password error"
  end
 
 ```

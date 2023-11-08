@@ -13,24 +13,24 @@ This code will display a "Hello, World!" message at the bottom of your web form.
 
 ## Assigning Values
 
-Data can be put into and copied out of variables, attributes, collection items... Putting data into a variable is called assigning the data to the variable and is done with the assignment operator (=). The assignment operator is also used to assign data to attributes, collection items, etc.
+Data can be put into and copied out of variables, attributes, collection items... Putting data into a variable is called assigning the data to the variable and is done with the assignment operator ( = ). The assignment operator is also used to assign data to attributes, collection items, etc.
 
 ```qs
-MyNumber=3 //assigns 3 to MyNumber variable  
-myEntity.size=myNumber //assigns myNumber variable to size entity attribute
-MyVar=length("Acme") //assigns the result of the function (4) to MyVar
-myDate=!2023/01/21! //assigns a date literal
-myColl[2].hours=?08:12:55? //assigns a time literal
-arrDays{2}="Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
+MyNumber = 3 //assigns 3 to MyNumber variable  
+myEntity.size = myNumber //assigns myNumber variable to size entity attribute
+MyVar = length("Acme") //assigns the result of the function (4) to MyVar
+myDate = !2023/01/21! //assigns a date literal
+myColl[2].hours = ?08:12:55? //assigns a time literal
+arrDays{2} = "Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
 ```
 
 You must distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
 
-For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+=`):
+For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+ = `):
 
 ```qs
-a=1 //1
-a+=2 //3
+a = 1 //1
+a+ = 2 //3
 ```
 
 
@@ -62,10 +62,10 @@ convertFromString(vText,"UTF-8",vBlob)
 Some commands are attached to collections or objects, in which case they are named functions and are used using the dot notation. For example: 
 
 ```qs
-c=newCollection(1,2,3,4,5)
-nc=c.slice(0,3) //nc=[1,2,3]  
+c = newCollection(1,2,3,4,5)
+nc = c.slice(0,3) //nc = [1,2,3]  
 
-lastEmployee=employee.last()
+lastEmployee = employee.last()
 ```
 
 
@@ -74,15 +74,15 @@ lastEmployee=employee.last()
 QodlyScript proposes an extensed set of predefined constants, whose values are accessible by name. They allow writing more readable code. For example, `kCharCodes` is a constant (value 1). 
 
 ```qs
-a="alpha bravo charlie"
-b="Alpha Bravo Charlie"  
-vResult=compareStrings(a,b,kCharCodes) // vResult: 1
+a = "alpha bravo charlie"
+b = "Alpha Bravo Charlie"  
+vResult = compareStrings(a,b,kCharCodes) // vResult: 1
 ```
 
 Constants can be added:
 
 ```qs
-vResult=compareStrings(a,b,kCharCodes+kCaseInsensitive) // vResult: 0
+vResult = compareStrings(a,b,kCharCodes+kCaseInsensitive) // vResult: 0
 ```
 
 
@@ -108,7 +108,7 @@ for(vlChar,1,length(vtSomeText))
 	//Do something with the character if it is a TAB
 
 
-	if(characterCode(vtSomeText[[vlChar]])==tab)
+	if(characterCode(vtSomeText[[vlChar]]) == tab)
 		//...
 	end
 end
@@ -119,13 +119,13 @@ A method can call another method with or without parameters (arguments). The par
 When you call a method, you just type its name:
 
 ```qs
-myText="hello"
-myText=Do_Something(myText) //Call the Do_Something method
+myText = "hello"
+myText = Do_Something(myText) //Call the Do_Something method
 file("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
  
   //code of the method Do_Something  
 declare ( input : string) -> output : string 
-output=uppercase(input)
+output = uppercase(input)
 ```
 
 
@@ -140,7 +140,7 @@ However, when using QodlyScript it is important that you do not mix different da
 There are cases in which you need to store data as one type and use it as another type. The language contains a full complement of commands that let you convert from one data type to another. For example, you may need to create a part number that starts with a number and ends with characters such as "abc". In this case, you might write:
 
 ```qs
-myEntity.Product.partNumber=string(number)+"abc"
+myEntity.Product.partNumber = string(number)+"abc"
 ```
 
 If _number_ is 17, then _myEntity.partNumber_ will get the string "17abc".
@@ -152,26 +152,26 @@ The data types are fully defined in the section [Data Types](lang-data-types.md)
 You can handle objects and collections using the object notation to get or to set their values. For example:
 
 ```qs
-employee.name="Smith"
+employee.name = "Smith"
 ```
 
 You can also use a string within square brackets, for example:
 
 ```qs
-vName=employee["name"]
+vName = employee["name"]
 ```
 
 Since an object property value can be an object or a collection, object notation accepts a sequence of symbols to access sub-properties, for example:
 
 ```qs
-vAge=employee.children[2].age
+vAge = employee.children[2].age
 ```
 
 Note that if the object property value is an object that encapsulates a method (a formula), you need to add parenthesis `()` to the property name to execute the method:
 
 ```
-f=newObject
-f.add=formula(1+2)
+f = newObject
+f.add = formula(1+2)
 f.add() //returns 3
 ```
 
@@ -179,7 +179,7 @@ To access a collection element, you have to pass the element number embedded in 
 
 ```qs
 var myColl : collection
-myColl=newCollection("A","B",1,2,currentTime)
+myColl = newCollection("A","B",1,2,currentTime)
 myColl[3] //access to 4th element of the collection
 ```
 
@@ -191,7 +191,7 @@ You can create a class named "myClass" for example. To instantiate an object of 
 
 ```qs  
 // in a QodlyScript method
-o=cs.myClass.new() 
+o = cs.myClass.new() 
 ```
 
 In the `myClass` class method, use the `function <methodName>` statement to define the *methodName* class member function. A class member function can receive and return parameters like any method, and use `this` as the object instance. 
@@ -199,15 +199,15 @@ In the `myClass` class method, use the `function <methodName>` statement to defi
 ```qs  
 //in the myClass definition
 function hello -> welcome : string
-  welcome="Hello "+this.who
+  welcome = "Hello "+this.who
 ```
 
 To execute a class member function, just use the `()` operator on the member function of the object instance. 
 
 ```qs
-o=cs.myClass.new()
-o.who="World"
-message=o.myClass.hello()  
+o = cs.myClass.new()
+o.who = "World"
+message = o.myClass.hello()  
 //message: "Hello World"
 ```
 
@@ -216,11 +216,11 @@ Optionally, use the `constructor` and `property` keywords to declare properties 
 ```qs  
 //in the Rectangle class
 constructor(height : integer, width : integer)
- this.height=height
- this.width=width
+ this.height = height
+ this.width = width
  
  property name : string
- this.name="Rectangle"
+ this.name = "Rectangle"
 ```
 
 A class can extend another class by using `extends <ClassName>`. Superclasses can be called using the `super` command. For example:
@@ -235,7 +235,7 @@ constructor(size : integer)
   // provided for the Rectangle's width and height
 super(size,size)
 
-this.name="Square"
+this.name = "Square"
 ```
 
 

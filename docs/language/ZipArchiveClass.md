@@ -19,13 +19,13 @@ var zipFile : 4D.ZipFile
 var zipFolder : 4D.ZipFolder
 var txt : string
 
-path=folder(fk desktop folder).file("MyDocs/Archive.zip")
-archive=zipReadArchive(path)
-zipFolder=archive.root // store the zip main folder
-zipFile=zipFolder.files()[0] //read the first zipped file
+path = folder(fk desktop folder).file("MyDocs/Archive.zip")
+archive = zipReadArchive(path)
+zipFolder = archive.root // store the zip main folder
+zipFile = zipFolder.files()[0] //read the first zipped file
 
-If(zipFile.extension=".txt")
- txt=zipFile.getText()
+If(zipFile.extension = ".txt")
+ txt = zipFile.getText()
 End if
 ```
 
@@ -102,10 +102,10 @@ To compress a `4D.File`:
  var zfile, destination : 4D.File
  var status : object
 
- destination=file("/SOURCES/MyDocs/file.zip")
- zfile=file("/SOURCES/MyDocs/text.txt")
+ destination = file("/SOURCES/MyDocs/file.zip")
+ zfile = file("/SOURCES/MyDocs/text.txt")
 
- status=zipCreateArchive(zfile,destination)
+ status = zipCreateArchive(zfile,destination)
 ```
 
 #### Example 2
@@ -117,10 +117,10 @@ To compress a `4D.Folder` without the folder itself:
  var destination : 4D.File
  var status : object
 
- destination=file("/SOURCES/MyDocs/Images.zip")
- zfolder=folder("/SOURCES/MyDocs/Images")
+ destination = file("/SOURCES/MyDocs/Images.zip")
+ zfolder = folder("/SOURCES/MyDocs/Images")
 
- status=zipCreateArchive(zfolder,destination,ZIP Without enclosing folder)
+ status = zipCreateArchive(zfolder,destination,ZIP Without enclosing folder)
 ```
 
 #### Example 3
@@ -131,13 +131,13 @@ To compress a ZIP archive structure with a password:
  var destination : 4D.File
  var zip,status : object
 
- destination=file("/SOURCES/MyDocs/Archive.zip")
+ destination = file("/SOURCES/MyDocs/Archive.zip")
 
- zip=newObject
- zip.files=folder("/SOURCES/MyDocs/Resources").folders()
- zip.password="password"
+ zip = newObject
+ zip.files = folder("/SOURCES/MyDocs/Resources").folders()
+ zip.password = "password"
 
- status=zipCreateArchive(zip,destination)
+ status = zipCreateArchive(zip,destination)
 
 ```
 
@@ -148,14 +148,14 @@ You want to pass a collection of folders and files to compress to the *zipStruct
 ```qs
  var destination : 4D.File
  var zip,err : object
- zip=newObject
- zip.files=newCollection
+ zip = newObject
+ zip.files = newCollection
  zip.files.push(newObject("source",file("/SOURCES/Tests/text.txt")))
  zip.files.push(newObject("source",file("/SOURCES/Tests/text2.txt")))
  zip.files.push(newObject("source",file("/SOURCES/Images/image.png")))
 
- destination=file("/SOURCES/file.zip")
- err=zipCreateArchive(zip,destination)
+ destination = file("/SOURCES/file.zip")
+ err = zipCreateArchive(zip,destination)
 ```
 
 #### Example 5
@@ -166,14 +166,14 @@ You want to use an alternative compression algorithm with a high compression lev
 var destination : 4D.File
 var zip, err : object
 
-zip=newObject
-zip.files=newCollection
+zip = newObject
+zip.files = newCollection
 zip.files.push(folder("/SOURCES/images"))
-zip.compression=ZIP Compression LZMA
-zip.level=7 //default is 4
+zip.compression = ZIP Compression LZMA
+zip.level = 7 //default is 4
 
-destination=file("/SOURCES/images.zip")
-err=zipCreateArchive(zip, destination)
+destination = file("/SOURCES/images.zip")
+err = zipCreateArchive(zip, destination)
 ```
 
 ## zipReadArchive
@@ -214,25 +214,25 @@ To retrieve and view the contents of a ZIP file object:
  var archive : 4D.ZipArchive
  var path : 4D.File
 
- path=file("/SOURCES/MyDocs/Archive.zip")
- archive=zipReadArchive(path)
+ path = file("/SOURCES/MyDocs/Archive.zip")
+ archive = zipReadArchive(path)
 ```
 
 To retrieve the list of the files and folders in the archive:
 
 ```qs
- folders=archive.root.folders()
- files=archive.root.files()
+ folders = archive.root.folders()
+ files = archive.root.files()
 ```
 
 To read the contents of a file without extracting it from the root folder:
 
 ```qs
 
- if(files[i].extension==".txt")
-    txt=files[i].getText()
+ if(files[i].extension == ".txt")
+    txt = files[i].getText()
  else
-    blob=files[i].getContent()
+    blob = files[i].getContent()
  end
 ```
 
@@ -240,10 +240,10 @@ To extract from the root folder:
 
 ```qs
   //extract a file
- folderResult=files[i].copyTo(folder("/SOURCES/MyDocs"))
+ folderResult = files[i].copyTo(folder("/SOURCES/MyDocs"))
 
   //extract all files
- folderResult=archive.root.copyTo(folder("/SOURCES/MyDocs"))
+ folderResult = archive.root.copyTo(folder("/SOURCES/MyDocs"))
 ```
 
 ## .root

@@ -104,13 +104,13 @@ The **Radio** component provides selections from a predefined set of options wit
 
 To enable data capture for the Radio component, follow these steps:
 
-- **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Radio component.
+1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Radio component.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <ul>
-            <li><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected choice.</li>
-        </ul>
+        <ol>
+            <li value="2"><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected choice.</li>
+        </ol>
 	</Column.Item>
 	<Column.Item width="35%">
          <img alt="explorer" src={require('./img/radio_DataBinding.png').default} style={{borderRadius: '6px'}} />

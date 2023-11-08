@@ -47,15 +47,15 @@ You assign and test the **null** value to an object property:
 
 ```qs
 var vEmp : object
-vEmp=newObject
-vEmp.name="Smith"
-vEmp.children=null
+vEmp = newObject
+vEmp.name = "Smith"
+vEmp.children = null
  
-if(vEmp.children==null) //true
+if(vEmp.children == null) //true
 end
-if(vEmp.name==null) //false
+if(vEmp.name == null) //false
 end
-if(vEmp.parent==null) //true
+if(vEmp.parent == null) //true
 end
 ```
 
@@ -65,9 +65,9 @@ You assign and compare the **null** value to a collection element:
 
 ```qs
 var myCol : collection
-myCol=newCollection(10,20,null)
+myCol = newCollection(10,20,null)
 
-if(myCol[2]==null)
+if(myCol[2] == null)
   // if the 3rd element is null
 ...
 end
@@ -81,23 +81,23 @@ These examples show the various ways to assign or compare the **null** value to 
 
 //Object variable
 var o : object
-o=newObject
-o=null //equivalent to clearVariable(o)
-if(o!=null) //equivalent to if(objectIsDefined(o))
+o = newObject
+o = null //equivalent to clearVariable(o)
+if(o != null) //equivalent to if(objectIsDefined(o))
 end
 
 //Collection variable
 var c : collection
-c=newCollection
-c=null //equivalent to clearVariable(c)
-if(c!=null)
+c = newCollection
+c = null //equivalent to clearVariable(c)
+if(c != null)
 end
 
 //Picture variable
 var i : picture
-i=vpicture
-i=null //equivalent to clearVariable(i)
-if(i!=null) //equivalent to if(pictureSize(i)!=0)
+i = vpicture
+i = null //equivalent to clearVariable(i)
+if(i != null) //equivalent to if(pictureSize(i) != 0)
 end
 ```
 
@@ -109,18 +109,18 @@ Here are the different results of the `undefined` command as well as the `null` 
 ```qs
 var vEmp : object
 var vUndefined, vNull : boolean
-vEmp=newObject
-vEmp.name="Smith"
-vEmp.children=null
+vEmp = newObject
+vEmp.name = "Smith"
+vEmp.children = null
  
-vUndefined=undefined(vEmp.name) // false
-vNull=(vEmp.name=null) //false
+vUndefined = undefined(vEmp.name) // false
+vNull = (vEmp.name == null) //false
  
-vUndefined=undefined(vEmp.children) // false
-vNull=(vEmp.children=null) //true
+vUndefined = undefined(vEmp.children) // false
+vNull = (vEmp.children == null) //true
  
-vUndefined=undefined(vEmp.parent) // true
-vNull=(vEmp.parent=null) //true
+vUndefined = undefined(vEmp.parent) // true
+vNull = (vEmp.parent == null) //true
 ```
 
 ### Null operators
@@ -141,8 +141,8 @@ vNull=(vEmp.parent=null) //true
 var object : Object
 var text : Text
 
-//object == null
-//text == "" 
+//object  ==  null
+//text  ==  "" 
 ```
 
 :::info
@@ -184,9 +184,9 @@ Keep in mind that `undefined` evaluates *expression*. The following statements a
 
 ```qs
 var result : boolean
-result=undefined(exp)
+result = undefined(exp)
   // same result:
-result=(valueType(exp)=kUndefined)
+result = (valueType(exp) == kUndefined)
 ```
 
 :::
@@ -199,18 +199,18 @@ Here are the different results of the `undefined` command as well as the `null` 
 var vEmp : object
 var vUndefined, vNull : boolean
 
-vEmp=newObject
-vEmp.name="Smith"
-vEmp.children=null
+vEmp = newObject
+vEmp.name = "Smith"
+vEmp.children = null
  
-vUndefined=undefined(vEmp.name) // false
-vNull=(vEmp.name=null) //false
+vUndefined = undefined(vEmp.name) // false
+vNull = (vEmp.name == null) //false
  
-vUndefined=undefined(vEmp.children) // false
-vNull=(vEmp.children=null) //true
+vUndefined = undefined(vEmp.children) // false
+vNull = (vEmp.children == null) //true
  
-vUndefined=undefined(vEmp.parent) // true
-vNull=(vEmp.parent=null) //true
+vUndefined = undefined(vEmp.parent) // true
+vNull = (vEmp.parent == null) //true
 ```
 
 

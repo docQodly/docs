@@ -58,7 +58,7 @@ The optional *name* parameter lets you pass the name and extension to be used by
 *	you passed a file path, the name and extension of the file is used,
 *	you passed a BLOB, a random name without extension is automatically generated.
 
-The optional *cid* parameter lets you pass an internal ID for the attachment. This ID is the value of the `Content-Id` header, it will be used in HTML messages only. The cid associates the attachment with a reference defined in the message body using an HTML tag such as `\<img src="cid:ID">`. This means that the contents of the attachment (e.g., a picture) should be displayed within the message on the mail client. The final result may vary depending on the mail client. You can pass an empty string in *cid* if you do not want to use this parameter.
+The optional *cid* parameter lets you pass an internal ID for the attachment. This ID is the value of the `Content-Id` header, it will be used in HTML messages only. The cid associates the attachment with a reference defined in the message body using an HTML tag such as `\<img src = "cid:ID">`. This means that the contents of the attachment (e.g., a picture) should be displayed within the message on the mail client. The final result may vary depending on the mail client. You can pass an empty string in *cid* if you do not want to use this parameter.
 
 You can use the optional *type* parameter to explicitly set the `content-type` of the attachment file. For example, you can pass a string defining a MIME type ("video/mpeg"). This content-type value will be set for the attachment, regardless of its extension. For more information about MIME types, please refer to the [MIME type page on Wikipedia](https://en.wikipedia.org/wiki/MIME).
 
@@ -104,27 +104,27 @@ var attachment : 4D.File
 var email,server : object
 var transporter : 4D.SMTPTransporter
 
-attachment=file("/PACKAGE/Docs/cv-john-smith.pdf")
+attachment = file("/PACKAGE/Docs/cv-john-smith.pdf")
 
-server=newObject
-server.host="smtp.mail.com"
-server.user="test_user@mail.com"
-server.password="p@ssw@rd"
-transporter=4D.SMTPTransporter.new(server)
+server = newObject
+server.host = "smtp.mail.com"
+server.user = "test_user@mail.com"
+server.password = "p@ssw@rd"
+transporter = 4D.SMTPTransporter.new(server)
 
-email=newObject
-email.from="test_user@mail.com"
-email.to="test_user@mail.com"
-email.subject="This is a test message with attachments"
+email = newObject
+email.from = "test_user@mail.com"
+email.to = "test_user@mail.com"
+email.subject = "This is a test message with attachments"
 
 //add a link to download file
-email.attachments=newCollection(4D.MailAttachment.new(attachment))
+email.attachments = newCollection(4D.MailAttachment.new(attachment))
 //insert an inline picture (use a cid)
-email.attachments[1]=4D.MailAttachment.new(file("/PACKAGE/Docs/photo.jpg"),"","Qodly")
+email.attachments[1] = 4D.MailAttachment.new(file("/PACKAGE/Docs/photo.jpg"),"","Qodly")
 
-email.htmlBody="<html>"+\
+email.htmlBody = "<html>"+\
 "<body>Hello World!"+\
-"<img src='cid:Qodly' >"+\
+"<img src = 'cid:Qodly' >"+\
 "</body>"+\
 "</head>"+\
 "</html>"
