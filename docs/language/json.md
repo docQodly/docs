@@ -16,7 +16,7 @@ title: JSON
 
 ## jsonParse
 
-<!-- REF #_command_.jsonParse.Syntax -->**jsonParse** ( *jsonString* : string , *type* : integer {, \*} ) : object, mixed<!-- END REF -->
+<!-- REF #_command_.jsonParse.Syntax -->**jsonParse** ( *jsonString* : string , *type* : integer {, \*} ) : any<!-- END REF -->
 
 
 <!-- REF #_command_.jsonParse.Params -->
@@ -25,7 +25,7 @@ title: JSON
 |jsonString|string|->|JSON string to parse|
 |type|integer|->|Type in which to convert the values|
 |*||->|Adds line position and offset of each property if returned value is an object|
-|Result|object, mixed|<-|Values extracted from JSON string|<!-- END REF -->
+|Result|any|<-|Values extracted from JSON string|<!-- END REF -->
 
 #### Description
 
@@ -39,26 +39,31 @@ If you use pointers, you must call the [`jsonStringify`](#jsonstringify) command
 
 :::
 
-By default, if you omit the *type* parameter, Qodly attempts to convert the value obtained into the type of the variable or field used to store the results (if one is defined). Otherwise, Qodly attempts to infer its type. You can also force the type interpretation by passing the *type* parameter: pass one of the following constants:
+By default, if you omit the *type* parameter, Qodly attempts to convert the value obtained into the type of the variable or attribute used to store the results (if one is defined). Otherwise, Qodly attempts to infer its type. You can also force the type interpretation by passing one of the following constants in the *type* parameter:
 
 |Constant|Type|Value|
 |:----|:----|:----|
-|Is Boolean|integer|6|
-|Is collection|integer|42|
-|Is date|integer|4|
-|Is longint|integer|9|
-|Is object|integer|38|
-|Is real|integer|1|
-|Is text|integer|2|
-|Is time|integer|11|
+|kBoolean|integer|6|
+|kCollection|integer|42|
+|kDate|integer|4|
+|kInteger|integer|9|
+|kObject|integer|38|
+|kNumber|integer|1|
+|kString|integer|2|
+|kTime|integer|11|
 
-If you pass the * optional parameter and if the `jsonString` parameter represents an object, the returned object contains an additional property named __symbols that provides path, line position, and line offset of each property and sub-property of the object. This information can be useful for debugging purposes. The structure of the __symbols property is:
+If you pass the *** optional parameter and if the `jsonString` parameter represents an object, the returned object contains an additional property named `__symbols` that provides path, line position, and line offset of each property and sub-property of the object. This information can be useful for debugging purposes. The structure of the `__symbols` property is:
 
-__symbols:{//object description    myAtt.mySubAtt...:{ //property path       line:10, //line number of the property       offset:35 //offset of the property from the beginning of the line       }    }
+```json
+__symbols:{//object description
+	myAtt.mySubAtt...:{ //property path
+	line:10, //line number of the property 
+	offset:35 //offset of the property from the beginning of the line       }    }
+```
 
 :::note
 
-The * parameter is ignored if the returned value is not of the object *type*.
+The *** parameter is ignored if the returned value is not of the object *type*.
 
 :::
 
@@ -69,13 +74,13 @@ The * parameter is ignored if the returned value is not of the object *type*.
 
 ## jsonResolvePointers
 
-<!-- REF #_command_.jsonResolvePointers.Syntax -->**jsonResolvePointers** ( *aOject* : object , *options* : object) : object<!-- END REF -->
+<!-- REF #_command_.jsonResolvePointers.Syntax -->**jsonResolvePointers** ( *aObject* : object , *options* : object) : object<!-- END REF -->
 
 
 <!-- REF #_command_.jsonResolvePointers.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aOject|object|->|Object containing JSON pointers to resolve|
+|aObject|object|->|Object containing JSON pointers to resolve|
 |||<-|Object with JSON pointers resolved (only if result is an object)|
 |options|object|->|Options for pointer resolution|
 |Result|object|<-|Object containing the result of the processing|<!-- END REF -->
@@ -90,7 +95,7 @@ JSON pointers are particularily useful to:
 * express a cyclic structure in JSON,
 * define a template object containing default properties stored in JSON.
 
-Pass in the *aObject* parameter an object containing JSON pointers to be resolved (for information on [`JSON pointer syntax`](#jsonpointersyntax), please refer to the Defining JSON Pointers paragraph below).
+Pass in the *aObject* parameter an object containing JSON pointers to be resolved (for information on JSON pointer syntax, please refer to the [`Defining JSON Pointers`](#defining-json-pointers) paragraph below).
 
 :::note
 
@@ -153,15 +158,15 @@ JSON pointers are resolved recursively, which means that if a resolved pointer a
 
 ## jsonStringify
 
-<!-- REF #_command_.jsonStringify.Syntax -->**jsonStringify** ( *value* : object, mixed {, \*} ) : string<!-- END REF -->
+<!-- REF #_command_.jsonStringify.Syntax -->**jsonStringify** ( *value* : any {, \*} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.jsonStringify.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|object, mixed|->|Data to convert into JSON string|
+|value|any|->|Data to convert into JSON string|
 |*||->|Pretty printing|
-|Result|string|<-|String containing serialized JSON text|<!-- END REF -->
+|Result|string|<-|String containing serialized JSON string|<!-- END REF -->
 
 #### Description
 
@@ -305,15 +310,15 @@ var oResult : object
 var vLNbErr : integer
 var vTerrLine : string
 
-oResult = jsonValidate(jsonParse(myJson; *), mySchema)
+oResult = jsonValidate(jsonParse(myJson, *), mySchema)
 
 if (oResult.success) // validation successful
   // ...
 else // validation failed
   vLNbErr = oResult.errors.length // get the number of error(s)
-  ALERT(String($vLNbErr) + " validation error(s) found.")
+  vTerrLine = string(vLNbErr) + " validation error(s) found.\r"
   for (i, 0, vLNbErr)
-    vTerrLine = vTerrLine + oResult.errors[i].message + " " + String(oResult.errors[i].line) + Carriage return
+    vTerrLine = vTerrLine + oResult.errors[i].message + " " + string(oResult.errors[i].line\r)
   end for
 end if
 
