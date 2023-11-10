@@ -138,98 +138,182 @@ Inside the Contextual panel, you'll find a field with the class name <img alt="s
 	</Column.Item>
 </Column.List>
 
-## Properties panel
-
-The Properties panel gives you extremely granular control over your elements. 
-
-After you select an element, you can edit its properties using this panel. This includes style properties (as a rule, component properties and styling are separated).
-
-Using the Properties panel, you can bind a CSS class to the element and define values individually.
-
-![styles-library](img/properties-panel.png)
-
-Some visual properties such as DataTable columns can be edited directly on the canvas.
-
-### Example 
-
-To add a red background to a Button component: 
-
-* from the Styles library:
-drag the `bg-red-500` class from the Styles library and drop it on the Button component.
-
-* using the Properties Panel:
-    * select the Button component, and under Style, choose a red color for the background.
-    * select the Button component, then in the Properties panel, select the `bg-red-500` class in the CSS section.
-
-## Overriding style properties
-
-Selecting a component displays its style properties in the Properties Panel. Values set by CSS classes are displayed in italics. For example, assigning the `bg-red-500` class to the component will get the Background property to display *rgb(239,68,68)*.
-
-Modifying these values overrides the initial value for that property. Overriden CSS properties have a blue dot in front of them. 
-
-You can export the new values to create a new CSS class.
 
 ## Working with CSS 
 
-### Exporting styles as CSS classes for reuse 
+### Using CSS Classes
 
-You can export the style of an element as a CSS class to reuse it later: 
-1. Select a an element on the canvas, the tooltip appears.
-2. Click the CSS icon in the tooltip and enter a name for the new CSS class. 
-3. If you want to export a shared CSS, check the **Export as shared** option.
-4. Click **Export**.
+After selecting a component, you can adjust its properties using the properties panel. This involves style properties, and there is a clear distinction between component properties and styling.
 
-:::note
 
-This does not export all the styles of the component, only the properties you override.
+Associating a CSS class with a component can be accomplished in two ways:
+
+- Drag and drop a CSS class onto your component from the `Styles Library`.
+
+- Using the Properties panel, link a CSS class to the component through the `CSS` section under the `Style` category. This can be done either by 
+
+<img alt="explorer" src={require('./img/usingCSSClasses.png').default} style={{borderRadius: '6px'}} />
+
+The provided example demonstrates applying a CSS class named `ratingStars` to the embedded element `Slider Container` of the `Range Input` component. This modification transforms the standard slider into a star rating slider, suitable for rating activities or services. The corresponding code for this CSS class is shown below:
+
+<div class="longCode-block">
+
+```css
+
+self::before {
+  content: "\2606 \2606 \2606 \2606 \2606"; /* Unicode representation of empty star */
+  color: #ccc; 
+}
+/* Fill the stars based on the 'aria-valuenow' attribute */
+self:has( [data-cy="cypress_slider_thumb"][aria-valuenow="1"] )::before{
+  content: "\2605 \2606 \2606 \2606 \2606"; 
+  color: #6d5dfc;
+}
+
+self:has( [data-cy="cypress_slider_thumb"][aria-valuenow="2"] )::before{
+  content: "\2605 \2605 \2606 \2606 \2606"; 
+  color: #6d5dfc;
+}
+
+self:has( [data-cy="cypress_slider_thumb"][aria-valuenow="3"] )::before{
+  content: "\2605 \2605 \2605 \2606 \2606"; 
+  color: #6d5dfc;
+}
+
+self:has( [data-cy="cypress_slider_thumb"][aria-valuenow="4"] )::before{
+  content: "\2605 \2605 \2605 \2605 \2606"; 
+  color: #6d5dfc;
+}
+
+self:has( [data-cy="cypress_slider_thumb"][aria-valuenow="5"] )::before{
+  content: "\2605 \2605 \2605 \2605 \2605"; 
+  color: #6d5dfc;
+}
+
+self [data-cy="cypress_slider"]{
+	position: absolute !important;
+	width: inherit;
+	opacity: 0;
+}
+```
+</div>
+
+<br/>
+
+:::info
+The size of the stars is determined by the value specified in the `Font` category.
+:::
+
+### Exporting Styles as CSS Class
+
+To reuse the style of a component, you can export it as a CSS class by following these steps:
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <ol>
+          <li>Select a component on the canvas, triggering the appearance of the tooltip. </li> 
+          <li>Click the CSS icon <img alt="styles-library" src={require('./img/css.png').default} style={{borderRadius: '6px', width: '5%'}} /> within the tooltip and provide a name for the new CSS class.</li>
+          <li>If you wish to export a shared CSS class, enable the <code>Create as Shared</code> option.</li>
+          <li>Click the <code>Export</code> button.</li>
+        </ol>
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/exportingStyles.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::info
+This process exports only styles defined in the properties panel and not those from any other assigned CSS class. 
+:::
+
+Exporting styles instantly assigns the new CSS class to the component, removing the styles from the properties panel that are now defined in the assigned CSS class.
+
+### CSS Class Naming Priority
+
+When assigning both a shared and a local CSS class with the same name:
+
+- The component is assigned both the local and shared CSS classes, regardless of the selection.
+
+- However, the shared CSS class takes precedence, and its styles are prioritized over those of the local class.
+
+- Consequently, if styles in the local CSS class are defined but not present in the shared class, they are still applied to the component.
+
+:::info
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    When both css classes are assigned, the icon of the CSS class changes to symbolize that it is both local and shared. You can choose which one to edit from the dropdown list.
+	</Column.Item>
+	<Column.Item width="40%">
+    <img alt="styles-library" src={require('./img/shared&local.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
+
+Qodly Studio permits the use of the same name for both a local and shared CSS class. 
+
+:::info However
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    It does not allow the creation of CSS classes that resemble the name of a theme CSS class. More details can be found at [Tailwind CSS](https://tailwind.build/classes).
+	</Column.Item>
+	<Column.Item width="30%">
+    <img alt="styles-library" src={require('./img/tailwindCSS.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 :::
 
-This exports the [new style properties](#overriding-style-properties) of the element as a new local or shared CSS class. Now it appears as a choice in the Styles library and in the property list, and you can apply the class to other elements on your canvas. 
+### Overriding Style Properties
 
-### Naming CSS classes
+A priority-based scenario determines which styles take precedence over others:
 
-If both a shared and a local CSS classes have the same name:
-- in the Webform source, the shared CSS is placed first and the local one is placed in second
-- as a result, if one of them is applied to a component, they are both applied and some local CSS properties may override the shared ones.
+- When assigning the **theme** CSS class `bg-red-500` to a component, the `background` property displays `rgb(239,68,68)`. 
 
+- Subsequently assigning a **local** CSS class to the same component, featuring a different background color, will override the initial value set by the **theme** CSS class.
+
+- A **shared** CSS class takes precedence, prioritizing its styles over those of the **local** class, thereby overriding the initial value set by the **local** CSS class.
+
+- Modifying this value with another background color from the **properties panel** will lead to the **theme**, **local** and **shared** CSS classes being overridden.
 
 ## Customizing DataTable Styles
 
-The [DataTable component](components/datatable.md) styles can be highly customized thanks to the support of specific CSS classes adressing all parts of the table:
+The [DataTable component](components/datatable.md) styles can be customized by leveraging specific CSS classes that target various elements of the table:
 
 ![data-table](img/datatable-schema.jpg)
 
-### CSS table 
+### CSS Table Classes
 
-The following specific css classes are supported:
+The following specific CSS classes are supported:
 
 |Area|Class name|Applies to|
 |---|---|----|
-|Header|.header|the whole header|
-||.header-cell|all the cells of the header|
-||.header-even|header of even columns|
-||.header-datasourceName (*)|the header of the corresponding datasource|
-|Row|.row|all rows|
-||.selected|the selected row|
-||.row-even|all even rows|
-||.hover|the hovered row|
-|Cell|.cell|all the cells|
-|Column|.col-datasourceName (*)|the column of the corresponding datasource|
-||.col-even|even columns|
-||.sorted|sorted colums|
-||.sorted-asc|asc sorted columns|
-||.sorted-desc|desc sorted columns|
+|Header|.header|The entire header|
+||.header-cell|All cells in the header|
+||.header-even|Header of even columns|
+||.header-datasourceName (*)|The header of the corresponding datasource|
+|Row|.row|All rows|
+||.selected|The selected row|
+||.row-even|All even rows|
+||.hover|The hovered row|
+|Cell|.cell|All cells|
+|Column|.col-datasourceName (*)|The column of the corresponding datasource|
+||.col-even|Even columns|
+||.sorted|Sorted colums|
+||.sorted-asc|Ascending sorted columns|
+||.sorted-desc|Descending sorted columns|
 
-(*) Ex: .header-lastname, .header-employer-name (use a - instead of . for relations)
+(*) Example: .header-lastname, .header-employer-name (use a - instead of . for relations)
 
 ### Examples
 
-The following CSS definitions allow to design custom datatable components.
+The following CSS definitions enable the design of custom DataTable components.
 
-#### Example 1
+#### Example 1 - Blue Headers
 
 ![blue-headers](img/BlueHeaders.png)
+
+<div class="longCode-block">
 
 ```css
 self {
@@ -272,11 +356,14 @@ self .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {
 }
 
 ```
+</div>
 
 
-#### Example 2
+#### Example 2 - Green Headers
 
 ![green-headers](img/GreenHeaders.png)
+
+<div class="longCode-block">
 
 ```css
 self .header .header-cell {
@@ -321,12 +408,15 @@ self .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {
   border-width: 0;
 }
 ```
+</div>
 
-#### Example 3
+#### Example 3 - Dark Mode DataTable
 
-This example requires that the DataTable contains a column associated to a `lastname` datasource.
+This example assumes that the DataTable contains a column associated with a `lastname` datasource.
 
 ![dark-mode-datatable](img/Dark-mode.png)
+
+<div class="longCode-block">
 
 ```css
 self {
@@ -385,8 +475,13 @@ self .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {
   border-width: 0;
 }
 ``` 
+</div>
 
+<br/>
 
+:::info
+These style examples are the same as those applied to the DataTables found in the [templates](./templates.md) categorized under `DataTables`.
+:::
 
 ## See also
 
