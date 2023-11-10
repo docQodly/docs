@@ -40,26 +40,28 @@ When working with methods and classes in Qodly, it's essential to understand how
 
 ### Creating
 
-To create a new method or class, follow these steps:
+You can create a method or class using one of the three methods:
 
 <Column.List align="center" justifyContent="between">
-    <Column.Item width="65%">
-        <ul>
-			<li>In the Explorer, navigate to the appropriate category (Methods or Classes).</li>
-			<br/>
-			<li>Click the <code>+</code> button on the right side of the title area.</li>
-		</ul>
-    </Column.Item>
-    <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
+	<Column.Item width="60%">
+        <ol>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
+            <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
+        </ol>
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img alt="explorer" src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img alt="explorer" src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
+	</Column.Item>
 </Column.List>
 
+<br/>
+
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        <ul>
-			<li>A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.</li>
-		</ul>
+      A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.
     </Column.Item>
     <Column.Item width="30%">
 		<img alt="explorer" src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
@@ -100,11 +102,11 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        <ul>
-			<li>In the Explorer, open the options menu for the item you wish to delete.</li>
-			<br/>
-			<li>Select <code>Delete</code>.</li>
-		</ul>
+      <ol>
+        <li>In the Explorer, open the options menu for the item you wish to delete.</li>
+        <br/>
+        <li>Select <code>Delete</code>.</li>
+		  </ol>
     </Column.Item>
     <Column.Item width="30%">
 		<img alt="explorer" src={require('./img/coding_delete.png').default} style={{borderRadius: '6px'}} />
@@ -113,9 +115,9 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        <ul>
-			<li>Confirm the deletion in the subsequent warning dialog.</li>
-		</ul>
+      <ol>
+			  <li value="3">Confirm the deletion in the subsequent warning dialog.</li>
+		  </ol>
     </Column.Item>
     <Column.Item width="30%">
 		<img alt="explorer" src={require('./img/coding_delete2.png').default} style={{borderRadius: '6px'}} />

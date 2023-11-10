@@ -15,11 +15,11 @@ In the Qodly development environment, you have access to a range of debugging to
 To execute your code line-by-line and evaluate expressions, you must initiate a **debug session** on the server and **attach** it to your browser. Follow these steps:
 
 
-- Click the Debug button located in the Studio toolbar. <img alt="explorer" src={require('./img/debug1.png').default} style={{borderRadius: '6px', width: '10%'}} />
+1. Click the Debug button located in the Studio toolbar. <img alt="explorer" src={require('./img/debug1.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-- If the debug session starts successfully, a green bullet will appear on the button label. <img alt="explorer" src={require('./img/debug2.png').default} style={{borderRadius: '6px', width: '10%'}} />
+2. If the debug session starts successfully, a green bullet will appear on the button label. <img alt="explorer" src={require('./img/debug2.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
-- Once you begin executing code within the debug session, the bullet will turn orange. <img alt="explorer" src={require('./img/debug3.png').default} style={{borderRadius: '6px', width: '10%'}} />
+3. Once you begin executing code within the debug session, the bullet will turn orange. <img alt="explorer" src={require('./img/debug3.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
 
 :::info
@@ -43,9 +43,9 @@ Verify that the method or function with the breakpoint is saved and not in [draf
 
 If you wish to stop a debug session, follow these steps:
 
-- Click the **Debug** button in the Studio toolbar while a debug session is active.
+1. Click the **Debug** button in the Studio toolbar while a debug session is active.
 
-- A warning dialog box will prompt you to confirm whether you want to detach the debugger, effectively closing the debug session attached to your browser. You will have several options:  
+2. A warning dialog box will prompt you to confirm whether you want to detach the debugger, effectively closing the debug session attached to your browser. You will have several options:  
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
@@ -68,13 +68,16 @@ If you wish to stop a debug session, follow these steps:
 
 Breakpoints allow you to pause code execution at specific points in your code. You can set breakpoints on any line of code where you want the execution to halt. Here's how to create a breakpoint:
 
-- Click in the left margin of the code editor. This action will display a red bullet. <img alt="explorer" src={require('./img/debug6.png').default} style={{borderRadius: '6px', width: '40%'}} />
+1. Click in the left margin of the code editor. This action will display a red bullet. <img alt="explorer" src={require('./img/debug6.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
-- When you launch the code, a yellow arrow will appear in the left margin to indicate where the execution paused and mark the next line to be executed. <img alt="explorer" src={require('./img/debug7.png').default} style={{borderRadius: '6px', width: '40%'}} />
+2. When you launch the code, a yellow arrow will appear in the left margin to indicate where the execution paused and mark the next line to be executed. <img alt="explorer" src={require('./img/debug7.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
-- At this point, you can use the debugger panel at the bottom of the window to evaluate and debug your code.
+3. At this point, you can use the debugger panel at the bottom of the window to evaluate and debug your code.
 <img alt="explorer" src={require('./img/debug8.png').default} style={{borderRadius: '6px'}} />
 
+:::warning
+Should a function appear unexpectedly, even without any breakpoints in your code while the debugger is active, it implies the existence of an error within that specific code section.
+:::
 
 ### Breakpoint Status
 

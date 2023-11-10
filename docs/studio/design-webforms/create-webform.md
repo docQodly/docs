@@ -11,7 +11,7 @@ In Qodly, the foundation of your work begins with a webform, a container encompa
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the Qodly Studio <strong>homepage</strong>, select <code>Webform</code> and name the new webform in the creation modal.</li><br/><br/><br/><br/><br/>
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Webform</code> and name the new webform in the creation modal.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Webforms</code>. </li><br/><br/><br/><br/>
             <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for <code>Webform</code>.</li>
         </ol>

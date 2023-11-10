@@ -176,6 +176,9 @@ Here's a glimpse of how the **DataTable** component will look and behave in acti
 
 <img alt="explorer" src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
 
+:::info
+Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](../styling#customizing-datatable-styles).
+:::
 
 ## Triggers and Events
 
