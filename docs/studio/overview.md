@@ -58,16 +58,16 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
     - ![qodlyOverview](./img/overview_debug.png) [Debug](./debugging#starting-a-debug-session): Initiate a debug session on the server, attaching it to your browser, and enable debugging for your app.
     - ![qodlyOverview](./img/overview_saveAll.png) Save All: Save all changes made across all open windows within your app.
-    - ![qodlyOverview](./img/overview_data.png) Data: Provide access to the Data Explorer, facilitating data-related operations.
+    - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the Data Explorer, facilitating data-related operations.
     - ![qodlyOverview](./img/overview_preview.png) [Preview](./rendering#preview-the-entire-site): Allows you to assess your application's appearance and functionality with ease.
     - ![qodlyOverview](./img/overview_settings.png) [Settings](./settings.md): Present a range of options for configuring application-specific settings, tailoring the environment to your app's needs.
 
 3. **Grid container**: houses a collection of swift shortcuts for a range of actions:
 
     - **Create New**: Offers convenient quick links for:
-        - ![qodlyOverview](./img/overview_webform.png) Webform: Speedily initiate the creation of a new Webform.
-        - ![qodlyOverview](./img/overview_class.png) Class: Generate a new Class.
-        - ![qodlyOverview](./img/overview_method.png) Method: Generate a new Method.
-        - ![qodlyOverview](./img/overview_data.png) Data: Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
+        - ![qodlyOverview](./img/overview_webform.png) [Webforms](./design-webforms/create-webform#creating-a-webform): Speedily initiate the creation of a new Webform.
+        - ![qodlyOverview](./img/overview_class.png) [Classes](./coding#creating): Generate a new Class.
+        - ![qodlyOverview](./img/overview_method.png) [Methods](./coding#creating): Generate a new Method.
+        - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
     - **Recent Files**: Displays the most recently accessed files, allowing you to quickly revisit your recent work.
     - **What's New**: Keeps you updated with the latest news and announcements from the Qodly team.
