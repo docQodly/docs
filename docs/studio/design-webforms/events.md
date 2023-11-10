@@ -492,7 +492,17 @@ Three tiers of feedback are accessible and will be displayed as colored **toasts
 <br/>
 
 :::info 
-The time these **toast notifications** remain visible is typically managed by Qodly Studio's internal logic. They will automatically disappear after a preset **5-second** period. Users can also manually dismiss them by clicking on the `x` icon.
+Displaying multiple toasts through a single function is not supported.
+
+Upon calling a function, it initiates an HTTP request, updating the UI simultaneously with the latest changes. This aligns with the principle that one HTTP request results in one response, leading to a single UI update.
+
+Consequently, only the final update from the function will be visible in the UI, showcasing only the last toast.
+:::
+
+The time these **toast notifications** remain visible is typically managed by Qodly Studio's internal logic.
+
+:::info 
+They will automatically disappear after a preset **5-second** period. Users can also manually dismiss them by clicking on the `x` icon.
 :::
 
 

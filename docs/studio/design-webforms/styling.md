@@ -255,7 +255,7 @@ Qodly Studio permits the use of the same name for both a local and shared CSS cl
 :::info However
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    It does not allow the creation of CSS classes that resemble the name of a theme CSS class. More details can be found at [Tailwind CSS](https://tailwind.build/classes).
+    It does not allow the creation of CSS classes that resemble the name of a theme CSS class. More details can be found at <a href="https://tailwind.build/classes">Tailwind CSS</a>.
 	</Column.Item>
 	<Column.Item width="30%">
     <img alt="styles-library" src={require('./img/tailwindCSS.png').default} style={{borderRadius: '6px'}} />
