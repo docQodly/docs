@@ -39,7 +39,8 @@ Empowering your application's interface and content customization, the Webform E
 6. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
 7. [**Properties panel**](#properties-panel): Customizes component attributes for tailored behavior and appearance.
 8. [**Header panel**](#header-panel): Simplifies project management for streamlined tracking.
-9. **Device toolbar**: Simulates how a website looks and functions on various devices and screen sizes for testing and optimization.
+9. **Device toolbar**: Coming Soon.
+<!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 10. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
 11. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
 12. **Tabs**: Organizes open elements, including webforms, [class functions](../coding#classes), [methods](../coding#methods), [model](../model/model-editor-interface.md), [roles and priviliges](../roles/rolesPrivilegesOverview.md) and [settings](../settings.md).
