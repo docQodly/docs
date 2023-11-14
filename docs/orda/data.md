@@ -139,26 +139,29 @@ Each employee can be a manager and can have a manager. To get the manager of the
 
 You can store images in picture attributes; similarly, you can store any binary data in blob attributes. 
 
-Qodly lets you assign either the data itself, i.e. an image or a blob object, or a **reference to a file** containing the data to the attribute. In the case of a picture attribute, you can assign an image file (.jpg, .png...), in the case of a blob attribute, a file of any type. Only the file path is saved within the entity.
+Qodly lets you assign either the data itself, i.e. an image or a blob object, or a **reference to a file** containing the data to the attribute. Only the file path is saved within the entity.
 
-Thanks to this feature, you can reuse the same picture in multiple entities without duplicating it, organize the files the way you want, and limit the size of the data file.
+Thanks to this feature, you can reuse the same picture in multiple entities without duplicating it, organize the files the way you want, or use them outside of Qodly. Also, you can control the size of the data file.
 
 The file reference can be:
 
 - a 4D.File object
 - a path in POSIX format
 
-Examples:
+Example:
 
 ```qs
-var company : cs.CompanyEntity
-company=ds.Company.new()
+function createCompany(name : string, logo : 4D.File)
 
-	//assignment with 4D.File
-company.logo=file("/RESOURCES/logo.jpg")
-	//assignment with posix path
-company.info="/RESOURCES/files/info.txt"
-company.save()  
+	var company : cs.CompanyEntity
+	company = ds.Company.new()
+
+	company.name = name 
+		//assignment using a file object
+	company.logo = logo 
+		//assignment using a path
+	company.datablob = "/RESOURCES/"+$name+"/data.bin"
+	company.save() 
 ```
 
 Regardless of how the attribute is assigned (data itself or reference to a file), read access to the attribute is transparent from the application's point of view. 
@@ -167,7 +170,7 @@ The file does not have to exist on disk at the time of assignment (no error is r
 
 :::tip
 
-Qodly loads images and data into a local cache. If the referenced file is modified after it has been loaded, you must reapply the assignment so that the modification is taken into account in the application.  
+Qodly loads images and data into a local cache. If the referenced file is modified after it has been loaded, you must reassign it so that the modification is taken into account in the application.  
 
 :::
 
