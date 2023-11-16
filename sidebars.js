@@ -296,7 +296,7 @@ const sidebars = {
 			label: 'Qodly Versions',
 			collapsed: false,
 			items: [
-				'notes/v1.0.0-beta-1'
+				'notes/v1.0.0-beta.1'
 			],
 		},
 	],
