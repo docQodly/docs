@@ -157,6 +157,10 @@ const config = {
                 label: "Get Support",
                 to: "https://support.4d.com/",
               },
+              {
+                label: "Release Notes",
+                to: "notes/v1.0.0-beta.1",
+              },
             ],
           },
           {
