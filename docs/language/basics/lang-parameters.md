@@ -113,7 +113,17 @@ function add(x : variant, y : integer): integer
 ```
 
 
+:::warning
 
+Parameters, which include the returned value, must be declared only once. In particular, you cannot declare the same parameter as input and output, even with the same type. For example:
+
+```qs
+	//invalid declaration
+function myTransform (x : integer) -> x : integer 
+	//error: x is declared twice
+``` 
+
+:::
 
 ## Supported data types
 
@@ -155,7 +165,7 @@ function square(x : integer)
 
 :::info
 
-Internally, `return x` executes `returnValue = x`, and returns to the caller. If `return` is used without an expression, the function or method returns a null value of the declared return type (if any), otherwise *undefined*.
+Internally, `return x` executes (if declared) `myReturnValue = x` and returns to the caller. If `return` is used without an expression, the function or method returns a null value of the declared return type (if any), otherwise *undefined*.
 
 :::
 
