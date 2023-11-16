@@ -70,7 +70,7 @@ Web server objects are instantiated with the [`webServer`](#webserver) command.
 
 <!-- END REF -->
 
-The `webServer` command <!-- REF #_command_.webServer.Summary -->returns a Web server object<!-- END REF -->
+The `webServer` command <!-- REF #_command_.webServer.Summary -->returns a Web server object<!-- END REF -->.
 
 The returned Web server object contains the current values of the Web server properties.
 
@@ -93,7 +93,7 @@ You want to know if the Web server is started:
 |---------|--- |:---:|------|
 |Result|collection|->|Collection of the available Web Server objects||<!-- END REF -->
 
-The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application. <!-- END REF -->. 
+The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application<!-- END REF -->. 
 
 A Qodly application can contain anywhere from one to several Web servers: 
 
