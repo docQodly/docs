@@ -227,7 +227,7 @@ webForm.setMessage("My information message")
 
 ```
 
-If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the web form and disappears automatically after 5 seconds:
 
 ![](img/message-info.png)
 
