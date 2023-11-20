@@ -67,6 +67,42 @@ var entity : cs.EmployeeEntity //ORDA entity class
 ```
 
 
+## Initializing Variables in the Declaration Line
+
+When declaring variables, you have the flexibility to specify their data type and provide an initial value in one statement. Here are some examples:
+
+```qs
+var a : text="hello"
+var b : date=!2023-09-12!
+var c : object=newObject()
+var d : cs.Customer=cs.Customer.new()
+```
+
+Variables can also be declared and initialized without explicitly mentioning their data type, in which case their type will be inferred by Qodly. Here are some examples:
+
+```qs
+var text="hello"  // Inferred as text 
+var number=20  // Inferred as real 
+var obj={}  // Inferred as an object 
+var mycol=[]  // Inferred as a collection  
+
+```
+
+
+Qodly tries to deduce the most general type. For instance, it uses the real type rather than the integer type when a variable is initialized with an integer value (e.g., `var a=10 //real type is inferred`). In such cases, or when initializing a variable with a complex type such as class instantiation, it is recommended to pass the type explicitly.
+
+:::note
+
+Multiple assignments in one line are not supported:
+
+```qs
+var a, b : integer=15 //error
+
+```
+
+:::
+
+
 
 ## Assigning Data
 
@@ -92,6 +128,7 @@ In this case, *myEntity.size* would be equal to 3. This example is rather simple
 ## Sharing Variable Values
 
 A variable is local to a method, i.e. it is accessible only within the method in which it was created and not accessible outside of that method. 
+
 
 When the method finishes, the variable is erased from memory. This is fine when a variable is needed only once and only in this method.
 
