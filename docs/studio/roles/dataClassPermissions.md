@@ -7,8 +7,11 @@ title: DataClass Permissions
 
 With the presence of the `Guest` privilege, users with no role affected access non-restricted resources such as package details, related information, and destinations. 
 
-However, refining this privilege's scope involves Dataclasses permissions. Agents whose sessions haven't been verified should encounter an error, prompting them to contact their admin to finalize the setup of their account before proceeding with client bookings.
+However, refining this privilege's scope involves Dataclasses permissions. 
 
+:::info
+Agents whose sessions haven't been verified should encounter an error, prompting them to contact their admin to finalize the setup of their account.
+:::
  
 ## Understanding DataClass Permissions 
 
