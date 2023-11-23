@@ -5,9 +5,7 @@ title: DataClass Permissions
 
 <br/>
 
-With the presence of the `Guest` privilege, users with no role affected access non-restricted resources such as package details, related information, and destinations. 
-
-However, refining this privilege's scope involves Dataclasses permissions. 
+With the presence of the `Guest` privilege, which grants read access to the entire **Datastore**, users without assigned roles have unrestricted access to resources. This emphasizes the necessity of refining the scope of this privilege, a process that includes adjusting **Dataclasses** permissions.
 
 :::info
 Agents whose sessions haven't been verified should encounter an error, prompting them to contact their admin to finalize the setup of their account.
@@ -15,7 +13,7 @@ Agents whose sessions haven't been verified should encounter an error, prompting
  
 ## Understanding DataClass Permissions 
 
-DataClass Permissions empower you with the ability to finely shape and control access to specific DataClasses within your application's Datastore. These permissions dictate what actions and interactions users are allowed to perform on individual DataClasses.
+**DataClass** Permissions empower you with the ability to shape and control access to specific **DataClasses** within your **Datastore**. These permissions dictate what actions and interactions users are allowed to perform on individual **DataClasses**.
 
 
 
@@ -54,7 +52,9 @@ While higher-level permissions cascade down to more specific levels, they remain
 
 ## Model Editor Approach
 
-Using the Model Editor, effortlessly configure Dataclass permissions by linking privileges to permissions like "create", "read", "update", and "delete". This interface empowers control over entity operations within specific Dataclasses. Permissions management for Dataclasses becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
+Using the **Model Editor**, configure Dataclass permissions by linking privileges to permissions like `create`, `read`, `update`, and `delete`. This interface empowers control over entity operations within specific **Dataclasses**. 
+
+Permissions management for the **Dataclasses** becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
 
 <img alt="explorer" src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
 
