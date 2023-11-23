@@ -3,7 +3,7 @@ id: datastorePermissions
 title: Datastore Permissions
 ---
 
-**Datastore** permissions are crucial for controlling access to your website's entire **Datastore**, acting as sentinels that guard all **Dataclasses** and **Entities**. Strategically setting these permissions at the **Datastore** level is paramount, serving as the primary defense against unauthorized access and alterations to mission-critical data.
+**Datastore** permissions are crucial for controlling access to your entire **Datastore**, acting as sentinels that guard all **Dataclasses** and **Entities**. Strategically setting these permissions at the **Datastore** level is paramount, serving as the primary defense against unauthorized access and alterations to mission-critical data.
 
 ## Risk of Unrestricted Access
 
@@ -14,32 +14,42 @@ To illustrate, envision an unauthorized user attempting an HTTP request to the `
 <img alt="explorer" src={require('./img/unrestrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
 
-## Utmost Access Control
+## 1st Solution: Max Restriction to Gradual Expansion
 
-To address the risks of unrestricted access, Qodly provides a robust solution—employing a controlled and fortified data interaction strategy. This approach, termed `All Data Inaccessible by Default`, proactively mitigates the vulnerabilities associated with unregulated access.
+To address the risks of unrestricted access, Qodly employs an utmost controlled data interaction strategy called `All Data Inaccessible by Default`. This approach restricts access to the entire **Datastore** by default, gradually expanding access to specific **Dataclasses** through other privileges achieved by applying [Dataclasses Permissions](dataClassPermissions.md).
+
 
 ### Introducing Restricted Privilege  
 
 At the core of the **Datastore** Lockdown strategy lies the concept of the `Restricted` privilege. This privilege operates as a safeguarding mechanism. It restricts all actions on the Datastore, thereby rendering it inaccessible until specific permissions are meticulously set up. 
 
-This ensures that users, even those without explicitly defined roles or privileges, are unable to access any resources within the **Datastore**.
+:::info
+This ensures that users, even without defined roles or privileges, cannot access any resources within the **Datastore**.
+:::
 
 ### Setting Datastore Permissions  
 
-With the `Restricted` privilege created, as shown in the [**Roles and Privileges**](../roles/rolesPrivilegesOverview.md) section, your next step involves selecting it. You can navigate resources through the intuitive user interface by either choosing `ds` from the dropdown list to signify the Datastore resource or directly typing `ds` into the search bar.
+Having established a privilege, like `Restricted`, you can explore resources through the intuitive user interface by:
+
+- Selecting the resource name, like `ds`, from the dropdown list to signify the Datastore resource.
+- Typing the resource name, such as `ds`, directly into the search bar.
 
 <img alt="explorer" src={require('./img/restrictedPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-Assigning permissions to the **Datastore** involves comprehensive permissions, ranging from `Read` to `Execute`. By applying all permissions to the `ds` resource without tying it to any role, malicious access attempts are stopped. This safeguard transforms the website into a secure vault, true to its name.
+Assigning permissions to the **Datastore** involves comprehensive permissions, ranging from `Read` to `Execute`.
+
+:::info
+By applying all permissions to the `ds` resource without tying it to any role, malicious access attempts are stopped. This safeguard transforms the website into a secure vault, true to its name.
+:::
 
 Attempting to access the same REST API Endpoints will result in a `No permission to read for the Package dataclass` response, a rule that extends across all Dataclasses.
 
 <img alt="explorer" src={require('./img/restrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
+## 2nd Solution: Full Access to Gradual Restriction
 
-## Guest Privilege: A Balancing Act
+In the pursuit of strict access control, the `Guest` privilege emerges as an alternative strategy for unauthorized users. This privilege allows full access to the entire **Datastore**, gradually restricting access to specific resources through other privileges achieved by applying [Dataclasses Permissions](dataClassPermissions.md).
 
-In the pursuit of strict access control, an alternative strategy arises for unauthorized users or visitors. That's when the concept of the `Guest` privilege emerges, an integral element in achieving comprehensive data access control, adeptly positioned to navigate this nuanced balance.
 
 ### Introducing the Guest Privilege  
 
@@ -55,9 +65,12 @@ The `Guest` privilege is established in the `Privileges` tab by default, ready t
 
 <img alt="explorer" src={require('./img/guestPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-### Guest Privilege Read Access  
+### Setting Datastore Read Access Permission
 
-To grant the read access to the `Guest` privilege, a deliberate transition is required. This procedure entails relinquishing complete permissions control over the Datastore from the `Restricted` privilege. Subsequently, the focus shifts to specifically assigning the read permission to the Datastore, thereby endowing the `Guest` privilege with the sole capability of read access.
+To grant the read access to the `Guest` privilege, a deliberate transition is required, by:
+
+1. Cease complete permissions control over the Datastore from the `Restricted` privilege. 
+2. Subsequently, the focus shifts to specifically assigning the read permission to the Datastore, thereby endowing the `Guest` privilege with the sole capability of read access.
 
 <img alt="explorer" src={require('./img/readAccessGuestPrivilege.png').default} style={{borderRadius: '6px'}} />
 
@@ -78,6 +91,8 @@ To navigate this intricate balance between data accessibility and security, we t
 
 ## Model Editor Approach
 
-Using the Model Editor, effortlessly configure Datastore permissions by linking privileges to permissions like "create", "read", "update", and "delete". This interface empowers control over operations within the Datastore. Permissions management for the Datastore becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
+Using the **Model Editor**, configure Datastore permissions by linking privileges to permissions like `create`, `read`, `update`, and `delete`. This interface empowers control over operations within the **Datastore**. 
+
+Permissions management for the **Datastore** becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
 
 <img alt="explorer" src={require('./img/ModelEditor_datastorePermissions.png').default} style={{borderRadius: '6px'}} />
