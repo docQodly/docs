@@ -3,7 +3,7 @@ id: dataClassPermissions
 title: DataClass Permissions
 ---
 
-<br/>
+import Column from '@site/src/components/Column'
 
 With the presence of the `Guest` privilege, which grants read access to the entire **Datastore**, users without assigned roles have unrestricted access to resources. This emphasizes the necessity of refining the scope of this privilege, a process that includes adjusting **Dataclasses** permissions.
 
@@ -27,30 +27,37 @@ Permissions of the `Guest` privilege are automatically inherited across various 
 
 <img alt="explorer" src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
 
-### Hierarchy and Overrides 
+<br/><br/>
 
-While higher-level permissions cascade down to more specific levels, they remain adaptable. These permissions can be overridden or supplemented as required, affording a dynamic approach to access control.
+The <img alt="explorer" src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
 
+
+:::tip
+You can retain the inherited permission by checking the checkbox <img alt="explorer" src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
+:::
 
 ### Setting DataClass Permissions 
 
-**DataClass**-level permissions hold the power to override those set at the **DataStore** level. Take, for instance, sensitive Dataclasses like `Employee`, efficiently managed through the `Restricted` privilege by:
+**DataClass**-level permissions hold the power to override or supplement those set at the **DataStore** level. To set DataClass permissions:
 
-1. Selecting the resource name, like the `Employee` dataclass, from the dropdown list.
-2. Typing the resource name, such as `Employee` dataclass, directly into the search bar.
+- Choose the resource name, like the `Employee` dataclass, from the dropdown list.
+- Alternatively, type the resource name, such as `Employee` dataclass, directly into the search bar.
 
-<img alt="explorer" src={require('./img/implementingDataClassPermissions.png').default} style={{borderRadius: '6px'}} />
+### Hierarchy and Overrides 
+
+While **Datastore** permissions cascade down to more specific **Dataclasses** levels, they retain flexibility. These permissions can be overridden or supplemented as needed, offering a dynamic approach to access control.
+
+<img alt="explorer" src={require('./img/overridding.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
 Setting DataClass permissions in the `Restricted` privilege grants the `Guest` privilege the freedom to explore the Datastore while restricting access to confidential resources. 
 
 :::info 
-Here, the inheritance of privileges set at the DataStore level ( `Guest` ) is overridden by the `Restricted` privilege.
+Here, the inheritance of privileges set at the DataStore level ( `Guest` ) is overridden by the `Restricted` privilege. As a result, those with a `Guest` role no longer have access to the `Employee` dataclass.
 :::
 
-
-A similar approach applies to confidential Reporting documents and Bookings. The `ManageReports` privilege is granted total permissions for the Reporting resource, and `ManageBookings` similarly gains full control over the Booking resource. 
+A similar approach applies to confidential Reporting documents and Bookings. The `ManageReports` privilege is granted total permissions for the `Reporting` resource, and `ManageBookings` similarly gains full control over the `Booking` resource. 
 
 ## Model Editor Approach
 
