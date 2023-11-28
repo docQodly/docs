@@ -88,6 +88,30 @@ However, it's essential to acknowledge that not all data should be made accessib
 To navigate this intricate balance between data accessibility and security, we turn our attention to the next crucial step: utilizing [**DataClass Permissions**](../roles/dataClassPermissions.md) to selectively shape and control access to specific sets of data.
 
 
+## Permission Management
+
+### Inherited Permissions 
+
+Permissions of the `Guest` privilege are automatically inherited across various privileges. This parallels the behavior observed in the `Restricted` privilege, where the capability of reading from the **Datastore** is evident.
+
+<img alt="explorer" src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
+
+<br/><br/>
+
+The <img alt="explorer" src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
+
+
+:::tip
+You can retain the inherited permission by checking the checkbox <img alt="explorer" src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
+:::
+
+### Supplementing Permissions 
+
+**Datastore** permissions maintain adaptability, allowing for supplementation as necessary.
+
+<img alt="explorer" src={require('./img/supplementing.png').default} style={{borderRadius: '6px'}} />
+
+Augmenting **Datastore** permissions within the `ManageContent` privilege provides the `Guest` privilege with the freedom to have read access to the entire **Datastore**. However, it restricts editing, updating, and creating access to specific users who have the `ManageContent` privilege.
 
 ## Model Editor Approach
 
