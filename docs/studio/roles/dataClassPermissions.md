@@ -16,12 +16,16 @@ Agents whose sessions haven't been verified should encounter an error, prompting
 **DataClass** Permissions empower you with the ability to shape and control access to specific **DataClasses** within your **Datastore**. These permissions dictate what actions and interactions users are allowed to perform on individual **DataClasses**.
 
 
-## Setting DataClass Permissions 
+## Configuring DataClass Permissions 
 
-**DataClass**-level permissions hold the power to override or supplement those set at the **DataStore** level. To set DataClass permissions:
+**DataClass**-level permissions hold the power to override or supplement those set at the **DataStore** level. To set **DataClass** permissions for a specific privilige:
 
 - Choose the resource name, like the `Employee` dataclass, from the dropdown list.
 - Alternatively, type the resource name, such as `Employee` dataclass, directly into the search bar.
+
+:::info
+The <img alt="explorer" src={require('./img/dataclass.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **DataClass** ressources.
+:::
 
 ## Hierarchy and Overrides 
 
