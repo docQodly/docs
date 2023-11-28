@@ -16,34 +16,16 @@ Agents whose sessions haven't been verified should encounter an error, prompting
 **DataClass** Permissions empower you with the ability to shape and control access to specific **DataClasses** within your **Datastore**. These permissions dictate what actions and interactions users are allowed to perform on individual **DataClasses**.
 
 
-
-##  Implementing DataClass Permissions 
-
-Expanding on the [second solution](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), which begins by providing the `Guest` privilege with initial read access to the whole **Datastore** before progressively limiting access to other ressources. This is achieved through **DataClass permissions**, which involve excluding the `Guest` privilege from specific **Dataclasses**, preventing access to designated resources.
-
-### Inherited Permissions 
-
-Permissions of the `Guest` privilege are automatically inherited across various privileges. This parallels the behavior observed in the `Restricted` privilege, where the capability of reading from the Datastore is evident.
-
-<img alt="explorer" src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
-
-<br/><br/>
-
-The <img alt="explorer" src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
-
-
-:::tip
-You can retain the inherited permission by checking the checkbox <img alt="explorer" src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
-:::
-
-### Setting DataClass Permissions 
+## Setting DataClass Permissions 
 
 **DataClass**-level permissions hold the power to override or supplement those set at the **DataStore** level. To set DataClass permissions:
 
 - Choose the resource name, like the `Employee` dataclass, from the dropdown list.
 - Alternatively, type the resource name, such as `Employee` dataclass, directly into the search bar.
 
-### Hierarchy and Overrides 
+## Hierarchy and Overrides 
+
+Expanding on the [second solution](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), it starts by granting the `Guest` privilege initial read access to the entire **Datastore** before gradually restricting access to other resources through **DataClass** permissions, excluding the `Guest` privilege from specific **Dataclasses**.
 
 While **Datastore** permissions cascade down to more specific **Dataclasses** levels, they retain flexibility. These permissions can be overridden or supplemented as needed, offering a dynamic approach to access control.
 
