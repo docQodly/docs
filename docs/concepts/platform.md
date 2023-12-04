@@ -64,7 +64,7 @@ The following table lists all available Qodly Database scalar data types and how
 |String	|`string`	|A sequence of characters with properties|
 |UUID|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
 |Date|`date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
-|Duration|`integer`	|A duration between two dates	|
+|Duration|`time`	|A time value which is stored as a duration between two dates	|
 |Bool|`boolean`|A Boolean value: either true or false.|
 |Byte|-|A sequence of 8 bits.|
 |Word|-|A 16-bit signed integer. Range: -32,767 to 32,768|
