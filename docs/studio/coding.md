@@ -232,6 +232,16 @@ The Qodly Studio code editor includes helpful type-ahead and auto-completion fea
 - At any point, you can manually trigger the suggestion list by pressing `Ctrl + Space bar`.
 
 
+### Show documentation
+
+When a QodlyScript command or function is entered in the code editor, you can get documentation on this command or function by hovering the cursor over the command or function name:
+
+- a tooltip appears, displaying the parameters of the command or function along with a short description;
+- you can also click on the **Show documentation** link within the tip, which opens the complete documentation for the command or function on [developer.qodly.com](https://developer.qodly.com/docs) in your browser. 
+
+<img alt="documentation tooltip" src={require('./img/show-documentation.png').default} style={{borderRadius: '6px'}} />
+
+
 ### Command Palette
 
 The Command Palette offers easy access to all available commands in the code editor, including any associated shortcuts. You can open it by right-clicking in the code editor window or pressing `F1`.

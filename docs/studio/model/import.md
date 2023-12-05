@@ -3,6 +3,8 @@ id: import
 title: Import data
 ---
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/z_rRFbbm3YI?si=7HerOPXLziCwYWha&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 The Model editor proposes an advanced wizard to help you import data from a local CSV or text file in any datastore class. This feature allows you to simply and quickly migrate data. 
 
 To import data from a CSV or text file:

@@ -22,7 +22,7 @@ Although they are usually equivalent, some data types available at the datastore
 |[object](lang-object.md)	|`var object`|object|null|
 |[picture](lang-picture.md)	|`var picture`|image|`pictureSize` == 0|
 |[string](lang-text.md)	|`var string`|string|""|
-|[time](lang-time.md) |`var time`|number|00:00:00|
+|[time](lang-time.md) |`var time`|duration|00:00:00|
 |[undefined](lang-null-undefined.md)	|-	|-|undefined|
 |[variant](lang-variant.md)	|`var variant`|-|undefined|
 
@@ -177,7 +177,7 @@ The following table lists the basic data types, the data types to which they can
 
 (1) Strings formatted in JSON can be converted into scalar data, objects, or collections using the `jsonParse` command.
 
-(2) Time values can be treated as numbers.
+(2) Time values are durations and can be treated as numbers.
 
 :::note
 

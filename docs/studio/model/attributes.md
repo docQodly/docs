@@ -138,6 +138,8 @@ In both cases the 1->N relation attribute is automatically created in the "Part"
 
 ## Alias attributes
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/T2Youk5UXjc?si=1nzp_nE7JdscSl_7&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 An **alias** attribute is built above another attribute of the data model, named **target** attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass. 
 
 Alias attributes are read-only. They can be used instead of their target attribute path in class functions.

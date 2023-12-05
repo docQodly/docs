@@ -95,7 +95,7 @@ You can use as many entities as you need at the same time, there is no automatic
 
 ## Using entity attributes  
 
-Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while entity of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](data-model.md#calculated-attributes) and [**alias**](data-model.md#alias-attributes) kind can return any value type.  
+Entity attributes store or reference data and map corresponding fields in the corresponding table of the database, with regards to their [`kind`](../language/DataClassClass.md#attributename). Entity attributes of the **storage** kind can be set or get as simple properties of the entity object, while attributes of the **relatedEntity** or **relatedEntities** kind will return an entity or an entity selection. Entity attributes of the [**calculated**](data-model.md#calculated-attributes) and [**alias**](data-model.md#alias-attributes) kind can return any value type.  
 
 For example, to set a storage attribute:
 
@@ -135,7 +135,47 @@ Each employee can be a manager and can have a manager. To get the manager of the
  manLev2=myEmp.manager.manager.lastname
 ```
 
-## Assigning values to relation attributes  
+### Assigning files to picture or blob attributes
+
+You can store images in picture attributes; similarly, you can store any binary data in blob attributes. 
+
+Qodly lets you assign either the data itself, i.e. an image or a blob object, or a **reference to a file** containing the data to the attribute. Only the file path is saved within the entity.
+
+Thanks to this feature, you can reuse the same picture in multiple entities without duplicating it, organize the files the way you want, or use them outside of Qodly. Also, you can control the size of the data file.
+
+The file reference can be:
+
+- a 4D.File object
+- a path in POSIX format
+
+Example:
+
+```qs
+function createCompany(name : string, logo : 4D.File)
+
+	var company : cs.CompanyEntity
+	company = ds.Company.new()
+
+	company.name = name 
+		//assignment using a file object
+	company.logo = logo 
+		//assignment using a path
+	company.datablob = "/RESOURCES/"+$name+"/data.bin"
+	company.save() 
+```
+
+Regardless of how the attribute is assigned (data itself or reference to a file), read access to the attribute is transparent from the application's point of view. 
+
+The file does not have to exist on disk at the time of assignment (no error is returned in this case). If the referenced file is not found when the attribute is read, a null value is returned. 
+
+:::tip
+
+Qodly loads images and data into a local cache. If the referenced file is modified after it has been loaded, you must reassign it so that the modification is taken into account in the application.  
+
+:::
+
+
+### Assigning values to relation attributes  
 
 In the ORDA architecture, relation attributes directly contain data related to entities:
 
