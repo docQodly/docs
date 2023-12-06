@@ -13,6 +13,16 @@ To illustrate, envision an unauthorized user attempting an HTTP request to the `
 
 <img alt="explorer" src={require('./img/unrestrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
+## Configuring Datastore Permissions 
+
+To set **Datastore** permissions for a specific privilige:
+
+- Selecting the resource name, `ds`, from the dropdown list to signify the Datastore resource.
+- Typing the resource name, `ds`, directly into the search bar.
+
+:::info
+The <img alt="explorer" src={require('./img/datastore.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates the **Datastore** ressource.
+:::
 
 ## 1st Solution: Max Restriction to Gradual Expansion
 
@@ -27,16 +37,13 @@ At the core of the **Datastore** Lockdown strategy lies the concept of the `Rest
 This ensures that users, even without defined roles or privileges, cannot access any resources within the **Datastore**.
 :::
 
-### Setting Datastore Permissions  
+### Configuring Permissions  
 
-Having established a privilege, like `Restricted`, you can explore resources through the intuitive user interface by:
-
-- Selecting the resource name, like `ds`, from the dropdown list to signify the Datastore resource.
-- Typing the resource name, such as `ds`, directly into the search bar.
+Having established a privilege, like `Restricted`, assigning permissions to the **Datastore** involves a range of permissions, spanning from `Read` to `Execute`.
 
 <img alt="explorer" src={require('./img/restrictedPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-Assigning permissions to the **Datastore** involves comprehensive permissions, ranging from `Read` to `Execute`.
+<br/><br/>
 
 :::info
 By applying all permissions to the `ds` resource without tying it to any role, malicious access attempts are stopped. This safeguard transforms the website into a secure vault, true to its name.
@@ -65,7 +72,7 @@ The `Guest` privilege is established in the `Privileges` tab by default, ready t
 
 <img alt="explorer" src={require('./img/guestPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-### Setting Datastore Read Access Permission
+### Configuring Read Access
 
 To grant the read access to the `Guest` privilege, a deliberate transition is required, by:
 
@@ -115,8 +122,14 @@ Augmenting **Datastore** permissions within the `ManageContent` privilege provid
 
 ## Model Editor Approach
 
-Using the **Model Editor**, configure Datastore permissions by linking privileges to permissions like `create`, `read`, `update`, and `delete`. This interface empowers control over operations within the **Datastore**. 
+Using the **Model Editor**, configure Datastore permissions by linking privileges to permissions like `Create`, `Read`, `Update`, `Delete`, `Describe` and `Execute`. This interface empowers control over operations within the **Datastore**. 
 
 Permissions management for the **Datastore** becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
 
 <img alt="explorer" src={require('./img/ModelEditor_datastorePermissions.png').default} style={{borderRadius: '6px'}} />
+
+<br/><br/>
+
+:::info
+Adding permissions is simple — click on the <img alt="explorer" src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'3%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img alt="explorer" src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon next to the privilege.
+:::
