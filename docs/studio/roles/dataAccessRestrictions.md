@@ -60,8 +60,8 @@ Permissions encompass the fundamental tasks achievable on resources. These Permi
 |Read    |Enables reading/viewing the content of resources.|
 |Update  |Allows modifying the content of resources.|
 |Delete  |Permits the deletion of entities from the Datastore.|
-|Execute |Enables the execution of functions.|
 |Describe |Provides access to metadata about resources, such as retrieving information about available Dataclasses, Attributes, or data model functions.|
+|Execute |Enables the execution of functions.|
 |Promote |Temporarily adds a specific privilege to the Session for the duration of executing a function, primarily used for secure privilege escalation.|
 
 

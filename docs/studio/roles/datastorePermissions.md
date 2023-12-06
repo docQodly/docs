@@ -122,8 +122,14 @@ Augmenting **Datastore** permissions within the `ManageContent` privilege provid
 
 ## Model Editor Approach
 
-Using the **Model Editor**, configure Datastore permissions by linking privileges to permissions like `create`, `read`, `update`, and `delete`. This interface empowers control over operations within the **Datastore**. 
+Using the **Model Editor**, configure Datastore permissions by linking privileges to permissions like `Create`, `Read`, `Update`, `Delete`, `Describe` and `Execute`. This interface empowers control over operations within the **Datastore**. 
 
 Permissions management for the **Datastore** becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
 
 <img alt="explorer" src={require('./img/ModelEditor_datastorePermissions.png').default} style={{borderRadius: '6px'}} />
+
+<br/><br/>
+
+:::info
+Adding permissions is simple — click on the <img alt="explorer" src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'3%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img alt="explorer" src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon next to the privilege.
+:::
