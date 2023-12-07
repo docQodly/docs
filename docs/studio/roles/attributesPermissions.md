@@ -52,7 +52,7 @@ In this context, the inheritance of privileges set at the `ManageReports` privil
 
 Using the **Model Editor**, configure Attribute permissions by linking privileges to permissions like `Create`, `Read`, `Update`, `Delete` and `Describe`. This interface empowers control over entity operations within specific **Dataclasses**. 
 
-Permissions management for **Attributes** becomes straightforward through the Model Editor's streamlined dropdown selection by selecting an attribute from a dataclass, allowing easy allocation of desired privileges.
+Managing permissions for the **Attributes** is simplified with the Model Editor's streamlined dropdown selection. Simply click on an attribute within a dataclass, making it easy to allocate the desired privileges:
 
 <img alt="explorer" src={require('./img/ModelEditor_attributePermissions.png').default} style={{borderRadius: '6px'}} />
 
