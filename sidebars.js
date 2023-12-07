@@ -120,6 +120,7 @@ const sidebars = {
 						'studio/roles/attributesPermissions'
 					]
 				},
+				'studio/roles/includingPrivileges',
 				{
 					type: 'category',
 					label: 'Function Level Access',
@@ -127,8 +128,7 @@ const sidebars = {
 						'studio/roles/permissionsFunctionLevel',
 						'studio/roles/promoteActionFunction'
 					]
-				},
-				'studio/roles/includingPrivileges'
+				}
 			],
 		},
 		{

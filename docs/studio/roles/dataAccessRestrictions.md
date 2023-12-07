@@ -13,9 +13,7 @@ Two closely linked yet distinct concepts, `Data Access Restrictions` and `Role-B
 
 **Data Access Restrictions** are fundamental to fortifying data security and protection of sensitive data, ensuring its confidentiality, integrity, and availability. This controlled access approach is instrumental in preventing data breaches, unauthorized disclosures, and security vulnerabilities arising from inappropriate data access
 
-### Benefits  
-
-The benefits of implementing Data Access Restrictions in Qodly include:
+The implementation of Data Access Restrictions in Qodly offers several benefits:
 
 - **Enhanced Security**: Limits data access to authorized individuals, reducing the risk of unauthorized data breaches.
 - **Compliance**: Ensures adherence to industry regulations and data protection laws.
@@ -27,9 +25,7 @@ The benefits of implementing Data Access Restrictions in Qodly include:
 **Role-Based Access Control** (RBAC) is a foundational security model implemented to ensure controlled and secure resource access within the application. This approach enhances data security and simplifies access management by assigning specific roles with clearly defined privileges, facilitating efficient and effective user access control.
 
 
-### Benefits
-
-Implementing RBAC in Qodly yields several benefits:
+The implementation of RBAC in Qodly offers several benefits:
 
 - **Granular Access Control**: Fine-grained control over user access to resources.
 - **Simplified Management**: Streamlined access management through role assignments.
@@ -64,8 +60,8 @@ Permissions encompass the fundamental tasks achievable on resources. These Permi
 |Read    |Enables reading/viewing the content of resources.|
 |Update  |Allows modifying the content of resources.|
 |Delete  |Permits the deletion of entities from the Datastore.|
-|Execute |Enables the execution of functions.|
 |Describe |Provides access to metadata about resources, such as retrieving information about available Dataclasses, Attributes, or data model functions.|
+|Execute |Enables the execution of functions.|
 |Promote |Temporarily adds a specific privilege to the Session for the duration of executing a function, primarily used for secure privilege escalation.|
 
 
