@@ -45,7 +45,7 @@ A similar approach applies to confidential Reporting documents and Bookings. The
 
 Using the **Model Editor**, configure Dataclass permissions by linking privileges to permissions like `Create`, `Read`, `Update`, `Delete`, `Describe` and `Execute`. This interface empowers control over entity operations within specific **Dataclasses**. 
 
-Permissions management for the **Dataclasses** becomes straightforward through the Model Editor's streamlined dropdown selection, allowing easy allocation of desired privileges.
+Managing permissions for the **Dataclasses** is simplified with the Model Editor's streamlined dropdown selection. Simply click on a dataclass, making it easy to allocate the desired privileges:
 
 <img alt="explorer" src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
 
