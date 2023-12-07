@@ -126,6 +126,12 @@ const config = {
             position: 'left',
             label: 'Architecture',
           },
+		  {
+			  type: "doc",
+			  position: "left",
+			  docId: "faq/faq",
+			  label: "FAQ",
+		  },
           /*{
               type: 'doc',
               docId: '/category/API',
