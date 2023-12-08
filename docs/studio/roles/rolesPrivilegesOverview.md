@@ -13,7 +13,7 @@ In the realm of data security and access control, Qodly introduces a robust syst
 Roles play a pivotal role in defining distinct user profiles within Qodly. Each role corresponds to a specific set of responsibilities, privileges, and access levels. 
 
 :::note Example
-For instance, consider a backoffice travel agency website, roles such as `Agent`, `Content Manager`, and `Sales Manager` delineate varying user profiles, each with a unique scope of actions and operations they can perform. 
+In a backoffice travel agency solution, roles like `Agent`, `Content Manager`, and `Sales Manager` define distinct user profiles, each with specific actions and operations.
 :::
 
 ### Role Hierarchy  
@@ -34,7 +34,7 @@ To add a role, follow these steps:
 <br/><br/>
 
 :::note Example
-In `TravelTrove`, a backoffice travel agency website, you can customize unique roles such as `Agent`, `Content Manager`, and `Sales Manager` to perfectly align with your specific application needs:
+In a backoffice travel agency solution, you can customize unique roles such as `Agent`, `Content Manager`, and `Sales Manager` to perfectly align with your specific application needs:
 
 
 |Roles          |Description|
@@ -64,7 +64,7 @@ To add a privilege, follow these steps:
 <br/><br/>
 
 :::note Example
-In `TravelTrove`, a backoffice travel agency website, you can customize distinct privileges like `ManageReports`, `ManageBookings`, and `ManageContent` to align with the capabilities and actions assigned to each role."
+In a backoffice travel agency solution, you can customize distinct privileges like `ManageReports`, `ManageBookings`, and `ManageContent` to align with the capabilities and actions assigned to each role."
 
 |Privileges     |Description|
 |---------------|---|
