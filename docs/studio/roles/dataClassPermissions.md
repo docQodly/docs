@@ -43,15 +43,56 @@ A similar approach applies to confidential Reporting documents and Bookings. The
 
 ## Model Editor Approach
 
-Using the **Model Editor**, configure Dataclass permissions by linking privileges to permissions like `Create`, `Read`, `Update`, `Delete`, `Describe` and `Execute`. This interface empowers control over entity operations within specific **Dataclasses**. 
-
-Managing permissions for the **Dataclasses** is simplified with the Model Editor's streamlined dropdown selection. Simply click on a dataclass, making it easy to allocate the desired privileges:
-
-<img alt="explorer" src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
-
-<br/><br/>
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        In the <strong>Model Editor</strong>, link privileges to permissions (e.g., Create, Read, Update, Delete, Describe, and Execute) to configure Dataclass permissions. 
+        <br/><br/>
+        Simply click on a Dataclass for a streamlined dropdown selection to allocate desired privileges.
+        <br/><br/>
+        Adding permissions is simple — click on the <img alt="explorer" src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'3%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img alt="explorer" src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button next to the privilege.
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 :::info
-Adding permissions is simple — click on the <img alt="explorer" src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'3%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img alt="explorer" src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon next to the privilege.
-:::
 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+            <li>A purple tag signifies that the privilege is directly linked to that specific permission.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/purpleTag.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+            <li>A dark grey tag suggests control over that permission by an unlinked privilege, reflecting a granularity hierarchy where the permission is governed by a higher-level resource. For instance, allowing read access to the entire Datastore for the Guest privilege would result in the Guest privilege tag being displayed when checking the read permission for all Dataclasses.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/darkGreyTag.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="65%">
+        <ul>
+            <li>If a privilege is both purple-tagged and accompanied by the <img alt="explorer" src={require('./img/includedTag.png').default} style={{borderRadius: '6px', width:'5%'}} /> icon, it indicates the <a href="includingPrivileges">inclusion of an extra privilege</a>.</li>
+            <br/>
+            Obtaining permission for that resource requires having one of the additional privileges.
+        </ul>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img alt="explorer" src={require('./img/purpleTagged&icon.png').default} style={{borderRadius: '6px'}} />
+        <br/><br/>
+        <img alt="explorer" src={require('./img/privilegeRequired.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::
