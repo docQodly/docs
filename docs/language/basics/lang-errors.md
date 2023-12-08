@@ -10,6 +10,7 @@ Error handling meets two main needs:
 - finding out and fixing potential errors and bugs in your code during the development phase,
 - catching and recovering from unexpected errors in deployed applications; in particular, you can replace system error messages with you own interface.
 
+Basically, there are two ways to handle errors in Qodly. You can [install an error-handling method](#installing-an-error-handling-method), or write [`try()` keywords](#try-expression) before pieces of code that call a function, method, or expression that can throw an error. 
 
 ## Error or status
 
@@ -109,3 +110,82 @@ if (errNum == -43)
 end
 onErrCall("")
 ```
+
+
+## try (expression)
+
+The `try (expression)` statement allows you to test a single-line expression in its actual execution context (including, in particular, variable values) and to intercept errors it throws so that the system error dialog box is not displayed. Using `try (expression)` provides an easy way to handle simple error cases with a very low number of code lines, and without requiring an error-handling method. 
+
+The formal syntax of the `try(expression)` statement is:
+
+```qs
+
+try (expression) : any | undefined
+
+```
+
+*expression* can be any valid expression. 
+
+If an error occurred during its execution, it is intercepted and no error dialog is displayed, whether an [error-handling method](#installing-an-error-handling-method) was installed or not before the call to `try()`. If *expression* returns a value, `try()` returns the last evaluated value, otherwise it returns `undefined`. 
+
+You can handle the error(s) using the [`lastErrors`](../debug.md#lasterrors) command. If *expression* throws an error within a stack of `try()` calls, the execution flow stops and returns to the latest executed `try()` (the first found back in the call stack). 
+ 
+:::note
+
+If an [error-handling method](#installing-an-error-handling-method) is installed by *expression*, it is called in case of error. 
+
+:::
+
+
+### Examples
+
+1. You want to display the contents of a file if the file can be open without error, and if its contents can be read. You can write:
+
+```qs
+var text : string
+var doc : 4D.File = file("/RESOURCES/myFile.txt")
+var fileHandle : 4D.FileHandle = try(doc.open())
+if (fileHandle != null)
+  text = try(fileHandle.readText()) || "Error reading the file"
+end
+```
+
+
+2. You want to handle the divide by zero error. In this case, you want to return 0 and throw an error:
+
+```qs
+function divide ( p1: real, p2: real) -> result: real
+  if (p2 == 0)
+     result = 0 //only for clarity (0 is the default for reals)
+     throw (-12345, "Division by zero")
+  else
+    result = p1/p2
+  end
+
+function test()
+  var errText : string
+  result = try (divide(p1,p2)
+  if (lastErrors != null)
+    errText = "Error"
+  end
+
+```
+
+3. You want to handle both [predictable and non-predictable](#error-or-status) errors:
+
+```qs
+var e = ds.Employee.new()
+var errText : string
+e.name = "Smith"
+status = try (e.save ()) //catch predictable and non-predictable errors
+if (status.success)
+   errText = "Success"
+else
+   errText = "Error: "+jsonStringify(status.errors)
+end
+
+``` 
+
+
+
+
