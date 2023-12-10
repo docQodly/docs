@@ -5,7 +5,7 @@ title: Attribute Permissions
 
 import Column from '@site/src/components/Column'   
 
-## Understanding Attribute Permissions 
+## Purpose and Scope
 
 **Attribute** Permissions empower you with the ability to shape and control access to specific **Attributes** within **Dataclasses**. These permissions dictate what actions and interactions users are allowed to perform on individual **Attributes**.
 
@@ -45,7 +45,7 @@ Setting Attributes permissions in the `ManageFinancials` privilege allows the `M
 The presence of `__INVALID: 1` indicates that the attribute is marked as invalid, signaling that the user making the request lacks the necessary permissions to access or modify it.
 
 :::info 
-In this context, the inheritance of privileges set at the `ManageReports` privilege is overridden by the `ManageFinancials` privilege. Consequently, individuals with a `Sales Manager` role lose access to the `netProfitMargin` and `totalExpenses` attributes.
+In this context, the permissions set at the `ManageReports` privilege is overridden by the `ManageFinancials` privilege. Consequently, individuals with a `Sales Manager` role lose access to the `netProfitMargin` and `totalExpenses` attributes.
 :::
 
 ## Model Editor Approach

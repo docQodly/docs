@@ -117,18 +117,11 @@ const sidebars = {
 					items: [
 						'studio/roles/datastorePermissions',
 						'studio/roles/dataClassPermissions',
-						'studio/roles/attributesPermissions'
+						'studio/roles/attributesPermissions',
+						'studio/roles/functionPermissions'
 					]
 				},
 				'studio/roles/includingPrivileges',
-				{
-					type: 'category',
-					label: 'Function Level Access',
-					items: [
-						'studio/roles/permissionsFunctionLevel',
-						'studio/roles/promoteActionFunction'
-					]
-				}
 			],
 		},
 		{

@@ -21,7 +21,7 @@ Privilege inclusion provides substantial advantages, enhancing the efficiency an
 | **Nuanced Access Restrictions**|Allows for nuanced access restrictions.|In a financial institution, it's used to enforce specific access restrictions for different departments. For instance, the finance team might have additional access rights to sensitive financial data, while other departments have restricted access.|
 
 
-## Use Case
+## Including Privilege Use Case
 
 ### Background
 
@@ -41,7 +41,7 @@ In this case, the `ManageFinancials` privilege operates within the constraints s
 
 Given the structured inheritance of permissions, an efficient approach consolidates these into a singular privilege. By including `ManageReports` within `ManageFinancials`, a unified privilege is formed, providing the `Financial Manager` with streamlined permissions. 
 
-### Including Privileges
+### Including Privilege Configuration
 
 To include the `ManageReports` privilege within the scope of `ManageFinancials`:
 
