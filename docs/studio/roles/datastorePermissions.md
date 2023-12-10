@@ -5,7 +5,9 @@ title: Datastore Permissions
 
 import Column from '@site/src/components/Column'   
 
-**Datastore** permissions are crucial for controlling access to your entire **Datastore**, acting as sentinels that guard all **Dataclasses** and **Entities**. Strategically setting these permissions at the **Datastore** level is paramount, serving as the primary defense against unauthorized access and alterations to mission-critical data.
+## Purpose and Scope
+
+**Datastore** permissions are crucial for controlling access to your entire **Datastore**. By configuring these permissions, you establish a primary defense mechanism against unauthorized access and alterations to critical mission data.
 
 ## Risk of Unrestricted Access
 
@@ -26,7 +28,7 @@ To set **Datastore** permissions for a specific privilige:
 The <img alt="explorer" src={require('./img/datastore.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates the **Datastore** ressource.
 :::
 
-## 1st Solution: Max Restriction to Gradual Expansion
+## Max Restriction to Gradual Expansion
 
 To address the risks of unrestricted access, Qodly employs an utmost controlled data interaction strategy called `All Data Inaccessible by Default`. This approach restricts access to the entire **Datastore** by default, gradually expanding access to specific **Dataclasses** through other privileges achieved by applying [Dataclasses Permissions](dataClassPermissions.md).
 
@@ -55,7 +57,7 @@ Attempting to access the same REST API Endpoints will result in a `No permission
 
 <img alt="explorer" src={require('./img/restrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
-## 2nd Solution: Full Access to Gradual Restriction
+## Full Access to Gradual Restriction
 
 In the pursuit of strict access control, the `Guest` privilege emerges as an alternative strategy for unauthorized users. This privilege allows full access to the entire **Datastore**, gradually restricting access to specific resources through other privileges achieved by applying [Dataclasses Permissions](dataClassPermissions.md).
 
