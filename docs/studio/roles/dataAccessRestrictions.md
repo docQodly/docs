@@ -41,19 +41,19 @@ Qodly encompasses a range of resources including the DataStore, DataClasses, Att
 |Functions |Represent custom functions defined within the data model.|
 
 
-### Permissions  
+### Permissions
 
-Permissions encompass the fundamental tasks achievable on resources. These Permissions encompass operations such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
+Permissions define essential actions on resources, covering tasks such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
 
-|Permission          |Description|
-|--------|---|
-|Create  |Allows the creation of new ressources.|  
-|Read    |Enables reading/viewing the content of resources.|
-|Update  |Allows modifying the content of resources.|
-|Delete  |Permits the deletion of ressources.|
-|Describe |Provides access to metadata about resources.|
-|Execute |Enables the execution of functions.|
-|Promote |Temporarily adds a specific privilege to the Session for the duration of executing a function, primarily used for secure privilege escalation.|
+| Permission | Datastore | Dataclass | Attribute | Function |
+|------------|-----------|-----------|-----------|----------|
+| Create     | Allows creating new resources. | Create a new entity in the selected dataclass. | Create a new entity with a value different from the default allowed for this attribute. | n/a |
+| Read       | Enables viewing the content of all resources. | Read attributes in the selected dataclass. | Read the content of the selected attribute. | n/a |
+| Update     | Allows modifying the content of all resources. | Update attributes in the selected dataclass. | Update the content of the selected attribute. | n/a |
+| Delete     | Permits deleting any resource. | Delete data in the selected dataclass. | Delete a non-null value for the selected attribute. | n/a |
+| Describe   | Provides metadata access for all resources. | Provides metadata access for the selected dataclass. | Provides metadata access for the selected attribute. | Provides metadata access for the selected dataclass function. |
+| Execute    | Execute any function. | Execute any function on the selected dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
+| Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
 
 ### Data Access Granularity Hierarchy
