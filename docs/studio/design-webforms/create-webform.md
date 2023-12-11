@@ -204,7 +204,13 @@ Server Side allows you to control the component's behavior, such as [hiding](../
 
 ### Style Category
 
-Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. Explore below for specific options:
+Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. 
+
+:::info
+Every style property is visible for all components, even though specific properties, like text alignment under the Font category for the icon component, will not impact the appearance of the component.
+:::
+
+Explore below for specific options:
 
 | Section       | Description |
 |-----------------|-------------|
