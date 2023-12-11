@@ -60,7 +60,6 @@ Within the **Text Input** component, an embedded **Label** allows for further cu
 	</Column.Item>
 </Column.List>
 
-
 ### Embedded Input
 
 Within the **Text Input** component, an embedded **Input** allows for further customization of the following properties:
@@ -69,20 +68,74 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 	<Column.Item width="60%">
         <ul>
                 <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.</li> <br/>
-                <li><strong>Input Type</strong>: Select the appropriate input type to match the nature of the expected data. Available types include:</li> <br/>
-                <ul>
-                        <li><strong>text</strong>: Standard alphanumeric data.</li> 
-                        <li><strong>number</strong>: Numerical values only.</li>
-                        <li><strong>password</strong>: Concealed input for sensitive data.</li> 
-                        <li><strong>date</strong>: Restriction to date values with an associated date picker.</li> 
-                        <li><strong>time</strong>: Limiting input to time values.</li>
-                </ul>
+                <li><strong>Input Type</strong>: Select the appropriate input type to match the nature of the expected data. Available types include:</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputCustomization.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+<ul>
+        <ul>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>text: Standard alphanumeric data.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_text.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>text area: Larger text area for expanding and adjusting size.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_textArea.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>number: Numerical values only.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_number.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>password: Concealed input for sensitive data.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>date: Limits input to date values with a date picker.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>time: Limits input to time values with a widget for selection, allowing scrolling or clicking to choose values</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_time.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+                <Column.List align="center" justifyContent="between">
+                        <Column.Item width="60%">
+                                <li>duration: Limits input to duration values with a widget, enabling scrolling, manual entry, or using the + and - icons.</li>
+                        </Column.Item>
+                        <Column.Item width="35%">
+                                <img alt="explorer" src={require('./img/inputType_duration.png').default} style={{borderRadius: '6px'}} />
+                        </Column.Item>
+                </Column.List>
+        </ul>
+</ul>
 
 <br/>
 
