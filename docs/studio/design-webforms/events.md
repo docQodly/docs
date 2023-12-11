@@ -95,10 +95,10 @@ When the contextual panel is opened for a component or a datasource, all events 
 
 :::tip
 <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
+	<Column.Item width="54%">
         Choose between table (default) or line format by clicking the <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'5%'}} /> button in the upper right corner of the event card.
 	</Column.Item>
-	<Column.Item width="45%">
+	<Column.Item width="46%">
 		<img src={require('./img/toggleFunctionPrototype.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -236,18 +236,16 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 ### Standard Actions
 
-Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. To bind standard actions with events, follow these steps:
-
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Select and Assign</strong>: <a href="#adding-an-event" >Add an event</a>, and then assign a standard action to your chosen component or datasource by clicking <code>Add a Standard Action</code>.
+        Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. After binding a standard action with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-2. **Define Action**: In the designated Action area, provide the name of the `datasource`, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
+1. **Define Action**: In the designated Action area, provide the name of the `datasource`, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
 
     | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
     |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -282,7 +280,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
 <br />
 
-3. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
+2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
@@ -300,20 +298,18 @@ Standard actions apply to datasources, and their availability depends on the typ
 
 ### Navigation - Webforms
 
-Navigation actions allow you to navigate to a target webform. To bind navigation actions with events, follow these steps:
-
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Select and Assign</strong>: <a href="#adding-an-event" >Add an event</a>, and then assign a navigation action to your chosen component or datasource by clicking <code>Add a Navigation Action</code>.
+        Navigation actions allow you to navigate to a target webform. After binding a navigation action with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-2. **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
+1. **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
 
-3. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+2. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
@@ -380,20 +376,18 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 ### Class Functions
 
-Data model class functions can be linked to events, utilizing parameters from datasources or static values, with the option to assign the result to a datasource as needed. To bind class functions with events, follow these steps:
-
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Select and Assign</strong>: <a href="#adding-an-event" >Add an event</a>, and then assign a class function to your chosen component or datasource by clicking <code>Add a Function Event</code>.
+        Data model class functions can be linked to events, utilizing parameters from datasources or static values, with the option to assign the result to a datasource as needed. After binding a class function with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
-		<img src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-2. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
+1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
 
-3. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the function parameter(s) should be filled:
+2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the function parameter(s) should be filled:
 
     - <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
@@ -433,7 +427,7 @@ Data model class functions can be linked to events, utilizing parameters from da
         </Column.Item>
     </Column.List>
 
-4. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
+3. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
@@ -450,7 +444,7 @@ Data model class functions can be linked to events, utilizing parameters from da
 
 <br/>
 
-5. <Column.List align="center" justifyContent="between">
+4. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
 		<strong>Add Parameter</strong>: If your function accepts a <a href="../../language/basics/lang-parameters#optional-parameters">variable number of parameters</a>, you can use this button to declare and bind one or more appropriate parameter(s). They will be passed to the function in the defined order when called for the event.
 	</Column.Item>
@@ -460,7 +454,7 @@ Data model class functions can be linked to events, utilizing parameters from da
 </Column.List>
 
 
-6. <Column.List align="center" justifyContent="between">
+5. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
 		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. 
 	</Column.Item>
