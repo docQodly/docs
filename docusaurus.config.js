@@ -126,6 +126,12 @@ const config = {
             position: 'left',
             label: 'Architecture',
           },
+		  {
+			  type: "doc",
+			  position: "left",
+			  docId: "faq/faq",
+			  label: "FAQ",
+		  },
           /*{
               type: 'doc',
               docId: '/category/API',
@@ -159,7 +165,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.1",
+                to: "notes/v1.0.0-beta.2",
               },
             ],
           },

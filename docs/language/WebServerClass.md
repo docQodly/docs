@@ -70,7 +70,7 @@ Web server objects are instantiated with the [`webServer`](#webserver) command.
 
 <!-- END REF -->
 
-The `webServer` command <!-- REF #_command_.webServer.Summary -->returns a Web server objectt<!-- END REF -->
+The `webServer` command <!-- REF #_command_.webServer.Summary -->returns a Web server object<!-- END REF -->.
 
 The returned Web server object contains the current values of the Web server properties.
 
@@ -93,7 +93,7 @@ You want to know if the Web server is started:
 |---------|--- |:---:|------|
 |Result|collection|->|Collection of the available Web Server objects||<!-- END REF -->
 
-The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application. <!-- END REF -->. 
+The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application<!-- END REF -->. 
 
 A Qodly application can contain anywhere from one to several Web servers: 
 
@@ -140,7 +140,7 @@ Path of the <!-- REF #WebServerClass.certificateFolder.Summary -->folder where t
 <!-- REF #WebServerClass.characterSet.Syntax -->**.characterSet** : number<br/>**.characterSet** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.characterSet.Summary -->character set that the Web Server should use to communicate with browsers connecting to the applicationt<!-- END REF --> The default value is UTF-8. Can be a MIBEnum integer or a Name string, identifiers [defined by IANA](http://www.iana.org/assignments/character-sets/character-sets.xhtml). Here is the list of identifiers corresponding to the character sets supported by the Qodly Web Server:
+The <!-- REF #WebServerClass.characterSet.Summary -->character set that the Web Server should use to communicate with browsers connecting to the application<!-- END REF --> The default value is UTF-8. Can be a MIBEnum integer or a Name string, identifiers [defined by IANA](http://www.iana.org/assignments/character-sets/character-sets.xhtml). Here is the list of identifiers corresponding to the character sets supported by the Qodly Web Server:
 
 - 4 = ISO-8859-1
 - 12 = ISO-8859-9
@@ -165,7 +165,7 @@ The <!-- REF #WebServerClass.characterSet.Summary -->character set that the Web 
 <!-- REF #WebServerClass.cipherSuite.Syntax -->**.cipherSuite** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.cipherSuite.Summary -->cipher list used for the secure protocolt<!-- END REF --> Sets the priority of ciphering algorithms implemented by the Qodly web server. Can be a sequence of strings separated by colons (for example "ECDHE-RSA-AES128-..."). See the [ciphers page](https://www.openssl.org/docs/manmaster/man1/ciphers.html) on the OpenSSL site.
+The <!-- REF #WebServerClass.cipherSuite.Summary -->cipher list used for the secure protocol<!-- END REF --> Sets the priority of ciphering algorithms implemented by the Qodly web server. Can be a sequence of strings separated by colons (for example "ECDHE-RSA-AES128-..."). See the [ciphers page](https://www.openssl.org/docs/manmaster/man1/ciphers.html) on the OpenSSL site.
 
 <!-- END REF -->
 
@@ -176,7 +176,7 @@ The <!-- REF #WebServerClass.cipherSuite.Summary -->cipher list used for the sec
 <!-- REF #WebServerClass.CORSEnabled.Syntax -->**.CORSEnabled** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.CORSEnabled.Summary -->CORS (*Cross-origin resource sharing*) service status for the web servert<!-- END REF --> For security reasons, "cross-domain" requests are forbidden at the browser level by default. When enabled (true), XHR calls (e.g. REST requests) from Web pages outside the domain can be allowed in your application (you need to define the list of allowed addresses in the CORS domain list, see `CORSSettings` below). When disabled (false, default), all cross site requests sent with CORS are ignored. When enabled (true) and a non-allowed domain or method sends a cross site request, it is rejected with a "403 - forbidden" error response.
+The <!-- REF #WebServerClass.CORSEnabled.Summary -->CORS (*Cross-origin resource sharing*) service status for the web server<!-- END REF --> For security reasons, "cross-domain" requests are forbidden at the browser level by default. When enabled (true), XHR calls (e.g. REST requests) from Web pages outside the domain can be allowed in your application (you need to define the list of allowed addresses in the CORS domain list, see `CORSSettings` below). When disabled (false, default), all cross site requests sent with CORS are ignored. When enabled (true) and a non-allowed domain or method sends a cross site request, it is rejected with a "403 - forbidden" error response.
 
 Default: false (disabled)
 
@@ -245,7 +245,7 @@ The <!-- REF #WebServerClass.defaultHomepage.Summary -->name of the default home
 <!-- REF #WebServerClass.HSTSEnabled.Syntax -->**.HSTSEnabled** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HSTSEnabled.Summary -->HTTP Strict Transport Security (HSTS) statust<!-- END REF --> HSTS allows the Web server to declare that browsers should only interact with it via secure HTTPS connections. Browsers will record the HSTS information the first time they receive a response from the web server, then any future HTTP requests will automatically be transformed into HTTPS requests. The length of time this information is stored by the browser is specified with the `HSTSMaxAge` property. HSTS requires that HTTPS is enabled on the server. HTTP must also be enabled to allow initial client connections.
+The <!-- REF #WebServerClass.HSTSEnabled.Summary -->HTTP Strict Transport Security (HSTS) status<!-- END REF --> HSTS allows the Web server to declare that browsers should only interact with it via secure HTTPS connections. Browsers will record the HSTS information the first time they receive a response from the web server, then any future HTTP requests will automatically be transformed into HTTPS requests. The length of time this information is stored by the browser is specified with the `HSTSMaxAge` property. HSTS requires that HTTPS is enabled on the server. HTTP must also be enabled to allow initial client connections.
 
 <!-- END REF -->
 
@@ -258,7 +258,7 @@ The <!-- REF #WebServerClass.HSTSEnabled.Summary -->HTTP Strict Transport Securi
 <!-- REF #WebServerClass.HSTSMaxAge.Syntax -->**.HSTSMaxAge** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HSTSMaxAge.Summary -->maximum length of time (in seconds) that HSTS is active for each new client connectiont<!-- END REF --> This information is stored on the client side for the specified duration.
+The <!-- REF #WebServerClass.HSTSMaxAge.Summary -->maximum length of time (in seconds) that HSTS is active for each new client connection<!-- END REF --> This information is stored on the client side for the specified duration.
 
 Default value: 63072000 (2 years).
 
@@ -271,7 +271,7 @@ Default value: 63072000 (2 years).
 <!-- REF #WebServerClass.HTTPCompressionLevel.Syntax -->**.HTTPCompressionLevel** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPCompressionLevel.Summary -->compression level for all compressed HTTP exchanges for the HTTP server (client requests or server replies)t<!-- END REF --> This selector lets you optimize exchanges by either prioritizing speed of execution (less compression) or the amount of compression (less speed).
+The <!-- REF #WebServerClass.HTTPCompressionLevel.Summary -->compression level for all compressed HTTP exchanges for the HTTP server (client requests or server replies)<!-- END REF --> This selector lets you optimize exchanges by either prioritizing speed of execution (less compression) or the amount of compression (less speed).
 
 Possible values:
 
@@ -289,7 +289,7 @@ Default = 1 (faster compression).
 <!-- REF #WebServerClass.HTTPCompressionThreshold.Syntax -->**.HTTPCompressionThreshold** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPCompressionThreshold.Summary -->size threshold (bytes) for requests below which exchanges should not be compressedt<!-- END REF --> This setting is useful in order to avoid losing machine time by compressing small exchanges.
+The <!-- REF #WebServerClass.HTTPCompressionThreshold.Summary -->size threshold (bytes) for requests below which exchanges should not be compressed<!-- END REF --> This setting is useful in order to avoid losing machine time by compressing small exchanges.
 
 Default compression threshold = 1024 bytes
 
@@ -302,7 +302,7 @@ Default compression threshold = 1024 bytes
 <!-- REF #WebServerClass.HTTPEnabled.Syntax -->**.HTTPEnabled** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPEnabled.Summary -->HTTP protocol statet<!-- END REF -->
+The <!-- REF #WebServerClass.HTTPEnabled.Summary -->HTTP protocol state<!-- END REF -->
 
 <!-- END REF -->
 
@@ -314,7 +314,7 @@ The <!-- REF #WebServerClass.HTTPEnabled.Summary -->HTTP protocol statet<!-- END
 <!-- REF #WebServerClass.HTTPPort.Syntax -->**.HTTPPort** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPPort.Summary -->listening IP port number for HTTPt<!-- END REF -->
+The <!-- REF #WebServerClass.HTTPPort.Summary -->listening IP port number for HTTP<!-- END REF -->
 
 Default = 80
 
@@ -328,7 +328,7 @@ Default = 80
 <!-- REF #WebServerClass.HTTPSEnabled.Syntax -->**.HTTPSEnabled** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPSEnabled.Summary -->HTTPS protocol statet<!-- END REF -->
+The <!-- REF #WebServerClass.HTTPSEnabled.Summary -->HTTPS protocol state<!-- END REF -->
 
 <!-- END REF -->
 
@@ -339,7 +339,7 @@ The <!-- REF #WebServerClass.HTTPSEnabled.Summary -->HTTPS protocol statet<!-- E
 <!-- REF #WebServerClass.HTTPSPort.Syntax -->**.HTTPSPort** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPSPort.Summary -->listening IP port number for HTTPSt<!-- END REF -->
+The <!-- REF #WebServerClass.HTTPSPort.Summary -->listening IP port number for HTTPS<!-- END REF -->
 
 Default = 443
 
@@ -353,7 +353,7 @@ Default = 443
 <!-- REF #WebServerClass.HTTPTrace.Syntax -->**.HTTPTrace** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.HTTPTrace.Summary -->activation of `HTTP TRACE`t<!-- END REF --> For security reasons, by default the Web server rejects `HTTP TRACE` requests with an error 405. When enabled, the web server replies to `HTTP TRACE` requests with the request line, header, and body.
+The <!-- REF #WebServerClass.HTTPTrace.Summary -->activation of `HTTP TRACE`<!-- END REF --> For security reasons, by default the Web server rejects `HTTP TRACE` requests with an error 405. When enabled, the web server replies to `HTTP TRACE` requests with the request line, header, and body.
 
 <!-- END REF -->
 
@@ -365,7 +365,7 @@ The <!-- REF #WebServerClass.HTTPTrace.Summary -->activation of `HTTP TRACE`t<!-
 <!-- REF #WebServerClass.IPAddressToListen.Syntax -->**.IPAddressToListen** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.IPAddressToListen.Summary -->IP address on which the Web Server will receive HTTP requestst<!-- END REF --> By default, no specific address is defined ("0.0.0.0"). Both IPv6 string formats and IPv4 string formats are supported.
+The <!-- REF #WebServerClass.IPAddressToListen.Summary -->IP address on which the Web Server will receive HTTP requests<!-- END REF --> By default, no specific address is defined ("0.0.0.0"). Both IPv6 string formats and IPv4 string formats are supported.
 
 <!-- END REF -->
 
@@ -378,7 +378,7 @@ The <!-- REF #WebServerClass.IPAddressToListen.Summary -->IP address on which th
 
 *Read-only property*
 
-The <!-- REF #WebServerClass.isRunning.Summary -->web server running statet<!-- END REF -->
+The <!-- REF #WebServerClass.isRunning.Summary -->web server running state<!-- END REF -->
 
 <!-- END REF -->
 
@@ -389,7 +389,7 @@ The <!-- REF #WebServerClass.isRunning.Summary -->web server running statet<!-- 
 <!-- REF #WebServerClass.keepSession.Syntax -->**.keepSession** : boolean<!-- END REF -->
 
 
-<!-- REF #WebServerClass.keepSession.Summary -->Always `false`t<!-- END REF -->
+<!-- REF #WebServerClass.keepSession.Summary -->Always `false`<!-- END REF -->
 
 
 <!-- END REF -->
@@ -401,7 +401,7 @@ The <!-- REF #WebServerClass.isRunning.Summary -->web server running statet<!-- 
 <!-- REF #WebServerClass.logRecording.Syntax -->**.logRecording** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.logRecording.Summary -->log requests (logweb.txt) recording valuet<!-- END REF -->
+The <!-- REF #WebServerClass.logRecording.Summary -->log requests (logweb.txt) recording value<!-- END REF -->
 
 - 0 = Do not record (default)
 - 1 = Record in CLF format
@@ -419,7 +419,7 @@ The <!-- REF #WebServerClass.logRecording.Summary -->log requests (logweb.txt) r
 <!-- REF #WebServerClass.maxRequestSize.Syntax -->**.maxRequestSize** : number<!-- END REF -->
 
 
-Contains the <!-- REF #WebServerClass.maxRequestSize.Summary -->maximum size (in bytes) of incoming HTTP requests (POST) that the web server is allowed to processt<!-- END REF --> Passing the maximum value (2147483647) means that, in practice, no limit is set. This limit is used to avoid web server saturation due to incoming requests that are too large. If a request reaches this limit, the web server rejects it.
+Contains the <!-- REF #WebServerClass.maxRequestSize.Summary -->maximum size (in bytes) of incoming HTTP requests (POST) that the web server is allowed to process<!-- END REF --> Passing the maximum value (2147483647) means that, in practice, no limit is set. This limit is used to avoid web server saturation due to incoming requests that are too large. If a request reaches this limit, the web server rejects it.
 
 Possible values: 500000 - 2147483647
 
@@ -434,7 +434,7 @@ Possible values: 500000 - 2147483647
 <!-- REF #WebServerClass.minTLSVersion.Syntax -->**.minTLSVersion** : number<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.minTLSVersion.Summary -->minimum TLS version accepted for connectionst<!-- END REF --> Connection attempts from clients supporting only versions below the minimum will be rejected.
+The <!-- REF #WebServerClass.minTLSVersion.Summary -->minimum TLS version accepted for connections<!-- END REF --> Connection attempts from clients supporting only versions below the minimum will be rejected.
 
 Possible values:
 
@@ -454,7 +454,7 @@ If modified, the server must be restarted to use the new value.
 
 *Read-only property*
 
-The <!-- REF #WebServerClass.name.Summary -->name of the web server applicationt<!-- END REF -->
+The <!-- REF #WebServerClass.name.Summary -->name of the web server application<!-- END REF -->
 
 <!-- END REF -->
 
@@ -467,7 +467,7 @@ The <!-- REF #WebServerClass.name.Summary -->name of the web server applicationt
 
 *Read-only property*
 
-The <!-- REF #WebServerClass.openSSLVersion.Summary -->version of the OpenSSL library usedt<!-- END REF -->
+The <!-- REF #WebServerClass.openSSLVersion.Summary -->version of the OpenSSL library used<!-- END REF -->
 
 <!-- END REF -->
 
@@ -480,7 +480,7 @@ The <!-- REF #WebServerClass.openSSLVersion.Summary -->version of the OpenSSL li
 
 *Read-only property*
 
-The <!-- REF #WebServerClass.perfectForwardSecrecy.Summary -->PFS availability on the servert<!-- END REF -->
+The <!-- REF #WebServerClass.perfectForwardSecrecy.Summary -->PFS availability on the server<!-- END REF -->
 
 <!-- END REF -->
 
@@ -490,7 +490,7 @@ The <!-- REF #WebServerClass.perfectForwardSecrecy.Summary -->PFS availability o
 <!-- REF #WebServerClass.rootFolder.Syntax -->**.rootFolder** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.rootFolder.Summary -->path of web server root foldert<!-- END REF --> The path is formatted in POSIX full path using filesystems. When using this property in the `settings` parameter, it can be a `Folder` object.
+The <!-- REF #WebServerClass.rootFolder.Summary -->path of web server root folder<!-- END REF --> The path is formatted in POSIX full path using filesystems. When using this property in the `settings` parameter, it can be a `Folder` object.
 
 <!-- END REF -->
 
@@ -501,7 +501,7 @@ The <!-- REF #WebServerClass.rootFolder.Summary -->path of web server root folde
 <!-- REF #WebServerClass.scalableSession.Syntax -->**.scalableSession** : boolean<!-- END REF -->
 
 
-<!-- REF #WebServerClass.scalableSession.Summary -->Always `true`t<!-- END REF -->
+<!-- REF #WebServerClass.scalableSession.Summary -->Always `true`<!-- END REF -->
 
 <!-- END REF -->
 
@@ -512,7 +512,7 @@ The <!-- REF #WebServerClass.rootFolder.Summary -->path of web server root folde
 <!-- REF #WebServerClass.sessionCookieDomain.Syntax -->**.sessionCookieDomain** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.sessionCookieDomain.Summary -->"domain" field of the session cookiet<!-- END REF --> Used to control the scope of the session cookies. If you set, for example, the value "/*.myCompany.com" for this selector, the client will only send a cookie when the request is addressed to the domain ".myCompany.com", which excludes servers hosting external static data.
+The <!-- REF #WebServerClass.sessionCookieDomain.Summary -->"domain" field of the session cookie<!-- END REF --> Used to control the scope of the session cookies. If you set, for example, the value "/*.myCompany.com" for this selector, the client will only send a cookie when the request is addressed to the domain ".myCompany.com", which excludes servers hosting external static data.
 
 <!-- END REF -->
 
@@ -523,7 +523,8 @@ The <!-- REF #WebServerClass.sessionCookieDomain.Summary -->"domain" field of th
 <!-- REF #WebServerClass.sessionCookieName.Syntax -->**.sessionCookieName** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.sessionCookieName.Summary -->name of the cookie used for storing the session IDt<!-- END REF -->
+
+The <!-- REF #WebServerClass.sessionCookieName.Summary -->name of the cookie used for storing the session ID<!-- END REF -->
 
 *Read-only property*
 
@@ -536,7 +537,7 @@ The <!-- REF #WebServerClass.sessionCookieName.Summary -->name of the cookie use
 <!-- REF #WebServerClass.sessionCookiePath.Syntax -->**.sessionCookiePath** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.sessionCookiePath.Summary -->"path" field of the session cookiet<!-- END REF --> Used to control the scope of the session cookies. If you set, for example, the value "/QACTION" for this selector, the client will only send a cookie for dynamic requests beginning with QACTION, and not for pictures, static pages, etc.
+The <!-- REF #WebServerClass.sessionCookiePath.Summary -->"path" field of the session cookie<!-- END REF --> Used to control the scope of the session cookies. If you set, for example, the value "/QACTION" for this selector, the client will only send a cookie for dynamic requests beginning with QACTION, and not for pictures, static pages, etc.
 
 <!-- END REF -->
 
@@ -547,7 +548,7 @@ The <!-- REF #WebServerClass.sessionCookiePath.Summary -->"path" field of the se
 <!-- REF #WebServerClass.sessionCookieSameSite.Syntax -->**.sessionCookieSameSite** : string<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.sessionCookieSameSite.Summary -->"SameSite" session cookie valuet<!-- END REF --> Possible values (using constants):
+The <!-- REF #WebServerClass.sessionCookieSameSite.Summary -->"SameSite" session cookie value<!-- END REF --> Possible values (using constants):
 
 |Constant|Value|Description|
 |---|---|---|
@@ -570,7 +571,7 @@ The `Secure` attribute value of the session cookie is automatically set to "True
 <!-- REF #WebServerClass.sessionIPAddressValidation.Syntax -->**.sessionIPAddressValidation** : boolean<!-- END REF -->
 
 
-The <!-- REF #WebServerClass.sessionIPAddressValidation.Summary -->IP address validation for session cookiest<!-- END REF --> For security reasons, by default the web server checks the IP address of each request containing a session cookie and rejects it if this address does not match the IP address used to create the cookie. In some specific applications, you may want to disable this validation and accept session cookies, even when their IP addresses do not match. For example when mobile devices switch between WiFi and 3G/4G/5G networks, their IP address will change. In this case, you can allow clients to be able to continue using their web sessions even when the IP addresses change (this setting lowers the security level of your application).
+The <!-- REF #WebServerClass.sessionIPAddressValidation.Summary -->IP address validation for session cookies<!-- END REF --> For security reasons, by default the web server checks the IP address of each request containing a session cookie and rejects it if this address does not match the IP address used to create the cookie. In some specific applications, you may want to disable this validation and accept session cookies, even when their IP addresses do not match. For example when mobile devices switch between WiFi and 3G/4G/5G networks, their IP address will change. In this case, you can allow clients to be able to continue using their web sessions even when the IP addresses change (this setting lowers the security level of your application).
 
 <!-- END REF -->
 
@@ -644,7 +645,7 @@ The function returns an object describing the Web server launch status. This obj
 ||||Does not require any parameters|<!-- END REF -->
 
 
-The `.stop()` function <!-- REF #WebServerClass.stop().Summary -->stops the web servert<!-- END REF -->
+The `.stop()` function <!-- REF #WebServerClass.stop().Summary -->stops the web server<!-- END REF -->
 
 If the web server was started, all web connections and web processes are closed, once the currently handled requests are finished. If the web server was not started, the function does nothing.
 

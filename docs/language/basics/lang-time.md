@@ -5,6 +5,12 @@ title: Time
 
 A Time attribute, variable or expression can be in the range of 00:00:00 to 596,000:00:00.
 
+:::info
+
+In [Qodly models](../../studio/model/attributes.md), time attributes have the type **Duration**.
+
+:::
+
 Times are in 24-hour format.
 
 A time value can be treated as a number. The number returned from a time is the number of seconds since midnight (00:00:00) that time represents.

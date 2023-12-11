@@ -37,7 +37,7 @@ This property is **read-only**.
 <!-- REF ClassClass.new().Desc -->
 ## .new()
 
-<!-- REF #ClassClass.new().Syntax -->**.new**( *param* : any { *;...paramN* } ) : 4D.Class<!-- END REF -->
+<!-- REF #ClassClass.new().Syntax -->**.new**( { *...param* : any } ) : 4D.Class<!-- END REF -->
 
 
 <!-- REF #ClassClass.new().Params -->

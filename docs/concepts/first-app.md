@@ -1,9 +1,35 @@
 ---
-id: quickstart
-title: Quickstart
+id: first-qodly
+title: Create your first Qodly application 
 ---
 
-To begin your Qodly experience, follow these steps to create an account on the Qodly Central Management Console (QCMC) and explore the Sandbox environment.
+Welcome to this Qodly tutorial, where we'll see how to create a Qodly application from scratch. 
+
+:::note
+
+An efficient way to learn how to develop with Qodly Studio is probably to build and explore [Qodly templates](quickstart.md#step-2-set-up-your-sandbox-and-environment) that are proposed at startup. This tutorial covers basic features such how to add, list, or remove [entities](../orda/data-model.md#entity).  
+
+:::
+
+## Overview and objectives
+
+You want to create a "Contacts" application. This application should organize and store your contacts. You want to be able to create new contacts, enter their information, and list all contacts. Of course, you want to be able to sort and query your contacts. 
+
+In this tutorial, we'll see how:
+
+- create a dataclass and define its attributes to organize your data
+- create a webform
+
+## Step 1: Create an empty application
+
+:::note
+
+For convenience, we use the Sandbox category in this tutorial but it can be created in any category. 
+
+:::
+
+1. If it's not already done, [create your account](quickstart.md) on Qodly Cloud.
+2. In the Templates pages
 
 
 ## Step 1: Create your account
@@ -27,38 +53,27 @@ To begin your Qodly experience, follow these steps to create an account on the Q
 
 1. Choose a Template to create your sandbox application. Two options are available:
 
-    - **Create a sandbox from scratch**: Select the **Blank app** template to begin with an empty sandbox application.
+    - **Create a sandbox from scratch**: Begin with an empty sandbox and follow the **Welcome Tour** within Qodly Studio. Select the Blank app template.
     - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.
     <br/><br/>
     <img alt="explorer" src={require('./img/qs4.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
-2. The development environment of your sandbox application is automatically prepared. This step takes just a few seconds.
+2. The sandbox environment will be prepared automatically. This process takes just a few seconds.
 
-   <img alt="explorer" src={require('./img/qs5.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-
-:::info
-
-The application name is automatically generated for sandbox applications.  
-
-:::
+    <img alt="explorer" src={require('./img/qs5.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
 ## Step 3: Navigate Qodly Studio and Begin the Welcome Tour
 
-
-With the development environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
-
-1. Click on the name of your sandbox application:
-
-   <img alt="explorer" src={require('./img/qs6.png').default} style={{borderRadius: '6px', height:'70%', width: '70%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-    
-2. You access its Overview page, allowing you to monitor its environments and activity. Click the **Studio** button on the upper right side of the page:
-    
-   <img alt="explorer" src={require('./img/qs5bis.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+With the environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
 
 
-3. Click **Next** to start the Welcome Tour within Qodly Studio!
+1. Click the **Studio** button located on the right side of your application line:
+
+    <img alt="explorer" src={require('./img/qs6.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+2. Click **Next** to start the Welcome Tour within Qodly Studio!
 
     <img alt="explorer" src={require('./img/qs7.png').default} style={{borderRadius: '6px', height: '50%', width: '50%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
