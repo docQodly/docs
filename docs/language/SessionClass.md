@@ -286,7 +286,7 @@ This property is **read only** itself but it returns a read-write object.
 You want to store the client IP in the `.storage` property:
 
 ```qs
-if (session.storage.clientIP = null) //first access
+if (session.storage.clientIP == null) //first access
     use (session.storage)
         session.storage.clientIP = newSharedObject("value", clientIP)
     end
