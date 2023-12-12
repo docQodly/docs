@@ -28,12 +28,25 @@ const sidebars = {
 	  },
 	],
 	 */
+	APIReference: [{
+		type: 'category',
+		label: 'API Reference',
+		items: [{
+			type: 'category',
+			label: '@ws-ui/webform-editor',
+			items: [
+				'api-reference/webform-editor/v0.0.26',
+				
+			],
+		}, 'api-reference/shared', 'api-reference/store'],
+
+	}],
 
 	GetStarted: [
 		{
 			type: 'doc',
 			id: 'concepts/quickstart',
-			label: "Quickstart"
+			label: "Quickstart",
 		},
 	],
 	Develop: [
