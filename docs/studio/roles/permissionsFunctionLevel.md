@@ -8,13 +8,13 @@ import Column from '@site/src/components/Column'
 ## Purpose and Scope
 
 Function-level permissions control access to custom functions defined within the Model. These functions can perform actions such as managing bookings, generating invoices, and handling reservations.
- 
+
 ## Configuring Function Permissions 
 
 To configure **Function** Permissions for a specific privilege, follow these steps:
 
-- Choose the resource name, like the `register()` function, from the dropdown list.
-- Alternatively, type the resource name, such as the `register()` function, directly into the search bar.
+- Choose the resource name, like the `register` function, from the dropdown list.
+- Alternatively, type the resource name, such as the `register` function, directly into the search bar.
 
 :::info
 The <img src={require('./img/function.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Function** ressources.
@@ -56,89 +56,69 @@ If no `Execute` permission is set at any level, it grants full access to all fun
 
 ### Purpose
 
-Promote permissions offer a unique capability for temporary privilege escalation during function execution, ensuring the secure execution of critical functions without the permanent grant of additional privileges.
+Promote permissions enable temporary privilege escalation during function execution, ensuring the secure performance of critical operations within that function's code without permanently adding privileges.
+
+:::info
+Upon executing a specific function within a session with a designated privilege, Qodly dynamically integrates the privileges that `Promote` the function into the session. This temporary elevation allows the function's execution, even when the original session's privilege lacks direct permission for resources in that function code.
+
+After the function concludes, the temporary elevation from the `Promote` permission is revoked.
+:::
+
 
 ### Background
 
 In a travel agency's system, dynamic pricing analysis recalculates travel package prices based on demand, seasonal trends, and competitor pricing. Key roles include:
 
-- The `Sales Manager` role fully controls the `Pricing` Dataclass and its `analyzeDynamicPricing` function, ensuring confidentiality. Access to this Dataclass is strictly restricted from the `Agent` role.
+- The `Sales Manager` role fully controls the `Pricing` Dataclass and its `analyzePricing` function, ensuring confidentiality. Access to this Dataclass is strictly restricted from the `Agent` role.
 
 - In specific scenarios, the `Agent` role may need to perform a pricing analysis, responding to special requests.
 
 ### Promote Permission Configuration
 
-If an `Agent` receives a special request from a high-value customer, they need `Execute` permission for the `analyzeDynamicPricing` function to provide a tailored pricing quote. This allows users with the `Agent` role to directly execute the function.
+If an `Agent` receives a special request from a high-value customer, they need `Execute` permission for the `analyzePricing` function to generate a customized pricing quote. This allows users with the `Agent` role to directly execute the function.
 
 <img src={require('./img/functionPermission_maxRestriction5.png').default} style={{borderRadius: '6px'}} />
 
-However, as reading access to the `Pricing` Dataclass is restricted to the `Sales Manager` role, it's necessary to add `Promote` permission for the `analyzeDynamicPricing` function to the `ManageFinancials` privilege. This configuration enables temporary privilege elevation specifically during the execution of the `analyzeDynamicPricing` function.
+However, due to restricted access to the `Pricing` Dataclass limited to the `Sales Manager` role, executing the function code attempting to read data from it would result in a "No permission to read" error:
 
 <img src={require('./img/functionPermission_maxRestriction6.png').default} style={{borderRadius: '6px'}} />
 
-:::info
-After the execution of the function, the temporary elevation provided by the `Promote` permission is revoked, and the `Agent` role returns to its standard access level.
-:::
+It becomes essential to include `Promote` permission for the `analyzePricing` function within the `ManageFinancials` privilege:
 
-The Promote permission in this privilege ensures that users with the Agent role, who do not have permission to manage financial data, can perform the pricing analysis without being granted permanent access to the entire financial management suite.
+<img src={require('./img/functionPermission_maxRestriction7.png').default} style={{borderRadius: '6px'}} />
+
+This configuration explicitly specifies that when the `analyzePricing` function is executed within a session holding the `Agent` role, which lacks permission for the `Pricing` resource, it temporarily integrates the `ManageFinancials` privilege into that session during function execution. This temporary elevation allows the function to be executed without granting permanent access.
+
+## Handy Tips
 
 :::tip
-Add the `Execute` permission in the privilege associated with the role that needs to directly perform the function. Meanwhile, the `Promote` permission is usually configured in the privilege that grants broader control over the resources involved in the function, providing a temporary elevation of privileges during the function's execution.
+Add the `Execute` permission in the privilege associated with the role that needs to directly perform the function. Meanwhile, the `Promote` permission is configured in the privilege that grants broader control over the resources involved in the function, providing a temporary elevation of privileges during the function's execution.
 :::
 
-## Model Editor Approach
+:::info
+If you have set permissions for the `Describe` action, which may be the case when access controllers want to truly conceal the information, then all functions you execute must have at least the same permission level as the `Describe`.
+:::
 
+:::info
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        In the <strong>Model Editor</strong>, link privileges to permissions (e.g., Execute, Describe, and Promote) to configure Function permissions. 
-        <br/><br/>
-        Simply click on a Function within a Dataclass for a streamlined dropdown selection to allocate desired privileges.
-        <br/><br/>
-        Adding permissions is simple — click on the <img src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'3%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button next to the privilege.
+        A function can be promoted from multiple privileges. In such cases, there's no hierarchy determining priority.  
+        The session experiencing temporary privilege elevation during function execution, will have access to all resource permissions set in each of the promoting privileges.
     </Column.Item>
     <Column.Item width="30%">
-        <img src={require('./img/ModelEditor_functionPermissions.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/functionPermission_promotedFromMultiple.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
-
-<br/>
+:::
 
 :::info
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        <ul>
-            <li>A purple tag signifies that the privilege is directly linked to that specific permission.</li>
-        </ul>
+        The <img src={require('./img/functionPermission_promotedIcon.png').default} style={{borderRadius: '6px', width: '4%'}} /> icon indicates that the function has been promoted by another privilege. Hover over the privilege name, and clicking on it will direct you to the privilege promoting the function.
     </Column.Item>
     <Column.Item width="30%">
-        <img src={require('./img/purpleTag.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-    <Column.Item width="65%">
-        <ul>
-            <li>A dark grey tag suggests control over that permission by an unlinked privilege, reflecting a granularity hierarchy where the permission is governed by a higher-level resource. For instance, allowing read access to the entire Datastore for the Guest privilege would result in the Guest privilege tag being displayed when checking the read permission for all Dataclasses.</li>
-        </ul>
-    </Column.Item>
-    <Column.Item width="30%">
-        <img src={require('./img/darkGreyTag.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-    <Column.Item width="65%">
-        <ul>
-            <li>If a privilege is both purple-tagged and accompanied by the <img src={require('./img/includedTag.png').default} style={{borderRadius: '6px', width:'5%'}} /> icon, it indicates the <a href="includingPrivileges">inclusion of an extra privilege</a>.</li>
-            <br/>
-            Obtaining permission for that resource requires having one of the additional privileges.
-        </ul>
-    </Column.Item>
-    <Column.Item width="30%">
-        <img src={require('./img/purpleTagged&icon.png').default} style={{borderRadius: '6px'}} />
-        <br/><br/>
-        <img src={require('./img/privilegeRequired.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/functionPermission_goToPrivilege.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
