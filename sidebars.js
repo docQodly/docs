@@ -118,8 +118,7 @@ const sidebars = {
 						'studio/roles/datastorePermissions',
 						'studio/roles/dataClassPermissions',
 						'studio/roles/attributesPermissions',
-						'studio/roles/functionPermissions',
-						'studio/roles/modelEditorApproach'
+						'studio/roles/functionPermissions'
 					]
 				},
 				'studio/roles/includingPrivileges',
