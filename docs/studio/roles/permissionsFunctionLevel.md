@@ -102,7 +102,7 @@ However, to accommodate scenarios where the `Agent` role needs to execute functi
 <br/><br/>
 
 :::info 
-In this context, the `bookRoomOption` privilege overrides function permissions set at the **DataStore** level (`Restricted`).
+In this context, the `bookRoom` privilege overrides function permissions set at the **DataStore** level (`Restricted`).
 :::
 
 ### Full Access to Gradual Restriction
