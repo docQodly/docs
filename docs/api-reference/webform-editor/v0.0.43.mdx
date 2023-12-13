@@ -1,7 +1,9 @@
 ---
-id: v0.0.26
-title: "v0.0.26"
+id: v0.0.43
+title: "v0.0.43"
 ---
+
+
 
 - [Intro](#intro)
 - [Installation and Setup](#installation-and-setup)
@@ -97,13 +99,12 @@ A function that collects relevant state information from the editor state. The c
 Collecting state information
 
 <Tabs>
-   <TabItem value="example 1">
+   <TabItem value="Example 1">
 
-```tsx
+      ```tsx
       import { useEnhancedEditor } from "@ws-ui/webform-editor";
       
       const Example = () => {
-
         const { hoveredNodeId } = useEnhancedEditor((state) => ({
           hoveredNodeId: state.events.hovered
         }));
@@ -115,12 +116,12 @@ Collecting state information
         </div>
        )
       }
-```
+      ```
 
  </TabItem>
-  <TabItem value="example 2">
+  <TabItem value="Example 2">
 
-```tsx
+      ```tsx
       import { useEnhancedEditor } from "@ws-ui/webform-editor";
       
       const Example = () => {
@@ -135,15 +136,11 @@ Collecting state information
         </div>
        )
       }
-```
+      ```
 
  </TabItem>
 </Tabs>
 
-#### Defined in
 
-src/hooks/use-enhanced-editor.ts:8
+<a name="outputmd"></a>
 
-src/hooks/use-enhanced-editor.ts:9
-
-src/hooks/use-enhanced-editor.ts:70
