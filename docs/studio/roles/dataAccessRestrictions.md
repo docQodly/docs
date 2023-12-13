@@ -47,12 +47,12 @@ Permissions define essential actions on resources, covering tasks such as creati
 
 | Permission | Datastore | Dataclass | Attribute | Function |
 |------------|-----------|-----------|-----------|----------|
-| Create     | Allows creating new resources. | Create a new entity in the selected dataclass. | Create a new entity with a value different from the default allowed for this attribute. | n/a |
-| Read       | Enables viewing the content of all resources. | Read attributes in the selected dataclass. | Read the content of the selected attribute. | n/a |
-| Update     | Allows modifying the content of all resources. | Update attributes in the selected dataclass. | Update the content of the selected attribute. | n/a |
-| Delete     | Permits deleting any resource. | Delete data in the selected dataclass. | Delete a non-null value for the selected attribute. | n/a |
-| Describe   | Provides metadata access for all resources. | Provides metadata access for the selected dataclass. | Provides metadata access for the selected attribute. | Provides metadata access for the selected dataclass function. |
-| Execute    | Execute any function. | Execute any function on the selected dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
+| Create | Create an Entity in any Dataclass. | Create a new Entity in the chosen Dataclass. | Create a new Entity with a value different from the default allowed for the chosen Attribute. | n/a |
+| Read | Read Attributes in any Dataclass. | Read attributes in the chosen Dataclass. | Read the content of the chosen Attribute. | n/a |
+| Update | Update Attributes in any Dataclass. | Update attributes in the chosen Dataclass. | Update the content of the chosen Attribute. | n/a |
+| Delete | Delete data throughout the Model. | Delete data in the chosen Dataclass. | Delete a non-null value for the chosen Attribute. | n/a |
+| Describe | Provides metadata access throughout the Model. | Provides metadata access for the chosen Dataclass. | Provides metadata access for the selected Attribute. | Provides metadata access for the chosen Dataclass function. |
+| Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
 | Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
 

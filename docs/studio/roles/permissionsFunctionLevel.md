@@ -191,12 +191,18 @@ To address this issue, grant privilege `B` the necessary `Describe` permission f
 
 If `Describe` permission is configured for total confidentiality, and privilege `B` shouldn't have access to it, then all functions must have a higher permission level than the restricted resource - the `Pricing` Dataclass.
 
-To overcome these limitations, place the function in the DataStore function and update the function appointed to privilege `B`, displaying `ds.analyzePricing` instead of `Pricing.analyzePricing`:
+To overcome these limitations, place the function in the **DataStore** function and update the function appointed to privilege `B`, displaying `ds.analyzePricing` instead of `Pricing.analyzePricing`:
 
 <img src={require('./img/describePermissionUseCase4.png').default} style={{borderRadius: '6px'}} />
 
-This way, you get broader access because the DataStore has a higher permission level compared to any Dataclass.
+:::info
+The **DataStore** has a higher permission level than any individual **Dataclass**.
+:::
 
-Likewise, if you aim to restrict the `Describe` permission for the `Price` Attribute in the `Pricing` Dataclass, place the function either in the `Pricing` Dataclass function or the DataStore function:
+Likewise, if you aim to restrict the `Describe` permission for the `Price` Attribute in the `Pricing` Dataclass, place the function either in the `Pricing` Dataclass function or the **DataStore** function:
 
 <img src={require('./img/describePermissionUseCase5.png').default} style={{borderRadius: '6px'}} />
+
+:::info
+The **Dataclass** has a higher permission level than its **Properties**.
+:::
