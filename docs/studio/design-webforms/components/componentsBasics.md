@@ -24,6 +24,16 @@ You have the flexibility to drop components directly onto the webform itself, as
 
 <img alt="explorer" src={require('./img/addingComponents.gif').default} style={{borderRadius: '6px'}} />
 
+## Uploading Custom Components
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload <a href="../../customComponent/overview">Custom Components</a>.
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/customComponent_1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ## Tooltip
