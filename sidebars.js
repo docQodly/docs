@@ -50,7 +50,6 @@ const sidebars = {
 				'studio/model/attributes',
 				'studio/model/functions',
 				'studio/model/import',
-
 			],
 		},
 		{
@@ -229,6 +228,16 @@ const sidebars = {
 				'language/ZipArchiveClass',
 				'language/ZipFileClass',
 				'language/ZipFolderClass',
+			],
+		},
+		{
+			type: 'category',
+			label: 'Custom Component',
+			items: [
+				'studio/customComponent/overview',
+				'studio/customComponent/setup',
+				'studio/customComponent/structure',
+				'studio/customComponent/upload',
 			],
 		},
 	],
