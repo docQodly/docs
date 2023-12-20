@@ -102,7 +102,7 @@ Used to generate a production-ready build of your entire project, the build proc
 The ID generated is established during the [initialization of a new project](#project-initialization) and remains consistent throughout the project's lifecycle. As a result, each execution of the build ensures that the `qodly_ID.zip` folder contains the same generated ID.
 :::
 
-Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](upload.md) in Qodly Studio for installation.
+Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](../studio/design-webforms/components/uploadCustomComponents.md) in Qodly Studio for installation.
 
 ## Generating a New Component
 

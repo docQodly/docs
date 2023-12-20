@@ -1,5 +1,5 @@
 ---
-id: upload
+id: uploadCustomComponents
 title: Upload Custom Component
 ---
 
@@ -8,14 +8,14 @@ import Column from '@site/src/components/Column'
 
 ## Overview
 
-Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](setup.md#building).
+Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup.md#building).
 
 ## Uploading Custom Component
 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the <a href="../design-webforms/components/componentsBasics#locating-components">Component bar</a>, allowing users to upload custom components. Hovering over the button displays a tooltip with the text "Upload Component".
+      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload custom components. Hovering over the button displays a tooltip with the text "Upload Component".
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/customComponent_1.png').default} style={{borderRadius: '6px'}} />
