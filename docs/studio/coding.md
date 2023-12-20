@@ -252,31 +252,3 @@ The palette includes a filtering option to find specific commands quickly.
 
 <img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px'}} />
 
-
-## Progress Bar
-
-### Displaying the Progress Bar
-
-The Progress Bar is triggered when the front end anticipates at least one REST request response. This visual element is crafted to signify active server-side processes, offering a clear indication, particularly during the execution of REST queries.
-
-### Tailoring the Progress Bar
-
-Customizing the appearance of the progress bar is facilitated through the following methods:
-
-- Creating a shared CSS class named `qodly-progress`:
-
-  ```css
-  self {
-    background-color: blue;
-    height: 20px;
-  }
-  ```
-
-- Creating a custom named CSS class and targeting the div element with the class `qodly-progress`:
-
-  ```css
-  div.qodly-progress {
-    background-color: blue;
-    height: 20px;
-  }
-  ```

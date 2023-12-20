@@ -61,6 +61,7 @@ const sidebars = {
 					label: 'Components',
 					items: [
 						'studio/design-webforms/components/componentsBasics',
+						'studio/design-webforms/components/uploadCustomComponents',
 						'studio/design-webforms/components/stylebox',
 						'studio/design-webforms/components/selectbox',
 						'studio/design-webforms/components/tabs',
@@ -230,16 +231,6 @@ const sidebars = {
 				'language/ZipFolderClass',
 			],
 		},
-		{
-			type: 'category',
-			label: 'Custom Component',
-			items: [
-				'studio/customComponent/overview',
-				'studio/customComponent/setup',
-				'studio/customComponent/structure',
-				'studio/customComponent/upload',
-			],
-		},
 	],
 
 	Run: [
@@ -272,7 +263,24 @@ const sidebars = {
 			label: "Cloud Architecture"
 		},
 	],
-
+	ReactComponent: [
+		{
+			type: 'doc',
+			id: 'customComponent/overview',
+		},
+		{
+			type: 'doc',
+			id: 'customComponent/setup',
+		},
+		{
+			type: 'doc',
+			id: 'customComponent/structure',
+		},
+		{
+			type: 'doc',
+			id: 'customComponent/apiReference/overview',
+		},
+	],
 	API: [
 		{
 			type: 'category',
