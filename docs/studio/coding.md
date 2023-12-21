@@ -246,9 +246,36 @@ When a QodlyScript command or function is entered in the code editor, you can ge
 
 The Command Palette offers easy access to all available commands in the code editor, including any associated shortcuts. You can open it by right-clicking in the code editor window or pressing `F1`.
 
-<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px'}} />
+<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
 The palette includes a filtering option to find specific commands quickly.
 
-<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px'}} />
+<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px',width: '50%'}} />
 
+### Warnings and errors
+
+Qodly Studio includes a Code Live Checker feature. The syntax, consistency, and structure of the entered code are automatically checked in order to prevent execution errors. For example, the Code Live Checker can detect that a right parenthesis is missing or that you used an unknown dataclass attribute.
+
+Qodly automatically checks the code syntax to see if it is correct. If you enter text or select a component that is not correct, Qodly underlines the incorrect expression. Two underline colors are used:
+
+- Yellow underlines are **warnings**<br/>
+![warning](img/warning.png)<br/>
+Warnings are intended to draw your attention to statements that might lead to execution errors. They are not considered as coding errors.
+- Red underlines are **errors** <br/> 
+![error](img/error.png)<br/>
+Errors are anomalies that prevent the code from being executed correctly. It includes syntax errors, declaration errors, etc. They must be fixed, otherwise the code will not run correctly. 
+
+Whatever the incorrect expression, you can move the mouse over the line to display a help tip providing the cause of the warning/error:
+
+![error-tip](img/error-tip.png)
+
+The Code Live Checker is activated while you enter the code. When a line of a method, class or function is marked as having improper syntax, check and fix the entry. If the line becomes correct, Qodly removes the underline.
+
+The Code Live Checker checks for:
+
+- basic syntax errors (wrong operators, misspellings and the like)
+- the structure of statements (`if`, `end if` and so on)
+- matching enclosing characters in the code such as parentheses or brackets
+- the calls of attributes and functions according to your model (ORDA) and user class definitions. For example, the Code Live Checker generates an error when a call to a dataclass computed attribute is not compatible with the declared computed attribute type.
+
+The Code Live Checker cannot detect some errors that only occur during execution. Execution errors are caught by Qodly when the code is executed.
