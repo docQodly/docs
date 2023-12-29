@@ -387,45 +387,8 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
 
-2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the function parameter(s) should be filled:
+2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
-        </Column.Item>
-        <Column.Item width="42%">
-            <img src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-    <ul>
-        The following types are supported as hard-coded values:
-        <table>
-            <thead>
-                <tr> <th>Type</th> <th>Description</th> <th>Example</th> </tr>
-            </thead>
-            <tbody>
-                <tr> <td>String</td> <td>Any string value</td> <td>Hello World</td> </tr>
-                <tr> <td>Object</td> <td>JSON syntax</td> <td>&#123;"age": 12, "name": "Smith"&#125;</td> </tr>
-                <tr> <td>Array</td> <td>Collection of values</td> <td>[10, 20, 30]</td> </tr>
-                <tr> <td>Number</td> <td>Any numeric value</td> <td>42</td> </tr>
-                <tr> <td>Date</td> <td>A short-format date</td> <td>20/12/2024</td> </tr>
-                <tr> <td>Boolean</td> <td>True or False</td> <td>False</td> </tr>
-            </tbody>
-        </table>
-    </ul>
-
-    <br />
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
-            Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
-        </Column.Item>
-        <Column.Item width="42%">
-            <img src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
 
 3. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
@@ -468,6 +431,110 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
 :::
 
+### Function Parameters & Variability
+
+#### Parameter Handling
+
+There are two primary methods for ensuring precise parameter handling: Hardcoded values and Datasources.
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img alt="explorer" src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
+    </Column.Item>
+    <Column.Item width="47%">
+        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<ul>
+    The following types are supported as hard-coded values:
+    <table>
+        <thead>
+            <tr> <th>Type</th> <th>Description</th> <th>Example</th> </tr>
+        </thead>
+        <tbody>
+            <tr> <td>String</td> <td>Any string value</td> <td>Hello World</td> </tr>
+            <tr> <td>Object</td> <td>JSON syntax</td> <td>&#123;"age": 12, "name": "Smith"&#125;</td> </tr>
+            <tr> <td>Array</td> <td>Collection of values</td> <td>[10, 20, 30]</td> </tr>
+            <tr> <td>Number</td> <td>Any numeric value</td> <td>42</td> </tr>
+            <tr> <td>Date</td> <td>A short-format date</td> <td>20/12/2024</td> </tr>
+            <tr> <td>Boolean</td> <td>True or False</td> <td>False</td> </tr>
+        </tbody>
+    </table>
+</ul>
+
+:::info
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Toggling hardcoded values and entering values that differ from the specified type will promptly trigger an error message beneath the parameter field.
+    </Column.Item>
+    <Column.Item width="37%">
+        <img alt="explorer" src={require('./img/hardcodedError.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+:::
+
+<br />
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
+        Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
+    </Column.Item>
+    <Column.Item width="47%">
+        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+#### Variadic Parameters
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Utilize the <code>...</code> notation in function prototypes to handle a <a href="../../language/basics/lang-parameters#declaring-variadic-parameters">variable number of parameters</a>.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        When creating a variadic function, such as one of type integer, without parameters, associating it with an event initially generates an empty function prototype.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters. 
+        <br/><br/>
+        <a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::info
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        If a variadic function incorporates mixed parameter types, like a string parameter followed by variadic parameters of type integer:
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic4.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Qodly ensures the first parameter is of type string when associating it with an event. Subsequent parameters will align with their specified types, such as number for the variadic parameters.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+:::
 
 ## Providing feedback
 
