@@ -490,7 +490,7 @@ There are two primary methods for ensuring precise parameter handling: Hardcoded
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        Utilize the <code>...</code> notation in function prototypes to handle a <a href="../../language/basics/lang-parameters#declaring-variadic-parameters">variable number of parameters</a>.
+        Utilize the <code>...</code> notation in function prototypes to handle a <a href="/language/basics/lang-parameters#declaring-variadic-parameters">variable number of parameters</a>.
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/variadic1.png').default} style={{borderRadius: '6px'}} />
