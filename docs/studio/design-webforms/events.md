@@ -45,16 +45,16 @@ To bind class functions, navigation actions or standard actions with events, fol
 
 1. **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./create-webform.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-webform) area.
 
-2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img alt="explorer" src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource. 
+2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource. 
 
 
-3. **Bind the Desired Action to the Event**: Next, select the type of action <img alt="explorer" src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '10%'}} /> you wish to bind to the event. You have three options:
+3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '10%'}} /> you wish to bind to the event. You have three options:
 
     - [Standard Action](#standard-actions): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
     - [Navigation Action](#navigation-actions---webforms): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
     - [Class Function](#class-functions): Use a custom function to handle the event.
 
-4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img alt="explorer" src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '20%'}} /> displayed on the left side of events that have already been configured (if any).
+4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '20%'}} /> displayed on the left side of events that have already been configured (if any).
 
 
 5. **Configure Event Properties**: Complete the remaining steps specific to each action type, as detailed in the respective sections within the [Configuring Events](#binding-actions-to-events) section.
@@ -68,10 +68,10 @@ You can define different actions for the same event.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        To remove a defined action, simply click on the trash icon <img alt="explorer" src={require('./img/trash.png').default} style={{borderRadius: '6px', width: '5%'}} /> located within the event box. This action will result in the removal of the event that is bound to an action.
+        To remove a defined action, simply click on the trash icon <img src={require('./img/trash.png').default} style={{borderRadius: '6px', width: '5%'}} /> located within the event box. This action will result in the removal of the event that is bound to an action.
 	</Column.Item>
 	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/events_deleteEvent.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/events_deleteEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -80,14 +80,114 @@ You can define different actions for the same event.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        To manage whether an event should execute during rendering, you can toggle its execution status using the toggle icon <img alt="explorer" src={require('./img/toggle.png').default} style={{borderRadius: '6px', width: '7%'}} />. This allows you to enable or disable the event as needed to meet your specific requirements.
+        To manage whether an event should execute during rendering, you can toggle its execution status using the toggle icon <img src={require('./img/toggle.png').default} style={{borderRadius: '6px', width: '7%'}} />. This allows you to enable or disable the event as needed to meet your specific requirements.
 	</Column.Item>
 	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/events_toggleExecution.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/events_toggleExecution.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
 This feature is valuable for scenarios like debugging or temporarily pausing specific event executions without removing them from your application entirely.
+
+### Toggle Event Card Visibility
+
+When the contextual panel is opened for a component or a datasource, all events are initially collapsed to provide a concise representation of their content. To expand all event cards, click the <img src={require('./img/expandAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button at the top right of the contextual panel, and to collapse them, click on the <img src={require('./img/collapseAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button.
+
+:::tip
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="54%">
+        Choose between table (default) or line format by clicking the <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'5%'}} /> button in the upper right corner of the event card.
+	</Column.Item>
+	<Column.Item width="46%">
+		<img src={require('./img/toggleFunctionPrototype.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+:::
+
+#### Standard Action
+
+For events bound to Standard actions, the collapsed card displays the datasource name involved, followed by its namespace if it's shared or `Webform` when local, on the left side. On the right side, the icon of the standard action is shown.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img src={require('./img/compactCard_standardAction1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/compactCard_standardAction2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+However, in specific cases, there may be minor differences in the display. For instance, in the case of the standard `Copy` action, the right side, instead of showing the icon of the standard action, displays the targeted datasource where the copying is intended.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img src={require('./img/compactCard_standardAction3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/compactCard_standardAction4.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+#### Navigation Action
+
+For events bound to Navigation actions, the collapsed card displays only the targeted webform on the left side, with the icon of the transition method on the right side.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img src={require('./img/compactCard_navigationAction1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/compactCard_navigationAction2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+#### Class Functions
+
+For events bound to Class functions, the collapsed card displays the function signature, including its name, parameters with filled values, and the returned result. The keyword displayed in the event card varies depending on the type:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li>Exposed <a href="../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/keyword_Datastore.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li>Exposed <a href="../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/keyword_Dataclass.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Datasource</code> keyword, encompass shared functions when these entities serve as shared datasources.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/keyword_Namespace.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+### Reload Event Function Prototype
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+		When you make modifications to the function prototype in the code editor, such as adding or removing parameters or changing their types, and you want these changes to be applied to the Function event card, you can easily do so by clicking the reload button. Qodly will then re-parse the function prototype to reflect the updated information while preserving the already assigned data sources as parameters.
+	</Column.Item>
+	<Column.Item width="35%">
+		<img src={require('./img/refreshFunction.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 ### Chaining actions
 
@@ -103,7 +203,7 @@ In the preview section, various capabilities are available when actions are boun
         <strong>Preview Function Code</strong>: Selecting a function bound to a particular event allows you to preview its content within the preview section.
 	</Column.Item>
 	<Column.Item width="55%">
-		<img alt="explorer" src={require('./img/preview_previewFunctionCode.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/preview_previewFunctionCode.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -111,10 +211,10 @@ In the preview section, various capabilities are available when actions are boun
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
-        <strong>Edit Function Code</strong>: To directly open and edit a function associated with a specific event, simply select the function and click on the function edit icon <img alt="explorer" src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
+        <strong>Edit Function Code</strong>: To directly open and edit a function associated with a specific event, simply select the function and click on the function edit icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
 	</Column.Item>
 	<Column.Item width="55%">
-		<img alt="explorer" src={require('./img/preview_EditFunctionCode.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/preview_EditFunctionCode.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -122,10 +222,10 @@ In the preview section, various capabilities are available when actions are boun
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
-        <strong>Open Linked Webform</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the webform associated with that event, using the same icon <img alt="explorer" src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
+        <strong>Open Linked Webform</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the webform associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
 	</Column.Item>
 	<Column.Item width="55%">
-		<img alt="explorer" src={require('./img/preview_OpenLinkedWebform.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/preview_OpenLinkedWebform.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -136,64 +236,43 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 ### Standard Actions
 
-Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. To bind standard actions with events, follow these steps:
-
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Select and Assign</strong>: <a href="#adding-an-event" >Add an event</a>, and then assign a standard action to your chosen component or datasource by clicking <code>Add a Standard Action</code>.
+        Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. After binding a standard action with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-2. **Define Action**: In the designated Action area, provide the name of the `datasource`, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
+1. **Define Action**: In the designated Action area, provide the name of the `datasource`, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
 
-    - For **Scalar datasources**: offer the ability either copy its content into another datasrouce of the same type or clear its content. <br/>
-
-        |Datasource type|Action|Icon|Description|
-        |---|---|---|---|
-        |Scalar|Copy|<img alt="explorer" src={require('./img/standardAction_copy.png').default} style={{borderRadius: '6px', width: '50%'}} /> |Copy the content of the datasource to a target datasource|
-        ||Clear|<img alt="explorer" src={require('./img/standardAction_clear.png').default} style={{borderRadius: '6px', width: '50%'}} />|Erase the content within the datasource|
-
-    - For **Entity selections**: offer the ability to arrange and choose attributes for sorting. You can query, refresh, load all entities of a particular data class, and create new empty selections.  <br/>
-
-        |Datasource type|Action|Icon|Description|
-        |---|---|---|---|
-        |Entity selection|Order By|<img alt="explorer" src={require('./img/standardAction_orderBy.png').default} style={{borderRadius: '6px', width: '70%'}} />|Specify one or more attributes to sort and select direction|
-        ||Query|<img alt="explorer" src={require('./img/standardAction_query.png').default} style={{borderRadius: '6px', width: '70%'}} />|The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is|
-        ||Reload|<img alt="explorer" src={require('./img/standardAction_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />|Reload the entire entity selection from the server|
-        ||All|<img alt="explorer" src={require('./img/standardAction_all.png').default} style={{borderRadius: '6px', width: '70%'}} />|Load all entities of the same dataclass|
-        ||Clear|<img alt="explorer" src={require('./img/standardAction_clear.png').default} style={{borderRadius: '6px', width: '70%'}} />|Remove any content and create a new, empty selection of the same dataclass|
-        ||Copy|<img alt="explorer" src={require('./img/standardAction_copy.png').default} style={{borderRadius: '6px', width: '70%'}} />|Copy the entity selection to a target entity selection datasource|
-
-    - For **Entities from Entity Selections Datasources**: you can create new ones, save them, reload them and drop them. You have the ability to navigate through the entity selection, traversing to the first, previous, next, or last entity.  <br/>
-
-        |Datasource type|Action|Icon|Description|
-        |---|---|---|---|
-        |Entity|Create a new entity|<img alt="explorer" src={require('./img/standardAction_createNewEntity.png').default} style={{borderRadius: '6px', width: '70%'}} />| Generate a new entity from the corresponding dataclass|
-        ||Save the entity|<img alt="explorer" src={require('./img/standardAction_saveEntity.png').default} style={{borderRadius: '6px', width: '70%'}} />|Save the entity on the server|
-        ||Reload|<img alt="explorer" src={require('./img/standardAction_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />|Reload entity values from the server|
-        ||Drop|<img alt="explorer" src={require('./img/standardAction_drop.png').default} style={{borderRadius: '6px', width: '70%'}} />|Delete the entity on the server|
-        ||Copy|<img alt="explorer" src={require('./img/standardAction_copy.png').default} style={{borderRadius: '6px', width: '70%'}} />|Copy the entity to a target entity datasource|
-        ||Clear|<img alt="explorer" src={require('./img/standardAction_clear.png').default} style={{borderRadius: '6px', width: '70%'}} />|Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element|
-        ||First|<img alt="explorer" src={require('./img/standardAction_firstRecord.png').default} style={{borderRadius: '6px', width: '70%'}} />| Navigate to the first entity within the entity selection|
-        ||Previous|<img alt="explorer" src={require('./img/standardAction_previousRecord.png').default} style={{borderRadius: '6px', width: '70%'}} />|Move to the previous entity within the entity selection|
-        ||Next|<img alt="explorer" src={require('./img/standardAction_nextRecord.png').default} style={{borderRadius: '6px', width: '70%'}} />|Advance to the next entity within the entity selection|
-        ||Last|<img alt="explorer" src={require('./img/standardAction_lastRecord.png').default} style={{borderRadius: '6px', width: '70%'}} />|Navigate to the last entity within the entity selection|
-
-    - While **Independently Created Standalone Entities**: permits only direct actions like create, remove, or reload, as navigation actions are not applicable in this context.  <br/>
-
-        |Datasource type|Action|Icon|Description|
-        |---|---|---|---|
-        |Entity|Create a new entity|<img alt="explorer" src={require('./img/standardAction_createNewEntity.png').default} style={{borderRadius: '6px', width: '70%'}} />| Generate a new entity from the corresponding dataclass|
-        ||Save the entity|<img alt="explorer" src={require('./img/standardAction_saveEntity.png').default} style={{borderRadius: '6px', width: '70%'}} />|Save the entity on the server|
-        ||Reload|<img alt="explorer" src={require('./img/standardAction_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />|Reload entity values from the server|
-        ||Drop|<img alt="explorer" src={require('./img/standardAction_drop.png').default} style={{borderRadius: '6px', width: '70%'}} />|Delete the entity on the server|
-        ||Copy|<img alt="explorer" src={require('./img/standardAction_copy.png').default} style={{borderRadius: '6px', width: '70%'}} />|Copy the entity to a target entity datasource|
-        ||Clear|<img alt="explorer" src={require('./img/standardAction_clear.png').default} style={{borderRadius: '6px', width: '70%'}} />|Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element|
-
-<br />
+    | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
+    |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+    | Scalar           | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                        | Copy the content of the datasource to a target datasource                                                                      |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                      | Erase the content within the datasource                                                                                       |
+    | Entity Selection | Order By              | ![Order By](./img/standardAction_orderBy.png)                                                                | Specify one or more attributes to sort and select direction                                                                    |
+    |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is  |
+    |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload the entire entity selection from the server                                                                             |
+    |                  | All                   | ![All](./img/standardAction_all.png)                                                                        | Load all entities of the same dataclass                                                                                        |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Remove any content and create a new, empty selection of the same dataclass                                                    |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity selection to a target entity selection datasource                                                             |
+    | Entity           | Create a new entity   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity from the corresponding dataclass                                                                         |
+    |                  | Save the entity       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
+    |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
+    |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity datasource                                                                                  |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element        |
+    |                  | First                 | ![First Record](./img/standardAction_firstRecord.png)                                                     | Navigate to the first entity within the entity selection                                                                      |
+    |                  | Previous              | ![Previous Record](./img/standardAction_previousRecord.png)                                                 | Move to the previous entity within the entity selection                                                                        |
+    |                  | Next                  | ![Next Record](./img/standardAction_nextRecord.png)                                                         | Advance to the next entity within the entity selection                                                                         |
+    |                  | Last                  | ![Last Record](./img/standardAction_lastRecord.png)                                                         | Navigate to the last entity within the entity selection                                                                        |
+    | Entity (Standalone)| Create a new entity   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity from the corresponding dataclass                                                                         |
+    |                  | Save the entity       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
+    |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
+    |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity datasource                                                                                  |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element        |
 
 :::info
 [Entities originating from an entity selection datasource](datasources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](datasources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
@@ -201,7 +280,7 @@ Standard actions apply to datasources, and their availability depends on the typ
 
 <br />
 
-3. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
+2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
@@ -211,7 +290,7 @@ Standard actions apply to datasources, and their availability depends on the typ
             </ul>
         </Column.Item>
         <Column.Item width="40%">
-            <img alt="explorer" src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -219,20 +298,18 @@ Standard actions apply to datasources, and their availability depends on the typ
 
 ### Navigation - Webforms
 
-Navigation actions allow you to navigate to a target webform. To bind navigation actions with events, follow these steps:
-
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Select and Assign</strong>: <a href="#adding-an-event" >Add an event</a>, and then assign a navigation action to your chosen component or datasource by clicking <code>Add a Navigation Action</code>.
+        Navigation actions allow you to navigate to a target webform. After binding a navigation action with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
-		<img alt="explorer" src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-2. **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
+1. **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
 
-3. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+2. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
@@ -244,7 +321,7 @@ Navigation actions allow you to navigate to a target webform. To bind navigation
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
  
@@ -266,7 +343,7 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-		<img alt="explorer" src={require('./img/externalLink.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/externalLink.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -283,7 +360,7 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
         </ol>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/externalLink2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/externalLink2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
  
@@ -360,45 +437,8 @@ Data model class functions can be linked to events, utilizing parameters from da
 
 <br/>
 
-3. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the function parameter(s) should be filled:
+3. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img alt="explorer" src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
-        </Column.Item>
-        <Column.Item width="42%">
-            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
-
-    <ul>
-        The following types are supported as hard-coded values:
-        <table>
-            <thead>
-                <tr> <th>Type</th> <th>Description</th> <th>Example</th> </tr>
-            </thead>
-            <tbody>
-                <tr> <td>String</td> <td>Any string value</td> <td>Hello World</td> </tr>
-                <tr> <td>Object</td> <td>JSON syntax</td> <td>&#123;"age": 12, "name": "Smith"&#125;</td> </tr>
-                <tr> <td>Array</td> <td>Collection of values</td> <td>[10, 20, 30]</td> </tr>
-                <tr> <td>Number</td> <td>Any numeric value</td> <td>42</td> </tr>
-                <tr> <td>Date</td> <td>A short-format date</td> <td>20/12/2024</td> </tr>
-                <tr> <td>Boolean</td> <td>True or False</td> <td>False</td> </tr>
-            </tbody>
-        </table>
-    </ul>
-
-    <br />
-
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
-            <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
-            Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
-        </Column.Item>
-        <Column.Item width="42%">
-            <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
 
 4. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
@@ -453,6 +493,111 @@ Data model class functions can be linked to events, utilizing parameters from da
 
 :::tip 
 A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
+:::
+
+### Function Parameters & Variability
+
+#### Parameter Handling
+
+There are two primary methods for ensuring precise parameter handling: Hardcoded values and Datasources.
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img alt="explorer" src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
+    </Column.Item>
+    <Column.Item width="47%">
+        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<ul>
+    The following types are supported as hard-coded values:
+    <table>
+        <thead>
+            <tr> <th>Type</th> <th>Description</th> <th>Example</th> </tr>
+        </thead>
+        <tbody>
+            <tr> <td>String</td> <td>Any string value</td> <td>Hello World</td> </tr>
+            <tr> <td>Object</td> <td>JSON syntax</td> <td>&#123;"age": 12, "name": "Smith"&#125;</td> </tr>
+            <tr> <td>Array</td> <td>Collection of values</td> <td>[10, 20, 30]</td> </tr>
+            <tr> <td>Number</td> <td>Any numeric value</td> <td>42</td> </tr>
+            <tr> <td>Date</td> <td>A short-format date</td> <td>20/12/2024</td> </tr>
+            <tr> <td>Boolean</td> <td>True or False</td> <td>False</td> </tr>
+        </tbody>
+    </table>
+</ul>
+
+:::info
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Toggling hardcoded values and entering values that differ from the specified type will promptly trigger an error message beneath the parameter field.
+    </Column.Item>
+    <Column.Item width="37%">
+        <img alt="explorer" src={require('./img/hardcodedError.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+:::
+
+<br />
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
+        Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
+    </Column.Item>
+    <Column.Item width="47%">
+        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+#### Variadic Parameters
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Utilize the <code>...</code> notation in function prototypes to handle a <a href="">variable number of parameters</a>.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        When creating a variadic function, such as one of type integer, without parameters, associating it with an event initially generates an empty function prototype.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters. 
+        <br/><br/>
+        <a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::info
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        If a variadic function incorporates mixed parameter types, like a string parameter followed by variadic parameters of type integer:
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic4.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        Qodly ensures the first parameter is of type string when associating it with an event. Subsequent parameters will align with their specified types, such as number for the variadic parameters.
+    </Column.Item>
+    <Column.Item width="45%">
+        <img alt="explorer" src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 :::
 
 
@@ -519,7 +664,7 @@ In this scenario:
         &nbsp; &bull; For simplicity, the <code>statistics</code> scalar datasource (object) is visualized as a <a href="./components/text">Text component</a>
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/event-datasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/event-datasource.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -532,8 +677,3 @@ When a button is clicked or a radio button is selected, the `employees` datasour
 Here's what you obtain after the button is clicked:
 
 ![event-datasource-result](img/event-datasource-result.png)
-
-
-
-
-
