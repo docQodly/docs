@@ -43,7 +43,7 @@ Empowering your application's interface and content customization, the Webform E
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 10. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
 11. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
-12. **Tabs**: Organizes open elements, including webforms, [class functions](../coding#classes), [methods](../coding#methods), [model](../model/model-editor-interface.md), [roles and priviliges](../roles/rolesPrivilegesOverview.md) and [settings](../settings.md).
+12. [**Tabs**](../overview.md#tabs): Organizes open webforms and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
 
 ## Breadcrumbs
 
