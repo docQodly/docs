@@ -70,5 +70,3 @@ You will receive an email notification before any action is taken, ensuring you'
 We believe this feature will not only improve our system's efficiency but also encourage more active engagement with your sandbox projects.
 
 :::
-
-Thank you for your continued support and understanding as we implement these enhancements!
