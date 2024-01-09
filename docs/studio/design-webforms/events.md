@@ -387,8 +387,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
 
-2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
-
+2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. Use the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled. 
 
 3. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
@@ -409,7 +408,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 4. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-		<strong>Add Parameter</strong>: If your function accepts a <a href="../../language/basics/lang-parameters#optional-parameters">variable number of parameters</a>, you can use this button to declare and bind one or more appropriate parameter(s). They will be passed to the function in the defined order when called for the event.
+		<strong>Add Parameter</strong>: If your function declares  <a href="#variadic-parameters">variadic parameters</a>, you can use this button to declare and bind one or more appropriate parameter(s). They will be passed to the function in the defined order when called for the event.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addParam.png').default} style={{borderRadius: '6px'}} />
@@ -499,7 +498,7 @@ There are two primary methods for ensuring precise parameter handling: Hardcoded
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        When creating a variadic function, such as one of type integer, without parameters, associating it with an event initially generates an empty function prototype.
+        When creating a function with variadic parameters, such as one of type integer, without named parameters, associating it with an event initially generates an empty function prototype.
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/variadic2.png').default} style={{borderRadius: '6px'}} />
@@ -508,19 +507,17 @@ There are two primary methods for ensuring precise parameter handling: Hardcoded
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters. 
+        You can then use the <b>Add Parameter</b> button to create explicitely and configure any number of parameters of the appropriate type that will be passed to the event function. 
         <br/><br/>
-        <a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
+    </Column.Item>  
+    
 </Column.List>
-
-:::info
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        If a variadic function incorporates mixed parameter types, like a string parameter followed by variadic parameters of type integer:
+        If a variadic function incorporates mixed parameter types, like a string parameter followed by variadic parameters of type integer, Qodly ensures the first parameter is of type string when associating it with an event.
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/variadic4.png').default} style={{borderRadius: '6px'}} />
@@ -528,13 +525,19 @@ There are two primary methods for ensuring precise parameter handling: Hardcoded
 </Column.List>
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        Qodly ensures the first parameter is of type string when associating it with an event. Subsequent parameters will align with their specified types, such as number for the variadic parameters.
+         Subsequent parameters will align with their specified types when you click on the <b>Add Parameter</b> button.
     </Column.Item>
     <Column.Item width="45%">
         <img alt="explorer" src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+:::info
+
+<a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
+
 :::
+
 
 ## Providing feedback
 

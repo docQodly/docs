@@ -239,12 +239,12 @@ foo("hello","world",!01/01/2023!,42,?12:00:00?) //extra parameters are passed
 You declare a variable number of parameters using the "..." notation in the prototypes of your functions, class constructors and methods (variadic parameters). You specify the parameter's type following notation "..." with the desired type.
 
 ```qs
-declare ( ... : text ) // Undefined number of 'text' parameters
+declare ( ... : string ) // Undefined number of 'string' parameters
 
 ```
 
 ```qs
-function myfunction ( ... : text)
+function myfunction ( ... : string)
 
 ```
 
@@ -252,12 +252,12 @@ function myfunction ( ... : text)
 When declaring multiple parameters, variadic notation must be employed at last position, for example:
 
 ```qs
-declare ( param: real ; ... : text )
+declare ( param: real ; ... : string )
 
 ```
 
 ```qs
-function myfunction (var1: integer ; ... : text)
+function myfunction (var1: integer ; ... : string)
 ```
 
 
@@ -279,7 +279,7 @@ return total
 
 ```
 
-This method can be called with a variable number of *real* parameters. In case of wrong parameter type, an error will be returned before the method is executed :
+This method can be called with a variable number of *real* parameters. In case of wrong parameter type, an error will be returned before the method is executed:
 
 ```qs
 
@@ -314,6 +314,7 @@ method1(42) //wrong type, string expected
 ```
 
 The error is generated when the method is called.
+
 
 
 
