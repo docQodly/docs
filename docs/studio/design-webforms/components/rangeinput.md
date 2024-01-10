@@ -83,8 +83,8 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li><strong>Minimum Value</strong>: Set the minimum value that users can select within the range.</li> <br/>
-            <li><strong>Maximum Value</strong>: Define the maximum value that users can select within the range.</li> <br/>
+            <li><strong>Min Value</strong>: Set the minimum value that users can select within the range.</li> <br/>
+            <li><strong>Max Value</strong>: Define the maximum value that users can select within the range.</li> <br/>
             <li><strong>Step</strong>: Determine the increment value when users interact with the component.</li> <br/>
            <li><strong>ReadOnly</strong>: Select this option if you want to use the slider as a visual representation of a value set elsewhere in the application, and that the user cannot change by clicking on the slider. </li> <br/>
         </ul>
