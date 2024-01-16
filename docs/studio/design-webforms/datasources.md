@@ -234,6 +234,17 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 </Column.List>
 
 
+## Deleting Datasources
+
+### Deleting a Datasource
+
+To delete a Datasource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Data Sources list. If you confirm the dialog box, the datasource is deleted and its references in webforms are removed. 
+
+
+### Removing Unused Datasources
+
+An unused datasource is a local datasource that is declared but never called from any part of the webform. Click on the **Delete Unused Elements** button in the header of the Data Sources area to remove all the useless local datasource declaration code from your webform:<br/><img alt="styles-library" src={require('./img/delete-unused.png').default} style={{borderRadius: '6px', width: '20%'}} /><br/>. 
+
 ## Binding a Datasource to a Component
 
 Binding a datasource to a component can be accomplished through several methods:
