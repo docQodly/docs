@@ -142,8 +142,7 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>UTC String</strong>: Displays the date in a UTC format.</li>
                         </ul>
                         <br/>
-                        Check the <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. <br/>
-                        For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
+                        Qodly supports a wide range of customized date formats. For a comprehensive list of available patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page.
                 </ul>
         </Column.Item>
         <Column.Item width="35%">
@@ -165,8 +164,11 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>Strict Distance</strong>: 15 hours.</li>                            
                                 <li><strong>Strict Distance with Suffix</strong>: in 15 hours.</li>
                         </ul>
-                        <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>                        
-                </ul>
+                        <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>  
+                        <br/>  
+                        <br/>                        
+                 Qodly supports a wide range of customized time formats. For a comprehensive list of available time patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page. 
+                 </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />

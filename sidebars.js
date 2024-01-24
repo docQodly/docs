@@ -83,6 +83,7 @@ const sidebars = {
 				'studio/design-webforms/craftedComponents',
 				'studio/design-webforms/templates',
 				'studio/design-webforms/styling',
+				'studio/design-webforms/date-time-formats',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
 				'studio/rendering',
