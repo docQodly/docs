@@ -206,6 +206,18 @@ For Entity Selection or Entity types, make sure to also configure additional set
 </Column.List>
 :::
 
+### Editing a datasource
+
+All properties of a datasource can be edited after it was created, except its Type. To edit a datasource, click on the **Edit** icon on the right side of the datasource name:
+
+![edit-button-datasource](./img/datasource-edit.png)
+
+The datasource is then displayed in the Contextual panel. Click on an "Edit" icon at the right side to modify an editable property. 
+
+![edit-datasource](./img/datasource-edit2.png)
+
+
+
 ### Renaming a datasource
 
 You can easily rename a datasource from the contextual panel. In doing so, Qodly Studio will automatically update references to the renamed datasource:
