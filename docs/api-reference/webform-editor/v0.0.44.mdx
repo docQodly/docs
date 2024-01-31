@@ -1,0 +1,75 @@
+---
+id: v0.0.44
+title: "@ws-ui/webform-editor"
+---
+
+
+
+- [Intro](#intro)
+- [Installation and Setup](#installation-and-setup)
+  - [Step 1](#step-1)
+  - [Step 2](#step-2)
+  - [Step 3](#step-3)
+- [@ws-ui/webform-editor](#ws-uiwebform-editor)
+
+
+
+
+<a name="readmemd"></a>
+
+@ws-ui/webform-editor / [Exports](#modulesmd)
+
+# Intro
+
+This is the webform editor package used in the Qodly Studio Editor
+
+# Installation and Setup
+
+To fix issues and develop new features this package and see the changes reflected directly on Qodly without friction we use the `yalc` package, please make sure that it's installed on your machine by running:
+
+```bash
+npm i -g yalc
+```
+
+## Step 1
+
+Clone the webstudio project to your machine
+
+```bash
+git clone git@git-ps.wakanda.io:4d/web-studio/webstudio.git
+```
+
+## Step 2
+
+Setup the project to work with the link to the local version of the project in the `craco.config.js` go to 
+
+```javascript
+const yalcDeps = { /*  */ }
+```
+
+and uncomment the line where is `'@ws-ui/webform-editor': { requiredVersion: '^0.0.1' },` is located
+
+then run
+
+```bash
+yalc add @ws-ui/webform-editor && yalc link @ws-ui/webform-editor && npm install
+```
+
+## Step 3
+
+Develop locally by running
+
+```bash
+npm start
+```
+
+
+<a name="modulesmd"></a>
+
+[@ws-ui/webform-editor](#readmemd) / Exports
+
+# @ws-ui/webform-editor
+
+
+<a name="outputmd"></a>
+

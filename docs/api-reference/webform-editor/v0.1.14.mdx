@@ -1,6 +1,6 @@
 ---
-id: v0.0.43
-title: "v0.0.43"
+id: v0.1.14
+title: "@ws-ui/webform-editor"
 ---
 
 
@@ -15,6 +15,7 @@ title: "v0.0.43"
     - [Functions](#functions)
   - [Functions](#functions-1)
     - [useEnhancedEditor](#useenhancededitor)
+    - [useLayout](#uselayout)
 
 
 
@@ -79,6 +80,7 @@ npm start
 ### Functions
 
 - [useEnhancedEditor](#useenhancededitor)
+- [useLayout](#uselayout)
 
 ## Functions
 
@@ -101,42 +103,74 @@ Collecting state information
 <Tabs>
    <TabItem value="Example 1">
 
-      ```tsx
-      import { useEnhancedEditor } from "@ws-ui/webform-editor";
-      
-      const Example = () => {
-        const { hoveredNodeId } = useEnhancedEditor((state) => ({
-          hoveredNodeId: state.events.hovered
-        }));
-      
-      
-      return (
-        <div>
-    The ID of the node currently being hovered is: {hoveredNodeId}
-        </div>
-       )
-      }
-      ```
+   ```tsx
+   import { useEnhancedEditor } from "@ws-ui/webform-editor";
+
+   const Example = () => {
+     const { hoveredNodeId } = useEnhancedEditor((state) => ({
+       hoveredNodeId: state.events.hovered
+     }));
+
+   return (
+     <div>
+ The ID of the node currently being hovered is: {hoveredNodeId}
+     </div>
+    )
+   }
+   ```
 
  </TabItem>
   <TabItem value="Example 2">
 
-      ```tsx
-      import { useEnhancedEditor } from "@ws-ui/webform-editor";
-      
-      const Example = () => {
-        const { hoveredNodeId } = useEnhancedEditor((state) => ({
-          hoveredNodeId: state.events.hovered
-        }));
-      
-      
-      return (
-        <div>
-    The ID of the node currently being hovered is: {hoveredNodeId}
-        </div>
-       )
-      }
-      ```
+  ```tsx
+  import { useEnhancedEditor } from "@ws-ui/webform-editor";
+
+  const Example = () => {
+    const { hoveredNodeId } = useEnhancedEditor((state) => ({
+      hoveredNodeId: state.events.hovered
+    }));
+
+  return (
+    <div>
+The ID of the node currently being hovered is: {hoveredNodeId}
+    </div>
+   )
+  }
+  ```
+
+ </TabItem>
+</Tabs>
+
+___
+
+### useLayout
+
+• **useLayout**: 
+
+**`Description`**
+
+A Hook that provides methods and properties giving information about the webform airy mode
+
+**`Example`**
+
+Getting the AiryMode className
+
+<Tabs>
+   <TabItem value="Example 1">
+
+   ```tsx
+   import { useLayout } from "@ws-ui/webform-editor";
+
+   const Example = () => {
+     const { getClassName } = useLayout()
+
+   return (
+     <div className={getClassName("fd-stylebox")}>
+       Hello World
+     </div>
+    )
+   }
+   ```
 
  </TabItem>
 </Tabs>
