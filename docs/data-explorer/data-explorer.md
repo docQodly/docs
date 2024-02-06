@@ -3,7 +3,7 @@ id: data-explorer
 title: Data Explorer
 ---
 
-The Data Explorer provides a web interface to view and query data in your Qodly application. Using this tool, you can easily browse among all your entities and search, order, or filter attribute values. It helps you to control data and quickly identify issues at any step of the development process.
+The Data Explorer provides a web interface to view, query, and edit data in your project datastore. Using this tool, you can easily browse among all your entities and search, order, or filter attribute values. It helps you quickly identifying issues at any step of the development process, as well as controlling and editing data.
 
 ![data-explorer](img/dataExplorer1.png)
 
@@ -38,9 +38,20 @@ The Data Explorer window opens in a new tab, displaying data available in your a
 
 
 
-## Interface
+## Browsing Data
+
+In addition to a comprehensive and customizable view of your data, the Data Explorer allows you to query and order your data.
+
+
+### Basics
 
 The Data Explorer provides an overall access to the [data model](../studio/model/model-editor-interface.md).
+
+:::info
+
+When the model or data is modified on the database side (dataclass added, entity edited or deleted, etc.), you just need to refresh the Data Explorer page in the browser (using the **F5** key, for example).
+
+:::
 
 The page contains several areas:
 
@@ -69,11 +80,8 @@ You can switch to the **dark mode** display theme using the selector at the bott
 
 ![dark-mode](img/dataExplorer2.png)
 
-## Updating contents
 
-When the model or data is modified on the database side (dataclass added, entity edited or deleted, etc.), you just need to refresh the Data Explorer page in the browser (using the **F5** key, for example).
-
-## Ordering entities
+### Ordering entities
 
 You can reorder the displayed entity list according to attribute values. All types of attributes can be used for a sort, except picture and object.
 
@@ -82,7 +90,7 @@ You can reorder the displayed entity list according to attribute values. All typ
 
 - You can sort attributes on several levels. For example, you can sort employees by city and then by salary. To do that, hold down the **Shift** key and click sequentially on each column header to include in the sort order.
 
-## Query on attributes
+### Query on attributes
 
 In this mode, you can filter entities by entering values to find (or to exclude) in the areas above the attribute list. You can filter on one or several attributes. The entity list is automatically updated when you type in.
 
@@ -102,19 +110,19 @@ You cannot filter on picture or object attributes.
 
 :::
 
-### Numeric operators
+#### Numeric operators
 
 With numeric, date, and time attributes, the "=" operator is selected by default. However, you can select another operator from the operator list (click on the "=" icon to display the list):
 
 ![numeric operators](img/DEFilter1.png)
 
-### Dates
+#### Dates
 
 With date attributes, you can enter the date to use through a datepicker widget (click on the date area to display the calendar):
 
 ![date operators](img/DEFilter2.png)
 
-### Booleans
+#### Booleans
 
 When you click on a boolean attribute area, you can filter on **true**/**false** values but also on **null**/**not null** values:
 
@@ -123,7 +131,7 @@ When you click on a boolean attribute area, you can filter on **true**/**false**
 - **null** indicates that the attribute value was not defined
 - **not null** indicates that the attribute value is defined (thus true or false).
 
-### Text
+#### Text
 
 Text filters are not diacritic (a = A).
 
@@ -139,7 +147,7 @@ You can also use the wildcard character (@) to replace one or more starting char
 
 If you want to create more specific queries, such as "is exactly", you may need to use the advanced queries feature.
 
-## Advanced queries with expression
+### Advanced queries with expression
 
 When you select this option, a query area is displayed above the entity list, allowing you to enter any expression to use to filter the contents:
 
@@ -170,3 +178,91 @@ You can click on the `v` icon to display both [`queryPlan` and `queryPath`](../o
 Right-click in the query area to display the previous valid queries:
 
 ![previous-queries](img/dataExplorer11.png)
+
+
+## Editing Data
+
+The Data Explorer allows you to modify attribute values, add or delete entities. These feature is intended to administrators, for example to test implementations or fix issues with invalid data.   
+
+### Allow editing
+
+For security reasons, to be able to edit data through the Data Explorer, you first need to enable the editing mode using the **Allow editing** selector. When enabled, edit action buttons are displayed to the right side:
+
+![allow-editing](img/editing.png)
+
+This selector is enabled **per dataclass** and **per browser session**.
+
+:::info
+
+The selector is intended to prevent accidental modifications since no confirmation dialog boxes are displayed when editing data through the Data Explorer.  
+
+:::
+
+### Entering values
+
+When the **Allow editing** selector is enabled for a dataclass, you can enter values for a new or selected entity through dedicated input widgets in the **Details** area for the selected dataclass. 
+  
+The following scalar attribute values can be edited:
+
+- text
+- boolean
+- numeric
+- date
+- time
+- image (you can upload or drag and drop an image)
+- object (JSON string)
+
+Blob attributes cannot be modified.  
+
+New or modified values are stored in the local cache, you need to [save them explicitely](#saving-modifications) to store them in the data. 
+
+
+### Creating entities
+
+You can create a new, empty entity in the selected table by clicking on the creation button ![new-entity](img/data-explorer-new.png). You can then [enter values](#entering-values) for this entity.
+
+The new entity is is kept in the local cache, you need to [save it explicitely](#saving-modifications) to store it in the data. 
+
+:::info
+
+Attribute values that need to be calculated by Qodly (autogenerated IDs, computed attributes) will be returned only after you saved the entity. 
+
+:::
+
+### Reloading values
+
+The **reload** button ![reload](img/data-explorer-reload.png) reloads the entity attribute values from the data file. This button is useful for example when you want to make sure the displayed values are the most recent saved values.   
+
+
+### Saving modifications
+
+Except for [deletion](#deleting-entities) (see below), entity modifications are done locally and need to be saved so that they are stored in the data file.
+
+To save modifications or to save an entity you created in the Data Explorer, click on the **Save** button ![save](img/data-explorer-save.png).
+
+:::info
+
+Modifications on an existing entity are automatically saved when you select another entity of the same dataclass.
+
+:::
+
+
+In case of conflict (e.g. another user has modified the same attribute value on the same entity), an error message is displayed at the bottom of the Data Explorer. You can click on the [**Reload** button](#reloading-values) to get the new value from the data and then, apply and save your modifications. 
+
+### Deleting entities
+
+You can delete entities by clicking on the **delete** button ![delete](img/data-explorer-delete.png). 
+
+To delete a set of entities, select two or more entities in the list area using **Shift+click** (continuous selection) or **Ctrl/Command+click** (discontinuous selection) and click on the **delete** button. 
+
+:::note
+
+If some entities could not be deleted because of a conflict (e.g. entities locked on the server), they are highlighted in the list. 
+
+:::
+
+:::caution
+
+No confirmation dialog is displayed when you delete entities. Selected entities are immediately deleted from the data.  
+
+:::
