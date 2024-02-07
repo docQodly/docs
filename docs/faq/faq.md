@@ -21,7 +21,7 @@ No, Qodly Studio offers an experience of intuitive and visual web development th
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>Is Qodly Studio supported on all Web browsers?</summary>
 
 
-See the requirements list [here](../getting-started/requirements.md).
+See the requirements list [here](../studio/overview.md#requirements).
 
 </details>
 
