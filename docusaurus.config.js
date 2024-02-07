@@ -133,12 +133,6 @@ const config = {
           },
           {
             type: "doc",
-            docId: "customComponent/overview",
-            position: "left",
-            label: "React Components",
-          },
-          {
-            type: "doc",
             position: "left",
             docId: "faq/faq",
             label: "FAQ",

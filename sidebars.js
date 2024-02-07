@@ -264,24 +264,6 @@ const sidebars = {
 			label: "Cloud Architecture"
 		},
 	],
-	ReactComponent: [
-		{
-			type: 'doc',
-			id: 'customComponent/overview',
-		},
-		{
-			type: 'doc',
-			id: 'customComponent/setup',
-		},
-		{
-			type: 'doc',
-			id: 'customComponent/structure',
-		},
-		{
-			type: 'doc',
-			id: 'customComponent/apiReference/overview',
-		},
-	],
 	API: [
 		{
 			type: 'category',
