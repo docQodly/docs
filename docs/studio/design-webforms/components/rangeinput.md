@@ -4,11 +4,11 @@ title: Range Input
 ---
 import Column from '@site/src/components/Column'
 
-The **Range Input** component is an interactive UI element enabling users to choose a numeric value from a defined range.
+The **Range Input** component is a UI element enabling users to choose a numeric value from a defined range, or enabling developers to represent a value by a cursor positioned within a defined range.
 
 :::info 
 
-The **Range Input** component contains an embedded **Slider Container** and a **Label** element. This is of great importance as configuring the **Range Input** component may require adjusting properties within the embedded elements. This applies to the visual style, triggers, and actions as they may differ.
+The **Range Input** component contains embedded elements: **Slider Container**, **Label**, **Filled track**, **Thumb**, and **Track**. This is of great importance as configuring the **Range Input** component may require adjusting properties within the embedded elements. This applies to the visual style, triggers, and actions as they may differ.
 
 :::
 
@@ -23,6 +23,8 @@ The **Range Input** component contains an embedded **Slider Container** and a **
 - **Data Filtering**: Implement it to allow users to filter results based on a numeric range, such as prices or quantities.
 
 - **Configuration Settings**: Utilize it for user-configurable settings that require selecting a specific numeric value within a range.
+
+- **Visual representation**: Display a value through a cursor within a range for a visual information.   
 
 
 
@@ -81,15 +83,39 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li><strong>Minimum Value</strong>: Set the minimum value that users can select within the range.</li> <br/>
-            <li><strong>Maximum Value</strong>: Define the maximum value that users can select within the range.</li> <br/>
+            <li><strong>Min Value</strong>: Set the minimum value that users can select within the range.</li> <br/>
+            <li><strong>Max Value</strong>: Define the maximum value that users can select within the range.</li> <br/>
             <li><strong>Step</strong>: Determine the increment value when users interact with the component.</li> <br/>
+           <li><strong>ReadOnly</strong>: Select this option if you want to use the slider as a visual representation of a value set elsewhere in the application, and that the user cannot change by clicking on the slider. </li> <br/>
         </ul>
     </Column.Item>
     <Column.Item width="35%">
         <img alt="explorer" src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+### Embedded Filled track, Thumb, and Track
+
+A slider object consists of these three elements, that can be customized separately:
+
+<img alt="thumb" src={require('./img/thumb.png').default} style={{borderRadius: '6px', height: '50%', width: '50%'}} />
+
+They have a default design that can be customized using standard formatting properties, such as **Background color** and **Height/Width**. 
+
+The **Display** property allows to control how they are drawn:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <ul>
+            <li><b>block</b>: standard display, for example the thumb is a 14px white circle by default.</li><li><b>flex</b>: provides extra formatting properties. </li><li><b>none</b>: the element is not displayed; for example, you can hide the thumb</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img alt="explorer" src={require('./img/thumb-display.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+  
+
 
 
 ## Data Integration
@@ -140,7 +166,7 @@ Here's a glimpse of how the **Range Input** component will look and behave in ac
 
 ### Range Input Component
 
-The **Range Input** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|
@@ -152,9 +178,21 @@ The **Range Input** component can respond to various events, enabling dynamic us
 |On Change| Calls for an action when the value of the Input changes. This typically occurs when the user enters or modifies text in the Input field. |
 
 
+### Embedded Label
+
+Events that can trigger actions within the embedded icon include:
+
+|Event|Description|
+|---|---|
+|On Click| Calls for an action when the user clicks on the Label. |
+|On Keyup| Calls for an action when a keyboard key is released while the Label is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the Label is in focus. |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Label.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Label.|
+
 ### Embedded Slider Container
 
-The embedded **Slider Container** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
+Events that can trigger actions within the embedded icon include:
 
 |Event|Description|
 |---|---|
@@ -166,15 +204,14 @@ The embedded **Slider Container** can also respond to various events, allowing f
 |On KeyDown| Calls for an action when a keyboard key is pressed down while the Slider Container is in focus. |
 |On Keyup| Calls for an action when a keyboard key is released while the Slider Container is in focus|
 
+### Embedded Filled track, Thumb, and Track
 
-### Embedded Label
-
-The embedded **Label** can also respond to various events, allowing for dynamic user experiences. Events that can trigger actions within the embedded icon include:
+Events that can trigger actions within these embedded elements include:
 
 |Event|Description|
 |---|---|
-|On Click| Calls for an action when the user clicks on the Label. |
-|On Keyup| Calls for an action when a keyboard key is released while the Label is in focus|
-|On KeyDown| Calls for an action when a keyboard key is pressed down while the Label is in focus. |
-|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the Label.|
-|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the Label.|
+|On Click| Calls for an action when the user clicks on the element. |
+|On Keyup| Calls for an action when a keyboard key is released while the element is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the element is in focus. |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the element.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the element.|

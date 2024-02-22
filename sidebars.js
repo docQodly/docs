@@ -50,7 +50,6 @@ const sidebars = {
 				'studio/model/attributes',
 				'studio/model/functions',
 				'studio/model/import',
-
 			],
 		},
 		{
@@ -83,6 +82,7 @@ const sidebars = {
 				'studio/design-webforms/craftedComponents',
 				'studio/design-webforms/templates',
 				'studio/design-webforms/styling',
+				'studio/design-webforms/date-time-formats',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
 				'studio/rendering',
@@ -263,7 +263,6 @@ const sidebars = {
 			label: "Cloud Architecture"
 		},
 	],
-
 	API: [
 		{
 			type: 'category',
@@ -290,6 +289,7 @@ const sidebars = {
 			label: 'Qodly Versions',
 			collapsed: false,
 			items: [
+				'notes/v1.0.0-beta.2',
 				'notes/v1.0.0-beta.1'
 			],
 		},

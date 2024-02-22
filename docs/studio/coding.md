@@ -88,7 +88,7 @@ To rename a method or class, you can either:
         <ul>
 			<li>Click on the icon at the right side of the item in the Explorer.</li>
 			<br/>
-			<li>Or, in the tab pop-up menu, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
+			<li>Or, in the <a href="overview.md#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
 		</ul>
     </Column.Item>
     <Column.Item width="30%">
@@ -129,7 +129,7 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        To work on a method or class, you can open it in a tab by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
+        To work on a method or class, you can open it in a <a href="overview.md#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
 		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
     </Column.Item>
     <Column.Item width="30%">
@@ -246,9 +246,36 @@ When a QodlyScript command or function is entered in the code editor, you can ge
 
 The Command Palette offers easy access to all available commands in the code editor, including any associated shortcuts. You can open it by right-clicking in the code editor window or pressing `F1`.
 
-<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px'}} />
+<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
 The palette includes a filtering option to find specific commands quickly.
 
-<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px'}} />
+<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px',width: '50%'}} />
 
+### Warnings and errors
+
+Qodly Studio includes a Code Live Checker feature. The syntax, consistency, and structure of the entered code are automatically checked in order to prevent execution errors. For example, the Code Live Checker can detect that a right parenthesis is missing or that you used an unknown dataclass attribute.
+
+Qodly automatically checks the code syntax to see if it is correct. If you enter text or select a component that is not correct, Qodly underlines the incorrect expression. Two underline colors are used:
+
+- Yellow underlines are **warnings**<br/>
+![warning](img/warning.png)<br/>
+Warnings are intended to draw your attention to statements that might lead to execution errors. They are not considered as coding errors.
+- Red underlines are **errors** <br/> 
+![error](img/error.png)<br/>
+Errors are anomalies that prevent the code from being executed correctly. It includes syntax errors, declaration errors, etc. They must be fixed, otherwise the code will not run correctly. 
+
+Whatever the incorrect expression, you can move the mouse over the line to display a help tip providing the cause of the warning/error:
+
+![error-tip](img/error-tip.png)
+
+The Code Live Checker is activated while you enter the code. When a line of a method, class or function is marked as having improper syntax, check and fix the entry. If the line becomes correct, Qodly removes the underline.
+
+The Code Live Checker checks for:
+
+- basic syntax errors (wrong operators, misspellings and the like)
+- the structure of statements (`if`, `end if` and so on)
+- matching enclosing characters in the code such as parentheses or brackets
+- the calls of attributes and functions according to your model (ORDA) and user class definitions. For example, the Code Live Checker generates an error when a call to a dataclass computed attribute is not compatible with the declared computed attribute type.
+
+The Code Live Checker cannot detect some errors that only occur during execution. Execution errors are caught by Qodly when the code is executed.

@@ -86,11 +86,15 @@ Although the **Tabs** component isn't inherently data-bound, you can still creat
 
 ## Triggers and Events
 
-The **Tabs** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **Tabs** component can respond to various events, enabling dynamic user experiences.
+
+The [`webEvent` command](../../../language/WebFormClass.md#webevent) returns the involved **tab index** when called in an event function triggered by a **Tabs** component.
+
+Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|
-|On Click| Calls for an action when the user clicks on the component. |
-|On DblClick| Calls for an action when the user double-clicks on the component. |
+|On Click| Calls for an action when the user clicks on the tab component. |
+|On Change| Calls for an action when the displayed tab changes. |
 |On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component. |
 |On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component. |

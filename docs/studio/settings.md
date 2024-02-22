@@ -14,38 +14,53 @@ The following pages are available:
 - **User**: settings related to the user interface
 - **Application**: settings related to the web application
 
+You select a page by clicking its label in the top left area of the panel:
+
+![settings selector](img/settings-user.png)
+
+
 
 ## User
 
 This page contains settings related to the Qodly Studio user interface.
 
-#### Show Renderer Pop Over
+### Show Renderer Pop Over
 
 Displays or not a pop over when the [renderer](rendering.md) and Qodly Studio use different URL schemes.
 
-#### Tooltip Behavior
+### Tooltip Behavior
 
 Defines how to display the [component tooltip](design-webforms/components/componentsBasics.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
 
 - **Show after timeout**: The tooltip is displayed after a the defined timeout (and kept onscreen until the user moves the mouse). 
 - **Hide after timeout**: The tooltip is immediately displayed and hidden after a the defined timeout.
 
-#### Tooltip timeout (in seconds)
+### Tooltip timeout (in seconds)
 
 Timeout for selected tooltip behavior.
 
-#### Enable Helper Tips
+### Enable Helper Tips
 
 Shows or hides the tips icons ![helper](img/helper-tip.png) in the webform editor.
 
-#### Activate Welcome Tour
+### Activate Welcome Tour
 
-Enables or disables the display of the Welcome tour dialogs boxes that introduce you to the main features of the Qodly Studio.  
+Enables or disables the display of the [Welcome tour dialog boxes](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) that introduce you to the main features of the Qodly Studio. 
+
+### Activate tabs preview mode
+
+Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which allows you to open and preview your Qodly files (webforms, model, classes, methods, or any other file) in a single tab. As a result, this option can reduce drastically the number of opened tabs in your project.
+
 
 
 ## Application
 
-#### Start Page
+This page contains settings related to your web application.
+
+![settings selector](img/settings-application.png)
+
+
+### Start Page
 
 Allows to select a webform to use as the start page of your application. 
 
@@ -56,7 +71,7 @@ The start page webform is automatically rendered when:
 
 
 
-#### Default Display Mode
+### Default Display Mode
 
 Allows to select the default mode for displaying multiple components in your webforms:
 

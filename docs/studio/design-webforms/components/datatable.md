@@ -182,14 +182,21 @@ Customize the styles of the DataTable component by utilizing specific CSS classe
 
 ## Triggers and Events
 
-The **DataTable** component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **DataTable** component can respond to various events, enabling dynamic user experiences. 
+
+Additional information including the **column number**, **row number**, and **column datasource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
+
+Events that can trigger actions within the component include:
 
 |Event|Description|
 |---|---|
 |On Select| Calls for an action when an item within the component is selected. |
 |On Click| Calls for an action when the user clicks on the component. |
+|On DoubleClick| Calls for an action when the user double-clicks on the component. |
 |On HeaderClick| Calls for an action when the user clicks on the header of a column. |
+|On HeaderDoubleClick| Calls for an action when the user double-clicks on the header of a column. |
 |On CellClick| Calls for an action when the user clicks on a cell within the component. |
+|On CellDoubleClick| Calls for an action when the user double-clicks on a cell within the component. |
 |On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
 |On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
 |On CellMouseEnter| Calls for an action when the user's mouse cursor enters a cell within the component.|
