@@ -286,7 +286,7 @@ const sidebars = {
 	ReleaseNotes: [
 		{
 			type: 'category',
-			label: 'Qodly Versions',
+			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
 				'notes/v1.0.0-beta.2',
