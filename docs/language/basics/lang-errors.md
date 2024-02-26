@@ -13,14 +13,14 @@ Error handling meets two main needs:
 Basically, there are two ways to handle errors in QodlyScript. You can:
 
 - [install an error-handling method](#installing-an-error-handling-method), or
-- use a [`Try()` keyword](#tryexpression) before pieces of code that call a function, method, or expression that can throw an error.
+- use a [`try()` keyword](#tryexpression) before pieces of code that call a function, method, or expression that can throw an error.
 
 
 ## Error or status
 
 Many QuodlyScript class functions, such as `entity.save()` or `transporter.send()`, return a *status* object. This object is used to store "predictable" errors in the runtime context, e.g. invalid password, locked entity, etc., that do not stop program execution. This category of errors can be handled by regular code.
 
-Other "unpredictable" errors include write error, network failure, or in general any unexpected interruption. This category of errors generates exceptions and needs to be handled through an error-handling method or a `Try()` keyword.  
+Other "unpredictable" errors include write error, network failure, or in general any unexpected interruption. This category of errors generates exceptions and needs to be handled through an error-handling method or a `try()` keyword.  
 
 
 ## Installing an error-handling method
