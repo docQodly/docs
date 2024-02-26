@@ -61,6 +61,7 @@ const sidebars = {
 					label: 'Components',
 					items: [
 						'studio/design-webforms/components/componentsBasics',
+						'studio/design-webforms/components/uploadCustomComponents',
 						'studio/design-webforms/components/stylebox',
 						'studio/design-webforms/components/selectbox',
 						'studio/design-webforms/components/tabs',
