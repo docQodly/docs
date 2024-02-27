@@ -143,7 +143,7 @@ The `allEntities` function receives the `controlObj` object as its input. It pro
 | dataClass               | object  | Reference to the DataClass associated with the VDC. |
 | selection               | object  | The current entity collection or selection context. |
 
-#### Output ????
+#### Output
 
 | Attribute    | Type        | Description                                        |
 |--------------|-------------|----------------------------------------------------|
