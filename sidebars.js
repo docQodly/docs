@@ -45,8 +45,10 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Model',
-			items: ['studio/model/model-editor-interface',
+			items: [
+				'studio/model/model-editor-interface',
 				'studio/model/datastore-classes',
+				'studio/model/customDataClass',
 				'studio/model/attributes',
 				'studio/model/functions',
 				'studio/model/import',
