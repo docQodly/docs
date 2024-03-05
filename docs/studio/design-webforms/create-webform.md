@@ -34,16 +34,17 @@ Empowering your application's interface and content customization, the Webform E
 1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview webforms.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
 3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
-4. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
-5. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
-6. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
-7. [**Properties panel**](#properties-panel): Customizes component attributes for tailored behavior and appearance.
-8. [**Header panel**](#header-panel): Simplifies project management for streamlined tracking.
-9. **Device toolbar**: Coming Soon.
+4. [**States**](states.md): 
+5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
+6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
+7. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
+8. [**Properties panel**](#properties-panel): Customizes component attributes for tailored behavior and appearance.
+9. [**Header panel**](#header-panel): Simplifies project management for streamlined tracking.
+10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
-10. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-11. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
+11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
 12. [**Tabs**](../overview.md#tabs): Organizes open webforms and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
+13. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs
 

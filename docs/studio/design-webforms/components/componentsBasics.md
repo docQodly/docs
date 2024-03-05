@@ -12,8 +12,22 @@ Components are the fundamental building blocks that constitute your application'
 
 ## Locating Components
 
-Components are conveniently accessible from the left side panel in the **Components** tab section. This panel serves as a hub where you can explore and select the components you need to design your application's interface.
-
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        Components are located in the <strong>Components</strong> tab on the left side panel. Components are systematically organized into distinct categories, simplifying the search and selection process:
+        <br/><br/>
+        <li><strong>Containers</strong>: Components that encapsulate other components and manage their placement.</li>
+        <br/><br/>
+        <li><strong>Simple</strong>: Components that display scalar or native data, images, and facilitate user actions</li>
+        <br/><br/>
+        <li><strong>List</strong>: Components that iterate over datasources and manage user interactions with this data.</li>
+        <br/><br/>
+        <li><strong>Custom Components</strong>: These are external React components that have been imported into Qodly by the user.</li>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img src={require('./img/locatingComponents.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ## Adding Components
