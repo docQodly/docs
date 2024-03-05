@@ -63,6 +63,7 @@ const sidebars = {
 						'studio/design-webforms/components/componentsBasics',
 						'studio/design-webforms/components/uploadCustomComponents',
 						'studio/design-webforms/components/stylebox',
+						'studio/design-webforms/components/dialog',
 						'studio/design-webforms/components/selectbox',
 						'studio/design-webforms/components/tabs',
 						'studio/design-webforms/components/webformloader',
