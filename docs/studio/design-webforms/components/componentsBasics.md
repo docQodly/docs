@@ -172,11 +172,12 @@ Formatting options may vary based on the specific data type of the attribute and
                 <ul>
                         <li>For <strong>Duration</strong>:</li> 
                         <ul>
-                                <li><strong>Simple</strong>: 14:40:30.</li> 
-                                <li><strong>Distance</strong>: about 15 hours.</li>
-				<li><strong>Distance with Suffix</strong>: in about 15 hours.</li>                                               
-                                <li><strong>Strict Distance</strong>: 15 hours.</li>                            
-                                <li><strong>Strict Distance with Suffix</strong>: in 15 hours.</li>
+                                <li><strong>Simple</strong>: 14:40:30</li> 
+                                <li><strong>Without seconds</strong>: 14:40</li>
+                                <li><strong>Distance</strong>: about 15 hours</li>
+				<li><strong>Distance with Suffix</strong>: in about 15 hours</li>                                               
+                                <li><strong>Strict Distance</strong>: 15 hours</li>                            
+                                <li><strong>Strict Distance with Suffix</strong>: in 15 hours</li>
                         </ul>
                         <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>  
                         <br/>  
