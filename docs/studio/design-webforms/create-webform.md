@@ -34,7 +34,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
 1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview webforms.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
 3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
-4. [**States**](states.md): 
+4. [**States**](states.md): Coming Soon.
 5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
 6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
 7. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.

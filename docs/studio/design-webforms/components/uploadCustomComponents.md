@@ -87,7 +87,7 @@ Attempting to drop a file in a format other than ".zip" leaves the popup unaffec
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      Clicking the reload button closes the popup, reloads the page, and adds a new entry to the component list, including the icon and name associated with the uploaded component.
+        Clicking the reload button will close the popup and refresh the page. Subsequently, it adds a new entry to the component list in the "Custom Component" category, complete with the icon and name of the uploaded component.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/customComponent_6.png').default} style={{borderRadius: '6px'}} />

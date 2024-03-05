@@ -208,14 +208,23 @@ For Entity Selection or Entity types, make sure to also configure additional set
 
 ### Editing a datasource
 
-All properties of a datasource can be edited after it was created, except its Type. To edit a datasource, click on the **Edit** icon on the right side of the datasource name:
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                Once a datasource is created, you can edit all its properties except for its Type. To start editing, select the <code>Edit</code> icon located next to the datasource name:
+	</Column.Item>
+	<Column.Item width="35%">
+	        <img alt="explorer" src={require('./img/datasource-edit.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-![edit-button-datasource](./img/datasource-edit.png)
-
-The datasource is then displayed in the Contextual panel. Click on an "Edit" icon at the right side to modify an editable property. 
-
-![edit-datasource](./img/datasource-edit2.png)
-
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                This action will display the datasource in the <code>Contextual panel</code>. To alter an editable property, simply click on the "Edit" icon situated on the right side of the property.
+	</Column.Item>
+	<Column.Item width="35%">
+	        <img alt="explorer" src={require('./img/datasource-edit2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 
 ### Renaming a datasource
@@ -255,7 +264,9 @@ To delete a Datasource, click the delete button <img alt="styles-library" src={r
 
 ### Removing Unused Datasources
 
-An unused datasource is a local datasource that is declared but never called from any part of the webform. Click on the **Delete Unused Elements** button in the header of the Data Sources area to remove all the useless local datasource declaration code from your webform:<br/><img alt="styles-library" src={require('./img/delete-unused.png').default} style={{borderRadius: '6px', width: '20%'}} /><br/>. 
+An unused datasource refers to any local datasource that is defined but not utilized in any section of the webform. 
+
+Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Data Sources's header to cleanse your webform of unnecessary local datasource.
 
 ## Binding a Datasource to a Component
 
