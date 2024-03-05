@@ -6,7 +6,7 @@ import Column from '@site/src/components/Column'
 
 ## Creating a webform
 
-In Qodly, the foundation of your work begins with a webform, a container encompassing all other components (buttons, style boxes, etc.) within your application. You can create a webform using one of the three methods:
+In Qodly, a project's groundwork starts with a webform, which acts as the primary container integrating various components such as buttons and style boxes. There are three methods available for creating a webform:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -27,7 +27,7 @@ In Qodly, the foundation of your work begins with a webform, a container encompa
 
 ## Webform Editor Overview
 
-Empowering your application's interface and content customization, the Webform Editor offers a versatile toolkit:
+The Webform Editor enhances your application by providing a versatile toolkit for interface and content customization:
 
 <img alt="explorer" src={require('./img/WebformEditorOverview.png').default} style={{borderRadius: '6px'}} />
 
@@ -86,25 +86,76 @@ Empowering your application's interface and content customization, the Webform E
 
 <br/>
 
-- **Toggle Airy Layout:** Airy mode is a specially crafted feature that enriches the creation of user-friendly web forms by automatically incorporating default margins between components. When enabled, it introduces a spacious layout by inserting a gap between the components within the form. This not only streamlines the process of designing visually appealing and user-friendly web forms but also significantly reduces the necessity for manual adjustments to style properties. To reflect the selected mode, a convenient toggle is incorporated on the canvas, allowing developers to easily switch between Airy mode and Neutral mode. The initial state of the toggle is context-dependent, adapting to the specific form being worked on.
+### Dialogs
 
-- **Sanity Check**: The Sanity Check tool ensures your Webforms's consistency and saves time by identifying errors before runtime. Particularly, it spots components bound with nonexistent datasources. It's automatically activated while editing an opened webform, visible as an icon in the upper right corner above the canvas. 
-    - The icon appears like this when there are no errors <img alt="explorer" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', height: '26px', width: '26px' }} />
-    - When errors arise, the icon displays the error count, and clicking on it provides detailed error information.
+The Dialog button <img alt="Dialog Icon" src={require('./img/headerPanel_Dialogs.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel provides access to a list of Dialogs. Each Dialog is designed as a popup overlay, aimed at enhancing user engagement by displaying additional content  within the existing webform.
 
-    <img alt="explorer" src={require('./img/headerPanel_sanityErrors.png').default} style={{borderRadius: '6px', height: '40%', width: '40%' }} />
-    
-    <br/>
+:::info
+For further details, refer to the [Dialog](./components/dialog.md) section.
+:::
 
-    :::info
-    The Sanity Check serves as an informative tool. Even if errors are present, a webform can still be saved. 
-    :::
+### Toggle Airy Layout
 
-- **Datasources Color**: Simplify component management with the Datasources Color feature. Easily identify the background color of datasources bound to the component, streamlining your workflow.
+The Airy mode button <img alt="Dialog Icon" src={require('./img/headerPanel_Airy.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel is a feature that enhances the creation of user-friendly web forms. When activated, this mode automatically applies default margins between components, fostering a more spacious and aesthetically pleasing layout. By introducing gaps between form components, Airy mode streamlines the design process, producing visually appealing web forms with minimal need for manual style adjustments.
 
-- **Preview in Studio** and Preview in a new Tab: Render your webform either directly in Qodly Studio or using the webform URL. See [Rendering a webform](../rendering.md). 
+To reflect the selected mode, a toggle is incorporated on the canvas, allowing developers to switch between Airy mode and Neutral mode. 
+
+:::info
+The initial state of the toggle is context-dependent, adapting to the specific form being worked on.
+:::
+
+### Sanity Check
+
+The Sanity Check button <img alt="Dialog Icon" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel plays a role in upholding the integrity and consistency of your Webforms. It is automatically engaged when editing an open webform. 
+
+When the form is error-free, the icon appears as <img alt="Sanity Check OK" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', height: '26px', width: '3%' }} />, serving as a vital signifier of the form's health.
+
+When discrepancies arise, the icon's color changes to reflect the error category. By clicking on this icon, you gain access to a comprehensive analysis of the issues, organized into three distinct categories:
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+    <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent data source.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/sanityCheck_error.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+    <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a data source.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/sanityCheck_warning.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+    <strong>Informational</strong>: Informational notices are in grey, like when a data source is created but not utilized.
+	</Column.Item>
+	<Column.Item width="35%">
+        <img alt="explorer" src={require('./img/sanityCheck_info.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::info
+The Sanity Check serves as an informative tool. Even if errors are present, a webform can still be saved. 
+:::
 
 
+### Datasources Color
+
+The Datasources Color button <img alt="Dialog Icon" src={require('./img/headerPanel_dtscolor.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel allows easy identification of the background color of datasources linked to a component.
+
+
+### Preview
+
+The Preview buttons <img alt="Dialog Icon" src={require('./img/headerPanel_render1.png').default} style={{borderRadius: '6px', width: '3%'}} /> and <img alt="Dialog Icon" src={require('./img/headerPanel_render2.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel render a webform either directly in Qodly Studio or using the webform URL.
+
+:::info
+For further details, refer to the [Rendering a webform](../rendering.md) section.
+:::
 
 ## Contextual panel
 
