@@ -116,7 +116,9 @@ Theme CSS classes cannot be deleted.
 
 ### Removing Unused CSS Classes
 
-An unused CSS class is a local class that is declared but never called from any part of the webform. Click on the **Delete Unused Elements** button in the header of the CSS Classes area to remove all the useless local CSS declaration code from your webform:<br/><img alt="styles-library" src={require('./img/delete-unused.png').default} style={{borderRadius: '6px', width: '20%'}} /><br/>. 
+An unused CSS class refers to any local class that is defined but not utilized in any section of the webform. 
+
+Click on the `Delete Unused Elements` button <img alt="styles-library" src={require('./img/delete-unused_css.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Styles Library's header to cleanse your webform of unnecessary CSS classes.
 
 
 ### Converting a Local CSS Class to Shared
