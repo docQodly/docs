@@ -244,13 +244,24 @@ In the preview section, various capabilities are available when actions are boun
 	</Column.Item>
 </Column.List>
 
-1. **Define Action**: In the designated Action area, provide the name of the `datasource`, thus unveiling its inherent capabilities. The available actions vary, contingent on the type of datasource:
+
+1. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Select Type & Datasource</strong>: Initiate by choosing the "Datasource" option and identifying the specific Datasource for the intended standard action.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/standardAction_datasource.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+2. **Define Action**: Proceed to the Action section, this action reveals the unique capabilities associated with the datasource. The range of available actions will differ based on the datasource type:
 
     | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
     |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
     | Scalar           | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                        | Copy the content of the datasource to a target datasource                                                                      |
+    |                  | Set Value             | ![SetValue](./img/standardAction_setValue.png)                                                                        | Update the datasource with a new value, which can be a String, Number, Boolean, Date, Array, or Object (with JSON validity). Note that this will trigger any configured OnChange event for the datasource.                                                                     |
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                      | Erase the content within the datasource                                                                                       |
-    |                  | Reset                 | ![Reset](./img/standardAction_Reset.png)                                                                      | Resets the datasource to its initial value                                                                                       |
+    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the datasource to its initial value                                                                                       |
     | Entity Selection | Order By              | ![Order By](./img/standardAction_orderBy.png)                                                                | Specify one or more attributes to sort and select direction                                                                    |
     |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is  |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload the entire entity selection from the server                                                                             |
@@ -349,7 +360,7 @@ To set up a navigation action after linking it with an event, proceed as follows
 	</Column.Item>
 </Column.List>
 
-2. Choose either:
+2. Either:
 
     - **Specify Target Webforms for "Datasource" type targets**: Enter the string-type datasource containing the name of the intended webform.
 
