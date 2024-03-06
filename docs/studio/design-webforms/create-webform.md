@@ -159,20 +159,32 @@ For further details, refer to the [Rendering a webform](../rendering.md) section
 
 ## Contextual panel
 
-The **Contextual** panel allows you to bind class functions, navigation actions, and standard actions to specific events within your application. Additionally, you can modify CSS classes directly from the Contextual panel to fine-tune your application's appearance.
+The **Contextual** panel allows the linking of class functions, navigation actions, standard actions, and dialog actions with specific events. Additionally, it allows for on-the-fly modifications of CSS classes.
 
-### Modifying CSS Classes
 
-You can adjust CSS classes right from the Contextual panel, offering you granular control over your application's visual styling. For more detailed information, refer to the [Styling](styling.md) section.
+### CSS Class Modifications
+
+Adjustments to `CSS Classes` can be made directly from the Contextual panel, providing granular control over the visual styling of applications. For further details, refer to the [Styling](styling.md) section.
+
 
 ### Bind Class Functions to Events
-Connect class functions to events for streamlined interactions. For more detailed information, refer to the [Bind Class Functions to Events](events.md#bind-class-functions-to-events) section.
+
+Linking of `Class Functions` with events is streamlined for more efficient server interactions from the Contextual panel. For further details, refer to the [Bind Class Functions to Events](events.md#binding-class-functions-to-events) section.
+
 
 ### Bind Navigation Actions to Events
-Associate navigation actions with events to enable navigation based on user interactions. For more detailed information, refer to the [Bind Navigation Actions to Events](events.md#bind-navigation-actions-to-events) section.
+
+`Navigation` actions can be linked to events to facilitate user interaction-driven navigation in the Contextual panel. For further details, refer to the [Bind Navigation Actions to Events](events.md#binding-navigation-actions-to-events) section.
+
 
 ### Bind Standard Actions to Events
-Link standard actions to events, ensuring consistent actions in response to specific events. For more detailed information, refer to the [Bind Standard Actions to Events](events.md#bind-standard-actions-to-events) section.
+
+`Standard Actions` can be linked to events to guarantee consistent responses in the Contextual panel. For further details, refer to the [Bind Standard Actions to Events](events.md#binding-standard-actions-to-events) section.
+
+
+### Bind Dialog Actions to Events
+
+`Dialog Actions` can be associated with events from the Contextual panel, to provide additional content in dialogs. For further details, refer to the [Bind Dialog Actions to Events](events.md#binding-dialog-actions-to-events) section.
 
 
 ## Properties panel

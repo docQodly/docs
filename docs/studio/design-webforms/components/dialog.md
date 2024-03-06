@@ -167,41 +167,6 @@ Employing the `.show()` method triggers the `On Open` event, whereas utilizing `
 
 
 
-## Triggering Dialog-Related Events
-
-<Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
-        Components within a web form can be configured to trigger dialog-related events. By choosing the <code>Add a dialog action</code> in a component's event configuration, you can define the following:
-    </Column.Item>
-    <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogAction1.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
-1. <Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
-        The type of action:
-        <br/><br/>
-        <ul>
-            <li><strong>Open</strong>: This action causes the dialog to be displayed.</li>
-            <br/>
-            <li><strong>Close</strong>: This action leads to the closing of the dialog.</li>
-        </ul>
-    </Column.Item>
-    <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogAction2.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
-2. <Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
-        The name of the dialog to be affected by this interaction.
-    </Column.Item>
-    <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogAction3.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
 ## Display and Customization
 
 The overlay style of dialogs can be further styled using the shared CSS class `fd-dialog-overlay`, such as:
