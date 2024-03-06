@@ -48,13 +48,14 @@ To bind class functions, navigation actions or standard actions with events, fol
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource. 
 
 
-3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '10%'}} /> you wish to bind to the event. You have three options:
+3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '13%'}} /> you wish to bind to the event. You have three options:
 
-    - [Standard Action](#standard-actions): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
-    - [Navigation Action](#navigation-actions---webforms): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
-    - [Class Function](#class-functions): Use a custom function to handle the event.
+    - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
+    - [Navigation Action](#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
+    - [Class Function](#binding-class-functions-to-events): Use a custom function to handle the event.
+    - [Dialog Action](#): 
 
-4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '20%'}} /> displayed on the left side of events that have already been configured (if any).
+4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '22%'}} /> displayed on the left side of events that have already been configured (if any).
 
 
 5. **Configure Event Properties**: Complete the remaining steps specific to each action type, as detailed in the respective sections within the [Configuring Events](#binding-actions-to-events) section.
@@ -230,11 +231,9 @@ In the preview section, various capabilities are available when actions are boun
 </Column.List>
 
 
-## Binding Actions to Events
+## Binding Standard Actions to Events
 
-The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application.
-
-### Standard Actions
+### Datasources
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -298,25 +297,68 @@ The Contextual panel facilitates the association of class functions, navigation 
         </Column.Item>
     </Column.List>
 
-<br />
+### States
 
-### Navigation - Webforms
+<!-- to be done -->
+
+
+
+## Binding Navigation Actions to Events
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        Navigation actions allow you to navigate to a target webform. After binding a navigation action with an event, follow these steps:
+        Navigation actions can be configured to direct users to particular targets by associating these actions with specific events.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-1. **Explore Target Webforms**: Navigate through the available selection of target webforms, each representing a distinct destination for navigation actions.
+The navigation target can be defined in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
 
-2. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Webform or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/contextualPanel_NavigationWithDatasource.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Webform from the webforms list or providing a direct link as a hardcoded value.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/contextualPanel_NavigationWithHardcoded.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
+### Webforms
+
+To set up a navigation action after linking it with an event, proceed as follows:
+
+1. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Choose Target Type</strong>: Select the "Webform" option.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/webform.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+2. Choose either:
+
+    - **Specify Target Webforms for "Datasource" type targets**: Enter the string-type datasource containing the name of the intended webform.
+
+    - **Explore Target Webforms for "Hardcoded Value" type targets**: Browse through the list of available webforms, each serving as a potential navigation destination.
+
+3. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
 
     <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
+        <Column.Item width="55%">
             <ul>
                 <li> <code>New Tab</code>: Induce the opening of a new browser tab.</li>
                 <li> <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.</li>
@@ -324,59 +366,56 @@ The Contextual panel facilitates the association of class functions, navigation 
                 <li> <code>Webform Loader (Self)</code>: Reveals content within the existing <a href="components/webformloader">Webform loader</a></li>.
             </ul>
         </Column.Item>
-        <Column.Item width="35%">
+        <Column.Item width="40%">
             <img src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
  
 :::tip 
-The feature for providing feedback is not applicable in the context of navigation events. This implies that users will not have the option to provide feedback regarding their navigation experience.
+The feature for providing feedback is not applicable in the context of navigation events.
 :::
 
-### Navigation - External Links
+### External Links
 
-In addition to navigating to webforms, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for webforms](#navigation-actions---webforms), with a slight variation in the "Select Target" step:
+In addition to navigating to webforms, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for webforms](#webforms), with a slight variation in the "Target Type" step:
 
 
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
-        <ol>
-            <li value="1"><strong>Select Target</strong>: Paste the desired external link URL into the "Select Target" field.</li>
-            <br/>
-            <li value="2"><strong>Choose External Link</strong>: Within the "Select Target" field's dropdown list, select <code>External Link</code>.</li>
-        </ol>
+1. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Choose Target Type</strong>: Select the "External Link" option and input the URL of the desired external link.
 	</Column.Item>
-	<Column.Item width="35%">
+	<Column.Item width="40%">
 		<img src={require('./img/externalLink.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-<Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
-        <ol>
-            <li value="3"><strong>Define Transition Method</strong>: Similar to configuring webform navigation, you can specify how the external link will be presented. However, for external links, you have two options:</li>
+2. <Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <strong>Define Transition Method</strong>: Similar to configuring webform navigation, you can specify how the external link will open. However, for external links, you have two options:
+        <br/><br/>
+        <ul>
+            <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li>
             <br/>
-            <ul>
-                <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li>
-                <br/>
-                <li><strong>Current Tab</strong>: Replace the ongoing browser tab with the chosen external link.</li>
-            </ul>
-        </ol>
+            <li><strong>Current Tab</strong>: Replace the ongoing browser tab with the chosen external link.</li>
+        </ul>
     </Column.Item>
-    <Column.Item width="35%">
+    <Column.Item width="40%">
         <img src={require('./img/externalLink2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
  
 
 
-### Navigation - Shared Folder
+### Shared Folder
 
-Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#navigation---external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the "Select Target" field. Ensure that the path begins with `/$shared`.
+Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the target field. Ensure that the path begins with `/$shared`.
 
 :::tip 
 When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
 :::
+
+
+## Binding Class Functions to Events
 
 ### Class Functions
 
@@ -385,7 +424,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
         Data model class functions can be linked to events, utilizing parameters from datasources or static values, with the option to assign the result to a datasource as needed. After binding a class function with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
-		<img src={require('./img/contextualPanel_addNavigationEvent.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -439,7 +478,7 @@ A single class function can be utilized across multiple events, allowing you to 
 
 #### Parameter Handling
 
-There are two primary methods for ensuring precise parameter handling: Hardcoded values and Datasources.
+There are two primary methods for ensuring precise parameter handling: 
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -538,6 +577,46 @@ There are two primary methods for ensuring precise parameter handling: Hardcoded
         <img alt="explorer" src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+:::
+
+
+## Binding Dialog Actions to Events
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        Components within a web form can be configured to trigger dialog-related events. By choosing the <code>Add a dialog action</code> in a component's event configuration, you can define the following:
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/dialogAction1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+1. <Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        The type of action:
+        <br/><br/>
+        <ul>
+            <li><strong>Open</strong>: This action causes the dialog to be displayed.</li>
+            <br/>
+            <li><strong>Close</strong>: This action leads to the closing of the dialog.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/dialogAction2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+2. <Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        The name of the dialog to be affected by this interaction.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img alt="explorer" src={require('./img/dialogAction3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::info
+For further details, refer to the [Dialog](./components/dialog.md) section.
 :::
 
 ## Providing feedback
