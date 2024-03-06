@@ -706,8 +706,3 @@ When a button is clicked or a radio button is selected, the `employees` datasour
 Here's what you obtain after the button is clicked:
 
 ![event-datasource-result](img/event-datasource-result.png)
-
-
-
-
-
