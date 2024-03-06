@@ -254,7 +254,7 @@ In the preview section, various capabilities are available when actions are boun
 	</Column.Item>
 </Column.List>
 
-2. **Define Action**: Proceed to the Action section, this action reveals the unique capabilities associated with the datasource. The range of available actions will differ based on the datasource type:
+2. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the datasource:
 
     | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
     |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
