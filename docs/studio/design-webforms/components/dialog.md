@@ -193,11 +193,12 @@ Here's a glimpse of how the **Dialog** component will look and behave in action:
 
 The Dialog component can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
 
-|Event|Description|
-|---|---|
-|On Open| Calls for an action before the dialog opens. |
-|On Close| Calls for an action before closing the dialog.|
+| Event     | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| On Init   | Calls for an action when the dialog initially opens. It is used for the dialog's initialization. |
+| On Loaded | Calls for an action once the dialog has completely mounted/loaded, indicating readiness for interaction. |
+| On Close  | Calls for an action to be performed just before the dialog is closed. |
 
 :::tip
-If the dialog contains a web form loader, these actions occur before the `On Load` actions of the web form loader.
+In scenarios where the `Dialog` includes a `Webform Loader`, these events are triggered before the `On Load` actions of the `Webform Loader`.
 :::
