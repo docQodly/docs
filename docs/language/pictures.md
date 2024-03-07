@@ -96,7 +96,7 @@ If the optional *horOffset* and *vertOffset* parameters are used, a translation 
 
 #### See also
 
-[`transformPicture`](#transformpicture), [picture operators](../basics/lang-picture.md#picture-operators). 
+[`transformPicture`](#transformpicture), [picture operators](./basics/lang-picture.md#picture-operators). 
 
 ## convertPicture
 
@@ -115,7 +115,7 @@ If the optional *horOffset* and *vertOffset* parameters are used, a translation 
 
 The `convertPicture` command <!-- REF #_command_.convertPicture.Summary -->converts *aPicture* into a new type<!-- END REF -->.
 
-The *codec* parameter indicates the type of picture to be generated. A Codec can be an extension (for example, ".gif") or a Mime type (for example, "image/jpeg"). You can get a list of Codecs that are available in the [Picture Codec IDs](../basics/lang-picture.md#picture-codec-ids) section.
+The *codec* parameter indicates the type of picture to be generated. A Codec can be an extension (for example, ".gif") or a Mime type (for example, "image/jpeg"). You can get a list of Codecs that are available in the [Picture Codec IDs](./basics/lang-picture.md#picture-codec-ids) section.
 
 
 ## createThumbnail
