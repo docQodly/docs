@@ -88,7 +88,7 @@ To rename a method or class, you can either:
         <ul>
 			<li>Click on the icon at the right side of the item in the Explorer.</li>
 			<br/>
-			<li>Or, in the <a href="./overview#contextual-menu`">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
+			<li>Or, in the <a href="./overview#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
 		</ul>
     </Column.Item>
     <Column.Item width="30%">
