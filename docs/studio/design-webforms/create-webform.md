@@ -159,32 +159,66 @@ For further details, refer to the [Rendering a webform](../rendering.md) section
 
 ## Contextual panel
 
-The **Contextual** panel allows the linking of class functions, navigation actions, standard actions, and dialog actions with specific events. Additionally, it allows for on-the-fly modifications of CSS classes.
+The **Contextual Panel** is a multifaceted interface, consisting of three distinct tabs: the Component tab, the Datasource tab, and the CSS tab.
+
+:::tip Memory Functionality for Enhanced User Experience
+
+The intuitive design of Qodly includes a feature that memorizes the last active tab in the Contextual Panel. When there is a switch between components, the panel automatically displays the last tab that was in use.
+
+:::
+
+### Component Tab
 
 
-### CSS Class Modifications
-
-Adjustments to `CSS Classes` can be made directly from the Contextual panel, providing granular control over the visual styling of applications. For further details, refer to the [Styling](styling.md) section.
-
-
-### Bind Class Functions to Events
-
-Linking of `Class Functions` with events is streamlined for more efficient server interactions from the Contextual panel. For further details, refer to the [Bind Class Functions to Events](events.md#binding-class-functions-to-events) section.
-
-
-### Bind Navigation Actions to Events
-
-`Navigation` actions can be linked to events to facilitate user interaction-driven navigation in the Contextual panel. For further details, refer to the [Bind Navigation Actions to Events](events.md#binding-navigation-actions-to-events) section.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+    The Component tab enables linking actions like <a href="events#binding-class-functions-to-events">Class Functions</a>, <a href="events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="events#binding-standard-actions-to-events">Standard Actions</a> and <a href="events#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
+	</Column.Item>
+	<Column.Item width="50%">
+        <img alt="explorer" src={require('./img/contextualPanel_tabComponent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 
-### Bind Standard Actions to Events
+### Datasource Tab
 
-`Standard Actions` can be linked to events to guarantee consistent responses in the Contextual panel. For further details, refer to the [Bind Standard Actions to Events](events.md#binding-standard-actions-to-events) section.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+    The Datasource tab facilitates management of actions such as <a href="events#binding-class-functions-to-events">Class Functions</a>, <a href="events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="events#binding-standard-actions-to-events">Standard Actions</a> and <a href="events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a datasource, providing a centralized interface for coordinating components and their data interactions.
+	</Column.Item>
+	<Column.Item width="50%">
+        <img alt="explorer" src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::tip
+The Datasource tab becomes accessible only when a component is linked to a datasource.
+:::
+
+### CSS Tab
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+    The CSS tab focuses on managing CSS classes applied to components, displaying them in a list on the left-hand side. Selecting a class from this list opens it in the CSS editing area for modification and highlights it.
+	</Column.Item>
+	<Column.Item width="50%">
+        <img alt="explorer" src={require('./img/contextualPanel_tabCSS.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::info Important Considerations:
+
+- **CSS Class Deletion**: Direct deletion of CSS classes from the Contextual Panel is not possible. For complete removal, navigate to the Styles Library.
+
+- **Removing CSS Classes from Components**: Unapplying a CSS class from a component requires alterations in the component's Properties Panel, not via the Contextual Panel.
+:::
 
 
-### Bind Dialog Actions to Events
+For further details about styling components, refer to the [Styling](styling.md) section.
 
-`Dialog Actions` can be associated with events from the Contextual panel, to provide additional content in dialogs. For further details, refer to the [Bind Dialog Actions to Events](events.md#binding-dialog-actions-to-events) section.
+:::tip
+The CSS tab becomes accessible only when there are CSS classes applied to a component.
+:::
 
 
 ## Properties panel
