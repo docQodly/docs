@@ -45,7 +45,7 @@ You can create a method or class using one of the three methods:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
             <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
@@ -129,7 +129,7 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        To work on a method or class, you can open it in a <a href="./overview#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
+      To work on a method or class, you can open it in a <a href="./overview#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
 		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
     </Column.Item>
     <Column.Item width="30%">
