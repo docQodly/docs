@@ -88,7 +88,7 @@ To rename a method or class, you can either:
         <ul>
 			<li>Click on the icon at the right side of the item in the Explorer.</li>
 			<br/>
-			<li>Or, in the <a href="overview.md#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
+			<li>Or, in the <a href="./overview#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
 		</ul>
     </Column.Item>
     <Column.Item width="30%">
@@ -129,7 +129,7 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        To work on a method or class, you can open it in a <a href="overview.md#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
+        To work on a method or class, you can open it in a <a href="./overview#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
 		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
     </Column.Item>
     <Column.Item width="30%">

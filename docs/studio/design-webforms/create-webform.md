@@ -172,7 +172,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    The Component tab enables linking actions like <a href="events#binding-class-functions-to-events">Class Functions</a>, <a href="events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="events#binding-standard-actions-to-events">Standard Actions</a> and <a href="events#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
+    The Component tab enables linking actions like <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
 	</Column.Item>
 	<Column.Item width="50%">
         <img alt="explorer" src={require('./img/contextualPanel_tabComponent.png').default} style={{borderRadius: '6px'}} />
@@ -184,7 +184,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    The Datasource tab facilitates management of actions such as <a href="events#binding-class-functions-to-events">Class Functions</a>, <a href="events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="events#binding-standard-actions-to-events">Standard Actions</a> and <a href="events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a datasource, providing a centralized interface for coordinating components and their data interactions.
+    The Datasource tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a datasource, providing a centralized interface for coordinating components and their data interactions.
 	</Column.Item>
 	<Column.Item width="50%">
         <img alt="explorer" src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
