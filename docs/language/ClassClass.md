@@ -13,9 +13,57 @@ When a user class is [defined](basics/lang-classes.md#class-definition) in the p
 
 ||
 |---|
+|[<!-- INCLUDE #ClassClass.isShared.Syntax -->](#isshared)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.isShared.Summary -->|
+|[<!-- INCLUDE #ClassClass.isSingleton.Syntax -->](#issingleton)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.isSingleton.Summary -->|
+|[<!-- INCLUDE #ClassClass.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.me.Summary -->|
 |[<!-- INCLUDE #ClassClass.name.Syntax -->](#name)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.name.Summary -->|
 |[<!-- INCLUDE #ClassClass.new().Syntax -->](#new)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.new().Summary --> |
 |[<!-- INCLUDE #ClassClass.superclass.Syntax -->](#superclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.superclass.Summary --> |
+
+
+<!-- REF ClassClass.isShared.Desc -->
+## .isShared   
+
+
+<!-- REF #ClassClass.isShared.Syntax -->**.isShared** : boolean<!-- END REF -->
+
+#### Description
+
+The `.isShared` property <!-- REF #ClassClass.isShared.Summary -->returns `true` if the user class has been defined as [shared class](basics/classes.md#shared-classes)<!-- END REF -->, and `false` otherwise.   
+
+This property is **read-only**.
+
+<!-- END REF -->
+
+
+<!-- REF ClassClass.isSingleton.Desc -->
+## .isSingleton   
+
+<!-- REF #ClassClass.isSingleton.Syntax -->**.isSingleton** : boolean<!-- END REF -->
+
+#### Description
+
+The `.isSingleton` property <!-- REF #ClassClass.isSingleton.Summary -->returns `true` if the user class has been defined as a [singleton class](basics/classes.md#singleton-classes)<!-- END REF -->, and `false` otherwise.   
+
+This property is **read-only**.
+
+<!-- END REF -->
+
+
+<!-- REF ClassClass.me.Desc -->
+## .me   
+
+<!-- REF #ClassClass.me.Syntax -->**.me** : 4D.Class<!-- END REF -->
+
+#### Description
+
+The `.me` property <!-- REF #ClassClass.me.Summary -->returns the singleton instance of the `cs.className` singleton class<!-- END REF -->. If the singleton class was never instantiated beforehand, this property calls the class constructor without parameters and creates the instance. Otherwise, it returns the existing singleton instance.
+
+If `cs.className` is not a [singleton class](basics/classes.md#singleton-classes), `.me` is **undefined** by default.   
+
+This property is **read-only**.
+
+<!-- END REF -->
 
 
 

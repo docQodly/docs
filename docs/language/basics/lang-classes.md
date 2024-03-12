@@ -132,12 +132,14 @@ When a class is [defined](#class-definition) in the project, it is loaded in the
 - [`name`](../ClassClass.md#name) string
 - [`superclass`](../ClassClass.md#superclass) object (null if none)
 - [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects
-- [`isShared`] property, true if the class is shared
-- [`isSingleton`] property, true if the class defines a singleton.
+- [`isShared`](../ClassClass.md#isshared) property, true if the class is shared
+- [`isSingleton`](../ClassClass.md#issingleton) property, true if the class defines a singleton
+- [`me`](../ClassClass.md#me) property, allowing to instantiate and access [singletons](#singleton-classes).
 
-In addition, a class object can reference a [`constructor`](#class-constructor) object (optional).
 
-A class object is a [shared object](lang-lang-shared.md) and can therefore be accessed from different processes simultaneously.
+In addition, a class object can reference a [`constructor`](#constructor) object (optional).
+
+A class object is a [shared object](lang-shared.md) and can therefore be accessed from different processes simultaneously.
 
 ### Inheritance
 
@@ -304,7 +306,7 @@ function getRectArea(width : integer, height : integer) : integer
 #### Syntax
 
 ```qs
-function get <name>()->result : type
+{shared} function get <name>()->result : type
 // code
 ```
 
@@ -328,13 +330,8 @@ In the class definition file, computed property declarations use the `function g
 
 When both functions are defined, the computed property is **read-write**. If only a `function get` is defined, the computed property is **read-only**. In this case, an error is returned if the code tries to modify the property. If only a `function set` is defined, QodlyScript returns *undefined* when the property is read.
 
-If the functions are declared in a [shared class](#shared-classes), you can use the `shared` keyword with the `function set` so that it could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
+If the functions are declared in a [shared class](#shared-classes), you can use the `shared` keyword with them so that they could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
 
-:::note
-
-The `shared` keyword is useless with the `function get` since read access functions do not require a [`use...end`](lang-shared.md#useend) structure.
-
-:::
 
 The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](lang-object.md).
 
@@ -738,9 +735,9 @@ vMessage = param+" "+this.firstName+" "+this.lastName
 
 ## Shared classes
 
-You can create **shared classes**. A shared class is a user class that automatically instantiates a [shared object](lang-shared.md) when the [`new()`](../ClassClass.md#new) function is called on the class, thus reducing the code to write. A shared class can only create shared objects.
+You can create **shared classes**. A shared class is a user class that instantiates a [shared object](lang-shared.md) when the [`new()`](../ClassClass.md#new) function is called on the class. A shared class can only create shared objects.
 
-Shared classes also support **shared functions** that can be called without [`Use...End use`](lang-shared.md#useend) structures.
+Shared classes also support **shared functions** that can be called without [use...end`](lang-shared.md#useend) structures.
 
 The [`.isShared`](../ClassClass.md#isshared) property of Class objects allows to know if the class is shared.
 
@@ -790,24 +787,28 @@ shared function bar (value : integer)
 
 :::note
 
-Shared functions can only be defined within shared classes. If the `shared` function keyword is used in a regular user class, it is ignored.
+If the `shared` function keyword is used in a non-shared user class, it is ignored.
 
 :::
 
 
 ## Singleton classes
 
-A **singleton class** is a user class that only produces a single instance. The class singleton is instantiated at the first call of the [`new()`](../API/ClassClass.md#new) function with the class, with or without parameters. The [`cs.<class>.me`](../API/ClassClass.md#me) property is therefore used to call the class singleton in the code. The instantiated class singleton is always returned when the [`me`](../API/ClassClass.md#me) property is called, even if `new()` is called again.
+A **singleton class** is a user class that only produces a single instance. For more information on singletons, please see the [Wikipedia page about singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
 
-Singletons are useful to create **constant values**. The scope of a singleton instance can be the current process or all processes. A *process* singleton has a unique value for the process in which it is instantiated, while an *interprocess* singleton has a unique value for all processes of the application.
+The class singleton is instantiated at the first call of the [`cs.<class>.me`](../ClassClass.md#me) property. The instantiated class singleton is then always returned when the [`me`](../ClassClass.md#me) property is used.
+
+If you need to instantiate a singleton with parameters, you can also call the [`new()`](../ClassClass.md#new) function. In this case, it is recommended to instantiate the singleton in some code executed at application startup.  
+
+The scope of a singleton instance can be the current process or all processes. A *process* singleton has a unique value for the process in which it is instantiated, while an *interprocess* singleton has a unique value for all processes of the application. Singletons are useful to define values that need to be available from anywhere in an application or process.
 
 
-The [`.isSingleton`](../API/ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
+The [`.isSingleton`](../ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
 
 
 :::info
 
-Singleton classes are not supported by [ORDA-based classes](../ORDA/ordaClasses.md).
+Singleton classes are not supported by [ORDA-based classes](../../orda/data-model.md).
 
 :::
 
@@ -816,60 +817,69 @@ Singleton classes are not supported by [ORDA-based classes](../ORDA/ordaClasses.
 
 ### Creating a process singleton
 
-To create a process singleton class, add the `singleton` keyword before [`Class Constructor`](#class-constructor). For example:
+To create a process singleton class, add the `singleton` keyword before [`Class Constructor`](#constructor). For example:
 
-```4d
+```qs
 	//class: ProcessTag
-singleton Class Constructor()
- This.tag:=Random
+singleton constructor()
+ this.tag = random
 ```
 
 To use the process singleton:
 
-```4d
+```qs
 	//in a process
-var $mySingleton := cs.ProcessTag.new() //First instantiation
-	//$mySingleton.tag = 5425 for example  
+var mySingleton = cs.ProcessTag.me //First instantiation
+	//mySingleton.tag == 5425 for example  
 ...  
-var $myOtherSingleton := cs.ProcessTag.me
-	//$myOtherSingleton.tag = 5425
+var myOtherSingleton = cs.ProcessTag.me
+	//myOtherSingleton.tag == 5425
 
 ```
 
-```4d
+```qs
 	//in another process
-var $mySingleton := cs.ProcessTag.new() //First instantiation
-	//$mySingleton.tag = 14856 for example  
+var mySingleton = cs.ProcessTag.me //First instantiation
+	//mySingleton.tag == 14856 for example  
 ...  
-var $myOtherSingleton := cs.ProcessTag.me  
-	//$myOtherSingleton.tag = 14856
+var myOtherSingleton = cs.ProcessTag.me  
+	//myOtherSingleton.tag == 14856
 ```
 
 
 ### Creating an interprocess singleton
 
-To create an interprocess singleton, add the `shared singleton` keywords before the [Class Constructor](#class-constructor). For example:
+To create an interprocess singleton, add the `shared singleton` keywords before the [Class Constructor](#constructor). For example:
 
 ```4d
-	//class: InterprocessTag
-shared singleton Class Constructor( $param : Integer )
- This.tag:=100+$param
-```
-To use the interprocess singleton:
+//Class VehicleFactory
 
-```4d
-	//in a process
-var $mySingleton := cs.ProcessTag.new(10) //first instantiation
-	//$mySingleton.tag = 110  
+property vehicleBuilt : integer
+
+shared singleton constructor()
+  this.vehicleBuilt = 0 //Number of vehicles built by the factory
+
+shared function buildVehicle (type : string) -> vehicle : cs.Vehicle
+
+  switch
+    : type == "car"
+      vehicle == cs.Car.new()
+    : type =="truck"
+      vehicle == cs.Truck.new()
+    : type =="sport car"
+      vehicle == cs.SportCar.new()
+    : type =="motorbike"
+      vehicle == cs.Motorbike.new()
+  else
+    vehicle == cs.Car.new()
+  end
+  this.vehicleBuilt+=1
 ```
 
-```4d
-	//in another process
-var $mySingleton := cs.ProcessTag.me    
-	//without parameter
-	//$mySingleton.tag = 110
-  ...  
-var $myOtherSingleton := cs.ProcessTag.new(20) //other call to new()  
-  //$myOtherSingleton.tag = 110  
+You can the call the **cs.VehicleFactory** singleton to get a new vehicle from everywhere in your application with a single line:
 
+```qs
+vehicle = cs.VehicleFactory.me.buildVehicle("truck")
 ```
+
+Since the *buildVehicle()* function modifies the **cs.VehicleFactory** (by incrementing `this.vehicleBuilt`) you need to add the `shared` keyword to it.
