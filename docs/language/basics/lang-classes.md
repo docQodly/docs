@@ -1,4 +1,4 @@
----
+use...end---
 id: lang-classes
 title: Classes
 ---
@@ -22,14 +22,14 @@ For example, you could create a `Person` class with the following definition:
 
 function get fullName() -> fullName : string
  fullName = this.firstName+" "+this.lastName
- 
+
 function sayHello() -> welcome : string
  welcome = "Hello "+this.fullName
 ```
 
 In a method, creating a "Person":
 
-```
+```qs
 var person : cs.Person //object of Person class  
 var hello : string
 person = cs.Person.new("John","Doe")
@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### Data Model classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes). 
+Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
 
 
 
@@ -91,7 +91,7 @@ Available classes are accessible from their class stores. Two class stores are a
 |---------|--- |:---:|------|
 |Result|object|<-|Class Store containing all user classes of the current project|<!-- END REF -->
 
-The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class. 
+The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
 It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
 
@@ -131,11 +131,13 @@ When a class is [defined](#class-definition) in the project, it is loaded in the
 
 - [`name`](../ClassClass.md#name) string
 - [`superclass`](../ClassClass.md#superclass) object (null if none)
-- [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects.
+- [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects
+- [`isShared`] property, true if the class is shared
+- [`isSingleton`] property, true if the class defines a singleton.
 
 In addition, a class object can reference a [`constructor`](#class-constructor) object (optional).
 
-A class object is a [shared object](lang-shared.md) and can therefore be accessed from different processes simultaneously.
+A class object is a [shared object](lang-lang-shared.md) and can therefore be accessed from different processes simultaneously.
 
 ### Inheritance
 
@@ -184,13 +186,16 @@ Specific QodlyScript keywords can be used in class definitions:
 #### Syntax
 
 ```qs
-function <name>({parameterName : type, ...}){->parameterName : type}
+{shared} function <name>({parameterName : type, ...}){->parameterName : type}
 // code
 ```
 
 Class functions are specific properties of the class. They are objects of the [4D.Function](../FunctionClass.md) class.
 
-In the class definition file, function declarations use the `function` keyword, and the name of the function. The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
+In the class definition file, function declarations use the `function` keyword, and the name of the function. If the function is declared in a [shared class](#shared-classes), you can use the `shared` keyword so that the function could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
+
+
+The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
 :::tip
 
@@ -214,7 +219,7 @@ function setFullname(firstname : string, lastname : string)
 function getFullname()->fullname : string
  fullname = this.firstName+" "+uppercase(this.lastName)
 ```
-  
+
 For a class function, the `currentMethodName` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
 
 In the application code, class functions are called as member methods of the object instance and can receive [parameters](#parameters) if any. The following syntaxes are supported:
@@ -223,7 +228,7 @@ In the application code, class functions are called as member methods of the obj
 - use of a "4D.Function" class member method:
   - [`apply()`](../FunctionClass.md#apply)
   - [`call()`](../FunctionClass.md#call)
- 
+
 
 #### Parameters
 
@@ -304,7 +309,7 @@ function get <name>()->result : type
 ```
 
 ```qs
-function set <name>(parameterName : type)
+{shared} function set <name>(parameterName : type)
 // code
 ```
 
@@ -322,6 +327,14 @@ In the class definition file, computed property declarations use the `function g
 `function get` returns a value of the property type and `function set` takes a parameter of the property type. Both arguments must comply with standard [function parameters](#parameters).
 
 When both functions are defined, the computed property is **read-write**. If only a `function get` is defined, the computed property is **read-only**. In this case, an error is returned if the code tries to modify the property. If only a `function set` is defined, QodlyScript returns *undefined* when the property is read.
+
+If the functions are declared in a [shared class](#shared-classes), you can use the `shared` keyword with the `function set` so that it could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
+
+:::note
+
+The `shared` keyword is useless with the `function get` since read access functions do not require a [`use...end`](lang-shared.md#useend) structure.
+
+:::
 
 The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](lang-object.md).
 
@@ -368,15 +381,15 @@ person.fullName = "John Smith" // Function set fullName() is called
 
 ```qs
 function get fullAddress()->result : object
- 
+
  result = newObject
- 
+
  result.fullName = this.fullName
  result.address = this.address
  result.zipCode = this.zipCode
  result.city = this.city
  result.state = this.state
- result.country = this.country 
+ result.country = this.country
 ```
 
 ### `constructor`
@@ -385,7 +398,7 @@ function get fullAddress()->result : object
 
 ```qs
 // Class: MyClass
-constructor({parameterName : type, ...})
+{shared} {singleton} constructor({parameterName : type, ...})
 // code
 ```
 
@@ -396,6 +409,11 @@ When you call the [`new()`](../ClassClass.md#new) function, the class constructo
 There can only be one constructor function in a class (otherwise an error is returned). A constructor can use the [`super`](#super) keyword to call the constructor of the super class.
 
 You can create and type instance properties inside the constructor (see example). Alternatively, if your instance properties' values do not depend on parameters passed to the constructor, you can define them using the [`property`](#property) keyword.
+
+Using the `shared` keyword creates a **shared class**, used to only instantiate shared objects. For more information, refer to the [Shared classes](#shared-classes) paragraph.
+
+Using the `singleton` keyword creates a **singleton**, used to create a single instance. For more information, refer to the [Singleton classes](#singleton-classes) paragraph.
+
 
 #### Example
 
@@ -490,6 +508,7 @@ Class extension must respect the following rules:
 - A user class cannot extend a user class from another project.
 - A user class cannot extend itself.
 - It is not possible to extend classes in a circular way (i.e. "a" extends "b" that extends "a").
+- It is not possible to define a [shared user class](#shared-classes) extended from a non-shared user class.
 
 Breaking such a rule is not detected by the code editor or the interpreter, only the `check syntax` will throw an error in this case.
 
@@ -502,16 +521,16 @@ This example creates a class called `Square` from a class called `Polygon`.
 ```qs
 //Class: Square
 
-//path: Classes/Square.4dm 
+//path: Classes/Square.4dm
 
 extends Polygon
 
 constructor (side : integer)
- 
+
  // It calls the parent class's constructor with lengths
  // provided for the Polygon's width and height
  super(side,side)
- // In derived classes, super must be called 
+ // In derived classes, super must be called
  // before you can use 'this'
  this.name = "Square"
 
@@ -524,7 +543,7 @@ constructor (side : integer)
 
 ### `super`
 
-<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any ) : object<!-- END REF -->
+<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any )<!-- END REF -->
 
 
 <!-- REF #_command_.super.Params -->
@@ -539,11 +558,11 @@ The `super` command <!-- REF #_command_.super.Summary -->makes calls to the supe
 
 `super` serves two different purposes:
 
-1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used. 
-	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid. 
-	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated. 
+1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used.
+	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid.
+	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated.
 	- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error-10746 is generated.
-	
+
 ```qs
 constructor(t1 : string, t2 : string)
 super(t1) //calls superclass constructor with a string param
@@ -562,15 +581,15 @@ This example illustrates the use of `super` in a class constructor. The command 
 
 ```qs
   //Class: Rectangle
- 
+
 constructor(height : integer, width : integer)
   this.name = "Rectangle"
   this.height = height
   this.width = width
- 
+
 function sayName()
   return("Hi, I am a "+this.name+".")
- 
+
 function getArea()-> area : integer
   area = this.height*this.width
 ```
@@ -578,15 +597,15 @@ function getArea()-> area : integer
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
-constructor(side : integer) 
- 
+
+constructor(side : integer)
+
   // It calls the parent class's constructor with lengths
   // provided for the Rectangle's width and height
 super(side, side)
- 
+
   // In derived classes, super must be called before you
   // can use 'This'
 this.name = "Square"
@@ -594,13 +613,13 @@ this.name = "Square"
 
 #### Example 2  
 
-This example illustrates the use of `super` in a class member function. 
+This example illustrates the use of `super` in a class member function.
 
 You created a Rectangle class with a function:
 
 ```qs
   //Class: Rectangle
- 
+
 function nbSides() -> sides : text
   sides = "I have 4 sides"
 ```
@@ -610,9 +629,9 @@ You also created the Square class with a function calling the superclass functio
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
+
 function description() -> desc : text
   desc = super.nbSides()+" which are all equal"
 ```
@@ -641,7 +660,7 @@ info = square.description() //I have 4 sides which are all equal
 
 #### Description
 
-The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->. 
+The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->.
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
@@ -656,12 +675,12 @@ When a [constructor](#class-constructor) function is used (with the [`new()`](..
 
 ```qs
 //Class: ob
-  
+
 constructor  
- 
+
  // Create properties on this as
  // desired by assigning to them
- this.a = 42 
+ this.a = 42
 ```
 
 ```qs
@@ -676,7 +695,7 @@ In any cases, `this` refers to the object the method was called on, as if the me
 
 ```qs
 //Class: ob
-  
+
 function f()
  return this.a+this.b
 ```
@@ -716,3 +735,141 @@ declare(param : string) -> vMessage : text
 vMessage = param+" "+this.firstName+" "+this.lastName
 ```
 
+
+## Shared classes
+
+You can create **shared classes**. A shared class is a user class that automatically instantiates a [shared object](lang-shared.md) when the [`new()`](../ClassClass.md#new) function is called on the class, thus reducing the code to write. A shared class can only create shared objects.
+
+Shared classes also support **shared functions** that can be called without [`Use...End use`](lang-shared.md#useend) structures.
+
+The [`.isShared`](../ClassClass.md#isshared) property of Class objects allows to know if the class is shared.
+
+:::info
+
+- A class [inheriting](#extends-classname) from a non-shared class cannot be defined as shared.
+- Shared classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+
+:::
+
+
+### Creating a shared class
+
+To create a shared class, add the `shared` keyword before the [Class Constructor](#constructor). For example:
+
+```qs
+	//shared class: Person
+shared constructor ( firstname : string , lastname : string )
+ this.firstname:=firstname
+ this.lastname:=lastname
+
+```
+
+```qs
+//myMethod
+var person = cs.Person.new("John" , "Smith")
+objectIsShared (person) // true
+cs.Person.isShared //true
+```
+
+
+
+### Shared functions
+
+If a function defined inside a shared class modifies objects of the class, it should call [`use...end`](lang-shared.md#useend) structure to protect access to the shared objects. However, to simplify the code, you can define the function as **shared** so that it automatically triggers internal `use...end` when executed.
+
+To create a shared function, add the `shared` keyword before the [function](#function) keyword in a shared class. For example:
+
+```qs
+	//shared class Foo
+shared constructor ()
+  this.variable = 1
+
+shared function bar (value : integer)
+  this.variable = value //no need to call use/end
+```  
+
+:::note
+
+Shared functions can only be defined within shared classes. If the `shared` function keyword is used in a regular user class, it is ignored.
+
+:::
+
+
+## Singleton classes
+
+A **singleton class** is a user class that only produces a single instance. The class singleton is instantiated at the first call of the [`new()`](../API/ClassClass.md#new) function with the class, with or without parameters. The [`cs.<class>.me`](../API/ClassClass.md#me) property is therefore used to call the class singleton in the code. The instantiated class singleton is always returned when the [`me`](../API/ClassClass.md#me) property is called, even if `new()` is called again.
+
+Singletons are useful to create **constant values**. The scope of a singleton instance can be the current process or all processes. A *process* singleton has a unique value for the process in which it is instantiated, while an *interprocess* singleton has a unique value for all processes of the application.
+
+
+The [`.isSingleton`](../API/ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
+
+
+:::info
+
+Singleton classes are not supported by [ORDA-based classes](../ORDA/ordaClasses.md).
+
+:::
+
+
+
+
+### Creating a process singleton
+
+To create a process singleton class, add the `singleton` keyword before [`Class Constructor`](#class-constructor). For example:
+
+```4d
+	//class: ProcessTag
+singleton Class Constructor()
+ This.tag:=Random
+```
+
+To use the process singleton:
+
+```4d
+	//in a process
+var $mySingleton := cs.ProcessTag.new() //First instantiation
+	//$mySingleton.tag = 5425 for example  
+...  
+var $myOtherSingleton := cs.ProcessTag.me
+	//$myOtherSingleton.tag = 5425
+
+```
+
+```4d
+	//in another process
+var $mySingleton := cs.ProcessTag.new() //First instantiation
+	//$mySingleton.tag = 14856 for example  
+...  
+var $myOtherSingleton := cs.ProcessTag.me  
+	//$myOtherSingleton.tag = 14856
+```
+
+
+### Creating an interprocess singleton
+
+To create an interprocess singleton, add the `shared singleton` keywords before the [Class Constructor](#class-constructor). For example:
+
+```4d
+	//class: InterprocessTag
+shared singleton Class Constructor( $param : Integer )
+ This.tag:=100+$param
+```
+To use the interprocess singleton:
+
+```4d
+	//in a process
+var $mySingleton := cs.ProcessTag.new(10) //first instantiation
+	//$mySingleton.tag = 110  
+```
+
+```4d
+	//in another process
+var $mySingleton := cs.ProcessTag.me    
+	//without parameter
+	//$mySingleton.tag = 110
+  ...  
+var $myOtherSingleton := cs.ProcessTag.new(20) //other call to new()  
+  //$myOtherSingleton.tag = 110  
+
+```
