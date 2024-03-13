@@ -55,7 +55,22 @@ No, Qodly Server is only proposed a a cloud service.
 
 </details>
 
+<details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>What's the difference between `cs` and `ds`?</summary>
 
+`cs` is the Class Store object, containing all classes of the current project, including user classes (e.g. `cs.MyUserClass`) and datastore classes (e.g. `cs.People`, `cs.PeopleEntity`, etc.). It is used for **declaration** of all kinds of class object variables (including datastore class objects), and for **instantiation** of user class objects.
+
+```qs
+var instance : cs.myClass // declares an object variable of class cs.myClass
+instance = cs.myClass.new() // creates a new instance of myClass object.
+```
+
+`ds` is a shortcut to the main datastore object, providing access to the ORDA model and data object instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects and handled by ORDA and cannot be instantiated through the `cs` Class Store. 
+
+```qs
+var myEntity : cs.PeopleEntity //declares a datastore object variable of class cs.PeopleEntity
+myEntity = ds.People.get(167) //put an instance of People in the variable 
+```
+</details>
 
 
 ## MISC
