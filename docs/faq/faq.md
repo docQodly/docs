@@ -55,7 +55,7 @@ No, Qodly Server is only proposed a a cloud service.
 
 </details>
 
-<details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>What's the difference between `cs` and `ds`?</summary>
+<details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>What's the difference between cs and ds?</summary>
 
 `cs` is the Class Store object, containing all classes of the current project, including user classes (e.g. `cs.MyUserClass`) and datastore classes (e.g. `cs.People`, `cs.PeopleEntity`, etc.). It is used for **declaration** of all kinds of class object variables (including datastore class objects), and for **instantiation** of user class objects.
 
