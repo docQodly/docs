@@ -101,7 +101,9 @@ The `.new()` function <!-- REF #ClassClass.new().Summary -->creates and returns 
 
 You can pass one or more optional *param* parameters, which will be passed to the [class constructor](basics/lang-classes.md#class-constructor) function (if any) in the className class definition. Within the constructor function, the [`This`](basics/lang-classes.md#this) is bound to the new object being constructed.
 
-If `.new()` is called on a non-existing class, an error is returned.
+- If `.new()` is called on a non-existing class, an error is returned.
+- If `.new()` is called on a [singleton class](basics/lang-classes.md#singleton-classes) that has already been instantiated, the singleton instance is returned, not a new instance.
+
 
 #### Examples
 

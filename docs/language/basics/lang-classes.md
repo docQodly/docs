@@ -863,15 +863,15 @@ shared function buildVehicle (type : string) -> vehicle : cs.Vehicle
 
   switch
     : type == "car"
-      vehicle == cs.Car.new()
-    : type =="truck"
-      vehicle == cs.Truck.new()
-    : type =="sport car"
-      vehicle == cs.SportCar.new()
-    : type =="motorbike"
-      vehicle == cs.Motorbike.new()
+      vehicle = cs.Car.new()
+    : type == "truck"
+      vehicle = cs.Truck.new()
+    : type == "sport car"
+      vehicle = cs.SportCar.new()
+    : type == "motorbike"
+      vehicle = cs.Motorbike.new()
   else
-    vehicle == cs.Car.new()
+    vehicle = cs.Car.new()
   end
   this.vehicleBuilt+=1
 ```
