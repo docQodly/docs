@@ -64,7 +64,7 @@ var instance : cs.myClass // declares an object variable of class cs.myClass
 instance = cs.myClass.new() // creates a new instance of myClass object.
 ```
 
-`ds` is a shortcut to the main datastore object, providing access to the ORDA model and data object instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects and handled by ORDA and cannot be instantiated through the `cs` Class Store. 
+`ds` is a shortcut to the main datastore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects are handled by ORDA and cannot be instantiated through the `cs` Class Store. 
 
 ```qs
 var myEntity : cs.PeopleEntity //declares a datastore object variable of class cs.PeopleEntity
