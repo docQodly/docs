@@ -68,7 +68,7 @@ instance = cs.myClass.new() // creates a new instance of myClass object.
 
 ```qs
 var myEntity : cs.PeopleEntity //declares a datastore object variable of class cs.PeopleEntity
-myEntity = ds.People.get(167) //put an instance of People in the variable 
+myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an entity) in the variable 
 ```
 </details>
 
