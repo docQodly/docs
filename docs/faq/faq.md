@@ -60,14 +60,14 @@ No, Qodly Server is only proposed a a cloud service.
 `cs` is the Class Store object, containing all classes of the current project, including user classes (e.g. `cs.MyUserClass`) and datastore classes (e.g. `cs.People`, `cs.PeopleEntity`, etc.). It is used for **declaration** of all kinds of class object variables (including datastore class objects), and for **instantiation** of user class objects.
 
 ```qs
-var instance : cs.myClass // declares an object variable of class cs.myClass
-instance = cs.myClass.new() // creates a new instance of myClass class and put it in the variable
+var instance : cs.myClass //declare an object variable of class cs.myClass
+instance = cs.myClass.new() //create a new instance of myClass class and put it in the variable
 ```
 
-`ds` is a shortcut to the main datastore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects are handled by ORDA and cannot be instantiated through the `cs` Class Store. 
+`ds` is a shortcut to the main datastore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects are instantiated and managed by ORDA and cannot be handled through the `cs` Class Store. 
 
 ```qs
-var myEntity : cs.PeopleEntity //declares a datastore object variable of class cs.PeopleEntity
+var myEntity : cs.PeopleEntity //declare a datastore object variable of class cs.PeopleEntity
 myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an entity) in the variable
 ```
 </details>
