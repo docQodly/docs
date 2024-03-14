@@ -3,14 +3,14 @@ id: faq
 title: FAQ
 ---
 
-## Qodly Studio 
+## Qodly Studio
 
 
 
 <details><summary style= {{ fontWeight: "bold", marginBottom: "20px" }}>Do I need specific expertise in HTML, CSS, or JavaScript to use Qodly Studio?</summary>
 
 
-No, Qodly Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies. 
+No, Qodly Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies.
 
 
 </details>
@@ -34,14 +34,14 @@ See the requirements list [here](../studio/overview.md#requirements).
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>Why is there only a sandbox category?</summary>
 
-Other categories (applications and shared applications) will be open after the Beta phase. 
+Other categories (applications and shared applications) will be open after the Beta phase.
 
 </details>
 
 
 <details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>Where are stored my data?</summary>
 
-Your data are stored on AWS (Amazon Cloud). 
+Your data are stored on AWS (Amazon Cloud).
 
 </details>
 
@@ -51,7 +51,7 @@ Your data are stored on AWS (Amazon Cloud).
 
 <details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>Can I install a local instance of Qodly Server?</summary>
 
-No, Qodly Server is only proposed a a cloud service. 
+No, Qodly Server is only proposed a a cloud service.
 
 </details>
 
@@ -61,14 +61,14 @@ No, Qodly Server is only proposed a a cloud service.
 
 ```qs
 var instance : cs.myClass // declares an object variable of class cs.myClass
-instance = cs.myClass.new() // creates a new instance of myClass object.
+instance = cs.myClass.new() // creates a new instance of myClass class and put it in the variable
 ```
 
 `ds` is a shortcut to the main datastore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects are handled by ORDA and cannot be instantiated through the `cs` Class Store. 
 
 ```qs
 var myEntity : cs.PeopleEntity //declares a datastore object variable of class cs.PeopleEntity
-myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an entity) in the variable 
+myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an entity) in the variable
 ```
 </details>
 
@@ -77,7 +77,6 @@ myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an ent
 
 <details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>Can I use Qodly to build public web sites? </summary>
 
-Qodly is rather designed to build business applications with a web interface. All users need to be logged. 
+Qodly is rather designed to build business applications with a web interface. All users need to be logged.
 
 </details>
-
