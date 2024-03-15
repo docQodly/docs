@@ -26,7 +26,15 @@ This page contains settings related to the Qodly Studio user interface.
 
 ### Show Renderer Pop Over
 
-Displays or not a pop over when the [renderer](rendering.md) and Qodly Studio use different URL schemes.
+Displays or not the pop over when the [renderer](rendering.md) and Qodly Studio use different URL schemes.
+
+### Show Unsaved Files Pop Over
+
+Displays or not the pop over when you click on the [**Preview** button](rendering.md#preview-the-entire-site) whereas all changes made to your forms have not been saved:
+
+![preview-pop-over](img/preview-pop.png)
+
+Since unsaved changes will not be rendered, it is usually useful to be warned.
 
 ### Tooltip Behavior
 

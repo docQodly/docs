@@ -31,6 +31,7 @@ In the case of Qodly Studio, rendering takes a different path compared to conven
 
 When a webform is rendered for the end user, what is returned is the final HTML code and CSS that represent the webform's visual appearance and functionality.
 
+
 :::info
 The webform is transformed into an HTML/CSS representation that can be displayed and interacted with in a web browser. JSON is used internally for data representation and configuration but is not what the end user receives when viewing the webform.
 :::
@@ -122,3 +123,12 @@ This preview operates under the logged-in user's privileges. During your initial
     </Column.Item>
 </Column.List>
 
+:::info
+
+If you click on the **Preview** button while there are unsaved changes in your forms, they will not be taken into account for the rendering. A pop over warns you about it:
+
+![preview-pop-over](img/preview-pop.png)
+
+You can disable this pop over display by selecting the "Memorize..." option at the bottom of the window. You can also control the option through the [**Show Unsaved Files Pop Over** user settings option](settings.md#show-unsaved-files-pop-over).
+
+:::
