@@ -55,20 +55,34 @@ No, Qodly Server is only proposed a a cloud service.
 
 </details>
 
+
+## QodlyScript
+
 <details><summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}>What's the difference between cs and ds?</summary>
 
-`cs` is the Class Store object, containing all classes of the current project, including user classes (e.g. `cs.MyUserClass`) and datastore classes (e.g. `cs.People`, `cs.PeopleEntity`, etc.). It is used for **declaration** of all kinds of class object variables (including datastore class objects), and for **instantiation** of user class objects.
+`cs` is the Class Store object, containing all classes of the current project:
+  - user classes (e.g. `cs.MyUserClass`)
+  - datastore classes (e.g. `cs.People`, `cs.PeopleEntity`, etc.).
+
+It is used for:
+  - **declaration** of both user class and datastore class object variables
+  - **instantiation** of user class objects.
+
+`ds` is a shortcut to the main DataStore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects.
+Datastore objects are instantiated and managed by ORDA and cannot be handled through the `cs` Class Store.
 
 ```qs
-var instance : cs.myClass //declare an object variable of class cs.myClass
-instance = cs.myClass.new() //create a new instance of myClass class and put it in the variable
-```
+//declare an object variable of class cs.myClass
+var myInstance : cs.myClass
+//declare two datastore object variables of class cs.PeopleEntity
+var myEntity,myNewEntity : cs.PeopleEntity
 
-`ds` is a shortcut to the main datastore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects. Datastore objects are instantiated and managed by ORDA and cannot be handled through the `cs` Class Store. 
-
-```qs
-var myEntity : cs.PeopleEntity //declare a datastore object variable of class cs.PeopleEntity
-myEntity = ds.People.get(167) //put an instance of People dataclass (i.e. an entity) in the variable
+//create a new instance of myClass class and put it in the variable
+myInstance = cs.myClass.new()
+//create a new instance of People dataclass (i.e. a blank entity) and put it in the variable
+myNewEntity = ds.People.new()
+//put an instance of People dataclass (i.e. an entity) in the variable
+myEntity = ds.People.get(167)
 ```
 </details>
 
