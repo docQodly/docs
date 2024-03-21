@@ -63,7 +63,7 @@ The flow of data within the Qodly Studio ecosystem is carefully orchestrated, en
 
 Rendering a webform in Qodly Studio provides versatile control and accessibility. You can preview it in the Studio or a separate browser window, but It's important to note that:
 
-:::info 
+:::info
 Database resource access control depends on the chosen rendering method.
 :::
 
@@ -84,18 +84,18 @@ Database resource access control depends on the chosen rendering method.
 
 Please keep in mind that:
 
-:::info 
+:::info
 This preview is conducted with **Administrative** privileges, utilizing the **Admin** account you registered with. To conduct a preview based on a specific user's perspective, explore the options for **Previewing in a new tab** or **Previewing the entire site**.
 :::
 
 
 ### Preview in a Browser Window
 
-You have the flexibility to render the current webform or the entire website in a browser window. In both scenarios, the webform is rendered by the Qodly web renderer engine. This engine diligently applies **REST resource restrictions and permission actions** defined in your Qodly project, ensuring that only exposed resources are rendered in the browser. 
+You have the flexibility to render the current webform or the entire website in a browser window. In both scenarios, the webform is rendered by the Qodly web renderer engine. This engine diligently applies **REST resource restrictions and permission actions** defined in your Qodly project, ensuring that only exposed resources are rendered in the browser.
 
 It's worth noting that:
 
-:::info 
+:::info
 This preview operates under the logged-in user's privileges. During your initial preview or when your session expires, your browser will prompt you to log in with a Qodly user account, utilizing this account's privileges for rendering your application.
 :::
 
@@ -116,7 +116,7 @@ This preview operates under the logged-in user's privileges. During your initial
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        The <code>Preview</code> button on the Qodly toolbar presents the start page, as <a href="./settings#application">defined in the Settings</a> within a browser window tab. This option provides a holistic view of the application's initial landing page.
+        The <code>Preview</code> button on the Qodly toolbar presents the start page, as <a href="../settings#application">defined in the Settings</a> within a browser window tab. This option provides a holistic view of the application's initial landing page.
     </Column.Item>
     <Column.Item width="20%">
         <img alt="explorer" src={require('./img/preview-main.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
