@@ -116,7 +116,7 @@ This preview operates under the logged-in user's privileges. During your initial
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        The <code>Preview</code> button on the Qodly toolbar presents the start page, as <a href="settings.md#application">defined in the Settings</a> within a browser window tab. This option provides a holistic view of the application's initial landing page.
+        The <code>Preview</code> button on the Qodly toolbar presents the start page, as <a href="settings#application">defined in the Settings</a> within a browser window tab. This option provides a holistic view of the application's initial landing page.
     </Column.Item>
     <Column.Item width="20%">
         <img alt="explorer" src={require('./img/preview-main.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
