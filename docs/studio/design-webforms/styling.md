@@ -114,6 +114,13 @@ To remove a CSS class, click the delete button <img alt="styles-library" src={re
 Theme CSS classes cannot be deleted.
 :::
 
+### Removing Unused CSS Classes
+
+An unused CSS class refers to any local class that is defined but not utilized in any section of the webform. 
+
+Click on the `Delete Unused Elements` button <img alt="styles-library" src={require('./img/delete-unused_css.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Styles Library's header to cleanse your webform of unnecessary CSS classes.
+
+
 ### Converting a Local CSS Class to Shared
 
 Inside the Contextual panel, you'll find a field with the class name <img alt="styles-library" src={require('./img/shared-stylesheet.png').default} style={{borderRadius: '6px', width: '35%'}} /> and a share button <img alt="styles-library" src={require('./img/share.png').default} style={{borderRadius: '6px', width: '3%'}} /> next to it. Click on it to transform a local CSS class into a shared one.
@@ -483,6 +490,34 @@ self .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {
 These style examples are the same as those applied to the DataTables found in the [templates](./templates.md) categorized under `DataTables`.
 :::
 
+## Progress Bar
+
+### Displaying the Progress Bar
+
+The Progress Bar is triggered when the front end anticipates at least one REST request response. This visual element is crafted to signify active server-side processes, offering a clear indication, particularly during the execution of REST queries.
+
+### Tailoring the Progress Bar
+
+Customizing the appearance of the progress bar is facilitated through the following methods:
+
+- Creating a shared CSS class named `qodly-progress`:
+
+  ```css
+  self {
+    background-color: blue;
+    height: 20px;
+  }
+  ```
+
+- Creating a custom named CSS class and targeting the div element with the class `qodly-progress`:
+
+  ```css
+  div.qodly-progress {
+    background-color: blue;
+    height: 20px;
+  }
+  ```
+  
 ## See also
 
 If you're not familiar with CSS properties and styles, or you need a refresher, here are a few useful links and tools:

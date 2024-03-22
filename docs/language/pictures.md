@@ -73,23 +73,34 @@ If the command has been executed correctly, the system variable OK is set to 1. 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |resultingPict|picture|<-|Picture resulting from combination|
-|pict1|picture|->|Blob containing a picture|
-|operator|integer|->|First picture to combine|
+|pict1|picture|->|First picture to combine|
+|operator|integer|->|Type of combination to be done|
 |pict2|picture|->|Second picture to combinee|
 |horOffset|integer|->|Horizontal offset for superimposition|
 |vertOffset|integer|->|Vertical offset for superimposition|<!-- END REF -->
 
 #### Description
 
-The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->combines the *pict1* and *pict2* pictures in operator mode in order to produce a third, *resultingPict*<!-- END REF -->.
+The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->combines the *pict1* and *pict2* pictures in *operator* mode in order to produce a third, *resultingPict*<!-- END REF -->.  The resulting picture is of the compound type and keeps all the characteristics of the source pictures.
+
+In *operator*, pass the type of combination to be applied. Three types of combinations are proposed, you can use the following constants:
+
+|Constant|Value|Description|
+|---|----|---|
+|kHorizontalConcatenation|1| *pict2* is attached to *pict1*, the top left corner of *pict2* coincides with the top right corner of *pict1*.|
+|kVerticalConcatenation|2|  *pict2* is attached to *pict1*, the top left corner of *pict2* coincides with the lower left corner of *pict1*.|
+|kSuperimposition|3|*pict2* is placed over *pict1*, the top left corner of *pict2* coincides with the top left corner of *pict1*.|
+
+If the optional *horOffset* and *vertOffset* parameters are used, a translation is applied to *pict2* before superimposition. The values passed in *horOffset* and *vertOffset* must correspond to pixels. Pass positive values for an offset to the right or towards the bottom and a negative value for an offset to the left or towards the top.
+
 
 #### See also
 
-[`transformPicture`](#transformpicture)
+[`transformPicture`](#transformpicture), [picture operators](./basics/lang-picture.md#picture-operators). 
 
 ## convertPicture
 
-<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , ** :   , *codec* : string , *compression* : number )<!-- END REF -->
+<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , *codec* : string )<br/>**convertPicture** ( *aPicture* : picture , *codec* : string , *compression* : number )<!-- END REF -->
 
 
 <!-- REF #_command_.convertPicture.Params -->
@@ -103,6 +114,9 @@ The `combinePictures` command <!-- REF #_command_.combinePictures.Summary -->com
 #### Description
 
 The `convertPicture` command <!-- REF #_command_.convertPicture.Summary -->converts *aPicture* into a new type<!-- END REF -->.
+
+The *codec* parameter indicates the type of picture to be generated. A Codec can be an extension (for example, ".gif") or a Mime type (for example, "image/jpeg"). You can get a list of Codecs that are available in the [Picture Codec IDs](./basics/lang-picture.md#picture-codec-ids) section.
+
 
 ## createThumbnail
 
@@ -139,6 +153,12 @@ The `createThumbnail` command <!-- REF #_command_.createThumbnail.Summary -->ret
 #### Description
 
 The `equalPictures` command <!-- REF #_command_.equalPictures.Summary -->precisely compares both the dimensions and the contents of two pictures<!-- END REF -->. 
+
+Pass the source picture in *picture1* and the picture you want to compare with it in *picture2*. 
+
+- If the pictures are not the same dimension, the command returns **False** and the *mask* parameter contains a blank picture. 
+- If the pictures are of the same dimension but with different contents, the command returns **False** and the *mask* parameter contains the resulting picture mask based on a comparison of the two pictures. This comparison is performed pixel by pixel, and each pixel that does not match appears white on a black background. 
+- If both pictures are exactly the same, the command returns **True** and the *mask* parameter contains a picture that is completely black.
 
 ## getPictureFileName
 

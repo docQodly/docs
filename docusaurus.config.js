@@ -73,7 +73,7 @@ const config = {
         gtag: isProduction ? {
           trackingID: 'G-391275429',
           anonymizeIP: true,
-        }: null,
+        } : null,
       }),
     ],
   ],
@@ -82,10 +82,15 @@ const config = {
       src: "/docs/" + 'js/analytics/analytics.js', //depends on baseUrl
       async: true,
     },
-  ]: [],
+  ] : [],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // docs: {
+      //   sidebar: {
+      //     hideable: true,
+      //   },
+      // },
       navbar: {
         title: 'Docs', //Docs
         logo: {
@@ -125,6 +130,18 @@ const config = {
             docId: 'concepts/platform',
             position: 'left',
             label: 'Architecture',
+          },
+          {
+            type: "doc",
+            docId: "customComponent/overview",
+            position: "left",
+            label: "React Components",
+          },
+          {
+            type: "doc",
+            position: "left",
+            docId: "faq/faq",
+            label: "FAQ",
           },
           /*{
               type: 'doc',

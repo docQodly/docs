@@ -3,9 +3,10 @@ id: getStarted
 title: Qodly Applications
 ---
 
-The Qodly Cloud Management Console (QCMC) is the portal from which you can manage all your Qodly applications. 
 
 ## Application Overview
+
+The Qodly Cloud Management Console (QCMC) is the portal from which you can manage all your Qodly applications. 
 
 After [logging in to your Qodly account](../concepts/quickstart.md), the QCMC presents an organized display of your Qodly applications on a single page.
 
@@ -50,3 +51,22 @@ To initiate application cloning, locate the desired application in the Apps list
 The cloning process duplicates all your code, except data and resources.
 
 
+## Sleep Mode for Sandbox Applications
+
+Sandbox environments benefit from an automatic Sleep Mode feature, intended to enhance resource efficiency. 
+
+The Sleep Mode feature is based upon the following principles:
+
+- **Automatic Sleep Activation**: If your sandbox's Studio is not accessed for a continuous period of 7 days, it will automatically enter Sleep Mode. This is part of our strategy to optimize resource usage.
+
+- **Easy Reactivation**: You can easily wake your sandbox from Sleep Mode during your next login, resuming your work seamlessly.
+
+Entering and waking up from sleep mode is automatically handled by the Qodly Cloud. You are notified by messages on screen when accessing the QCMC.
+
+:::important Important Notice - Deletion Policy
+
+If the sandbox is not reactivated within 3 months, it will be subject to permanent deletion.
+You will receive an email notification before any action is taken, ensuring you're informed at every step.
+We believe this feature will not only improve our system's efficiency but also encourage more active engagement with your sandbox projects.
+
+:::

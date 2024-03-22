@@ -45,7 +45,7 @@ The **Image** component offers multiple options for displaying images:
 </Column.List>
 
 :::info 
-For instance, if you've uploaded an image named "booking.png", you can set the image source as `/$shared/visuals/booking.png`.
+For instance, if you've uploaded an image named "booking.png" in a "visuals" folder, you can set the image source as `/$shared/visuals/booking.png`.
 :::
 
 <br/>
@@ -57,6 +57,16 @@ For instance, if you've uploaded an image named "booking.png", you can set the i
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping an image datasource onto the webform, which will automatically add an Image component with the datasource bound to it.
 :::
+
+
+- **Default Image Source**: In Image components, by default Qodly displays a "missing image" placeholder when the bound image datasource is null:
+
+	![default-image-placeholder](img/image_Default_factory.png)
+
+	This is the case for example when the "photo" attribute of and "Employee" entity was not uploaded. You can use the **Default Image Source** property to define your own default image: 
+
+	![default-image](img/image_Default.png)
+
 
 ## Triggers and Events
 

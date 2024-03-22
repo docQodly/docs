@@ -3,19 +3,11 @@ id: accessControlMechanisms
 title: Access Control Mechanisms
 ---
 
-
-Two closely linked yet distinct concepts, `Data Access Restrictions` and `Role-Based Access Control (RBAC)`, address separate dimensions of access control and security within the application. 
-
-`Data Access Restrictions` establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, `Role-Based Access Control (RBAC)` delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions within the application.
-
+`Data Access Restrictions` establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, `Role-Based Access Control (RBAC)` delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions.
 
 ## Data Access Restrictions
 
-**Data Access Restrictions** are fundamental to fortifying data security and protection of sensitive data, ensuring its confidentiality, integrity, and availability. This controlled access approach is instrumental in preventing data breaches, unauthorized disclosures, and security vulnerabilities arising from inappropriate data access
-
-### Benefits  
-
-The benefits of implementing Data Access Restrictions in Qodly include:
+**Data Access Restrictions** are fundamental to safeguarding sensitive data's confidentiality, integrity, and availability. The implementation of Data Access Restrictions in Qodly provides numerous benefits:
 
 - **Enhanced Security**: Limits data access to authorized individuals, reducing the risk of unauthorized data breaches.
 - **Compliance**: Ensures adherence to industry regulations and data protection laws.
@@ -24,12 +16,7 @@ The benefits of implementing Data Access Restrictions in Qodly include:
 
 ## Role-Based Access Control (RBAC) 
 
-**Role-Based Access Control** (RBAC) is a foundational security model implemented to ensure controlled and secure resource access within the application. This approach enhances data security and simplifies access management by assigning specific roles with clearly defined privileges, facilitating efficient and effective user access control.
-
-
-### Benefits
-
-Implementing RBAC in Qodly yields several benefits:
+**Role-Based Access Control** (RBAC) is a core security model in Qodly, ensuring controlled and secure resource access. The implementation of RBAC in Qodly provides several benefits:
 
 - **Granular Access Control**: Fine-grained control over user access to resources.
 - **Simplified Management**: Streamlined access management through role assignments.
@@ -40,33 +27,33 @@ Implementing RBAC in Qodly yields several benefits:
 
 ### ORDA Concepts
 
-Central to Qodly's data manipulation are the principles of Object-Relational Data Access (ORDA). Data organization revolves around DataStores and DataClasses, which serve as pivotal resources. ORDA introduces attributes and functions within classes, streamlining the data management process.
+Central to Qodly's data manipulation are the principles of Object-Relational Data Access (ORDA). Data organization revolves around the DataStore and DataClasses, which serve as pivotal resources. ORDA introduces attributes and functions within classes, streamlining the data management process.
 
 ### Resources  
 
-Qodly encompasses a range of resources including DataStores, DataClasses, attributes, and functions. Each of these resources has the potential for linked privileges that govern permissible actions.
+Qodly encompasses a range of resources including the DataStore, DataClasses, Attributes, and Functions. Each of these resources has the potential for linked privileges that govern permissible actions.
 
 |Resource           |Description|
 |---------------------|---|
-|Datastore            |Represents the entire data storage system of the website, including all dataclasses and entities.|  
+|Datastore            |Represents the entire data storage system, including all dataclasses and entities.|  
 |Dataclasses          |Refer to specific data structures in the datastore.|
 |Attributes           |Define the properties of Dataclasses.|
 |Functions |Represent custom functions defined within the data model.|
 
 
-### Permissions  
+### Permissions
 
-Permissions encompass the fundamental tasks achievable on resources. These Permissions encompass operations such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
+Permissions define essential actions on resources, covering tasks such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
 
-|Permission          |Description|
-|--------|---|
-|Create  |Allows the creation of new entities to the Datastore.|  
-|Read    |Enables reading/viewing the content of resources.|
-|Update  |Allows modifying the content of resources.|
-|Delete  |Permits the deletion of entities from the Datastore.|
-|Execute |Enables the execution of functions.|
-|Describe |Provides access to metadata about resources, such as retrieving information about available Dataclasses, Attributes, or data model functions.|
-|Promote |Temporarily adds a specific privilege to the Session for the duration of executing a function, primarily used for secure privilege escalation.|
+| Permission | Datastore | Dataclass | Attribute | Function |
+|------------|-----------|-----------|-----------|----------|
+| Create | Create an Entity in any Dataclass. | Create a new Entity in the chosen Dataclass. | Create a new Entity with a value different from the default allowed for the chosen Attribute. | n/a |
+| Read | Read Attributes in any Dataclass. | Read attributes in the chosen Dataclass. | Read the content of the chosen Attribute. | n/a |
+| Update | Update Attributes in any Dataclass. | Update attributes in the chosen Dataclass. | Update the content of the chosen Attribute. | n/a |
+| Delete | Delete data throughout the Model. | Delete data in the chosen Dataclass. | Delete a non-null value for the chosen Attribute. | n/a |
+| Describe | Provides metadata access throughout the Model. | Provides metadata access for the chosen Dataclass. | Provides metadata access for the selected Attribute. | Provides metadata access for the chosen Dataclass function. |
+| Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
+| Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
 
 ### Data Access Granularity Hierarchy
