@@ -17,7 +17,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "get-docs": "node ./scripts/get-docs"
+    "get-docs": "node ./scripts/get-docs",
+    "api:webform-editor": "npm run get-docs -- @ws-ui/webform-editor"
   },
   "dependencies": {
     "@4dsas/doc_preprocessing": "1.1.0",
