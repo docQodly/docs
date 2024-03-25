@@ -54,8 +54,9 @@ The following properties are available:
 - **Delete** button: deletes the API keys (a confirmation dialog is displayed).
 
 
-After your new resource deploys, select Go to resource or go to your resource page.
-In the left navigation pane, under Resource Management, select Keys and Endpoint.
 Copy and paste your keys and endpoint URL in a convenient location, such as Notepad.
 
 ## Using the API keys and endpoint
+
+- The endpoint URL must be used as target for initial connection requests to the server.
+- The API key must be sent in the header of all HTTP REST requests sent to the server for the session.
