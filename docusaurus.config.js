@@ -178,6 +178,10 @@ const config = {
                 label: "Release Notes",
                 to: "notes/v1.0.0-beta.2",
               },
+              {
+                label: "API Reference",
+                to: "api-reference/webform-editor",
+              },
             ],
           },
           {
