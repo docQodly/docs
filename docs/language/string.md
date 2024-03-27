@@ -1132,14 +1132,15 @@ If *expression* is a numeric expression (number or integer), you can pass an opt
 
 **Date Expressions**
 
-If *expression* is a date expression, the string is returned using the default format specified in the system.
-In the *format* parameter, you can pass one of the constants described below.
+If *expression* is a date expression and if you omit the *format* parameter, the string is returned using the default format.
 
-In this case, you can also pass a time in the *addTime* parameter. This parameter lets you combine a date with a time so that you can generate time stamps in compliance with current standards (`kISODateGMT` and `kDateRFC1123` constants). These formats are particularly useful in the context of XML and Web processing. The *addTime* parameter can only be used when the *expression* parameter is a date. 
+In the *format* parameter, you can pass:
+
+- either one of the following predefined format constants (integer value):
 
 |Constant|Comment|
 |:----|:----|
-|kBlankIfNullDate|- instead of 0|
+|kBlankIfNullDate|must be added to the format, indicates that in the case of a null value, Qodly must return an empty string instead of zeros|
 |kDateRFC1123| |
 |kInternalDateAbbreviated||Feb 18, 2023|
 |kInternalDateLong|February 18, 2023|
@@ -1151,40 +1152,45 @@ In this case, you can also pass a time in the *addTime* parameter. This paramete
 |kSystemDateLong|Saturday, February 18, 2023|
 |kSystemDateShort|02/18/2023|
 
-
-:::note
-
-Formats can vary depending on system settings.
-
-:::
-
-Here are a few examples of simple formats (assuming that the current date is 02/18/2023):
+Examples:
 
 ```qs
- var vtResult : string
- vsResult = string(currentDate) //vsResult gets "02/18/23"
- vsResult = string(currentDate,kInternalDateLong) // vsResult gets "February 18, 2023"
- vsResult = string(currentDate,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
-
+ var vsResult : string
+ vsResult = string(!2023-18-02!) //vsResult gets "02/18/23"
+ vsResult = string(!2023-18-02!,kInternalDateLong) // vsResult gets "February 18, 2023"
+ vsResult = string(!2023-18-02!,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
 ```
+
+- or a [**customized format built upon a pattern**](../studio/design-webforms/date-time-formats.md) (string value)
+
+Examples:
+
+```qs
+ var vsResult : string
+ vsResult = string(!2023-11-27!,"EEEE d MMMM y GGGG") //"Monday 27 November 2023 Anno Domini"
+ vsResult = string(!2023-11-27!,"E dd/MM/yyyy zzzz") //"Mon 27/11/2023 GMT+01:00" in French timezone
+```
+
+**addTime** parameter
+
+You can also pass a time in the *addTime* parameter. This parameter lets you combine a date with a time so that you can generate time stamps in compliance with current standards (`kISODateGMT` and `kDateRFC1123` constants). The *addTime* parameter can only be used when the *expression* parameter is a date. 
+
 
 **Notes for combined date/time formats:**
 
 * The `kISODateGMT` format corresponds to the ISO8601 standard, containing a date and a time expressed with respect to the time zone (GMT).
 
-	 ```qs
+   ```qs
 	 var mydate : string
 	 mydate = string(currentDate,kISODateGMT,currentTime) // returns, for instance, 2023-02-18T16:11:53Z
-	
+	 
 	```
 
-	Note that the "Z" character at the end indicates the GMT format.
-If you do not pass the *addTime* parameter, the command returns the date at midnight (local time) expressed in GMT time, which may cause the date to be moved forward or back depending on the local time zone:
+	Note that the "Z" character at the end indicates the GMT format. If you do not pass the *addTime* parameter, the command returns the date at midnight (local time) expressed in GMT time, which may cause the date to be moved forward or back depending on the local time zone:
 
 	```qs
 	 var mydate : string
-	 mydate = string(!18/02/2023!,kISODateGMT) // returns 2023-02-17T22:00:00Z in France
-	
+	 mydate = string(!18/02/2023!,kISODateGMT) // returns 2023-02-17T22:00:00Z in France	
 	```
 
 * The `kISODate` format is similar to the `kISODateGMT`, except that it expresses the date and time without respect to the time zone. Note that since this format does not comply with the ISO8601 standard, its use should be reserved for very specific purposes.
@@ -1214,36 +1220,45 @@ If you do not pass the *addTime* parameter, the command returns the date at midn
 
 **Time Expressions**
 
-If *expression* is a time expression, the string is returned using the default **HH:MM:SS** format. In the format parameter, you can pass one of the following constants:
+If *expression* is a time expression, the string is returned using the default **HH:MM:SS** format. In the *format* parameter, you can pass:
+
+- either one of the following predefined format constants (integer value):
 
 |Constant|Comment|
 |:----|:----|
-|kBlankIfNullTime| instead of 0|
+|kBlankIfNullTime|must be added to the format, indicates that in the case of a null value, Qodly must return an empty string instead of zeros|
 |kHHMM|01:02|
 |kHHMMAMPM|01:02|
 |kHHMMSS|01:02:03|
 |kHourMin|1 hour 2 minutes|
 |kHourMinSec|1 hour 2 minutes 3 seconds|
-|kISOTime|0000-00-00T01:02:03|
+|kISOTime|0000-00-00T01:02:03. Corresponds to the ISO8601 standard and contains, in theory, a date and a time. Since this format does not support combined dates/times, the date part is filled with 0s|
 |kMinSec|62 minutes 3 seconds|
 |kMMSS|62:03:00|
 |kSystemTimeLong|1:02:03 AM HNEC (Mac only)|
 |kSystemTimeLongAbbreviated|1•02•03 AM (Mac only)|
 |kSystemTimeShort|01:02:03|
 
-Notes:
 
-* The `kISOTime` format corresponds to the ISO8601 standard and contains, in theory, a date and a time. Since this format does not support combined dates/times; the date part is filled with 0s. This format expresses the local time.
-* The `kBlankIfNullTime` constant must be added to the format; it indicates that in the case of a null value, Qodly must return an empty string instead of zeros.
-
-These examples assume that the current time is 5:30 PM and 45 seconds:
+Examples:
 
 ```qs
  var vsResult : string
- vsResult = string(currentTime) // "17:30:45"
- vsResult = string(currentTime,kHourMinSec) // "17 hours 30 minutes 45 seconds"
+ vsResult = string(?17:30:45?,kHHMMAMPM) // "5:30 PM"
+ vsResult = string(?17:30:45?,kHourMinSec) // "17 hours 30 minutes 45 seconds"
 	
 ```
+
+- or a [**customized format built upon a pattern**](../studio/design-webforms/date-time-formats.md) (string value)
+
+Examples:
+
+```qs
+ var vsResult : string
+ vsResult = string(!2023-11-27!,"EEEE d MMMM y GGGG") //"Monday 27 November 2023 Anno Domini"
+ vsResult = string(!2023-11-27!,"E dd/MM/yyyy zzzz") //"Mon 27/11/2023 GMT+01:00" in French timezone
+```
+
 
 **String Expressions**
 

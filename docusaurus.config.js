@@ -133,6 +133,12 @@ const config = {
           },
           {
             type: "doc",
+            docId: "customComponent/overview",
+            position: "left",
+            label: "Custom Components",
+          },
+          {
+            type: "doc",
             position: "left",
             docId: "faq/faq",
             label: "FAQ",

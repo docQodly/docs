@@ -12,8 +12,22 @@ Components are the fundamental building blocks that constitute your application'
 
 ## Locating Components
 
-Components are conveniently accessible from the left side panel in the **Components** tab section. This panel serves as a hub where you can explore and select the components you need to design your application's interface.
-
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        Components are located in the <strong>Components</strong> tab on the left side panel. Components are systematically organized into distinct categories, simplifying the search and selection process:
+        <br/><br/>
+        <li><strong>Containers</strong>: Components that encapsulate other components and manage their placement.</li>
+        <br/><br/>
+        <li><strong>Simple</strong>: Components that display scalar or native data, images, and facilitate user actions</li>
+        <br/><br/>
+        <li><strong>List</strong>: Components that iterate over datasources and manage user interactions with this data.</li>
+        <br/><br/>
+        <li><strong>Custom Components</strong>: These are external React components that have been imported into Qodly by the user.</li>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img src={require('./img/locatingComponents.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ## Adding Components
@@ -28,7 +42,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload <a href="../../customComponent/overview">Custom Components</a>.
+      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload <a href="uploadCustomComponents">Custom Components</a>.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/customComponent_1.png').default} style={{borderRadius: '6px'}} />
@@ -142,8 +156,7 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>UTC String</strong>: Displays the date in a UTC format.</li>
                         </ul>
                         <br/>
-                        Check the <a href="https://date-fns.org/v2.30.0/docs/format">date-fns library</a> for a comprehensive range of <code>date format</code> options and usage examples. <br/>
-                        For instance, you can format your date as <code>EEE, MMM dd</code> to achieve a different format from <code>date abbreviated</code>, which has the format <code>EEE, MMM dd, yyyy</code>.
+                        Qodly supports a wide range of customized date formats. For a comprehensive list of available patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page.
                 </ul>
         </Column.Item>
         <Column.Item width="35%">
@@ -159,14 +172,18 @@ Formatting options may vary based on the specific data type of the attribute and
                 <ul>
                         <li>For <strong>Duration</strong>:</li> 
                         <ul>
-                                <li><strong>Simple</strong>: 14:40:30.</li> 
-                                <li><strong>Distance</strong>: about 15 hours.</li>
-				<li><strong>Distance with Suffix</strong>: in about 15 hours.</li>                                               
-                                <li><strong>Strict Distance</strong>: 15 hours.</li>                            
-                                <li><strong>Strict Distance with Suffix</strong>: in 15 hours.</li>
+                                <li><strong>Simple</strong>: 14:40:30</li> 
+                                <li><strong>Without seconds</strong>: 14:40</li>
+                                <li><strong>Distance</strong>: about 15 hours</li>
+				<li><strong>Distance with Suffix</strong>: in about 15 hours</li>                                               
+                                <li><strong>Strict Distance</strong>: 15 hours</li>                            
+                                <li><strong>Strict Distance with Suffix</strong>: in 15 hours</li>
                         </ul>
-                        <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>                        
-                </ul>
+                        <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>  
+                        <br/>  
+                        <br/>                        
+                 Qodly supports a wide range of customized time formats. For a comprehensive list of available time patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page. 
+                 </ul>
         </Column.Item>
         <Column.Item width="35%">
                 <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />

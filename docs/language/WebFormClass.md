@@ -48,61 +48,61 @@ The command must be called in the context of a web form handled by the Qodly web
 
 The returned object contains the following properties:
 
-| Property | Type | Description |
-|----|----|----|
-| caller | string | Server-side reference of the component triggering the event |
-| eventType | string | Event type: onclick, onchange, onmouseover...(see below) |
-| data	| object| For Tabs component: contains an index property (Number) with the index of the clicked Tab (indexing starts at 0) |
+| Property |  |Type| Description |
+|----|---|----|----|
+| caller |  |string| [Server-side reference](../studio/design-webforms/create-webform.md#data-access-category) of the component triggering the event |
+| eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `WebForm` component loads</li>|
+| data	| |object|Additional information depending on the involved component|
+| 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|
+| 	|row |number|Data Table component: row number |
+| 	|name |string|Data Table component: datasource name of the column (e.g. "firstname", "address.city")|
 
-*eventType* can contain the following events: 
-
-* blur
-* focus
-* auxclick
-* click
-* dblclick
-* mouseenter
-* mouseleave
-* mouseover
-* keydown
-* keyup
-* change
-* On Load
-
-The "On Load" event is triggered when the `WebForm` component loads.
 
 #### Example
 
-The objective is to display help when the user hovers over the component:
+The objective is to display/hide a help text when the user hovers over the component:
 
 ![alt-text](img/web-event-2.png)
 
-This is done by attaching an `onmouseover` event to an **Input string** component that displays the information:
+This is done by attaching `onmouseenter` and `onmouseleave` events to a **Text input** component that displays the information stored in a **Text** component (displaying "This is the help"). 
 
 ![alt-text](img/web-event-1.png)
 
-In the above image: 
+In this scenario: 
 
-* The string Input component has `orderNumber` as server reference
-* The component has an `onmouseover` event attached to it
-* The exposed function `help` attached to the `onmouseover` event contains the following code: 
+* The Text input component has `orderNumber` as Server side reference.
+	![alt-text](img/web-event-3.png)
+* The Text component has `orderNumber` as Server side reference.
+	![alt-text](img/web-event-4.png)
+* The exposed function `help()` is attached to both the `onmouseenter` and `onmouseleave` events and contains the following code: 
 
 ```qs
+exposed function help()
+
 var event : object
 var myForm : 4D.WebForm
+var componentRef : string
 
 myForm = webForm
 event = webEvent
 componentRef = event.caller
 
-if (event.eventType == "onmouseover")  // event is onmouseover 
+switch 
+: (event.eventType == "onmouseenter")  // event is onmouseenter 
 	myForm["helpOn_"+componentRef].show()  // show the help on "orderNumber" by showing  
 	// the text component with reference "helpOn_orderNumber" 
-else 
-	myForm["helpOn_"+componentRef].hide()  // hide the help on orderNumber
+: (event.eventType == "onmouseleave")  // event is onmouseleave 
+ 	myForm["helpOn_"+componentRef].hide()  // hide the help on orderNumber
 end 
+
 ```
 
+To open the WebForm with the help on `orderNumber` hidden, you can associate this function to the `onload` event of the WebForm:
+
+```qs
+exposed function hideOnLoad()
+	webForm.helpOn_orderNumber.hide()
+```
 
 ## webForm
 

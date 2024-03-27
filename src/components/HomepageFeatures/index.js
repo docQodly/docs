@@ -49,6 +49,16 @@ const FeatureList = [
     ),
 		link: "concepts/platform"
   },
+  {
+    title: 'React Components',
+    Svg: require('@site/static/img/q-dev.svg').default,
+    description: (
+      <>
+        Empower your app with Qodly's custom React components, designed for unique needs and specialized features.
+      </>
+    ),
+		link: "customComponent/overview"
+  },
 ];
 
 function Feature({Svg, title, description, link}) {

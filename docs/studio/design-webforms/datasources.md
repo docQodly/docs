@@ -14,7 +14,7 @@ Datasources are integral to Qodly's architectural design, simplifying the develo
 
 ![components](./img/datasource-1.1.png)
 
-### Events and Datasources 
+### Events and Datasources
 
 You can also attach events to datasources, triggering specific actions when these datasources are updated in the web browser. Please refer to [Datasource Events](events.md#datasource-events) for more details.
 
@@ -26,7 +26,7 @@ You can also attach events to datasources, triggering specific actions when thes
 
 Catalog datasources (also known as **ORDA datasources**), serve as references to entities and entity selections that originate from the server and are based on the data model.
 
-:::info 
+:::info
 These datasources optimize data exchange by selectively requesting only the attributes displayed by the component from the server and then making them available in the browser.
 :::
 
@@ -34,7 +34,7 @@ These datasources optimize data exchange by selectively requesting only the attr
 
 Scalar datasources, on the other hand, are confined to the browser's local environment. They can be generated directly within the browser and subsequently transmitted to the server during a function call. Scalar datasources are versatile and can take on various data types, including String, Number, Boolean, Date, Object, or Collection.
 
-:::info 
+:::info
 It's crucial to emphasize that Scalar datasources do not originate from the Data model and, consequently, do not possess persistence.
 :::
 
@@ -48,27 +48,27 @@ Webform Datasources are scoped to the webform where they are defined. They can o
 
 Shared Datasources, on the other hand, are scoped to the entire application and can be utilized in multiple webforms within the same project.
 
-:::info 
+:::info
 By default, when you [**create a datasource**](#creating-a-datasource) without specifying a namespace, you define a webform datasource.
 :::
 
-#### Shared functions 
+#### Shared functions
 
-Shared functions are also accessible when Entity and Entity Selection serve as shared datasources, making them available for use in multiple webforms within the same project. 
+Shared functions are also accessible when Entity and Entity Selection serve as shared datasources, making them available for use in multiple webforms within the same project.
 
 ### Determining the Scope of Datasources
 
 When selecting a component bound to a datasource, the Properties panel provides information about whether the datasource is shared:
 
-- If the tag reads **webform**, it signifies a local datasource visible only within the current webform. 
+- If the tag reads **webform**, it signifies a local datasource visible only within the current webform.
 
 - On the other hand, if there is a tag with **a specific name**, it implies that you have passed a shared datasource belonging to a namespace.
 
-:::info 
+:::info
 When configuring a function event, the Contextual panel indicates whether the function is shared.
 :::
 
-## Creating a datasource 
+## Creating a datasource
 
 Within the Webform Editor, the **Datasources** section conveniently organizes available datasources. This section includes:
 
@@ -119,7 +119,7 @@ To create Webform or Shared datasources directly from the Catalog, follow these 
 	</Column.Item>
 </Column.List>
 
-:::info 
+:::info
 Specifying a namespace places the datasource in the **Namespaces** section, while without a namespace, it is situated in the **This Webform** section.
 :::
 
@@ -144,7 +144,7 @@ To create Webform datasources, follow these steps:
 
 <br/>
 
-:::info 
+:::info
 For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
 :::
 
@@ -171,7 +171,7 @@ To create Shared datasources, follow these steps:
 
 <br/>
 
-:::info 
+:::info
 For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
 :::
 
@@ -206,6 +206,28 @@ For Entity Selection or Entity types, make sure to also configure additional set
 </Column.List>
 :::
 
+### Editing a datasource
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                Once a datasource is created, you can edit all its properties except for its Type. To start editing, select the <code>Edit</code> icon located next to the datasource name:
+	</Column.Item>
+	<Column.Item width="35%">
+	        <img alt="explorer" src={require('./img/datasource-edit.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+                This action will display the datasource in the <code>Contextual panel</code>. To alter an editable property, simply click on the "Edit" icon situated on the right side of the property.
+	</Column.Item>
+	<Column.Item width="35%">
+	        <img alt="explorer" src={require('./img/datasource-edit2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
 ### Renaming a datasource
 
 You can easily rename a datasource from the contextual panel. In doing so, Qodly Studio will automatically update references to the renamed datasource:
@@ -223,7 +245,7 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        The <strong>Inspect</strong> option allows you to see where your datasources are used within your webforms. 
+        The <strong>Inspect</strong> option allows you to see where your datasources are used within your webforms.
         <br/><br/>
         Toggle the option by clicking the icon, then hover over a datasource to highlight its location in your webform.
 	</Column.Item>
@@ -232,6 +254,25 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 		<img alt="explorer" src={require('./img/inspect-button.gif').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+
+## Deleting Datasources
+
+### Deleting a Datasource
+
+To delete a Datasource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Data Sources list. If you confirm the dialog box, the datasource is deleted and its references in webforms are removed.
+
+
+### Removing Unused Datasources
+
+An unused datasource refers to any local datasource that is defined but not utilized in any section of the webform. 
+
+Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Data Sources's header to cleanse your webform of unnecessary local datasource.
+
+
+### Deleting a Namespace
+
+To delete a namespace, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Namespaces list. The delete button is only available if the namespace is empty.
 
 
 ## Binding a Datasource to a Component
@@ -280,4 +321,4 @@ Iterative components can be bound to two types of datasources:
 
 ### Capturing Function Results in a Datasource
 
-You can capture the results of a function call and store them in a datasource. For example, you can configure an event that calls a function and then captures the outcome, saving it in a datasource. 
+You can capture the results of a function call and store them in a datasource. For example, you can configure an event that calls a function and then captures the outcome, saving it in a datasource.

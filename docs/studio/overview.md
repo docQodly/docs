@@ -37,7 +37,8 @@ Access to Qodly Studio is granted to developers once they complete a series of a
 - Clicking on the [Studio URL](../cloud/application-management#open-qodly-studio) in the General tab for the open environment.
 
 
-## Qodly Studio Homepage Overview
+
+## Qodly Studio Homepage
 
 When you first step into Qodly Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
 
@@ -71,3 +72,60 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
         - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
     - **Recent Files**: Displays the most recently accessed files, allowing you to quickly revisit your recent work.
     - **What's New**: Keeps you updated with the latest news and announcements from the Qodly team.
+  
+  
+## Tabs
+
+Qodly Studio displays open items with tabs in the title area above the current editor.
+
+![tabs](./img/tabs.png)
+
+[By default](#preview-mode), when you open a file, a new tab is added for that file. New tabs are added to the right of the existing tabs. All Qodly files and editors use tabs: model, webforms, methods, classes, roles and privileges, settings, pictures, and so on. 
+
+Tabs let you quickly navigate between items and you can drag and drop tabs to reorder them. Only one instance of an item can be open in the same editor window.
+
+When you have more open items than can fit in the title area, you can use the scroll bar between the tab and editor regions to drag tabs into view. 
+
+![tabs](./img/tabs-scroll.png)
+
+
+### Contextual menu
+
+Every tab provides access to a contextual menu that you can display with a **right-click** on the tab header:
+
+![tabs](./img/tabs-menu.png)
+
+The following actions are available:
+
+-  **Reload**: reloads the tab contents from the server
+-  **Rename** (not available with non-editable tabs such as Roles and Pivileges): makes the tab heading area editable so that you can rename the opened file.  
+-  **Close**: closes the current tab and its associated file.
+-  **Close others**: closes all the opened tabs except the current one.
+-  **Close all**: closes all the opened tabs.
+-  **Close saved**: closes all the tabs that contain saved contents. Tabs with unsaved contents are not closed. 
+-  **Close tabs to the right/to the left**: closes all opened tabs located at the right side or the left side of the current tab.
+-  **Switch to Text Editor** (only available with webform and model tabs): displays the [current webform](design-webforms/create-webform.md/#webform-json-representation) or [model](model/model-editor-interface.md#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to WebForm Editor**/**Switch to Model Editor**. 
+
+### Unsaved contents
+
+When the contents of a tab has been modified locally but has not been saved, a colored spot is displayed on the right part of the tab header:
+
+![unsaved tab](./img/tabs-unsaved.png)
+
+When closing or reloading a tab, if it contains unsaved changes, an alert window is displayed, allowing you to ignore the changes and close the tab (**Confirm**) or cancel the closure and let you click the [**Save all**](#homepage) button to save the changes. 
+
+![tabs close](./img/tabs-close.png)
+
+### Preview mode
+
+By default in Qodly Studio, clicking a file in the Explorer automatically opens it in a new tab, if not already opened. This can lead to open a large number of tabs. 
+
+If you are browsing multiple files and don't want every opened file to have its own tab, you can enable the **tabs preview mode** using the [**Activate tabs preview mode** selector](settings.md#activate-tabs-preview-mode) of the User Settings. 
+
+When the tabs preview mode is enabled, clicking a file in the Explorer displays a preview of its contents and reuses an existing tab. If you start editing the file or use double-click to open the file from the Explorer, a new tab is dedicated to that file. 
+
+Preview mode tab is indicated by *italics* in the tab heading:
+
+![preview tab](img/settings-tabpreview.png)
+
+If you'd prefer to not use preview mode and always create a new tab, just let the selector off (default mode). 

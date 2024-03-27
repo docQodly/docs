@@ -67,7 +67,7 @@ Enhance the **Text** component to align with your application's requirements usi
 
 :::tip 
 When the hyperlink directs to a file path within the `Shared` folder, it doesn't open in a new tab; instead, the browser triggers a download.
-This follows the same concept as [Navigate to Shared Folder Content](../events.md#navigate-to-shared-folder-content) through the [External Link](../events.md#navigate-to-external-links) option.
+This follows the same concept as [Navigate to Shared Folder Content](../events.md#navigate-to-shared-folder-content) through the [External Link](../events.md#external-links) option.
 :::
 
 ## Data Integration

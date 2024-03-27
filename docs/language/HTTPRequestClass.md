@@ -54,6 +54,7 @@ HTTPRequest objects provide the following functions and properties:
 |[<!-- INCLUDE #HTTPRequestClass.encoding.Syntax -->](#encoding)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.encoding.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.errors.Syntax -->](#errors)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.errors.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.headers.Syntax -->](#headers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.headers.Summary -->|
+|[<!-- INCLUDE #HTTPRequestClass.httpParseMessage.Syntax -->](#httpparsemessage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.httpParseMessage.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.method.Syntax -->](#method)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.method.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.protocol.Syntax -->](#protocol)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.protocol.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.response.Syntax -->](#response)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.response.Summary -->|
@@ -223,6 +224,47 @@ The `.headers` property contains <!-- REF #HTTPRequestClass.headers.Summary -->t
 
 <!-- END REF -->
 
+
+<!-- REF #_command_.httpParseMessage.Desc -->
+## httpParseMessage
+
+
+<!-- REF #_command_.httpParseMessage.Syntax -->**httpParseMessage**( *data* : string ) : object<br/>**httpParseMessage**( *data* : blob ) : object<!-- END REF -->
+
+
+<!-- REF #_command_.httpParseMessage.Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|data|string, blob|->|Data to be parsed|
+|Result|Object|<-|Object, each property is a part of the multipart data|<!-- END REF -->
+
+#### Description
+
+The `httpParseMessage` command <!-- REF #_command_.httpParseMessage.Summary -->parses a multipart/form-data text or blob (HTTP "response" message) and extracts the content to an object. Each property of the returned object corresponds to a part of the multipart data<!-- END REF -->.
+
+:::info 
+
+HTTP itself is a stateless communication protocol. Within this framework, clients initiate communication by sending "request" messages to servers, specifying details like method, target, headers, content, etc. Servers, in turn, respond with "response" messages that include the same details. `HTTP Parse message` parses either the "request" or the "response" message into a well-organized object.
+
+:::
+
+
+#### Example 
+
+```qs
+var request : string=file("/RESOURCES/HTTPrequest.txt").getText()
+var parsedMessage : object=httpParseMessage(request)
+//parsedMessage= {
+//headers:{"User-Agent":"XX/20.4.0",...},
+//parts:[{"contentType":"application/http","contentID":"item1",...}], 
+//requestLine:"POST /batch/gmail/v1/ HTTP/1.1"
+//}
+```
+
+<!-- END REF -->
+
+
+
 <!-- REF #HTTPRequestClass.method.Desc -->
 ## .method
 
@@ -233,6 +275,7 @@ The `.headers` property contains <!-- REF #HTTPRequestClass.headers.Summary -->t
 The `.method` property contains <!-- REF #HTTPRequestClass.method.Summary -->the `method` passed in the [`options`](#options-parameter) object when calling [new()](#4dhttprequestnew)<!-- END REF -->. If it was omitted, contains "GET".
 
 <!-- END REF -->
+
 
 <!-- REF #HTTPRequestClass.protocol.Desc -->
 ## .protocol
