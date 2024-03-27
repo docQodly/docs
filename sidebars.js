@@ -221,6 +221,7 @@ const sidebars = {
 				'language/SignalClass',
 				'language/string',
 				'language/SystemWorkerClass',
+				'language/tools',
 				'language/UsersClass',
 				'language/WebFormClass',
 				'language/WebFormItemClass',
