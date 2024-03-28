@@ -3,16 +3,21 @@ id: SessionClass
 title: Session
 ---
 
-Session objects are returned by the [`Session`](#session) command. These objects provide the developer with an interface allowing to manage the web user session and execute actions such as store contextual data, share information between session processes, launch session-related preemptive processes, or (web only) manage [privileges](../ORDA/privileges.md).
+Session objects are returned by the [`session`](#session) command. These objects provide the developer with an interface allowing to manage the current user session and execute actions such as store contextual data, share information between session processes, launch session-related preemptive processes, or (user sessions only) manage [privileges](../studio/roles/rolesPrivilegesOverview.md).
  
 ### Session types
 
 Two types of sessions are supported by this class:
 
-- [**Web user sessions**](WebServer/sessions.md): Web user sessions are available when [scalable sessions are enabled in your project](WebServer/sessions.md#enabling-sessions). They are used for Web and REST connections, and can be assigned privileges. 
-- [**Stored procedures session**](https://doc.4d.com/4Dv20R5/4D/20-R5/4D-Server-and-the-4D-Language.300-6932726.en.html).
-): All stored procedures executed on the server share the same virtual user session. 
- The Session object is automatically created and maintained by the Qodly web server to control the session of a web client (e.g. a browser). This object provides the web developer with an interface to the user session, allowing to manage privileges, store contextual data, share information between processes, and launch session-related preemptive processes.
+- User sessions: User sessions are automatically created and maintained by the Qodly web server to control the session of clients (e.g. browsers) and can be assigned privileges. 
+- Stored procedures session: All stored procedures executed on the server (for example with [`callWorker`](process.md#callworker) share the same virtual user session. 
+
+:::note Notes
+
+- Since privileges are only supported in user sessions, functions related to privileges do nothing and always return **False** in stored procedures session.
+- The availability of properties and functions in the `Session` object depend on the session type. 
+
+:::
 
 
 ### Commands
@@ -29,7 +34,9 @@ Two types of sessions are supported by this class:
 |[<!-- INCLUDE #SessionClass.clearPrivileges().Syntax -->](#clearprivileges)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.clearPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.expirationDate.Syntax -->](#expirationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.expirationDate.Summary -->|
 |[<!-- INCLUDE #SessionClass.hasPrivilege().Syntax -->](#hasprivilege)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.hasPrivilege().Summary -->|
+|[<!-- INCLUDE #SessionClass.id.Syntax -->](#id)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.id.Summary -->|
 |[<!-- INCLUDE #SessionClass.idleTimeout.Syntax -->](#idletimeout)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.idleTimeout.Summary -->|
+|[<!-- INCLUDE #SessionClass.info.Syntax -->](#info)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.info.Summary -->|
 |[<!-- INCLUDE #SessionClass.isGuest().Syntax -->](#isguest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.isGuest().Summary -->|
 |[<!-- INCLUDE #SessionClass.setPrivileges().Syntax -->](#setprivileges)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.setPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.storage.Syntax -->](#storage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.storage.Summary -->|
@@ -51,9 +58,9 @@ Two types of sessions are supported by this class:
 
 #### Description
 
-The `session` command <!-- REF #_command_.session.Summary -->returns the `Session` object corresponding to the current scalable user web session<!-- END REF -->.
+The `session` command <!-- REF #_command_.session.Summary -->returns the `Session` object corresponding to the current user session or the stored procedures session<!-- END REF -->.
 
-The `Session` object is available from any web processes in ORDA [Data Model Class functions](../orda/data-model.md) called with REST requests.
+The `Session` object is available from any process in ORDA [Data Model Class functions](../orda/data-model.md) called with REST requests (user session) or stored procedure (stored procedures session).
 
 
 
@@ -147,6 +154,22 @@ end
 
 <!-- END REF -->
 
+
+
+<!-- REF SessionClass.id.Desc -->
+## .id
+
+<!-- REF #SessionClass.id.Syntax -->**.id** : string<!-- END REF -->
+
+#### Description
+
+The `.id` property contains <!-- REF #SessionClass.id.Summary -->the unique identifier (UUID) of the session on the server<!-- END REF -->. This unique string is automatically assigned by the server for each session and allows you to identify its processes. 
+
+
+<!-- END REF -->
+
+
+
 <!-- REF SessionClass.idleTimeout.Desc -->
 ## .idleTimeout
 
@@ -180,6 +203,48 @@ end
 ```
 
 <!-- END REF -->
+
+
+<!-- REF SessionClass.info.Desc -->
+## .info
+
+<!-- REF #SessionClass.info.Syntax -->**.info** : Object<!-- END REF -->
+
+#### Description
+
+:::note
+
+This property is only available for stored procedures session. 
+
+:::
+
+The `.info` property <!-- REF #SessionClass.info.Summary -->describes the stored procedure session on the server<!-- END REF -->. 
+
+The `.info` object contains the following properties:
+
+|Property|Type|Description|
+|---|---|---|
+|type|Text|"storedProcedure"|
+|userName|Text|user name (same value as [`.userName`](#username))|
+|machineName|Text|Name of the server machine|
+|systemUserName|Text|Name of the system session |
+|IPAddress|Text|IP address|
+|hostType|Text|"linux"|
+|creationDateTime|Date ISO 8601|Date and time of session creation|
+|state|Text|Session state: "active", "postponed", "sleeping"|
+|ID|Text|Session UUID (same value as [`.id`](#id))|
+|persistentID|Text|Session's persistent ID|
+
+:::note
+
+Since `.info` is a computed property, it is recommended to call it once and then to store it in a variable if you want to do some processing on its properties. 
+
+:::
+
+
+<!-- END REF -->
+
+
 
 
 <!-- REF SessionClass.isGuest().Desc -->
@@ -282,7 +347,7 @@ end
 
 #### Description
 
-The `.storage` property contains <!-- REF #SessionClass.storage.Summary -->a shared object that can be used to store information available to all requests of the web client<!-- END REF -->.
+The `.storage` property contains <!-- REF #SessionClass.storage.Summary -->a shared object that can be used to store information available to all processes of the session<!-- END REF -->.
 
 When a `session` object is created, the `.storage` property is empty. Since it is a shared object, this property will be available in the `storage` object of the server.
 
@@ -319,7 +384,7 @@ end
 
 The `.userName` property contains <!-- REF #SessionClass.userName.Summary -->the user name associated to the session<!-- END REF -->. You can use it to identify the user within your code.
 
-This property is an empty string by default. It can be set using the `privileges` property of the [`setPrivileges()`](#setprivileges) function.
+For user sessions, this property is an empty string by default. It can be set using the `privileges` property of the [`setPrivileges()`](#setprivileges) function.
 
 This property is **read only**.
 
