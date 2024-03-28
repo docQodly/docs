@@ -3,7 +3,16 @@ id: SessionClass
 title: Session
 ---
 
-Session objects are returned by the [`Session`](#session) command. The Session object is automatically created and maintained by the Qodly web server to control the session of a web client (e.g. a browser). This object provides the web developer with an interface to the user session, allowing to manage privileges, store contextual data, share information between processes, and launch session-related preemptive processes.
+Session objects are returned by the [`Session`](#session) command. These objects provide the developer with an interface allowing to manage the web user session and execute actions such as store contextual data, share information between session processes, launch session-related preemptive processes, or (web only) manage [privileges](../ORDA/privileges.md).
+ 
+### Session types
+
+Two types of sessions are supported by this class:
+
+- [**Web user sessions**](WebServer/sessions.md): Web user sessions are available when [scalable sessions are enabled in your project](WebServer/sessions.md#enabling-sessions). They are used for Web and REST connections, and can be assigned privileges. 
+- [**Stored procedures session**](https://doc.4d.com/4Dv20R5/4D/20-R5/4D-Server-and-the-4D-Language.300-6932726.en.html).
+): All stored procedures executed on the server share the same virtual user session. 
+ The Session object is automatically created and maintained by the Qodly web server to control the session of a web client (e.g. a browser). This object provides the web developer with an interface to the user session, allowing to manage privileges, store contextual data, share information between processes, and launch session-related preemptive processes.
 
 
 ### Commands
