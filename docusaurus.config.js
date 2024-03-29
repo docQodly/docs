@@ -135,7 +135,7 @@ const config = {
             type: "doc",
             docId: "customComponent/overview",
             position: "left",
-            label: "React Components",
+            label: "Custom Components",
           },
           {
             type: "doc",
