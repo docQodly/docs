@@ -4,7 +4,7 @@ const [,,lib, version = 'latest'] = process.argv
 
 const name = lib.split('/')[1]
 
-mkdirSync(`${process.cwd()}/docs/api-reference/${name}`, {
+mkdirSync(`${process.cwd()}/docs/customComponent/api-reference/${name}`, {
     recursive: true
 })
 
@@ -15,5 +15,5 @@ Promise.all([
     return Promise.all([first.json(), second.text()])
 }).then(([{ version }, docs]) => {
 
-    writeFileSync(`${process.cwd()}/docs/api-reference/${name}/v${version}.mdx`, docs, { encoding: 'utf-8' })
+    writeFileSync(`${process.cwd()}/docs/customComponent/api-reference/${name}/v${version}.mdx`, docs, { encoding: 'utf-8' })
 })
