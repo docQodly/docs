@@ -233,17 +233,18 @@ In the preview section, various capabilities are available when actions are boun
 
 ## Binding Standard Actions to Events
 
-### Datasources
-
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. After binding a standard action with an event, follow these steps:
+        Standard actions are applicable to datasources or states, with their availability being determined by the type involved.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
+### Datasources
+
+After binding a standard action with an event, follow these steps:
 
 1. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -297,20 +298,73 @@ In the preview section, various capabilities are available when actions are boun
 2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
 
     <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
+        <Column.Item width="50%">
             <ul>
                 <li>Provide simple UI feedback on a <code>Save</code>, <code>Reload</code>, or <code>Drop</code> standard action on an entity.</li><br/>
                 <li>Provide simple UI feedback on a <code>Reload</code>, <code>Order by</code>, or <code>Query</code> standard action on an EntitySelection.</li>
             </ul>
         </Column.Item>
-        <Column.Item width="40%">
+        <Column.Item width="45%">
             <img src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
 ### States
 
-<!-- to be done -->
+After binding a standard action with an event, follow these steps:
+
+1. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Select Type</strong>: Initiate by choosing the "States" option.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/standardAction_state.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+2. **Define Action**: Proceed to the Action section to unvail the available actions:
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+        <strong>Add Action</strong>: Utilized for incorporating modifications from selected states into the base state.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img src={require('./img/state_standardAction_add.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    - <Column.List align="center" justifyContent="between">
+        <Column.Item width="55%">
+        <strong>Delete Action</strong>: This action facilitates the removal of selected states, along with their changes, in relation to the base state.
+        </Column.Item>
+        <Column.Item width="40%">
+            <img src={require('./img/state_standardAction_delete.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+
+:::tip
+When a new state is applied or removed as a user interacts with an input field, the interaction remains uninterrupted ensuring that the focus on the input field is not lost by the state change.
+:::
+
+
+3. <Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <strong>Add States</strong>: When triggering these actions, users can select from available states, which are then tagged in the state field. The "base" state, however, is not included among these selectable options.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/state_standardAction.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<br/>
+
+
+:::warning
+These standard actions are designed to be used solely with "Normal" states. Applying them to "Conditional" states will lead to errors.
+
+Additionally, if a state is initially "Normal" but later transitions to a "Conditional" state, any standard actions previously applied to this state will trigger errors in the sanity check.
+:::
 
 
 
