@@ -125,10 +125,10 @@ This preview operates under the logged-in user's privileges. During your initial
 
 :::info
 
-If you click on the **Preview** button while there are unsaved changes in your forms, they will not be taken into account for the rendering. A pop over warns you about it:
+When the **Preview** button is clicked and unsaved changes are present in open webforms, a popup is displayed to ensure users are aware of their unsaved work. This popup prevents the application from rendering until the unsaved changes are addressed.
 
-![preview-pop-over](img/preview-pop.png)
+<img src={require('./img/preview-pop.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
-You can disable this pop over display by selecting the "Memorize..." option at the bottom of the window. You can also control the option through the [**Show Unsaved Files Pop Over** user settings option](settings.md#show-unsaved-files-pop-over).
+Users can choose to save all changes in open webforms before rendering, without seeing this popup again, by checking the "Memorize..." checkbox at the popup's bottom. Alternatively, this alert can be controlled through the ["**Show Unsaved Files Pop Over**" setting](settings.md#show-unsaved-files-pop-over) in user preferences.
 
 :::
