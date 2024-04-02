@@ -22,7 +22,7 @@ For example, you could create a `Person` class with the following definition:
 
 function get fullName() -> fullName : string
  fullName = this.firstName+" "+this.lastName
- 
+
 function sayHello() -> welcome : string
  welcome = "Hello "+this.fullName
 ```
@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### Data Model classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes). 
+Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
 
 
 
@@ -91,7 +91,7 @@ Available classes are accessible from their class stores. Two class stores are a
 |---------|--- |:---:|------|
 |Result|object|<-|Class Store containing all user classes of the current project|<!-- END REF -->
 
-The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class. 
+The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
 It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
 
@@ -192,6 +192,12 @@ Class functions are specific properties of the class. They are objects of the [4
 
 In the class definition file, function declarations use the `function` keyword, and the name of the function. The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
+:::note
+
+Since properties and functions share the same namespace, using the same name for a property and a function is not allowed (an error is thrown in this case).
+
+:::
+
 :::tip
 
 Starting a function name with an underscore character ("_") will exclude the function from the autocompletion features in the code editor. For example, if you declare `function _myPrivateFunction` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
@@ -214,7 +220,7 @@ function setFullname(firstname : string, lastname : string)
 function getFullname()->fullname : string
  fullname = this.firstName+" "+uppercase(this.lastName)
 ```
-  
+
 For a class function, the `currentMethodName` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
 
 In the application code, class functions are called as member methods of the object instance and can receive [parameters](#parameters) if any. The following syntaxes are supported:
@@ -223,7 +229,7 @@ In the application code, class functions are called as member methods of the obj
 - use of a "4D.Function" class member method:
   - [`apply()`](../FunctionClass.md#apply)
   - [`call()`](../FunctionClass.md#call)
- 
+
 
 #### Parameters
 
@@ -368,15 +374,15 @@ person.fullName = "John Smith" // Function set fullName() is called
 
 ```qs
 function get fullAddress()->result : object
- 
+
  result = newObject
- 
+
  result.fullName = this.fullName
  result.address = this.address
  result.zipCode = this.zipCode
  result.city = this.city
  result.state = this.state
- result.country = this.country 
+ result.country = this.country
 ```
 
 ### `constructor`
@@ -427,7 +433,19 @@ Declaring class properties enhances code editor suggestions, type-ahead features
 
 Properties are declared for new objects when you call the [`new()`](../ClassClass.md#new) function, however they are not automatically added to objects (they are only added when they are assigned a value).
 
+:::note
+
+A property is automatically added to the object when it is [inititalized in the declaration line](#initializing-the-property-in-the-declaration-line).
+
+:::
+
 Property names must be compliant with [property naming rules](lang-identifiers.md#object-properties).
+
+:::note
+
+Since properties and functions share the same namespace, using the same name for a property and a function is not allowed (an error is thrown in this case).
+
+:::
 
 
 The property type can be one of the following supported types:
@@ -454,6 +472,34 @@ The `property` keyword can only be used in class methods and outside any `functi
 
 :::
 
+#### Initializing the property in the declaration line
+
+When declaring a property, you have the flexibility to specify its data type and provide its value in one statement. The supported syntax is:
+
+`property <propertyName> { : <propertyType>} := <propertyvalue>`
+
+:::note
+
+When using this syntax, you cannot declare several properties in the declaration line.
+
+:::
+
+You can omit the type in the declaration line, in which case the type will be inferred when possible. For example:
+
+```qs
+// Class: MyClass
+
+property name : string := "Smith"
+property age : integer := 42
+
+property birthDate := !1988-09-29! //date is inferred
+property fuzzy //variant
+```
+
+When you initialize a property in its declaration line, it is added to the class object after its instantiation with the [`new()`](../ClassClass.md#new) function but before the constructor is called.
+
+If a class [extends](#extends-classname) another class, the properties of the parent class are instantiated before the properties of the child class.
+
 
 #### Example
 
@@ -462,14 +508,15 @@ The `property` keyword can only be used in class methods and outside any `functi
 
 property name : string
 property age : integer
+property color : string := "Blue"
 ```
 
 In a method:
 
 ```qs
 var o : cs.MyClass
-o = cs.MyClass.new() //o:{}
-o.name = "John" //o:{"name":"John"}
+o = cs.MyClass.new() //o:{"color" : "Blue"}
+o.name = "John" //o:{"color" : "Blue", "name":"John"}
 o.age = "Smith"  //error with check syntax
 ```
 
@@ -502,16 +549,16 @@ This example creates a class called `Square` from a class called `Polygon`.
 ```qs
 //Class: Square
 
-//path: Classes/Square.4dm 
+//path: Classes/Square.4dm
 
 extends Polygon
 
 constructor (side : integer)
- 
+
  // It calls the parent class's constructor with lengths
  // provided for the Polygon's width and height
  super(side,side)
- // In derived classes, super must be called 
+ // In derived classes, super must be called
  // before you can use 'this'
  this.name = "Square"
 
@@ -539,11 +586,11 @@ The `super` command <!-- REF #_command_.super.Summary -->makes calls to the supe
 
 `super` serves two different purposes:
 
-1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used. 
-	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid. 
-	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated. 
+1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used.
+	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid.
+	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated.
 	- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error-10746 is generated.
-	
+
 ```qs
 constructor(t1 : string, t2 : string)
 super(t1) //calls superclass constructor with a string param
@@ -562,15 +609,15 @@ This example illustrates the use of `super` in a class constructor. The command 
 
 ```qs
   //Class: Rectangle
- 
+
 constructor(height : integer, width : integer)
   this.name = "Rectangle"
   this.height = height
   this.width = width
- 
+
 function sayName()
   return("Hi, I am a "+this.name+".")
- 
+
 function getArea()-> area : integer
   area = this.height*this.width
 ```
@@ -578,15 +625,15 @@ function getArea()-> area : integer
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
-constructor(side : integer) 
- 
+
+constructor(side : integer)
+
   // It calls the parent class's constructor with lengths
   // provided for the Rectangle's width and height
 super(side, side)
- 
+
   // In derived classes, super must be called before you
   // can use 'This'
 this.name = "Square"
@@ -594,13 +641,13 @@ this.name = "Square"
 
 #### Example 2  
 
-This example illustrates the use of `super` in a class member function. 
+This example illustrates the use of `super` in a class member function.
 
 You created a Rectangle class with a function:
 
 ```qs
   //Class: Rectangle
- 
+
 function nbSides() -> sides : text
   sides = "I have 4 sides"
 ```
@@ -610,9 +657,9 @@ You also created the Square class with a function calling the superclass functio
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
+
 function description() -> desc : text
   desc = super.nbSides()+" which are all equal"
 ```
@@ -641,7 +688,7 @@ info = square.description() //I have 4 sides which are all equal
 
 #### Description
 
-The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->. 
+The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->.
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
@@ -656,12 +703,12 @@ When a [constructor](#class-constructor) function is used (with the [`new()`](..
 
 ```qs
 //Class: ob
-  
+
 constructor  
- 
+
  // Create properties on this as
  // desired by assigning to them
- this.a = 42 
+ this.a = 42
 ```
 
 ```qs
@@ -676,7 +723,7 @@ In any cases, `this` refers to the object the method was called on, as if the me
 
 ```qs
 //Class: ob
-  
+
 function f()
  return this.a+this.b
 ```
@@ -715,4 +762,3 @@ With the `Greeting` method:
 declare(param : string) -> vMessage : text
 vMessage = param+" "+this.firstName+" "+this.lastName
 ```
-
