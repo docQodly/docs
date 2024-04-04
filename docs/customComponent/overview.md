@@ -39,4 +39,4 @@ Custom components are managed in Qodly Studio to match the performance of built-
 
 ## Community Custom Components
 
-The growing Qodly developer community creates amazing custom components and makes them available online for free download. If you want to share your custom components with the community, publish them on the [**Custom Components for Qodly Studio**](https://github.com/qodly/custom-components) page.
+The growing Qodly developer community creates amazing custom components and makes them available online for free download. If you want to share your custom components with the community, please contribute on the [**Custom Components for Qodly Studio**](https://github.com/qodly/custom-components) page.
