@@ -11,9 +11,9 @@ import Column from '@site/src/components/Column'
 Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup.md#building).
 
 
-### Community Custom Components
+## Community's Custom Components
 
-The growing Qodly developer community creates amazing custom components and makes them available online for free download. Find these components on the [**Custom Components for Qodly Studio**](https://github.com/qodly/custom-components) page.
+The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for Qodly Studio page**](https://github.com/qodly/custom-components).
 
 ## Uploading Custom Component
 
