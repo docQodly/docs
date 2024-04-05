@@ -3,7 +3,7 @@ id: overview
 title: Overview
 ---
 
-Qodly introduces the concept of **Custom Components**, empowering developers to extend the capabilities of the platform and tailor webforms to their specific needs. 
+Qodly introduces the concept of **Custom Components**, empowering developers to extend the capabilities of the platform and tailor webforms to their specific needs.
 
 ## What Are Custom Components?
 
@@ -36,3 +36,7 @@ While Qodly Studio offers a variety of built-in components, Custom Components pr
 :::info
 Custom components are managed in Qodly Studio to match the performance of built-in components, mitigating any potential drawbacks associated with response and interaction times.
 :::
+
+## Community Custom Components
+
+The growing Qodly developer community creates amazing custom components and makes them available online for free download. If you want to share your custom components with the community, please contribute on the [**Custom Components for Qodly Studio**](https://github.com/qodly/custom-components) page.
