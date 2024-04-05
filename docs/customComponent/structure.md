@@ -726,6 +726,22 @@ The `ExampleComponent.config.tsx` file provides essential details for crafting, 
 
    Specifies default props for the `ExampleComponent`. In this case, the default value for the `name` prop is set to 'Qodly'.
 
+  :::tip Iterable Components 
+    For custom components within iterable structures such as matrices or data tables, incorporating the `iterableChild` property into the `defaultProps` in the configuration file can resolve rendering issues. This property enables proper data binding and rendering in these contexts. Update the component's configuration as follows:
+
+    ```ts
+    export default {
+      // ... other configurations ...
+      defaultProps: {
+        name: 'Qodly',
+        iterableChild: true
+      },
+    }
+    ```
+
+    This addition ensures that custom components function correctly in iterable environments, addressing common data handling and rendering issues.
+  :::
+
 6. **Props Interface**:
 
    ```typescript
