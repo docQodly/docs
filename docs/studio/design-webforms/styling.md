@@ -517,7 +517,105 @@ Customizing the appearance of the progress bar is facilitated through the follow
     height: 20px;
   }
   ```
+
+## CSS Cascading in Webform Loaders
+
+When components like a button in a webform loader and another in the main webform share the same local CSS class name, unexpected style mergers can occur. This is a result of CSS cascading, where styles from the parent webform combine with those of nested elements, causing design inconsistencies.
+
+```html
+<div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
+  <button class="fd-component fd-button localCssClass"></button>
   
+  <div class="fd-stylebox fd-component relative p-2">
+    <div class="fd-canvas bg-white">
+      <button class="fd-component fd-button localCssClass"></button>
+    </div>
+  </div>
+</div>
+```
+
+:::tip
+To prevent such issues, it's important to use unique class names, particularly in webforms with layered structures.
+:::
+
+This issue is also prevalent in more complex webform arrangements, such as dialogs within webform loaders, where CSS cascading can lead to similarly unexpected styling challenges.
+
+
+
+<!--
+
+## CSS Class Behavior and Cascading in Webforms
+
+In webforms, particularly those with webform loaders, understanding how CSS classes behave is crucial. Even when elements like buttons are nested within multiple layers, the naming of CSS classes plays a significant role. If a button in a webform loader and one in the main webform share the same local class name, , CSS cascading can lead to unexpected style mergers, the css styles for the nested element are merged from both the parent webform css class ad its own. This is a common challenge in web design, where styles defined in a parent element or component can inadvertently affect child elements or components, especially when they share class names.
+
+
+```html
+<div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
+  <button class="fd-component fd-button navButton localCssClass"></button>
+  
+  <div class="fd-stylebox fd-component relative p-2">
+    <div class="fd-canvas bg-white">
+      <button class="fd-component fd-button localCssClass"></button>
+    </div>
+  </div>
+</div>
+```
+
+:::tip
+It's important to be mindful of CSS class naming, especially when the same class names are used across different levels in a webform.
+:::
+
+the same issue could happen in webforms with complex structures, including dialog elements loaded within webform loader within a parent webform, CSS cascading can lead to unexpected style mergers. 
+
+
+<!--- 
+### Scoped CSS Classes in Deep Elements
+
+When a button is deeply nested within a webform, it have a unique, scoped class name, like `cayesbngcmkfgmndlxvaxoinvdmh`. This scoping ensures that styles from parent local CSS classes that have the same name as the local css class of the button, do not unintentionally affect this button, even if they share the same class name.
+
+```html
+<div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
+  <button class="fd-component fd-button navButton"></button>
+  
+  <div class="cayesbngcmkfgmndlxvaxoinvdmh fd-stylebox fd-component relative p-2">
+    <div class="fd-canvas bg-white">
+      <button class="fd-component fd-button"></button>
+    </div>
+  </div>
+</div>
+
+
+<div class="cayesbngcmkfgmndlxvaxoinvdmh fd-stylebox fd-component relative p-2">
+  // Nested elements and button code here 
+</div>
+```
+
+:::tip
+Scoped CSS classes provide a way to isolate styles, preventing unwanted inheritance from parent elements.
+:::
+
+
+### Cascading Effect with Dialog Elements
+
+Unlike the scoped button, dialog elements displayed in a webform loader in the parent webform might not be scoped. Consequently, the CSS cascading effect can cause unintended style mergers:
+
+```html
+<div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
+  // Nested elements here 
+</div>
+<div id="dialogs-root">
+  // Dialog elements and code here 
+</div>
+```
+
+In cases where the main and sub webforms both declare a CSS/style class as a local class, and the sub webform in the webform loader has a dialog then the cascading effect may result in a merger of styles from both classes. This can lead to inconsistent or undesired styling.
+
+:::tip Solution Suggestion
+Be mindful of class naming and scoping, especially in complex nested structures like dialogs in webforms.
+:::
+
+--->
+
 ## See also
 
 If you're not familiar with CSS properties and styles, or you need a refresher, here are a few useful links and tools:
