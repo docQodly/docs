@@ -12,6 +12,8 @@ title: Commands
 |[<!-- INCLUDE #_command_.arctan.Syntax -->](#arctan)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.arctan.Summary -->|
 |[<!-- INCLUDE #_command_.assert.Syntax -->](#assert)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.assert.Summary -->|
 |[<!-- INCLUDE #_command_.asserted.Syntax -->](#asserted)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.asserted.Summary -->|
+|[<!-- INCLUDE #_command_.base64Encode.Syntax -->](#base64encode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64Encode.Summary -->|
+|[<!-- INCLUDE #_command_.base64Decode.Syntax -->](#base64decode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.base64Decode.Summary -->|
 |[<!-- INCLUDE #_command_.blobToPicture.Syntax -->](#blobtopicture)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.blobToPicture.Summary -->|
 |[<!-- INCLUDE #_command_.bool.Syntax -->](#bool)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.bool.Summary -->|
 |[<!-- INCLUDE #_command_.callChain.Syntax -->](#callchain)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.callChain.Summary -->|
@@ -38,9 +40,17 @@ title: Commands
 |[<!-- INCLUDE #_command_.dec.Syntax -->](#dec)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.dec.Summary -->|
 |[<!-- INCLUDE #_command_.delayProcess.Syntax -->](#delayprocess)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.delayProcess.Summary -->|
 |[<!-- INCLUDE #_command_.deleteString.Syntax -->](#deletestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
+|[<!-- INCLUDE #_command_.ds.Syntax -->](#ds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.ds.Summary -->|
 |[<!-- INCLUDE #_command_.equalPictures.Syntax -->](#equalpictures)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.equalPictures.Summary -->|
 |[<!-- INCLUDE #_command_.exp.Syntax -->](#exp)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.exp.Summary -->|
 |[<!-- INCLUDE #_command_.false.Syntax -->](#false)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.false.Summary -->|
+|[<!-- INCLUDE #_command_.file.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.file.Summary -->|
+|[<!-- INCLUDE #_command_.folder.Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.folder.Summary -->|
+|[<!-- INCLUDE #_command_.formula.Syntax -->](#formula)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.formula.Summary -->|
+|[<!-- INCLUDE #_command_.formula from string.Syntax -->](#formulafromstring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.formula from string.Summary --> |
+|[<!-- INCLUDE #_command_.generateUUID.Syntax -->](#generateuuid)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateUUID.Summary -->|
+|[<!-- INCLUDE #_command_.generateDigest.Syntax -->](#generatedigest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generateDigest.Summary -->|
+|[<!-- INCLUDE #_command_.generatePasswordHash.Syntax -->](#generatepasswordhash)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.generatePasswordHash.Summary -->|
 |[<!-- INCLUDE #_command_.getAssertEnabled.Syntax -->](#getassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getAssertEnabled.Summary -->|
 |[<!-- INCLUDE #_command_.getPictureFileName.Syntax -->](#getpicturefilename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getPictureFileName.Summary -->|
 |[<!-- INCLUDE #_command_.getPictureMetadata.Syntax -->](#getpicturemetadata)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.getPictureMetadata.Summary -->|
@@ -57,13 +67,18 @@ title: Commands
 |[<!-- INCLUDE #_command_.length.Syntax -->](#length)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.length.Summary -->|
 |[<!-- INCLUDE #_command_.log.Syntax -->](#log)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.log.Summary -->|
 |[<!-- INCLUDE #_command_.lowercase.Syntax -->](#lowercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.lowercase.Summary -->|
+|[<!-- INCLUDE #_command_.mailConvertFromMIME.Syntax -->](#mailconvertfrommime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mailConvertFromMIME.Summary -->|
+|[<!-- INCLUDE #_command_.mailConvertToMIME.Syntax -->](#mailconverttomime)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mailConvertToMIME.Summary -->|
 |[<!-- INCLUDE #_command_.matchRegex.Syntax -->](#matchregex)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.matchRegex.Summary -->|
 |[<!-- INCLUDE #_command_.methodCalledOnError.Syntax -->](#methodCalledOnError)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.methodCalledOnError.Summary -->|
 |[<!-- INCLUDE #_command_.milliseconds.Syntax -->](#milliseconds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.milliseconds.Summary -->|
 |[<!-- INCLUDE #_command_.mod.Syntax -->](#mod)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.mod.Summary -->|
 |[<!-- INCLUDE #_command_.monthOf.Syntax -->](#monthof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
+|[<!-- INCLUDE #_command_.newCollection.Syntax -->](#newcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newCollection.Summary -->|
 |[<!-- INCLUDE #_command_.newObject.Syntax -->](#newobject)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newObject.Summary -->|
 |[<!-- INCLUDE #_command_.newSharedObject.Syntax -->](#newsharedobject)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedObject.Summary -->|
+|[<!-- INCLUDE #_command_.newSharedcollection.Syntax -->](#newsharedcollection)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedcollection.Summary -->|
+|[<!-- INCLUDE #_command_.newSignal.Syntax -->](#newsignal)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.newSignal.Summary -->|
 |[<!-- INCLUDE #_command_.not.Syntax -->](#not)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.not.Summary -->|
 |[<!-- INCLUDE #_command_.num.Syntax -->](#num)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
 |[<!-- INCLUDE #_command_.objectClass.Syntax -->](#objectclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.objectClass.Summary -->|
@@ -87,6 +102,7 @@ title: Commands
 |[<!-- INCLUDE #_command_.replaceString.Syntax -->](#replacestring)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.replaceString.Summary -->|
 |[<!-- INCLUDE #_command_.round.Syntax -->](#round)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.round.Summary -->|
 |[<!-- INCLUDE #_command_.semaphore.Syntax -->](#semaphore)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.semaphore.Summary -->|
+|[<!-- INCLUDE #_command_.session.Syntax -->](#session)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.session.Summary -->|
 |[<!-- INCLUDE #_command_.setAssertEnabled.Syntax -->](#setassertenabled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setAssertEnabled.Summary -->|
 |[<!-- INCLUDE #_command_.setPictureFileName.Syntax -->](#setpicturefilename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setPictureFileName.Summary -->|
 |[<!-- INCLUDE #_command_.setPictureMetadata.Syntax -->](#setpicturemetadata)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.setPictureMetadata.Summary -->|
@@ -108,4 +124,11 @@ title: Commands
 |[<!-- INCLUDE #_command_.true.Syntax -->](#true)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.true.Summary -->|
 |[<!-- INCLUDE #_command_.trunc.Syntax -->](#trunc)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.trunc.Summary -->|
 |[<!-- INCLUDE #_command_.uppercase.Syntax -->](#uppercase)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.uppercase.Summary -->|
+|[<!-- INCLUDE #_command_.verifyPasswordHash.Syntax -->](#verifypasswordhash)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.verifyPasswordHash.Summary -->|
+|[<!-- INCLUDE #_command_.webEvent.Syntax -->](#webevent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webEvent.Summary -->|
+|[<!-- INCLUDE #_command_.webForm.Syntax -->](#webform)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webForm.Summary -->|
+|[<!-- INCLUDE #_command_.webServer.Syntax -->](#webserver)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webServer.Summary -->|
+|[<!-- INCLUDE #_command_.webServerList.Syntax -->](#webserverlist)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webServerList.Summary -->|
 |[<!-- INCLUDE #_command_.yearOf.Syntax -->](#yearof)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
+|[<!-- INCLUDE #_command_.zipCreateArchive.Syntax -->](#zipcreatearchive)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.zipCreateArchive.Summary -->|
+|[<!-- INCLUDE #_command_.zipReadArchive.Syntax -->](#zipreadarchive)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.zipReadArchive.Summary -->|

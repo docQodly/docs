@@ -26,11 +26,11 @@ arrDays{2} = "Tuesday" //assigns "Tuesday" string to the 2nd arrDays element
 
 You must distinguish the assignment operator = from the other operators. Rather than combining expressions into a new one, the assignment operator copies the value of the expression to the right of the assignment operator into the variable or attribute to the left of the operator.
 
-For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+ = `):
+For efficiency, QodlyScript also supports compound assignment operators, allowing to combine assignment with another operation, for example the addition assignment operator (`+= `):
 
 ```qs
 a = 1 //1
-a+ = 2 //3
+a += 2 //3
 ```
 
 
