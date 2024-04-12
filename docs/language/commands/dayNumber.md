@@ -38,7 +38,7 @@ Qodly provides the following predefined constants:
 
 :::note
 
-`dayNumber` returns a value between 1 and 7. To get the day number within the month for a date, use the command [`dayOf`](#dayof).
+`dayNumber` returns a value between 1 and 7. To get the day number within the month for a date, use the command [`dayOf`](dayOf.md).
 
 :::
 
@@ -71,4 +71,4 @@ The following example is a function that returns the current day as a string:
 
 #### See also
 
-[`dayOf`](#dayof)
+[`dayOf`](dayOf.md)

@@ -20,7 +20,7 @@ title: objectIsShared
 
 The `objectIsShared` command <!-- REF #_command_.objectIsShared.Summary -->returns `true` if *object* or *collection* is shareable, and `false` if it is alterable<!-- END REF -->.
 
-For more information, see [Shared objects and collections](basics/lang-shared.md).
+For more information, see [Shared objects and collections](../basics/lang-shared.md).
 
 :::note
 

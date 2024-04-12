@@ -235,7 +235,6 @@ const sidebars = {
 						'language/commands/characterCode',
 						'language/commands/clearSemaphore',
 						'language/commands/combinePictures',
-						'language/commands/command-list',
 						'language/commands/compareStrings',
 						'language/commands/convertFromString',
 						'language/commands/convertPicture',

@@ -63,5 +63,5 @@ An assertion can allow parameters passed to a project method to be tested in ord
 
 #### See also
 
-[`asserted`](#asserted)<br/>[`.onErrCall()`](#onerrcall)<br/>
-[`setAssertEnabled`](#setassertenabled)
+[`asserted`](asserted.md)<br/>[`.onErrCall()`](onErrCall.md)<br/>
+[`setAssertEnabled`](#setAssertEnabled.md)

@@ -32,7 +32,7 @@ If you do not pass any parameters, `newObject` creates an empty object and retur
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties).
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties).
 - In the *value* parameter, pass the value you want to set for the property. The following types of values are supported:
 	- number (all numeric values are stored as numbers)
 	- string

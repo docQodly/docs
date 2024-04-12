@@ -22,7 +22,7 @@ The `dayOf` command <!-- REF #_command_.dayOf.Summary -->returns the day of the 
 
 :::note
 
-`dayOf` returns a value between 1 and 31. To get the day of the week for a date, use the command [`dayNumber`](#daynumber).
+`dayOf` returns a value between 1 and 31. To get the day of the week for a date, use the command [`dayNumber`](dayNumber.md).
 
 :::
 
@@ -41,6 +41,6 @@ The following example illustrates the use of `dayOf`. The results are assigned t
 
 #### See also
 
-[`dayNumber`](#daynumber)<br/>
-[`monthOf`](#monthof)<br/>
-[`yearOf`](#yearof)
+[`dayNumber`](dayNumber.md)<br/>
+[`monthOf`](monthOf.md)<br/>
+[`yearOf`](yearOf.md)

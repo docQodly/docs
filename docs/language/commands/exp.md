@@ -16,7 +16,7 @@ title: exp
 
 #### Description
 
-`exp` <!-- REF #_command_.exp.Summary -->raises the natural log base (e = 2.71828...) by the power of *number*<!-- END REF -->. `exp` is the inverse function of [`log`](#log).
+`exp` <!-- REF #_command_.exp.Summary -->raises the natural log base (e = 2.71828...) by the power of *number*<!-- END REF -->. `exp` is the inverse function of [`log`](log.md).
 
 :::note
 
@@ -35,4 +35,4 @@ The following example assigns the exponential of 1 to vrE (the log of vrE is 1):
 
 #### See also
 
-[`log`](#log)
+[`log`](log.md)

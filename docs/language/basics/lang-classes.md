@@ -22,7 +22,7 @@ For example, you could create a `Person` class with the following definition:
 
 function get fullName() -> fullName : string
  fullName = this.firstName+" "+this.lastName
- 
+
 function sayHello() -> welcome : string
  welcome = "Hello "+this.fullName
 ```
@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### Data Model classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes). 
+Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
 
 
 
@@ -91,7 +91,7 @@ Available classes are accessible from their class stores. Two class stores are a
 |---------|--- |:---:|------|
 |Result|object|<-|Class Store containing all user classes of the current project|<!-- END REF -->
 
-The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class. 
+The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
 It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
 
@@ -147,13 +147,13 @@ When QodlyScript does not find a function or a property in a class, it searches 
 
 #### `objectClass ( object ) -> object | null`
 
-[`objectClass`](../object.md#objectclass) returns the class of the object passed in parameter.
+[`objectClass`](../commands/objectClass.md) returns the class of the object passed in parameter.
 
 ### `instanceOf`
 
 #### `instanceOf ( object , class ) -> boolean`
 
-[`instanceOf`](../object.md#instanceof) returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
+[`instanceOf`](../commands/instanceOf.md) returns `true` if `object` belongs to `class` or to one of its inherited classes, and `false` otherwise.
 
 
 ## Class keywords
@@ -214,7 +214,7 @@ function setFullname(firstname : string, lastname : string)
 function getFullname()->fullname : string
  fullname = this.firstName+" "+uppercase(this.lastName)
 ```
-  
+
 For a class function, the `currentMethodName` command returns `<ClassName>.<FunctionName>`, for example "MyClass.myFunction".
 
 In the application code, class functions are called as member methods of the object instance and can receive [parameters](#parameters) if any. The following syntaxes are supported:
@@ -223,7 +223,7 @@ In the application code, class functions are called as member methods of the obj
 - use of a "4D.Function" class member method:
   - [`apply()`](../FunctionClass.md#apply)
   - [`call()`](../FunctionClass.md#call)
- 
+
 
 #### Parameters
 
@@ -368,15 +368,15 @@ person.fullName = "John Smith" // Function set fullName() is called
 
 ```qs
 function get fullAddress()->result : object
- 
+
  result = newObject
- 
+
  result.fullName = this.fullName
  result.address = this.address
  result.zipCode = this.zipCode
  result.city = this.city
  result.state = this.state
- result.country = this.country 
+ result.country = this.country
 ```
 
 ### `constructor`
@@ -502,16 +502,16 @@ This example creates a class called `Square` from a class called `Polygon`.
 ```qs
 //Class: Square
 
-//path: Classes/Square.4dm 
+//path: Classes/Square.4dm
 
 extends Polygon
 
 constructor (side : integer)
- 
+
  // It calls the parent class's constructor with lengths
  // provided for the Polygon's width and height
  super(side,side)
- // In derived classes, super must be called 
+ // In derived classes, super must be called
  // before you can use 'this'
  this.name = "Square"
 
@@ -539,11 +539,11 @@ The `super` command <!-- REF #_command_.super.Summary -->makes calls to the supe
 
 `super` serves two different purposes:
 
-1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used. 
-	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid. 
-	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated. 
+1. Inside a constructor code, `super` allows to call the constructor of the superclass. When used in a constructor, the `super` command appears alone and must be used **before** the [`this`](#this) keyword is used.
+	- If all class constructors in the inheritance tree are not properly called, error -10748 is generated. It's up to the developer to make sure calls are valid.
+	- If the [`this`](#this) command is called on an object whose superclasses have not been constructed, error -10743 is generated.
 	- If `super` is called out of an object scope, or on an object whose superclass constructor has already been called, error-10746 is generated.
-	
+
 ```qs
 constructor(t1 : string, t2 : string)
 super(t1) //calls superclass constructor with a string param
@@ -562,15 +562,15 @@ This example illustrates the use of `super` in a class constructor. The command 
 
 ```qs
   //Class: Rectangle
- 
+
 constructor(height : integer, width : integer)
   this.name = "Rectangle"
   this.height = height
   this.width = width
- 
+
 function sayName()
   return("Hi, I am a "+this.name+".")
- 
+
 function getArea()-> area : integer
   area = this.height*this.width
 ```
@@ -578,15 +578,15 @@ function getArea()-> area : integer
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
-constructor(side : integer) 
- 
+
+constructor(side : integer)
+
   // It calls the parent class's constructor with lengths
   // provided for the Rectangle's width and height
 super(side, side)
- 
+
   // In derived classes, super must be called before you
   // can use 'This'
 this.name = "Square"
@@ -594,13 +594,13 @@ this.name = "Square"
 
 #### Example 2  
 
-This example illustrates the use of `super` in a class member function. 
+This example illustrates the use of `super` in a class member function.
 
 You created a Rectangle class with a function:
 
 ```qs
   //Class: Rectangle
- 
+
 function nbSides() -> sides : text
   sides = "I have 4 sides"
 ```
@@ -610,9 +610,9 @@ You also created the Square class with a function calling the superclass functio
 ```qs
 
   //Class: Square
- 
+
 extends Rectangle
- 
+
 function description() -> desc : text
   desc = super.nbSides()+" which are all equal"
 ```
@@ -641,7 +641,7 @@ info = square.description() //I have 4 sides which are all equal
 
 #### Description
 
-The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->. 
+The `this` command <!-- REF #_command_.this.Summary -->returns a reference to the currently processed object<!-- END REF -->.
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
@@ -656,12 +656,12 @@ When a [constructor](#class-constructor) function is used (with the [`new()`](..
 
 ```qs
 //Class: ob
-  
+
 constructor  
- 
+
  // Create properties on this as
  // desired by assigning to them
- this.a = 42 
+ this.a = 42
 ```
 
 ```qs
@@ -676,7 +676,7 @@ In any cases, `this` refers to the object the method was called on, as if the me
 
 ```qs
 //Class: ob
-  
+
 function f()
  return this.a+this.b
 ```
@@ -715,4 +715,3 @@ With the `Greeting` method:
 declare(param : string) -> vMessage : text
 vMessage = param+" "+this.firstName+" "+this.lastName
 ```
-

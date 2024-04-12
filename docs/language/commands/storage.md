@@ -23,7 +23,7 @@ The catalog returned by `storage` is automatically created by Qodly and is avail
 
 Use the `storage` catalog to reference any shared objects or shared collections that you want to be used from any preemptive or standard process. To register a shared object or a shared collection in the catalog, add its reference to the shared object returned by `storage`.
 
-Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](basics/lang-shared.md) section (but with some specificities):
+Since the catalog returned by `storage` is a shared object, it follows the rules described in the [Shared objects and shared collections](../basics/lang-shared.md) section (but with some specificities):
 
 - This object can only contain shared objects and shared collections. Trying to add other kinds of values (non-shared objects or collections, null, scalar values) will generate an error.
 - Adding a property to this object must be surrounded by the `use...end` structure, otherwise an error is returned. Reading an attribute outside of a `use...end` structure is, however, possible.

@@ -85,5 +85,5 @@ You want to get a date from an object attribute, whatever the current attribute 
 
 #### See also
 
-[`bool`](boolean.md#bool)<br/>
-[`string`](string.md#string)
+[`bool`](bool.md)<br/>
+[`string`](string.md)

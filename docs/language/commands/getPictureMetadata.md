@@ -18,7 +18,7 @@ title: getPictureMetadata
 
 #### Description
 
-The `getPictureMetadata` command <!-- REF #_command_.getPictureMetadata.Summary -->can be used to read the contents of the metadata (or meta-tags) found in *aPicture* (picture variable)<!-- END REF -->. For more information about metadata, please refer to the description of the [`setPictureMetadata`](#setpicturemetadata) command.
+The `getPictureMetadata` command <!-- REF #_command_.getPictureMetadata.Summary -->can be used to read the contents of the metadata (or meta-tags) found in *aPicture* (picture variable)<!-- END REF -->. For more information about metadata, please refer to the description of the [`setPictureMetadata`](setPictureMetadata.md) command.
 
 In the *metaName* parameter, pass a string specifying the type of metadata to retrieve. You can pass:
 
@@ -28,4 +28,4 @@ an empty string ("").
 
 #### See also
 
-[`setPictureMetadata`](#setpicturemetadata)
+[`setPictureMetadata`](setPictureMetadata.md)

@@ -42,4 +42,4 @@ You want to stop the first process of a processes collection:
 
 #### See also
 
-[`getProcessActivity`](#getprocessactivity)
+[`getProcessActivity`](getProcessActivity.md)

@@ -18,7 +18,7 @@ title: generateDigest
 
 #### Description
 
-The `generateDigest` command <!-- REF #_command_.generateDigest.Summary -->returns the digest key of a blob or string after application of an encryption algorithm<!-- END REF -->. 
+The `generateDigest` command <!-- REF #_command_.generateDigest.Summary -->returns the digest key of a blob or string after application of an encryption algorithm<!-- END REF -->.
 
 Pass a string or blob variable in the *param* parameter. The `generateDigest` function returns the digest key as a string.
 
@@ -34,14 +34,14 @@ In the *algorithm* parameter, pass a value designating which hash function to us
 
 :::note
 
-It is not recommended to use MD5 and SHA algorithms to handle passwords; if you need to check passwords, you are advised to use [`generatePasswordHash`](#generatepasswordhash)
- and [`verifyPasswordHash`](#verifypasswordhash) commands.
+It is not recommended to use MD5 and SHA algorithms to handle passwords; if you need to check passwords, you are advised to use [`generatePasswordHash`](generatePasswordHash.md)
+ and [`verifyPasswordHash`](verifyPasswordHash.md) commands.
 
 :::
 
-By default if the * parameter is omitted, the returned digest is encoded in hexadecimal. Pass the * parameter if you want it to be encoded in Base64URL. 
+By default if the * parameter is omitted, the returned digest is encoded in hexadecimal. Pass the * parameter if you want it to be encoded in Base64URL.
 
-The value returned for the same object is the same on all the platforms (macOS/Windows). The calculation is performed based on the representation in UTF-8 of the string passed in the parameter. 
+The value returned for the same object is the same on all the platforms (macOS/Windows). The calculation is performed based on the representation in UTF-8 of the string passed in the parameter.
 
 :::note
 
@@ -64,7 +64,6 @@ These examples illustrate how to retrieve the digest key of a string:
 
 #### See also
 
-[`base64Decode`](#base64decode)<br/>
-[`base64Encode`](#base64encode)<br/>
-[`generatePasswordHash`](#generatepasswordhash)
-
+[`base64Decode`](base64Decode.md)<br/>
+[`base64Encode`](base64Encode.md)<br/>
+[`generatePasswordHash`](generatePasswordHash.md)

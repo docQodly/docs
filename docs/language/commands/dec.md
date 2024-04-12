@@ -31,4 +31,4 @@ The following example takes a monetary value expressed as a number, and extracts
 
 #### See also
 
-[`int`](#int)
+[`int`](int.md)

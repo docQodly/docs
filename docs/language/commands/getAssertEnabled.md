@@ -21,12 +21,12 @@ title: getAssertEnabled
 
 The `getAssertEnabled` command <!-- REF #_command_.getAssertEnabled.Summary -->returns `true` or `false` according to whether or not assertions are enabled in the current process<!-- END REF -->.
 
-For more information about assertions, please refer to the description of the [`assert`](#assert) command.
+For more information about assertions, please refer to the description of the [`assert`](assert.md) command.
 
-By default, assertions are enabled but they may have been disabled using the [`setAssertEnabled`](#setassertenabled) command.
+By default, assertions are enabled but they may have been disabled using the [`setAssertEnabled`](setAssertEnabled.md) command.
 
 
 #### See also
 
-[`.assert`](#assert)<br/>
-[`setAssertEnabled`](#setassertenabled)
+[`.assert`](assert.md)<br/>
+[`setAssertEnabled`](setAssertEnabled.md)

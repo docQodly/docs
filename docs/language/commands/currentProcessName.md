@@ -24,12 +24,13 @@ title: currentProcessName
 You want to call a worker and pass the calling process name as parameter:
 
 ```qs
+
 callWorker(1,"myMessage",currentProcessName,"Start:"+string(vMax))
 ```
 
 
 #### See also
 
-[`currentProcess`](#currentprocess)<br/>
-[`processNumber`](#processnumber)<br/>
-[`processState`](#processstate)
+[`currentProcess`](currentProcess.md)<br/>
+[`processNumber`](processNumber.md)<br/>
+[`processState`](processState.md)

@@ -19,7 +19,7 @@ title: file
 
 The `file` command <!-- REF #_command_.file.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
 
-In the *path* parameter, pass a [filesystem path string](basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
+In the *path* parameter, pass a [filesystem path string](../basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
 
 Qodly expects a path expressed with the POSIX syntax. 
 

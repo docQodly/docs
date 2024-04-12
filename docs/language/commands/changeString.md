@@ -21,7 +21,7 @@ The `changeString` command <!-- REF #_command_.changeString.Summary -->changes a
 
 If *newChars* is an empty string (""), `changeString` returns *source* unchanged. `changeString` always returns a string of the same length as `source`. If *where* is less than one or greater than the length of *source*, `changeString` returns *source*.
 
-`changeString` is different from [`insertString`](#insertstring) in that it overwrites characters instead of inserting them.
+`changeString` is different from [`insertString`](insertString.md) in that it overwrites characters instead of inserting them.
 
 #### Example
 
@@ -34,6 +34,6 @@ vtResult = changeString("November","Dec",1) //vtResult gets "December"
 
 #### See also
 
-[`deleteString`](#deletestring)<br/>
-[`insertString`](#insertstring)<br/>
-[`replaceString`](#replacestring)
+[`deleteString`](deleteString.md)<br/>
+[`insertString`](insertString.md)<br/>
+[`replaceString`](replaceString.md)

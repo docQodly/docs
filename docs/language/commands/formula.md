@@ -17,12 +17,12 @@ title: formula
 
 #### Description
 
-The `formula` command <!-- REF #_command_.formula.Summary -->creates a `4D Function` object based upon the *formulaExp* expression<!-- END REF -->. *formulaExp* [expression](basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
+The `formula` command <!-- REF #_command_.formula.Summary -->creates a `4D Function` object based upon the *formulaExp* expression<!-- END REF -->. *formulaExp* [expression](../basics/lang-expressions.md) can be as simple as a single value or complex, such as a project method with parameters.
 
 The returned formula can be called with:
 
-*	[`.call()`](#call) or [`.apply()`](#apply) functions, or
-*	object notation syntax (see [formula object](#formula-object)).
+*	[`.call()`](../FunctionClass.md#call) or [`.apply()`](../FunctionClass.md#apply) functions, or
+*	object notation syntax (see [formula objects](../FunctionClass.md#formula-objects)).
 
 ```qs
  var f : 4D.Function
@@ -35,11 +35,11 @@ The returned formula can be called with:
  o.myFormula() //returns 3
 ```
 
-You can pass [parameters](#passing-parameters) to the `formula`, as seen below in [example 4](#example-4).
+You can pass [parameters](../FunctionClass.md#passing-parameters) to the `formula`, as seen below in [example 4](../FunctionClass.md#example-4).
 
-You can specify the object on which the formula is executed, as seen in [example 5](#example-5). The properties of the object can then be accessed via [`this`](basics/lang-classes.md#this).
+You can specify the object on which the formula is executed, as seen in [example 5](../FunctionClass.md#example-5). The properties of the object can then be accessed via [`this`](../basics/lang-classes.md#this).
 
-If *formulaExp* uses variables, their values are copied and stored in the returned formula object when it is created. When executed, the formula uses these copied values rather than the current value of the variables. 
+If *formulaExp* uses variables, their values are copied and stored in the returned formula object when it is created. When executed, the formula uses these copied values rather than the current value of the variables.
 
 The object created by `formula` can be saved, for example, in a datastore attribute or in a blob document.
 
@@ -124,5 +124,3 @@ Calling a formula using object notation:
  feta.calc() // feta = {name:Feta,price:12.5,quantity:5,total:62.5,calc:"[object formula]"}
  robot.calc() // robot = {name:Robot,price:543,quantity:2,total:1086,calc:"[object formula]"}
 ```
-
-

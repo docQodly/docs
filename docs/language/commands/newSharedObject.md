@@ -15,13 +15,13 @@ title: newSharedObject
 
 #### Description
 
-The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](basics/lang-shared.md) page.
+The `newSharedObject` command <!-- REF #_command_.newSharedObject.Summary -->creates a new empty or prefilled shared object and returns its reference<!-- END REF -->. Adding or editing a property to this object must be surrounded by the `use...end` structure, otherwise an error is generated. Reading a property without a `use...end` structure is, however, possible. For more information, see the [Shared objects and shared collections](../basics/lang-shared.md) page.
 
 If you do not pass any parameters, `newSharedObject` creates an empty object and returns its reference.
 
 Optionally, you can prefill the new object by passing one or several *property/value* pairs as parameters:
 
-- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](basics/lang-identifiers.md#object-properties).
+- In the *property* parameter, pass the label of the property to be created (up to 255 characters). Note that the property parameter is case sensitive and must comply with [Qodly rules for property names](../basics/lang-identifiers.md#object-properties).
 - In the *value* parameter, pass the value you want to set for the property. Shared objects can only contain values of the following types:
 	- number (all numeric values are stored as numbers)
 	- string

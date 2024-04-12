@@ -19,7 +19,7 @@ The `characterCode` command <!-- REF #_command_.characterCode.Summary -->returns
 
 If there is more than one character in the string, `characterCode` returns only the code of the first character.
 
-The [`char`](#char) function is the counterpart of `characterCode`. It returns the character that the UTF-16 code represents.
+The [`char`](char.md) function is the counterpart of `characterCode`. It returns the character that the UTF-16 code represents.
 
 
 #### Example 1
@@ -71,5 +71,5 @@ The following example tests for carriage returns and tabs:
 
 #### See also
 
-[`char`](#char)<br/>
-[`Character Reference Symbols`](#character-reference-symbols)
+[`char`](char.md)<br/>
+[`Character Reference Symbols`](../basics/lang-text.md#character-reference-symbols)

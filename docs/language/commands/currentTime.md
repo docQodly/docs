@@ -17,7 +17,7 @@ title: currentTime
 
 The `currentTime` command <!-- REF #_command_.currentTime.Summary -->returns the current time from the server (GMT)<!-- END REF -->.
 
-The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md#string) or [`timeString`](#timestring) to obtain the string form of the time expression returned by `currentTime`.
+The current time is always between 00:00:00 and 23:59:59. Use [`string`](string.md) or [`timeString`](timeString.md) to obtain the string form of the time expression returned by `currentTime`.
 
 
 #### Example 1
@@ -50,5 +50,5 @@ The following example extracts the hours, minutes, and seconds from the current 
 
 #### See also
 
-[`milliseconds`](#milliseconds)<br/>
-[`string`](string.md#string)
+[`milliseconds`](milliseconds.md)<br/>
+[`string`](string.md)

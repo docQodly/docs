@@ -34,4 +34,4 @@ If the optional *horOffset* and *vertOffset* parameters are used, a translation 
 
 #### See also
 
-[`transformPicture`](#transformpicture), [picture operators](./basics/lang-picture.md#picture-operators).
+[`transformPicture`](transformPicture.md), [picture operators](../basics/lang-picture.md#picture-operators).

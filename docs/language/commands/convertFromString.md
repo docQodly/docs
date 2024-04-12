@@ -23,7 +23,7 @@ In the *aString* parameter, pass the text to be converted. This text is expresse
 
 In *charSetString* or *charSetInt*, pass the character set to be used for the conversion. You can pass a string containing the standard name of the set (for example "ISO-8859-1" or "UTF-8"), or its MIBEnum identifier.
 
-Here is a list of character sets supported by the convertFromString and [`convertToString`](#converttostring) commands:
+Here is a list of character sets supported by the convertFromString and [`convertToString`](convertToString.md) commands:
 
 |MIBEnum|Name(s)|
 |:----|:----|
@@ -182,9 +182,9 @@ Several rows have the same MIBEnum identifier because a character set can have m
 
 For more information about the names of character sets, please refer to the following address: *http://www.iana.org/assignments/character-sets*
 
-After execution of the command, the converted text will be returned in the *convertedBLOB* blob. This blob can be read by the [`convertToString`](#converttostring) command.
+After execution of the command, the converted text will be returned in the *convertedBLOB* blob. This blob can be read by the [`convertToString`](convertToString.md) command.
 
 
 #### See also
 
-[`convertToString`](#converttostring)
+[`convertToString`](convertToString.md)

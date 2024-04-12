@@ -41,5 +41,5 @@ Insertion of an assertion in the evaluation of an expression:
 
 #### See also
 
-[`assert`](#assert)<br/>[`.onErrCall()`](#onerrcall)<br/>
-[`setAssertEnabled`](#setassertenabled)
+[`assert`](assert.md)<br/>[`.onErrCall()`](#onErrCall.md)<br/>
+[`setAssertEnabled`](#setAssertEnabled.md)

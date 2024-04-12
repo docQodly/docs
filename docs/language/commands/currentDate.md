@@ -30,6 +30,6 @@ In the following example we assign the current date to a string variable:
 
 #### See also
 
-[`dayOf`](#dayof)<br/>
-[`monthOf`](#monthof)<br/>
-[`yearOf`](#yearof)
+[`dayOf`](dayOf.md)<br/>
+[`monthOf`](monthOf.md)<br/>
+[`yearOf`](yearOf.md)
