@@ -28,4 +28,4 @@ The following example illustrates how `int` works for both positive and negative
 
 #### See also
 
-[`dec`](#dec)
+[`dec`](dec.md)

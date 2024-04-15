@@ -24,7 +24,7 @@ In *vJson*, pass a JSON object containing the JSON contents to be validated.
 
 :::note
 
-Validating a JSON string consists of checking that it follows the rules defined in a JSON schema. This is different from checking that the JSON is well-formed, which is done by the [`jsonParse`](#jsonparse) command.
+Validating a JSON string consists of checking that it follows the rules defined in a JSON schema. This is different from checking that the JSON is well-formed, which is done by the [`jsonParse`](jsonParse.md) command.
 
 :::
 
@@ -51,9 +51,9 @@ Each error object of the *errors* collection contains the following properties:
 |:----|:----|:----|
 |*code*|number|Error code|
 |*jsonPath*|string|JSON path that cannot be validated in *vJson*|
-|*line*|number|Line number of the error in the JSON file. This property is filled if the JSON has been parsed by [`jsonParse`](#jsonparse) with the * parameter. Otherwise, the property is omitted.|
+|*line*|number|Line number of the error in the JSON file. This property is filled if the JSON has been parsed by [`jsonParse`](jsonParse.md) with the * parameter. Otherwise, the property is omitted.|
 |*message*|string|Error message|
-|*offset*|number|Line offset of the error in the JSON file. This property is filled if the JSON has been parsed by [`jsonParse`](#jsonparse) with the * parameter. Otherwise, the property is omitted.|
+|*offset*|number|Line offset of the error in the JSON file. This property is filled if the JSON has been parsed by [`jsonParse`](jsonParse.md) with the * parameter. Otherwise, the property is omitted.|
 |*schemaPaths*|string|JSON path in the schema that causes the validation error|
 
 ##### Error management
@@ -113,5 +113,5 @@ end if
 #### See also
 
 [`How to create a JSON schema`](http://json-schema.org/)<br/>
-[`jsonParse`](#jsonparse)<br/>
+[`jsonParse`](jsonParse)<br/>
 [`JSON schema validation keywords on json-schema.org`](http://json-schema.org/latest/json-schema-validation.html)

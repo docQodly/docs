@@ -23,7 +23,7 @@ If *what* is an empty string (""), `insertString` returns source unchanged.
 
 If *where* is greater than the length of *source*, then *what* is appended to *source*. If *where* is less than one (1), then *what* is inserted before *source*.
 
-`insertString` is different from [`changeString`](#changestring) in that it inserts characters instead of overwriting them.
+`insertString` is different from [`changeString`](changeString.md) in that it inserts characters instead of overwriting them.
 
 #### Example
 
@@ -37,6 +37,6 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 #### See also
 
-[`changeString`](#changestring)<br/>
-[`deleteString`](#deletestring)<br/>
-[`replaceString`](#replacestring)
+[`changeString`](changeString.md)<br/>
+[`deleteString`](deleteString.md)<br/>
+[`replaceString`](replaceString.md)

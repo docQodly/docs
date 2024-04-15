@@ -17,7 +17,7 @@ title: jsonStringify
 
 #### Description
 
-The `jsonStringify` command <!-- REF #_command_.jsonStringify.Summary -->converts the *value* parameter into a JSON string<!-- END REF -->. This command performs the opposite action of the [`jsonParse`](#jsonparse) command.
+The `jsonStringify` command <!-- REF #_command_.jsonStringify.Summary -->converts the *value* parameter into a JSON string<!-- END REF -->. This command performs the opposite action of the [`jsonParse`](jsonParse.md) command.
 
 Pass the data to be serialized in *value*. It can be expressed in scalar form (string, number, date or time) or by means of a Qodly object or collection
 
@@ -63,4 +63,4 @@ var s, p : string
 
 #### See also
 
-[`jsonParse`](#jsonparse)
+[`jsonParse`](jsonParse.md)

@@ -22,9 +22,9 @@ In *process*, you pass either the name or number of the worker process whose exe
 
 If you do not pass any parameter, `killWorker` applies to the currently running worker.
 
-If `killWorker` is applied to a worker that was not created explicitly using the [`callWorker`](#callworker) command, it only asks this worker to empty its message box.
+If `killWorker` is applied to a worker that was not created explicitly using the [`callWorker`](callWorker.md) command, it only asks this worker to empty its message box.
 
-If the [`callWorker`](#callworker) command is called to send a message to a worker that was just killed by `killWorker`, a new process is started. To make sure that there is only one process running at a time for a worker, the new process will start after the previous one is actually terminated. Note however that if [`callWorker`](#callworker) is called from a worker to send itself a message whereas it has just been killed by `killWorker`, the command does nothing.
+If the [`callWorker`](callWorker.md) command is called to send a message to a worker that was just killed by `killWorker`, a new process is started. To make sure that there is only one process running at a time for a worker, the new process will start after the previous one is actually terminated. Note however that if [`callWorker`](callWorker.md) is called from a worker to send itself a message whereas it has just been killed by `killWorker`, the command does nothing.
 
 
 #### Example
@@ -52,5 +52,5 @@ end
 
 #### See also
 
-[`callWorker`](#callworker)<br/>
-[`Signal` class](SignalClass.md)
+[`callWorker`](callWorker.md)<br/>
+[`Signal` class](../SignalClass.md)

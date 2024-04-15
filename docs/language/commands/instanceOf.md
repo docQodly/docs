@@ -49,4 +49,4 @@ Then, in a method, you can write:
 
 #### See also
 
-[objectClass](#objectclass)
+[objectClass](objectClass.md)

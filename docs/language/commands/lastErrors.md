@@ -27,9 +27,9 @@ Each error object contains the following properties:
 |message|string|Description of the error|
 |componentSignature|string|Signature of the internal component which returned the error|
 
-This command must be called from an error-handling method installed by the [`onErrCall`](#onerrcall) command.
+This command must be called from an error-handling method installed by the [`onErrCall`](onErrCall.md) command.
 
 
 #### See also
 
-[`onErrCall`](#onerrcall)
+[`onErrCall`](onErrCall.md)

@@ -24,7 +24,7 @@ In `jsonString`, pass the JSON-formatted string whose contents you want to parse
 
 :::note
 
-If you use pointers, you must call the [`jsonStringify`](#jsonstringify) command before calling `jsonParse`.
+If you use pointers, you must call the [`jsonStringify`](jsonStringify.md) command before calling `jsonParse`.
 
 :::
 
@@ -41,7 +41,7 @@ By default, if you omit the *type* parameter, Qodly attempts to convert the valu
 |kString|integer|2|
 |kTime|integer|11|
 
-If you pass the *** optional parameter and if the `jsonString` parameter represents an object, the returned object contains an additional property named `__symbols` that provides path, line position, and line offset of each property and sub-property of the object. This information can be useful for debugging purposes. The structure of the `__symbols` property is:
+If you pass the `*` optional parameter and if the `jsonString` parameter represents an object, the returned object contains an additional property named `__symbols` that provides path, line position, and line offset of each property and sub-property of the object. This information can be useful for debugging purposes. The structure of the `__symbols` property is:
 
 ```json
 __symbols:{//object description
@@ -52,11 +52,11 @@ __symbols:{//object description
 
 :::note
 
-The *** parameter is ignored if the returned value is not of the object *type*.
+The `*` parameter is ignored if the returned value is not of the object *type*.
 
 :::
 
 #### See also
 
-[`jsonStringify`](#jsonstringify)<br/>
-[`jsonValidate`](#jsonvalidate)
+[`jsonStringify`](jsonStringify.md)<br/>
+[`jsonValidate`](jsonValidate.md)
