@@ -20,7 +20,7 @@ The `zipReadArchive` command <!-- REF #_command_.zipReadArchive.Summary -->retri
 
 :::note
 
-This command does not uncompress the ZIP archive, it only provides a view of its contents. To extract the contents of an archive, you need to use functions such as [file.copyTo()](Document.md#copyto) or [folder.copyTo()](Directory.md#copyto).
+This command does not uncompress the ZIP archive, it only provides a view of its contents. To extract the contents of an archive, you need to use functions such as [file.copyTo()](../Document.md#copyto) or [folder.copyTo()](../Directory.md#copyto).
 
 :::
 
