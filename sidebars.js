@@ -96,7 +96,6 @@ const sidebars = {
 				'studio/design-webforms/date-time-formats',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
-				'studio/design-webforms/states',
 				'studio/design-webforms/styling',
 				'studio/rendering',
 			],
