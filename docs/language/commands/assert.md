@@ -20,11 +20,11 @@ title: assert
 
 The `assert` command <!-- REF #_command_.assert.Summary -->evaluates the *boolExpression* assertion passed in parameter and, if it returns `false`, stops the code execution with an error message<!-- END REF -->.
 
-If *boolExpression* is `true`, nothing happens. If it is `false`, the command triggers the error -10518 and displays by default the text of the assertion preceded by the message "Assert failed:". You can intercept this error via a method installed using the [`onErrCall`](#onerrcall) command, in order, for example, to provide info for a log file.
+If *boolExpression* is `true`, nothing happens. If it is `false`, the command triggers the error -10518 and displays by default the text of the assertion preceded by the message "Assert failed:". You can intercept this error via a method installed using the [`onErrCall`](onErrCall.md) command, in order, for example, to provide info for a log file.
 
 Optionally, you can pass a *msg* parameter to display a custom error message instead of the text of the assertion.
 
-It is possible to globally enable or disable all the assertions of the application (for example according to the type of version) via the [`setAssertEnabled`](#setassertenabled) command.
+It is possible to globally enable or disable all the assertions of the application (for example according to the type of version) via the [`setAssertEnabled`](setAssertEnabled.md) command.
 
 :::info
 
@@ -64,4 +64,4 @@ An assertion can allow parameters passed to a project method to be tested in ord
 #### See also
 
 [`asserted`](asserted.md)<br/>[`.onErrCall()`](onErrCall.md)<br/>
-[`setAssertEnabled`](#setAssertEnabled.md)
+[`setAssertEnabled`](setAssertEnabled.md)
