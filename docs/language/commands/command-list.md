@@ -76,8 +76,8 @@ title: Commands
 |[<!-- INCLUDE #_command_.monthOf.Syntax -->](monthOf.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.monthOf.Summary -->|
 |[<!-- INCLUDE #_command_.newCollection.Syntax -->](newCollection.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newCollection.Summary -->|
 |[<!-- INCLUDE #_command_.newObject.Syntax -->](newObject.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newObject.Summary -->|
-|[<!-- INCLUDE #_command_.newSharedObject.Syntax -->](newSharedObject.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedObject.Summary -->|
 |[<!-- INCLUDE #_command_.newSharedCollection.Syntax -->](newSharedCollection.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedCollection.Summary -->|
+|[<!-- INCLUDE #_command_.newSharedObject.Syntax -->](newSharedObject.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newSharedObject.Summary -->|
 |[<!-- INCLUDE #_command_.newSignal.Syntax -->](newSignal.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.newSignal.Summary -->|
 |[<!-- INCLUDE #_command_.not.Syntax -->](not.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.not.Summary -->|
 |[<!-- INCLUDE #_command_.num.Syntax -->](num.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.num.Summary -->|
