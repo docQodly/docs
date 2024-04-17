@@ -34,7 +34,7 @@ End if
 
 ||
 |---|
-|[<!-- INCLUDE #ZipArchiveClass.root.Syntax -->](#root)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #ZipArchiveClass.root.Summary -->|
+|[<!-- INCLUDE #ZipArchiveClass.root.Syntax -->](#root)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ZipArchiveClass.root.Summary -->|
 
 
 ## .root
