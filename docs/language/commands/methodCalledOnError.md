@@ -18,7 +18,7 @@ title: methodCalledOnError
 
 #### Description
 
-The `methodCalledOnError` command <!-- REF #_command_.methodCalledOnError.Summary -->returns the name of the method installed by [`onErrCall`](#onerrcall) for the current process or the defined *scope*<!-- END REF -->.
+The `methodCalledOnError` command <!-- REF #_command_.methodCalledOnError.Summary -->returns the name of the method installed by [`onErrCall`](onErrCall.md) for the current process or the defined *scope*<!-- END REF -->.
 
 In the *scope* parameter, pass the execution context for which you want to get the name of the error handler method. You can use one of the following constants:
 
@@ -46,4 +46,4 @@ If no method has been installed for the *scope*, an empty string ("") is returne
 
 #### See also
 
-[`.onErrCall()`](#onerrcall)
+[`.onErrCall()`](onErrCall.md)

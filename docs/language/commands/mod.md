@@ -44,4 +44,3 @@ The following example illustrates how the `mod` function works with different ar
  vlResult = mod(3.5,2) // vlResult gets 0
 
 ```
-d) 

@@ -45,4 +45,4 @@ This example compares the results obtained according to whether or not the `*` p
 
 #### See also
 
-[`uppercase`](#uppercase)
+[`uppercase`](uppercase.md)

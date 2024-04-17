@@ -35,5 +35,5 @@ Always compare the difference between two calls of `milliseconds`, never compare
 
 #### See also
 
-[`currentTime`](#currenttime)<br/>
-[`timestamp`](#timestamp)
+[`currentTime`](currentTime.md)<br/>
+[`timestamp`](timestamp.md)

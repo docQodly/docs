@@ -20,7 +20,7 @@ title: newSharedCollection
 
 The `newSharedCollection` command <!-- REF #_command_.newSharedcollection.Summary --> creates a new empty or prefilled shared collection<!-- END REF --> and returns its reference.
 
-Adding an element to this collection using the assignment operator must be surrounded by the [`use...end`](../basics/lang-shared.md#useend) structure, otherwise an error is generated (this is not necessary when adding elements using functions such as [`push()`](#push) or [`map()`](#map) because they automatically trigger an internal *use...end*). Reading an element without a *use...end* structure is, however, possible.
+Adding an element to this collection using the assignment operator must be surrounded by the [`use...end`](../basics/lang-shared.md#useend) structure, otherwise an error is generated (this is not necessary when adding elements using functions such as [`push()`](../CollectionClass#push) or [`map()`](../CollectionClass#map) because they automatically trigger an internal *use...end*). Reading an element without a *use...end* structure is, however, possible.
 
 :::info
 
@@ -63,5 +63,5 @@ Unlike standard (not shared) collections, shared collections do not support pict
 
 #### See also
 
-[objectIsShared](object.md#objectisshared)
+[objectIsShared](objectIsShared.md)
 

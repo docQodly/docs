@@ -22,6 +22,6 @@ The difference between the `semaphore` and the `testSemaphore` functions is that
 
 #### See also
 
-[`clearSemaphore`](clearsemaphore.md)<br/>
+[`clearSemaphore`](clearSemaphore.md)<br/>
 [`semaphore`](semaphore.md)<br/>
 [`Signal` class](../SignalClass.md)

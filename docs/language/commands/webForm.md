@@ -24,7 +24,7 @@ Keep in mind that a `4D.WebForm` object  is a **proxy object**, and not a direct
 
 :::
 
-Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
+Each property of the returned object is an object of the [4D.WebFormItem](../WebFormItemClass.md) class.
 
 The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 

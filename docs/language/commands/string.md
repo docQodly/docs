@@ -205,4 +205,4 @@ If *expression* is evaluated to null, the command returns the "null" string. Thi
 [`date`](date)<br/>
 [`num`](num)<br/>
 [`timeString`](timeString.md)<br/>
-[`timeStamp`](timeStamp.md)
+[`timestamp`](timestamp.md)

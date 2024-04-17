@@ -75,5 +75,5 @@ This example compares the results obtained depending on the separator:
 
 #### See also
 
-[`bool`](#bool)<br/>
-[`string`](#string)
+[`bool`](bool.md)<br/>
+[`string`](string.md)

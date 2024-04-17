@@ -26,12 +26,12 @@ A signal is a shared object which can be passed as parameter from a worker proce
 
 Optionally, in the *description* parameter you can pass a custom text describing the signal. This text can also be defined after signal creation.
 
-Since the signal object is a shared object, it can also be used to maintain user properties, including the [`.description`](#description) property, by calling the `use...end` structure.
+Since the signal object is a shared object, it can also be used to maintain user properties, including the [`.description`](../SignalClass/#description-1) property, by calling the `use...end` structure.
 
 
 **Returned value**
 
-A new [`4D.Signal` object](#signal-object).
+A new [`4D.Signal` object](../SignalClass/#signal-object).
 
 #### Example
 
