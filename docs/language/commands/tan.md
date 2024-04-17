@@ -25,6 +25,6 @@ Qodly provides the predefined constants `Pi`, `Degree`, and `Radian`. `Pi` retur
 
 #### See also
 
-[`arctan`](#arctan)<br/>
-[`cos`](#cos)<br/>
-[`sin`](#sin)
+[`arctan`](arctan.md)<br/>
+[`cos`](cos.md)<br/>
+[`sin`](sin.md)

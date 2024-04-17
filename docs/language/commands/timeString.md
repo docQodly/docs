@@ -23,7 +23,7 @@ If you go beyond the number of seconds in a day (86,400), `timeString` continues
 
 :::note
 
-If you need the string form of a time expression in a variety of formats, use [`string`](string.md#string).
+If you need the string form of a time expression in a variety of formats, use [`string`](string.md).
 
 :::
 
@@ -39,5 +39,5 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 
 #### See also
 
-[`string`](string.md#string)<br/>
-[`time`](#time)
+[`string`](string.md)<br/>
+[`time`](time.md)

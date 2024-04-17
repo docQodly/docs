@@ -30,7 +30,7 @@ If the *zipFile* is password protected, you need to use the optional *password* 
 
 **Archive object**
 
-The returned `4D.ZipArchive` object contains a single [`root`](#root) property whose value is a `4D.ZipFolder` object. This folder describes the whole contents of the ZIP archive.
+The returned `4D.ZipArchive` object contains a single [`root`](../ZipArchiveClass#root) property whose value is a `4D.ZipFolder` object. This folder describes the whole contents of the ZIP archive.
 
 #### Example
 

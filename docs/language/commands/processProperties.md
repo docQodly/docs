@@ -22,7 +22,7 @@ title: processProperties
 
 The `processProperties` command <!-- REF #_command_.processProperties.Summary -->returns various information about the process whose process number you pass in *process*<!-- END REF -->.
 
-If the process does not exist, which means you did not pass in *process* a number in the range 1 to [`highestProcessNumber`](#highestprocessnumber), `processProperties` leaves the variable parameters unchanged.
+If the process does not exist, which means you did not pass in *process* a number in the range 1 to [`highestProcessNumber`](highestProcessNumber.md), `processProperties` leaves the variable parameters unchanged.
 
 After the call:
 
@@ -83,4 +83,4 @@ The following example returns the name, state, and time taken in the variables v
 
 #### See also
 
-[`getProcessActivity`](#getprocessactivity)<br/>[`highestProcessNumber`](#highestprocessnumber)
+[`getProcessActivity`](getProcessActivity.md)<br/>[`highestProcessNumber`](highestProcessNumber.md)

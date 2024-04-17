@@ -23,7 +23,7 @@ The `throw` command <!-- REF #_command_.throw.Summary -->creates an error that w
 
 When you encounter a situation in your code where an error condition arises, you can use the `throw` command to explicitly throw an error and provide a specific error message or error number. This can be useful for signaling exceptional conditions or invalid inputs.
 
-Errors thrown using the `throw` command are managed by the Qodly runtime as any normal error: the standard error dialog is displayed unless an interception method has been installed using the [`onErrCall`](#onerrcall) command.
+Errors thrown using the `throw` command are managed by the Qodly runtime as any normal error: the standard error dialog is displayed unless an interception method has been installed using the [`onErrCall`](onErrCall.md) command.
 
 The command supports three syntaxes:
 
@@ -50,7 +50,7 @@ throw(errorObj)
 |message| string|Description of the error. The *message* may contain placeholders that will be replaced by custom properties added to the *errorObj* object. Each placeholder must be specified using braces `{}` enclosing the name of the property to be used. If the *message* is not provided or is an empty string, the command will look for a description in the current application xliff files with a resname built as follows: ERR_{componentSignature}_{errCode}".
 |deferred| boolean|True if the error should be deferred when the current method returns. Default value is false.|
 
-When you use this syntax, the *errorObj* object is returned in [`lastErrors`](#lasterrors).
+When you use this syntax, the *errorObj* object is returned in [`lastErrors`](lastErrors.md).
 
 :::note
 
@@ -62,7 +62,7 @@ It is possible to call the command several times in the same project method to g
 throw()
 ```
 
-It throws all current errors in **deferred mode**, meaning they will be added to a stack and handled when the calling method returns. This is typically done from within an [`onErrCall`](#onerrcall) callback. When an error occurs, it is added to the error stack and the [`onErrCall`](#onerrcall) method is called at the end of the current method. The [`lastErrors`](#lasterrors) function returns the stack of errors.
+It throws all current errors in **deferred mode**, meaning they will be added to a stack and handled when the calling method returns. This is typically done from within an [`onErrCall`](onErrCall.md) callback. When an error occurs, it is added to the error stack and the [`onErrCall`](onErrCall.md) method is called at the end of the current method. The [`lastErrors`](lastErrors.md) function returns the stack of errors.
 
 
 #### Examples
@@ -87,4 +87,4 @@ throw({message: "This is my error", deferred: true}) //Throws an error with mess
 
 #### See also
 
-[`.setError()`](WebFormClass.md#seterror)
+[`.setError()`](../WebFormClass.md#seterror)

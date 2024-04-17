@@ -82,7 +82,7 @@ Examples:
  vsResult = string(!2023-18-02!,kISODateGMT) // vsResult gets "2023-02-18T00:00:00" in France
 ```
 
-- or a [**customized format built upon a pattern**](../studio/design-webforms/date-time-formats.md) (string value)
+- or a [**customized format built upon a pattern**](../../studio/design-webforms/date-time-formats.md) (string value)
 
 Examples:
 
@@ -170,7 +170,7 @@ Examples:
 
 ```
 
-- or a [**customized format built upon a pattern**](../studio/design-webforms/date-time-formats.md) (string value)
+- or a [**customized format built upon a pattern**](../../studio/design-webforms/date-time-formats.md) (string value)
 
 Examples:
 
@@ -201,8 +201,8 @@ If *expression* is evaluated to null, the command returns the "null" string. Thi
 
 #### See also
 
-[`bool`](#bool)<br/>
-[`date`](#date)<br/>
-[`num`](#num)<br/>
-[`timeString`](#timestring)<br/>
-[`timeStamp`](#timestamp)
+[`bool`](bool)<br/>
+[`date`](date)<br/>
+[`num`](num)<br/>
+[`timeString`](timeString.md)<br/>
+[`timeStamp`](timeStamp.md)

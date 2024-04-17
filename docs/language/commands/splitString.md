@@ -57,4 +57,4 @@ The *separator* parameter can be a multiple-character string:
 
 #### See also
 
-[`collection.join()`](#collection.join)<br/>
+[`collection.join()`](../CollectionClass#join)<br/>

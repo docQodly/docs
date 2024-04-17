@@ -36,4 +36,4 @@ The following example illustrates how `round` works with different arguments:
 
 #### See also
 
-[`trunc`](#trunc)
+[`trunc`](trunc.md)

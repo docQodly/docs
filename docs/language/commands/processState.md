@@ -32,4 +32,4 @@ This command can return one of the values provided by the following constants:
 
 #### See also
 
-[`ProcessProperties`](#processproperties)
+[`ProcessProperties`](ProcessProperties.md)

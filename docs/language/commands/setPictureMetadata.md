@@ -33,4 +33,4 @@ When all the metadata are handled via a DOM element reference, the tags are stor
 
 #### See also
 
-[`getPictureMetadata`](#getpicturemetadata)
+[`getPictureMetadata`](getPictureMetadata.md)

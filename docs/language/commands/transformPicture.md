@@ -27,4 +27,4 @@ The source picture is modified directly after execution of the command. Note tha
 
 #### See also
 
-[`combinePictures`](#combinepictures)
+[`combinePictures`](combinePictures.md)

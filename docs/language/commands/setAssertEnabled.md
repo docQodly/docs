@@ -20,7 +20,7 @@ title: setAssertEnabled
 
 The `setAssertEnabled` command <!-- REF #_command_.setAssertEnabled.Summary -->can be used to disable or re-enable any assertions inserted into the Qodly code of the application<!-- END REF -->.
 
-For more information about assertions, please refer to the description of the [`assert`](#assert) command.
+For more information about assertions, please refer to the description of the [`assert`](assert.md) command.
 
 By default, assertions added in the program are enabled. This command is useful when you want to disable them since their evaluation can sometimes be costly in terms of execution time and you may also want them to be hidden from the final user of the application. Typically, the `setAssertEnabled` command could be used in the in order to enable or disable assertions according to whether the application is in "Test" mode or in "Production" mode.
 
@@ -39,5 +39,5 @@ Disabling assertions:
 
 #### See also
 
-[`.assert`](#assert)<br/>
-[`getAssertEnabled`](#getassertenabled)
+[`.assert`](assert.md)<br/>
+[`getAssertEnabled`](getAssertEnabled.md)

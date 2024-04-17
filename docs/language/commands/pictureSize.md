@@ -21,4 +21,4 @@ title: pictureSize
 
 #### See also
 
-[`pictureProperties`](#pictureproperties)
+[`pictureProperties`](pictureProperties.md)

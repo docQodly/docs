@@ -28,4 +28,4 @@ The *hOffset*, *vOffset*, and *mode* parameters return the horizontal and vertic
 
 #### See also
 
-[`pictureSize`](#picturesize)
+[`pictureSize`](pictureSize.md)

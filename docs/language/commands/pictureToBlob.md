@@ -37,4 +37,4 @@ You want to convert an image from a proprietary format to GIF format. You can us
 
 #### See also
 
-[`blobToPicture`](#blobtopicture)
+[`blobToPicture`](blobToPicture.md)

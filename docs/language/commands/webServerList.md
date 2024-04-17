@@ -24,11 +24,11 @@ All available Web servers are returned by the `webServerList` command, whether t
 
 :::note 
 
-The default Web server object is automatically loaded by Qodly at startup. On the other hand, each component Web server that you want to use must be instantiated using the [`webServer`](#webserver) command. 
+The default Web server object is automatically loaded by Qodly at startup. On the other hand, each component Web server that you want to use must be instantiated using the [`webServer`](webServer.md) command. 
 
 :::
 
-You can use the *name* property of the Web server object to identify the database or component to which each Web server object in the list is attached. For a detailed description of the Web server object, please refer to the [`webServer`](#webserver) command.
+You can use the *name* property of the Web server object to identify the database or component to which each Web server object in the list is attached. For a detailed description of the Web server object, please refer to the [`webServer`](webServer.md) command.
 
 #### Example
 

@@ -23,4 +23,4 @@ This name may have been set automatically based on the original name of the pict
 
 #### See also
 
-[`getPictureFileName`](#getpicturefilename)
+[`getPictureFileName`](getPictureFileName.md)

@@ -20,7 +20,7 @@ title: time
 
 The `time` command <!-- REF #_command_.time.Summary -->returns a time expression equivalent to the time specified in the *timeString* or *timeValue* parameter<!-- END REF -->.
 
-Pass in the *timeString* parameter a string containing a time expressed in one of the standard time formats (for more information, refer to the description of the [`string`](string.md#string) command).
+Pass in the *timeString* parameter a string containing a time expressed in one of the standard time formats (for more information, refer to the description of the [`string`](string.md) command).
 
 Or, you can pass in the *timeValue* parameter a number that represents the number of seconds elapsed since 00:00:00.
 
@@ -45,4 +45,7 @@ You can express any numerical value as a time:
 
 #### See also
 
-[`bool`](#../boolean#bool)<br/>[`string`](./string#string)<br/>[`timeString`](#timestring)<br/>[`timestamp`](#timestamp)
+[`bool`](bool.md)<br/>
+[`string`](string.md)<br/>
+[`timeString`](timeString.md)<br/>
+[`timestamp`](timestamp.md)

@@ -22,7 +22,7 @@ Each time returned by `timestamp` is expressed according to the [ISO 8601 standa
 
 :::note
 
-This function is not suitable for timing purposes; you should use [`milliseconds`](#milliseconds) when you want to measure elapsed time.
+This function is not suitable for timing purposes; you should use [`milliseconds`](milliseconds.md) when you want to measure elapsed time.
 
 :::
 
@@ -48,6 +48,6 @@ Result:
 
 #### See also
 
-[`milliseconds`](#milliseconds)<br/>
-[`string`](string.md#string)<br/>
-[`time`](#time)
+[`milliseconds`](milliseconds.md)<br/>
+[`string`](string.md)<br/>
+[`time`](time.md)

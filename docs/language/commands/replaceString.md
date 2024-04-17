@@ -73,6 +73,6 @@ The following example illustrates the use of the * parameter in the case of a di
 
 #### See also
 
-[`changeString`](#changestring)<br/>
-[`deleteString`](#deletestring)<br/>
-[`insertString`](#insertstring)
+[`changeString`](changeString.md)<br/>
+[`deleteString`](deleteString.md)<br/>
+[`insertString`](insertString.md)

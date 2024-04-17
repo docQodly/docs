@@ -56,4 +56,5 @@ result2 = result2+"/rTheir names are: "+ages.extract("key").join("-")
 
 #### See also
 
-[objectKeys](#objectkeys)<br/>[objectValues](#objectvalues)
+[objectKeys](objectKeys.md)<br/>
+[objectValues](objectValues.md)

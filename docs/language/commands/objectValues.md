@@ -42,4 +42,5 @@ The order of values within the returned collection follows the definition order 
 
 #### See also
 
-[objectEntries](#objectentries)<br/>[objectKeys](#objectkeys)
+[objectEntries](objectEntries.md)<br/>
+[objectKeys](objectKeys.md)

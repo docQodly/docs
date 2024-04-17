@@ -23,7 +23,7 @@ By default, if you omit the *property* parameter, the command checks whether the
 
 :::note
 
-An object can be **defined** but **empty**. To find out if an object is undefined or empty, use the [`objectIsEmpty`](#objectisempty) command.
+An object can be **defined** but **empty**. To find out if an object is undefined or empty, use the [`objectIsEmpty`](objectIsEmpty.md) command.
 
 :::
 
@@ -61,4 +61,4 @@ This test is equivalent to:
 
 #### See also
 
-[objectIsEmpty](#objectisempty)
+[objectIsEmpty](objectIsEmpty.md)

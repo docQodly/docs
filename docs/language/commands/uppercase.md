@@ -32,8 +32,8 @@ This example compares the results obtained according to whether or not the * par
 
 #### Example 2
 
-See the example for [`lowercase`](#lowercase).
+See the example for [`lowercase`](lowercase.md).
 
 #### See also
 
-[`lowercase`](#lowercase)
+[`lowercase`](lowercase.md)
