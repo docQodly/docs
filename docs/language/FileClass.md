@@ -19,12 +19,6 @@ created = file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create
 `File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
 
 
-### Commands
-
-||
-|---|
-|[<!-- INCLUDE #_command_.file.Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.file.Summary -->|
-
 ### Functions and properties
 
 ||
@@ -56,29 +50,6 @@ created = file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create
 |[<!-- INCLUDE #FileClass.setText().Syntax -->](#settext)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FileClass.setText().Summary -->|
 |[<!-- INCLUDE #document.size.Syntax -->](#size)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #document.size.Summary -->|
 
-
-## file
-
-
-<!-- REF #_command_.file.Syntax -->**file** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
-
-
-<!-- REF #_command_.file.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|path|string|->|File path|
-|*||->|* to return file of host database|
-|Result|4D.File|<-|New file object|<!-- END REF -->
-
-#### Description
-
-The `file` command <!-- REF #_command_.file.Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. 
-
-In the *path* parameter, pass a [filesystem path string](basics/lang-pathnames.md) (e.g., "/DATA/myfile.txt").
-
-Qodly expects a path expressed with the POSIX syntax. 
-
-If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
 
 
@@ -255,6 +226,7 @@ You want to delete a specific file in the project folder:
 The `.moveTo()` function <!-- REF #FileClass.moveTo().Summary -->moves or renames the `file` object into the specified *destinationFolder*<!-- END REF -->.
 
 The *destinationFolder* must exist on disk, otherwise an error is generated.  
+
 
 By default, the file retains its name when moved. if you want to rename the moved file, pass the new full name in the *newName* parameter. The new name must comply with naming rules (e.g., it must not contain characters such as ":", "/", etc.), otherwise an error is returned.
 

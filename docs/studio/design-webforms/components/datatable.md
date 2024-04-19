@@ -46,6 +46,16 @@ Enhance the **DataTable** component to align with your application's requirement
 	</Column.Item>
 </Column.List>
 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+        <ul>
+            <li><strong>Show Borders</strong>: Enable or disable the display of line and column borders within the DataTable.</li>
+        </ul>
+	</Column.Item>
+	<Column.Item width="35%">
+         <img alt="explorer" src={require('./img/dataTable_ShowBorders.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 - **Columns Area**: The columns area is where developers can manage the columns within the DataTable. It provides options for adding, moving, or removing columns to customize the structure of the table.
 

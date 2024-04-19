@@ -7,7 +7,7 @@ title: Shared objects and collections
 
 Shared objects and shared collections can be stored in standard `object` and `collection` type [variables](lang-variables.md), but must be instantiated using specific commands:
 
-- to create a shared object, use the [`newSharedObject`](../object.md#newsharedobject) command,
+- to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command,
 - to create a shared collection, use the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command.
 
 :::note
@@ -18,9 +18,9 @@ Shared objects and collections can be set as properties of standard (not shared)
 
 In order to modify a shared object/collection, the **use...end** structure must be called. Reading a shared object/collection value does not require **use...end**.
 
-To know if an object or a collection is shared, use the [`objectIsShared`](../object.md#objectisshared) command. 
+To know if an object or a collection is shared, use the [`objectIsShared`](..commands/objectIsShared.md) command.
 
-A unique, global catalog returned by the [`storage`](../object.md#storage) command is always available throughout the project, and can be used to store all shared objects and collections. 
+A unique, global catalog returned by the [`storage`](../commands/storage.md) command is always available throughout the project, and can be used to store all shared objects and collections.
 
 ## Using shared objects or collections
 
@@ -48,13 +48,13 @@ Assigning shared objects/collections to properties or elements of other shared o
 
 - Calling `use` on a shared object/collection belonging to a group locks properties/elements of all shared objects/collections of the group and increments its locking counter. Calling `end` decrements the locking counter of the group and when the counter is at 0, all the linked shared objects/collections are unlocked.
 - A shared object/collection can only belong to one shared group. An error is returned if you try to set an already grouped shared object/collection to a different group.
-- Grouped shared objects/collections cannot be ungrouped. Once included in a shared group, a shared object/collection is linked permanently to that group during the whole session. Even if all references of an object/collection are removed from the parent object/collection, they will remain linked. 
+- Grouped shared objects/collections cannot be ungrouped. Once included in a shared group, a shared object/collection is linked permanently to that group during the whole session. Even if all references of an object/collection are removed from the parent object/collection, they will remain linked.
 
 Please refer to example 2 for an illustration of shared group rules.
 
 :::info
 
-Shared groups are managed through an internal property named *locking identifier*. 
+Shared groups are managed through an internal property named *locking identifier*.
 
 :::
 
@@ -67,15 +67,15 @@ However, it is necessary to read a shared object/collection within `use...end` w
 
 ### Duplication
 
-Calling [`objectCopy`](../object.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
+Calling [`objectCopy`](../commands/objectCopy.md) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
 
 ### Storage
 
-**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../object.md#storage) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
+**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../commands/storage.md) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
 
 Note that, unlike standard shared objects, the **storage** object does not create a shared group when shared objects/collections are added as its properties. This exception allows the **storage** object to be used without locking all connected shared objects or collections.
 
-For more information, refer to the [`storage` command description](../object.md#storage).
+For more information, refer to the [`storage` command description](../commands/storage.md).
 
 ## use...end
 
@@ -94,13 +94,13 @@ Shared objects and shared collections are designed to allow communication betwee
 - Once the **use** line is successfully executed, all *Shared_object_or_Shared_collection* properties/elements are locked for all other process in write access until the corresponding `end` line is executed.
 - The *statement(s)* sequence can execute any modification on the *Shared_object_or_Shared_collection* properties/elements without risk of concurrent access.
 - If another shared object or collection is added as a property of the *Shared_object_or_Shared_collection* parameter, they become connected within the same shared group.
-- If another process tries to access one of the *Shared_object_or_Shared_collection* properties or connected properties while a **use...end** sequence is being executed, it is automatically put on hold and waits until the current sequence is terminated. 
+- If another process tries to access one of the *Shared_object_or_Shared_collection* properties or connected properties while a **use...end** sequence is being executed, it is automatically put on hold and waits until the current sequence is terminated.
 - The **end** line unlocks the *Shared_object_or_Shared_collection* properties and all objects of the same group.
-- Several **use...end** structures can be nested in the QodlyScript code. In the case of a group, each **use** increments the locking counter of the group and each **end** decrements it; all properties/elements will be released only when the last **end** call sets the locking counter to 0. 
+- Several **use...end** structures can be nested in the QodlyScript code. In the case of a group, each **use** increments the locking counter of the group and each **end** decrements it; all properties/elements will be released only when the last **end** call sets the locking counter to 0.
 
 :::note
 
-If a function of the [collection class](../CollectionClass.md) modifies a shared collection, an internal **use** is automatically called for this shared collection while the function is executed. 
+If a function of the [collection class](../CollectionClass.md) modifies a shared collection, an internal **use** is automatically called for this shared collection while the function is executed.
 
 :::
 
@@ -115,28 +115,26 @@ The following examples highlight specific rules when handling shared groups:
  use(ob1)
     ob1.a = ob2  //group 1 is created
  end
- 
+
  ob3 = newSharedObject
  ob4 = newSharedObject
  use(ob3)
     ob3.a = ob4  //group 2 is created
  end
- 
+
  use(ob1) //use an object from group 1
     ob1.b = ob4  //ERROR
   //ob4 already belongs to another group
   //assignment is not allowed
  end
- 
+
  use(ob3)
     ob3.a = null //remove any reference to ob4 from group 2
  end
- 
+
  use(ob1) //use an object from group 1
     ob1.b = ob4  //ERROR
   //ob4 still belongs to group 2
   //assignment is not allowed
  end
 ```
-
-

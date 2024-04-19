@@ -133,6 +133,12 @@ const config = {
           },
           {
             type: "doc",
+            docId: "customComponent/overview",
+            position: "left",
+            label: "Custom Components",
+          },
+          {
+            type: "doc",
             position: "left",
             docId: "faq/faq",
             label: "FAQ",
@@ -170,7 +176,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.2",
+                to: "notes/v1.0.0-beta.3",
               },
             ],
           },
