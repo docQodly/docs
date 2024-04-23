@@ -1,6 +1,6 @@
 ---
 id: states
-title: States
+title: Normal States
 ---
 
 import Column from '@site/src/components/Column'
@@ -75,7 +75,7 @@ This is the default mode of a webform. In the **Normal State**, the webform func
 The **Conditional State** activates when predefined conditions are met, unlike the Normal State. These conditions are based on criteria such as privilege levels or data source value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
 
 :::info
-For additional details on how to implement the Conditional State, please refer to the [Implementing Conditional States](#implementing-conditional-states) section.
+For additional details on how to implement the Conditional State, please refer to the [Conditional States](./conditionalStates.md) section.
 :::
 
 
@@ -284,77 +284,3 @@ During state editing, the `Preview in Studio` button allows developers to see re
 :::tip
 To prevent any confusion between the editable and base states, the `Preview` button is disabled while editing states.
 :::
-
-
-
-## Implementing Conditional States
-
-Creating a Conditional state involves adding conditions to a state. These conditions can be individual or multiple, which may be combined using AND or OR operators to establish complex conditions.
-
-:::tip
-
-Once the conditions are in place, the Conditional State behaves dynamically:
-
-- **Activation**: The state is applied to the webform immediately when the conditions' evaluation returns TRUE.
-
-- **Deactivation**: Conversely, the state is removed from the webform as soon as the conditions' evaluation returns FALSE.
-
-:::
-
-
-### Privilege-Based Conditional State
-
-This approach activates different states based on privileges. When a user session includes a certain privilege, it triggers a corresponding state, thereby aligning the webform with the user's access level.
-
-:::info Example
-In a corporate app, employees and managers see different webform settings, tailored to their respective privileges.
-:::
-
-To implement this rule on a state, follow the outlined steps below:
-
-⚠️ Detailed instructions to be added ⚠️ 
-
-
-### Data-Driven Conditional State
-
-In this approach, webform states change in response to alterations in data source values. This creates context-aware adjustments in the webform, responding to real-time data dynamics.
-
-:::info Example
-In an e-commerce app, the checkout process is adjusted offering incentives like free shipping when the shopping cart reaches a designated value.
-:::
-
-To implement this rule on a state, follow the outlined steps below:
-
-⚠️ Detailed instructions to be added ⚠️ 
-
-<!--
-Each time a datasource value used in an Conditional state rule changes, the rule is evaluated to TRUE or FALSE
-
-conditions employ comparators specific to data types, such as:
-
-  - **Strings:** Comparators like EQUAL, DIFFERENT, CONTAINS, STARTSWITH, IN, ISNULL, and REGEX.
-
-  - **Numbers, Dates, Duration:** Utilizes GREATER THAN, LOWER THAN, BETWEEN, ISNULL, and their variants.
-
-  - **Boolean:** Options include ISTRUE, ISFALSE, ISNULL, and EQUALS.
--->
-
-:::tip
-Conditions are re-evaluated automatically when data source values change.
-:::
-
-
-### Dependency on Parent Webform's State
-
-Webforms within Webform loaders react dynamically to the state of their parent webform, ensuring that changes in the parent webform directly affect the behavior of nested webforms. This interaction leads to more integrated and contextually aware applications, where changes in one section can appropriately influence related areas.
-
-For instance, in a webform loader, a particular state, "childState", is applied only when its parent webform achieves a specific state, "parentState". 
-
-:::info Example
-In a healthcare app, relevant patient history is displayed during active consultations, adjusting content based on the broader context of the patient's current engagement with the clinic.
-:::
-
-To implement this rule on a state, follow the outlined steps below:
-
-⚠️ Detailed instructions to be added ⚠️ 
-
