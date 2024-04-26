@@ -14,6 +14,8 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 ||
 |---|
 |[<!-- INCLUDE #WebFormClass.componentName.Syntax -->](#componentname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.componentName.Summary -->|
+|[<!-- INCLUDE #WebFormClass.disableState().Syntax -->](#disablestate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.disableState().Summary -->|
+|[<!-- INCLUDE #WebFormClass.enableState().Syntax -->](#enablestate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.enableState().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setError().Syntax -->](#seterror)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setError().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setMessage().Syntax -->](#setmessage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setMessage().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setWarning().Syntax -->](#setwarning)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setWarning().Summary -->|
@@ -49,6 +51,59 @@ component = myForm.myImage //returns the myImage component of the page
 While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate page components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
 
 :::
+
+
+### .disableState()
+
+<!-- REF #WebFormClass.disableState().Syntax -->
+**.disableState**( *state* : string)<!-- END REF -->
+
+<!-- REF #WebFormClass.disableState().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|state|string|->|Name of state to disable from the web form|
+<!-- END REF -->
+
+#### Description
+
+The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->removes *state* from the state stack currently rendered on the web form<!-- END REF -->.
+
+This function does nothing if:
+- the *state* is currently not enabled in the web form,
+- the *state* does not exist for the web form.
+
+If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
+
+For more information on web form states, please refer to the [States](XXX) section.
+
+
+
+
+### .enableState()
+
+<!-- REF #WebFormClass.enableState().Syntax -->
+**.enableState**( *state* : string)<!-- END REF -->
+
+<!-- REF #WebFormClass.enableState().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|state|string|->|Name of state to enable on the web form|
+<!-- END REF -->
+
+#### Description
+
+The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->adds *state* to the state stack currently rendered on the web form<!-- END REF -->.
+
+This function does nothing if:
+- the *state* has already been enabled on the web form,
+- the *state* does not exist for the web form.
+
+If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
+
+For more information on web form states, please refer to the [States](XXX) section.
+
+
+
 
 ### .setError()
 
