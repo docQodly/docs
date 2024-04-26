@@ -21,13 +21,6 @@ curfolder = folder("/PACKAGE/JohnSmith")
 `folder` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
 
 
-### Commands
-
-||
-|---|
-|[<!-- INCLUDE #_command_.folder.Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.folder.Summary -->|
-
-
 ### Functions and properties
 
 ||
@@ -57,29 +50,6 @@ curfolder = folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #FolderClass.moveTo().Syntax -->](#moveto)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.moveTo().Summary -->|
 |[<!-- INCLUDE #FolderClass.rename().Syntax -->](#rename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.rename().Summary -->|
 
-
-## folder
-
-
-<!-- REF #_command_.folder.Syntax -->**folder** ( *path* : string { , * } ) : 4D.Folder<!-- END REF -->
-
-
-<!-- REF #_command_.folder.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|path|string|->|folder path|
-|*||->|* to return folder of host database|
-|Result|4D.Folder|<-|New folder object|<!-- END REF -->
-
-#### Description
-
-The `folder` command <!-- REF #_command_.folder.Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. 
-
-In the *path* parameter, pass a [folder filesystem string](basics/lang-pathnames.md) (e.g., "/DATA").
-
-Qodly expects a path expressed with the POSIX syntax. 
-
-If the command is called from a component, pass the optional `*` parameter to get the path of the host database. Otherwise, if you omit the `*` parameter, a null object is always returned.  
 
 
 ## 4D.Folder.new()

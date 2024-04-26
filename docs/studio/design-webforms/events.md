@@ -233,28 +233,14 @@ In the preview section, various capabilities are available when actions are boun
 
 ## Binding Standard Actions to Events
 
+Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar.
+
 ### Datasources
 
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar. After binding a standard action with an event, follow these steps:
-	</Column.Item>
-	<Column.Item width="40%">
-		<img src={require('./img/contextualPanel_addStandardActionEvent.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
+After binding a standard action with an event, follow these steps:
 
 
-1. <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <strong>Select Type & Datasource</strong>: Initiate by choosing the "Datasource" option and identifying the specific Datasource for the intended standard action.
-	</Column.Item>
-	<Column.Item width="40%">
-		<img src={require('./img/standardAction_datasource.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-2. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the datasource:
+1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the datasource:
 
     | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
     |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -297,22 +283,16 @@ In the preview section, various capabilities are available when actions are boun
 2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
 
     <Column.List align="center" justifyContent="between">
-        <Column.Item width="55%">
+        <Column.Item width="50%">
             <ul>
                 <li>Provide simple UI feedback on a <code>Save</code>, <code>Reload</code>, or <code>Drop</code> standard action on an entity.</li><br/>
                 <li>Provide simple UI feedback on a <code>Reload</code>, <code>Order by</code>, or <code>Query</code> standard action on an EntitySelection.</li>
             </ul>
         </Column.Item>
-        <Column.Item width="40%">
+        <Column.Item width="45%">
             <img src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
-
-### States
-
-<!-- to be done -->
-
-
 
 ## Binding Navigation Actions to Events
 
