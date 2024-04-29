@@ -12,13 +12,13 @@ title: Folder
 The following example creates a "JohnSmith" folder object:
 
 ```qs
-var curfolder : 4D.Folder 
+var curfolder : 4D.Folder
 curfolder = folder("/PACKAGE/JohnSmith")
 ```
 
 ### Pathnames
 
-`folder` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
+`folder` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page.
 
 
 ### Functions and properties
@@ -182,7 +182,7 @@ When `kDeleteWithContents` is passed:
 
 * The folder, along with all of its contents, is deleted.
 **Warning**: Even when this folder and/or its contents are locked or set to read-only, if the current user has suitable access rights, the folder (and contents) is still deleted.
-* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and error -45 (The file is locked or the pathname is not correct) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the [`lastErrors`](debug.md#lasterrors) command to retrieve the name and path of the offending file.
+* If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and error -45 (The file is locked or the pathname is not correct) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the [`lastErrors`](commands/lastErrors.md) command to retrieve the name and path of the offending file.
 * If the folder does not exist, the command does nothing and no error is returned.
 
 <!-- END REF -->

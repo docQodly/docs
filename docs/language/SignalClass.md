@@ -7,7 +7,7 @@ Signals are tools provided by the QodlyScript language to manage interactions an
 
 :::info
 
-[Semaphores](process.md#semaphore) can also be used to manage interactions. Semaphores allow you to make sure that two or more processes do not modify the same resource (file, record...) at the same time. Only the process that sets the semaphore can remove it.
+[Semaphores](commands/semaphore.md) can also be used to manage interactions. Semaphores allow you to make sure that two or more processes do not modify the same resource (file, record...) at the same time. Only the process that sets the semaphore can remove it.
 
 :::
 
@@ -31,7 +31,7 @@ Signal objects are created with the [newSignal](#newsignal) command.
 
 ### Working with signals
 
-In QodlyScript, you create a new signal object by calling the [`newSignal`](#newsignal) command. Once created, this signal must be passed as a parameter to the [`callWorker`](process.md#callworker) command so that it can modify it when it has finished the task you want to wait for.
+In QodlyScript, you create a new signal object by calling the [`newSignal`](#newsignal) command. Once created, this signal must be passed as a parameter to the [`callWorker`](commands/callWorker.md) command so that it can modify it when it has finished the task you want to wait for.
 
 - `signal.wait()` must be called from the worker that needs another worker to finish a task in order to continue.
 - `signal.trigger()` must be called from the worker that finished its execution in order to release all others.

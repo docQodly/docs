@@ -18,7 +18,7 @@ Shared objects and collections can be set as properties of standard (not shared)
 
 In order to modify a shared object/collection, the **use...end** structure must be called. Reading a shared object/collection value does not require **use...end**.
 
-To know if an object or a collection is shared, use the [`objectIsShared`](..commands/objectIsShared.md) command.
+To know if an object or a collection is shared, use the [`objectIsShared`](../commands/objectIsShared.md) command.
 
 A unique, global catalog returned by the [`storage`](../commands/storage.md) command is always available throughout the project, and can be used to store all shared objects and collections.
 
