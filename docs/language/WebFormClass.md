@@ -66,7 +66,7 @@ While `myForm` may not display typical object properties when examined in the de
 
 #### Description
 
-The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->removes *state* from the state stack currently rendered on the web form<!-- END REF -->.
+The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->disables the rendering of the *state* in the current web form<!-- END REF -->.
 
 This function does nothing if:
 - the *state* is currently not enabled in the web form,
@@ -74,7 +74,7 @@ This function does nothing if:
 
 If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on web form states, please refer to the [States](XXX) section.
+For more information on web form states, please refer to the [States](../studio/design-webforms/states.md) section.
 
 
 
@@ -92,7 +92,7 @@ For more information on web form states, please refer to the [States](XXX) secti
 
 #### Description
 
-The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->adds *state* to the state stack currently rendered on the web form<!-- END REF -->.
+The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->enables the rendering of the *state* in the current web form<!-- END REF -->.
 
 This function does nothing if:
 - the *state* has already been enabled on the web form,
@@ -100,7 +100,7 @@ This function does nothing if:
 
 If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on web form states, please refer to the [States](XXX) section.
+For more information on web form states, please refer to the [States](../studio/design-webforms/states.md) section.
 
 
 
