@@ -64,17 +64,17 @@ The objective is to display/hide a help text when the user hovers over the compo
 
 ![alt-text](img/web-event-2.png)
 
-This is done by attaching `onmouseenter` and `onmouseleave` events to a **Text input** component that displays the information stored in a **Text** component (displaying "This is the help"). 
+This is done by attaching `onmouseenter` and `onmouseleave` events to a **Text input** component that displays the information stored in a **Text** component (displaying "This is the help").
 
 ![alt-text](img/web-event-1.png)
 
-In this scenario: 
+In this scenario:
 
 * The Text input component has `orderNumber` as Server side reference.
 	![alt-text](img/web-event-3.png)
 * The Text component has `orderNumber` as Server side reference.
 	![alt-text](img/web-event-4.png)
-* The exposed function `help()` is attached to both the `onmouseenter` and `onmouseleave` events and contains the following code: 
+* The exposed function `help()` is attached to both the `onmouseenter` and `onmouseleave` events and contains the following code:
 
 ```qs
 exposed function help()
@@ -87,13 +87,13 @@ myForm = webForm
 event = webEvent
 componentRef = event.caller
 
-switch 
-: (event.eventType == "onmouseenter")  // event is onmouseenter 
+switch
+: (event.eventType == "onmouseenter")  // event is onmouseenter
 	myForm["helpOn_"+componentRef].show()  // show the help on "orderNumber" by showing  
-	// the text component with reference "helpOn_orderNumber" 
-: (event.eventType == "onmouseleave")  // event is onmouseleave 
+	// the text component with reference "helpOn_orderNumber"
+: (event.eventType == "onmouseleave")  // event is onmouseleave
  	myForm["helpOn_"+componentRef].hide()  // hide the help on orderNumber
-end 
+end
 
 ```
 
@@ -121,7 +121,7 @@ The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebF
 
 :::info
 
-Keep in mind that a `4D.WebForm` object  is a **proxy object**, and not a direct reference to the web form object itself. As a consequence for example, the `4D.WebForm` object does not expose all web form properties in the Debugger. 
+Keep in mind that a `4D.WebForm` object  is a **proxy object**, and not a direct reference to the web form object itself. As a consequence for example, the `4D.WebForm` object does not expose all web form properties in the Debugger.
 
 :::
 
@@ -161,6 +161,72 @@ While `myForm` may not display typical object properties when examined in the de
 
 :::
 
+<<<<<<< Updated upstream
+=======
+
+### .disableState()
+
+<!-- REF #WebFormClass.disableState().Syntax -->
+**.disableState**( *state* : string)<!-- END REF -->
+
+<!-- REF #WebFormClass.disableState().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|state|string|->|Name of state to disable from the webform|
+<!-- END REF -->
+
+#### Description
+
+The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->disables the rendering of the *state* in the current webform<!-- END REF -->.
+
+This function does nothing if:
+- the *state* is currently not enabled in the webform,
+- the *state* does not exist for the webform.
+
+If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
+
+For more information on webform states, please refer to the [States](../studio/design-webforms/states.md) section.
+
+
+
+
+### .enableState()
+
+<!-- REF #WebFormClass.enableState().Syntax -->
+**.enableState**( *state* : string)<!-- END REF -->
+
+<!-- REF #WebFormClass.enableState().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|state|string|->|Name of state to enable on the webform|
+<!-- END REF -->
+
+#### Description
+
+The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->enables the rendering of the *state* in the current webform<!-- END REF -->.
+
+This function does nothing if:
+- the *state* has already been enabled on the webform,
+- the *state* does not exist for the webform.
+
+If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
+
+For more information on webform states, please refer to the [States](../studio/design-webforms/states.md) section.
+
+
+#### Example
+
+You enable a specific state named "wrongCredentials" in case of error in your login page:
+
+```qodly
+function authenticationError()
+	if (session.info.type#"remote")
+		webForm.enableState("wrongCredentials")
+	end
+```
+
+
+>>>>>>> Stashed changes
 ### .setError()
 
 <!-- REF #WebFormClass.setError().Syntax -->
@@ -179,10 +245,10 @@ The `.setError()` function  <!-- REF #WebFormClass.setError().Summary -->sends *
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "error".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myError()
 
 webForm.setError("My error message")
@@ -217,10 +283,10 @@ The `.setMessage()` function  <!-- REF #WebFormClass.setMessage().Summary -->sen
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "message".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myMessage()
 
 webForm.setMessage("My information message")
@@ -250,10 +316,10 @@ The `.setWarning()` function  <!-- REF #WebFormClass.setWarning().Summary -->sen
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "warning".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myWarning()
 
 webForm.setWarning("My warning message")
