@@ -1,4 +1,4 @@
-use...end---
+---
 id: lang-classes
 title: Classes
 ---
