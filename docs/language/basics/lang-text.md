@@ -156,7 +156,7 @@ QodlyScript uses the ICU library for comparing strings (using `<>==  != ` operat
 
 ## String functions
 
-QodlyScript provides several functions such as [`replaceString`](../string.md#replaceString) or [`substring`](../string.md#substring) to handle string values. For more information, see the [**String**](../string.md) chapter.
+QodlyScript provides several functions such as [`replaceString`](../commands/replaceString.md) or [`substring`](../commands/substring.md) to handle string values. 
 
 
 ## Character Reference Symbols  

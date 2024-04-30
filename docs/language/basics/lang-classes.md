@@ -359,6 +359,7 @@ constructor(firstname : string, lastname : string)
  this.firstName = firstname
  this.lastName = lastname
 
+
 function get fullName() -> fullName : string
  fullName = this.firstName+" "+this.lastName
 
@@ -737,7 +738,7 @@ vMessage = param+" "+this.firstName+" "+this.lastName
 
 You can create **shared classes**. A shared class is a user class that instantiates a [shared object](lang-shared.md) when the [`new()`](../ClassClass.md#new) function is called on the class. A shared class can only create shared objects.
 
-Shared classes also support **shared functions** that can be called without [use...end`](lang-shared.md#useend) structures.
+Shared classes also support **shared functions** that can be called without [`use...end`](lang-shared.md#useend) structures.
 
 The [`.isShared`](../ClassClass.md#isshared) property of Class objects allows to know if the class is shared.
 
