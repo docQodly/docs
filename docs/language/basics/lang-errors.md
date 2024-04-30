@@ -201,7 +201,7 @@ Unlike the `try(expression)` keyword that evaluates a single-line expression, th
 
 The formal syntax of the `try...catch...end` structure is:
 
-```4d
+```qs
 
 try 
 	statement(s) // Code to evaluate
@@ -242,7 +242,7 @@ If an [error-handling method](#installing-an-error-handling-method) is installed
 
 Combining transactions and `try...catch...end` structures allows writing secured code for critical features. 
 
-```qodly
+```qs
 function createInvoice(customer : cs.customerEntity, items : collection, invoiceRef : string) : cs.invoiceEntity
 	var newInvoice : cs.invoiceEntity
 	var newInvoiceLine : cs.invoiceLineEntity
