@@ -5,47 +5,50 @@ title: Settings
 
 The Settings panel allows you to customize the Qodly Studio interface for the current user and the current application. 
 
-To open the Settings panel, click on the **Settings** button from the Explorer or the toolbar:
+To open the Settings panel, click on the **Settings** button <img src={require('./img/settings-button.png').default} style={{borderRadius: '6px', width: '10%'}} /> from the Explorer or the toolbar:
  
-![settings](img/settings-button.png)
+The panel includes two main sections:
 
-The following pages are available:
+- **User Settings**: Interface customizations.
+- **Application Settings**: Application configurations.
 
-- **User**: settings related to the user interface
-- **Application**: settings related to the web application
+Navigate by selecting labels in the top left area of the panel:
 
-You select a page by clicking its label in the top left area of the panel:
-
-![settings selector](img/settings-user.png)
+<img src={require('./img/settings-user.png').default} style={{borderRadius: '6px'}} />
 
 
+## User Settings
 
-## User
-
-This page contains settings related to the Qodly Studio user interface.
+Adjustments for Qodly Studio's user interface.
 
 ### Show Renderer Pop Over
 
-Displays or not a pop over when the [renderer](rendering.md) and Qodly Studio use different URL schemes.
+Toggle the pop-up for different URL schemes in the [renderer](rendering.md) and Qodly Studio.
+
+### Show Unsaved Files Pop Over
+
+Toggle the warning pop-up for unsaved webform changes when rendering, when you click on the [**Preview** button](rendering.md#preview-the-entire-site).
+
+<img src={require('./img/preview-pop.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
 ### Tooltip Behavior
 
-Defines how to display the [component tooltip](design-webforms/components/componentsBasics.md#tooltip) ![tooltip](img/tool-tip.png) when the mouse hovers a component area.
+Set [tooltip display on component hover](design-webforms/components/componentsBasics.md#tooltip) <img src={require('./img/tool-tip.png').default} style={{borderRadius: '6px', width: '10%'}} />. Options include show/hide after a timeout.
 
-- **Show after timeout**: The tooltip is displayed after a the defined timeout (and kept onscreen until the user moves the mouse). 
-- **Hide after timeout**: The tooltip is immediately displayed and hidden after a the defined timeout.
+- **Show after timeout**: The tooltip appears following a specified delay and remains visible until the mouse is moved.
+- **Hide after timeout**: The tooltip shows up instantly and then disappears after the set duration.
 
 ### Tooltip timeout (in seconds)
 
-Timeout for selected tooltip behavior.
+Duration before the tooltip behavior activates, in seconds.
 
 ### Enable Helper Tips
 
-Shows or hides the tips icons ![helper](img/helper-tip.png) in the webform editor.
+Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the webform editor.
 
 ### Activate Welcome Tour
 
-Enables or disables the display of the [Welcome tour dialog boxes](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) that introduce you to the main features of the Qodly Studio. 
+Turn on/off the [Welcome tour dialogs](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
 
 ### Activate tabs preview mode
 
@@ -53,29 +56,25 @@ Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which
 
 
 
-## Application
+## Application Settings
 
-This page contains settings related to your web application.
+Configure settings specific to your web application.
 
-![settings selector](img/settings-application.png)
+<img src={require('./img/settings-application.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
 
 ### Start Page
 
-Allows to select a webform to use as the start page of your application. 
+Enables selection of a webform to serve as the application’s start page. This chosen webform will automatically render in the following situations:
 
-The start page webform is automatically rendered when:
-
-- you click on the **Preview** button in the webform editor - the webform is rendered in a new tab.
-- you click on the **Preview URL** area in the Qodly Cloud dashboard of your application. 
-
-
+- When the **Preview** button is clicked in the webform editor, the webform opens in a new tab.
+- When the **Preview URL** area in the Qodly Cloud dashboard is clicked, the webform is displayed.
 
 ### Default Display Mode
 
-Allows to select the default mode for displaying multiple components in your webforms:
+Choose the default mode for displaying components in webforms:
 
-- **Neutral** (default): no specific margins are applied to components
-- **Airy**: automatically incorporate default margins between components, for a better design. 
+- **Neutral** (default): No extra margins.
+- **Airy**: Adds default margins for enhanced design.
 
-The display mode can also be selected at the webform level.
+The **Airy** mode can also be selected at the webform level.

@@ -10,6 +10,11 @@ import Column from '@site/src/components/Column'
 
 Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup.md#building).
 
+
+## Community's Custom Components
+
+The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for Qodly Studio page**](https://github.com/qodly/custom-components).
+
 ## Uploading Custom Component
 
 
@@ -75,7 +80,7 @@ Attempting to drop a file in a format other than ".zip" leaves the popup unaffec
         <img src={require('./img/customComponent_3.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
- 
+
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       After a successful installation, a page reload is necessary for the custom component to appear.
@@ -166,4 +171,3 @@ Simultaneously, a folder is created with a name corresponding to the unique ID o
 - **main.e029b478.js.LICENSE**: Licensing information for the JavaScript file "main.e029b478". It includes details about the license under which the code is distributed.
 
 - **manifest**: The "manifest" file includes important metadata about the custom component
-         

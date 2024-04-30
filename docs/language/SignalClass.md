@@ -7,7 +7,7 @@ Signals are tools provided by the QodlyScript language to manage interactions an
 
 :::info
 
-[Semaphores](process.md#semaphore) can also be used to manage interactions. Semaphores allow you to make sure that two or more processes do not modify the same resource (file, record...) at the same time. Only the process that sets the semaphore can remove it.
+[Semaphores](commands/semaphore.md) can also be used to manage interactions. Semaphores allow you to make sure that two or more processes do not modify the same resource (file, record...) at the same time. Only the process that sets the semaphore can remove it.
 
 :::
 
@@ -31,7 +31,7 @@ Signal objects are created with the [newSignal](#newsignal) command.
 
 ### Working with signals
 
-In QodlyScript, you create a new signal object by calling the [`newSignal`](#newsignal) command. Once created, this signal must be passed as a parameter to the [`callWorker`](process.md#callworker) command so that it can modify it when it has finished the task you want to wait for.
+In QodlyScript, you create a new signal object by calling the [`newSignal`](#newsignal) command. Once created, this signal must be passed as a parameter to the [`callWorker`](commands/callWorker.md) command so that it can modify it when it has finished the task you want to wait for.
 
 - `signal.wait()` must be called from the worker that needs another worker to finish a task in order to continue.
 - `signal.trigger()` must be called from the worker that finished its execution in order to release all others.
@@ -78,92 +78,17 @@ Since a signal object is a [shared object](basics/lang-shared.md), you can use i
  signal.trigger()
 ```
 
-### Commands
-
-
-||
-|---|
-|[<!-- INCLUDE #_command_.newSignal.Syntax -->](#newsignal)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #_command_.newSignal.Summary -->|
-
 
 ### Functions and properties
 
 
 ||
 |---|
-|[<!-- INCLUDE #SignalClass.description.Syntax -->](#description)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #SignalClass.description.Summary -->|
-|[<!-- INCLUDE #SignalClass.signaled.Syntax -->](#signaled)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #SignalClass.signaled.Summary --> |
-|[<!-- INCLUDE #SignalClass.trigger().Syntax -->](#trigger)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #SignalClass.trigger().Summary --> |
-|[<!-- INCLUDE #SignalClass.wait().Syntax -->](#wait)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #SignalClass.wait().Summary --> |
+|[<!-- INCLUDE #SignalClass.description.Syntax -->](#description)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SignalClass.description.Summary -->|
+|[<!-- INCLUDE #SignalClass.signaled.Syntax -->](#signaled)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SignalClass.signaled.Summary --> |
+|[<!-- INCLUDE #SignalClass.trigger().Syntax -->](#trigger)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SignalClass.trigger().Summary --> |
+|[<!-- INCLUDE #SignalClass.wait().Syntax -->](#wait)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SignalClass.wait().Summary --> |
 
-
-
-
-<!-- REF SignalClass.newSignal.Desc -->
-## newSignal
-
-
-<!-- REF #_command_.newSignal.Syntax -->**newSignal** { ( *description* : string ) } : 4D.Signal<!-- END REF -->
-
-
-<!-- REF #_command_.newSignal.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|description|string|->|Description for the signal|
-|Result|4D.Signal|<-|Native object encapsulating the signal|<!-- END REF -->
-
-
-#### Description
-
-The `newSignal` command <!-- REF #_command_.newSignal.Summary -->creates a `4D.Signal` object<!-- END REF -->.
-
-A signal is a shared object which can be passed as parameter from a worker process to another worker process, so that:
-
-*	the called worker can update the signal object after specific processing has completed
-*	the calling worker can stop its execution and wait until the signal is updated, without consuming any CPU resources.
-
-Optionally, in the *description* parameter you can pass a custom text describing the signal. This text can also be defined after signal creation.
-
-Since the signal object is a shared object, it can also be used to maintain user properties, including the [`.description`](#description) property, by calling the `use...end` structure.
-
-
-**Returned value**
-
-A new [`4D.Signal` object](#signal-object).
-
-#### Example
-
-Here is a typical example of a worker that sets a signal:
-
-```4d
- var signal : 4D.Signal
- var info : string
- signal = newSignal("This is my first signal")
-
- callWorker("myworker","doSomething",signal)
- signaled = signal.wait(1) //wait for 1 second max
-
- if(signaled)
-    info = "myworker finished the work. Result: "+signal.myresult
- else
-    info = "myworker has not finished in less than 1s"
- end
-```
-
-
-The ***doSomething*** method could be like:
-
-```4d
- declare (signal : 4D.Signal)
-  //any processing
-  //...
- use(signal)
-    signal.myresult = processingResult  //return the result
- end
- signal.trigger() // The work is finished
-```
-
-<!-- END REF -->
 
 
 <!-- REF SignalClass.description.Desc -->

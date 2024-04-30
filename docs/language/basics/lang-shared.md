@@ -67,15 +67,15 @@ However, it is necessary to read a shared object/collection within `use...end` w
 
 ### Duplication
 
-Calling [`objectCopy`](../object.md#objectcopy) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
+Calling [`objectCopy`](../commands/objectCopy.md) with a shared object or with an object containing shared object(s) as properties is possible, but will return a standard (not shared) object including its contained objects (if any).
 
 ### Storage
 
-**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../object.md#storage) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
+**storage** is a unique shared object, automatically available on each project. This shared object is returned by the [`storage`](../commands/storage.md) command. You can use this object to reference all shared objects/collections defined during the session that you want to be available from any preemptive or standard processes.
 
 Note that, unlike standard shared objects, the **storage** object does not create a shared group when shared objects/collections are added as its properties. This exception allows the **storage** object to be used without locking all connected shared objects or collections.
 
-For more information, refer to the [`storage` command description](../object.md#storage).
+For more information, refer to the [`storage` command description](../commands/storage.md).
 
 ## use...end
 

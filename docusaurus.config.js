@@ -135,7 +135,7 @@ const config = {
             type: "doc",
             docId: "customComponent/overview",
             position: "left",
-            label: "React Components",
+            label: "Custom Components",
           },
           {
             type: "doc",
@@ -176,7 +176,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.2",
+                to: "notes/v1.0.0-beta.3",
               },
             ],
           },

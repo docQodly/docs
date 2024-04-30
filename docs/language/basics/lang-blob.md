@@ -5,7 +5,7 @@ title: BLOB
 
 A BLOB (Binary Large OBject) attribute, variable or expression is a contiguous series of bytes that can be treated as one whole object, or whose bytes can be addressed individually.
 
-A blob is loaded into memory in its entirety. A blob variable is held and exists in memory only. A blob attribute is loaded into memory from the disk, like the rest of the entity to which it belongs. Like other attribute types that can retain a large amount of data (such as the picture type), blob attributes are not duplicated in memory when you modify an entity. 
+A blob is loaded into memory in its entirety. A blob variable is held and exists in memory only. A blob attribute is loaded into memory from the disk, like the rest of the entity to which it belongs. Like other attribute types that can retain a large amount of data (such as the picture type), blob attributes are not duplicated in memory when you modify an entity.
 
 ## Blob Types
 
@@ -37,7 +37,7 @@ You cannot use operators on blobs.
 ## Checking if a variable holds a scalar blob or a `4D.Blob`
 
 Use the [`valueType`](lang-data-types.md#valuetype) command to determine if a value is of type Blob or Object.
-To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../object.md#instanceof):
+To check that an object is a blob object (`4D.Blob`), use [`instanceOf`](../commands/instanceOf.md):
 
 ```qs
 var myBlob: blob
@@ -123,7 +123,7 @@ Use square brackets `[]` to directly access a specific byte in a `4D.Blob`
 var myBlob : 4D.Blob
 var byte : integer
 convertFromText("Hello, World!", "UTF-8", myBlob)
-byte = myBlob[1] //101 
+byte = myBlob[1] //101
 ```
 
 Since a `4D.Blob` cannot be altered, you can read the bytes of a `4D.Blob` using this syntax, but not modify them.
