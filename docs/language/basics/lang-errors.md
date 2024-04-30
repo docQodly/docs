@@ -13,7 +13,7 @@ Error handling meets two main needs:
 Basically, there are two ways to handle errors in QodlyScript. You can:
 
 - [install an error-handling method](#installing-an-error-handling-method), or
-- use a [`try()` keyword](#tryexpression) before pieces of code that call a function, method, or expression that can throw an error.
+- use a [`try()` keyword](#tryexpression) or a [`try/catch` structure](#trycatchend) before pieces of code that call a function, method, or expression that can throw an error.
 
 
 ## Error or status
@@ -192,3 +192,81 @@ end
 
 ``` 
 
+## try...catch...end
+
+The `try...catch...end` structure allows you to test a block code in its actual execution context (including, in particular, variable values) and to intercept errors it throws so that the no Qodly error is displayed.
+
+Unlike the `try(expression)` keyword that evaluates a single-line expression, the `try...catch...end` structure allows you to evaluate any code block, from the most simple to the most complex, without requiring an error-handling method. In addition, the `catch` block can be used to handle the error in any custom way. 
+
+
+The formal syntax of the `try...catch...end` structure is:
+
+```4d
+
+try 
+	statement(s) // Code to evaluate
+catch
+	statement(s) // Code to execute in case of error
+end
+
+```
+
+The code placed between the `try` and the `catch` keywords is first executed, then the flow depends on the error(s) encountered during this execution. 
+
+- If no error is thrown, the code execution continues after the corresponding `end` keyword. The code placed between the `catch` and the `end` keywords is not executed.
+- If the code block execution throws a *non-deferred error*, the execution flow stops and executes the corresponding `catch` code block. 
+- If the code block execution throws a *deferred error*, the execution flow continues until the end of the `try` block and then executes the corresponding `catch` code block. 
+
+:::note
+
+If a *deferred* error is thrown outside of the `try` block, the code execution continues until the end of the method or function. 
+
+:::
+
+:::info
+
+For more information on *deferred* and *non-deferred* errors, please refer to the [`throw`](../commands/throw.md) command description.
+
+:::
+
+
+In the `catch` code block, you can handle the error(s) using standard error handling commands. The [`lastErrors`](../commands/lastErrors.md) command contains the last errors collection. You can [declare an error-handling method](#installing-an-error-handling-method) in this code block, in which case it is called in case of error.
+
+:::note
+
+If an [error-handling method](#installing-an-error-handling-method) is installed in the code placed between the `try` and the `catch` keywords, it is called in case of error. 
+
+:::
+
+### Example
+
+Combining transactions and `try...catch...end` structures allows writing secured code for critical features. 
+
+```qodly
+function createInvoice(customer : cs.customerEntity, items : collection, invoiceRef : string) : cs.invoiceEntity
+	var newInvoice : cs.invoiceEntity
+	var newInvoiceLine : cs.invoiceLineEntity
+	var item : object
+	ds.startTransaction()
+	try
+		newInvoice=this.new()
+		newInvoice.customer=customer
+		newInvoice.invoiceRef=invoiceRef
+		forEach (item, items)
+			newInvoiceLine=ds.invoiceLine.new()
+			newInvoiceLine.item=item.item
+			newInvoiceLine.amountitem.amount
+			newInvoiceLine.invoice=newInvoice
+			//call other specific functions to validate invoiceline
+			newInvoiceLine.save()
+		end 
+		newInvoice.save()
+		ds.validateTransaction()
+	catch
+		ds.cancelTransaction()
+		ds.logErrors(lastErrors)
+		newInvoice=null
+	end
+	return newInvoice
+
+```
