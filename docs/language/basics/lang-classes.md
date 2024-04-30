@@ -29,7 +29,7 @@ function sayHello() -> welcome : string
 
 In a method, creating a "Person":
 
-```
+```qs
 var person : cs.Person //object of Person class  
 var hello : string
 person = cs.Person.new("John","Doe")
@@ -131,9 +131,13 @@ When a class is [defined](#class-definition) in the project, it is loaded in the
 
 - [`name`](../ClassClass.md#name) string
 - [`superclass`](../ClassClass.md#superclass) object (null if none)
-- [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects.
+- [`new()`](../ClassClass.md#new) function, allowing to instantiate class objects
+- [`isShared`](../ClassClass.md#isshared) property, true if the class is shared
+- [`isSingleton`](../ClassClass.md#issingleton) property, true if the class defines a singleton
+- [`me`](../ClassClass.md#me) property, allowing to instantiate and access [singletons](#singleton-classes).
 
-In addition, a class object can reference a [`constructor`](#class-constructor) object (optional).
+
+In addition, a class object can reference a [`constructor`](#constructor) object (optional).
 
 A class object is a [shared object](lang-shared.md) and can therefore be accessed from different processes simultaneously.
 
@@ -184,13 +188,16 @@ Specific QodlyScript keywords can be used in class definitions:
 #### Syntax
 
 ```qs
-function <name>({parameterName : type, ...}){->parameterName : type}
+{shared} function <name>({parameterName : type, ...}){->parameterName : type}
 // code
 ```
 
 Class functions are specific properties of the class. They are objects of the [4D.Function](../FunctionClass.md) class.
 
-In the class definition file, function declarations use the `function` keyword, and the name of the function. The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
+In the class definition file, function declarations use the `function` keyword, and the name of the function. If the function is declared in a [shared class](#shared-classes), you can use the `shared` keyword so that the function could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
+
+
+The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
 :::tip
 
@@ -299,12 +306,12 @@ function getRectArea(width : integer, height : integer) : integer
 #### Syntax
 
 ```qs
-function get <name>()->result : type
+{shared} function get <name>()->result : type
 // code
 ```
 
 ```qs
-function set <name>(parameterName : type)
+{shared} function set <name>(parameterName : type)
 // code
 ```
 
@@ -322,6 +329,9 @@ In the class definition file, computed property declarations use the `function g
 `function get` returns a value of the property type and `function set` takes a parameter of the property type. Both arguments must comply with standard [function parameters](#parameters).
 
 When both functions are defined, the computed property is **read-write**. If only a `function get` is defined, the computed property is **read-only**. In this case, an error is returned if the code tries to modify the property. If only a `function set` is defined, QodlyScript returns *undefined* when the property is read.
+
+If the functions are declared in a [shared class](#shared-classes), you can use the `shared` keyword with them so that they could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
+
 
 The type of the computed property is defined by the `return` type declaration of the *getter*. It can be of any [valid property type](lang-object.md).
 
@@ -348,6 +358,7 @@ property firstName, lastName : string
 constructor(firstname : string, lastname : string)
  this.firstName = firstname
  this.lastName = lastname
+
 
 function get fullName() -> fullName : string
  fullName = this.firstName+" "+this.lastName
@@ -385,7 +396,7 @@ function get fullAddress()->result : object
 
 ```qs
 // Class: MyClass
-constructor({parameterName : type, ...})
+{shared} {singleton} constructor({parameterName : type, ...})
 // code
 ```
 
@@ -396,6 +407,11 @@ When you call the [`new()`](../ClassClass.md#new) function, the class constructo
 There can only be one constructor function in a class (otherwise an error is returned). A constructor can use the [`super`](#super) keyword to call the constructor of the super class.
 
 You can create and type instance properties inside the constructor (see example). Alternatively, if your instance properties' values do not depend on parameters passed to the constructor, you can define them using the [`property`](#property) keyword.
+
+Using the `shared` keyword creates a **shared class**, used to only instantiate shared objects. For more information, refer to the [Shared classes](#shared-classes) paragraph.
+
+Using the `singleton` keyword creates a **singleton**, used to create a single instance. For more information, refer to the [Singleton classes](#singleton-classes) paragraph.
+
 
 #### Example
 
@@ -490,6 +506,7 @@ Class extension must respect the following rules:
 - A user class cannot extend a user class from another project.
 - A user class cannot extend itself.
 - It is not possible to extend classes in a circular way (i.e. "a" extends "b" that extends "a").
+- It is not possible to define a [shared user class](#shared-classes) extended from a non-shared user class.
 
 Breaking such a rule is not detected by the code editor or the interpreter, only the `check syntax` will throw an error in this case.
 
@@ -524,7 +541,7 @@ constructor (side : integer)
 
 ### `super`
 
-<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any ) : object<!-- END REF -->
+<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any )<!-- END REF -->
 
 
 <!-- REF #_command_.super.Params -->
@@ -715,3 +732,155 @@ With the `Greeting` method:
 declare(param : string) -> vMessage : text
 vMessage = param+" "+this.firstName+" "+this.lastName
 ```
+
+
+## Shared classes
+
+You can create **shared classes**. A shared class is a user class that instantiates a [shared object](lang-shared.md) when the [`new()`](../ClassClass.md#new) function is called on the class. A shared class can only create shared objects.
+
+Shared classes also support **shared functions** that can be called without [`use...end`](lang-shared.md#useend) structures.
+
+The [`.isShared`](../ClassClass.md#isshared) property of Class objects allows to know if the class is shared.
+
+:::info
+
+- A class [inheriting](#extends-classname) from a non-shared class cannot be defined as shared.
+- Shared classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+
+:::
+
+
+### Creating a shared class
+
+To create a shared class, add the `shared` keyword before the [Class Constructor](#constructor). For example:
+
+```qs
+	//shared class: Person
+shared constructor ( firstname : string , lastname : string )
+ this.firstname:=firstname
+ this.lastname:=lastname
+
+```
+
+```qs
+//myMethod
+var person = cs.Person.new("John" , "Smith")
+objectIsShared (person) // true
+cs.Person.isShared //true
+```
+
+
+
+### Shared functions
+
+If a function defined inside a shared class modifies objects of the class, it should call [`use...end`](lang-shared.md#useend) structure to protect access to the shared objects. However, to simplify the code, you can define the function as **shared** so that it automatically triggers internal `use...end` when executed.
+
+To create a shared function, add the `shared` keyword before the [function](#function) keyword in a shared class. For example:
+
+```qs
+	//shared class Foo
+shared constructor ()
+  this.variable = 1
+
+shared function bar (value : integer)
+  this.variable = value //no need to call use/end
+```  
+
+:::note
+
+If the `shared` function keyword is used in a non-shared user class, it is ignored.
+
+:::
+
+
+## Singleton classes
+
+A **singleton class** is a user class that only produces a single instance. For more information on singletons, please see the [Wikipedia page about singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
+
+The class singleton is instantiated at the first call of the [`cs.<class>.me`](../ClassClass.md#me) property. The instantiated class singleton is then always returned when the [`me`](../ClassClass.md#me) property is used.
+
+If you need to instantiate a singleton with parameters, you can also call the [`new()`](../ClassClass.md#new) function. In this case, it is recommended to instantiate the singleton in some code executed at application startup.  
+
+The scope of a singleton instance can be the current process or all processes. A *process* singleton has a unique value for the process in which it is instantiated, while an *interprocess* singleton has a unique value for all processes of the application. Singletons are useful to define values that need to be available from anywhere in an application or process.
+
+
+The [`.isSingleton`](../ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
+
+
+:::info
+
+Singleton classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+
+:::
+
+
+
+
+### Creating a process singleton
+
+To create a process singleton class, add the `singleton` keyword before [`Class Constructor`](#constructor). For example:
+
+```qs
+	//class: ProcessTag
+singleton constructor()
+ this.tag = random
+```
+
+To use the process singleton:
+
+```qs
+	//in a process
+var mySingleton = cs.ProcessTag.me //First instantiation
+	//mySingleton.tag == 5425 for example  
+...  
+var myOtherSingleton = cs.ProcessTag.me
+	//myOtherSingleton.tag == 5425
+
+```
+
+```qs
+	//in another process
+var mySingleton = cs.ProcessTag.me //First instantiation
+	//mySingleton.tag == 14856 for example  
+...  
+var myOtherSingleton = cs.ProcessTag.me  
+	//myOtherSingleton.tag == 14856
+```
+
+
+### Creating an interprocess singleton
+
+To create an interprocess singleton, add the `shared singleton` keywords before the [Class Constructor](#constructor). For example:
+
+```4d
+//Class VehicleFactory
+
+property vehicleBuilt : integer
+
+shared singleton constructor()
+  this.vehicleBuilt = 0 //Number of vehicles built by the factory
+
+shared function buildVehicle (type : string) -> vehicle : cs.Vehicle
+
+  switch
+    : type == "car"
+      vehicle = cs.Car.new()
+    : type == "truck"
+      vehicle = cs.Truck.new()
+    : type == "sport car"
+      vehicle = cs.SportCar.new()
+    : type == "motorbike"
+      vehicle = cs.Motorbike.new()
+  else
+    vehicle = cs.Car.new()
+  end
+  this.vehicleBuilt+=1
+```
+
+You can the call the **cs.VehicleFactory** singleton to get a new vehicle from everywhere in your application with a single line:
+
+```qs
+vehicle = cs.VehicleFactory.me.buildVehicle("truck")
+```
+
+Since the *buildVehicle()* function modifies the **cs.VehicleFactory** (by incrementing `this.vehicleBuilt`) you need to add the `shared` keyword to it.

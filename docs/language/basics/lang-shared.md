@@ -7,8 +7,8 @@ title: Shared objects and collections
 
 Shared objects and shared collections can be stored in standard `object` and `collection` type [variables](lang-variables.md), but must be instantiated using specific commands:
 
-- to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command,
-- to create a shared collection, use the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command.
+- to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command or call the [`new()`](../ClassClass.md#new) function of a [shared class](lang-classes.md#shared-classes),
+- to create a shared collection, use the [`newSharedCollection`](../commands/newSharedCollection.md) command.
 
 :::note
 
