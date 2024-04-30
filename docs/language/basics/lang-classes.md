@@ -199,6 +199,12 @@ In the class definition file, function declarations use the `function` keyword, 
 
 The function name must be compliant with [property naming rules](lang-identifiers.md#object-properties).
 
+:::note
+
+Since properties and functions share the same namespace, using the same name for a property and a function is not allowed (an error is thrown in this case).
+
+:::
+
 :::tip
 
 Starting a function name with an underscore character ("_") will exclude the function from the autocompletion features in the code editor. For example, if you declare `function _myPrivateFunction` in `MyClass`, it will not be proposed in the code editor when you type in `"cs.MyClass. "`.
@@ -443,7 +449,19 @@ Declaring class properties enhances code editor suggestions, type-ahead features
 
 Properties are declared for new objects when you call the [`new()`](../ClassClass.md#new) function, however they are not automatically added to objects (they are only added when they are assigned a value).
 
+:::note
+
+A property is automatically added to the object when it is [inititalized in the declaration line](#initializing-the-property-in-the-declaration-line).
+
+:::
+
 Property names must be compliant with [property naming rules](lang-identifiers.md#object-properties).
+
+:::note
+
+Since properties and functions share the same namespace, using the same name for a property and a function is not allowed (an error is thrown in this case).
+
+:::
 
 
 The property type can be one of the following supported types:
@@ -470,6 +488,34 @@ The `property` keyword can only be used in class methods and outside any `functi
 
 :::
 
+#### Initializing the property in the declaration line
+
+When declaring a property, you have the flexibility to specify its data type and provide its value in one statement. The supported syntax is:
+
+`property <propertyName> { : <propertyType>} := <propertyvalue>`
+
+:::note
+
+When using this syntax, you cannot declare several properties in the declaration line.
+
+:::
+
+You can omit the type in the declaration line, in which case the type will be inferred when possible. For example:
+
+```qs
+// Class: MyClass
+
+property name : string := "Smith"
+property age : integer := 42
+
+property birthDate := !1988-09-29! //date is inferred
+property fuzzy //variant
+```
+
+When you initialize a property in its declaration line, it is added to the class object after its instantiation with the [`new()`](../ClassClass.md#new) function but before the constructor is called.
+
+If a class [extends](#extends-classname) another class, the properties of the parent class are instantiated before the properties of the child class.
+
 
 #### Example
 
@@ -478,14 +524,15 @@ The `property` keyword can only be used in class methods and outside any `functi
 
 property name : string
 property age : integer
+property color : string := "Blue"
 ```
 
 In a method:
 
 ```qs
 var o : cs.MyClass
-o = cs.MyClass.new() //o:{}
-o.name = "John" //o:{"name":"John"}
+o = cs.MyClass.new() //o:{"color" : "Blue"}
+o.name = "John" //o:{"color" : "Blue", "name":"John"}
 o.age = "Smith"  //error with check syntax
 ```
 
@@ -732,6 +779,7 @@ With the `Greeting` method:
 declare(param : string) -> vMessage : text
 vMessage = param+" "+this.firstName+" "+this.lastName
 ```
+
 
 
 ## Shared classes
