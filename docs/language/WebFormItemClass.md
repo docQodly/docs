@@ -26,6 +26,40 @@ For example, `WebFormObject.myImage` refers to the image component with `myImage
 
 
 
+### .addCSSClass()
+
+<!-- REF #WebFormItemClass.addCSSClass().Syntax -->
+**.addCSSClass**(*className* : string)<!-- END REF -->
+
+<!-- REF #WebFormItemClass.addCSSClass().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|className|string|->|Name of the CSS class to add to the component|
+<!-- END REF -->
+
+#### Description
+
+The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -->adds the class specified in *className* to the component<!-- END REF -->.
+
+
+
+### .removeCSSClass()
+
+
+<!-- REF #WebFormItemClass.removeCSSClass().Syntax -->
+**.removeCSSClass**(*className*: string)<!-- END REF -->
+
+<!-- REF #WebFormItemClass.removeCSSClass().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|className|string|->|Name of the CSS class to remove from the component|
+<!-- END REF -->
+
+#### Description
+
+The `.removeCSSClass()` function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
+
+
 
 ### .hide()
 
@@ -81,35 +115,5 @@ myComponent.hide() // Hide the component that has "myImage" as server reference
 The `.show()` function <!-- REF #WebFormItemClass.show().Summary -->makes the component visible<!-- END REF -->. If the component was already visible, the function does nothing.
 
 
-### .addCSSClass()
 
-<!-- REF #WebFormItemClass.addCSSClass().Syntax -->
-**.addCSSClass**(*className* : string)<!-- END REF -->
-
-<!-- REF #WebFormItemClass.addCSSClass().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to add to the component|
-<!-- END REF -->
-
-#### Description
-
-The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -->adds the class specified in *className* to the component<!-- END REF -->.
-
-
-### .removeCSSClass()
-
-
-<!-- REF #WebFormItemClass.removeCSSClass().Syntax -->
-**.removeCSSClass**(*className*: string)<!-- END REF -->
-
-<!-- REF #WebFormItemClass.removeCSSClass().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to remove from the component|
-<!-- END REF -->
-
-#### Description
-
-The `.removeCSSClass()` function <!-- REF #WebFormItemClass.removeCSSClass().Summary -->removes the class specified in *className* from the component<!-- END REF -->.
 

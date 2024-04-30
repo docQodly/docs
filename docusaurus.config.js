@@ -176,7 +176,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.2",
+                to: "notes/v1.0.0-beta.4",
               },
             ],
           },
