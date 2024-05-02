@@ -9,7 +9,7 @@ You can allow external clients to access your Qodly application and request your
 
 - **Endpoint URL**: All API requests must connect to the endpoint URL, provided by the Qodly Cloud Management Console (QCMC) for your application.
 
-- **API key**: A unique string that is passed on every request to the Qodly Cloud application. You can pass the key through a property in the [`openDatastore`](../language/DataStoreClass.md#opendatastore) command or by specifying it in every HTTP request header. An API key is bound to a [**role**](../studio/roles/rolesPrivilegesOverview.md), so that client requests can only execute actions corresponding to the role associated to the API key.  
+- **API key**: A unique string that is passed on every request to the Qodly Cloud application. The key must be passed in the header of every HTTP REST request. An API key is bound to a [**role**](../studio/roles/rolesPrivilegesOverview.md), so that client requests can only execute actions corresponding to the role associated to the API key.  
 
 
 
@@ -53,10 +53,10 @@ The following properties are available:
 - **Show api key** button: displays the API key in clear and show the **Paste** button.   
 - **Delete** button: deletes the API keys (a confirmation dialog is displayed).
 
-
 Copy and paste your keys and endpoint URL in a convenient location, such as Notepad.
 
 ## Using the API keys and endpoint
 
 - The endpoint URL must be used as target for initial connection requests to the server.
 - The API key must be sent in the header of all HTTP REST requests sent to the server for the session.
+
