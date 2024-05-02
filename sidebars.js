@@ -303,6 +303,7 @@ const sidebars = {
 						'language/commands/objectRemove',
 						'language/commands/objectValues',
 						'language/commands/onErrCall',
+						'language/commands/openDatastore',
 						'language/commands/pictureProperties',
 						'language/commands/pictureSize',
 						'language/commands/pictureToBlob',
