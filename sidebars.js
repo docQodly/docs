@@ -406,6 +406,11 @@ const sidebars = {
 		},
 		{
 			type: "doc",
+			id: "cloud/api-key",
+			label: "API Keys",
+		},
+		{
+			type: "doc",
 			id: "cloud/deployment",
 			label: "Release Management and Deployment",
 		},
