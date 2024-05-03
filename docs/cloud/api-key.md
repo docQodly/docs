@@ -18,7 +18,7 @@ You can allow external clients to access your Qodly application and request your
 To authenticate connections to your Qodly application resource, you'll need to generate API keys and get its endpoint.
 
 
-1. Select the environment for which you want to create a key and click on the **APIs** tab.
+1. Select the environment for which you want to create a key and click on the **API keys** tab.
 
 ![api-key](img/api1.png)
 
@@ -28,35 +28,34 @@ The API management table provides the API Endpoint for the environment and lists
 
 ![copy-endpoint](img/api3.png)
 
-3. To create a new key, click **Add API**. In the dialog box, enter the name of the key (e.g. "Accounting"), select a Profile and click **Submit**.
+3. To create a new key, click **New API key**. The following dialog box is displayed:
 
 ![create key](img/api2.png)
 
-:::note
+|Property|Description|
+|---|----|
+|**Description**|Used to identify the key. You can enter any string with allowed characters.|
+|**API Type**|<li>**Web**: Standard API type, suitable for most users. Access rights are controlled by the associated **Role**.</li><li>**Web Admin**: Specific API type, only required for Custom component designers. It gives extra rights to access application data and overrides any **Role**.</li> |
+|**Role**|Role assigned to the key access. The menu contains [roles defined in the application](../studio/roles/rolesPrivilegesOverview.md) (only Admin by default)|
+|**Expiration date**|Date on which the API will no longer be valid. An API key can be valid for up to one year.|
+|**Allowed hosts**|By default, an API key an be used from any host, i.e. any client machine. If you want to restrict its usage to one or more specific host(s), just click on the **Add IP address** button and enter the allowed host(s)|
 
-The API name is used to identify the key, you can enter any string with allowed characters.
+![API IP](img/api-ip.png)
 
-:::
+
+4. Configure your key and click **Submit** to generate the API key.
 
 The API key is then generated:
 
 ![API list](img/api4.png)
 
+The **Show api key** button ![show api](img/api-show.png) displays the API key in clear and reveals a **Copy** button, allowing you to copy the key.
+The **Delete** button deletes the API key (a confirmation dialog is displayed).
 
-The following properties are available:
 
-- **API Name**: Used to identify the key in the list
-- **Profile**: Role assigned to the key
-- **Expiration Date**: Date after which the key will automatically expire. You can set any key duration time.
-- **Allowed host**: By default, a key can be used by any host. You can limit allowed hosts in order to control how the key is used.
-- **API Key**: String of the API key (obfuscated by default). Click on the **Show api key** button ![API show](img/api-show.png) in order to be able to **copy** it.
-- **Show api key** button: displays the API key in clear and show the **Paste** button.   
-- **Delete** button: deletes the API keys (a confirmation dialog is displayed).
-
-Copy and paste your keys and endpoint URL in a convenient location, such as Notepad.
+5. Copy and paste your keys and endpoint URL in a convenient location, such as Notepad.
 
 ## Using the API keys and endpoint
 
 - The endpoint URL must be used as target for initial connection requests to the server.
-- The API key must be sent in the header of all HTTP REST requests sent to the server for the session.
-
+- The API key must be sent in the header of all HTTP REST requests sent to the server for the session. For more information, please refer to the REST API Reference.
