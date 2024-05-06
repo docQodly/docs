@@ -161,8 +161,6 @@ While `myForm` may not display typical object properties when examined in the de
 
 :::
 
-<<<<<<< Updated upstream
-=======
 
 ### .disableState()
 
@@ -226,7 +224,6 @@ function authenticationError()
 ```
 
 
->>>>>>> Stashed changes
 ### .setError()
 
 <!-- REF #WebFormClass.setError().Syntax -->

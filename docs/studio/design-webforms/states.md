@@ -79,7 +79,9 @@ For additional details on how to implement the Conditional State, please refer t
 :::
 
 
-## Creating a New State
+## Managing States 
+
+### Creating a New State
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -116,7 +118,7 @@ There is no restriction on the number of states that can be associated with a si
 :::
 
 
-## Editing a State
+### Editing a State
 
 Start editing a state by selecting it from the states panel, which then opens it on the canvas for customization. Notably, the `Editing stateName` tag will appear at the far right of the Contextual panel's header, indicating the current state under modification.
 
@@ -149,7 +151,7 @@ The editing process involves:
 - **Airy Mode Restrictions**: Once established in the base state, "Airy Mode" becomes disabled in subsequent states, ensuring its settings are not altered.
 
 
-## Removing a State
+### Removing a State
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -173,7 +175,7 @@ The editing process involves:
 Once a state is successfully deleted, it is automatically disassociated from any related standard actions it was previously involved in. This includes the removal of the state's tag from the states field.
 :::
 
-## Renaming a State
+### Renaming a State
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -195,6 +197,70 @@ Once a state is successfully deleted, it is automatically disassociated from any
 
 :::tip
 All references to the state in the events are automatically updated post-renaming, preserving the webform’s functional integrity.
+:::
+
+
+## Resetting State Changes
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    The <code>Reset</code> button allows users to revert any changes made to a component back to its original settings from the base state.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/stateReset1.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+Steps to Reset a Component:
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <ol>
+        <li><strong>Locate the Component</strong>: Find the component in the webform outline.</li><br/>
+        <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li><br/>
+        <li><strong>Confirm Reset</strong>: If prompted, confirm the action to ensure changes are reverted.</li>
+    </ol>
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/stateReset2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+## Setting the Default State
+
+In webform management, defining a `Default State` is critical for ensuring that the webform displays the most appropriate view when first accessed by a user.
+
+### What is a Default State?
+
+The `Default State` is the state that a webform will display upon initial load, before any user interaction or conditions are met. While the `Base State` contains all potential components and configurations, the `Default State` can be customized to meet specific initial visibility and behavior requirements.
+
+### How to Set a Default State:
+
+To designate a state as the default:
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <ol>
+        <li><strong>Locate the State</strong>: In the "States" panel, find the state you want to set as the default..</li><br/>
+        <li><strong>Set as Default Button</strong>: Next to the state's name, you will see a checkbox labeled "Set as default state". Check this box to set the state as the default.</li><br/>
+    </ol>
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/defaultState.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::tip Automatic Uncheck
+If another state is already set as the default, checking a new state will automatically uncheck the previous one. Only one state can be the default at any given time.
+:::
+
+### Base State vs. Default State
+
+The `Base State` should contain all components and configurations that the webform could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
+
+:::tip 
+If there are components that should not be visible until certain conditions are met (e.g., user input, data retrieved), setting a different state as the default instead of the base state can help in tailoring the initial user experience.
 :::
 
 
@@ -254,11 +320,8 @@ Additionally, if a state is initially "Normal" but later transitions to a "Condi
 
 In addition to the standard actions, webform object exposes several states related functions with error handling for "Conditional" states, like:
 
-- `addState`: Applies the differences from selected states to the current webform.
-- `removeState`: Removes the applied differences from the webform.
-- `clearState`: Returns the webform to its base state.
-- `getCurrentStates`: Returns a collection of state names currently applied to the webform.
-- `getStates`: Provides a list of all state names defined for the webform.
+- [`enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current webform.
+- [`disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the webform.
 
 :::info
 These functions are designed to target only "Normal" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
@@ -282,5 +345,5 @@ When a webform has multiple states applied, the most recently applied state will
 During state editing, the `Preview in Studio` button allows developers to see real-time changes, offering an immediate glimpse of how state modifications impact the webform. However, when it comes to `Rendering`, it defaults to displaying the base state. 
 
 :::tip
-To prevent any confusion between the editable and base states, the `Preview` button is disabled while editing states.
+To prevent any confusion between the editable and base states, the `Preview` button is disabled while editing states <img src={require('./img/PreviewDisabled.png').default} style={{borderRadius: '6px', width:'10%'}} />.
 :::
