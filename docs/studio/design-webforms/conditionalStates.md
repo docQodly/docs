@@ -7,36 +7,36 @@ import Column from '@site/src/components/Column'
 
 
 
-Conditional states empower webforms to dynamically adapt based on specified conditions, significantly enhancing interactivity and user-specific functionality.
 
+Conditional states enhance webforms by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
 
 ## Scope of Conditions
 
-Conditions are categorized into two types:
+Conditions within Qodly are classified into two types:
 
 ### Saved Conditions
 
-Saved Conditions are reusable conditions that can be applied across different states and are stored in the `Saved Conditions` area.
+Saved Conditions are reusable and can be applied across different states, stored within the `Saved Conditions` area for easy access and application.
 
 :::info
-For additional details, please refer to the [Saved Conditions](#saved-conditions-area) area.
+For more details, please refer to the [Saved Conditions](#saved-conditions-area) area.
 :::
 
 ### Local Conditions
 
-Local Conditions are specific to the currently selected state and can be customized to meet the state's unique logic requirements.
+Local Conditions are specific to the currently selected state and can be customized to meet unique logic requirements of that state.
 
 
 ## Conditions Interface
 
-The Conditions Interface is crucial for the visualization and management of the conditions that define the behavior of webform states. This interface is accessible through the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> situated adjacent to the `States` header. It provides users with a suite of features:
+Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of webform states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
 
 ### States Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    The States section is organized with tabs representing each available state, allowing for straightforward navigation and modification of the respective state conditions. The tab corresponding to the active state is highlighted, making it clear which state is currently being edited.
+	The States section is organized with tabs for each available state, allowing straightforward navigation and modification of state conditions. The tab for the currently active state is highlighted to clearly indicate which state is being edited.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/conditionsInterface_states.png').default} style={{borderRadius: '6px'}} />
@@ -47,7 +47,7 @@ The Conditions Interface is crucial for the visualization and management of the 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    Positioned directly below the States section, the Saved Conditions area is where users can craft and archive conditions, which can then be applied and re-utilized across various states within the webform. 
+	This area allows users to create, store, and manage conditions that can be reused across various states within the webform.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/conditionsInterface_savedConditions.png').default} style={{borderRadius: '6px'}} />
@@ -61,76 +61,15 @@ The tab representing the condition currently being modified is distinctly highli
 Adding a new saved condition involves clicking the <img alt="explorer" src={require('./img/addCssClass.png').default} style={{borderRadius: '6px', width:'3%'}} /> button, which initializes it with a generic name.
 
 
-### Schema Editor
+### Schema Area
 
-At the heart of the Conditions Interface is the Schema Section, which presents a flowchart-like visualization crucial for the conceptualization and manipulation of conditions. This allows users to:
+The Schema Editor is introduced here as a central tool for visualizing and editing the logical connections between conditions. For detailed information on utilizing this tool, see the [Schema Editor](#conditions-schema-editor) section.
 
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="40%">
-    <strong>Access Default Options</strong>: In the absence of any conditions for the selected state, the Schema Section defaults to displaying an <code>Add condition</code> button.
-	</Column.Item>
-	<Column.Item width="55%">
-		<img src={require('./img/conditionsInterface_schema.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="40%">
-    <strong>Drag and Drop Saved Conditions</strong>: To incorporate a saved condition into the current state's logic structure, users can simply click and drag it from the Saved Conditions Section. 
-	</Column.Item>
-	<Column.Item width="55%">
-		<img src={require('./img/conditionsInterface_schema0.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-:::tip
-To add the `Saved condition` at a specific hierarchical level, drag it over to the ellipsis <img alt="explorer" src={require('./img/conditionsInterface_schema1.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon representing the condition's side menu. You must drop the saved condition directly onto this icon for it to assimilate at the desired level within the existing logical structure. If dropped elsewhere, the addition will not take effect. 
-
-When multiple conditions are present, dropping it onto the connecting logical operator square <img alt="explorer" src={require('./img/conditionsInterface_schema2.png').default} style={{borderRadius: '6px', width:'3%'}} /> will integrate it as well.
-:::
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="40%">
-    <strong>Combine Conditions by Logical Operator</strong>: Merge conditions using visual connectors that represent logical operators within the schema. To stipulate that both conditions must be satisfied, connect them using the <code>&</code> operator symbol. Alternatively, to indicate that at least one of the conditions should be met, use the <code>|</code> operator. 
-	</Column.Item>
-	<Column.Item width="50%">
-		<img src={require('./img/conditionsInterface_schema3.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-
-- **Global Expand/Collapse**: Ability to expand or collapse all condition cards simultaneously to toggle between an overarching view of all conditions and a more detailed, individual configuration view with ease.. It can be accessed using the <img alt="explorer" src={require('./img/conditionsInterface_schema4.png').default} style={{borderRadius: '6px', width:'3%'}} /> button located within the header section <img alt="explorer" src={require('./img/conditionsInterface_schema7.png').default} style={{borderRadius: '6px', width:'25%'}} />.
-
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="45%">
-    <strong>Condition Configuration</strong>: Each condition card within the schema serves as an access point for configuring the specific properties of a condition. When a card is collapsed, it displays essential information at a glance, such as the condition's type and the data source it is connected to. 
-	</Column.Item>
-	<Column.Item width="50%">
-		<img src={require('./img/conditionsInterface_schema6.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-  For additional details, please refer to the [X](#) area.
-
-
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="45%">
-    <strong>Condition Actions</strong>: Every condition card is equipped with a set of actions, facilitating modifications like renaming or deleting the condition. These actions are designed to enhance the ease of condition management directly from the schema view. 
-	</Column.Item>
-	<Column.Item width="50%">
-		<img src={require('./img/conditionsInterface_schema5.png').default} style={{borderRadius: '6px', width:'53%'}} />
-	</Column.Item>
-</Column.List>
-
-  For additional details, please refer to the [Conditions Actions](#managing-conditions) section.
-
-### JSON Editor
+### JSON Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
-    The JSON Editor is for advanced users who need to directly manipulate the condition's properties through JSON code. This section of the interface is especially useful for complex configurations or batch edits.
+	The JSON Editor is an advanced tool for those who need to directly manipulate the condition's properties in JSON format. For more details on how to use this feature, refer to the <a href="#conditions-json-editor">JSON Editor</a> section.
 	</Column.Item>
 	<Column.Item width="55%">
 		<img src={require('./img/conditionsInterface_json.png').default} style={{borderRadius: '6px'}} />
@@ -140,7 +79,90 @@ When multiple conditions are present, dropping it onto the connecting logical op
 
 
 
-## Managing Conditions
+## Conditions Schema Editor
+
+At the core of the Conditions Interface is the Schema Editor, a dynamic visualization tool essential for mapping out and manipulating condition logic in a flowchart-like format. This interface allows for intuitive operations such as:
+
+### Default Options
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+	If no conditions are pre-set for the selected state, the Schema Editor provides an <code>Add condition</code> button by default, facilitating quick starts in condition creation.
+	</Column.Item>
+	<Column.Item width="55%">
+		<img src={require('./img/conditionsInterface_schema.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+### Saved Condition Integration
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+	Users can integrate a <code>Saved Condition</code> into the current state's logic by clicking and dragging from the Saved Conditions Section directly into the schema.
+	</Column.Item>
+	<Column.Item width="55%">
+		<img src={require('./img/conditionsInterface_schema0.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::tip
+
+Ensure proper placement by dragging the `Saved condition` to the ellipsis icon <img alt="explorer" src={require('./img/conditionsInterface_schema1.png').default} style={{borderRadius: '6px', width:'3%'}} />, which represents the condition's specific level within the schema. Dropping it elsewhere might not integrate the condition correctly.
+
+When multiple conditions are present, dropping it onto the connecting logical operator square <img alt="explorer" src={require('./img/conditionsInterface_schema2.png').default} style={{borderRadius: '6px', width:'3%'}} /> will integrate it as well.
+:::
+
+
+### Logical Condition Combination
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+	Link conditions with visual connectors representing logical operators. Use the <code>&</code> operator for combined fulfillment, or the <code>|</code> operator for partial fulfillment.
+	</Column.Item>
+	<Column.Item width="50%">
+		<img src={require('./img/conditionsInterface_schema3.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+### Comprehensive View Controls
+
+Facilitate a switch between detailed and overview modes by using the global expand/collapse button <img alt="explorer" src={require('./img/conditionsInterface_schema4.png').default} style={{borderRadius: '6px', width:'3%'}} />, accessible via the designated button in the schema header <img alt="explorer" src={require('./img/conditionsInterface_schema7.png').default} style={{borderRadius: '6px', width:'25%'}} />.
+
+
+### Condition Configuration
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+    Each condition card within the schema serves as an access point for configuring the specific properties of a condition. When a card is collapsed, it displays essential information at a glance, such as the condition's type and the data source it is connected to. 
+	</Column.Item>
+	<Column.Item width="50%">
+		<img src={require('./img/conditionsInterface_schema6.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+  For additional details, please refer to the [X](#) area.
+
+
+### Condition Actions
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+    Every condition card is equipped with a set of actions, facilitating modifications like renaming or deleting the condition. 
+	</Column.Item>
+	<Column.Item width="50%">
+		<img src={require('./img/conditionsInterface_schema5.png').default} style={{borderRadius: '6px', width:'53%'}} />
+	</Column.Item>
+</Column.List>
+
+  For additional details, please refer to the [Conditions Actions](#managing-conditions) section.
+
+
+
+## Conditions JSON Editor
+
+
+## Condition Management
 
 ### Add Condition (Local)
 
@@ -233,3 +255,7 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 		<img alt="explorer" src={require('./img/removeCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+
+
+

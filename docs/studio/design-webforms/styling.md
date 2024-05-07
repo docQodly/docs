@@ -25,7 +25,7 @@ The Styles Library provides three distinct types of CSS classes:
 	</Column.Item>
 </Column.List>
 
-## Managing CSS Classes 
+## CSS Classes Management
 
 ### Adding a CSS Class
 

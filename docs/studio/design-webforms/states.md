@@ -79,7 +79,7 @@ For additional details on how to implement the Conditional State, please refer t
 :::
 
 
-## Managing States 
+## States Management
 
 ### Creating a New State
 
@@ -218,7 +218,7 @@ Steps to Reset a Component:
     <ol>
         <li><strong>Locate the Component</strong>: Find the component in the webform outline.</li><br/>
         <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li><br/>
-        <li><strong>Confirm Reset</strong>: If prompted, confirm the action to ensure changes are reverted.</li>
+        <li><strong>Confirm Reset</strong>: When prompted, confirm the action to ensure changes are reverted.</li>
     </ol>
 	</Column.Item>
 	<Column.Item width="40%">
@@ -226,7 +226,7 @@ Steps to Reset a Component:
 	</Column.Item>
 </Column.List>
 
-## Setting the Default State
+## Setting a Default State
 
 In webform management, defining a `Default State` is critical for ensuring that the webform displays the most appropriate view when first accessed by a user.
 
@@ -234,10 +234,9 @@ In webform management, defining a `Default State` is critical for ensuring that 
 
 The `Default State` is the state that a webform will display upon initial load, before any user interaction or conditions are met. While the `Base State` contains all potential components and configurations, the `Default State` can be customized to meet specific initial visibility and behavior requirements.
 
-### How to Set a Default State:
+### Setting a Default State
 
 To designate a state as the default:
-
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">

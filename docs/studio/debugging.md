@@ -91,7 +91,7 @@ Breakpoints can have different statuses depending on the context, which are repr
 |<img alt="explorer" src={require('./img/debug11.png').default} style={{borderRadius: '6px'}}/>|Unverified breakpoint|The breakpoint is saved, but no debug session is currently active. It will not pause code execution until a debug session is started.| 
 
 
-### Managing Breakpoints
+### Breakpoints Management
 
 Managing breakpoints is crucial for a streamlined debugging process. By using a specific button <img alt="explorer" src={require('./img/managingBreakpoints1.png').default} style={{borderRadius: '6px', width: '3%'}} /> within the code editor, you can perform various actions to organize your breakpoints:
 
