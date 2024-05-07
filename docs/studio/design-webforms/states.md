@@ -200,7 +200,7 @@ All references to the state in the events are automatically updated post-renamin
 :::
 
 
-## Resetting State Changes
+### Resetting State Changes
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">

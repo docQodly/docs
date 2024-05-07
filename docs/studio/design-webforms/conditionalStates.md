@@ -20,7 +20,7 @@ Conditions are categorized into two types:
 Saved Conditions are reusable conditions that can be applied across different states and are stored in the `Saved Conditions` area.
 
 :::info
-For additional details, please refer to the [Saved Conditions](#saved-conditions) area.
+For additional details, please refer to the [Saved Conditions](#saved-conditions-area) area.
 :::
 
 ### Local Conditions
@@ -124,7 +124,7 @@ When multiple conditions are present, dropping it onto the connecting logical op
 	</Column.Item>
 </Column.List>
 
-  For additional details, please refer to the [X](#) area.
+  For additional details, please refer to the [Conditions Actions](#managing-conditions) section.
 
 ### JSON Editor
 
@@ -140,32 +140,96 @@ When multiple conditions are present, dropping it onto the connecting logical op
 
 
 
-## Conditions Actions
+## Managing Conditions
 
-### Add Local Condition
+### Add Condition (Local)
 
-Local Conditions are intimately tied to the currently active state and allow for state-specific conditions customization. To add a Local Condition to your state:
+Local Conditions are specific to the currently active state and allow for state-specific conditions customization. To add a Local Condition to your state:
 
-- **From the Schema Window**: If no conditions are currently set up, simply click the "Add condition" button in the schema window to insert a new condition at the base level of the state’s logic hierarchy.
+- **From the Schema Window**: If no conditions are currently set up, simply click the `Add condition` button in the schema window to insert a new condition at the base level of the state’s logic hierarchy.
   
-- **Using the Side Menu**: For contextual additions within a specific logic level, select the "Add condition" option from the side menu. This will introduce a new condition card at the same hierarchical level as the location where you invoked the command.
+- **Using the Side Menu**: For contextual additions within a specific logic level, select the `Add condition` option from the side menu. This will introduce a new condition card at the same hierarchical level as the location where you invoked the command.
 
-:::info
-For instance, in the visual example provided, if "Add condition" is selected from the side menu at the position of conditions "c1" and "c2," the new condition will be placed on the same level as these conditions. It ensures that your new condition is logically organized within the same group, maintaining the consistency and flow of the state's configuration.
-:::
+	:::info
 
+	<Column.List align="center" justifyContent="between">
+		<Column.Item width="70%">
+			For instance, in the visual example provided, if <code>Add condition</code> is selected from the side menu at the position of conditions <code>c1</code> and <code>c2</code>, the new condition will be placed on the same level as these conditions. 
+		</Column.Item>
+		<Column.Item width="25%">
+			<img src={require('./img/addLocalCondition1.png').default} style={{borderRadius: '6px'}} />
+		</Column.Item>
+	</Column.List>
 
-### Rename Condition
+	<Column.List align="center" justifyContent="between">
+		<Column.Item width="70%">
+			It ensures that your new condition is logically organized within the same group, maintaining the consistency and flow of the state's configuration.
+		</Column.Item>
+		<Column.Item width="25%">
+			<img src={require('./img/addLocalCondition2.png').default} style={{borderRadius: '6px'}} />
+		</Column.Item>
+	</Column.List>
 
-When a condition’s default name does not suffice, users can opt to rename it to better reflect its function within the webform. This is achieved through the "Rename condition" option, facilitating clearer identification and management of the various conditions.
+	:::
 
 ### Duplicate Condition
 
-Users can duplicate an existing condition using the "Duplicate condition" option. This option creates an exact copy of the selected condition, preserving all its configurations.
+The <code>Duplicate condition</code> option allows users to create an exact copy of an existing condition or groups of conditions, preserving all configurations.
+
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+		<img src={require('./img/duplicateCondition1.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/duplicateCondition2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+### Rename Condition
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="70%">
+		To better reflect a condition's role within the webform, the <code>Rename condition</code> option enables users to change its default name.
+		<br/><br/>
+		Alternatively, users can click on the <img alt="explorer" src={require('./img/state_edit.png').default} style={{borderRadius: '6px', width:'4%'}} /> button next to the condition's name to initiate renaming
+		<br/><br/><br/>
+		Upon initiating renaming, the condition name switches to an editable input field. 
+	</Column.Item>
+	<Column.Item width="25%">
+		<img src={require('./img/renameCondition.png').default} style={{borderRadius: '6px'}} />
+		<br/>
+		<img alt="explorer" src={require('./img/renameCondition2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+### Save Condition
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="70%">
+		Using the <code>Save condition</code> option, conditions or groups of conditions can be stored as saved conditions accessible in the <code>Saved States</code> area. 
+		<br/><br/><br/>
+		Upon saving, a prompt will appear requesting a name for the saved condition.
+	</Column.Item>
+	<Column.Item width="25%">
+		<img src={require('./img/saveCondition.png').default} style={{borderRadius: '6px'}} />
+		<br/>
+		<img alt="explorer" src={require('./img/saveCondition2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 ### Remove Condition
 
-If a condition is no longer needed or if a user wishes to declutter the schema, the "Remove condition" option can be utilized to delete the selected condition.
-
-
-
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="70%">
+		The <code>Remove condition</code> option is available for users needing to clear out unused or unwanted conditions from the schema. This tool helps declutter the configuration space by removing selected conditions or groups of conditions.
+		<br/><br/><br/>
+		Upon initiating deletion, a confirmation popup will appear, requiring user confirmation to proceed .
+	</Column.Item>
+	<Column.Item width="25%">
+		<img src={require('./img/removeCondition.png').default} style={{borderRadius: '6px'}} />
+		<br/>
+		<img alt="explorer" src={require('./img/removeCondition2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
