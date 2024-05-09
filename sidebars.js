@@ -206,7 +206,7 @@ const sidebars = {
 						'language/basics/lang-pathnames',
 					],
 				},
-        {
+				{
 					type: 'category',
 					label: 'Commands',
 					collapsible: true,
@@ -348,7 +348,7 @@ const sidebars = {
 
 					],
 				},
-        {
+				{
 					type: 'category',
 					label: 'Classes',
 					collapsible: true,
@@ -459,22 +459,8 @@ const sidebars = {
 	],
 	API: [
 		{
-			type: 'category',
-			label: 'API',
-			link: {
-				type: 'generated-index',
-				title: 'API',
-				description: 'QodlyScript REST API',
-				slug: '/category/API',
-				image: '/img/docusaurus.png',
-			},
-			items: [
-				{
-					type: 'doc',
-					id: 'api/overview-api',
-					label: "Overview"
-				},
-			],
+			type: 'doc',
+			id: 'api/overview',
 		},
 	],
 	ReleaseNotes: [

@@ -132,6 +132,12 @@ const config = {
             label: 'Architecture',
           },
           {
+            type: 'doc',
+            docId: 'api/overview',
+            position: 'left',
+            label: 'API',
+          },
+          {
             type: "doc",
             docId: "customComponent/overview",
             position: "left",
@@ -143,13 +149,6 @@ const config = {
             docId: "faq/faq",
             label: "FAQ",
           },
-          /*{
-              type: 'doc',
-              docId: '/category/API',
-              position: 'left',
-              label: 'API',
-            },
-          */
           /*
             {to: '/blog', label: 'Blog', position: 'left'},
             {
