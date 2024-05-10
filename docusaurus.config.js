@@ -135,7 +135,7 @@ const config = {
             type: 'doc',
             docId: 'api/overview',
             position: 'left',
-            label: 'API',
+            label: 'REST API',
           },
           {
             type: "doc",
