@@ -462,6 +462,16 @@ const sidebars = {
 			type: 'doc',
 			id: 'api/overview',
 		},
+		{
+			type: 'category',
+			label: 'Retrieving Server Information',
+			items: [
+				'api/$catalog',
+				'api/$info',
+				'api/$queryplan',
+				'api/$querypath'
+			],
+		},
 	],
 	ReleaseNotes: [
 		{
