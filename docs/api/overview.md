@@ -68,7 +68,7 @@ REST requests are structured to provide flexibility in accessing and manipulatin
 
 - Base URL followed by specific parameters: `http://{{APIEndpoint}}/rest/{{dataClass}}`
 
-- Common Operations: $filter, $attributes, $skip, $method=...
+- Common Operations: [$filter](./$filter), [$attributes](./$attributes), [$skip](./$skip), [$method](./$method)...
 
 ### REST Request Parameters
 
@@ -82,9 +82,9 @@ GET http://{{APIEndpoint}}/rest/Person/?$filter="lastName!=Jones"&$method=entity
 
 In the above example, parameters are used to specify conditions and settings for the API call:
 
-- **$filter:** Narrows the returned data based on specific criteria.
-- **$method:** Determines the type of operation to be performed.
-- **$timeout:** Sets a limit on the time the server should wait before aborting the request.
+- [**$filter**](./$filter): Narrows the returned data based on specific criteria.
+- [**$method**](./$method): Determines the type of operation to be performed.
+- [**$timeout**](./$timeout): Sets a limit on the time the server should wait before aborting the request.
 
 ### Handling Ambiguities
 
@@ -100,7 +100,7 @@ While GET methods are primarily used for retrieving data, POST methods can be em
 
 ### Formatting Return Data
 
-By default, REST APIs return data in JSON format. If an array format is preferred, the `$asArray` parameter can be used. This is particularly useful when integrating with frontend frameworks that may expect data in a specific format.
+By default, REST APIs return data in JSON format. If an array format is preferred, the [`$asArray`](./$asArray) parameter can be used. This is particularly useful when integrating with frontend frameworks that may expect data in a specific format.
 
 ### Server Responses
 

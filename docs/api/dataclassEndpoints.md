@@ -31,7 +31,7 @@ For detailed descriptions and usage of class functions, refer to the [Class Func
 
 #### Purpose
 
-This endpoint returns all entities within a `dataClass`, such as `Company`. By default, the system fetches the first 100 entities unless specified otherwise through query parameters like `$top` or `$limit`.
+This endpoint returns all entities within a `dataClass`, such as `Company`. By default, the system fetches the first 100 entities unless specified otherwise through query parameters like [`$top` or `$limit`](./$top$limit).
 
 #### Properties Returned
 
@@ -224,7 +224,7 @@ Attributes must be delimited by commas, e.g., `/Employee/Name,Department,Salary`
 
 ### Including Related Entities
 
-Beyond direct attributes, the REST API supports fetching related entity attributes using the `$attributes` parameter, which can streamline obtaining comprehensive entity details in a single request.
+Beyond direct attributes, the REST API supports fetching related entity attributes using the [`$attributes`](./$attributes) parameter, which can streamline obtaining comprehensive entity details in a single request.
 
 #### Example
 
