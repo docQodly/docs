@@ -62,47 +62,48 @@ Attributes can only be accessed via REST if their parent dataclass is also expos
 
 ## REST Requests
 
-### Basic REST Request Structure
+### Structure
 
 REST requests are structured to provide flexibility in accessing and manipulating data:
 
-- Base URL followed by specific parameters: `http://{{APIEndpoint}}/rest/{{dataClass}}`
+- Base URL followed by specific parameters: `{{APIEndpoint}}/rest/{{dataClass}}`
 
 - Common Operations: [$filter](./$filter), [$attributes](./$attributes), [$skip](./$skip), [$method](./$method)...
 
-### REST Request Parameters
+### Parameters
 
 REST request parameters follow a structured format, beginning with the base URL and appending query parameters to tailor the request. 
 
-Parameters start with a `?` symbol, followed by additional parameters separated by `&`. This structure is crucial for filtering and manipulating data accurately in API calls.
+Parameters start with a `?` symbol, followed by additional parameters separated by `&`:
 
 ```
-GET http://{{APIEndpoint}}/rest/Person/?$filter="lastName!=Jones"&$method=entityset&$timeout=600
+GET {{APIEndpoint}}/rest/Person/?$filter="lastName!=Jones"&$method=entityset&$timeout=600
 ```
 
-In the above example, parameters are used to specify conditions and settings for the API call:
+In the above example:
 
 - [**$filter**](./$filter): Narrows the returned data based on specific criteria.
 - [**$method**](./$method): Determines the type of operation to be performed.
 - [**$timeout**](./$timeout): Sets a limit on the time the server should wait before aborting the request.
 
+
 ### Handling Ambiguities
 
 To avoid ambiguities, particularly with string values, it is advisable to enclose parameters in quotes. For instance, if querying a last name that includes an apostrophe, you might specify it as `"lastName='O'Connor'"` to ensure the query is parsed correctly.
 
-### Modifying Data
+### Data Modifications
 
-While GET methods are primarily used for retrieving data, POST methods can be employed to add, update, or delete entities within a dataclass:
+While `GET` methods are primarily used for retrieving data, `POST` methods can be employed to add, update, or delete entities within a dataclass:
 
 - **POST** to create new entities.
 - **PUT** or **PATCH** to update existing entities.
 - **DELETE** to remove entities.
 
-### Formatting Return Data
+### Data Formatting
 
 By default, REST APIs return data in JSON format. If an array format is preferred, the [`$asArray`](./$asArray) parameter can be used. This is particularly useful when integrating with frontend frameworks that may expect data in a specific format.
 
-### Server Responses
+### Server Responses Codes
 
 Each REST request is met with a server response that includes a status code indicating the result of the request—ranging from successful operations to various errors that might have occurred during the process. This feedback is vital for error handling and ensuring robust API integration:
 

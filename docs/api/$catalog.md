@@ -78,7 +78,7 @@ Only the exposed dataclasses are shown in this list for your project's datastore
 How to Use:
 
 - **Method**: GET
-- **URL**: `http://{{APIEndpoint}}/rest/$catalog`
+- **URL**: `{{APIEndpoint}}/rest/$catalog`
 
 <img alt="explorer" src={require('./img/restCatalog.png').default} style={{borderRadius: '6px'}} />
 
@@ -141,7 +141,7 @@ For a detailed breakdown of individual dataclasses and their specific attributes
 How to Use:
 
 - **Method**: GET
-- **URL**: `http://{{APIEndpoint}}/rest/$catalog/$all`
+- **URL**: `{{APIEndpoint}}/rest/$catalog/$all`
 
 <img alt="explorer" src={require('./img/restAll.png').default} style={{borderRadius: '6px'}} />
 
@@ -278,7 +278,7 @@ Each attribute within a dataclass has properties that describe its configuration
 How to Use:
 
 - **Method**: GET
-- **URL**: `http://{{APIEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `http://{{APIEndpoint}}/rest/$catalog/Users`
+- **URL**: `{{APIEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `{{APIEndpoint}}/rest/$catalog/Users`
 
 <img alt="explorer" src={require('./img/restCatalogDataclass.png').default} style={{borderRadius: '6px'}} />
 
@@ -356,6 +356,4 @@ The response structure for the `$catalog/{{dataClass}}` endpoint looks something
     ]
 }
 ```
-
-## `$catalog/{{dataStoreClassFunction}}`
 
