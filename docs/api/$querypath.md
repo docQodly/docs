@@ -39,7 +39,7 @@ Detailed information about the steps involved in the query:
 |-----------|-------|----------------------------------------------------------|
 | [`steps`](#within-steps-array)     | Array | An array containing detailed steps of the query execution process. |
 
-### Within `steps` Array
+#### Within `steps` Array
 
 Each step within the query execution path is detailed:
 

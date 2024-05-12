@@ -465,11 +465,21 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Retrieving Server Information',
+			collapsed: false,
 			items: [
 				'api/$catalog',
 				'api/$info',
 				'api/$queryplan',
 				'api/$querypath'
+			],
+		},
+		{
+			type: 'category',
+			label: 'DataClass Operations',
+			collapsed: false,
+			items: [
+				'api/dataclassEndpoints',
+				'api/dataclassManipulation',
 			],
 		},
 	],

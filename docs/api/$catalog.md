@@ -11,7 +11,7 @@ title: $catalog
 The `$catalog` endpoint provides metadata about the dataclasses and attributes available in your Qodly application's datastore. This metadata facilitates the discovery of data structures and access points essential for client applications interacting with the API.
 
 
-## $catalog Endpoint Variants
+## `$catalog` Endpoint Variants
 
 The `$catalog` endpoint offers several variants to retrieve different levels of information based on your requirements:
 
@@ -51,7 +51,7 @@ The `methods` array provides details about specific functionalities that can be 
 | `allowedOnHTTPGET`  | Boolean | Specifies whether the method can be called via HTTP GET requests. |
 | `exposed`           | Boolean | Indicates if the method is exposed to the API. |
 
-## $catalog
+## `$catalog`
 
 ### Purpose
 
@@ -117,7 +117,7 @@ The response structure for the `$catalog` endpoint looks something like this in 
 
 
 
-## $catalog/$all
+## `$catalog/$all`
 
 ### Purpose
 
@@ -221,7 +221,7 @@ The response structure for the `$catalog/$all` endpoint looks something like thi
 ```
 
 
-## $catalog/{{dataClass}}
+## `$catalog/{{dataClass}}`
 
 ### Purpose
 
@@ -280,7 +280,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `http://{{APIEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `http://{{APIEndpoint}}/rest/$catalog/Users`
 
-<img alt="explorer" src={require('./img/restDataclass.png').default} style={{borderRadius: '6px'}} />
+<img alt="explorer" src={require('./img/restCatalogDataclass.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Sample Response
@@ -357,5 +357,5 @@ The response structure for the `$catalog/{{dataClass}}` endpoint looks something
 }
 ```
 
-## $catalog/{{dataStoreClassFunction}}
+## `$catalog/{{dataStoreClassFunction}}`
 
