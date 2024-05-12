@@ -6,7 +6,7 @@ title: $catalog
 # Accessing Dataclass Catalog
 
 
-## $catalog Endpoint Overview 
+## Overview 
 
 The `$catalog` endpoint is a key component of the Qodly REST API that provides metadata about the dataclasses and attributes available in your Qodly application's datastore. This metadata facilitates the discovery of data structures and access points essential for client applications interacting with the API.
 
