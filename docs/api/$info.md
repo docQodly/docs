@@ -8,31 +8,27 @@ title: $info
 
 ## Overview
 
-The `$info` endpoint is integral to the Qodly REST API, offering a comprehensive insights into the server's cache usage, active user sessions, and internal server metrics. This endpoint is instrumental for developers and administrators to monitor and manage the application's performance and data accessibility effectively.
+The `$info` endpoint offers comprehensive insights into the server's cache usage, active user sessions, and internal server metrics. This endpoint is instrumental for developers and administrators to monitor and manage the application's performance and data accessibility effectively.
 
 
-## Properties Provided
+## Properties Returned
 
-The `$info` endpoint returns a structured JSON response containing several key sections:
+### General Properties 
 
-- [**Cache Metrics**](#cache-metrics): Details about the server's cache size and utilization.
-- [**Entity Sets**](#entity-sets): Information on active entity selections stored within the server's cache.
-- [**Progress Information**](#progress-information): Operational progress indicators that may impact server performance.
-- [**User Sessions**](#user-sessions): Data on active user sessions, including session duration and expiration.
-- [**Memory Metrics**](#memory-metrics): Detailed memory usage statistics related to client and server processes.
+The `$info` endpoint returns structured information as outlined in the following table:
 
-
-### Cache Metrics
-
-Describes the overall cache allocation and usage:
-
-| Property      | Type   | Description                                  |
-|---------------|--------|----------------------------------------------|
+| Property            | Type          | Description                                                        |
+|---------------------|---------------|--------------------------------------------------------------------|
 | `cacheSize`   | Number | Total allocated cache size in bytes.         |
 | `usedCache`   | Number | Amount of cache currently used in bytes.     |
 | `entitySetCount` | Number | Number of entity selections currently stored.|
+| [`entitySet`](#entityset-details)       | Array        | Information on active entity selections stored within the server's cache.                |
+| [`ProgressInfo`](#progressinfo-details) | Array      | Operational progress indicators that may impact server performance.    |
+| [`sessionInfo`](#sessioninfo-details)   | Array         | Data on active user sessions, including session duration and expiration.           |
+| [`memMetrics`](#memmetrics-details)     | Array         | Detailed memory usage statistics related to client and server processes.           |
 
-### Entity Sets
+
+### `entitySet` Details
 
 The `entitySet` provides detailed information about each entity set stored in the cache:
 
@@ -45,7 +41,18 @@ The `entitySet` provides detailed information about each entity set stored in th
 | `refreshed`   | Date    | Timestamp when the entity set was last accessed or refreshed.           |
 | `expires`     | Date    | Expiry timestamp after which the entity set may be cleared from cache.  |
 
-### Progress Information
+
+Additionally, for creating or releasing an entity set from the cache:
+
+- **Creating an Entity Set**: Use `$method=entityset` to initiate a new entity selection within the cache, specifying the desired parameters for entity retrieval.
+
+- **Releasing an Entity Set**: To remove an entity set from the cache, employ `$method=release`, ensuring the specific set is targeted for clearance.
+
+:::info 
+The server automatically generates certain entity selections for internal optimizations. Therefore, the entity sets you manually create are part of a broader collection managed by the system.
+:::
+
+### `ProgressInfo` Details
 
 The `ProgressInfo` provides information about ongoing operations that may affect server performance:
 
@@ -56,7 +63,7 @@ The `ProgressInfo` provides information about ongoing operations that may affect
 | `Title`          | String  | Title or name of the operation, if applicable.                        |
 | `CanInterrupt`   | Boolean | Indicates whether the operation can be interrupted.                   |
 
-### User Sessions
+### `sessionInfo` Details
 
 The `sessionInfo` details each active user session to help monitor access and system usage:
 
@@ -66,7 +73,7 @@ The `sessionInfo` details each active user session to help monitor access and sy
 | `lifeTime`    | Number | Duration the session is set to remain active, in seconds. |
 | `expiration`  | Date   | Timestamp when the session is scheduled to expire.  |
 
-### Memory Metrics
+### `memMetrics` Details
 
 The `memMetrics` provides a detailed breakdown of memory usage across different server processes, particularly focusing on client interactions and REST API handlers:
 
@@ -103,6 +110,8 @@ How to Use:
 
 
 ## Sample Response
+
+The response structure for the `$info` endpoint looks something like this in practice:
 
 ```json
 {

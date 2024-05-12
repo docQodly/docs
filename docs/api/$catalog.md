@@ -8,7 +8,7 @@ title: $catalog
 
 ## Overview 
 
-The `$catalog` endpoint is a key component of the Qodly REST API that provides metadata about the dataclasses and attributes available in your Qodly application's datastore. This metadata facilitates the discovery of data structures and access points essential for client applications interacting with the API.
+The `$catalog` endpoint provides metadata about the dataclasses and attributes available in your Qodly application's datastore. This metadata facilitates the discovery of data structures and access points essential for client applications interacting with the API.
 
 
 ## $catalog Endpoint Variants
@@ -22,9 +22,11 @@ The `$catalog` endpoint offers several variants to retrieve different levels of 
 | [**$catalog/{{dataClass}}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
 | [**$catalog/{{dataStoreClassFunction}}**](#) | Executes a specific datastore class function if available.   |
 
-## Common Properties Returned
+## Properties Returned
 
-Each response from the $catalog endpoint variants includes some common properties:
+### Common Properties 
+
+Each response from the `$catalog` endpoint variants includes some common properties:
 
 | Key                  | Type            | Description                                                            |
 |----------------------|-----------------|------------------------------------------------------------------------|
@@ -36,7 +38,7 @@ Each response from the $catalog endpoint variants includes some common propertie
 | `methods`            | Array of Objects| Lists methods available for execution through the data store. For more details, please refer to the [Methods Array Details](#methods-array-details) section. |
 | `dataClasses`     | Array of Objects   | Lists dataclasses exposed through the API.                      |
 
-### `Methods` Array Details
+### `Methods` Array
 
 The `methods` array provides details about specific functionalities that can be executed through the REST API. Each method object includes the following attributes:
 
@@ -76,7 +78,7 @@ Only the exposed dataclasses are shown in this list for your project's datastore
 How to Use:
 
 - **Method**: GET
-- **URL**: `{{ApiEndpoint}}/rest/$catalog`
+- **URL**: `http://{{APIEndpoint}}/rest/$catalog`
 
 <img alt="explorer" src={require('./img/restCatalog.png').default} style={{borderRadius: '6px'}} />
 
@@ -139,7 +141,7 @@ For a detailed breakdown of individual dataclasses and their specific attributes
 How to Use:
 
 - **Method**: GET
-- **URL**: `{{ApiEndpoint}}/rest/$catalog/$all`
+- **URL**: `http://{{APIEndpoint}}/rest/$catalog/$all`
 
 <img alt="explorer" src={require('./img/restAll.png').default} style={{borderRadius: '6px'}} />
 
@@ -276,7 +278,7 @@ Each attribute within a dataclass has properties that describe its configuration
 How to Use:
 
 - **Method**: GET
-- **URL**: `{{ApiEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `{{ApiEndpoint}}/rest/$catalog/Users`
+- **URL**: `http://{{APIEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `http://{{APIEndpoint}}/rest/$catalog/Users`
 
 <img alt="explorer" src={require('./img/restDataclass.png').default} style={{borderRadius: '6px'}} />
 

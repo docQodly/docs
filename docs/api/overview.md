@@ -77,7 +77,7 @@ REST request parameters follow a structured format, beginning with the base URL 
 Parameters start with a `?` symbol, followed by additional parameters separated by `&`. This structure is crucial for filtering and manipulating data accurately in API calls.
 
 ```
-GET /rest/Person/?$filter="lastName!=Jones"&$method=entityset&$timeout=600
+GET http://{{APIEndpoint}}/rest/Person/?$filter="lastName!=Jones"&$method=entityset&$timeout=600
 ```
 
 In the above example, parameters are used to specify conditions and settings for the API call:
