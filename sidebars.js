@@ -468,9 +468,7 @@ const sidebars = {
 			collapsed: false,
 			items: [
 				'api/$catalog',
-				'api/$info',
-				'api/$queryplan',
-				'api/$querypath'
+				'api/$info'
 			],
 		},
 		{
@@ -493,6 +491,8 @@ const sidebars = {
 				'api/$lock',
 				'api/$method',
 				'api/$orderby',
+				'api/$queryplan',
+				'api/$querypath',
 				'api/$savedfilter',
 				'api/$savedorderby',
 				'api/$skip',

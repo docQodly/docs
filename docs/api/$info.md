@@ -99,7 +99,7 @@ In the `processes` section, memory usage is detailed for key server components l
 
 
 
-## Sample Usage in Postman
+## Sample Usage Example in Postman
 
 How to Use:
 
@@ -108,8 +108,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restInfo.png').default} style={{borderRadius: '6px'}} />
 
-
-## Sample Response
 
 The response structure for the `$info` endpoint looks something like this in practice:
 

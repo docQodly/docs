@@ -125,7 +125,7 @@ Each REST request is met with a server response that includes a status code indi
 | 502         | **Request Not Processed**           | 502 Bad Gateway                                               | Server might not be started.                                                                   |
 
 
-## API Endpoint Usage in Postman
+## API Endpoint Usage Example in Postman
 
 
 ### Setting Up Postman for API Requests

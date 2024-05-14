@@ -73,7 +73,7 @@ Only the exposed dataclasses are shown in this list for your project's datastore
 :::
 
 
-### Sample Usage in Postman
+### Sample Usage Example in Postman
 
 How to Use:
 
@@ -82,8 +82,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restCatalog.png').default} style={{borderRadius: '6px'}} />
 
-
-### Sample Response
 
 The response structure for the `$catalog` endpoint looks something like this in practice:
 
@@ -136,7 +134,7 @@ For a detailed breakdown of individual dataclasses and their specific attributes
 :::
 
 
-### Sample Usage in Postman
+### Sample Usage Example in Postman
 
 How to Use:
 
@@ -145,8 +143,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restAll.png').default} style={{borderRadius: '6px'}} />
 
-
-### Sample Response
 
 The response structure for the `$catalog/$all` endpoint looks something like this in practice:
 
@@ -273,7 +269,7 @@ Each attribute within a dataclass has properties that describe its configuration
 | `key`               | Array           | Defines the primary key attributes for the dataclass.                |
 
 
-### Sample Usage in Postman
+### Sample Usage Example in Postman
 
 How to Use:
 
@@ -282,8 +278,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restCatalogDataclass.png').default} style={{borderRadius: '6px'}} />
 
-
-### Sample Response
 
 The response structure for the `$catalog/{{dataClass}}` endpoint looks something like this in practice:
 

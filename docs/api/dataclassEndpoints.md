@@ -15,27 +15,27 @@ This section outlines the operations available for interacting with `dataClass` 
 
 | Endpoint                                            | Example                              | Description                                                                                      |
 |-----------------------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------|
-| [`/rest/{{dataClass}}`](#dataclass)                                 | `/Employee`                          | Retrieves all entities within the `dataClass`, defaulting to the first 100 entities.             |
-| [`/rest/{{dataClass}}[{key}]`](#dataclasskey)                          | `/Employee[22]`                      | Fetches details for a specific entity identified by the primary key within the `dataClass`.      |
-| [`/rest/{{dataClass}}:{attribute}(value)`](#dataclassattributevalue)              | `/Employee:firstName(John)`          | Retrieves entities where a specific attribute matches the given value.                           |
-| `/rest/{{dataClass}}/{DataClassClassFunction}`        | `/City/getCity`                      | Executes a class function that affects the entire data class.                                    |
-| `/rest/{{dataClass}}/{EntitySelectionClassFunction}`  | `/City/getPopulation/?$filter="ID<3"`| Executes a function on a selection of entities, with optional filter parameters.                 |
-| `/rest/{{dataClass}}[{key}]/{EntityClassFunction}`    | `City[2]/getPopulation`              | Performs a function on a specific entity identified by the key within the `dataClass`.           |
+| [`/rest/dataClass`](#dataclass)                                 | `/Employee`                          | Retrieves all entities within the `dataClass`, defaulting to the first 100 entities.             |
+| [`/rest/dataClass[key]`](#dataclasskey)                          | `/Employee[22]`                      | Fetches details for a specific entity identified by the primary key within the `dataClass`.      |
+| [`/rest/dataClass:attribute(value)`](#dataclassattributevalue)              | `/Employee:firstName(John)`          | Retrieves entities where a specific attribute matches the given value.                           |
+| `/rest/dataClass/dataClassClassFunction`        | `/City/getCity`                      | Executes a class function that affects the entire data class.                                    |
+| `/rest/dataClass/entitySelectionClassFunction`  | `/City/getPopulation/?$filter="ID<3"`| Executes a function on a selection of entities, with optional filter parameters.                 |
+| `/rest/dataClass[key]/entityClassFunction`    | `City[2]/getPopulation`              | Performs a function on a specific entity identified by the key within the `dataClass`.           |
 
 :::info
 For detailed descriptions and usage of class functions, refer to the [Class Functions documentation](classFunctions.md).
 :::
 
 
-### rest/{{dataClass}}
+### rest/dataClass
 
 #### Purpose
 
-This endpoint returns all entities within a `dataClass`, such as `Company`. By default, the system fetches the first 100 entities unless specified otherwise through query parameters like [`$top` or `$limit`](./$top$limit).
+The endpoint `rest/{{dataClass}}` returns all entities within a `dataClass`, such as `Company`. By default, the system fetches the first 100 entities unless specified otherwise through query parameters like [`$top` or `$limit`](./$top$limit).
 
 #### Properties Returned
 
-The `{{dataClass}}` endpoint returns structured information as outlined in the following table:
+The `rest/{{dataClass}}` endpoint returns structured information as outlined in the following table:
 
 | Property            | Type          | Description                                                        |
 |---------------------|---------------|--------------------------------------------------------------------|
@@ -58,7 +58,7 @@ Each entity includes:
 | `Orders`   | Object | Example attribute, e.g., details about the orders, using deferred loading.     |
 
 
-#### Sample Usage in Postman
+#### Sample Usage Example in Postman
 
 How to Use:
 
@@ -67,8 +67,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restDataclass.png').default} style={{borderRadius: '6px'}} />
 
-
-#### Sample Response
 
 The response structure for the `/rest/Users` endpoint looks something like this in practice:
 
@@ -113,18 +111,18 @@ The response structure for the `/rest/Users` endpoint looks something like this 
 
 
 
-### rest/{{dataClass}}[{{key}}]
+### rest/dataClass[key]
 
 
 #### Purpose
 
-This endpoint fetches detailed information for a single entity within a `dataClass` using its primary `key`.
+The `rest/{{dataClass}}[{{key}}]` endpoint fetches detailed information for a single entity within a `dataClass` using its primary `key`.
 
 :::info
 The properties returned mirror those in [`/rest/{{dataClass}}`](#properties-returned), focused on a single specified entity.
 :::
 
-#### Sample Usage in Postman
+#### Sample Usage Example in Postman
 
 How to Use:
 
@@ -133,8 +131,6 @@ How to Use:
 
 <img alt="explorer" src={require('./img/restDataclassKey.png').default} style={{borderRadius: '6px'}} />
 
-
-#### Sample Response
 
 The response structure for the `/rest/{{dataClass}}[2]` endpoint looks something like this in practice:
 
@@ -157,17 +153,17 @@ The response structure for the `/rest/{{dataClass}}[2]` endpoint looks something
 ```
 
 
-### rest/{{dataClass}}:{{attribute}}({{value}})
+### rest/dataClass:attribute(value)
 
 #### Purpose
 
-This endpoint retrieves entities within a dataClass where a specific `attribute` matches a given `value`.
+The `rest/{{dataClass}}:{{attribute}}({{value}})` endpoint retrieves entities within a dataClass where a specific `attribute` matches a given `value`.
 
 :::info
 The properties returned mirror those in [`/rest/{{dataClass}}`](#properties-returned), focused on a single specified entity.
 :::
 
-#### Sample Usage in Postman
+#### Sample Usage Example in Postman
 
 How to Use:
 
@@ -175,9 +171,6 @@ How to Use:
 - **URL**: `{{ApiEndpoint}}/rest/Users:Name(user1)`
 
 <img alt="explorer" src={require('./img/restDataclassAttributeValue.png').default} style={{borderRadius: '6px'}} />
-
-
-#### Sample Response
 
 The response structure for the `/rest/Users:Name(user1)` endpoint looks something like this in practice:
 
