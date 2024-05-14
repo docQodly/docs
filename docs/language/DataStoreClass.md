@@ -3,7 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. A `Datastore` object is returned by the [`ds`](commands/ds.md) command (a shortcut to the main datastore) or the [`openDatastore`](commands/openDatatstore.md) command.
+A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. A `Datastore` object is returned by the [`ds`](commands/ds.md) command (a shortcut to the main datastore) or the [`openDatastore`](commands/openDatastore.md) command.
 
 
 
