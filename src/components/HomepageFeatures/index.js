@@ -22,7 +22,7 @@ const FeatureList = [
     description: (
       <>
         Create and design business apps in an intuitive and
-        integrated environment, using a simple browser. 
+        integrated environment, using a simple browser.
       </>
     ),
 	link: "studio/overview"
@@ -32,7 +32,7 @@ const FeatureList = [
     Svg: require('@site/static/img/q-dep-run-mng.svg').default,
     description: (
       <>
-        Launch and monitor your Qodly applications using a 
+        Launch and monitor your Qodly applications using a
         comprehensive console in our cloud infrastructure.
       </>
     ),
@@ -43,18 +43,18 @@ const FeatureList = [
     Svg: require('@site/static/img/q-architecture.svg').default,
     description: (
       <>
-        Explore the Qodly architecture, technologies, 
+        Explore the Qodly architecture, technologies,
 		and main concepts.
       </>
     ),
 		link: "concepts/platform"
   },
   {
-    title: 'React Components',
+    title: 'Custom Components',
     Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Empower your app with Qodly's custom React components, designed for unique needs and specialized features.
+        Empower your app with Qodly's custom components, designed for unique needs and specialized features.
       </>
     ),
 		link: "customComponent/overview"
