@@ -119,15 +119,6 @@ If there is an error in one of the entities, the entire transaction is canceled,
 Even though the first entity has valid data, it is not saved due to the error in the second entity. If you reload the first entity, you will see the previous values, confirming that no changes were made.
 
 
-## Best Practices
-
-- **Use Only When Necessary:** Employ `$atomic` or `$atOnce` only for operations that require strict transactional integrity.
-
-- **Minimize Transaction Scope:** Limit the scope of transactions to essential actions to reduce the potential for conflicts and errors.
-
-- **Combine with Other Parameters:** Leverage other query parameters (`$filter`, `$orderby`) to optimize data manipulation and performance.
-
-
 ## Combining with Other Query Parameters
 
 You can combine `$atomic` or `$atOnce` with other query parameters to refine your data manipulation operations:
@@ -228,3 +219,12 @@ POST {{ApiEndpoint}}/rest/Users?$method=delete&$atomic=true
 
 Both records are deleted only if both deletions succeed.
 
+
+
+## Best Practices
+
+- **Use Only When Necessary:** Employ `$atomic` or `$atOnce` only for operations that require strict transactional integrity.
+
+- **Minimize Transaction Scope:** Limit the scope of transactions to essential actions to reduce the potential for conflicts and errors.
+
+- **Combine with Other Parameters:** Leverage other query parameters (`$filter`, `$orderby`) to optimize data manipulation and performance.

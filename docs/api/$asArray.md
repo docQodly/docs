@@ -112,16 +112,6 @@ Without `$asArray=true`, the same request would return a JSON object with metada
 }
 ```
 
-## Best Practices
-
-**Use Only When Necessary**: Employ `$asArray=true` only when your application specifically requires array responses.
-
-**Minimize Metadata Overhead**: Use `$asArray=true` to reduce the overhead of metadata when only the data is needed.
-
-**Combine with Other Parameters**: Leverage other query parameters (`$filter`, `$orderby`, `$top`, `$skip`) for optimal data retrieval and performance.
-
-
-
 ## Combining with Other Query Parameters
 
 You can combine `$asArray=true` with other query parameters to refine your data retrieval:
@@ -140,3 +130,12 @@ You can combine `$asArray=true` with other query parameters to refine your data 
   ```
   GET {{ApiEndpoint}}/rest/Users/?$top=10&$skip=20&$asArray=true
   ```
+
+## Best Practices
+
+**Use Only When Necessary**: Employ `$asArray=true` only when your application specifically requires array responses.
+
+**Minimize Metadata Overhead**: Use `$asArray=true` to reduce the overhead of metadata when only the data is needed.
+
+**Combine with Other Parameters**: Leverage other query parameters (`$filter`, `$orderby`, `$top`, `$skip`) for optimal data retrieval and performance.
+
