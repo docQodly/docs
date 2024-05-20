@@ -4,19 +4,16 @@ title: $binary
 ---
 
 
-## Overview
-
-The `$binary` endpoint allows you to save a BLOB (Binary Large Object) as a document. This is particularly useful for handling files such as images, PDFs, and other binary data. 
-
-:::tip
-To use `$binary`, you must also include the `$expand` parameter with the name of the BLOB attribute.
-:::
 
 ## Functionality
 
 ### Definition
 
-The `$binary` parameter enables you to save the BLOB data as a document. When making a request with `$binary=true`, the BLOB data will be saved to disk. 
+The `$binary` endpoint enables you to save the BLOB data as a document. When making a request with `$binary=true`, the BLOB data will be saved to disk. This is particularly useful for handling files such as images, PDFs, and other binary data. 
+
+:::tip
+To use `$binary`, you must also include the `$expand` parameter with the name of the BLOB attribute.
+:::
 
 ### Syntax
 

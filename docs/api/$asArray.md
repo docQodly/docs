@@ -4,15 +4,13 @@ title: $asArray
 ---
 
 
-## Overview
-
-The `$asArray` endpoint allows you to receive the results of a query in an array format instead of the default JSON object format. This can be particularly useful when working with data collections in environments that expect array structures.
 
 ## Functionality
 
 ### Definition
 
-To receive the response in an array, you need to add `$asArray=true` to your REST request. This will modify the structure of the response to be an array of entities rather than a JSON object with metadata and entity details.
+The `$asArray` endpoint allows you to receive the results of a query in an array format instead of the default JSON object format. This will modify the structure of the response to be an array of entities rather than a JSON object with metadata and entity details.
+
 
 ### Syntax
 

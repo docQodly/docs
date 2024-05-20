@@ -3,17 +3,17 @@ id: $atomic$atOnce
 title: $atomic/$atOnce 
 ---
 
-import Column from '@site/src/components/Column'
-
-## Overview
-
-The `$atomic` and `$atOnce` endpoints allow you to execute multiple actions in a single REST request within a transaction. If any action fails, the entire transaction is canceled, ensuring data consistency and integrity.
 
 ## Functionality
 
 ### Definition
 
-When you have multiple actions to perform together, you can use `$atomic` or `$atOnce` to ensure that either all actions are successfully completed, or none are. This is crucial for maintaining data integrity, especially when dealing with operations that must be executed as a unit.
+The `$atomic` and `$atOnce` endpoints allow you to execute multiple actions in a single REST request within a transaction. If any action fails, the entire transaction is canceled, ensuring data consistency and integrity.
+
+:::tip
+This is crucial for maintaining data integrity, especially when dealing with operations that must be executed as a unit.
+:::
+
 
 ### Syntax
 

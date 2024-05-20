@@ -4,15 +4,11 @@ title: $distinct
 ---
 
 
-## Overview
-
-The `$distinct` endpoint allows you to retrieve distinct values for a specific attribute within a collection. This is particularly useful for obtaining unique values for an attribute, which can help in reducing data redundancy and performing analysis.
-
 ## Functionality
 
 ### Definition
 
-The `$distinct` parameter enables you to return a collection containing the distinct values for a query on a specific attribute. You can specify only one attribute in the dataclass for this operation. This parameter works best with attributes of type String, but it can also be used with any attribute type that can contain multiple values.
+The `$distinct` endpoint enables you to return a collection containing the distinct values for a query on a specific attribute. You can specify only one attribute in the dataclass for this operation. This parameter works best with attributes of type String, but it can also be used with any attribute type that can contain multiple values.
 
 ### Syntax
 

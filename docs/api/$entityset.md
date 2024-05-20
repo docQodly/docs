@@ -4,18 +4,12 @@ title: $entityset
 ---
 
 
-## Overview
-
-The `$entityset` endpoint enables you to manage and manipulate entity sets in your data collection. After creating an entity set using the `$method=entityset` parameter, you can perform various operations on these entity sets to retrieve, compare, and combine them as needed.
-
-
-
 ## Functionality
 
 
 ### Definition
 
-The `$entityset` parameter allows you to handle collections of entities efficiently. You can create entity sets, retrieve them, and perform logical operations to compare and combine them.
+The `$entityset` endpoint enables you to manage and manipulate entity sets in your data collection. After creating an entity set using the `$method=entityset` parameter, you can perform various operations on these entity sets to retrieve, compare, and combine them as needed.
 
 
 ### Syntaxes
