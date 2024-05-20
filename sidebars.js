@@ -450,8 +450,8 @@ const sidebars = {
 					type: 'category',
 					label: '@ws-ui/webform-editor',
 					items: [
-						'customComponent/api-reference/webform-editor/v0.2.16',
 						'customComponent/api-reference/webform-editor/v0.2.24',
+						'customComponent/api-reference/webform-editor/v0.2.16',
 					]
 				},
 			],
