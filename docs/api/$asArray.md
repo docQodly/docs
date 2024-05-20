@@ -18,9 +18,7 @@ To receive the response in an array, you need to add `$asArray=true` to your RES
 GET {{ApiEndpoint}}/rest/{{dataClass}}?$asArray=true
 ```
 
-### Example
-
-#### Request
+### Request Example
 
 To fetch users whose names start with the letter 'u' and limit the results to the top 3 entries:
 
@@ -28,7 +26,7 @@ To fetch users whose names start with the letter 'u' and limit the results to th
 GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$top=3&$asArray=true
 ```
 
-#### Response
+### Response Request
 
 The response will be an array of entities:
 
