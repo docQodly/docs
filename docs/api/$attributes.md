@@ -8,7 +8,9 @@ title: $attributes
 
 The `$attributes` endpoint allows you to specify and select related attributes from a dataclass in a REST request. This endpoint is useful when you want to retrieve specific attributes of related entities or related entities themselves.
 
-## Description
+## Functionality
+
+### Definition
 
 When you have relation attributes in a dataclass, use `$attributes` to define the path of attributes whose values you want to get for the related entity or entities. You can apply `$attributes` to an entity (e.g., `People(1)`) or an entity selection (e.g., `People/$entityset/0AF4679A5C394746BFEB68D2162A19FF`).
 

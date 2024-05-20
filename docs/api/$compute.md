@@ -8,7 +8,9 @@ title: $compute
 
 The `$compute` endpoint allows you to perform calculations on specific attributes of your data. This is useful for obtaining statistical information such as sum, average, count, minimum, and maximum values for numerical attributes, and count, minimum, and maximum values for string attributes.
 
-## Description
+## Functionality
+
+### Definition
 
 The `$compute` parameter allows you to perform calculations on attributes within a dataclass. This can be done on simple attributes or on properties of object attributes. The calculations are specified using various keywords.
 
@@ -25,7 +27,7 @@ The following keywords can be used with `$compute` to perform different calculat
 | max     | Get the maximum value of a numerical attribute or the highest value of a string attribute |
 | sum     | Get the sum of a numerical attribute |
 
-### Basic Usage
+### Syntax
 
 To perform a calculation on an attribute, you use the following format:
 

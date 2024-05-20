@@ -8,7 +8,9 @@ title: $asArray
 
 The `$asArray` endpoint allows you to receive the results of a query in an array format instead of the default JSON object format. This can be particularly useful when working with data collections in environments that expect array structures.
 
-## Description
+## Functionality
+
+### Definition
 
 To receive the response in an array, you need to add `$asArray=true` to your REST request. This will modify the structure of the response to be an array of entities rather than a JSON object with metadata and entity details.
 
@@ -18,7 +20,33 @@ To receive the response in an array, you need to add `$asArray=true` to your RES
 GET {{ApiEndpoint}}/rest/{{dataClass}}?$asArray=true
 ```
 
-### Request Example
+
+## Combining with Other Query Parameters
+
+You can combine `$asArray=true` with other query parameters to refine your data retrieval:
+
+- **Filtering:** Retrieve filtered data in an array.
+  ```
+  GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$asArray=true
+  ```
+
+- **Sorting:** Order data and receive it as an array.
+  ```
+  GET {{ApiEndpoint}}/rest/Users/?$orderby="Name desc"&$asArray=true
+  ```
+
+- **Pagination:** Paginate data and receive it as an array.
+  ```
+  GET {{ApiEndpoint}}/rest/Users/?$top=10&$skip=20&$asArray=true
+  ```
+
+
+## Use Cases
+
+
+### Query Results In Array Format
+
+**Request:**
 
 To fetch users whose names start with the letter 'u' and limit the results to the top 3 entries:
 
@@ -26,7 +54,7 @@ To fetch users whose names start with the letter 'u' and limit the results to th
 GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$top=3&$asArray=true
 ```
 
-### Response Request
+**Response:**
 
 The response will be an array of entities:
 
@@ -112,24 +140,6 @@ Without `$asArray=true`, the same request would return a JSON object with metada
 }
 ```
 
-## Combining with Other Query Parameters
-
-You can combine `$asArray=true` with other query parameters to refine your data retrieval:
-
-- **Filtering:** Retrieve filtered data in an array.
-  ```
-  GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$asArray=true
-  ```
-
-- **Sorting:** Order data and receive it as an array.
-  ```
-  GET {{ApiEndpoint}}/rest/Users/?$orderby="Name desc"&$asArray=true
-  ```
-
-- **Pagination:** Paginate data and receive it as an array.
-  ```
-  GET {{ApiEndpoint}}/rest/Users/?$top=10&$skip=20&$asArray=true
-  ```
 
 ## Best Practices
 
