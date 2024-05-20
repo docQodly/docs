@@ -116,13 +116,12 @@ Without `$asArray=true`, the same request would return a JSON object with metada
 
 ## Best Practices
 
-Using `$asArray=true` is beneficial when:
+**Use Only When Necessary**: Employ `$asArray=true` only when your application specifically requires array responses.
 
-- The client application expects an array of objects for easier iteration and processing.
+**Minimize Metadata Overhead**: Use `$asArray=true` to reduce the overhead of metadata when only the data is needed.
 
-- Working with frontend frameworks or libraries that handle arrays more efficiently than complex JSON objects.
+**Combine with Other Parameters**: Leverage other query parameters (`$filter`, `$orderby`, `$top`, `$skip`) for optimal data retrieval and performance.
 
-- Reducing the payload size by eliminating metadata when it is not needed.
 
 
 ## Combining with Other Query Parameters
@@ -143,12 +142,3 @@ You can combine `$asArray=true` with other query parameters to refine your data 
   ```
   GET {{ApiEndpoint}}/rest/Users/?$top=10&$skip=20&$asArray=true
   ```
-
-<!--
-## Error Handling
-
-When using `$asArray=true`, standard error handling and response codes apply. Ensure to handle potential errors such as:
-
-- **400 Bad Request:** Incorrect query syntax.
--->
-
