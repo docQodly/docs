@@ -36,7 +36,7 @@ A `?$lock` request returns a JSON object with a `"result"` field indicating the 
 :::
 
 
-## Behavior
+## Locking Mechanics
 
 When an entity is locked, the following actions are not possible for other sessions:
 
