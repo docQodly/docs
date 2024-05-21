@@ -21,17 +21,6 @@ To use `$binary`, you must also include the `$expand` parameter with the name of
 GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{blobAttributeName}}?$binary=true&$expand={{blobAttributeName}}
 ```
 
-
-### Request Example
-
-To save the BLOB data from the `blobAtt` attribute of the `User` dataclass with ID `11`:
-
-```
-GET {{ApiEndpoint}}/rest/User(11)/blobAtt?$binary=true&$expand=blobAtt
-```
-
-### Response Example
-
 When the request is made, the user will be prompted to choose a location on their disk to save the BLOB data. 
 
 :::info
