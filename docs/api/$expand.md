@@ -39,29 +39,27 @@ The `$version` parameter is used to specify the version of the attribute to retr
 
 
 
+## Use Cases
 
-## Viewing an Image Attribute
 
-### Description
+### Viewing an Image Attribute
 
 To view an image attribute in its entirety, you can use the `$expand` parameter along with optional parameters such as `$imageformat` and `$version`.
 
-### Syntax
+#### Syntax
 
 ```
 GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{imageAttribute}}?$imageformat=best&$version=1&$expand={{imageAttribute}}
 ```
 
-### Parameters
-
-- `dataClass`: The name of the dataclass containing the image attribute.
-- `id`: The unique identifier of the entity.
+:::info
 - `imageAttribute`: The name of the image attribute.
 - `$imageformat`: Specifies the desired image format (e.g., best).
 - `$version`: Specifies the version of the image attribute.
 - `$expand`: The attribute to expand (same as `imageAttribute`).
+:::
 
-### Example
+#### Example
 
 To view an employee's photo in the best format:
 
@@ -73,27 +71,24 @@ GET /rest/Employee(1)/photo?$imageformat=best&$version=1&$expand=photo
 Refer to the [`$imageformat`]($imageformat.md) and [`$version`]($version.md) documentation for more details on these parameters.
 :::
 
-## Saving a BLOB Attribute to Disk
 
-### Description
+### Saving a BLOB Attribute to Disk
 
 To save a BLOB stored in your dataclass, use the `$expand` parameter along with `$binary=true` to retrieve the BLOB content and prompt for saving it to disk.
 
-### Syntax
+#### Syntax
 
 ```
 GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{blobAttribute}}?$binary=true&$expand={{blobAttribute}}
 ```
 
-### Parameters
-
-- `dataClass`: The name of the dataclass containing the BLOB attribute.
-- `id`: The unique identifier of the entity.
+:::info
 - `blobAttribute`: The name of the BLOB attribute.
 - `$binary`: Set to `true` to indicate the BLOB should be treated as binary data.
 - `$expand`: The attribute to expand (same as `blobAttribute`).
+:::
 
-### Example
+#### Example
 
 To save a company's BLOB attribute to disk:
 
@@ -101,26 +96,22 @@ To save a company's BLOB attribute to disk:
 GET /rest/Company(11)/blobAtt?$binary=true&$expand=blobAtt
 ```
 
-## Expanding Relational Attributes
-
-### Description
+### Expanding Relational Attributes
 
 For compatibility reasons, `$expand` can also be used to expand relational attributes, although using `$attributes` is recommended for this purpose. This allows you to retrieve related entities in your data.
 
-### Syntax
+#### Syntax
 
 ```
 GET {{ApiEndpoint}}/rest/{{dataClass}}(id)?$expand={{relationalAttribute}}
 ```
 
-### Parameters
-
-- `dataClass`: The name of the dataclass containing the relational attribute.
-- `id`: The unique identifier of the entity.
+:::info
 - `relationalAttribute`: The name of the relational attribute.
 - `$expand`: The relational attribute to expand.
+:::
 
-### Example
+#### Example
 
 To expand a company's staff attribute:
 

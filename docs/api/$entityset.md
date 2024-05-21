@@ -21,24 +21,23 @@ The `$entityset` endpoint enables you to manage and manipulate entity sets in yo
 
 
 
-## Retrieving an Existing Entity Set
+## Use Cases
 
-### Definition
+### Retrieving an Existing Entity Set
 
 You can retrieve an existing entity set by its ID. This allows you to execute operations on a previously defined entity set. Entity sets have a time limit, either by default or as specified using the `$timeout` parameter. You can also save filter and order by statements with `$savedfilter` and `$savedorderby` when creating an entity set.
 
-### Syntax
+#### Syntax
 
 ```
 GET {{ApiEndpoint}}/rest/{{dataClass}}/$entityset/{{entitySetID}}
 ```
 
-### Parameters
-
-- `dataClass`: The name of the dataclass containing the entity set.
+:::info
 - `entitySetID`: The unique ID of the entity set.
+:::
 
-### Operations
+#### Operations
 
 When you retrieve an existing entity set, you can apply any of the following operations to it:
 
@@ -48,7 +47,7 @@ When you retrieve an existing entity set, you can apply any of the following ope
 - `$skip`: Skip a specified number of entities.
 - `$top`/`$limit`: Limit the number of entities returned.
 
-### Example
+#### Example
 
 After creating an entity set, you retrieve it as follows:
 
@@ -56,26 +55,24 @@ After creating an entity set, you retrieve it as follows:
 GET /rest/Employee/$entityset/9718A30BF61343C796345F3BE5B01CE7
 ```
 
-## Creating a New Entity Set from Existing Ones
 
-### Definition
+### Creating a New Entity Set from Existing Ones
 
 You can create a new entity set by comparing two existing entity sets using logical operators. The logical operators define the relationship between the two sets, such as intersection, union, and difference.
 
-### Syntax
+#### Syntax
 
 ```
 GET {{ApiEndpoint}}/rest/{{dataClass}}/$entityset/{{entitySetID}}?$logicOperator={{operator}}&$otherCollection={{otherEntitySetID}}&$method=entityset
 ```
 
-### Parameters
-
-- `dataClass`: The name of the dataclass containing the entity sets.
+:::info
 - `entitySetID`: The unique ID of the first entity set.
 - `$logicOperator`: The logical operator to apply (AND, OR, EXCEPT, INTERSECT).
 - `$otherCollection`: The unique ID of the second entity set.
+:::
 
-### Logical Operators
+#### Logical Operators
 
 | Operator   | Description |
 |------------|-------------|
@@ -89,15 +86,15 @@ Logical operators are not case-sensitive (e.g., "AND" or "and").
 :::
 
 
-### Example
+#### Example
 
-#### Using AND to Return Common Entities
+**Using AND to Return Common Entities**
 
 ```
 GET /rest/Employee/$entityset/9718A30BF61343C796345F3BE5B01CE7?$logicOperator=AND&$otherCollection=C05A0D887C664D4DA1B38366DD21629B
 ```
 
-#### Using INTERSECT to Check for Intersection
+**Using INTERSECT to Check for Intersection**
 
 ```
 GET /rest/Employee/$entityset/9718A30BF61343C796345F3BE5B01CE7?$logicOperator=INTERSECT&$otherCollection=C05A0D887C664D4DA1B38366DD21629B
@@ -107,7 +104,7 @@ GET /rest/Employee/$entityset/9718A30BF61343C796345F3BE5B01CE7?$logicOperator=IN
 If there is an intersection, this query returns `true`. Otherwise, it returns `false`.
 :::
 
-#### Using OR to Combine Entity Sets
+**Using OR to Combine Entity Sets**
 
 ```
 GET /rest/Employee/$entityset/9718A30BF61343C796345F3BE5B01CE7?$logicOperator=OR&$otherCollection=C05A0D887C664D4DA1B38366DD21629B&$method=entityset
