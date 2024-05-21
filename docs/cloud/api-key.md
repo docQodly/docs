@@ -13,11 +13,11 @@ Enable secure access to your Qodly application by utilizing **API keys** and **e
 
 ### API Endpoint
 
-An API endpoint is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps. Essentially, it serves as a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications. 
+An API endpoint is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps. Essentially, it serves as a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications.
 
 ### API Key
 
-An API key is a unique identifier used to authenticate a client or user trying to access the Qodly Cloud application. It helps the API provider control and monitor how the API is being used, typically to prevent misuse or abuse and to manage quotas. 
+An API key is a unique identifier used to authenticate a client or user trying to access the Qodly Cloud application. It helps the API provider control and monitor how the API is being used, typically to prevent misuse or abuse and to manage quotas.
 
 :::tip
 The key must be included in the HTTP header of every REST requests sent as a means of identifying the requester and checking their access permissions.
@@ -72,7 +72,7 @@ Click the copy button beside the endpoint URL to use it in your application's RE
 | Property           | Description                                                                                                            |
 |--------------------|------------------------------------------------------------------------------------------------------------------------|
 | **Description**    | Enter a brief yet descriptive identifier for the key, which will aid in recognizing its purpose within the application. |
-| **API Type** | Choose between two options:<br/><br/>1. **Web**: This is the standard type, appropriate for most users, where access permissions are managed according to the assigned role.<br/><br/>2. **Web Admin**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
+| **API Type** | Choose between two types:<br/><br/>1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.<br/><br/>2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
 | **Role** | Assign a specific role to the API key, dictating its access level within the application. The selection menu includes all [roles defined in the application](../studio/roles/rolesPrivilegesOverview.md), such as Admin, which is set by default. |
 | **Expiration Date** | Set the validity period of the API key, with a maximum limit of one year to ensure security protocols are maintained. |
 | **Allowed Hosts** | By default, an API key can be used from any client machine. To restrict its usage to specific hosts, use the **Add IP address** button to specify the IP addresses from which the key can accept requests. |
