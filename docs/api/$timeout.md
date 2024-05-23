@@ -23,13 +23,6 @@ GET {{ApiEndpoint}}/rest/{{dataClass}}?$filter="{{filterExpression}}"&$method=en
 The `$timeout` endpoint accepts a numerical value representing the number of seconds the entity set should remain in the cache. For example, 1800 seconds for 30 minutes.
 
 
-### Additional Parameters
-
-- **$method=entityset**: Required to create an entity set.
-- **$filter**: Optional filter to define the entity set.
-- **$savedfilter**: Recreates the entity set with the same reference ID if it has been removed from the cache.
-
-
 
 ## Detailed Behavior
 
@@ -62,11 +55,19 @@ The `$timeout` parameter can be used alongside `$expand` to manage the lifespan 
 The `$timeout` parameter can be combined with other query parameter:
 
 - **$expand**: Retrieve related entities within the specified timeout period.
+
 - **$filter**: Define specific criteria for the entities included in the entity set.
+
 - **$orderby**: Sort the entities in the entity set.
+
 - **$top/$limit**: Limit the number of entities returned in the entity set.
+
 - **$skip**: Skip a specified number of entities in the result set.
+
 - **$savedfilter** and **$savedorderby**: Save the filter and order by criteria to recreate the entity set with the same reference ID.
+
+
+
 
 ## Use Cases
 
