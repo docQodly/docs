@@ -32,13 +32,13 @@ The following keywords can be used with `$compute` to perform different calculat
 To perform a calculation on an attribute, you use the following format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/{{attribute}}/?$compute={{keyword}}
+GET {{ApiEndpoint}}/rest/{{dataClass}}/{{attribute}}?$compute={{keyword}}
 ```
 
 If you want to perform a calculation on an object attribute, specify one of its properties:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/{{objectAttribute}}.{{property}}/?$compute={{keyword}}
+GET {{ApiEndpoint}}/rest/{{dataClass}}/{{objectAttribute}}.{{property}}?$compute={{keyword}}
 ```
 
 

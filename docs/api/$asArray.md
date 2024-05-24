@@ -25,17 +25,17 @@ You can combine `$asArray=true` with other query parameters to refine your data 
 
 - **Filtering:** Retrieve filtered data in an array.
   ```
-  GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$asArray=true
+  GET {{ApiEndpoint}}/rest/Users?$filter="Name begin u"&$asArray=true
   ```
 
 - **Sorting:** Order data and receive it as an array.
   ```
-  GET {{ApiEndpoint}}/rest/Users/?$orderby="Name desc"&$asArray=true
+  GET {{ApiEndpoint}}/rest/Users?$orderby="Name desc"&$asArray=true
   ```
 
 - **Pagination:** Paginate data and receive it as an array.
   ```
-  GET {{ApiEndpoint}}/rest/Users/?$top=10&$skip=20&$asArray=true
+  GET {{ApiEndpoint}}/rest/Users?$top=10&$skip=20&$asArray=true
   ```
 
 
@@ -49,7 +49,7 @@ You can combine `$asArray=true` with other query parameters to refine your data 
 To fetch users whose names start with the letter 'u' and limit the results to the top 3 entries:
 
 ```
-GET {{ApiEndpoint}}/rest/Users/?$filter="Name begin u"&$top=3&$asArray=true
+GET {{ApiEndpoint}}/rest/Users?$filter="Name begin u"&$top=3&$asArray=true
 ```
 
 **Response:**

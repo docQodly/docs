@@ -78,18 +78,21 @@ The `$timeout` parameter can be combined with other query parameter:
 To create an entity set that expires after 20 minutes:
 
 ```
-GET /rest/Employee/?$filter="salary>50000"&$method=entityset&$timeout=1200
+GET /rest/Employee?$filter="salary>50000"&$method=entityset&$timeout=1200
 ```
 
 **Response:**
 
 ```json
 {
-    "__ENTITYSET": "/rest/Employee/$entityset/ABC123",
+    "__ENTITYSET": "/rest/Employee/$entityset/3BA2B71499244F60A38CD51E11ACDDF8",
+    "__DATACLASS": "Employee",
+    "__entityModel": "Employee",
+    "__GlobalStamp": 0,
     "__COUNT": 50,
     "__SENT": 50,
-    "__FIRST": 0,
-    "__ENTITIES": [ ... ]
+    "__ENTITIES": [ ... ],
+    "__FIRST": 0
 }
 ```
 
@@ -101,21 +104,45 @@ If no `$timeout` parameter is specified, the default timeout of 2 hours is appli
 **Request:**
 
 ```
-GET /rest/Employee/?$filter="department='HR'"&$method=entityset
+GET /rest/Employee?$filter="department='HR'"&$method=entityset
 ```
 
 **Response:**
 
 ```json
 {
-    "__ENTITYSET": "/rest/Employee/$entityset/XYZ456",
-    "__COUNT": 20,
-    "__SENT": 20,
-    "__FIRST": 0,
-    "__ENTITIES": [ ... ]
+    "__ENTITYSET": "/rest/Employee/$entityset/3BA2B71499244F60A38CD51E11ACDDF8",
+    "__DATACLASS": "Employee",
+    "__entityModel": "Employee",
+    "__GlobalStamp": 0,
+    "__COUNT": 50,
+    "__SENT": 50,
+    "__ENTITIES": [ ... ],
+    "__FIRST": 0
 }
 ```
 
+### Accessing a Removed Entity Set
+
+**Request:**
+
+```
+GET /rest/Employee/$entityset/3BA2B71499244F60A38CD51E11ACDDF8
+```
+
+**Response:**
+
+```json
+{
+    "__ERROR": [
+        {
+            "message": "The \"3BA2B71499244F60A38CD51E11ACDDF8\" entity set cannot be found",
+            "componentSignature": "dbmg",
+            "errCode": 1802
+        }
+    ]
+}
+```
 
 ### Recreating an Entity Set with `$savedfilter`
 
@@ -124,19 +151,7 @@ If an entity set is removed and then recreated using `$savedfilter`, the timeout
 **Request:**
 
 ```
-GET /rest/Employee/?$filter="salary>50000"&$method=entityset&$savedfilter=true
-```
-
-**Response:**
-
-```json
-{
-    "__ENTITYSET": "/rest/Employee/$entityset/DEF789",
-    "__COUNT": 50,
-    "__SENT": 50,
-    "__FIRST": 0,
-    "__ENTITIES": [ ... ]
-}
+GET /rest/Employee?$filter="salary>50000"&$method=entityset&$savedfilter=true
 ```
 
 

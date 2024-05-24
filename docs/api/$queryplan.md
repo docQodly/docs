@@ -99,7 +99,7 @@ Information about the entities affected by the query:
 How to Use:
 
 - **Method**: GET
-- **URL**: `{{ApiEndpoint}}/rest/Orders/?$filter="Quantity > 4 AND Purchaser.Name = user2"&$queryplan=true`
+- **URL**: `{{ApiEndpoint}}/rest/Orders?$filter="Quantity > 4 AND Purchaser.Name = user2"&$queryplan=true`
 
 <img alt="explorer" src={require('./img/restQueryPlan.png').default} style={{borderRadius: '6px'}} />
 

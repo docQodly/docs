@@ -259,7 +259,7 @@ If updating an entity, you must include the `__KEY` and `__STAMP` parameters. If
 
     **Request URL:**
     ```
-    POST {{ApiEndpoint}}/rest/Person/?$method=update
+    POST {{ApiEndpoint}}/rest/Person?$method=update
     ```
 
     **POST Data:**

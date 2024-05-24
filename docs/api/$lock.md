@@ -20,7 +20,7 @@ Locks triggered by the REST API are applied at the session level.
 To lock an entity for other sessions, use the following syntax:
 
 ```
-GET /rest/{{dataClass}}({{id}})/?$lock=true
+GET /rest/{{dataClass}}({{id}})?$lock=true
 ```
 
 ### Unlocking an Entity
@@ -28,7 +28,7 @@ GET /rest/{{dataClass}}({{id}})/?$lock=true
 To unlock an entity for other sessions, use the following syntax:
 
 ```
-GET /rest/{{dataClass}}({{id}})/?$lock=false
+GET /rest/{{dataClass}}({{id}})?$lock=false
 ```
 
 :::tip
@@ -47,7 +47,7 @@ When an entity is locked, the following actions are not possible for other sessi
 
 An entity locked by the REST API can only be unlocked by:
 
-- The same session that locked it, using `/?$lock=false`
+- The same session that locked it, using `?$lock=false`
 - Reaching the session's inactivity timeout, which closes the session
 
 
@@ -98,7 +98,7 @@ Lock an entity in a first browser session:
 **Request:**
 
 ```
-GET /rest/Customers(1)/?$lock=true
+GET /rest/Customers(1)?$lock=true
 ```
 
 **Response:**
@@ -119,7 +119,7 @@ Attempt to lock the same entity in a second browser session:
 **Request:**
 
 ```
-GET /rest/Customers(1)/?$lock=true
+GET /rest/Customers(1)?$lock=true
 ```
 
 **Response:**
@@ -149,7 +149,7 @@ Unlock the entity in the same session that locked it:
 **Request:**
 
 ```
-GET /rest/Customers(1)/?$lock=false
+GET /rest/Customers(1)?$lock=false
 ```
 
 **Response:**

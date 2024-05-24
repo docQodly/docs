@@ -18,11 +18,11 @@ This is crucial for maintaining data integrity, especially when dealing with ope
 ### Syntax
 
 ```
-POST {{ApiEndpoint}}/rest/{{dataClass}}/?$atomic=true
+POST {{ApiEndpoint}}/rest/{{dataClass}}?$atomic=true
 ```
 or
 ```
-POST {{ApiEndpoint}}/rest/{{dataClass}}/?$atOnce=true
+POST {{ApiEndpoint}}/rest/{{dataClass}}?$atOnce=true
 ```
 
 
