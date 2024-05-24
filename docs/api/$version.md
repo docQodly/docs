@@ -33,8 +33,29 @@ The server modifies the value of the image's version parameter whenever the imag
 
 ## Combining with Other Parameters
 
-To retrieve an image in a specific format and ensure you get the correct version, combine `$version` with `$imageformat` and `$expand` parameters.
+The `$version` parameter can be combined with other parameters to manage image versioning effectively:
 
+- **$imageformat**: Define the image format while specifying the version to ensure you retrieve the correct version in the desired format.
+
+- **$expand**: Expand the image attribute fully while specifying the version to ensure you retrieve the correct version of the image.
+
+- **$filter**: Narrow down the dataset before retrieving the image with the specified version.
+
+- **$orderby**: Sort the dataset before retrieving the image with the specified version.
+
+- **$top/$limit** and **$skip**: Navigate through the dataset and limit the number of records before retrieving the image with the specified version.
+
+- **$attributes**: Specify which attributes to include in the response along with the image of the specified version.
+
+- **$method=entityset**: Create an entity set while specifying the image version to ensure the correct version of the image is included.
+
+- **$savedfilter**: Apply a saved filter to the dataset before retrieving the image with the specified version.
+
+- **$savedorderby**: Apply a saved sorting order to the dataset before retrieving the image with the specified version.
+
+- **$lock**: Lock or unlock entities while specifying the version of the image to ensure the operation applies to the correct version.
+
+- **$distinct**: Retrieve distinct values from the dataset before specifying the image version to ensure the correct version of distinct images.
 
 
 ## Use Cases

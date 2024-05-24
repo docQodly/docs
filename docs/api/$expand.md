@@ -39,6 +39,27 @@ The `$version` parameter is used to specify the version of the attribute to retr
 
 
 
+## Combining with Other Parameters
+
+The `$expand` parameter can be combined with other parameters to enhance data retrieval and manipulation:
+
+- **$filter**: Apply filters to both the main entity and the expanded entities.
+
+- **$orderby**: Sort the main entity and the expanded entities.
+
+- **$top/$limit** and **$skip**: Limit and navigate the number of main and expanded entities.
+
+- **$attributes**: Specify which attributes to include in the response for both the main entity and the expanded entities.
+
+- **$compute**: Perform calculations on attributes of both the main entity and the expanded entities.
+
+- **$version**: Specify the version number for images within the expanded entities.
+
+- **$binary**: Retrieve binary data, such as images or BLOB attributes, within the expanded entities.
+
+- **$method=entityset**: Create an entity set that includes expanded entities and save it in the server's cache.
+
+
 ## Use Cases
 
 

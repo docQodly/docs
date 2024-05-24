@@ -3,7 +3,9 @@ id: $querypath
 title: $querypath 
 ---
 
-## Overview
+## Functionality
+
+### Definition
 
 The `$querypath` endpoint allows developers to understand how queries are executed in the backend. It provides a step-by-step breakdown of the query execution, showing each operation, its performance, and the results obtained at each stage. It also reveales optimization techniques and the exact path taken by the server to fetch the required data.
 
@@ -11,10 +13,15 @@ The `$querypath` endpoint allows developers to understand how queries are execut
 For additional information, please consult the ["About queryPlan and queryPath"](../language/DataClassClass#about-queryplan-and-querypath) documentation.
 :::
 
+### Syntax
 
-## Key Features
+To use the `$querypath` parameter, use the following syntax:
 
-The `$querypath` not only reflects the intended query operations but also how these operations are actually executed, including dynamic optimizations that the server might apply during runtime. For instance, an indexed search may be converted to a sequential scan based on real-time performance assessments, which can significantly alter the execution path. This feature is particularly useful in scenarios where the dataset is small, and a full scan might prove faster than indexed access, allowing developers to see and understand these optimizations directly in the query path output.
+```
+GET /rest/{{dataClass}}/?$querypath=true
+```
+
+
 
 ## Properties Returned
 
@@ -92,6 +99,31 @@ Information about the entities affected by the query:
 | `Quantity`    | Integer| Example attribute, e.g., quantity in an order.           |
 | `Purchaser`   | Object | Example attribute, e.g., details about the purchaser, using deferred loading.     |
 
+
+
+## Combining with Other Parameters
+
+The `$querypath` parameter can be combined with other parameters to trace the execution path of a query, providing insights into the query's performance and optimization opportunities:
+
+- **$filter**: Apply filters to the dataset and trace the path to see how they affect the query execution.
+
+- **$orderby**: Observe how sorting impacts the execution path.
+
+- **$top/$limit** and **$skip**: Check the effect of limiting and skipping records on the query execution path.
+
+- **$expand**: Include related data and trace how joining related tables or collections influences the execution path.
+
+- **$attributes**: Specify which attributes are included in the query and understand their impact on the execution path.
+
+- **$method**: Combine with various method operations to analyze their execution paths.
+
+- **$compute**: Evaluate the impact of computations on the query execution path.
+
+- **$entityset**: Analyze the execution path for operations involving entity sets.
+
+- **$savedfilter**: Save and reuse filters to analyze their impact on the query execution path.
+
+- **$savedorderby**: Save and reuse sorting criteria to analyze their impact on the query execution path.
 
 
 ## Sample Usage in Postman

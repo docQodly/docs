@@ -25,13 +25,6 @@ GET /rest/{{dataClass}}?$limit={{number}}
 ```
 
 
-### Supported Formats
-
-- `json`: Standard REST server format (default)
-
-- `looker`: JSON format compliant with Looker Studio
-
-
 
 ## Detailed Behavior
 
@@ -47,13 +40,29 @@ You can combine `$top` or `$limit` with `$skip` to paginate through a large coll
 
 ## Combining with Other Parameters
 
-The `$top` or `$limit` parameters can be combined with other parameters:
+The `$top/$limit` parameter can be combined with other parameters to control the number of entities returned in a query efficiently:
 
-- **$filter**: Limit the number of filtered entities returned.
+- **$skip**: Use in conjunction with `$top/$limit` to navigate through the dataset by specifying the starting point and the number of entities to return.
 
-- **$orderby**: Return a specific number of sorted entities.
+- **$filter**: Narrow down the dataset before limiting the number of entities returned.
 
-- **$skip**: Skip a specified number of entities.
+- **$orderby**: Sort the dataset before applying the limit to ensure consistent results.
+
+- **$expand**: Include related data in the results while limiting the number of entities returned.
+
+- **$attributes**: Specify which attributes to include in the results after limiting the number of entities.
+
+- **$method=entityset**: Create an entity set and control the number of entities returned from the set.
+
+- **$savedfilter**: Apply a saved filter to the dataset before limiting the number of entities returned.
+
+- **$savedorderby**: Apply a saved sorting order to the dataset before limiting the number of entities returned.
+
+- **$compute**: Perform computations on a limited number of entities from the dataset.
+
+- **$lock**: Limit the number of entities when locking or unlocking entities to ensure the operation applies to a specific subset of the dataset.
+
+- **$distinct**: Limit the number of distinct values returned from a dataset.
 
 
 

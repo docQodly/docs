@@ -35,6 +35,26 @@ The following formats are supported by the `$format` parameter:
 :::
 
 
+## Combining with Other Parameters
+
+The `$format` parameter can be combined with other parameters to customize and refine data retrieval and presentation:
+
+- **$filter**: Apply filters to the data before formatting the response.
+
+- **$orderby**: Sort the data before applying the format.
+
+- **$top/$limit** and **$skip**: Limit the number of records and skip a certain number of records before formatting.
+
+- **$expand**: Include related data in the formatted response.
+
+- **$attributes**: Specify which attributes to include in the formatted response.
+
+- **$compute**: Perform calculations on the data before formatting the response.
+
+- **$distinct**: Retrieve distinct values from the data and format the response accordingly.
+
+- **$method=entityset**: Create an entity set and format the response based on the specified format.
+
 
 
 ## Use Cases

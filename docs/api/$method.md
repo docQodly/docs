@@ -311,7 +311,29 @@ If there is an error, such as an incorrect key:
 ```
 
 
+## Combining with Other Parameters
 
+The `$method` parameter can be combined with other parameters to perform various operations on entities or entity sets effectively:
+
+- **$filter**: Apply filters to select specific entities before performing the method operation.
+
+- **$orderby**: Sort the entities before performing the method operation.
+
+- **$top/$limit** and **$skip**: Limit the number of entities and skip a certain number of entities before performing the method operation.
+
+- **$expand**: Include related data in the operation.
+
+- **$attributes**: Specify which attributes to include in the response after performing the method operation.
+
+- **$lock**: Lock entities before performing the method operation to ensure data integrity.
+
+- **$compute**: Perform calculations on related data before executing the method operation.
+
+- **$entityset**: Create, modify, or release entity sets as part of the method operation.
+
+- **$savedfilter**: Save filter criteria for recreating entity sets.
+
+- **$savedorderby**: Save order by criteria for recreating entity sets.
 
 
 ## Best Practices

@@ -19,24 +19,15 @@ GET /rest/{{dataClass}}?$asArray=true
 ```
 
 
-## Combining with Other Query Parameters
+## Combining with Other Parameters
 
-You can combine `$asArray=true` with other query parameters to refine your data retrieval:
+You can combine `$asArray=true` with other parameters to refine your data retrieval:
 
-- **Filtering:** Retrieve filtered data in an array.
-  ```
-  GET /rest/Users?$filter="Name begin u"&$asArray=true
-  ```
+- **$filter:** Retrieve filtered data in an array.
 
-- **Sorting:** Order data and receive it as an array.
-  ```
-  GET /rest/Users?$orderby="Name desc"&$asArray=true
-  ```
+- **$orderby:** Order data and receive it as an array.
 
-- **Pagination:** Paginate data and receive it as an array.
-  ```
-  GET /rest/Users?$top=10&$skip=20&$asArray=true
-  ```
+- **$skip:** Paginate data and receive it as an array.
 
 
 ## Use Cases

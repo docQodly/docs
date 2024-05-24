@@ -89,6 +89,28 @@ The `__STATUS` object may include additional properties providing information ab
 
 
 
+## Combining with Other Parameters
+
+The `$lock` parameter can be combined with other parameters to control and manage entity locking effectively:
+
+- **$filter**: Apply filters to select specific entities before locking them.
+
+- **$expand**: Include related data in the response when locking an entity.
+
+- **$attributes**: Specify which attributes to include in the response when an entity is locked.
+
+- **$version**: Ensure the correct version of the entity is locked by specifying the version number.
+
+- **$top/$limit** and **$skip**: Limit the number of entities and skip a certain number of entities before locking.
+
+- **$method=entityset**: Create an entity set and lock the entities within that set.
+
+- **$compute**: Perform calculations on related data before locking entities based on the computed results.
+
+- **$orderby**: Sort entities before applying the lock to ensure specific ordering criteria.
+
+
+
 ## Use Cases
 
 ### Locking an Entity

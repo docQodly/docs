@@ -26,19 +26,13 @@ POST /rest/{{dataClass}}?$atOnce=true
 ```
 
 
-## Combining with Other Query Parameters
+## Combining with Other Parameters
 
-You can combine `$atomic` or `$atOnce` with other query parameters to refine your data manipulation operations:
+You can combine `$atomic` or `$atOnce` with other parameters to refine your data manipulation operations:
 
-- **Filtering:** Ensure that filtered data updates are transactional.
-  ```
-  POST /rest/Users?$atomic=true&$filter="department='HR'"
-  ```
+- **$filter:** Ensure that filtered data updates are transactional.
 
-- **Sorting:** Maintain transactional integrity while sorting data.
-  ```
-  POST /rest/Users?$atOnce=true&$orderby="lastName desc"
-  ```
+- **$orderby:** Maintain transactional integrity while sorting data.
 
 
 

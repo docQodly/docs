@@ -55,6 +55,28 @@ If the format is not supported or the image cannot be retrieved, an empty object
 The `$expand` parameter must be used in conjunction with `$imageformat` to fully load and retrieve the image attribute. Without `$expand`, the image attribute will not be expanded and the full image data will not be included in the response.
 
 
+## Combining with Other Parameters
+
+The `$imageformat` parameter can be combined with other parameters to customize the retrieval and presentation of image data:
+
+- **$filter**: Apply filters to the data before retrieving images in the specified format.
+
+- **$orderby**: Sort the data before retrieving images in the specified format.
+
+- **$top/$limit** and **$skip**: Limit the number of records and skip a certain number of records before retrieving images.
+
+- **$expand**: Include related data in the image retrieval response.
+
+- **$attributes**: Specify which attributes to include in the response along with the formatted image.
+
+- **$version**: Ensure the correct version of the image is retrieved by specifying the image version number.
+
+- **$compute**: Perform calculations on related data before retrieving images in the specified format.
+
+- **$distinct**: Retrieve distinct values related to the image data and format the image response accordingly.
+
+- **$method=entityset**: Create an entity set and retrieve images in the specified format based on the entity set.
+
 
 ## Use Cases
 

@@ -21,6 +21,28 @@ The `$entityset` endpoint enables you to manage and manipulate entity sets in yo
 
 
 
+## Combining with Other Parameters
+
+The `$entityset` parameter can be combined with other parameters to enhance functionality:
+
+- **$filter**: Define a filter to create an entity set based on specific criteria.
+
+- **$orderby**: Specify the order in which entities are sorted in the entity set.
+
+- **$top/$limit** and **$skip**: Limit the number of entities in the entity set and skip a certain number of entities.
+
+- **$expand**: Include related data within the entity set.
+
+- **$attributes**: Specify which attributes to include in the entity set.
+
+- **$timeout**: Define the duration for which the entity set will be saved in the server's cache.
+
+- **$savedfilter**: Save the filter criteria used when creating the entity set for future retrieval.
+
+- **$savedorderby**: Save the sort order used when creating the entity set for future retrieval.
+
+
+
 ## Use Cases
 
 ### Retrieving an Existing Entity Set

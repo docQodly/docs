@@ -3,7 +3,11 @@ id: $queryplan
 title: $queryplan 
 ---
 
-## Overview
+
+
+## Functionality
+
+### Definition
 
 The `$queryplan` endpoint is designed to provide insights into the execution strategy of queries processed by the server. This endpoint helps developers and database administrators to analyze and optimize query performance by returning a detailed breakdown of the query execution plan.
 
@@ -11,14 +15,14 @@ The `$queryplan` endpoint is designed to provide insights into the execution str
 For additional information, please consult the ["About queryPlan and queryPath"](../language/DataClassClass#about-queryplan-and-querypath) documentation.
 :::
 
+### Syntax
 
-## Key Features
+To use the `$queryplan` parameter, use the following syntax:
 
-Key features of the query plan:
+```
+GET /rest/{{dataClass}}/?$queryplan=true
+```
 
-- **Detailed Description**: The query plan contains a detailed description of the query just before it was executed, illustrating the server's planned approach to handling the query.
-
-- **Optimization Insights**: It offers insights into potential optimizations made by the server. For example, the server may convert an indexed query into a sequential one if it estimates that it would yield faster results based on the number of entities involved.
 
 ## Properties Returned
 
@@ -92,6 +96,30 @@ Information about the entities affected by the query:
 | `Purchaser`   | Object | Example attribute, e.g., details about the purchaser, using deferred loading.     |
 
 
+
+## Combining with Other Parameters
+
+The `$queryplan` parameter can be combined with other parameters to gain insights into how queries are executed, which can help in optimizing performance:
+
+- **$filter**: Apply filters to the dataset to see how they affect the query plan.
+
+- **$orderby**: Observe how sorting impacts the execution plan.
+
+- **$top/$limit** and **$skip**: Check the effect of limiting and skipping records on the query execution.
+
+- **$expand**: Include related data and see how joining related tables or collections influences the query plan.
+
+- **$attributes**: Specify which attributes are included in the query and understand their impact on the query performance.
+
+- **$method**: Combine with various method operations to analyze their execution plans.
+
+- **$compute**: Evaluate the impact of computations on the query execution.
+
+- **$entityset**: Analyze the query plan for operations involving entity sets.
+
+- **$savedfilter**: Save and reuse filters to analyze their impact on the query plan.
+
+- **$savedorderby**: Save and reuse sorting criteria to analyze their impact on the query plan.
 
 
 ## Sample Usage in Postman

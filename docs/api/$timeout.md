@@ -51,7 +51,7 @@ The `$timeout` parameter can be used alongside `$expand` to manage the lifespan 
 
 ## Combining with Other Parameters
 
-The `$timeout` parameter can be combined with other query parameter:
+The `$timeout` parameter can be combined with other parameters:
 
 - **$expand**: Retrieve related entities within the specified timeout period.
 

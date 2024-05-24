@@ -31,9 +31,34 @@ Integer value indicating the number of entities to skip.
 
 By default, entity collections start from the first entity. By using `$skip`, you can define a different starting point. For instance, `$skip=10` will start the collection from the 11th entity.
 
-### Combination with $top/$limit
 
-When combined with `$top` or `$limit`, `$skip` allows for pagination through large collections. This is useful for implementing data navigation features like "Load More" or pagination in applications.
+
+
+## Combining with Other Parameters
+
+The `$skip` parameter can be combined with other parameters to navigate through a collection of entities efficiently:
+
+- **$top/$limit**: Use in conjunction with `$skip` to control the number of entities returned after skipping a certain number.
+
+- **$filter**: Narrow down the dataset before skipping a specified number of entities.
+
+- **$orderby**: Sort the dataset before applying the skip operation to ensure consistent results.
+
+- **$expand**: Include related data in the results while skipping a certain number of entities.
+
+- **$attributes**: Specify which attributes to include in the results after skipping entities.
+
+- **$method=entityset**: Create an entity set and navigate through it by skipping entities.
+
+- **$savedfilter**: Apply a saved filter to the dataset before skipping entities.
+
+- **$savedorderby**: Apply a saved sorting order to the dataset before skipping entities.
+
+- **$compute**: Perform computations on a dataset after skipping a specified number of entities.
+
+- **$lock**: Skip entities when locking or unlocking entities to ensure the operation starts from a specific point in the dataset.
+
+- **$distinct**: Skip a number of entities when retrieving distinct values from a dataset.
 
 
 

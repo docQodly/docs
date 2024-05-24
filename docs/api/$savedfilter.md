@@ -46,15 +46,27 @@ When an entity set is created with a saved filter, the following occurs:
 
 ## Combining with Other Parameters
 
-The `$savedfilter` parameter can be combined with other query parameters to manage the entity set:
+The `$savedfilter` parameter can be combined with other parameters to enhance and secure the filtering of entity sets:
 
-- **$expand**: Retrieve related entities within the specified filter.
+- **$filter**: Define the initial filter criteria and save it using `$savedfilter` for consistency in future requests.
 
-- **$orderby**: Sort the entities in the entity set.
+- **$orderby**: Combine with `$savedorderby` to save and apply sorting criteria along with the filter.
 
-- **$top/$limit**: Limit the number of entities returned in the entity set.
+- **$top/$limit** and **$skip**: Navigate through the filtered entity set while maintaining the saved filter.
 
-- **$skip**: Skip a specified number of entities in the result set.
+- **$expand**: Include related data in the filtered results, ensuring the filter criteria are consistently applied.
+
+- **$attributes**: Specify which attributes to include in the filtered results, preserving the filter criteria.
+
+- **$method=entityset**: Create an entity set with a saved filter, allowing for consistent retrieval of filtered data.
+
+- **$compute**: Apply computations on the filtered dataset while ensuring the filter criteria are maintained.
+
+- **$entityset**: Use the saved filter when accessing entity sets to maintain the filtering consistency.
+
+- **$queryplan**: Analyze the query plan for the saved filter to understand and optimize its performance.
+
+- **$querypath**: Trace the execution path of the query with the saved filter to identify optimization opportunities.
 
 
 

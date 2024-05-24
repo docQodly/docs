@@ -21,6 +21,22 @@ GET /rest/{{dataClass}}/{{attribute}}?$filter="{{filterExpression}}"&$distinct=t
 You can also use `$skip` and `$top/$limit` parameters to navigate the selection before it's placed in an array.
 
 
+## Combining with Other Parameters
+
+The `$distinct` parameter can be combined with other parameters to refine the query:
+
+- **$filter**: Narrow down the data set before retrieving distinct values.
+
+- **$orderby**: Sort the distinct values before returning them.
+
+- **$top/$limit** and **$skip**: Limit the number of distinct records and skip a certain number of distinct records.
+
+- **$expand**: Include related data along with distinct values.
+
+- **$attributes**: Specify which attributes to include in the response with distinct values.
+
+- **$method=entityset**: Create an entity set based on distinct results and save it in the server's cache.
+
 
 ## Use Cases
 

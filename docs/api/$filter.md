@@ -75,6 +75,24 @@ To filter by last name "O'Reilly":
     ```
 
 
+## Combining with Other Parameters
+
+The `$filter` parameter can be combined with other parameters to refine and manipulate data retrieval:
+
+- **$orderby**: Sort the filtered results.
+
+- **$top/$limit** and **$skip**: Limit the number of filtered records and skip a certain number of records.
+
+- **$expand**: Include related data that matches the filter criteria.
+
+- **$attributes**: Specify which attributes to include in the response for the filtered results.
+
+- **$compute**: Perform calculations on the filtered data.
+
+- **$distinct**: Retrieve distinct values from the filtered data set.
+
+- **$method=entityset**: Create an entity set based on the filtered results and save it in the server's cache.
+
 ## Use Cases
 
 

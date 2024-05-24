@@ -27,6 +27,19 @@ When the request is made, the user will be prompted to choose a location on thei
 If viewed in a text editor or console, the response may appear as a long string of characters representing the binary data.
 :::
 
+### Mandatory Use of `$expand`
+
+The `$expand` parameter is mandatory when using `$binary=true`. This ensures that the BLOB data is correctly expanded and retrieved from the specified attribute.
+
+
+## Combining with Other Parameters
+
+While `$binary=true` is primarily used for saving BLOB data, it can be combined with other parameters to refine the request:
+
+- **$filter:** Ensure that the BLOB data is retrieved from a filtered set of records.
+
+- **$orderby:** Retrieve and save BLOB data from a sorted set of records.
+
 
 ## Use Cases
 
@@ -50,26 +63,6 @@ To save a PDF BLOB from the `contract` attribute of the `Documents` dataclass wi
 ```
 GET /rest/Documents(42)/contract?$binary=true&$expand=contract
 ```
-
-
-
-## Mandatory Use of `$expand`
-
-The `$expand` parameter is mandatory when using `$binary=true`. This ensures that the BLOB data is correctly expanded and retrieved from the specified attribute.
-
-## Combining with Other Query Parameters
-
-While `$binary=true` is primarily used for saving BLOB data, it can be combined with other query parameters to refine the request:
-
-- **Filtering:** Ensure that the BLOB data is retrieved from a filtered set of records.
-  ```
-  GET /rest/User?$filter="department='HR'"&$binary=true&$expand=profilePicture
-  ```
-
-- **Sorting:** Retrieve and save BLOB data from a sorted set of records.
-  ```
-  GET /rest/User?$orderby="lastName desc"&$binary=true&$expand=profilePicture
-  ```
 
 
 

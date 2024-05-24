@@ -43,6 +43,46 @@ GET /rest/{{dataClass}}/{{objectAttribute}}.{{property}}?$compute={{keyword}}
 
 
 
+## Detailed Behavior
+
+### Using `$compute=$all`
+
+When using `$compute=$all`, the response includes all possible calculations for the attribute:
+
+- For numerical attributes: count, sum, average, min, max
+
+- For string attributes: count, min, max
+
+- For date attributes: 
+
+
+### Using Specific Keywords
+
+You can specify a particular calculation by replacing `$all` with one of the specific keywords (`average`, `count`, `min`, `max`, `sum`). The response will then include only the result of the specified calculation.
+
+### Object Attributes
+
+If you need to perform calculations on a property of an object attribute, you must specify the property in the request URL. The calculation will be performed on the specified property.
+
+
+
+## Combining with Other Parameters
+
+The `$compute` parameter can be combined with other parameters:
+
+- **$filter**: Narrow down the data set before computing values.
+
+- **$orderby**: Sort the data before computing values.
+
+- **$top/$limit** and **$skip**: Limit the number of records and skip a certain number of records.
+
+- **$expand**: Include related data in the computation.
+
+- **$attributes**: Specify which attributes to include in the response with computed values.
+
+- **$method=entityset**: Create an entity set based on computed results and save it in the server's cache.
+
+
 ## Use Cases
 
 ### Get All Computations for a Numerical Attribute
@@ -138,29 +178,6 @@ GET /rest/Payments?$attributes=Amount&$compute=count
 20
 ```
 
-
-
-
-## Detailed Behavior
-
-### Using `$compute=$all`
-
-When using `$compute=$all`, the response includes all possible calculations for the attribute:
-
-- For numerical attributes: count, sum, average, min, max
-
-- For string attributes: count, min, max
-
-- For date attributes: 
-
-
-### Using Specific Keywords
-
-You can specify a particular calculation by replacing `$all` with one of the specific keywords (`average`, `count`, `min`, `max`, `sum`). The response will then include only the result of the specified calculation.
-
-### Object Attributes
-
-If you need to perform calculations on a property of an object attribute, you must specify the property in the request URL. The calculation will be performed on the specified property.
 
 
 

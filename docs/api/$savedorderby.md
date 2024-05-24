@@ -30,10 +30,30 @@ When you create an entity set with `$savedorderby`, the sort order is saved and 
 By using `$savedorderby`, the sort order defined when creating the entity set is preserved. When you retrieve the entity set, you must pass `$savedorderby` along with your call to ensure the sort order is applied.
 :::
 
-### Combining with $savedfilter
 
-When using `$savedorderby`, it is recommended to also use `$savedfilter` to save the filter criteria. This combination ensures that both the filter and the sort order are applied consistently.
+## Combining with Other Parameters
 
+The `$savedorderby` parameter can be combined with other parameters to maintain consistent sorting criteria for entity sets:
+
+- **$filter**: Combine with `$savedfilter` to save and apply both filtering and sorting criteria.
+
+- **$top/$limit** and **$skip**: Navigate through the sorted entity set while maintaining the saved sorting order.
+
+- **$expand**: Include related data in the sorted results, ensuring the sorting criteria are consistently applied.
+
+- **$attributes**: Specify which attributes to include in the sorted results, preserving the sorting order.
+
+- **$method=entityset**: Create an entity set with a saved sort order, allowing for consistent retrieval of sorted data.
+
+- **$compute**: Apply computations on the sorted dataset while ensuring the sorting criteria are maintained.
+
+- **$entityset**: Use the saved sorting order when accessing entity sets to maintain consistency in data presentation.
+
+- **$queryplan**: Analyze the query plan for the saved sorting order to understand and optimize its performance.
+
+- **$querypath**: Trace the execution path of the query with the saved sorting order to identify optimization opportunities.
+
+- **$lock**: Ensure data integrity by applying consistent sorting criteria when locking and unlocking entities.
 
 
 ## Use Cases
