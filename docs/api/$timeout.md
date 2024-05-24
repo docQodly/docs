@@ -18,10 +18,9 @@ To set a timeout for an entity set, use the following format:
 GET {{ApiEndpoint}}/rest/{{dataClass}}?$filter="{{filterExpression}}"&$method=entityset&?$timeout={{seconds}}
 ```
 
-### Supported Formats
-
+:::tip
 The `$timeout` endpoint accepts a numerical value representing the number of seconds the entity set should remain in the cache. For example, 1800 seconds for 30 minutes.
-
+:::
 
 
 ## Detailed Behavior
