@@ -465,7 +465,6 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Retrieving Server Information',
-			collapsed: false,
 			items: [
 				'api/$catalog',
 				'api/$info'

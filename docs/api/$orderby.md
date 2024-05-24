@@ -145,7 +145,7 @@ GET /rest/Employee/$entityset/CB1BCC603DB0416D939B4ED379277F02?$orderby="lastNam
       "lastName": "O'Leary",
       "salary": 80000
     }
-    // more entities
+    ...
   ]
 }
 ```
