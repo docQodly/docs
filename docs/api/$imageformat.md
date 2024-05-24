@@ -15,7 +15,7 @@ The `$imageformat` endpoint allows you to specify the format in which images sho
 To use the `$imageformat` parameter, append it to your GET request:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}({{id}})/{{imageAttribute}}?$imageformat={{format}}&$expand={{imageAttribute}}
+GET /rest/{{dataClass}}({{id}})/{{imageAttribute}}?$imageformat={{format}}&$expand={{imageAttribute}}
 ```
 
 ### Supported Formats

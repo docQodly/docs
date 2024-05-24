@@ -15,7 +15,7 @@ The `$format` endpoint allows you to specify the format in which data from a dat
 To use the `$format` parameter, append it to your GET request in the following manner:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}?$format={{format}}
+GET /rest/{{dataClass}}?$format={{format}}
 ```
 
 ### Supported Formats

@@ -32,13 +32,13 @@ The following keywords can be used with `$compute` to perform different calculat
 To perform a calculation on an attribute, you use the following format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/{{attribute}}?$compute={{keyword}}
+GET /rest/{{dataClass}}/{{attribute}}?$compute={{keyword}}
 ```
 
 If you want to perform a calculation on an object attribute, specify one of its properties:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/{{objectAttribute}}.{{property}}?$compute={{keyword}}
+GET /rest/{{dataClass}}/{{objectAttribute}}.{{property}}?$compute={{keyword}}
 ```
 
 
@@ -50,7 +50,7 @@ GET {{ApiEndpoint}}/rest/{{dataClass}}/{{objectAttribute}}.{{property}}?$compute
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Payments?$attributes=Amount&$compute=$all
+GET /rest/Payments?$attributes=Amount&$compute=$all
 ```
 
 **Response:**
@@ -72,7 +72,7 @@ GET {{ApiEndpoint}}/rest/Payments?$attributes=Amount&$compute=$all
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Users?$attributes=Name&$compute=$all
+GET /rest/Users?$attributes=Name&$compute=$all
 ```
 
 **Response:**
@@ -92,7 +92,7 @@ GET {{ApiEndpoint}}/rest/Users?$attributes=Name&$compute=$all
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Payments?$attributes=PaymentDate&$compute=$all
+GET /rest/Payments?$attributes=PaymentDate&$compute=$all
 ```
 
 **Response:**
@@ -113,7 +113,7 @@ GET {{ApiEndpoint}}/rest/Payments?$attributes=PaymentDate&$compute=$all
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Payments?$attributes=Amount&$compute=sum
+GET /rest/Payments?$attributes=Amount&$compute=sum
 ```
 
 **Response:**
@@ -129,7 +129,7 @@ GET {{ApiEndpoint}}/rest/Payments?$attributes=Amount&$compute=sum
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Payments?$attributes=Amount&$compute=count
+GET /rest/Payments?$attributes=Amount&$compute=count
 ```
 
 **Response:**

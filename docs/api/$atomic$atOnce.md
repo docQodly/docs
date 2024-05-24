@@ -18,11 +18,11 @@ This is crucial for maintaining data integrity, especially when dealing with ope
 ### Syntax
 
 ```
-POST {{ApiEndpoint}}/rest/{{dataClass}}?$atomic=true
+POST /rest/{{dataClass}}?$atomic=true
 ```
 or
 ```
-POST {{ApiEndpoint}}/rest/{{dataClass}}?$atOnce=true
+POST /rest/{{dataClass}}?$atOnce=true
 ```
 
 
@@ -32,12 +32,12 @@ You can combine `$atomic` or `$atOnce` with other query parameters to refine you
 
 - **Filtering:** Ensure that filtered data updates are transactional.
   ```
-  POST {{ApiEndpoint}}/rest/Users?$atomic=true&$filter="department='HR'"
+  POST /rest/Users?$atomic=true&$filter="department='HR'"
   ```
 
 - **Sorting:** Maintain transactional integrity while sorting data.
   ```
-  POST {{ApiEndpoint}}/rest/Users?$atOnce=true&$orderby="lastName desc"
+  POST /rest/Users?$atOnce=true&$orderby="lastName desc"
   ```
 
 
@@ -51,7 +51,7 @@ Updating multiple records atomically to ensure all or none of the changes are ap
 **Request:**
 
 ```
-POST {{ApiEndpoint}}/rest/Users?$atomic=true
+POST /rest/Users?$atomic=true
 ```
 
 **POST data:**
@@ -136,7 +136,7 @@ Inserting multiple records in a single transaction:
 **Request:**
 
 ```
-POST {{ApiEndpoint}}/rest/Users?$method=insert&$atOnce=true
+POST /rest/Users?$method=insert&$atOnce=true
 ```
 
 **POST data:**
@@ -163,7 +163,7 @@ Deleting multiple records within a transaction:
 **Request:**
 
 ```
-POST {{ApiEndpoint}}/rest/Users?$method=delete&$atomic=true
+POST /rest/Users?$method=delete&$atomic=true
 ```
 
 **POST data:**

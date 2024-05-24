@@ -20,7 +20,7 @@ The `$expand` endpoint allows you to expand attributes within a dataclass, such 
 To expand an attribute, use the following format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{attribute}}?$expand={{attribute}}&additionalParameters
+GET /rest/{{dataClass}}(id)/{{attribute}}?$expand={{attribute}}&additionalParameters
 ```
 
 ### Additional Parameters
@@ -49,7 +49,7 @@ To view an image attribute in its entirety, you can use the `$expand` parameter 
 #### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{imageAttribute}}?$imageformat=best&$version=1&$expand={{imageAttribute}}
+GET /rest/{{dataClass}}(id)/{{imageAttribute}}?$imageformat=best&$version=1&$expand={{imageAttribute}}
 ```
 
 :::info
@@ -79,7 +79,7 @@ To save a BLOB stored in your dataclass, use the `$expand` parameter along with 
 #### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{blobAttribute}}?$binary=true&$expand={{blobAttribute}}
+GET /rest/{{dataClass}}(id)/{{blobAttribute}}?$binary=true&$expand={{blobAttribute}}
 ```
 
 :::info
@@ -103,7 +103,7 @@ For compatibility reasons, `$expand` can also be used to expand relational attri
 #### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)?$expand={{relationalAttribute}}
+GET /rest/{{dataClass}}(id)?$expand={{relationalAttribute}}
 ```
 
 :::info

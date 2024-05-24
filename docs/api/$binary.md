@@ -18,7 +18,7 @@ To use `$binary`, you must also include the `$expand` parameter with the name of
 ### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)/{{blobAttributeName}}?$binary=true&$expand={{blobAttributeName}}
+GET /rest/{{dataClass}}(id)/{{blobAttributeName}}?$binary=true&$expand={{blobAttributeName}}
 ```
 
 When the request is made, the user will be prompted to choose a location on their disk to save the BLOB data. 
@@ -37,7 +37,7 @@ If viewed in a text editor or console, the response may appear as a long string 
 To save an image BLOB from the `profilePicture` attribute of the `User` dataclass with ID `5`:
 
 ```
-GET {{ApiEndpoint}}/rest/User(5)/profilePicture?$binary=true&$expand=profilePicture
+GET /rest/User(5)/profilePicture?$binary=true&$expand=profilePicture
 ```
 
 
@@ -48,7 +48,7 @@ GET {{ApiEndpoint}}/rest/User(5)/profilePicture?$binary=true&$expand=profilePict
 To save a PDF BLOB from the `contract` attribute of the `Documents` dataclass with ID `42`:
 
 ```
-GET {{ApiEndpoint}}/rest/Documents(42)/contract?$binary=true&$expand=contract
+GET /rest/Documents(42)/contract?$binary=true&$expand=contract
 ```
 
 
@@ -63,12 +63,12 @@ While `$binary=true` is primarily used for saving BLOB data, it can be combined 
 
 - **Filtering:** Ensure that the BLOB data is retrieved from a filtered set of records.
   ```
-  GET {{ApiEndpoint}}/rest/User?$filter="department='HR'"&$binary=true&$expand=profilePicture
+  GET /rest/User?$filter="department='HR'"&$binary=true&$expand=profilePicture
   ```
 
 - **Sorting:** Retrieve and save BLOB data from a sorted set of records.
   ```
-  GET {{ApiEndpoint}}/rest/User?$orderby="lastName desc"&$binary=true&$expand=profilePicture
+  GET /rest/User?$orderby="lastName desc"&$binary=true&$expand=profilePicture
   ```
 
 

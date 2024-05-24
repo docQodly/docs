@@ -30,7 +30,7 @@ You can retrieve an existing entity set by its ID. This allows you to execute op
 #### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/$entityset/{{entitySetID}}
+GET /rest/{{dataClass}}/$entityset/{{entitySetID}}
 ```
 
 :::info
@@ -63,7 +63,7 @@ You can create a new entity set by comparing two existing entity sets using logi
 #### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/$entityset/{{entitySetID}}?$logicOperator={{operator}}&$otherCollection={{otherEntitySetID}}&$method=entityset
+GET /rest/{{dataClass}}/$entityset/{{entitySetID}}?$logicOperator={{operator}}&$otherCollection={{otherEntitySetID}}&$method=entityset
 ```
 
 :::info

@@ -15,7 +15,7 @@ The `$distinct` endpoint enables you to return a collection containing the disti
 To retrieve distinct values for an attribute, use the following format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}/{{attribute}}?$filter="{{filterExpression}}"&$distinct=true
+GET /rest/{{dataClass}}/{{attribute}}?$filter="{{filterExpression}}"&$distinct=true
 ```
 
 You can also use `$skip` and `$top/$limit` parameters to navigate the selection before it's placed in an array.
@@ -29,7 +29,7 @@ You can also use `$skip` and `$top/$limit` parameters to navigate the selection 
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Users/Name?$filter="Name=J@"&$distinct=true
+GET /rest/Users/Name?$filter="Name=J@"&$distinct=true
 ```
 
 **Response:**
@@ -46,7 +46,7 @@ GET {{ApiEndpoint}}/rest/Users/Name?$filter="Name=J@"&$distinct=true
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Users/Name?$filter="Name=J*"&$distinct=true&$skip=1&$top=1
+GET /rest/Users/Name?$filter="Name=J*"&$distinct=true&$skip=1&$top=1
 ```
 
 **Response:**
@@ -62,7 +62,7 @@ GET {{ApiEndpoint}}/rest/Users/Name?$filter="Name=J*"&$distinct=true&$skip=1&$to
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Employee/salary?$distinct=true
+GET /rest/Employee/salary?$distinct=true
 ```
 
 **Response:**
@@ -80,7 +80,7 @@ GET {{ApiEndpoint}}/rest/Employee/salary?$distinct=true
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Employee/address.city?$distinct=true
+GET /rest/Employee/address.city?$distinct=true
 ```
 
 **Response:**

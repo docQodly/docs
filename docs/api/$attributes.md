@@ -25,7 +25,7 @@ If `$attributes` is not specified in a query, or if the `*` value is passed, all
 ### Syntax
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}(id)?$attributes={{attributePath}}
+GET /rest/{{dataClass}}(id)?$attributes={{attributePath}}
 ```
 
 
@@ -37,7 +37,7 @@ GET {{ApiEndpoint}}/rest/{{dataClass}}(id)?$attributes={{attributePath}}
 **Request:**
 
 ```
-{{ApiEndpoint}}/rest/Payments[1]?$attributes=Amount,PaymentDate
+GET /rest/Payments[1]?$attributes=Amount,PaymentDate
 ```
 
 **Response:**
@@ -63,7 +63,7 @@ Returns the related entity with simple form (deferred `__KEY` property and `URI`
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser
+GET /rest/Orders(1)?$attributes=Purchaser
 ```
 
 **Response:**
@@ -89,7 +89,7 @@ GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser.*
+GET /rest/Orders(1)?$attributes=Purchaser.*
 ```
 
 **Response:**
@@ -122,7 +122,7 @@ GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser.*
 **Request:**
 
 ```
-GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser.Name
+GET /rest/Orders(1)?$attributes=Purchaser.Name
 ```
 
 **Response:**
@@ -149,7 +149,7 @@ GET {{ApiEndpoint}}/rest/Orders(1)?$attributes=Purchaser.Name
 **Request:**
 
 ```
-{{ApiEndpoint}}/rest/Payments[1]?$attributes=Order.OrderedProduct.Name
+GET /rest/Payments[1]?$attributes=Order.OrderedProduct.Name
 ```
 
 **Response:**

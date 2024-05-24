@@ -15,7 +15,7 @@ The `$filter` endpoint allows you to query data within a dataclass or method usi
 To use the `$filter` parameter, follow this format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}?$filter="{{filterExpression}}"
+GET /rest/{{dataClass}}?$filter="{{filterExpression}}"
 ```
 
 ### Attribute

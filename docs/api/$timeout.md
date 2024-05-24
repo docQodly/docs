@@ -15,7 +15,7 @@ The `$timeout` endpoint defines the number of seconds to save an entity set in t
 To set a timeout for an entity set, use the following format:
 
 ```
-GET {{ApiEndpoint}}/rest/{{dataClass}}?$filter="{{filterExpression}}"&$method=entityset&?$timeout={{seconds}}
+GET /rest/{{dataClass}}?$filter="{{filterExpression}}"&$method=entityset&?$timeout={{seconds}}
 ```
 
 :::tip

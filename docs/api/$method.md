@@ -15,11 +15,11 @@ The `$method` parameter allows you to define the operation to execute on the ret
 
 | Syntax | Example | Description |
 |--------|---------|-------------|
-| [**$method=delete**](#methoddelete) | `POST {{ApiEndpoint}}/Employee(11)?$method=delete` | Deletes the current entity, entity collection, or entity selection. |
-| [**$method=entityset**](#methodentityset) | `GET {{ApiEndpoint}}/Employee(11)?$method=entityset&$timeout=600` | Creates an entity set in the server's cache based on the collection of entities defined in the REST request |
-| [**$method=release**](#methodrelease) | `GET {{ApiEndpoint}}/Employee/$entityset/<entitySetID>?$method=release` | Releases an existing entity set stored in the server's cache |
-| [**$method=subentityset**](#methodsubentityset) | `GET {{ApiEndpoint}}/Employee(11)/staff?$expand=staff&$method=subentityset&$subOrderby=lastName ASC` | Creates an entity set based on the collection of related entities defined in the REST request |
-| [**$method=update**](#methodupdate) | `POST {{ApiEndpoint}}/Employee?$method=update` | Updates and/or creates one or more entities |
+| [**$method=delete**](#methoddelete) | `POST /Employee(11)?$method=delete` | Deletes the current entity, entity collection, or entity selection. |
+| [**$method=entityset**](#methodentityset) | `GET /Employee(11)?$method=entityset&$timeout=600` | Creates an entity set in the server's cache based on the collection of entities defined in the REST request |
+| [**$method=release**](#methodrelease) | `GET /Employee/$entityset/<entitySetID>?$method=release` | Releases an existing entity set stored in the server's cache |
+| [**$method=subentityset**](#methodsubentityset) | `GET /Employee(11)/staff?$expand=staff&$method=subentityset&$subOrderby=lastName ASC` | Creates an entity set based on the collection of related entities defined in the REST request |
+| [**$method=update**](#methodupdate) | `POST /Employee?$method=update` | Updates and/or creates one or more entities |
 
 
 
@@ -43,19 +43,19 @@ You can also delete entities in an entity set by calling `$entityset/{entitySetI
 - Delete a specific entity:
 
     ```
-    POST {{ApiEndpoint}}/rest/Employee(22)?$method=delete
+    POST /rest/Employee(22)?$method=delete
     ```
 
 - Delete entities using a filter:
 
     ```
-    POST {{ApiEndpoint}}/rest/Employee?$filter="ID=11"&$method=delete
+    POST /rest/Employee?$filter="ID=11"&$method=delete
     ```
 
 - Delete an entity set:
 
     ```
-    POST {{ApiEndpoint}}/rest/Employee/$entityset/<entitySetID>?$method=delete
+    POST /rest/Employee/$entityset/<entitySetID>?$method=delete
     ```
 
 ### Response
@@ -86,13 +86,13 @@ The entity set will have a reference number that you can use to access it later.
 - Create an entity set with the default timeout:
 
     ```
-    GET {{ApiEndpoint}}/rest/Employee?$filter="ID>320"&$method=entityset
+    GET /rest/Employee?$filter="ID>320"&$method=entityset
     ```
 
 - Create an entity set with a custom timeout:
 
     ```
-    GET {{ApiEndpoint}}/rest/Employee?$filter="ID>320"&$method=entityset&$timeout=600
+    GET /rest/Employee?$filter="ID>320"&$method=entityset&$timeout=600
     ```
 
 ### Response
@@ -119,7 +119,7 @@ You can release an entity set, which you created using `$method=entityset`, from
 Release an existing entity set:
 
 ```
-GET {{ApiEndpoint}}/rest/Employee/$entityset/4C51204DD8184B65AC7D79F09A077F24?$method=release
+GET /rest/Employee/$entityset/4C51204DD8184B65AC7D79F09A077F24?$method=release
 ```
 
 ### Response
@@ -165,7 +165,7 @@ You can sort the data using the `$subOrderby` property. By default, the data is 
 Retrieve only the related entities for a specific entity:
 
 ```
-GET {{ApiEndpoint}}/rest/Users(4)/Orders?$expand=Orders&$method=subentityset
+GET /rest/Users(4)/Orders?$expand=Orders&$method=subentityset
 ```
 
 ### Response
@@ -228,7 +228,7 @@ If updating an entity, you must include the `__KEY` and `__STAMP` parameters. If
 
     **Request URL:**
     ```
-    POST {{ApiEndpoint}}/rest/Person?$method=update
+    POST /rest/Person?$method=update
     ```
 
     **POST Data:**
@@ -244,7 +244,7 @@ If updating an entity, you must include the `__KEY` and `__STAMP` parameters. If
 
     **Request URL:**
     ```
-    POST {{ApiEndpoint}}/rest/Person?$method=update
+    POST /rest/Person?$method=update
     ```
 
     **POST Data:**
@@ -259,7 +259,7 @@ If updating an entity, you must include the `__KEY` and `__STAMP` parameters. If
 
     **Request URL:**
     ```
-    POST {{ApiEndpoint}}/rest/Person?$method=update
+    POST /rest/Person?$method=update
     ```
 
     **POST Data:**
