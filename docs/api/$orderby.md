@@ -9,9 +9,6 @@ title: $orderby
 
 The `$orderby` endpoint sorts the data returned by the REST request based on specified attributes and sorting order. You can specify the order as ASC (or asc) for ascending and DESC (or desc) for descending.
 
-:::info
-By default, the data is sorted in ascending order.
-:::
 
 ### Syntax
 
@@ -46,6 +43,20 @@ To sort entities by multiple attributes, separate the attributes with a comma an
 You can specify multiple attributes for sorting. The attributes are processed in the order they are listed.
 :::
 
+
+## Combining with Other Parameters
+
+The `$orderby` parameter can be combined with other parameters:
+
+- **$filter**: Narrow down the dataset before applying sorting.
+
+- **$top/$limit** and **$skip**: Limit and navigate through the sorted dataset.
+
+- **$expand**: Include related data in the sorted results.
+
+- **$attributes**: Specify which attributes to include in the sorted response.
+
+- **$method=entityset**: Create an entity set with sorted results and save it in the server's cache.
 
 
 ## Use Cases
