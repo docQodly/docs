@@ -464,7 +464,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Retrieving Server Information',
+			label: 'Server Informations API',
 			items: [
 				'api/$catalog',
 				'api/$info'
@@ -472,7 +472,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'DataClass Operations',
+			label: 'DataClass Operations API',
 			items: [
 				'api/dataclassEndpoints',
 				'api/dataclassManipulation',
@@ -498,6 +498,16 @@ const sidebars = {
 				'api/$timeout',
 				'api/$top$limit',
 				'api/$version',		
+			],
+		},
+		{
+			type: 'category',
+			label: 'Class Functions API',
+			items: [
+				'api/classFunctionsOverview',
+				'api/classFunctionsSyntax',
+				'api/classFunctionsParameters',
+				'api/classfunctionsFunctionCalls'
 			],
 		},
 	],
