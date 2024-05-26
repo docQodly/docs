@@ -23,6 +23,10 @@ exposed function getTest() : string
 ```
 :::
 
+:::info
+For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../orda/data-model#exposed-vs-non-exposed-functions).
+:::
+
 
 ## Key Concepts
 
@@ -55,7 +59,7 @@ If a class function is not marked as exposed, it is treated as an attribute rath
 }
 ```
 
-### REST API Endpoints
+## REST API Endpoints
 
 The ORDA REST API provides several endpoints to call class functions:
 
@@ -65,6 +69,35 @@ The ORDA REST API provides several endpoints to call class functions:
 |[Dataclass Class](../orda/data-model#dataclass)|`/rest/{dataClass}/DataClassClassFunction`|
 |[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{dataClass}/EntitySelectionClassFunction`|
 |[Entity Class](../orda/data-model#entity-class)|`/rest/{dataClass}(key)/EntityClassFunction`|
+
+
+
+## Calling Dataclass or Entity Selection Functions
+
+The endpoint `{{ApiEndpoint}}/rest/{dataClass}/Function` is versatile and can be used to call either a dataclass function or an entity selection function. When making a call to this endpoint, the following process is followed to determine which function to execute:
+
+1. **Entity Selection Search**: The REST API first checks if the function exists in the entity selection class associated with the specified `dataClass`. 
+
+    :::info
+    An entity selection represents a collection of entities from the dataClass and provides functions that can operate on this collection.
+    :::
+
+
+2. **Dataclass Search**: If the function is not found in the entity selection class, the API then searches for the function in the `dataClass` itself. 
+
+    :::info
+    The dataclass represents the blueprint of the data entities and can have class functions that provide various operations related to the `dataClass`.
+    :::
+
+3. **Function Execution**:
+
+   - If the function is found in the entity selection class, it is executed with the context of the entity selection.
+
+   - If the function is not found in the entity selection class but exists in the `dataClass`, it is executed with the context of the `dataClass`.
+
+   - If the function exists in both the `dataClass` and the entity selection class, the function in the entity selection class will be executed, and the `dataclass` function will be ignored. This prioritization ensures that operations intended for collections of entities are given precedence over those intended for individual entities or the `dataClass` structure.
+
+4. **Fallback Behavior**: If the function is not found in either the entity selection class or the `dataClass`, an error is returned indicating that the function does not exist.
 
 
 
@@ -114,7 +147,7 @@ The response from the server would look something like this:
     "__DATACLASS": "Customer",
     "__KEY": "123",
     "__TIMESTAMP": "2024-05-23T18:11:34.485Z",
-    "__STAMP": &,
+    "__STAMP": 1,
     "ID": 123,
     "firstName": "John",
     "lastName": "Doe",
