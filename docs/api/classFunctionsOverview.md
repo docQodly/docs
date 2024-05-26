@@ -66,28 +66,19 @@ The ORDA REST API provides several endpoints to call class functions:
 |Class function|Syntax|
 |---|----|
 |[Datastore Class](../orda/data-model#datastore)|`/rest/$catalog/DataStoreClassFunction`|
-|[Dataclass Class](../orda/data-model#dataclass)|`/rest/{dataClass}/DataClassClassFunction`|
-|[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{dataClass}/EntitySelectionClassFunction`|
-|[Entity Class](../orda/data-model#entity-class)|`/rest/{dataClass}(key)/EntityClassFunction`|
+|[Dataclass Class](../orda/data-model#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
+|[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
+|[Entity Class](../orda/data-model#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
 
 
 
 ## Calling Dataclass or Entity Selection Functions
 
-The endpoint `{{ApiEndpoint}}/rest/{dataClass}/Function` is versatile and can be used to call either a dataclass function or an entity selection function. When making a call to this endpoint, the following process is followed to determine which function to execute:
+The endpoint `{{ApiEndpoint}}/rest/{{dataClass}}/Function` is versatile and can be used to call either a dataclass function or an entity selection function. When making a call to this endpoint, the following process is followed to determine which function to execute:
 
 1. **Entity Selection Search**: The REST API first checks if the function exists in the entity selection class associated with the specified `dataClass`. 
 
-    :::info
-    An entity selection represents a collection of entities from the dataClass and provides functions that can operate on this collection.
-    :::
-
-
 2. **Dataclass Search**: If the function is not found in the entity selection class, the API then searches for the function in the `dataClass` itself. 
-
-    :::info
-    The dataclass represents the blueprint of the data entities and can have class functions that provide various operations related to the `dataClass`.
-    :::
 
 3. **Function Execution**:
 

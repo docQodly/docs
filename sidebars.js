@@ -505,7 +505,6 @@ const sidebars = {
 			label: 'Class Functions API',
 			items: [
 				'api/classFunctionsOverview',
-				'api/classFunctionsSyntax',
 				'api/classFunctionsParameters',
 				'api/classfunctionsFunctionCalls'
 			],

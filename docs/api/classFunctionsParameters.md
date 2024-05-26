@@ -1,6 +1,6 @@
 ---
 id: classFunctionsParameters
-title: Parameters
+title: Function Parameters
 ---
 
 
