@@ -99,7 +99,7 @@ The endpoint `{{ApiEndpoint}}/rest/{{dataClass}}/Function` is versatile and can 
 Consider a scenario where we have a `Customer` dataClass with a function to retrieve customer details based on their ID:
 
 ```qs
-exposed Function getCustomerDetails(customerID : Integer) : cs.CustomerEntity
+exposed function getCustomerDetails(customerID : Integer) : cs.CustomerEntity
     return ds.Customer.query("ID = :1", customerID).first()
 ```
 

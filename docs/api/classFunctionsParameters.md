@@ -105,8 +105,6 @@ Additionally, attribute values for the entity can be passed, automatically utili
 Modified attribute values for an existing entity prompt automatic execution of the called ORDA data model function on the server. This enables result examination post-business rule application from the client application, facilitating informed decisions regarding entity saving on the server.
 :::
 
-**Fallback Behavior**: If the parameters are not provided or invalid, the function will handle the request with a default behavior, ensuring smooth operation even in unexpected scenarios.
-
 
 ### Parameter Specifications
 
