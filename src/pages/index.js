@@ -27,6 +27,15 @@ function HomepageHeader() {
   );
 }
 
+function HomepageBanner() {
+  return (
+      <div className="banner">require('@site/static/img/Low-code-DevHackaton-2024-Qodly.png).default
+       </div>
+  );
+}
+
+
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -34,6 +43,7 @@ export default function Home() {
       title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
+	  <HomepageBanner />
       <main>
         <HomepageFeatures />
       </main>

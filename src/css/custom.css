@@ -255,6 +255,12 @@ a:hover {
   background-color: #0077B5;
 }
 
+.banner{
+  background-color: black;
+  height: 415px;
+  background-image: url('../../static/img/Low-code-DevHackaton-2024-Qodly.png');
+}
+
 
 /* *************************** */
 /* ************* components SVGs ************* */
