@@ -126,14 +126,13 @@ exposed function updateEmployee(employeeData : object) : boolean
 	
 	if (not(employeeData.__KEY = null))
 		employee = ds.Employee.get(employeeData.__KEY)
-		employee.fromObject(employeeData)
-		status = employee.save()
 	else 
 		employee = ds.Employee.new()
-		employee.fromObject(employeeData)
-		status = employee.save()
 	end 
-	
+
+	employee.fromObject(employeeData)
+	status = employee.save()
+
 	return status.success
 ```
 
@@ -218,8 +217,8 @@ Before passing an entity selection as a parameter, you need to define it using `
 
 ```qs
 exposed function applyDiscount(productSelection : object, discount : number) : boolean
-	var products : cs.UsersSelection
-	var product : cs.UsersEntity
+	var products : cs.ProductSelection
+	var product : cs.ProductEntity
 	
 	products = ds.Product.getEntitySelection(productSelection.__DATASET)
 	forEach (product, products)
