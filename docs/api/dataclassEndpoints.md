@@ -65,7 +65,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users`
 
-<img alt="explorer" src={require('./img/restDataclass.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restDataclass.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `/rest/Users` endpoint looks something like this in practice:
@@ -129,7 +129,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users[2]`
 
-<img alt="explorer" src={require('./img/restDataclassKey.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restDataclassKey.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `/rest/{{dataClass}}[2]` endpoint looks something like this in practice:
@@ -170,7 +170,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users:Name(user1)`
 
-<img alt="explorer" src={require('./img/restDataclassAttributeValue.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restDataclassAttributeValue.png').default} style={{borderRadius: '6px'}} />
 
 The response structure for the `/rest/Users:Name(user1)` endpoint looks something like this in practice:
 

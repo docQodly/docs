@@ -91,7 +91,7 @@ Within the Webform Editor, the **Datasources** section conveniently organizes av
         </ul>        
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/data-sources.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/data-sources.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -115,7 +115,7 @@ To create Webform or Shared datasources directly from the Catalog, follow these 
                 </ul>        
 	</Column.Item>
 	<Column.Item width="45%">
-                <img alt="explorer" src={require('./img/Catalog.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/Catalog.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -138,7 +138,7 @@ To create Webform datasources, follow these steps:
                 </ul>        
 	</Column.Item>
 	<Column.Item width="45%">
-                <img alt="explorer" src={require('./img/ThisWebform.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/ThisWebform.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -165,7 +165,7 @@ To create Shared datasources, follow these steps:
                 </ul>        
 	</Column.Item>
 	<Column.Item width="45%">
-                <img alt="explorer" src={require('./img/Namespace.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/Namespace.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -182,7 +182,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
         <strong>Entities from Entity Selection Datasource</strong>: These entities originate from an entity selection datasource, particularly advantageous in situations necessitating navigation and bulk actions.
 	</Column.Item>
 	<Column.Item width="40%">
-	        <img alt="explorer" src={require('./img/EntitiesFromEntitySelection.png').default} style={{borderRadius: '6px'}} />
+	        <img src={require('./img/EntitiesFromEntitySelection.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 <br/>
@@ -191,7 +191,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
         <strong>Independently Created Standalone Entities</strong>: These entities have no affiliation with entity selections. They exist in isolation and are well-suited for the management of individual entities that do not require inclusion in larger selections. Standalone entities are typically managed on a one-to-one basis.
 	</Column.Item>
 	<Column.Item width="40%">
-	        <img alt="explorer" src={require('./img/standaloneEntities.png').default} style={{borderRadius: '6px'}} />
+	        <img src={require('./img/standaloneEntities.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -201,7 +201,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
                 To distinguish between the two types of entities, look for the keyword <code>entity selection datasource Name</code> that appears after the child entity datasource, such as <code>products</code>.
 	</Column.Item>
 	<Column.Item width="38%">
-	        <img alt="explorer" src={require('./img/difference_betweenStandalone&Associated.png').default} style={{borderRadius: '6px'}} />
+	        <img src={require('./img/difference_betweenStandalone&Associated.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 :::
@@ -213,7 +213,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
                 Once a datasource is created, you can edit all its properties except for its Type. To start editing, select the <code>Edit</code> icon located next to the datasource name:
 	</Column.Item>
 	<Column.Item width="35%">
-	        <img alt="explorer" src={require('./img/datasource-edit.png').default} style={{borderRadius: '6px'}} />
+	        <img src={require('./img/datasource-edit.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -223,7 +223,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
                 This action will display the datasource in the <code>Contextual panel</code>. To alter an editable property, simply click on the "Edit" icon situated on the right side of the property.
 	</Column.Item>
 	<Column.Item width="35%">
-	        <img alt="explorer" src={require('./img/datasource-edit2.png').default} style={{borderRadius: '6px'}} />
+	        <img src={require('./img/datasource-edit2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -250,8 +250,8 @@ Please note that when renaming a shared datasource, only opened web forms can ha
         Toggle the option by clicking the icon, then hover over a datasource to highlight its location in your webform.
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/inspect-button.png').default} style={{borderRadius: '6px'}} />
-		<img alt="explorer" src={require('./img/inspect-button.gif').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/inspect-button.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/inspect-button.gif').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -290,7 +290,7 @@ For efficiency, if you drag and drop an Entity Selection attribute onto a [**Sel
 
 For [**images**](components/image.md), the binding is automatically displayed in the Data Access panel:
 
-<img alt="explorer" src={require('./img/BindingDatasourceToComponent.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/BindingDatasourceToComponent.gif').default} style={{borderRadius: '6px'}} />
 
 :::
 
@@ -315,7 +315,7 @@ Iterative components can be bound to two types of datasources:
         </ul>        
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/DataAccessPanel.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/DataAccessPanel.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

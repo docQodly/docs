@@ -129,7 +129,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `/rest/Orders?$filter="Quantity > 4 AND Purchaser.Name = user2"&$queryplan=true`
 
-<img alt="explorer" src={require('./img/restQueryPlan.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restQueryPlan.png').default} style={{borderRadius: '6px'}} />
 
 
 ## Sample Response

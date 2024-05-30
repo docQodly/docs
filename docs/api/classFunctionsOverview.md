@@ -181,7 +181,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users/{{DataClassClassFunction}}`
 
-<img alt="explorer" src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Sample Response
@@ -210,7 +210,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users/{{EntitySelectionClassFunction}}`
 
-<img alt="explorer" src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Sample Response
@@ -238,7 +238,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/Users[2]/{{EntitySelectionClassFunction}}`
 
-<img alt="explorer" src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restQueryPath.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Sample Response

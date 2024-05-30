@@ -106,7 +106,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{ApiEndpoint}}/rest/$info`
 
-<img alt="explorer" src={require('./img/restInfo.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restInfo.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `$info` endpoint looks something like this in practice:

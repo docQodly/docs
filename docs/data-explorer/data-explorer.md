@@ -95,7 +95,7 @@ The Data Explorer provides a detailed and customizable view of your data, allowi
 
 Entities can be reordered based on attribute values (excluding picture and object attributes):
 
-- Click on a column header to sort entities. By default, the sort is ascending. Clicking twice reverses the sort order (descending). Sorted columns are marked with an icon <img alt="explorer" src={require('./img/dataExplorer7.png').default} style={{borderRadius: '6px', width: '5%'}} /> and italicized names _italics_. 
+- Click on a column header to sort entities. By default, the sort is ascending. Clicking twice reverses the sort order (descending). Sorted columns are marked with an icon <img src={require('./img/dataExplorer7.png').default} style={{borderRadius: '6px', width: '5%'}} /> and italicized names _italics_. 
 
 :::info
 Multi-level sorting is available by holding the **Shift** key and clicking sequentially on column headers.
@@ -113,7 +113,7 @@ Different operators are available based on the data type:
       <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
   </Column.Item>
   <Column.Item width="35%">
-    <img alt="explorer" src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+    <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
   </Column.Item>
 </Column.List>
 
@@ -128,7 +128,7 @@ Different operators are available based on the data type:
     <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
   </Column.Item>
   <Column.Item width="35%">
-    <img alt="explorer" src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+    <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
   </Column.Item>
 </Column.List>
 
@@ -142,7 +142,7 @@ Different operators are available based on the data type:
     </ul>
   </Column.Item>
   <Column.Item width="35%">
-    <img alt="explorer" src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
+    <img src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
   </Column.Item>
 </Column.List>
 
@@ -151,7 +151,7 @@ Different operators are available based on the data type:
     <strong>Numeric operators:</strong> Select operators (default is "=") for numeric, date, and time attributes. You can select another operator from the operator list.
   </Column.Item>
   <Column.Item width="35%">
-    <img alt="explorer" src={require('./img/DEFilter1.png').default} style={{borderRadius: '6px', width: '30%'}} />
+    <img src={require('./img/DEFilter1.png').default} style={{borderRadius: '6px', width: '30%'}} />
   </Column.Item>
 </Column.List>
 
@@ -162,7 +162,7 @@ Different operators are available based on the data type:
     If you enter several attributes, a <code>AND</code> is automatically applied. For example, the following filter displays entities with <code>firstname</code> attribute starting with "flo" AND <code>salary</code> attribute value > 50000.
   </Column.Item>
   <Column.Item width="35%">
-    <img alt="explorer" src={require('./img/dataExplorer9.png').default} style={{borderRadius: '6px'}} />
+    <img src={require('./img/dataExplorer9.png').default} style={{borderRadius: '6px'}} />
   </Column.Item>
 </Column.List>
 
@@ -179,7 +179,7 @@ You cannot filter on picture or object attributes.
     Enter any expression to filter entities in the advanced query area:
   </Column.Item>
   <Column.Item width="45%">
-    <img alt="explorer" src={require('./img/dataExplorer8.png').default} style={{borderRadius: '6px'}} />
+    <img src={require('./img/dataExplorer8.png').default} style={{borderRadius: '6px'}} />
   </Column.Item>
 </Column.List>
 

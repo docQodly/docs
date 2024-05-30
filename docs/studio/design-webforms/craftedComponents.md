@@ -17,7 +17,7 @@ Crafted components enable you to transform any component, except the Webform com
 Suppose you're striving for uniform design elements across your website, ensuring compatibility with both light and dark modes. To accomplish this:
 
 - **Element Selection**: Choose the component on the canvas that you wish to transform into a crafted component.
-- **Save as Craft**: In the Tooltip menu, select the ellipsis icon <img alt="explorer" src={require('./img/craftedComponent_SaveAsCraft.png').default} style={{borderRadius: '6px', height: '20%', width: '20%'}} /> and click `Save as craft`.
+- **Save as Craft**: In the Tooltip menu, select the ellipsis icon <img src={require('./img/craftedComponent_SaveAsCraft.png').default} style={{borderRadius: '6px', height: '20%', width: '20%'}} /> and click `Save as craft`.
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
@@ -25,7 +25,7 @@ Suppose you're striving for uniform design elements across your website, ensurin
         <li><span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.</li><br/>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/craftedComponent_nameIcon.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+        <img src={require('./img/craftedComponent_nameIcon.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
@@ -34,7 +34,7 @@ Suppose you're striving for uniform design elements across your website, ensurin
         Once completed, your crafted component will be available in the <code>Components > Crafted</code> section. You can then drag and drop it onto the canvas as needed.
     </Column.Item>
     <Column.Item width="34%">
-        <img alt="explorer" src={require('./img/craftedComponent_CraftedSection.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+        <img src={require('./img/craftedComponent_CraftedSection.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
@@ -51,7 +51,7 @@ When a component is styled with a **local** CSS class, such as `styled_checkBox`
 
 Here's a glimpse of how it will look and behave in action:
 
-<img alt="explorer" src={require('./img/craftedComponent_localCSSclass.gif').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+<img src={require('./img/craftedComponent_localCSSclass.gif').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
 
 
 ### Shared CSS Classes
@@ -84,7 +84,7 @@ With **webform datasources**, caution is needed. **Webform Datasources** linked 
         However, it's important to note that while the event configuration is preserved, adjustments might be necessary to ensure alignment with the context of the new webform. 
     </Column.Item>
     <Column.Item width="55%">
-        <img alt="explorer" src={require('./img/craftedComponent_Event.gif').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/craftedComponent_Event.gif').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 

@@ -5,7 +5,7 @@ title: Model Editor Approach
 
 import Column from '@site/src/components/Column'   
 
-In the **Model Editor**, link privileges to permissions for Datastore, DataClass, Attribute, and Function ressources. Adding permissions is done by clicking on the <img alt="explorer" src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img alt="explorer" src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button next to the privilege.
+In the **Model Editor**, link privileges to permissions for Datastore, DataClass, Attribute, and Function ressources. Adding permissions is done by clicking on the <img src={require('./img/ModelEditor_addPermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button in the dropdown list. Conversely, to remove an affected privilege, click on the <img src={require('./img/ModelEditor_removePermission.png').default} style={{borderRadius: '6px', width:'2%'}} /> button next to the privilege.
 
 :::info
 
@@ -56,7 +56,7 @@ In the **Model Editor**, link privileges to permissions for Datastore, DataClass
         To configure Datastore permissions (e.g., Create, Read, Update, Delete, Describe, and Execute), click on the <strong>Model</strong> for a streamlined dropdown selection to allocate desired privileges.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/ModelEditor_datastorePermissions.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/ModelEditor_datastorePermissions.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -68,7 +68,7 @@ In the **Model Editor**, link privileges to permissions for Datastore, DataClass
         To configure Dataclass permissions (e.g., Create, Read, Update, Delete, Describe, and Execute), click on a <strong>Dataclass</strong> for a streamlined dropdown selection to allocate desired privileges.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/ModelEditor_dataclassPermissions.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -80,7 +80,7 @@ In the **Model Editor**, link privileges to permissions for Datastore, DataClass
         To configure Attribute permissions (e.g., Create, Read, Update, Delete, and Describe), click on an <strong>Attribute within a Dataclass</strong> for a streamlined dropdown selection to allocate desired privileges.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/ModelEditor_attributePermissions.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/ModelEditor_attributePermissions.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 

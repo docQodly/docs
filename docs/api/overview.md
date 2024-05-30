@@ -34,7 +34,7 @@ To restrict access to sensitive dataclasses such as those containing user creden
         </ol>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/dataclass-exposeAsRest.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/dataclass-exposeAsRest.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -51,7 +51,7 @@ By default, attributes within these dataclasses are also exposed. To limit expos
         </ol>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/attribute-exposeAsRest.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/attribute-exposeAsRest.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -138,7 +138,7 @@ To use Postman for testing REST APIs:
 
 3. Select the desired HTTP method (GET, POST, etc.) for your API call.
 
-<img alt="explorer" src={require('./img/postman1.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/postman1.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Authenticating API Requests
@@ -151,6 +151,6 @@ Secure API requests by adding an API key:
 
 3. Ensure the API key is included in the request header for authentication.
 
-<img alt="explorer" src={require('./img/postman2.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/postman2.png').default} style={{borderRadius: '6px'}} />
 
 This setup automatically adds the API key to each request from this configuration, minimizing manual errors and simplifying the process.

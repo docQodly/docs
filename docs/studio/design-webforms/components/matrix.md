@@ -42,7 +42,7 @@ Enhance the **Matrix** component to align with your application's requirements u
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/matrix_orientations.gif').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/matrix_orientations.gif').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -68,7 +68,7 @@ To associate data with the **Matrix** component, follow these steps:
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/matrix_DataBinding.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/matrix_DataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -82,7 +82,7 @@ To display data iterated over a datasource, you can follow these additional step
 
 1. **Access the Matrix**: Within the Matrix component, locate the embedded Stylebox.
 2. **Add a Component**: Add a Text component or other relevant components within the Stylebox.
-<img alt="explorer" src={require('./img/matrix_DataDisplay.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
+<img src={require('./img/matrix_DataDisplay.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
 
 3. **Configure the Component**: Click on the component you've added to enter its editing mode. The process of configuring components varies based on their type:
 
@@ -95,7 +95,7 @@ To display data iterated over a datasource, you can follow these additional step
 
 5. **Choose the Attribute**: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could include related entity selections. For example, use an embedded Matrix within the same Matrix to present various choices like room options (with/without breakfast).
 
-    <img alt="explorer" src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
+    <img src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
 
 ### Dynamic Attribute Display
 
@@ -105,7 +105,7 @@ To display data iterated over a datasource, you can follow these additional step
         The <code>Matrix</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -114,7 +114,7 @@ To display data iterated over a datasource, you can follow these additional step
         These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
 	</Column.Item>
 	<Column.Item width="25%">
-        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -136,8 +136,8 @@ To implement this functionality, follow these steps:
 		</ol>
 	</Column.Item>
 	<Column.Item width="50%">
-        <img alt="explorer" src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
-        <img alt="explorer" src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -149,7 +149,7 @@ The same principle applies to Related Entity Interaction when you have embedded 
 
 Here's a glimpse of how the **Matrix** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/matrix_Preview.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 
 ## Triggers and Events

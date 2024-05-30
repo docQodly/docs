@@ -50,7 +50,7 @@ Crucially, each webform is assigned a **unique URL** on the Qodly Web server. Th
 
 The flow of data within the Qodly Studio ecosystem is carefully orchestrated, ensuring a seamless rendering experience:
 
-<img alt="explorer" src={require('./img/workflow.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/workflow.png').default} style={{borderRadius: '6px'}} />
 
 - Qodly Studio operates with an embedded Studio web server, providing secure web access. Users can conveniently preview webforms within the protected confines of Qodly Studio.
 
@@ -76,7 +76,7 @@ Database resource access control depends on the chosen rendering method.
         This approach provides a comprehensive view of data classes, functions, and attributes, even if they are not exposed as REST resources.
     </Column.Item>
     <Column.Item width="20%">
-        <img alt="explorer" src={require('./img/preview-ide.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+        <img src={require('./img/preview-ide.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
@@ -107,7 +107,7 @@ This preview operates under the logged-in user's privileges. During your initial
         This option allows you to display the current webform in a browser window tab, offering a convenient way to assess its appearance and functionality.
     </Column.Item>
     <Column.Item width="20%">
-        <img alt="explorer" src={require('./img/preview-tab.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+        <img src={require('./img/preview-tab.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
@@ -119,7 +119,7 @@ This preview operates under the logged-in user's privileges. During your initial
         The <code>Preview</code> button on the Qodly toolbar presents the start page, as <a href="settings#application">defined in the Settings</a> within a browser window tab. This option provides a holistic view of the application's initial landing page.
     </Column.Item>
     <Column.Item width="20%">
-        <img alt="explorer" src={require('./img/preview-main.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
+        <img src={require('./img/preview-main.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
     </Column.Item>
 </Column.List>
 

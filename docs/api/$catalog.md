@@ -80,7 +80,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{APIEndpoint}}/rest/$catalog`
 
-<img alt="explorer" src={require('./img/restCatalog.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restCatalog.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `$catalog` endpoint looks something like this in practice:
@@ -141,7 +141,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{APIEndpoint}}/rest/$catalog/$all`
 
-<img alt="explorer" src={require('./img/restAll.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restAll.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `$catalog/$all` endpoint looks something like this in practice:
@@ -276,7 +276,7 @@ How to Use:
 - **Method**: GET
 - **URL**: `{{APIEndpoint}}/rest/$catalog/{{dataClass}}`, e.g., `{{APIEndpoint}}/rest/$catalog/Users`
 
-<img alt="explorer" src={require('./img/restCatalogDataclass.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restCatalogDataclass.png').default} style={{borderRadius: '6px'}} />
 
 
 The response structure for the `$catalog/{{dataClass}}` endpoint looks something like this in practice:

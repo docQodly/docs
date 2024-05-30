@@ -17,9 +17,9 @@ In Qodly, a project's groundwork starts with a webform, which acts as the primar
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/homepageNewWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img alt="explorer" src={require('./img/plusWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img alt="explorer" src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
+        <img src={require('./img/homepageNewWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img src={require('./img/plusWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -29,7 +29,7 @@ In Qodly, a project's groundwork starts with a webform, which acts as the primar
 
 The Webform Editor enhances your application by providing a versatile toolkit for interface and content customization:
 
-<img alt="explorer" src={require('./img/WebformEditorOverview.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/WebformEditorOverview.png').default} style={{borderRadius: '6px'}} />
 
 1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview webforms.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
@@ -53,7 +53,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
         The Breadcrumbs feature showcases the hierarchy of your selected components. As you follow the trail, you can click on any parent component's name to choose it.
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/breadcrumbs.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/breadcrumbs.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -64,10 +64,10 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
         The outline section provides a visual representation of your webform's hierarchy, allowing you to grasp the structural arrangement. 
-        By clicking on an element within the list, you can select it for further action, or utilize the drag-and-drop functionality within the outline to reposition elements. To manage the visibility of specific elements, simply click the eye icon <img alt="explorer" src={require('./img/eye.png').default} style={{borderRadius: '6px',height: '4%', width: '4%'}} />, toggling their display on or off as needed.
+        By clicking on an element within the list, you can select it for further action, or utilize the drag-and-drop functionality within the outline to reposition elements. To manage the visibility of specific elements, simply click the eye icon <img src={require('./img/eye.png').default} style={{borderRadius: '6px',height: '4%', width: '4%'}} />, toggling their display on or off as needed.
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/outline.png').default} style={{borderRadius: '6px',height: '70%', width: '70%'}} />
+        <img src={require('./img/outline.png').default} style={{borderRadius: '6px',height: '70%', width: '70%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -80,7 +80,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
         For simplified project tracking, utilize the Project Management tools. Here are the key features:
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/headerPanel.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/headerPanel.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -117,7 +117,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
     <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent data source.
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/sanityCheck_error.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/sanityCheck_error.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -126,7 +126,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
     <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a data source.
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/sanityCheck_warning.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/sanityCheck_warning.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -135,7 +135,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
     <strong>Informational</strong>: Informational notices are in grey, like when a data source is created but not utilized.
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/sanityCheck_info.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/sanityCheck_info.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -175,7 +175,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
     The Component tab enables linking actions like <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
 	</Column.Item>
 	<Column.Item width="50%">
-        <img alt="explorer" src={require('./img/contextualPanel_tabComponent.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_tabComponent.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -187,7 +187,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
     The Datasource tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a datasource, providing a centralized interface for coordinating components and their data interactions.
 	</Column.Item>
 	<Column.Item width="50%">
-        <img alt="explorer" src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -202,7 +202,7 @@ The Datasource tab becomes accessible only when a component is linked to a datas
     The CSS tab focuses on managing CSS classes applied to components, displaying them in a list on the left-hand side. Selecting a class from this list opens it in the CSS editing area for modification and highlights it.
 	</Column.Item>
 	<Column.Item width="50%">
-        <img alt="explorer" src={require('./img/contextualPanel_tabCSS.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_tabCSS.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -237,7 +237,7 @@ The Properties Panel offers a pair of distinctive modes:
         To toggle between modes, utilize the switch located in the top-right corner of the editor.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/propertiesPanel_displayMode.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/propertiesPanel_displayMode.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -246,10 +246,10 @@ The Properties Panel offers a pair of distinctive modes:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/webformloader">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img alt="explorer" src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/webformloader">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -261,7 +261,7 @@ The Properties Panel offers a pair of distinctive modes:
         The search box feature streamlines property name searches, ensuring swift and convenient access. As you input characters, the property list dynamically updates, displaying only properties with corresponding names.
     </Column.Item>
     <Column.Item width="30%">
-        <img alt="explorer" src={require('./img/propertiesPanel_searchBox.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/propertiesPanel_searchBox.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -291,7 +291,7 @@ The Data Access properties encompass distinct options and fields tailored to eac
         </ul>        
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -328,7 +328,7 @@ Explore below for specific options:
       To restore the value of an attribute within the Style category to its default value, simply click on the attribute's name and select <code>Reset Value</code>.
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/resetValue.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/resetValue.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 :::
@@ -341,7 +341,7 @@ Explore below for specific options:
         This representation can be accessed through a text editor by selecting the webform in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/textEditor.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/textEditor.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -363,7 +363,7 @@ This process ensures the seamless replication of even local datasources and loca
 
 Let's explore the JSON representation of a webform that includes a [Webform Loader](./components/webformloader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
 
-<img alt="explorer" src={require('./img/webformJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/webformJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
 
 The JSON representation of the webform is structured as follows:
 
@@ -729,7 +729,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
       <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code>  is absent between key-value pairs in an object or elements in an array.
 	</Column.Item>
 	<Column.Item width="30%">
-      <img alt="explorer" src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
+      <img src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -738,7 +738,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
       <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
 	</Column.Item>
 	<Column.Item width="30%">
-      <img alt="explorer" src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
+      <img src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -747,7 +747,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
       <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
 	</Column.Item>
 	<Column.Item width="30%">
-      <img alt="explorer" src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
+      <img src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -756,7 +756,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
       <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
 	</Column.Item>
 	<Column.Item width="30%">
-      <img alt="explorer" src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
+      <img src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -765,7 +765,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
       <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
 	</Column.Item>
 	<Column.Item width="30%">
-      <img alt="explorer" src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />
+      <img src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

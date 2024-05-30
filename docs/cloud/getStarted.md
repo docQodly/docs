@@ -17,7 +17,7 @@ Your Qodly applications fall into three categories:
 - **Applications**: This section lists all applications you've created, excluding the Sandbox.
 - **Shared Applications**: Here, you'll find applications developed by other collaborators and shared with you through invitations.
 
-<img alt="explorer" src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+<img src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 ## Environments and services
 
@@ -46,7 +46,7 @@ Rather than starting from scratch, you have the option to clone any existing app
 
 To initiate application cloning, locate the desired application in the Apps list and click the **Clone** button:
 
-<img alt="explorer" src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+<img src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 The cloning process duplicates all your code, except data and resources.
 

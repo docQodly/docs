@@ -37,7 +37,7 @@ To authenticate connections to your Qodly application resource, you'll need to g
       Navigate to the API keys tab in your environment setup. Here, you'll find a table listing all existing keys and their endpoints.
     </Column.Item>
     <Column.Item width="40%">
-		<img alt="explorer" src={require('./img/api1.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/api1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -46,7 +46,7 @@ To authenticate connections to your Qodly application resource, you'll need to g
 
 The API management table displays the API Endpoint specific to your environment and lists any API keys that have been created, though it is initially empty by default.
 
-<img alt="explorer" src={require('./img/apiNothing.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/apiNothing.png').default} style={{borderRadius: '6px'}} />
 
 
 
@@ -54,17 +54,17 @@ The API management table displays the API Endpoint specific to your environment 
 
 Click the copy button beside the endpoint URL to use it in your application's REST calls.
 
-<img alt="explorer" src={require('./img/api3.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/api3.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Creating a New API Key
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        To configure a new API key, start by clicking on <img alt="explorer" src={require('./img/api5.png').default} style={{borderRadius: '6px', width: '20%'}} /> to launch the configuration dialog. Then, follow the detailed property guidelines outlined in the table below to complete your setup.
+        To configure a new API key, start by clicking on <img src={require('./img/api5.png').default} style={{borderRadius: '6px', width: '20%'}} /> to launch the configuration dialog. Then, follow the detailed property guidelines outlined in the table below to complete your setup.
     </Column.Item>
     <Column.Item width="40%">
-		<img alt="explorer" src={require('./img/api2.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/api2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -84,7 +84,7 @@ Click the copy button beside the endpoint URL to use it in your application's RE
         This API key is initially configured for public access, allowing usage from any host. To specify restrictions to specific hosts, add their IP addresses.
     </Column.Item>
     <Column.Item width="40%">
-		<img alt="explorer" src={require('./img/api-ip.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/api-ip.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -106,7 +106,7 @@ In the Qodly Cloud Management Console, the API key management panel provides sev
         </ul>
     </Column.Item>
     <Column.Item width="40%">
-		<img alt="explorer" src={require('./img/api4.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/api4.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
