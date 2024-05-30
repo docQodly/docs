@@ -7,7 +7,6 @@ title: Function Parameters
 
 You can send parameters to data model functions through the REST API. The parameters are received in the declared parameters of the class functions on the server side.
 
-
 ## General Rules
 
 The following rules must be followed:
@@ -19,8 +18,6 @@ The following rules must be followed:
 - **Supported Data Types**: All scalar data types supported in JSON collections can be passed as parameters, including strings, numbers, booleans, and dates.
 
 - **Entities and Entity Selections**: Both individual entities and entity selections can be passed as parameters. The JSON object must contain specific attributes (`__DATACLASS`, `__ENTITY`, `__ENTITIES`, `__DATASET`) to identify and assign data to the corresponding ORDA objects.
-
-
 
 ## Scalar Value Parameter
 
@@ -93,8 +90,6 @@ If parameters are missing or invalid:
   }
   ```
 
-
-
 ## Entity Parameter
 
 When passing an entity as a parameter, the entity is referenced on the server through its key (`__KEY` property). If the key is omitted, a new entity is created in memory on the server.
@@ -105,15 +100,14 @@ Additionally, attribute values for the entity can be passed, automatically utili
 Modified attribute values for an existing entity prompt automatic execution of the called ORDA data model function on the server. This enables result examination post-business rule application from the client application, facilitating informed decisions regarding entity saving on the server.
 :::
 
-
 ### Parameter Specifications
 
-| Property                 | Type    | Requirement | Description    |
-| ------------------------ | ------- | ----------- | ---------------|
-| Attributes of the entity | mixed   | Optional    | Values to modify.     |
-| __DATACLASS            | String  | Mandatory   | Indicates the Dataclass of the entity.  |
-| __ENTITY               | Boolean | Mandatory   | True to indicate that the parameter is an entity.  |
-| __KEY                  | Mixed   | Optional    | Primary key of the entity. If not provided, a new entity is created on the server with the given attributes. If provided, the entity corresponding to the key is loaded on the server with the given attributes. |
+| Property                 | Type    | Requirement | Description                                                                                                                                                                                                      |
+| ------------------------ | ------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Attributes of the entity | mixed   | Optional    | Values to modify.                                                                                                                                                                                                |
+| \_\_DATACLASS            | String  | Mandatory   | Indicates the Dataclass of the entity.                                                                                                                                                                           |
+| \_\_ENTITY               | Boolean | Mandatory   | True to indicate that the parameter is an entity.                                                                                                                                                                |
+| \_\_KEY                  | Mixed   | Optional    | Primary key of the entity. If not provided, a new entity is created on the server with the given attributes. If provided, the entity corresponding to the key is loaded on the server with the given attributes. |
 
 ### Example
 
@@ -123,12 +117,12 @@ Modified attribute values for an existing entity prompt automatic execution of t
 exposed function updateEmployee(employeeData : object) : boolean
 	var employee : cs.UsersEntity
 	var status : object
-	
+
 	if (not(employeeData.__KEY = null))
 		employee = ds.Employee.get(employeeData.__KEY)
-	else 
+	else
 		employee = ds.Employee.new()
-	end 
+	end
 
 	employee.fromObject(employeeData)
 	status = employee.save()
@@ -197,7 +191,20 @@ If the key or required attributes are missing:
   }
   ```
 
+  **Empty Attribute Values**: If attribute values are provided but empty or null, the function will return an error specifying the attributes with empty values.
 
+```json
+Copier le code
+{
+  "__ERROR": [
+    {
+      "message": "Empty or null value provided for attribute 'firstName'. Please provide a valid value.",
+      "componentSignature": "ds",
+      "errCode": 1011
+    }
+  ]
+}
+```
 
 ## Entity selection Parameter
 
@@ -207,9 +214,9 @@ Before passing an entity selection as a parameter, you need to define it using `
 
 | Property                 | Type    | Requirement | Description                                                 |
 | ------------------------ | ------- | ----------- | ----------------------------------------------------------- |
-| Attributes of the entity | mixed   | Optional    | Values to modify.                                |
-| __DATASET              | String  | Mandatory   | entitySetID (ID) of the entity selection                  |
-| __ENTITIES             | Boolean | Mandatory   | True to indicate that the parameter is an entity selection. |
+| Attributes of the entity | mixed   | Optional    | Values to modify.                                           |
+| \_\_DATASET              | String  | Mandatory   | entitySetID (ID) of the entity selection                    |
+| \_\_ENTITIES             | Boolean | Mandatory   | True to indicate that the parameter is an entity selection. |
 
 ### Example
 
@@ -219,12 +226,12 @@ Before passing an entity selection as a parameter, you need to define it using `
 exposed function applyDiscount(productSelection : object, discount : number) : boolean
 	var products : cs.ProductSelection
 	var product : cs.ProductEntity
-	
+
 	products = ds.Product.getEntitySelection(productSelection.__DATASET)
 	forEach (product, products)
 		product.price = product.price*(1-discount/100)
 		product.save()
-	end 
+	end
 	return true
 ```
 
@@ -253,7 +260,6 @@ POST {{ApiEndpoint}}/rest/Product/applyDiscount
   "result": true
 }
 ```
-
 
 ### Fallback Behavior
 
