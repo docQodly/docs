@@ -5,280 +5,284 @@ title: Data Explorer
 
 import Column from '@site/src/components/Column'
 
+## Overview
+
+The Data Explorer provides a comprehensive web interface for viewing, querying, and editing data within your project's datastore. This tool allows you to browse all entities, search, sort, and filter attribute values, facilitating the identification and resolution of issues during the development process. Additionally, it offers control over and editing capabilities for your data.
+
+
+## Requirements
+
+### Supported Browsers
+
+The Data Explorer supports the following web browsers:
+
+- Chrome
+
+- Safari
+
+- Edge
+
+- Firefox
+
+### Resolution
+
+- Minimum: 1280x720
+
+- Recommended: 1920x1080
+
+
 ## Opening the Data Explorer
 
 To open the Data Explorer web page for a Qodly application:
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="55%">
-
-<ol>
-<li>Open your application with Qodly Studio.</li><br/><br/><br/><br/><br/><br/>
-<li>Click on the <code>Data</code>  button in the Studio home page </li>
-</ol>
-</Column.Item>
-<Column.Item width="45%">
-<img  /> <br/>
-<img alt="explorer" src={require('./img/dataExplorerButton.png').default} style={{borderRadius: '6px', width: '60%'}} /> 
-</Column.Item>
+    <Column.Item width="55%">
+        <ol>
+          <li> Open your application in Qodly Studio. </li> <br/>
+          <li> Click on the <code>Data</code> button on the Studio home page: </li> <br/>
+          Or, click on the <code>Data</code> button in the header bar:  <img src={require('./img/data-button.png').default} style={{borderRadius: '6px'}} />
+        </ol>
+    </Column.Item>
+    <Column.Item width="30%">
+        <img src={require('./img/dataExplorerButton.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
 </Column.List>
+
 <br/>
-Or:
 
-<Column.List align="center" justifyContent="between">
-<Column.Item width="55%">
+The Data Explorer window will open in a new tab, displaying the available data in your application.
 
-<ol start="2">
-<li>Click on the <code>Data</code>  button in the header bar:</li>
-</ol>
-</Column.Item>
-<Column.Item width="45%">
-<img alt="explorer" src={require('./img/data-button.png').default} style={{borderRadius: '6px', width: '90%'}} />
-</Column.Item>
-</Column.List>
 
-The Data Explorer window opens in a new tab, displaying data available in your application.
+## Data Explorer Interface
 
-:::info
+The Data Explorer interface consists of several key areas:
 
-The Data Explorer supports the following web browsers:
-
-- Chrome
-- Safari
-- Edge
-- FireFox
-
-The minimum resolution to use the Data Explorer is 1280x720. Recommended resolution is 1920x1080.
-
-:::
-
-## Data Explorer Overview
-
-The Data Explorer provides a web interface to view, query, and edit data in your project datastore. Using this tool, you can easily browse among all your entities and search, order, or filter attribute values. It helps you quickly identifying issues at any step of the development process, as well as controlling and editing data.
-
-The page contains several areas:
 <img alt="data-explorer-areas" src={require('./img/dataExplorerAreas.png').default} style={{borderRadius: '6px',width:'90%' }} />
 
-1. **DataClasses** : Lists all the dataclasses. You can select which dataclasses to display and filter the list of dataclass names using the search bar.
-2. **Attributes** : Lists all the attributes of the selected dataclass. Attributes are ordered according to their creation order, and primary key and indexed attributes have a specific icon. You can filter the list of attribute names using the search bar and you can reduce the number of columns in the data grid by unchecking attributes.
-3. **Dark mode** : You can switch to the **dark mode** display theme.
-4. **Search bar** : Two query modes are available: Query on attributes (selected by default), and the Advanced query based on any expression. You select the query mode by clicking on the corresponding button <img alt="data-explorer-query" src={require('./img/queryMode.png').default} style={{borderRadius: '6px',width:'10%' }} /> (the X button allows you to reset the query area and thus stop filtering).
-5. **Data grid** : List of entities of the selected dataclass
-6. **Details** : The attribute values of the currently selected entity as well as **related data**, if any. You can browse between the entities of the dataclass by clicking the **First** / **Previous** / **Next** / **Last** links at the bottom of the area.
+1. **DataClasses Area** : Located on the left side, this area allows selection and display of dataclasses. You can select which dataclasses to display and Use the search areas to filter dataclass names.
+
+2. **Attributes Area** : Located on the left side, this area allows selection and display of the attributes of the selected dataclass. Attributes are ordered by creation, with specific icons for primary key and indexed attributes. Use the search areas to filter attribute names and you can reduce the number of columns in the data grid by unchecking attributes.
+
+3. **Dark Mode** : Switch to dark mode using the selector at the bottom of the page.
+
+4. **Search Area** : Two query modes are available: 
+
+    - Query on attributes: The default mode
+    
+    - Advanced query with expression: Selected using the corresponding button <img alt="data-explorer-query" src={require('./img/queryMode.png').default} style={{borderRadius: '6px',width:'10%' }} /> (the X button allows you to reset the query area and thus stop filtering).
+
+
+5. **Data Grid** : The central part displays the data grid with entities of the selected dataclass, with each column representing an attribute. The default view shows all entities, which can be filtered using the search area.
+
+6. **Details Area** : On the right side, displaying attribute values of the selected entity and related data. Navigation between entities is facilitated by **First** / **Previous** / **Next** / **Last** links.
+
+    - All attribute types, including pictures, JSON objects, calculated, and alias attributes are displayed. Related data can be viewed in expandable/collapsible areas.
+
+    - Ctrl+Click (Windows) or Command+Click (macOS) on related attribute names opens their values in a floating area.
 
 :::info
 The name of the selected dataclass is added as a tab above the data grid. Using these tabs, you can switch between dataclasses that have been already selected. You can remove a referenced dataclass by clicking the "remove" icon (X) after the dataclass name.
-
-All attribute types are displayed, including pictures, objects (expressed in json) as well as calculated and alias attributes.
 :::
 
-:::tip
 
-**Ctrl+Click** (Windows) or **Command+Click** (macOS) on a related attribute name in the right side area displays the values of the attribute in an independant floating area.
-
-:::
 
 ## Browsing Data
 
-In addition to a comprehensive and customizable view of your data, the Data Explorer allows you to query and order your data.
+The Data Explorer provides a detailed and customizable view of your data, allowing you to query and sort it effectively.
+
 
 ### Ordering entities
 
-You can reorder the displayed entity list according to attribute values. All types of attributes can be used for a sort, except picture and object.
+Entities can be reordered based on attribute values (excluding picture and object attributes):
 
-- Click on a column header to order entities according to the corresponding attribute values. By default, the sort is ascending. Click twice for a descending sort. A column used to sort entities is displayed with a small icon and its name is in _italics_. ![sort](img/dataExplorer7.png)
+- Click on a column header to sort entities. By default, the sort is ascending. Clicking twice reverses the sort order (descending). Sorted columns are marked with an icon <img alt="explorer" src={require('./img/dataExplorer7.png').default} style={{borderRadius: '6px', width: '5%'}} /> and italicized names _italics_. 
+
+:::info
+Multi-level sorting is available by holding the **Shift** key and clicking sequentially on column headers.
+:::
+
+
+### Query on attributes
+
+Filter entities by entering values to find (or to exclude) in the areas above the attribute list. Filters are applied across multiple attributes with an implicit AND operation. The entity list is automatically updated when you type in.
+
+Different operators are available based on the data type:
+
+- <Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+      <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
+  </Column.Item>
+  <Column.Item width="35%">
+    <img alt="explorer" src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+  </Column.Item>
+</Column.List>
+
+  |A filter with|Finds|
+  |---|---|
+  |Bel|All values beginning with “Bel”|
+  |@do|All values containing “do”|
+  |Bel@do|All values starting with “Bel” and containing “do”|
+
+- <Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
+  </Column.Item>
+  <Column.Item width="35%">
+    <img alt="explorer" src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+  </Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
+    <br/><br/>
+    <ul>
+      <li>null: Attribute value not defined.</li> <br/>
+      <li>not null: Attribute value defined (true or false).</li>
+    </ul>
+  </Column.Item>
+  <Column.Item width="35%">
+    <img alt="explorer" src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
+  </Column.Item>
+</Column.List>
+
+- <Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    <strong>Numeric operators:</strong> Select operators (default is "=") for numeric, date, and time attributes. You can select another operator from the operator list.
+  </Column.Item>
+  <Column.Item width="35%">
+    <img alt="explorer" src={require('./img/DEFilter1.png').default} style={{borderRadius: '6px', width: '30%'}} />
+  </Column.Item>
+</Column.List>
 
 :::info
 
-You can sort attributes on several levels. For example, you can sort employees by city and then by salary. To do that, hold down the **Shift** key and click sequentially on each column header to include in the sort order.
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    If you enter several attributes, a <code>AND</code> is automatically applied. For example, the following filter displays entities with <code>firstname</code> attribute starting with "flo" AND <code>salary</code> attribute value > 50000.
+  </Column.Item>
+  <Column.Item width="35%">
+    <img alt="explorer" src={require('./img/dataExplorer9.png').default} style={{borderRadius: '6px'}} />
+  </Column.Item>
+</Column.List>
 
 :::
-
-### Query entities
-
-#### Query on attributes
-
-In this mode, you can filter entities by entering values to find (or to exclude) in the areas above the attribute list. You can filter on one or several attributes. The entity list is automatically updated when you type in.
-
-Different operators and query options are available, depending on the data type of the attribute.
-<br/>
-
-<Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ol>
-<strong>Text:</strong> Text filters are not diacritic (a = A). The filter is of the "starts with" type. For example, entering "Jim" will show "Jim" and "Jimmy" values. 
-</ol>
-</Column.Item>
-<Column.Item width="30%">
-<img alt="explorer" src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
-</Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<br/>
-<ol>
-<strong>Dates:</strong> With date attributes, you can enter the date to use through a datepicker widget (click on the date area to display the calendar)
-</ol>
-</Column.Item>
-<Column.Item width="30%">
-<img alt="explorer" src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
-</Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ol>
-<strong>Booleans:</strong> When you click on a boolean attribute area, you can filter on true/false values but also on null/not null values
-
-</ol>
-</Column.Item>
-<Column.Item width="30%">
-<img alt="explorer" src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
-</Column.Item>
-</Column.List>
-
-<Column.List align="center" justifyContent="between">
-<Column.Item width="65%">
-
-<ol>
-<strong>Numeric operators:</strong> With numeric, date, and time attributes, the "=" operator is selected by default. However, you can select another operator from the operator list (click on the "=" icon to display the list)
-</ol>
-</Column.Item>
-<Column.Item width="30%">
-<img alt="explorer" src={require('./img/DEFilter1.png').default} style={{borderRadius: '6px', width: '30%'}} />
-</Column.Item>
-</Column.List>
-
-If you enter several attributes, a AND is automatically applied. For example, the following filter displays entities with _firstname_ attribute starting with "flo" AND _salary_ attribute value > 50000:
-
-![filter entities with AND](img/dataExplorer9.png) -->
 
 :::note
-
 You cannot filter on picture or object attributes.
-
 :::
 
-### Advanced queries with expression
+### Advanced Queries With Expression
 
-When you select this option, a query area is displayed above the entity list, allowing you to enter any expression to use to filter the contents:
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="50%">
+    Enter any expression to filter entities in the advanced query area:
+  </Column.Item>
+  <Column.Item width="45%">
+    <img alt="explorer" src={require('./img/dataExplorer8.png').default} style={{borderRadius: '6px'}} />
+  </Column.Item>
+</Column.List>
 
-![expression query](img/dataExplorer8.png)
 
-You can enter advanced queries that are not available as attribute queries. For example, if you want to find entities with _firstname_ attribute containing "Jim" but not "Jimmy", you can write:
+:::tip
+Use [documented query expressions](../orda/queries.md), with limitations:
+
+- No `eval()` formulas for security.
+
+- No placeholders, use `queryString` with values.
+
+- String values with spaces must be in double quotes ("").
+:::
+
+
+#### Example
+
+For example:
 
 ```
-firstname=="Jim"
+Quantity > 4 AND Purchaser.Name= "Harry"
 ```
 
-You can use any query expression as [documented with the `query()` function](../orda/queries.md), with the following limitations or differences:
+Display both [`queryPlan` and `queryPath`](../orda/queries.md#about-queryplan-and-querypath) details by clicking the expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'30%'}} /> button:
 
-- For security, you cannot execute formulas using `eval()`.
-- Placeholders cannot be used; you have to write a _queryString_ with values.
-- String values containing space characters must be embedded in double quotes ("").
+<img src={require('./img/dataExplorer12.png').default} style={{borderRadius: '6px'}} />
 
-For example, with the Employee dataclass, you can write:
+Hover over subquery blocks for details.
 
-```
-firstname = "Marie Sophie" AND manager.lastname = "@th"
-```
+Right-click in the query area to display previous valid queries:
 
-You can click on the `v` icon to display both [`queryPlan` and `queryPath`](../orda/queries.md#about-queryplan-and-querypath). In the area, you can hover over the subquery blocks to have detailed information per subquery:
+<img src={require('./img/dataExplorer11.png').default} style={{borderRadius: '6px'}} />
 
-![subquery](img/dataExplorer12.png)
-
-Right-click in the query area to display the previous valid queries:
-
-![previous-queries](img/dataExplorer11.png)
 
 ## Editing Data
 
-The Data Explorer allows you to modify attribute values, add or delete entities. These feature is intended to administrators, for example to test implementations or fix issues with invalid data.
+Modify attribute values, and add or delete entities through the Data Explorer. These features are intended for administrators to test implementations or fix invalid data.
 
-### Allow editing
+### Allow Editing
 
-For security reasons, to be able to edit data through the Data Explorer, you first need to enable the editing mode using the **Allow editing** selector. When enabled, edit action buttons are displayed to the right side:
+Enable editing mode using the **Allow editing** selector to display edit action buttons: <img src={require('./img/editing.png').default} style={{borderRadius: '6px', width:'30%'}} />
 
-![allow-editing](img/editing.png)
-
-This selector is enabled **per dataclass** and **per browser session**.
 
 :::info
-
-The selector is intended to prevent accidental modifications since no confirmation dialog boxes are displayed when editing data through the Data Explorer.
-
+The selector is enabled per dataclass and per browser session to prevent accidental modifications, as no confirmation dialogs are displayed.
 :::
 
-### Entering values
 
-When the **Allow editing** selector is enabled for a dataclass, you can enter values for a new or selected entity through dedicated input widgets in the **Details** area for the selected dataclass.
+### Entering Values
 
-The following scalar attribute values can be edited:
+With editing enabled, enter values for new or selected entities through input widgets in the **Details** area. Editable attributes include:
 
 - text
 - boolean
 - numeric
 - date
 - time
-- image (you can upload or drag and drop an image)
+- image (upload or drag and drop)
 - object (JSON string)
 
 :::info
-
-Blob attributes cannot be modified.
-
-New or modified values are stored in the local cache, you need to [save them explicitely](#saving-modifications) to store them in the data.
-
+Blob attributes cannot be modified. 
 :::
 
-### Creating entities
+:::tip
+New or modified values are stored in the local cache and must be [explicitly saved](#saving-modifications).
+:::
 
-You can create a new, empty entity in the selected table by clicking on the creation button ![new-entity](img/data-explorer-new.png). You can then [enter values](#entering-values) for this entity.
 
-The new entity is is kept in the local cache, you need to [save it explicitely](#saving-modifications) to store it in the data.
+### Creating Entities
+
+Create a new entity by clicking the creation button <img src={require('./img/data-explorer-new.png').default} style={{borderRadius: '6px', width:'3%'}} />. [Enter values](#entering-values) for the entity, which is stored in the local cache and must be [explicitly saved](#saving-modifications).
+
 
 :::info
-
 Attribute values that need to be calculated by Qodly (autogenerated IDs, computed attributes) will be returned only after you saved the entity.
-
 :::
 
-### Reloading values
+### Reloading Values
 
-The **reload** button ![reload](img/data-explorer-reload.png) reloads the entity attribute values from the data file. This button is useful for example when you want to make sure the displayed values are the most recent saved values.
+The **reload** button <img src={require('./img/data-explorer-reload.png').default} style={{borderRadius: '6px', width:'3%'}} /> updates the entity attribute values from the data file, ensuring the most recent saved values are displayed.
 
-### Saving modifications
 
-Except for [deletion](#deleting-entities) (see below), entity modifications are done locally and need to be saved so that they are stored in the data file.
+### Saving Modifications
 
-To save modifications or to save an entity you created in the Data Explorer, click on the **Save** button ![save](img/data-explorer-save.png).
+Modifications are done locally and need to be saved to be stored in the data file. Click the Save button <img src={require('./img/data-explorer-save.png').default} style={{borderRadius: '6px', width:'3%'}} /> to save changes. 
+
 
 :::info
-
-Modifications on an existing entity are automatically saved when you select another entity of the same dataclass.
-
+Existing entity modifications are automatically saved when selecting another entity of the same dataclass. In case of conflicts, an error message is displayed, and you can [reload values](#reloading-values) to get the new value and apply your modifications.
 :::
 
-In case of conflict (e.g. another user has modified the same attribute value on the same entity), an error message is displayed at the bottom of the Data Explorer. You can click on the [**Reload** button](#reloading-values) to get the new value from the data and then, apply and save your modifications.
+### Deleting Entities
 
-### Deleting entities
+Delete entities by clicking the delete button <img src={require('./img/data-explorer-delete.png').default} style={{borderRadius: '6px', width:'3%'}} />.
 
-You can delete entities by clicking on the **delete** button ![delete](img/data-explorer-delete.png).
+To delete multiple entities, select them using **Shift+click** (continuous selection) or **Ctrl/Command+click** (discontinuous selection) and click the **delete** button.
 
-To delete a set of entities, select two or more entities in the list area using **Shift+click** (continuous selection) or **Ctrl/Command+click** (discontinuous selection) and click on the **delete** button.
 
 :::note
-
-If some entities could not be deleted because of a conflict (e.g. entities locked on the server), they are highlighted in the list.
-
+If entities cannot be deleted due to conflicts (e.g., locked on the server), they are highlighted in the list.
 :::
 
 :::caution
-
-No confirmation dialog is displayed when you delete entities. Selected entities are immediately deleted from the data.
-
+No confirmation dialog is displayed when deleting entities. Selected entities are immediately deleted from the data.
 :::
