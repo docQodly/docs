@@ -10,11 +10,7 @@ Shared objects and shared collections can be stored in standard `object` and `co
 - to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command or call the [`new()`](../ClassClass.md#new) function of a [shared class](lang-classes.md#shared-classes),
 - to create a shared collection, use the [`newSharedCollection`](../commands/newSharedCollection.md) command.
 
-:::note
-
-Shared objects and collections can be set as properties of standard (not shared) objects or collections.
-
-:::
+Shared objects and collections can only contain scalar values or other shared objects and collections. However, shared objects and collections can be set as properties of standard (not shared) objects or collections.
 
 In order to modify a shared object/collection, the **use...end** structure must be called. Reading a shared object/collection value does not require **use...end**.
 
@@ -32,6 +28,13 @@ Modifications can be applied to shared objects and shared collections:
 
 - adding or removing object properties,
 - adding or editing values (provided they are supported in shared objects), including other shared objects or collections (which creates a shared group, see below).
+
+:::note
+
+Keep in mind that objects or collections set as the content of a shared object or collection must themselves be shared.
+
+:::
+
 
 However, all modification instructions in a shared object or collection must be surrounded by the `use...end` keywords, otherwise an error is generated.
 
