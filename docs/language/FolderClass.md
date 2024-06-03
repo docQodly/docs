@@ -56,14 +56,14 @@ curfolder = folder("/PACKAGE/JohnSmith")
 
 
 <!-- REF #4D.Folder.new().Syntax -->
-**4D.Folder.new** ( *path* : string { , * } ) : 4D.Folder<!-- END REF -->
+**4D.Folder.new** ( *path* : string ) : 4D.Folder<!-- END REF -->
 
 
 #### Description
 
-The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. It is identical to the [`folder`](#folder) command (shortcut).
+The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and returns a new object of the `4D.Folder` type<!-- END REF -->. It is identical to the [`folder`](commands/folder.md) command (shortcut).
 
-> It is recommended to use the [`folder`](#folder) shortcut command instead of `4D.Folder.new()`.
+> It is recommended to use the [`folder`](commands/folder.md) shortcut command instead of `4D.Folder.new()`.
 
 <!-- INCLUDE directory.copyTo().Desc -->
 

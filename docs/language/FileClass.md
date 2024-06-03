@@ -16,7 +16,7 @@ created = file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create
 
 ### Pathnames
 
-`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page. 
+`File` objects support several pathnames, including `filesystems` or `posix` syntax. Supported pathnames are detailed in the [**Pathnames**](basics/lang-pathnames.md) page.
 
 
 ### Functions and properties
@@ -57,13 +57,13 @@ created = file("/PACKAGE/SpecialPrefs/"+storage.users[2].name+".myPrefs").create
 
 
 <!-- REF #4D.File.new().Syntax -->
-**4D.File.new** ( *path* : string { , * } ) : 4D.File<!-- END REF -->
+**4D.File.new** ( *path* : string ) : 4D.File<!-- END REF -->
 
 #### Description
 
-The `4D.File.new()` function <!-- REF #4D.File.new().Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. It is identical to the [`file`](#file) command (shortcut).
+The `4D.File.new()` function <!-- REF #4D.File.new().Summary -->creates and returns a new object of the `4D.File` type<!-- END REF -->. It is identical to the [`file`](commands/file.md) command (shortcut).
 
-> It is recommended to use the [`file`](#file) shortcut command instead of `4D.File.new()`.
+> It is recommended to use the [`file`](commands/file.md) shortcut command instead of `4D.File.new()`.
 
 <!-- INCLUDE document.copyTo().Desc -->
 
@@ -372,7 +372,7 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
 ```qs
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
- 
+
  myFile = "/SOURCES/Archives/data.txt")
  vEntity = ds.myClass.all().first() //get an entity
  myFile.setContent(vEntity.infoBlob)
