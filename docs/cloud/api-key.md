@@ -13,7 +13,7 @@ Enable secure access to your Qodly application by utilizing **API keys** and **e
 
 ### API Endpoint
 
-An API endpoint is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps. Essentially, it serves as a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications.
+The API endpoint is a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications. Combined with [REST commands](../api/overview.md), it is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps.
 
 ### API Key
 
@@ -110,6 +110,7 @@ In the Qodly Cloud Management Console, the API key management panel provides sev
     </Column.Item>
 </Column.List>
 
+## API key usage
 
 :::info
 For more information, please refer to the [REST API Reference](../api/overview).
