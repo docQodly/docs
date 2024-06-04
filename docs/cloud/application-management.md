@@ -23,7 +23,6 @@ Useful for resetting server memory.
 
 ![app](img/app2.png)
 
-
 ## Open Qodly Studio
 
 You can directly access your application in Qodly Studio in two ways:
@@ -36,21 +35,17 @@ You can directly access your application in Qodly Studio in two ways:
 
 ![studio](img/studio2.png)
 
-
 ## Monitor Resources
 
 Access the **Metrics** tab of an environment to monitor its resources.
 
 ![metrics](img/metrics.png)
 
-
-## Update Qodly Server 
+## Update Qodly Server
 
 Click the cloud icon to update your Qodly Server with the latest provided by the Qodly Platform.
 
-
 ![update](img/update.png)
-
 
 ## Invite Developers and Users
 
@@ -61,7 +56,6 @@ In the **Team** tab, view the list of registered developers and users. Invite us
 ## Schedule and Restore Backups
 
 ![backup](img/backup.png)
-
 
 ## Preview Your App
 
@@ -82,3 +76,49 @@ For every environment, access your files on the server using the **Secure File T
 ![access-files](img/sftp.png)
 
 With your preferred FTP client (e.g., Filezilla), you can access and manage your files.
+
+It includes the following connection details:
+
+- Host: The unique SFTP URL assigned to your account.
+- Port: The designated port number for your FTP connection.
+- User: Your username.
+- Password: The temporary password.
+
+![access-files](img/sftpDialog.png)
+
+the files contain :
+
+![access-files](img/filename.png)
+
+| Contents            | Format   | Description                                                                                |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| Shared              | `Folder` | The shared resources, such as visuals, custom components, shared css, shared datasource... |
+| catalog.4DCatalog   | `XML`    | Table and field definitions                                                                |
+| folders.json        | `JSON`   | Explorer folder definitions                                                                |
+| menus.json          | `JSON`   | Menu definitions                                                                           |
+| model.4DModel       | `JSON`   | Custom positions and colors of tables, fields, and links in the Model editor.              |
+| qodlyApp.json       | `JSON`   | Configuration settings                                                                     |
+| roles.json          | `JSON`   | The user roles and permissions within the application.                                     |
+| settings.4DSettings | `XML`    | Structure database settings.                                                               |
+
+Classes
+
+| Contents      | Format | Description                                                |
+| ------------- | ------ | ---------------------------------------------------------- |
+| className.4qs | `Text` | Project classes defined in the project. One file per class |
+
+Methods
+
+| Contents       | Format | Description                                                 |
+| -------------- | ------ | ----------------------------------------------------------- |
+| methodName.4qs | `Text` | Project methods defined in the project. One file per method |
+
+Webforms
+
+| Contents            | Format | Description                            |
+| ------------------- | ------ | -------------------------------------- |
+| webformName.webForm | `JSON` | The JSON representation of the webform |
+
+:::note
+While it's possible to download all folders and files, certain restrictions apply to modifying them. Due to Permissions issues, certain folders/files cannot be modified or replaced directly. For instance, attempting to delete or replace the Catalog may result in denial, accompanied by a message prompting you to contact your web hosting service provider for assistance.
+:::
