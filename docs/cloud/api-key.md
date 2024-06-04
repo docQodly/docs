@@ -19,11 +19,9 @@ The API endpoint is a gateway through which developers can programmatically acce
 
 An API key is a unique identifier used to authenticate a client or user trying to access the Qodly Cloud application. It helps the API provider control and monitor how the API is being used, typically to prevent misuse or abuse and to manage quotas.
 
-:::tip
-The key must be included in the HTTP header of every REST requests sent as a means of identifying the requester and checking their access permissions.
-:::
-
 This key is linked to a specific [**role**](../studio/roles/rolesPrivilegesOverview.md), defining the scope of actions that the client can perform based on the permissions associated with that role.
+
+The key must be included in the HTTP header of every REST requests sent as a means of identifying the requester and checking their access permissions. [See below](#using-api-keys) for more information.
 
 
 ## Managing API Keys
@@ -110,8 +108,9 @@ In the Qodly Cloud Management Console, the API key management panel provides sev
     </Column.Item>
 </Column.List>
 
-## API key usage
+## Using API keys
 
-:::info
-For more information, please refer to the [REST API Reference](../api/overview).
-:::
+A Qodly API key must be included in the **HTTP header** of every REST requests sent to the server. You can do it in two ways:
+
+- using the [`openDatastore`](../language/commands/openDatastore.md) command to target another Qodly application: you pass both API endpoint and API key in the *connectionInfo* parameter and that's all (underlying REST requests automatically handle the API keys in HTTP headers).
+- using the [REST API](../api/overview): use the API endpoint urls and insert API key in every REST requests (for more information, see [this example](../api/overview.md#api-endpoint-usage-example-in-postman)).
