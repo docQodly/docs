@@ -13,7 +13,7 @@ Enable secure access to your Qodly application by utilizing **API keys** and **e
 
 ### API Endpoint
 
-The API endpoint is a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications. Combined with [REST commands](../api/overview.md), it is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps.
+The API endpoint is a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications. Combined with the [`openDatastore`](../language/commands/openDatastore.md) command or [REST requests](../api/overview.md), it is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps.
 
 ### API Key
 
@@ -112,5 +112,5 @@ In the Qodly Cloud Management Console, the API key management panel provides sev
 
 A Qodly API key must be included in the **HTTP header** of every REST requests sent to the server. You can do it in two ways:
 
-- using the [`openDatastore`](../language/commands/openDatastore.md) command to target another Qodly application: you pass both API endpoint and API key in the *connectionInfo* parameter and that's all (underlying REST requests automatically handle the API keys in HTTP headers).
-- using the [REST API](../api/overview): use the API endpoint urls and insert API key in every REST requests (for more information, see [this example](../api/overview.md#api-endpoint-usage-example-in-postman)).
+- using the [`openDatastore`](../language/commands/openDatastore.md) command to target another Qodly application: you pass both API endpoint and API key in the *connectionInfo* parameter and that's it!Underlying REST requests automatically handle the API keys in HTTP headers.
+- using the [REST API](../api/overview): use the API endpoint url and insert API key in every REST requests (for more information, see [this example](../api/overview.md#api-endpoint-usage-example-in-postman)).
