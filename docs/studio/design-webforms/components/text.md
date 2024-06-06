@@ -27,7 +27,7 @@ Enhance the **Text** component to align with your application's requirements usi
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/text_StyleButtons.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/text_StyleButtons.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -38,7 +38,7 @@ Enhance the **Text** component to align with your application's requirements usi
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/text_ToggleDataSource.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/text_ToggleDataSource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -50,7 +50,7 @@ Enhance the **Text** component to align with your application's requirements usi
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/text_FormatSupport.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/text_FormatSupport.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -61,7 +61,7 @@ Enhance the **Text** component to align with your application's requirements usi
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/text_ToggleLink.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/text_ToggleLink.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

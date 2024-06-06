@@ -71,7 +71,7 @@ In the *options* parameter, pass an object that can contain the following proper
 |onTerminate|[`formula`](FunctionClass.md)|undefined|Callback when the external process is terminated. It receives two objects as parameters (see below)|
 |timeout|number|undefined|Time in seconds before the process is killed if it is still alive|
 |dataType|string|"text"|Type of the response body content. Possible values: "text" (default), "blob".|
-|encoding|string|"UTF-8"|Only if `dataType = "text"`. Encoding of the response body content. For the list of available values, see the [`convertFromString`](string.md#convertfromstring) command|
+|encoding|string|"UTF-8"|Only if `dataType = "text"`. Encoding of the response body content. For the list of available values, see the [`convertFromString`](commands/convertFromString.md) command|
 |variables|object||Sets custom environment variables for the system worker. Syntax: `variables.key = value`, where `key` is the variable name and `value` its value. Values are converted into strings when possible. The value cannot contain a ' = '. If not defined, the system worker inherits from the Qodly environment.|
 |currentDirectory|folder||Working directory in which the process is executed|
 

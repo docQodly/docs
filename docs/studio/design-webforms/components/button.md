@@ -41,7 +41,7 @@ Enhance the **Button** component to align with your application's requirements u
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/button_PropertiesCustomization.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/button_PropertiesCustomization.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -57,7 +57,7 @@ Within the <strong>Button</strong> component, an embedded <strong>Icon</strong> 
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

@@ -3,7 +3,7 @@ id: lang-object
 title: Object
 ---
 
-Variables, attributes or expressions of the object type can contain various types of data. The structure of QodlyScript objects is based on the classic principle of "property/value" pairs. The syntax of these objects is based on JSON notation: 
+Variables, attributes or expressions of the object type can contain various types of data. The structure of QodlyScript objects is based on the classic principle of "property/value" pairs. The syntax of these objects is based on JSON notation:
 
 - A property name is always a text, for example "Name". It must follow [specific rules](lang-identifiers.md#object-properties).
 
@@ -17,9 +17,9 @@ Variables, attributes or expressions of the object type can contain various type
 	- picture(2)
 	- collection
 
-(1)ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**. 
+(1)ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**.
 
-(2)When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]". 
+(2)When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]".
 
 :::note
 
@@ -27,37 +27,37 @@ Attribute names are case-sensitive.
 
 :::
 
-You manage object type variables, attributes or expressions using the [object notation](#syntax-basics) or the commands such as `instanceOf`. 
+You manage object type variables, attributes or expressions using the [object notation](#syntax-basics) or the commands such as `instanceOf`.
 
-Each property value accessed through the object notation is considered an expression. You can use such values wherever expressions are expected. 
+Each property value accessed through the object notation is considered an expression. You can use such values wherever expressions are expected.
 
-## Instantiation 
+## Instantiation
 
 Objects must have been instantiated, otherwise trying to read or modify their properties will generate a syntax error.
 
 Object instantiation can be done in one of the following ways:
 
-- using the [`newObject`](../object.md#newobject) command,
+- using the [`newObject`](../commands/newObject.md) command,
 - using the `{}` operator.
 
 :::info
 
-Several commands and functions return objects, for example [`jsonParse`](../json.md#jsonparse) or [`file`](../FileClass.md#file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
+Several commands and functions return objects, for example [`jsonParse`](../commands/jsonParse.md) or [`file`](../FileClass.md#file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
 
 :::
 
 
 ### `newObject` command
 
-The [`newObject`](../object.md#newobject) command creates a new empty or prefilled object and returns its reference.
+The [`newObject`](../commands/newObject.md) command creates a new empty or prefilled object and returns its reference.
 
 Examples:
 
 ```qs
  var obVar : object //declaration of an object type variable
  obVar = newObject //instantiation and assignment to the variable
- 
- var obFilled : object 
+
+ var obFilled : object
  obFilled = newObject("name","Smith","age",42) //instantiation and assignment of a prefilled object
 ```
 
@@ -72,7 +72,7 @@ Examples:
 
 ```qs
  var o, o2, o3 : object //declaration of object variables
- o = {} // instantiation of an empty object 
+ o = {} // instantiation of an empty object
  o2 = {a: "foo", b: 42, c: {}, d: (toto) ? true : false } // instantiation of an object
     // with properties {"a":"foo","b":42,"c":{},"d":false})
 
@@ -110,8 +110,8 @@ col = o.col[5] //6
 
 You can create two types of objects:
 
-- regular (non-shared) objects, using the `newObject` command or object literal syntax (`{}`). These objects can be edited without any specific access control but cannot be shared between processes. 
-- shared objects, using the [`newSharedObject`](../object.md#newsharedobject) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
+- regular (non-shared) objects, using the `newObject` command or object literal syntax (`{}`). These objects can be edited without any specific access control but cannot be shared between processes.
+- shared objects, using the [`newSharedObject`](../commands/newSharedObject.md) command. These objects can be shared between processes, including preemptive threads. Access to these objects is controlled by [`use...end`](lang-shared.md#useend) structures.
 
 
 ## Syntax basics
@@ -153,7 +153,7 @@ Object notation is available on any language element that can contains or return
 
 - **Objects** themselves (stored in variables, attributes, object properties, or collection elements).
     Examples:
-    
+
 ```qs
      age = myObjVar.employee.age //variable
      addr = myEntity.data_obj.address //attribute
@@ -162,26 +162,26 @@ Object notation is available on any language element that can contains or return
 ```
 - **QuodlyScript commands** that return objects.
     Example:
-    
+
 ```qs
      storage.mydata.prop2 = 10
 ```
-    
+
 - **Methods** that return objects.
     Example:
-    
+
 ```qs
       //myMethod1
      declare -> result : object
      result = newObject("a",10,"b",20)
-     
+
       //myMethod2
      value = myMethod1.a //10
 ```
 
 - **Collections**
     Example:
-    
+
 ```qs
      myColl.length //size of the collection
 ```
@@ -224,7 +224,7 @@ Evaluating an object property can sometimes produce an **undefined** value. Typi
 ```qs
      var o : object
      mymethod(o.a) //pass an undefined parameter
-     
+
       //In mymethod method
      declare (param : text)
       // param: ""
@@ -273,16 +273,16 @@ When expressions of a given type are expected in your code, you can make sure th
 
 ```qs
   // Using newObject
- var myObj : object //declares an object variable 
+ var myObj : object //declares an object variable
  myObj = newObject //instanciates object and assigns to the variable
  myObj.age = 56
  age = myObj.age //56
- 
+
   // Alternate code
- var myObj2 : object 
+ var myObj2 : object
  myObj2 = {"age":42} //instanciates object and adds the age property
  myObj2.age //42
- 
+
 ```
 
 - Create a property and assign values, including objects:
@@ -302,7 +302,7 @@ When expressions of a given type are expected in your code, you can make sure th
  vCity = Emp.city //"Paris"
  vPhone = Emp.phone.home //"0011223344"
 ```
-- You can access properties as strings using the `[]` operator 
+- You can access properties as strings using the `[]` operator
 
 ```qs
  Emp["city"] = "Berlin" //modifies the city property

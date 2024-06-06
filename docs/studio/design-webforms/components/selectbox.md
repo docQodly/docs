@@ -39,7 +39,7 @@ Enhance the Select Box component to align with your application's requirements u
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_Placeholder.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_Placeholder.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -50,7 +50,7 @@ Enhance the Select Box component to align with your application's requirements u
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_NumberOfItems.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_NumberOfItems.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -67,7 +67,7 @@ The select box can display a maximum of 15 items.
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_ShowLength.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_ShowLength.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -78,7 +78,7 @@ The select box can display a maximum of 15 items.
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_EnableSearch.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_EnableSearch.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -103,7 +103,7 @@ To associate data with the **Select Box** component, follow these steps:
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_DataBinding.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_DataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -131,7 +131,7 @@ To associate data iterated over a datasource, you can follow these additional st
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -144,7 +144,7 @@ To associate data iterated over a datasource, you can follow these additional st
         The <code>Select Box</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -153,7 +153,7 @@ To associate data iterated over a datasource, you can follow these additional st
         These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
 	</Column.Item>
 	<Column.Item width="25%">
-        <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -176,7 +176,7 @@ To implement this functionality, follow these steps:
 		</ol>
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/selectBox_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/selectBox_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -187,7 +187,7 @@ To implement this functionality, follow these steps:
 		</ol>
 	</Column.Item>
 	<Column.Item width="40%">
-        <img alt="explorer" src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
+        <img src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -195,7 +195,7 @@ To implement this functionality, follow these steps:
 
 Here's a glimpse of how the **Select Box** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/selectBox_Preview.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/selectBox_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 
 ## Triggers and Events

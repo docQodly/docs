@@ -599,7 +599,7 @@ The `.query()` function <!-- REF #DataClassClass.query().Summary -->searches for
 
 If no matching entities are found, an empty `EntitySelection` is returned.
 
-**queryString parameter**
+#### *queryString* parameter
 
 The *queryString* parameter uses the following syntax:
 
@@ -662,7 +662,7 @@ where:
 *	**order by attributePath**: you can include an order by *attributePath* statement in the query so that the resulting data will be sorted according to that statement. You can use multiple order by statements, separated by commas (e.g., order by *attributePath1* desc, *attributePath2* asc). By default, the order is ascending. Pass 'desc' to define a descending order and 'asc' to define an ascending order.
 	> If you use this statement, the returned entity selection is ordered (for more information, please refer to [Ordered vs Unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection).
 
-**Using quotes**
+#### Using quotes
 
 When you use quotes within queries, you must use single quotes ' ' inside the query and double quotes " " to enclose the whole query, otherwise an error is returned. For example:
 
@@ -672,7 +672,7 @@ When you use quotes within queries, you must use single quotes ' ' inside the qu
 
 > Single quotes (') are not supported in searched values since they would break the query string. For example "comp.name = 'John's pizza' " will generate an error. If you need to search on values with single quotes, you may consider using placeholders (see below).
 
-**Using parenthesis**
+#### Using parenthesis
 
 You can use parentheses in the query to give priority to the calculation. For example, you can organize a query as follows:
 
@@ -681,7 +681,7 @@ You can use parentheses in the query to give priority to the calculation. For ex
 ```
 
 
-**Using placeholders**
+#### Using placeholders
 
 Qodly allows you to use placeholders for *attributePath*, *formula* and *value* arguments within the *queryString* parameter. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
 
@@ -725,7 +725,7 @@ You can mix all argument kinds in *queryString*. A *queryString* can contain, fo
 	result2 = col.query("company.name  ==  :1","John's Pizzas")
 	```
 
-**Looking for null values**
+#### Looking for null values
 
 When you look for null values, you cannot use the placeholder syntax because the query engine considers null as an unexpected comparison value. For example, if you execute the following query:
 
@@ -740,7 +740,7 @@ vSingles = ds.Person.query("spouse  ==  null") //correct syntax
 ```
 
 
-**Linking collection attribute query arguments**
+#### Linking collection attribute query arguments
 
 When searching in collections within object attributes using multiple query arguments joined by the AND operator, you may want to make sure that only entities containing elements that match all arguments are returned, and not entities where arguments can be found in different elements. To do this, you need to link query arguments to collection elements, so that only single elements containing linked arguments are found.
 
@@ -790,7 +790,7 @@ ds.People.query("places.locations[a].kind ==  :1 and places.locations[a].city ==
 
 
 
-**Queries in many-to-many relations**  
+#### Queries in many-to-many relations
 
 ORDA offers a special syntax to facilitate queries in many-to-many relations. In this context, you may need to search for different values with an `AND` operator BUT in the same attribute. For example, take a look at the following structure:
 
@@ -822,7 +822,7 @@ es = ds.Movie.query("roles.actor.lastName  ==  :1 AND roles.actor{2}.lastName  =
 ```
 
 
-**formula parameter**
+#### *formula* parameter
 
 As an alternative to formula insertion within the *queryString* parameter (see above), you can pass directly a formula object as a boolean search criteria. Using a formula object for queries is **recommended** since you benefit from tokenization, and code is easier to search/read.  
 
@@ -834,7 +834,7 @@ The *formula* must have been created using the `formula` or `formulaFromString` 
 
 	> For security reasons, formula calls within `query()` functions can be disallowed. See *querySettings* parameter description.
 
-**Passing parameters to formulas**
+#### Passing parameters to formulas
 
 Any *formula* called by the `query()` class function can receive parameters:
 
@@ -852,7 +852,7 @@ Additional examples are provided in example 3.
 
 
 
-**querySettings parameter**
+#### *querySettings* parameter
 
 In the *querySettings* parameter, you can pass an object containing additional options. The following properties are supported:
 
@@ -865,7 +865,7 @@ In the *querySettings* parameter, you can pass an object containing additional o
 |queryPlan|	Boolean	|In the resulting entity selection, returns or does not return the detailed description of the query just before it is executed, i.e. the planned query. The returned property is an object that includes each planned query and subquery (in the case of a complex query). this option is useful during the development phase of an application. It is usually used in conjunction with queryPath. Default if omitted: false. **Note**: this property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
 |queryPath|Boolean|	In the resulting entity selection, returns or does not return the detailed description of the query as it is actually performed. The returned property is an object that contains the actual path used for the query (usually identical to that of the queryPlan, but may differ if the engine manages to optimize the query), as well as the processing time and the number of records found. this option is useful during the development phase of an application. Default if omitted: false. **Note**: this property is supported only by the `entitySelection.query( )` and `dataClass.query( )` functions.|
 
-**About queryPlan and queryPath**
+#### About *queryPlan* and *queryPath*
 
 The information recorded in `queryPlan`/`queryPath` include the query type (indexed and sequential) and each necessary subquery along with conjunction operators. Query paths also contain the number of entities found and the time required to execute each search criterion. You may find it useful to analyze this information while developing your application(s). Generally, the description of the query plan and its path are identical but they can differ because 4D can implement dynamic optimizations when a query is executed in order to improve performance. For example, the 4D engine can dynamically convert an indexed query into a sequential one if it estimates that it is faster. this particular case can occur when the number of entities being searched for is low.
 

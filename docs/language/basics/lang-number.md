@@ -61,7 +61,7 @@ The modulo operator % divides the first number by the second number and returns 
 
 :::caution
 
-- The modulo operator `%` returns significant values with numbers that are in the integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the [`mod`](../math.md#mod) command.
+- The modulo operator `%` returns significant values with numbers that are in the integer range (from minus 2^31 to 2^31 minus one). To calculate the modulo with numbers outside of this range, use the [`mod`](../commands/mod.md) command.
 - The longint division operator `\` returns significant values with integer numbers only.
 
 :::

@@ -8,14 +8,6 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 
 
 
-### Commands
-
-||
-|---|
-|[<!-- INCLUDE #_command_.webEvent.Syntax -->](#webevent)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webEvent.Summary -->|
-|[<!-- INCLUDE #_command_.webForm.Syntax -->](#webform)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.webForm.Summary -->|
-
-
 
 ### Functions and properties
 
@@ -25,109 +17,6 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 |[<!-- INCLUDE #WebFormClass.setError().Syntax -->](#seterror)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setError().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setMessage().Syntax -->](#setmessage)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setMessage().Summary -->|
 |[<!-- INCLUDE #WebFormClass.setWarning().Syntax -->](#setwarning)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormClass.setWarning().Summary -->|
-
-
-
-## webEvent
-
-<!-- REF #_command_.webEvent.Syntax -->**webEvent** : object<!-- END REF -->
-
-<!-- REF #_command_.webEvent.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|object|<-| object
-<!-- END REF -->
-
-#### Description
-
-`webEvent` <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a webform component<!-- END REF -->.
-
-The command must be called in the context of a web form handled by the Qodly web server.
-
-**Result**
-
-The returned object contains the following properties:
-
-| Property |  |Type| Description |
-|----|---|----|----|
-| caller |  |string| [Server-side reference](../studio/design-webforms/create-webform.md#data-access-category) of the component triggering the event |
-| eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `WebForm` component loads</li>|
-| data	| |object|Additional information depending on the involved component|
-| 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|
-| 	|row |number|Data Table component: row number |
-| 	|name |string|Data Table component: datasource name of the column (e.g. "firstname", "address.city")|
-
-
-#### Example
-
-The objective is to display/hide a help text when the user hovers over the component:
-
-![alt-text](img/web-event-2.png)
-
-This is done by attaching `onmouseenter` and `onmouseleave` events to a **Text input** component that displays the information stored in a **Text** component (displaying "This is the help").
-
-![alt-text](img/web-event-1.png)
-
-In this scenario:
-
-* The Text input component has `orderNumber` as Server side reference.
-	![alt-text](img/web-event-3.png)
-* The Text component has `orderNumber` as Server side reference.
-	![alt-text](img/web-event-4.png)
-* The exposed function `help()` is attached to both the `onmouseenter` and `onmouseleave` events and contains the following code:
-
-```qs
-exposed function help()
-
-var event : object
-var myForm : 4D.WebForm
-var componentRef : string
-
-myForm = webForm
-event = webEvent
-componentRef = event.caller
-
-switch
-: (event.eventType == "onmouseenter")  // event is onmouseenter
-	myForm["helpOn_"+componentRef].show()  // show the help on "orderNumber" by showing  
-	// the text component with reference "helpOn_orderNumber"
-: (event.eventType == "onmouseleave")  // event is onmouseleave
- 	myForm["helpOn_"+componentRef].hide()  // hide the help on orderNumber
-end
-
-```
-
-To open the WebForm with the help on `orderNumber` hidden, you can associate this function to the `onload` event of the WebForm:
-
-```qs
-exposed function hideOnLoad()
-	webForm.helpOn_orderNumber.hide()
-```
-
-## webForm
-
-<!-- REF #_command_.webForm.Syntax -->**webForm** : 4D.WebForm<!-- END REF -->
-
-<!-- REF #_command_.webForm.Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|4D.WebForm|<-|New `WebForm` proxy object
-<!-- END REF -->
-
-#### Description
-
-The `webForm` command <!-- REF #_command_.webForm.Summary --> returns a `4D.WebForm` proxy object, providing a means to work with and effectively emulates the web form's properties and functions<!-- END REF -->.
-
-
-:::info
-
-Keep in mind that a `4D.WebForm` object  is a **proxy object**, and not a direct reference to the web form object itself. As a consequence for example, the `4D.WebForm` object does not expose all web form properties in the Debugger.
-
-:::
-
-Each property of the returned object is an object of the [4D.WebFormItem](WebFormItemClass.md) class.
-
-The command returns `null` if it is called in a request that does not originate from Qodly Studio.
 
 
 
@@ -160,69 +49,6 @@ component = myForm.myImage //returns the myImage component of the web form
 While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate web form components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
 
 :::
-
-
-### .disableState()
-
-<!-- REF #WebFormClass.disableState().Syntax -->
-**.disableState**( *state* : string)<!-- END REF -->
-
-<!-- REF #WebFormClass.disableState().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|state|string|->|Name of state to disable from the webform|
-<!-- END REF -->
-
-#### Description
-
-The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->disables the rendering of the *state* in the current webform<!-- END REF -->.
-
-This function does nothing if:
-- the *state* is currently not enabled in the webform,
-- the *state* does not exist for the webform.
-
-If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
-
-For more information on webform states, please refer to the [States](../studio/design-webforms/states.md) section.
-
-
-
-
-### .enableState()
-
-<!-- REF #WebFormClass.enableState().Syntax -->
-**.enableState**( *state* : string)<!-- END REF -->
-
-<!-- REF #WebFormClass.enableState().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|state|string|->|Name of state to enable on the webform|
-<!-- END REF -->
-
-#### Description
-
-The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->enables the rendering of the *state* in the current webform<!-- END REF -->.
-
-This function does nothing if:
-- the *state* has already been enabled on the webform,
-- the *state* does not exist for the webform.
-
-If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
-
-For more information on webform states, please refer to the [States](../studio/design-webforms/states.md) section.
-
-
-#### Example
-
-You enable a specific state named "wrongCredentials" in case of error in your login page:
-
-```qodly
-function authenticationError()
-	if (session.info.type#"remote")
-		webForm.enableState("wrongCredentials")
-	end
-```
-
 
 ### .setError()
 
@@ -259,7 +85,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### See also
 
-[`throw`](debug.md#throw)
+[`throw`](commands/throw.md)
 
 
 ### .setMessage()

@@ -13,7 +13,7 @@ Error handling meets two main needs:
 Basically, there are two ways to handle errors in QodlyScript. You can:
 
 - [install an error-handling method](#installing-an-error-handling-method), or
-- use a [`try()` keyword](#tryexpression) before pieces of code that call a function, method, or expression that can throw an error.
+- use a [`try()` keyword](#tryexpression) or a [`try/catch` structure](#trycatchend) before pieces of code that call a function, method, or expression that can throw an error.
 
 
 ## Error or status
@@ -29,7 +29,7 @@ In Quodly, all errors can be caught and handled by specific methods, named **err
 
 Once installed, error handlers are automatically called in case of error in the Qodly application. A different error handler can be called depending on the execution context (see below).  
 
-To *install* an error-handling method, you just need to call the [`onErrCall`](../debug.md#onerrcall) command with the method name and (optionnally) scope as parameters. For example:
+To *install* an error-handling method, you just need to call the [`onErrCall`](../commands/onErrCall.md) command with the method name and (optionnally) scope as parameters. For example:
 
 ```qs
 onErrCall("IO_Errors",ek local) //Installs a local error-handling method
@@ -41,7 +41,7 @@ To stop catching errors for an execution context and give back hand, call `onErr
 onErrCall("",ek local) //gives back control for the local process
 ```
 
-The  [`methodCalledOnError`](../debug.md#methodcalledonerror) command allows you to know the name of the method installed by `onErrCall` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
+The  [`methodCalledOnError`](../commands/methodCalledOnError.md) command allows you to know the name of the method installed by `onErrCall` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
 
 ```qs
  var methCurrent : string
@@ -76,8 +76,8 @@ You can define a single error-catching method for the whole application or diffe
 
 Within a custom error method, you can use several commands that will help you identifying the error:
 
-- the [`lastErrors`](../debug.md#lasterrors) command that returns a collection of the current stack of errors that occurred in the Qodly application.
-- the [`callChain`](../debug.md#callchain) command that returns a collection of objects describing each step of the method call chain within the current process.
+- the [`lastErrors`](../commands/lastErrors.md) command that returns a collection of the current stack of errors that occurred in the Qodly application.
+- the [`callChain`](../commands/callChain.md) command that returns a collection of objects describing each step of the method call chain within the current process.
 
 
 #### Example
@@ -103,7 +103,7 @@ end
 
 ### Using an empty error-handling method
 
-If you mainly want the standard error messages to be hidden, you can install an empty error-handling method. The [`lastErrors`](../debug.md#lasterrors) command can be called in any method, i.e. outside of the error-handling method:
+If you mainly want the standard error messages to be hidden, you can install an empty error-handling method. The [`lastErrors`](../commands/lastErrors.md) command can be called in any method, i.e. outside of the error-handling method:
 
 ```qs
 onErrCall("emptyMethod") //emptyMethod exists but is empty
@@ -132,7 +132,8 @@ try (expression) : any | undefined
 
 If an error occurred during its execution, it is intercepted and no error dialog is displayed, whether an [error-handling method](#installing-an-error-handling-method) was installed or not before the call to `try()`. If *expression* returns a value, `try()` returns the last evaluated value, otherwise it returns `undefined`. 
 
-You can handle the error(s) using the [`lastErrors`](../debug.md#lasterrors) command. If *expression* throws an error within a stack of `try()` calls, the execution flow stops and returns to the latest executed `try()` (the first found back in the call stack). 
+
+You can handle the error(s) using the [`lastErrors`](../commands/lastErrors.md) command. If *expression* throws an error within a stack of `try()` calls, the execution flow stops and returns to the latest executed `try()` (the first found back in the call stack). 
  
 :::note
 
@@ -191,3 +192,81 @@ end
 
 ``` 
 
+## try...catch...end
+
+The `try...catch...end` structure allows you to test a block code in its actual execution context (including, in particular, variable values) and to intercept errors it throws so that the no Qodly error is displayed.
+
+Unlike the `try(expression)` keyword that evaluates a single-line expression, the `try...catch...end` structure allows you to evaluate any code block, from the most simple to the most complex, without requiring an error-handling method. In addition, the `catch` block can be used to handle the error in any custom way. 
+
+
+The formal syntax of the `try...catch...end` structure is:
+
+```qs
+
+try 
+	statement(s) // Code to evaluate
+catch
+	statement(s) // Code to execute in case of error
+end
+
+```
+
+The code placed between the `try` and the `catch` keywords is first executed, then the flow depends on the error(s) encountered during this execution. 
+
+- If no error is thrown, the code execution continues after the corresponding `end` keyword. The code placed between the `catch` and the `end` keywords is not executed.
+- If the code block execution throws a *non-deferred error*, the execution flow stops and executes the corresponding `catch` code block. 
+- If the code block execution throws a *deferred error*, the execution flow continues until the end of the `try` block and then executes the corresponding `catch` code block. 
+
+:::note
+
+If a *deferred* error is thrown outside of the `try` block, the code execution continues until the end of the method or function. 
+
+:::
+
+:::info
+
+For more information on *deferred* and *non-deferred* errors, please refer to the [`throw`](../commands/throw.md) command description.
+
+:::
+
+
+In the `catch` code block, you can handle the error(s) using standard error handling commands. The [`lastErrors`](../commands/lastErrors.md) command contains the last errors collection. You can [declare an error-handling method](#installing-an-error-handling-method) in this code block, in which case it is called in case of error.
+
+:::note
+
+If an [error-handling method](#installing-an-error-handling-method) is installed in the code placed between the `try` and the `catch` keywords, it is called in case of error. 
+
+:::
+
+### Example
+
+Combining transactions and `try...catch...end` structures allows writing secured code for critical features. 
+
+```qs
+function createInvoice(customer : cs.customerEntity, items : collection, invoiceRef : string) : cs.invoiceEntity
+	var newInvoice : cs.invoiceEntity
+	var newInvoiceLine : cs.invoiceLineEntity
+	var item : object
+	ds.startTransaction()
+	try
+		newInvoice=this.new()
+		newInvoice.customer=customer
+		newInvoice.invoiceRef=invoiceRef
+		forEach (item, items)
+			newInvoiceLine=ds.invoiceLine.new()
+			newInvoiceLine.item=item.item
+			newInvoiceLine.amountitem.amount
+			newInvoiceLine.invoice=newInvoice
+			//call other specific functions to validate invoiceline
+			newInvoiceLine.save()
+		end 
+		newInvoice.save()
+		ds.validateTransaction()
+	catch
+		ds.cancelTransaction()
+		ds.logErrors(lastErrors)
+		newInvoice=null
+	end
+	return newInvoice
+
+```

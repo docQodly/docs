@@ -26,7 +26,7 @@ The **Image** component offers multiple options for displaying images:
         </ul>
 	</Column.Item>
 	<Column.Item width="45%">
-         <img alt="explorer" src={require('./img/image_DatasourceBinding.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/image_DatasourceBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -40,7 +40,7 @@ The **Image** component offers multiple options for displaying images:
         </ul>
 	</Column.Item>
 	<Column.Item width="45%">
-         <img alt="explorer" src={require('./img/image_ImageSource.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/image_ImageSource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

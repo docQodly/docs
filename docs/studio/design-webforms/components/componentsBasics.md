@@ -36,7 +36,7 @@ Incorporating components into your webform is a straightforward process that inv
 
 You have the flexibility to drop components directly onto the webform itself, as well as within other components that accept nested elements. This versatility allows you to construct complex layouts and hierarchies by combining different components within one another. 
 
-<img alt="explorer" src={require('./img/addingComponents.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/addingComponents.gif').default} style={{borderRadius: '6px'}} />
 
 ## Uploading Custom Components
 
@@ -57,7 +57,7 @@ You have the flexibility to drop components directly onto the webform itself, as
         When you select a component on the canvas, a contextual tooltip becomes available, offering a variety of actions that can be performed on the chosen component. These actions provide you with the tools to efficiently manage and manipulate your webform's design. Here's a breakdown of the actions available in the tooltip:
 	</Column.Item>
 	<Column.Item width="25%">
-        <img alt="explorer" src={require('./img/tooltip2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/tooltip2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -96,7 +96,7 @@ You have the flexibility to drop components directly onto the webform itself, as
                 Your webforms can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
 
@@ -117,7 +117,7 @@ Formatting options may vary based on the specific data type of the attribute and
                 </ul>
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_InputFomat_Text.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
 
@@ -138,7 +138,7 @@ Formatting options may vary based on the specific data type of the attribute and
                 </ul>
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_InputFomat_Number.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
 
@@ -160,7 +160,7 @@ Formatting options may vary based on the specific data type of the attribute and
                 </ul>
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_InputFomat_Date.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
 
@@ -186,7 +186,7 @@ Formatting options may vary based on the specific data type of the attribute and
                  </ul>
         </Column.Item>
         <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_InputFomat_Time.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
 </Column.List>
 

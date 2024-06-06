@@ -29,7 +29,7 @@ Enhance the **Icon** component to align with your application's requirements usi
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-         <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

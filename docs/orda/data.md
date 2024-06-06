@@ -236,6 +236,12 @@ You can create an object of type [entity selection](data-model#entity-selection)
 *	Using the [`entity.getSelection()`](../language/EntityClass.md#getselection) function;
 *	Using a relation attribute of kind `relatedEntities` such as `empSel=company.employees`, or a projection such as `empSel.name`.
 
+:::note
+
+You can filter which entities must be included in entity selections for a dataclass depending on any business rules, thanks to the [restricted entity selection](#restricting-entity-selections) feature.
+
+:::
+
 You can simultaneously create and use as many different entity selections as you want for a dataclass. Keep in mind that an entity selection only contains references to entities. Different entity selections can contain references to the same entities. 
 
 :::note
@@ -270,6 +276,7 @@ In addition to the variety of ways you can query, you can also use relation attr
 ```
 
 The last line will return in *myInvoices* an entity selection of all invoices that have at least one invoice item related to a part in the entity selection *myParts*. When a relation attribute is used as a property of an entity selection, the result is always another entity selection, even if only one entity is returned. When a relation attribute is used as a property of an entity selection and no entities are returned, the result is an empty entity selection, not null.
+
 
 ### Shareable or alterable entity selections
 
@@ -398,6 +405,109 @@ The `sendMails` method:
     status=transporter.send(email)
  end
 ```
+
+
+## Restricting entity selections
+
+In ORDA, you can create filters to restrict access to entities of any of your dataclasses. Once implemented, a filter is automatically applied whenever the entities of the dataclass are accessed either by **ORDA class functions** such as [`all()`](../language/DataClassClass.md#all) or [`query()`](../language/EntitySelectionClass.md#query), or by the REST API (which involves the [Data Explorer](../data-explorer/data-explorer.md) and [remote datastores](../language/commands/openDatastore.md)).
+
+A filter creates a restricted view of the data, built upon any business rules such as current session user. For example, in an application used by salespersons to make deals with their customers, you can restrict the read customers to those managed by the authenticated salesperson.
+
+:::info
+
+Filters apply to **entities**. If you want restrict access to a **dataclass** itself or to one or more of its **attributes**, you might consider using [session privileges](../studio/roles/rolesPrivilegesOverview.md) which are more appropriate in this case. 
+
+:::
+
+
+### How to define a restrict filter
+
+You create a filter for a dataclass by defining an `event restrict` function in the [**dataclass class**](../orda/data-model.md#dataclass-class) of the dataclass. The filter is then automatically enabled.
+
+
+### `Function event restrict`
+
+#### Syntax
+
+```qs
+function event restrict() -> result : cs.*DataClassName*Selection
+// code
+```
+
+This function is called whenever an entity selection or an entity of the dataclass is requested. The filter is run once, when the entity selection is created.
+
+The filter must return an entity selection of the dataclass. It can be an entity selection built upon a query, stored in the [`storage`], etc.
+
+:::note
+
+For performance reasons, we recommend to use **indexed attributes** in the definition of the filter.
+
+:::
+
+The function must return a valid entity selection of the dataclass. No filter is applied (all entities corresponding of the initial request are returned) if:
+
+- the function returns **null**,
+- the function returns **undefined**,
+- the function does not return a valid entity selection.
+
+
+#### Example
+
+When accessed from a web or REST request, we want the Customers dataclass to only expose customers belonging to the identified sales person. During the authentication phase, the sales person is stored in the `session` object. Other types of requests are also handled.
+
+```qs
+Class extends DataClass
+
+
+function event restrict() : cs.CustomersSelection
+
+        switch
+                // Only return the customers of the authenticated sales person stored in the session
+            : (session.storage.salesInfo != null)
+                return this.query("sales.internalId = :1", session.storage.salesInfo.internalId)
+
+                //Data explorer - No filter is applied
+            : (session.hasPrivilege("WebAdmin"))
+                return null
+            else
+                //No customers can be read
+                return this.newSelection()
+
+        end
+```
+
+
+### Filter activation details
+
+Filters apply to all ORDA or REST requests executed in your Qodly projects. A filter is activated as soon as the project is opened.
+
+
+
+|Functions|Comment|
+|---|---|
+|[dataclass.get()](../language/DataClassClass.md#get)|If the entity does not match the filter, `null` is returned|
+|[entity.reload()](../language/EntityClass.md#reload)|Only in remote datastores|
+|[dataclass.all()](../language/DataClassClass.md#all)||
+|[dataclass.fromCollection()](../language/DataClassClass.md#fromcollection)|<li>In case of update, only entities matching the filter can be updated. If the collection refers to entities not matching the filter, they are created as new entities (if no duplicate PK error)</li><li>In case of creation, entities not matching the filter are created but will not be read after creation</li>|
+|[entitySelection.and()](../language/EntitySelectionClass.md#and)|Only entities matching the filter are returned|
+|[entitySelection.or()](../language/EntitySelectionClass.md#or)|Only entities matching the filter are returned|
+|[entitySelection.minus()](../language/EntitySelectionClass.md#minus)|Only entities matching the filter are returned|
+|[dataclass.query()](../language/DataClassClass.md#query)||
+|[entitySelection.query()](../language/EntitySelectionClass.md#query)||
+|[entitySelection.attributeName](../language/EntitySelectionClass.md#attributename)|Filter applied if *attributeName* is a related entity or related entities of a filtered dataclass (including alias or computed attribute)|
+|[entity.attributeName](../language/EntityClass.md#attributename)|Filter applied if *attributeName* corresponds to related entities of a filtered dataclass (including alias or computed attribute)|
+|[Create entity selection](../language/EntitySelectionClass.md#create-entity-selection)||
+
+
+Other ORDA functions accessing data do not directly trigger the filter, but they nevertheless benefit from it. For example, the [`entity.next()`](../language/EntityClass.md#next) function will return the next entity in the already-filtered entity selection. On the other hand, if the entity selection is not filtered, [`entity.next()`](../language/EntityClass.md#next) will work on non-filtered entities.
+
+:::note
+
+If there is an error in the filter at runtime, it is thrown as if the error came from the ORDA function itself.
+
+:::
+
+
 
 
 ## Entity Locking

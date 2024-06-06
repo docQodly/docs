@@ -132,7 +132,7 @@ Inside the Contextual panel, you'll find a field with the class name <img alt="s
     The <strong>Inspect</strong> option allows you to see where your CSS classes are used within your webforms. 
 	</Column.Item>
 	<Column.Item width="40%">
-    <img alt="explorer" src={require('./img/inspect-button2.png').default} style={{borderRadius: '6px'}} />
+    <img src={require('./img/inspect-button2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -141,7 +141,7 @@ Inside the Contextual panel, you'll find a field with the class name <img alt="s
     Toggle the option by clicking the button, then hover over a CSS class to highlight its location in your webform.
 	</Column.Item>
 	<Column.Item width="60%">
-		<img alt="explorer" src={require('./img/cssinspect.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/cssinspect.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -159,7 +159,7 @@ Associating a CSS class with a component can be accomplished in two ways:
 
 - Using the Properties panel, link a CSS class to the component through the `CSS` section under the `Style` category. This can be done either by 
 
-<img alt="explorer" src={require('./img/usingCSSClasses.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/usingCSSClasses.png').default} style={{borderRadius: '6px'}} />
 
 The provided example demonstrates applying a CSS class named `ratingStars` to the embedded element `Slider Container` of the `Range Input` component. This modification transforms the standard slider into a star rating slider, suitable for rating activities or services. The corresponding code for this CSS class is shown below:
 

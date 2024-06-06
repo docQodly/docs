@@ -41,7 +41,7 @@ Enhance the **Range Input** component to align with your application's requireme
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/rangeInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/rangeInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -55,7 +55,7 @@ Enhance the **Range Input** component to align with your application's requireme
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/rangeInput_orientation.gif').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/rangeInput_orientation.gif').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -71,7 +71,7 @@ Within the **Range Input** component, an embedded **Label** allows for further c
         </ul>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -90,7 +90,7 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
         </ul>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/rangeInput_sliderProperties.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -111,7 +111,7 @@ The **Display** property allows to control how they are drawn:
         </ul>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/thumb-display.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/thumb-display.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
   
@@ -138,7 +138,7 @@ To associate data with the Range Input component, follow these steps:
         </ol>
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/rangeInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/rangeInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -160,7 +160,7 @@ Subsequently, you can utilize this input value in various ways, such as within a
 
 Here's a glimpse of how the **Range Input** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/rangeInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<img src={require('./img/rangeInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 ## Triggers and Events
 

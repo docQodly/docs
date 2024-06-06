@@ -3,14 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. The `Datastore` object is returned by the [ds](#ds) command, a shortcut to the main datastore.
-
-
-### Commands
-
-||
-|---|
-|[<!-- INCLUDE #_command_.ds.Syntax -->](#ds)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #_command_.ds.Summary -->|
+A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. A `Datastore` object is returned by the [`ds`](commands/ds.md) command (a shortcut to the main datastore) or the [`openDatastore`](commands/openDatastore.md) command.
 
 
 
@@ -26,36 +19,6 @@ A [Datastore](../orda/data-model.md#datastore) is the interface object provided 
 |[<!-- INCLUDE #DataStoreClass.validateTransaction().Syntax -->](#validatetransaction)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #DataStoreClass.validateTransaction().Summary --> |
 
 
-
-
-
-## ds
-
-
-<!-- REF #_command_.ds.Syntax -->
-**ds** : cs.DataStore <!-- END REF -->
-
-<!-- REF #_command_.ds.Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|Result |cs.DataStore|<-|Reference to the datastore|
-<!-- END REF -->
-
-
-#### Description
-
-The `ds` command <!-- REF #_command_.ds.Summary -->returns a reference to the datastore matching the current Qodly database<!-- END REF -->.
-
-The datastore is opened automatically and available directly through `ds`.
-
-
-#### Example
-
-Using the datastore on the Qodly database:
-
-```qs
- result = ds.Employee.query("firstName = :1","S@")
-```
 
 
 <!-- REF DataStoreClass.cancelTransaction().Desc -->
@@ -190,6 +153,7 @@ You create a *protectDataFile* project method to call before deployments for exa
 
 
 
+
 <!-- REF DataStoreClass.startTransaction().Desc -->
 ## .startTransaction()
 
@@ -214,6 +178,7 @@ You can nest several transactions (sub-transactions). Each transaction or sub-tr
 
 
 #### Example
+
 
 
 ```qs

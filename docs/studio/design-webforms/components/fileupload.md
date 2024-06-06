@@ -40,7 +40,7 @@ Enhance the **File Upload** component to align with your application's requireme
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/fileUpload_Label.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/fileUpload_Label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -51,7 +51,7 @@ Enhance the **File Upload** component to align with your application's requireme
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/fileUpload_IconPosition.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/fileUpload_IconPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -63,8 +63,8 @@ Enhance the **File Upload** component to align with your application's requireme
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
-				<img alt="explorer" src={require('./img/fileUpload_SizLimitError.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/fileUpload_SizeLimit.png').default} style={{borderRadius: '6px'}} />
+				<img src={require('./img/fileUpload_SizLimitError.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -75,7 +75,7 @@ Enhance the **File Upload** component to align with your application's requireme
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/fileUpload_MediaType.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/fileUpload_MediaType.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -91,7 +91,7 @@ Within the **File Upload** component, an embedded **Icon** allows for further cu
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-            <img alt="explorer" src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/button_icon.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -110,7 +110,7 @@ The datasource for the **File Upload** component can take the form of either a `
 		Bind the component to an attribute of Blob or Picture type within an entity datasource. This specific attribute will serve as the storage location for the uploaded file.
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -122,7 +122,7 @@ Alternatively, you can establish the connection by dragging and dropping the dat
 
 Here's a glimpse of how the **File Upload** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/fileUpload_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<img src={require('./img/fileUpload_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events
