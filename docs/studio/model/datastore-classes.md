@@ -41,9 +41,8 @@ Removing a dataclass from the model does not remove its associated functions.
 
 To rename a datastore class:
 
-1. Double-click on the datastore class name in the title bar to make it editable, or
-2. Select the datastore class and, in the Properties area, click on the **Edit** button (pencil icon) in the right side of the [Class name area](#class-name).
-3. Type in the new name and press **Enter** key (title bar) or **Confirm** button (Property area) to validate the change.
+1. Double-click on the datastore class name in the title bar to make it editable, or select the datastore class and, in the Properties area, click on the **Edit** button (pencil icon) in the right side of the [Class name area](#class-name).
+2. Type in the new name and press **Enter** key (title bar) or **Confirm** button (Property area) to validate the change.
 
 :::info
 
