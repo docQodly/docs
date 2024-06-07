@@ -13,17 +13,15 @@ Enable secure access to your Qodly application by utilizing **API keys** and **e
 
 ### API Endpoint
 
-An API endpoint is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps. Essentially, it serves as a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications.
+The API endpoint is a gateway through which developers can programmatically access features or data using standard HTTP methods to execute operations tailored to the needs of their applications. Combined with the [`openDatastore`](../language/commands/openDatastore.md) command or [REST requests](../api/overview.md), it is used specifically to facilitate interactions between external applications and the Qodly application. This could include managing data, triggering actions, or retrieving information from Qodly's apps.
 
 ### API Key
 
 An API key is a unique identifier used to authenticate a client or user trying to access the Qodly Cloud application. It helps the API provider control and monitor how the API is being used, typically to prevent misuse or abuse and to manage quotas.
 
-:::tip
-The key must be included in the HTTP header of every REST requests sent as a means of identifying the requester and checking their access permissions.
-:::
-
 This key is linked to a specific [**role**](../studio/roles/rolesPrivilegesOverview.md), defining the scope of actions that the client can perform based on the permissions associated with that role.
+
+The key must be included in the HTTP header of every REST requests sent as a means of identifying the requester and checking their access permissions. [See below](#using-api-keys) for more information.
 
 
 ## Managing API Keys
@@ -110,7 +108,9 @@ In the Qodly Cloud Management Console, the API key management panel provides sev
     </Column.Item>
 </Column.List>
 
+## Using API keys
 
-:::info
-For more information, please refer to the [REST API Reference](../api/overview).
-:::
+A Qodly API key must be included in the **HTTP header** of every REST requests sent to the server. You can do it in two ways:
+
+- using the [`openDatastore`](../language/commands/openDatastore.md) command to target another Qodly application: you pass both API endpoint and API key in the *connectionInfo* parameter and that's it!Underlying REST requests automatically handle the API keys in HTTP headers.
+- using the [REST API](../api/overview): use the API endpoint url and insert API key in every REST requests (for more information, see [this example](../api/overview.md#api-endpoint-usage-example-in-postman)).

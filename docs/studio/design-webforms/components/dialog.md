@@ -108,12 +108,23 @@ There are two ways for removing Dialogs:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        To edit a dialog, select it from the dialog list in the header panel or access it via the outline. This will open the dialog within the current webform, providing a dedicated interface for modifying its content.
+        To edit a dialog, select it from the dialog list in the header panel:
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/dialogEdit1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        Or, access it via the outline: 
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/dialogEditOutline.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+This will open the dialog within the current webform, providing a dedicated interface for modifying its content.
 
 :::info
 

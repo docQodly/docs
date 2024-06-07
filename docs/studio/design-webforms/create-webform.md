@@ -774,3 +774,25 @@ It is essential to exercise caution when editing the JSON representation, as the
 
 These discrepancies may not trigger errors, but they can potentially corrupt your webform or, in more severe cases, break it until the errors are rectified. Therefore, thorough validation of attribute names and values is crucial to ensure the integrity and functionality of your webform.
 :::
+
+## Japanese Character Support
+
+Japanese characters are now supported in all elements created in Qodly. This includes:
+
+- **Data Source Names**
+- **Namespace of Shared Data Sources**
+- **"Iterate with" Names**
+- **Server Side References**
+- **CSS Class Names**
+- **Dataclass Names**
+- **Property (Field) Names**
+- **Craft Components**
+- **Webforms**
+- **States**
+- **Method Names**
+- **Roles and Privileges**
+- **Shared Folder Names**
+- **Class Names**
+
+This enhancement ensures that all elements within Qodly can be named and utilized using Japanese characters, providing full localization support for Japanese-speaking users.
+
