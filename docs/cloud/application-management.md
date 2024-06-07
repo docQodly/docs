@@ -82,7 +82,7 @@ For every environment, you can access your files on the server using the **Secur
 
 <img src={require('./img/sftp.png').default} style={{borderRadius: '6px'}} />
 
-### Steps to Access Files via SFTP
+### Steps to Access Files
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
