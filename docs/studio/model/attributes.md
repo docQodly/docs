@@ -11,7 +11,7 @@ A datastore class is always created with a storage attribute of type Longint nam
 
 You can view and modify a few of the attribute’s properties when you select or hover it in the datastore class:
 
-![attribute](img/attribute1.png)
+<img src={require('./img/attribute1.png').default} style={{borderRadius: '6px'}} />
 
 - **Delete**: Deletes the attribute from the datastore class.
 - **Scope**: A closed lock icon indicates that the attribute is **Not exposed as REST**, i.e. it can only be called from the server code.
@@ -29,7 +29,7 @@ All attributes of a datastore class are also listed in the [Outline area](model-
 
 Attribute names are case-sensitive: "firstName" and "firstNAME" are not equal. The attribute name must be unique, start with a letter, and can contain only numbers and letters. You cannot include accented and non-Roman letters. For more information, please refer to the [Identifiers](../../language/basics/lang-identifiers.md) section. If you enter an invalid character, you will not be able to save the name.
 
-![wrong-name](img/wrong-name.png)
+<img src={require('./img/wrong-name.png').default} style={{borderRadius: '6px'}} />
 
 ### Attribute categories
 
@@ -37,12 +37,13 @@ There are several categories of attributes in Qodly:
 
 - **Scalar/Storage**: Scalar/storage attributes allow you to store information in the datastore class.
 - **Relation**: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N<->N relationship between three datastore classes.
-- **Alias**: An [alias attribute](#alias-attributes) is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute. ![icon](img/alias-icon.png) Indicates an alias attribute.
+- **Alias**: An [alias attribute](#alias-attributes) is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute. <img src={require('./img/alias-icon.png').default} style={{borderRadius: '6px'}} />
+ Indicates an alias attribute.
 - **Calculated**: A [calculated attribute](#calculated-attributes) does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. <img src={require('./img/image2.png').default} style={{borderRadius: '6px', width: '3%'}} /> Indicates a calculated attribute.
 
 The data type list contains [predefined data types](../../concepts/platform.md#qodly-database) as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
 
-![types](img/types.png)
+<img src={require('./img/types.png').default} style={{borderRadius: '6px'}} />
 
 The type to select depend on the category of attribute to create.
 
@@ -50,7 +51,7 @@ The type to select depend on the category of attribute to create.
 
 You create **storage**, **relation** and **alias** attributes from the datastore class in the Model editor. **Calculated** attributes must be [created by code](#calculated-attributes). However, they are displayed in the datastore class, grouped at the bottom of the class:
 
-![calc](img/calculated1.png)
+<img src={require('./img/calculated1.png').default} style={{borderRadius: '6px'}} />
 
 :::
 
@@ -80,11 +81,11 @@ To create an N->1 relation attribute:
 
 For example, to have a N->1 relation between Employee and Company datastore classes, create an attribute named "employer" in the Employee datastore class, and select **Company** as data type.
 
-![related](img/n1-attribute.png)
+<img src={require('./img/n1-attribute.png').default} style={{borderRadius: '6px'}} />
 
 Once you select **Company**, a matching 1->N relation attribute is created automatically in the Company datastore class. By default, it is named "EmployeeSelection", we renamed it "employees".
 
-![related](img/n1-global.png)
+<img src={require('./img/n1-global.png').default} style={{borderRadius: '6px'}} />
 
 :::note
 
@@ -104,17 +105,18 @@ To create a 1->N relation attribute:
 
 For example, to have a 1->N relation attribute that contains all the employees in the Company datastore class, create an attribute named "staff" in the Company datastore class, and select **EmployeeSelection** as data type.
 
-![related](img/1n-attribute.png)
+<img src={require('./img/1n-attribute.png').default} style={{borderRadius: '6px'}} />
 
 After you select **EmployeeSelection**, you need to define the **path** of the relation, i.e. the matching relation attribute to create in the N datastore class. You can enter any valid attribute name, it will be automatically created in the N datastore class.
 
 ![related](img/1n-attribute2.png)
+<img src={require('./img/1n-attribute2.png').default} style={{borderRadius: '6px'}} />
 
 ### Create a N->N relation attribute
 
 A N->N relation attribute allows you to have complex data structures. Here is our initial datastore model:
 
-![related](img/n-to-n1.png)
+<img src={require('./img/n-to-n1.png').default} style={{borderRadius: '6px'}} />
 
 As it is easy to express, an invoice can contain N items, and an item can be included in N invoices. To implement a N->N relation, we added the "InvoiceItem" intermediary datastore class.
 
@@ -127,7 +129,7 @@ To create the N->N relation, you can proceed with the following steps
 
 In both cases the 1->N relation attribute is automatically created in the "Part" and "Invoice" datastore classes. As a result, we have the "InvoiceItem" datastore class that has a relation attribute in the "Invoice" and "Part" datastore classes:
 
-![related](img/n-to-n2.png)
+<img src={require('./img/n-to-n2.png').default} style={{borderRadius: '6px'}} />
 
 ## Alias attributes
 
@@ -149,7 +151,7 @@ To create an alias attribute:
 2. Give a [name](#attribute-name) to the attribute.
 3. Click in the Type area and enter the name of the related attribute in the datastore class upon which you want to create the alias, and type a dot (**.**)
 
-   ![attribute](img/alias-create1.png)
+  <img src={require('./img/alias-create1.png').default} style={{borderRadius: '6px'}} />
 
 4. Select or enter the full attribute path. It can contain one or more levels, such as "employee.company.name".
 
@@ -164,11 +166,11 @@ A [calculated attribute](#calculated-attributes) can be used in an alias path, b
 
 Considering the following model:
 
-![alias](img/alias1.png)
+<img src={require('./img/alias1.png').default} style={{borderRadius: '6px'}} />
 
 1. In the Teacher dataclass, create a new attribute named "students" and give the path "courses.student" as type:
 
-![alias](img/alias2.png)
+<img src={require('./img/alias2.png').default} style={{borderRadius: '6px'}} />
 
 The **students** alias attribute returns an entity selection with all students of the courses of a teacher, i.e. all students of a teacher.
 
@@ -181,7 +183,7 @@ The **students** alias attribute returns an entity selection with all students o
 
 The model now looks like:
 
-![alias](img/alias3.png)
+<img src={require('./img/alias3.png').default} style={{borderRadius: '6px'}} />
 
 You can then execute the following queries:
 
@@ -255,7 +257,7 @@ Qodly manages the attribute's properties when it is published to the Web. You ca
 
 The Properties tab allows you to modify the attribute’s properties, which are different depending on its type. For example, the Properties tab below displays the properties for an attribute of type string:
 
-![attribute-properties](img/attribute-prop.png)
+<img src={require('./img/attribute-prop.png').default} style={{borderRadius: '6px'}} />
 
 Here is the list of all available properties:
 
