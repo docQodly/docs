@@ -62,6 +62,8 @@ These variables should be set within environment configuration files located at 
 
 1. **Create Environment Files**: Depending on your deployment stage, you might have `.env.development` for development settings and `.env.production` for production settings.
 
+  <img src={require('./img/envDevelopment.png').default} style={{borderRadius: '6px'}} />
+
 2. **Add Variables to the Files**:
 
   ```bash
