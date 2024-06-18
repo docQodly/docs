@@ -2,109 +2,128 @@
 id: datastore-classes
 title: Datastore Classes
 ---
-The datastore class is a type of structure that can contain attributes and relation attributes (links between datastore classes) in order to conceptually describe its data and how they all interact with each other as well as functions to interact with the data in your model.
 
-![alt-text](img/dataclass1.png)
+The datastore class is a specialized structure designed to encapsulate both attributes and relational attributes, effectively modeling the data and its interactions within the system. Additionally, it provides functions for data manipulation within your model.
 
-Once you create a datastore class, you can add [attributes](attributes.md) and functions to it.
+<img src={require('./img/dataclass1.png').default} style={{borderRadius: '6px'}} />
+
+
+:::info
+Once a datastore class is created, you can add [attributes](attributes.md) and functions to it.
 
 All datastores classes are automatically listed in the [Outline](model-editor-interface.md#outline) area.
+:::
 
 
-## Handling datastore classes
+## Handling Datastore Classes
 
-### Create a datastore class
+### Creating a Datastore Class
 
-To add a new datastore class, click on the **+** button of the [Outline area](model-editor-interface.md#outline):
+To create a new datastore class, follow these steps:
 
-![alt-text](img/dataclass2.png)
+1. Click on the **+** button in the [Outline area](model-editor-interface.md#outline).
 
-Enter the name of the new dataclass, with respect to the general [naming rules](../../language/basics/lang-identifiers.md#classes). 
+   <img src={require('./img/dataclass2.png').default} style={{borderRadius: '6px'}} />
 
-The datastore class is created and displayed in the model area with its ID attribute. You can start adding [attributes](attributes.md).
+2. Enter the name of the new data class, adhering to the general [naming rules](../../language/basics/lang-identifiers.md#classes).
 
-### Delete a datastore class
+The datastore class is now created and displayed in the model area with its ID attribute. You can proceed to add [attributes](attributes.md) to it.
 
-To delete a datastore class and all its attributes, click on the ![alt-text](img/deletedatastoreclass-icon.png) in the title bar of the dataclass or in the [Outline area](model-editor-interface.md#outline).
+
+### Deleting a Datastore Class
+
+To delete a datastore class and all its attributes:
+
+- Click on the <img src={require('./img/deletedatastoreclass-icon.png').default} style={{borderRadius: '6px'}} /> icon in the title bar of the data class or in the [Outline area](model-editor-interface.md#outline).
 
 :::info
 
-Removing a dataclass from the model does not remove its associated functions. 
+Removing a dataclass from the model does not remove its associated functions.
 
 :::
 
-### Rename a datastore class
-
-:::info
-
-When you rename a datastore class, Qodly Studio renames automatically the [Data Model classes](../../orda/data-model.md) associated to the dataclass. For example, if you rename "Emp" to "Employee", the associated "Emp", "EmpEntity", and "EmpSelection" classes will be renamed respectively "Employee", "EmployeeEntity", and "EmployeeSelection". Note that the entity selection class can be [renamed separately in the Properties](#selection-name). 
-
-:::
+### Renaming a Datastore Class
 
 To rename a datastore class:
 
-1. Double-click on the datastore class name in the title bar to make it editable, 
+1. Double-click on the datastore class name in the title bar to make it editable, or select the datastore class and, in the Properties area, click on the **Edit** button (pencil icon) in the right side of the [Class name area](#class-name).
 
-or
+2. Enter the new name and press **Enter** key (title bar) or the **Confirm** button (Property area) to apply the change.
 
-1. Select the datastore class and, in the Properties area, click on the **Edit** button (pencil icon) in the right side of the [Class name area](#class-name).
+:::info
 
-2. Type in the new name and press **Enter** key (title bar) or **Confirm** button (Property area) to validate the change. 
+When you rename a datastore class, Qodly Studio automatically renames the associated [Data Model classes](../../orda/data-model.md). For instance, renaming "Emp" to "Employee" will result in "Emp", "EmpEntity", and "EmpSelection" being renamed to "Employee", "EmployeeEntity", and "EmployeeSelection" respectively. Note that the entity selection class can be [renamed separately in the Properties](#selection-name).
 
+:::
 
-## Datastore Class Properties 
+## Datastore Class Properties
 
-In the Properties tab, you can modify the properties of the selected datastore class:
+In the Properties tab, you can modify the selected datastore class's properties:
 
-![alt-text](img/datastoreclass-properties.png)
+<img src={require('./img/datastoreclass-properties.png').default} style={{borderRadius: '6px'}} />
 
-### Panel color
+### Panel Color
 
 Defines the color of the datastore class title area. You can click in the color selector or enter a value in the color area.
 
-### Primary key
+### Primary Key
 
-Defines one of the attributes as the primary key attribute for the datastore class. By default, each datastore class is created with an `ID` attribute as the primary key, having the **Mandatory**, **Autosequence** and **Unique** properties checked as well as the Index kind set to Autoamtic by default. In the datastore class’s panel, the attribute defined as the primary key is bold and underlined with a key icon next to it. 
+Defines an attributes as the primary key for the datastore class. By default, each datastore class is created with an `ID` attribute as the primary key, with the **Mandatory**, **Autosequence** and **Unique** properties checked and the Index kind set to Autoamtic. The primary key attribute is bold and underlined with a key icon in the datastore class panel.
 
-To change the primary key, you can select an attribute in the Primary Key drop-down menu. Only the attributes with valid types (Long, Number, String, or UUID) are displayed in the drop-down menu.
+:::tip
+To change the primary key, select an attribute from the Primary Key drop-down menu. Only the attributes with valid types (Long, Number, String, or UUID) are displayed in the drop-down menu.
+:::
 
-### Class name
+### Class Name
 
-Datastore class name. Allows you to [rename the datastore class](#rename-a-datastore-class) and its [associated model classes](../../orda/data-model.md).
+The name of the datastore class, which allows you to [rename the datastore class](#rename-a-datastore-class) and its [associated model classes](../../orda/data-model.md).
 
 
-### Selection name
+### Selection Name
 
-Name of the entity selection for the datastore class. This name is used for the [entity selection class](../../orda/data-model.md) as well as related entity selections in related attributes. You can modify the default name, however it will be overriden if you change the Datastore class name afterwards.
+The name of the entity selection for the datastore class, used for the [entity selection class](../../orda/data-model.md) and related entity selections in relational attributes.
+
+:::info
+You can modify the default name of the entity selection , but it will be overriden if you change the Datastore class name afterwards.
+:::
 
 ### Scope
 
-An exposed dataclass can be used from anywhere and its attribute values can be displayed using REST requests. A not-exposed dataclass can only be used by code called from inside the datastore class, including calculated attributes, functions, methods, and events, executed on the server. Select "Do not expose as REST" for dataclasses that should not be accessed directly, e.g. "Users".
+Specifies whether the dataclass is exposed for external access via REST requests. An exposed datastore class can be accessed from anywhere, whereas a not-exposed datastore class can only be used internally, including calculated attributes, functions, methods, and events executed on the server. Select "Do not expose as REST" for dataclasses that should not be accessed directly, such as "Users".
 
-This property can be selected at the [attribute level](attributes.md#scope), and attributes inherit from this level. An attribute can override the parent dataclass level with "Do not expose as REST" if the parent was exposed; however, it the parent dataclass property is "Do not expose as REST", the attribute cannot override it. 
+
+:::tip
+This property can also be set at the [attribute level](attributes.md#scope), and attributes inherit this property from their parent datastore class. An attribute can override this with "Do not expose as REST" if the parent is exposed, but cannot do so if the parent is not exposed.
+:::
 
 ### Page size
 
-Default top page size for REST requests made to the server. The number you specify is the number of entities retrieved per request for the datastore class. If this property is left blank, the default value of 40 is used.
-
+Defines the default number of entities retrieved per request for REST requests made to the server. . If left blank, the default value of 40 is used.
 
 ### Records definitely deleted
 
-This option lets you control an optimization for the deletion of a selection of records. When Qodly deletes a selection, the record markers are not deleted by default. A record marker is a header attached to the record that contains information relating to this record. Deleting both markers and records is slower than deleting only records but in certain cases, it may be desirable to delete the record markers. 
-To delete record markers when deleting a large selection of records, select the **Records definitively deleted** option.
+Controls an optimization for deleting a selection of records. By default, Qodly deletes record markers rather than the records themselves, which is faster. 
+
+:::tip
+A record marker is a header attached to the record that contains information relating to this record. Deleting both markers and records is slower than deleting only records but in certain cases, it may be desirable to delete the record markers.
+:::
+
+To do this, select the **Records definitively deleted** option.
 
 ### Include in log file
 
-Check this option in order for operations performed on the table’s data to be included in the database log file (when it is generated). It is important to note that this option only indicates that the table’s data must be journaled if the database uses a log file; it does not enable the journaling procedure itself at the database level.
+Enables operations performed on the table’s data to be included in the database log file (when it is generated). 
+
+:::note
+This option only indicates that the table’s data must be journaled if the database uses a log file; it does not enable journaling itself at the database level.
+:::
 
 ### Comment
 
-Comments that you can store with your datastore class for private use.
+Allows you to store comments with your datastore class for private use.
 
+## Permissions
 
+Defines the permissions at the dataclass level. Permissions can also be set at the datastore and attribute levels.
 
-## Permissions  
-
-This area allows you to define the permissions at the dataclass level. Permissions can also be set at the datastore and attribute levels.
-
-Dataclass permissions are described in [this section](../roles/dataClassPermissions.md). 
+Dataclass permissions are described in [this section](../roles/dataClassPermissions.md).
