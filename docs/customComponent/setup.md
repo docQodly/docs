@@ -3,6 +3,8 @@ id: setup
 title: Project Setup
 ---
 
+import Column from '@site/src/components/Column'
+
 Qodly's API simplifies the creation of **Custom Components** using **React** through its dedicated CLI tool, [**@qodly/cli**](https://www.npmjs.com/package/@qodly/cli). This API streamlines the initiation of the **React** project, allowing developers to build and share reusable custom components within the Qodly community, providing a user-friendly integration into Webforms through a straightforward drag-and-drop mechanism.
 
 ## Initial Setup
@@ -40,12 +42,76 @@ Then install the necessary npm dependencies:
 
 ```bash
 npm i
-
 ```
 
-Below is an overview of the dependencies listed in the `package.json` file:
+## Configuring Environment 
 
-#### Production Dependencies
+
+To ensure the smooth operation of the Standalone Webform Editor, you can choose between running a Cloud instance or a 4D instance. Each setup has specific requirements for setting up and running your development environment.
+
+### Run a Cloud Instance
+
+To utilize a Cloud instance of the Qodly platform, it's essential to configure environment variables that allow your custom components to communicate securely:
+
+- API_KEY: Bound to the Administration port, crucial for accessing administrative features securely.
+
+- PROXY_SERVER: Specifies the API endpoint, critical for connecting your application to the backend services.
+
+
+These variables should be set within environment configuration files located at the root of your project, adjacent to package.json. Here's how to do it:
+
+1. **Create Environment Files**: Depending on your deployment stage, you might have `.env.development` for development settings and `.env.production` for production settings.
+
+2. **Add Variables to the Files**:
+
+  ```bash
+  API_SECURE= true
+  API_KEY=<your_api_key>
+  PROXY_SERVER=<your_proxy_server>
+  ```
+
+Ensure to keep your API_KEY secure and never expose it in client-side code where unauthorized users could access it.
+
+:::tip
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        Ensure the API_KEY is of type "Administration" to access administrative features securely. This key should never be exposed in client-side code to prevent unauthorized access.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/APIAdministration.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::
+
+
+### Run a 4D Instance
+
+To operate a 4D instance effectively, you need to run a 4D Web Server alongside your React project. Failing to do so can lead to connection issues that prevent the Webform Editor from functioning correctly.
+
+
+:::info
+
+If the 4D Web Server is not running, you might encounter the following error in your terminal:
+
+```bash
+[vite] http proxy error: /rest/$catalog/$all
+Error: connect ECONNREFUSED 127.0.0.1:7443
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16)
+```
+
+This error indicates that your local server setup is trying to connect to a 4D instance at 127.0.0.1:7443 but cannot establish a connection, resulting in the Standalone Webform Editor not loading.
+
+:::
+
+
+
+## Dependencies Overview
+
+### Production Dependencies
+
+Below is an overview of the production dependencies listed in the `package.json` file:
 
 | Dependency                     | Description                                                                                                  |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -53,7 +119,9 @@ Below is an overview of the dependencies listed in the `package.json` file:
 | `react`                         | A JavaScript library for building user interfaces, used in the project for creating custom components.       |
 | `react-dom`                     | ReactDOM provides DOM-specific methods for React, enabling interaction with the DOM and rendering components.|
 
-#### Development Dependencies
+### Development Dependencies
+
+Below is an overview of the development dependencies listed in the `package.json` file:
 
 | Dependency                                   | Description                                                                                                            |
 | ---------------------------------------------| ---------------------------------------------------------------------------------------------------------------------- |
@@ -75,20 +143,25 @@ Below is an overview of the dependencies listed in the `package.json` file:
 
 ## Development Workflow
 
-### Running
+### Running the Development Server
 
 Launch Qodly Studio in local mode with only the **Standalone Webform Editor** using the following command:
 
 ```bash
 npm run dev
 ```
-:::info
+
 Used when actively developing your project. It provides a local environment where you can make changes and test components.
-:::
+
+When you run npm run dev, it runs the server locally at:
+
+```bash
+Local: http://localhost:5001/
+```
 
 The project utilizes **Vite** for rapid development and efficient serving of the project in dev mode.
 
-### Building
+### Building the Project
 
 Build your project for production using the following command:
 
