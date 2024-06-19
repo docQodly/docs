@@ -6,8 +6,6 @@ title: Conditional States
 import Column from '@site/src/components/Column'
 
 
-
-
 Conditional states enhance webforms by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
 
@@ -15,17 +13,19 @@ Conditional states enhance webforms by allowing dynamic adaptation based on spec
 
 Conditions within Qodly are classified into two types:
 
+### Local Conditions
+
+Local Conditions are specific to the currently selected state and can be customized to meet unique logic requirements of that state.
+
+
 ### Saved Conditions
 
 Saved Conditions are reusable and can be applied across different states, stored within the `Saved Conditions` area for easy access and application.
 
 :::info
-For more details, please refer to the [Saved Conditions](#saved-conditions-area) area.
+For more details, please refer to the [Saved Conditions](#saved-conditions-area) area section.
 :::
 
-### Local Conditions
-
-Local Conditions are specific to the currently selected state and can be customized to meet unique logic requirements of that state.
 
 
 ## Conditions Interface
@@ -130,7 +130,7 @@ When multiple conditions are present, dropping it onto the connecting logical op
 Facilitate a switch between detailed and overview modes by using the global expand/collapse button <img alt="explorer" src={require('./img/conditionsInterface_schema4.png').default} style={{borderRadius: '6px', width:'3%'}} />, accessible via the designated button in the schema header <img alt="explorer" src={require('./img/conditionsInterface_schema7.png').default} style={{borderRadius: '6px', width:'25%'}} />.
 
 
-### Condition Configuration
+### Condition Configuration Card
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
@@ -141,8 +141,9 @@ Facilitate a switch between detailed and overview modes by using the global expa
 	</Column.Item>
 </Column.List>
 
-  For additional details, please refer to the [X](#) area.
-
+:::info
+For additional details, please refer to the [Condition Types](#condition-types) section.
+:::
 
 ### Condition Actions
 
@@ -155,7 +156,233 @@ Facilitate a switch between detailed and overview modes by using the global expa
 	</Column.Item>
 </Column.List>
 
-  For additional details, please refer to the [Conditions Actions](#managing-conditions) section.
+  For additional details, please refer to the [Conditions Actions](#condition-management) section.
+
+
+
+## Condition Types
+
+Each condition within the schema is represented by an interactive card, providing a user-friendly interface for configuring specific properties. These cards can be expanded or collapsed to display key details and settings.
+
+### Qodly Source
+
+| Name         | Icon | Description | Available Operators                                   |
+|--------------|------|-------------|-------------------------------------------------------|
+| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified datasource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
+
+#### Example
+
+<Tabs groupId="condition-types">
+<TabItem value="Visual Representation">
+
+<img src={require('./img/typeQodlySource2.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+</TabItem>
+<TabItem value="Json Code">
+
+```json
+{
+  "type": "combination",
+  "id": "auto_generated_unique_identifier_1",
+  "op": "and",
+  "conditions": [
+    {
+      "type": "datasource",
+      "id": "auto_generated_unique_identifier_2",
+      "name": "Age over 25",
+      "path": "employee.age",
+      "op": "gt",
+      "value": 25
+    },
+    {
+      "type": "datasource",
+      "id": "auto_generated_unique_identifier_3",
+      "name": "Lastname starts with D",
+      "path": "employee.lastname",
+      "op": "regex",
+      "value": "^D"
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+### Current State Condition
+
+| Name          | Icon | Description | Available Operators       |
+|---------------|------|-------------|---------------------------|
+| Current State | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the state of the current element. | `=`, `!=`, `regex` |
+
+#### Example
+
+<Tabs groupId="condition-types"groupId="condition-types">
+<TabItem value="Visual Representation">
+
+<img src={require('./img/typeCurrentState2.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+</TabItem>
+<TabItem value="Json Code">
+
+```json
+{
+  "type": "combination",
+  "id": "auto_generated_unique_identifier_13",
+  "op": "and",
+  "conditions": [
+    {
+      "type": "currentState",
+      "id": "auto_generated_unique_identifier_14",
+      "name": "Current state is State_1",
+      "op": "eq",
+      "value": "State_1"
+    },
+    {
+      "type": "currentState",
+      "id": "auto_generated_unique_identifier_15",
+      "name": "Current state matches regex",
+      "op": "regex",
+      "value": "^State"
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+### Parent State Condition
+
+| Name        | Icon | Description | Available Operators       |
+|-------------|------|-------------|---------------------------|
+| Parent State| <img src={require('./img/typeParentState.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the state of a parent element. | `=`, `!=`, `regex` |
+
+#### Example
+
+<Tabs groupId="condition-types">
+<TabItem value="Visual Representation">
+
+<img src={require('./img/typeParentState2.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+</TabItem>
+<TabItem value="Json Code">
+
+```json
+{
+  "type": "combination",
+  "id": "auto_generated_unique_identifier_10",
+  "op": "and",
+  "conditions": [
+    {
+      "type": "parentState",
+      "id": "auto_generated_unique_identifier_11",
+      "name": "Parent state is Active",
+      "op": "eq",
+      "value": "Active"
+    },
+    {
+      "type": "parentState",
+      "id": "auto_generated_unique_identifier_12",
+      "name": "Parent state starts with A",
+      "op": "regex",
+      "value": "^A"
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+### Privilege Condition
+
+| Name         | Icon | Description | Available Operators       |
+|--------------|------|-------------|---------------------------|
+| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level. | `=`, `!=`, `regex` |
+
+#### Example
+
+<Tabs groupId="condition-types">
+<TabItem value="Visual Representation">
+
+<img src={require('./img/typePrivilege2.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+</TabItem>
+<TabItem value="Json Code">
+
+```json
+{
+  "type": "combination",
+  "id": "auto_generated_unique_identifier_7",
+  "op": "and",
+  "conditions": [
+    {
+      "type": "privilege",
+      "id": "auto_generated_unique_identifier_8",
+      "name": "User is guest",
+      "op": "eq",
+      "value": "guest"
+    },
+    {
+      "type": "privilege",
+      "id": "auto_generated_unique_identifier_9",
+      "name": "Not restricted",
+      "op": "neq",
+      "value": "restricted"
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+
+### Saved Condition
+
+| Name         | Icon | Description | Available Operators |
+|--------------|------|-------------|---------------------|
+| Saved Condition | <img src={require('./img/typeSavedCondition.png').default} style={{borderRadius: '6px', width: '70%'}} /> | References a pre-defined condition stored in the `Saved Conditions` area, allowing for reuse across different states. | N/A |
+
+#### Example
+
+<Tabs groupId="condition-types">
+<TabItem value="Visual Representation">
+
+<img src={require('./img/typeSavedCondition2.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+</TabItem>
+<TabItem value="Json Code">
+
+```json
+{
+  "type": "combination",
+  "id": "iiq55CwnDbkEbqtZ46HmuN",
+  "op": "or",
+  "conditions": [
+    {
+      "type": "reference",
+      "id": "auto_generated_unique_identifier_5",
+      "name": "Condition 2",
+      "ref": "7EhcZvWyNCr6AqPqS139Mz"
+    },
+    {
+      "type": "reference",
+      "id": "auto_generated_unique_identifier_6",
+      "name": "Condition 3",
+      "ref": "7ymDgJc1iL6ca1Q8WzL43z"
+    }
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
 
 
 
@@ -293,6 +520,3 @@ When working with conditions in the JSON Editor, users will encounter several co
 - **path**: The data path within the datasource (for datasource conditions).
 - **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
 - **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
-
-
-
