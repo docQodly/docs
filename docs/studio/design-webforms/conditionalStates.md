@@ -159,9 +159,6 @@ Facilitate a switch between detailed and overview modes by using the global expa
 
 
 
-## Conditions JSON Editor
-
-
 ## Condition Management
 
 ### Add Condition (Local)
@@ -247,7 +244,7 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 	<Column.Item width="70%">
 		The <code>Remove condition</code> option is available for users needing to clear out unused or unwanted conditions from the schema. This tool helps declutter the configuration space by removing selected conditions or groups of conditions.
 		<br/><br/><br/>
-		Upon initiating deletion, a confirmation popup will appear, requiring user confirmation to proceed .
+		Upon initiating deletion, a confirmation popup will appear, requiring user confirmation to proceed.
 	</Column.Item>
 	<Column.Item width="25%">
 		<img src={require('./img/removeCondition.png').default} style={{borderRadius: '6px'}} />
@@ -257,5 +254,118 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 </Column.List>
 
 
+## Conditions JSON Editor
 
+
+### Accessing the JSON Editor
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+		The JSON Editor can be accessed through the Conditions Interface by clicking on the JSON Editor button. This opens a dedicated editing area where users can view and edit the JSON representation of their conditions.
+	</Column.Item>
+	<Column.Item width="45%">
+		<img src={require('./img/accessJsonEditor.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+### Initial JSON Blueprint
+
+Upon addition, each condition's initial JSON structure appears in the editor as follows:
+
+```json
+{
+  "id": "auto_generated_unique_identifier",
+  "name": "default_condition_name",
+  "type": "unspecified"
+}
+```
+
+This initial blueprint provides a template that users can modify to fit the specific requirements of their webform conditions.
+
+
+### Common JSON Fields
+
+When working with conditions in the JSON Editor, users will encounter several common fields:
+
+- **id**: A unique identifier for the condition (type: string).
+- **name**: The name of the condition (type: string).
+- **type**: Specifies the type of condition (e.g., datasource, privilege, parentState, reference, combination).
+- **path**: The data path within the datasource (for datasource conditions).
+- **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
+- **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
+
+
+
+## Building Logical Structures
+
+Logical structures within states are hierarchically organized. Conditions linked by "AND" operators illustrate a dependency chain, where each sub-condition must be met for the overall condition to be triggered. This setup supports the creation of sophisticated logical frameworks necessary for complex webform behaviors.
+
+
+## Configuring Conditions
+
+### Interactive Condition Configuration
+
+Conditions are represented by interactive cards that can be expanded or collapsed, optimizing the workspace for focused configuration tasks. Each card serves as a gateway to set critical properties like condition type, associated data source, operator, and comparative values.
+
+### Condition Types
+
+The condition card includes a dropdown menu for selecting the type of condition to configure, with options such as:
+
+- **Datasource**: Tailors conditions based on data values, requiring details like the data source, operator, and comparison value.
+- **Parent State**: Establishes dependency on the state of an upper hierarchy element for nested state logic creation.
+- **Privilege**: Facilitates access control by adjusting conditions according to user permissions or roles.
+- **Combination**: Allows the combination of multiple conditions into a singular, more complex condition.
+- **Reference**: Enables the reuse of predefined conditions within the system, enhancing the condition creation process's efficiency and coherence.
+
+
+
+
+
+## Implementing Conditional States
+
+### Privilege-Based Conditional State
+
+This approach activates different states based on privileges. When a user session includes a certain privilege, it triggers a corresponding state, thereby aligning the webform with the user's access level.
+
+:::info Example
+In a corporate app, employees and managers see different webform settings, tailored to their respective privileges.
+:::
+
+
+
+### Data-Driven Conditional State
+
+In this approach, webform states change in response to alterations in data source values. This creates context-aware adjustments in the webform, responding to real-time data dynamics.
+
+:::info Example
+In an e-commerce app, the checkout process is adjusted offering incentives like free shipping when the shopping cart reaches a designated value.
+:::
+
+
+<!--
+Each time a datasource value used in an Conditional state rule changes, the rule is evaluated to TRUE or FALSE
+
+conditions employ comparators specific to data types, such as:
+
+  - **Strings:** Comparators like EQUAL, DIFFERENT, CONTAINS, STARTSWITH, IN, ISNULL, and REGEX.
+
+  - **Numbers, Dates, Duration:** Utilizes GREATER THAN, LOWER THAN, BETWEEN, ISNULL, and their variants.
+
+  - **Boolean:** Options include ISTRUE, ISFALSE, ISNULL, and EQUALS.
+-->
+
+:::tip
+Conditions are re-evaluated automatically when data source values change.
+:::
+
+
+### Dependency on Parent Webform's State
+
+Webforms within Webform loaders react dynamically to the state of their parent webform, ensuring that changes in the parent webform directly affect the behavior of nested webforms. This interaction leads to more integrated and contextually aware applications, where changes in one section can appropriately influence related areas.
+
+For instance, in a webform loader, a particular state, "childState", is applied only when its parent webform achieves a specific state, "parentState". 
+
+:::info Example
+In a healthcare app, relevant patient history is displayed during active consultations, adjusting content based on the broader context of the patient's current engagement with the clinic.
+:::
 
