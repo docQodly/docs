@@ -37,7 +37,7 @@ Enhance the **Radio** component to align with your application's requirements us
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/radio_type.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/radio_type.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -52,7 +52,7 @@ Enhance the **Radio** component to align with your application's requirements us
             </ul>
         </Column.Item>
         <Column.Item width="36%">
-            <img alt="explorer" src={require('./img/radio_mode.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/radio_mode.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -65,7 +65,7 @@ Enhance the **Radio** component to align with your application's requirements us
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/radio_defaultValue.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/radio_defaultValue.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -80,15 +80,15 @@ Enhance the **Radio** component to align with your application's requirements us
                 </ul>
             </Column.Item>
             <Column.Item width="35%">
-                <img alt="explorer" src={require('./img/radio_Options.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/radio_Options.png').default} style={{borderRadius: '6px'}} />
             </Column.Item>
         </Column.List>
 
-    - **Option Duplication**: Duplicate existing options to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
+    - **Option Duplication**: Duplicate existing options to replicate configurations quickly by clicking on the <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-    - **Option Removal**: Delete options that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
+    - **Option Removal**: Delete options that no longer serve a purpose by clicking on the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-    - **Moving Option**: Arrange options to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
+    - **Moving Option**: Arrange options to your preferred position by clicking on the <img src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
 
 
 
@@ -113,7 +113,7 @@ To enable data capture for the Radio component, follow these steps:
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/radio_DataBinding.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/radio_DataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -131,7 +131,7 @@ Retrieving user choices is straightforward. By binding a datasource to the **Rad
         Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
-        <img alt="explorer" src={require('./img/radio_standardAction.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/radio_standardAction.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -145,7 +145,7 @@ The **Radio** component's datasource can also be linked to the value of an attri
 
 Here's a glimpse of how the **Radio** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/radio_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<img src={require('./img/radio_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events

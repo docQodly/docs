@@ -39,7 +39,7 @@ Enhance the Tabs component to align with your application's requirements using t
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/tabs_VariantSelection.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/tabs_VariantSelection.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -51,13 +51,13 @@ Enhance the Tabs component to align with your application's requirements using t
         <Column.Item width="60%">
             <ul>
                 <li><strong>Title Customization</strong>: Modify tab titles to precisely reflect the content or functionality associated with each tab.</li> <br/>
-                <li><strong>Tab Duplication</strong>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
-                <li><strong>Tab Removal</strong>: Delete tabs that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
-                <li><strong>Moving Tab</strong>:  Arrange tabs to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
+                <li><strong>Tab Duplication</strong>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
+                <li><strong>Tab Removal</strong>: Delete tabs that no longer serve a purpose by clicking on the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
+                <li><strong>Moving Tab</strong>:  Arrange tabs to your preferred position by clicking on the <img src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/tabs_PlusButtonAddition.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/tabs_PlusButtonAddition.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -68,7 +68,7 @@ Enhance the Tabs component to align with your application's requirements using t
             <strong>Direct Canvas Addition</strong>: Directly add new tabs onto the canvas using the <code>+</code> icon.
         </Column.Item>
         <Column.Item width="35%">
-            <img alt="explorer" src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -81,7 +81,7 @@ When it comes to data-binding, it's important to note that the **Tabs** componen
 
 Although the **Tabs** component isn't inherently data-bound, you can still create dynamic, data-driven experiences by embedding components within each tab's Stylebox. Here's a glimpse of how the **Tabs** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/tabs_Preview.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/tabs_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 
 ## Triggers and Events

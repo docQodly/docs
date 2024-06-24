@@ -12,7 +12,7 @@ A Dialog is an interactive, dynamic UI element designed as a popup overlay to st
 
 ## Dialog Creation 
 
-To initiate a dialog, navigate to the edited web form header panel and select the `Dialogs` button <img alt="explorer" src={require('./img/dialogs.png').default} style={{borderRadius: '6px', width: '10%'}} />. 
+To initiate a dialog, navigate to the edited web form header panel and select the `Dialogs` button <img src={require('./img/dialogs.png').default} style={{borderRadius: '6px', width: '10%'}} />. 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
@@ -21,7 +21,7 @@ To initiate a dialog, navigate to the edited web form header panel and select th
         To create a new dialog, click on the <code>New dialog</code> button within this panel. 
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/noConfiguredDialogs.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/noConfiguredDialogs.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -31,7 +31,7 @@ To initiate a dialog, navigate to the edited web form header panel and select th
         This will trigger a modal where you can assign a name to the dialog.
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogCreationModal.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogCreationModal.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -41,10 +41,10 @@ After naming and confirming with the <code>create</code> button, the new dialog 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/dialogsList.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogsList.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/dialogsOutline.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogsOutline.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -60,10 +60,10 @@ There are two ways for removing Dialogs:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Dialogs List</strong>: Click on the delete icon <img alt="explorer" src={require('./img/dialogDelete2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the dialog you intend to delete in the dialogs listt.
+        <strong>Dialogs List</strong>: Click on the delete icon <img src={require('./img/dialogDelete2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the dialog you intend to delete in the dialogs listt.
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogDelete1.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogDelete1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -73,7 +73,7 @@ There are two ways for removing Dialogs:
         <strong>Outline section</strong>: As an alternative method, dialogs can also be removed directly from the outline section..
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogDelete3.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogDelete3.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -85,7 +85,7 @@ There are two ways for removing Dialogs:
         Regardless of the chosen method, a confirmation step is required in a follow-up modal to finalize the deletion process.
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogDelete4.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogDelete4.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -96,10 +96,10 @@ There are two ways for removing Dialogs:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        To change the name of a dialog, select the edit icon <img alt="explorer" src={require('./img/dialogRename2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the desired dialog in the dialogs list. This action activates the edit mode within the same interface, allowing you to rename the dialog.
+        To change the name of a dialog, select the edit icon <img src={require('./img/dialogRename2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the desired dialog in the dialogs list. This action activates the edit mode within the same interface, allowing you to rename the dialog.
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogRename1.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogRename1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -108,12 +108,23 @@ There are two ways for removing Dialogs:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        To edit a dialog, select it from the dialog list in the header panel or access it via the outline. This will open the dialog within the current webform, providing a dedicated interface for modifying its content.
+        To edit a dialog, select it from the dialog list in the header panel:
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogEdit1.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogEdit1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        Or, access it via the outline: 
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/dialogEditOutline.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+This will open the dialog within the current webform, providing a dedicated interface for modifying its content.
 
 :::info
 
@@ -122,7 +133,7 @@ There are two ways for removing Dialogs:
         The dialog that is currently being edited in the web form will be highlighted in the dialog list, making it easy to identify which dialog is under modification.
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogEdit2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogEdit2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -131,11 +142,11 @@ There are two ways for removing Dialogs:
 
 Each dialog includes a style box that enables the integration and customization of various components. Components can be dragged and dropped directly into this style box, allowing for efficient customization of the dialog's appearance.
 
-<img alt="explorer" src={require('./img/dialogEdit3.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/dialogEdit3.png').default} style={{borderRadius: '6px'}} />
 
 
 :::tip
-To exit the dialog's editing mode, click the close button <img alt="explorer" src={require('./img/dialogEdit4.png').default} style={{borderRadius: '6px', width: '2%'}} /> located at the top right corner.
+To exit the dialog's editing mode, click the close button <img src={require('./img/dialogEdit4.png').default} style={{borderRadius: '6px', width: '2%'}} /> located at the top right corner.
 :::
 
 
@@ -146,12 +157,12 @@ Enhance the Dialog component to align with your application's requirements using
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <li> <strong>Overlay (Boolean)</strong>: Activates a screen overlay when set to true.</li>
-        <li> <strong>Draggable (Boolean)</strong>: Enables user-driven repositioning. Features a customizable move icon <img alt="explorer" src={require('./img/dialogDraggable.png').default} style={{borderRadius: '6px', width: '3%'}} />.</li>
-        <li> <strong>Closable (Boolean)</strong>: Integrates a close function, operable via the button or by clicking outside the dialog (if overlay is enabled). Features a customizable close icon <img alt="explorer" src={require('./img/dialogClosable.png').default} style={{borderRadius: '6px', width: '4%'}} />.</li>
+        <li> <strong>Draggable (Boolean)</strong>: Enables user-driven repositioning. Features a customizable move icon <img src={require('./img/dialogDraggable.png').default} style={{borderRadius: '6px', width: '3%'}} />.</li>
+        <li> <strong>Closable (Boolean)</strong>: Integrates a close function, operable via the button or by clicking outside the dialog (if overlay is enabled). Features a customizable close icon <img src={require('./img/dialogClosable.png').default} style={{borderRadius: '6px', width: '4%'}} />.</li>
         <li> <strong>Animated</strong>: Implements an opening flicker effect for visual emphasis.</li>
     </Column.Item>
     <Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dialogProperties.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogProperties.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -186,7 +197,7 @@ This shared CSS class takes precedence and cannot be superseded by any locally d
 
 Here's a glimpse of how the **Dialog** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/dialog_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<img src={require('./img/dialog_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events

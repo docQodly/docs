@@ -40,7 +40,7 @@ Enhance the **Text Input** component to align with your application's requiremen
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -56,7 +56,7 @@ Within the **Text Input** component, an embedded **Label** allows for further cu
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -72,7 +72,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/textInput_InputCustomization.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_InputCustomization.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -83,7 +83,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>text</strong>: Standard alphanumeric data.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_text.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_text.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -91,7 +91,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>text area</strong>: Larger text area for expanding and adjusting size.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_textArea.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_textArea.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -99,7 +99,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>number</strong>: Numerical values only.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_number.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_number.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -107,7 +107,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>password</strong>: Concealed input for sensitive data.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -115,7 +115,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>date</strong>: Limits input to date values with a date picker.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -123,7 +123,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>time</strong>: Limits input to time values with a widget for selection, allowing scrolling or clicking to choose values</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_time.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_time.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
                 <Column.List align="center" justifyContent="between">
@@ -131,7 +131,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <li><strong>duration</strong>: Limits input to duration values with a widget, enabling scrolling, manual entry, or using the + and - icons.</li>
                         </Column.Item>
                         <Column.Item width="35%">
-                                <img alt="explorer" src={require('./img/inputType_duration.png').default} style={{borderRadius: '6px'}} />
+                                <img src={require('./img/inputType_duration.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
         </ul>
@@ -144,7 +144,7 @@ See <a href="componentsBasics#data-formatting">Formats</a> for a description of 
 
 <br/>
 
-- **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img alt="explorer" src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
+- **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
 
 
 ## Data Integration
@@ -167,7 +167,7 @@ To associate data with the Text Input component, follow these steps:
         </ol>
 	</Column.Item>
 	<Column.Item width="40%">
-                <img alt="explorer" src={require('./img/textInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_DataDisplay.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -188,7 +188,7 @@ Retrieving user input data is equally effortless. By binding a datasource to the
                 Imagine a search input where users type to find packages. Binding a datasource captures the input. 
 	</Column.Item>
 	<Column.Item width="50%">
-                <img alt="explorer" src={require('./img/textInput_Server-SideInteraction.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_Server-SideInteraction.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -197,7 +197,7 @@ Retrieving user input data is equally effortless. By binding a datasource to the
                 Consequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
-                <img alt="explorer" src={require('./img/textInput_standardAction.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_standardAction.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -205,7 +205,7 @@ Retrieving user input data is equally effortless. By binding a datasource to the
 
 Here's a glimpse of how the **Text Input** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/textInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<img src={require('./img/textInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
 
 
 ## Triggers and Events

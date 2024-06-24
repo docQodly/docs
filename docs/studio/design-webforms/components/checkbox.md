@@ -40,7 +40,7 @@ Enhance the **Checkbox** component to align with your application's requirements
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-                <img alt="explorer" src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_LabelPosition.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -55,7 +55,7 @@ Enhance the **Checkbox** component to align with your application's requirements
             </ul>
         </Column.Item>
         <Column.Item width="31%">
-            <img alt="explorer" src={require('./img/checkbox_VariantSelection.png').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/checkbox_VariantSelection.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -66,7 +66,7 @@ Enhance the **Checkbox** component to align with your application's requirements
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-                <img alt="explorer" src={require('./img/checkbox_Size.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/checkbox_Size.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -82,7 +82,7 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
         </ul>
 	</Column.Item>
 	<Column.Item width="30%">
-                <img alt="explorer" src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/textInput_label.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

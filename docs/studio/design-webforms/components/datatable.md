@@ -31,7 +31,7 @@ Enhance the **DataTable** component to align with your application's requirement
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-                <img alt="explorer" src={require('./img/dataTable_HeaderHeight.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/dataTable_HeaderHeight.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -42,7 +42,7 @@ Enhance the **DataTable** component to align with your application's requirement
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -53,7 +53,7 @@ Enhance the **DataTable** component to align with your application's requirement
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img alt="explorer" src={require('./img/dataTable_ShowBorders.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/dataTable_ShowBorders.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -71,14 +71,14 @@ Enhance the **DataTable** component to align with your application's requirement
                         </ul>
                 </Column.Item>
                 <Column.Item width="35%">
-                        <img alt="explorer" src={require('./img/dataTable_ColumnsArea.png').default} style={{borderRadius: '6px'}} />
+                        <img src={require('./img/dataTable_ColumnsArea.png').default} style={{borderRadius: '6px'}} />
                 </Column.Item>
         </Column.List>
 
-    - **Column Duplication**: Duplicate existing columns to replicate configurations quickly by clicking on the <img alt="explorer" src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
-    - **Column Removal**: Delete columns that no longer serve a purpose by clicking on the <img alt="explorer" src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
+    - **Column Duplication**: Duplicate existing columns to replicate configurations quickly by clicking on the <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
+    - **Column Removal**: Delete columns that no longer serve a purpose by clicking on the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.
 
-    - **Moving Column**: Arrange columns to your preferred position by clicking on the <img alt="explorer" src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
+    - **Moving Column**: Arrange columns to your preferred position by clicking on the <img src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon
 
 ## Data Integration
 
@@ -100,7 +100,7 @@ To associate data with the **DataTable** component, follow these steps:
                 </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/dataTable_DataBinding.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dataTable_DataBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -124,7 +124,7 @@ When it comes to displaying columns in the DataTable component, you have two opt
                 The <code>Data Table</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
 	</Column.Item>
 	<Column.Item width="30%">
-                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -133,7 +133,7 @@ When it comes to displaying columns in the DataTable component, you have two opt
                 These attributes can be showcased in other configured components, such as a <code>Text</code> component, to display the corresponding attribute values.
 	</Column.Item>
 	<Column.Item width="25%">
-                <img alt="explorer" src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
+                <img src={require('./img/dynamicAttributeDisplay_attributeValue.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>
 
@@ -170,11 +170,11 @@ Common attributes for `onheaderclick` and `oncellclick`:
 
 The **DataTable** component provides a range of user-friendly features:
 
-- **Column Sorting**: Users can sort data by clicking column headers <img alt="explorer" src={require('./img/dataTable_sort.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+- **Column Sorting**: Users can sort data by clicking column headers <img src={require('./img/dataTable_sort.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
 
-- **Resizable Columns**: Adjust column widths to fit content <img alt="explorer" src={require('./img/dataTable_resize.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+- **Resizable Columns**: Adjust column widths to fit content <img src={require('./img/dataTable_resize.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
 
-- **Drag-and-Drop Column Movement**: Rearrange columns with ease <img alt="explorer" src={require('./img/dataTable_rearrange.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
+- **Drag-and-Drop Column Movement**: Rearrange columns with ease <img src={require('./img/dataTable_rearrange.png').default} style={{borderRadius: '6px', height: '25px'}}/>.
 
 - **Selectable/Tabbable Rows**: Navigate and select rows using keyboard tabbing. 
 
@@ -184,7 +184,7 @@ The **DataTable** component provides a range of user-friendly features:
 
 Here's a glimpse of how the **DataTable** component will look and behave in action:
 
-<img alt="explorer" src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 :::info
 Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](../styling#customizing-datatable-styles).

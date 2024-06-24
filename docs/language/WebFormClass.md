@@ -68,10 +68,10 @@ The `.setError()` function  <!-- REF #WebFormClass.setError().Summary -->sends *
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "error".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myError()
 
 webForm.setError("My error message")
@@ -85,7 +85,7 @@ If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedba
 
 #### See also
 
-[`throw`](debug.md#throw)
+[`throw`](commands/throw.md)
 
 
 ### .setMessage()
@@ -106,10 +106,10 @@ The `.setMessage()` function  <!-- REF #WebFormClass.setMessage().Summary -->sen
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "message".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myMessage()
 
 webForm.setMessage("My information message")
@@ -139,10 +139,10 @@ The `.setWarning()` function  <!-- REF #WebFormClass.setWarning().Summary -->sen
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "warning".
 
 
- 
+
 #### Example
 
-```qs 
+```qs
 exposed function myWarning()
 
 webForm.setWarning("My warning message")

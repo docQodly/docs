@@ -15,7 +15,7 @@ Without proper setup, your application faces the risk of unregulated access. In 
 
 To illustrate, envision an unauthorized user attempting an HTTP request to the `Package` Dataclass REST API endpoint. This unchecked data access allows unauthorized actions, including accessing confidential user information, posing a uniform risk across all Dataclasses.
 
-<img alt="explorer" src={require('./img/unrestrictedAccess.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/unrestrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
 ## Configuring Datastore Permissions 
 
@@ -25,7 +25,7 @@ To set **Datastore** permissions for a specific privilige:
 - Typing the resource name, `ds`, directly into the search bar.
 
 :::info
-The <img alt="explorer" src={require('./img/datastore.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates the **Datastore** ressource.
+The <img src={require('./img/datastore.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates the **Datastore** ressource.
 :::
 
 ## Max Restriction to Gradual Expansion
@@ -45,7 +45,7 @@ This ensures that users, even without defined roles or privileges, cannot access
 
 Having established a privilege, like `Restricted`, assigning permissions to the **Datastore** involves a range of permissions, spanning from `Read` to `Execute`.
 
-<img alt="explorer" src={require('./img/restrictedPrivilege.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restrictedPrivilege.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
@@ -55,7 +55,7 @@ By applying all permissions to the `ds` resource without tying it to any role, m
 
 Attempting to access the same REST API Endpoints will result in a `No permission to read for the Package dataclass` response, a rule that extends across all Dataclasses.
 
-<img alt="explorer" src={require('./img/restrictedAccess.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/restrictedAccess.png').default} style={{borderRadius: '6px'}} />
 
 ## Full Access to Gradual Restriction
 
@@ -74,7 +74,7 @@ The `Guest` privilege grants access to all resources if no explicit permissions 
 
 The `Guest` privilege is established in the `Privileges` tab by default, ready to extend a welcoming hand to users without yet having established a formal identity.
 
-<img alt="explorer" src={require('./img/guestPrivilege.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/guestPrivilege.png').default} style={{borderRadius: '6px'}} />
 
 ### Configuring Read Access
 
@@ -83,11 +83,11 @@ To grant the read access to the `Guest` privilege, a deliberate transition is re
 1. Cease complete permissions control over the Datastore from the `Restricted` privilege. 
 2. Subsequently, the focus shifts to specifically assigning the read permission to the Datastore, thereby endowing the `Guest` privilege with the sole capability of read access.
 
-<img alt="explorer" src={require('./img/readAccessGuestPrivilege.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/readAccessGuestPrivilege.png').default} style={{borderRadius: '6px'}} />
 
 Through this transition, you bestow the `Guest` privilege with the ability for informed discovery, enabling access to a wealth of data, including details about flights, hotels, activities, and more, all while ensuring that critical information remains safeguarded against unauthorized modifications. 
 
-<img alt="explorer" src={require('./img/packages.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/packages.png').default} style={{borderRadius: '6px'}} />
 
 
 <br/><br/>
@@ -105,22 +105,22 @@ To navigate this intricate balance between data accessibility and security, we t
 
 Permissions of the `Guest` privilege are automatically inherited across various privileges. This parallels the behavior observed in the `Restricted` privilege, where the capability of reading from the **Datastore** is evident.
 
-<img alt="explorer" src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
-The <img alt="explorer" src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
+The <img src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
 
 
 :::tip
-You can retain the inherited permission by checking the checkbox <img alt="explorer" src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
+You can retain the inherited permission by checking the checkbox <img src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
 :::
 
 ### Supplementing Permissions 
 
 **Datastore** permissions maintain adaptability, allowing for supplementation as necessary.
 
-<img alt="explorer" src={require('./img/supplementing.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/supplementing.png').default} style={{borderRadius: '6px'}} />
 
 Augmenting **Datastore** permissions within the `ManageContent` privilege provides the `Guest` privilege with the freedom to have read access to the entire **Datastore**. However, it restricts editing, updating, and creating access to specific users who have the `ManageContent` privilege.
 

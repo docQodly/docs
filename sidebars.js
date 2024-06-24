@@ -206,7 +206,7 @@ const sidebars = {
 						'language/basics/lang-pathnames',
 					],
 				},
-        {
+				{
 					type: 'category',
 					label: 'Commands',
 					collapsible: true,
@@ -303,6 +303,7 @@ const sidebars = {
 						'language/commands/objectRemove',
 						'language/commands/objectValues',
 						'language/commands/onErrCall',
+						'language/commands/openDatastore',
 						'language/commands/pictureProperties',
 						'language/commands/pictureSize',
 						'language/commands/pictureToBlob',
@@ -347,7 +348,7 @@ const sidebars = {
 
 					],
 				},
-        {
+				{
 					type: 'category',
 					label: 'Classes',
 					collapsible: true,
@@ -406,6 +407,11 @@ const sidebars = {
 		},
 		{
 			type: "doc",
+			id: "cloud/api-key",
+			label: "API Keys",
+		},
+		{
+			type: "doc",
 			id: "cloud/deployment",
 			label: "Release Management and Deployment",
 		},
@@ -444,8 +450,8 @@ const sidebars = {
 					type: 'category',
 					label: '@ws-ui/webform-editor',
 					items: [
-						'customComponent/api-reference/webform-editor/v0.2.16',
 						'customComponent/api-reference/webform-editor/v0.2.24',
+						'customComponent/api-reference/webform-editor/v0.2.16',
 					]
 				},
 			],
@@ -453,21 +459,54 @@ const sidebars = {
 	],
 	API: [
 		{
+			type: 'doc',
+			id: 'api/overview',
+		},
+		{
 			type: 'category',
-			label: 'API',
-			link: {
-				type: 'generated-index',
-				title: 'API',
-				description: 'QodlyScript REST API',
-				slug: '/category/API',
-				image: '/img/docusaurus.png',
-			},
+			label: 'Server Informations API',
 			items: [
-				{
-					type: 'doc',
-					id: 'api/overview-api',
-					label: "Overview"
-				},
+				'api/$catalog',
+				'api/$info'
+			],
+		},
+		{
+			type: 'category',
+			label: 'DataClass Operations API',
+			items: [
+				'api/dataclassEndpoints',
+				'api/dataclassManipulation',
+				'api/$asArray',
+				'api/$atomic$atOnce',
+				'api/$attributes',
+				'api/$binary',
+				'api/$compute',
+				'api/$distinct',
+				'api/$entityset',
+				'api/$expand',
+				'api/$filter',
+				'api/$format',
+				'api/$imageformat',
+				'api/$lock',
+				'api/$method',
+				'api/$orderby',
+				'api/$queryplan',
+				'api/$querypath',
+				'api/$savedfilter',
+				'api/$savedorderby',
+				'api/$skip',
+				'api/$timeout',
+				'api/$top$limit',
+				'api/$version',		
+			],
+		},
+		{
+			type: 'category',
+			label: 'Class Functions API',
+			items: [
+				'api/classFunctionsOverview',
+				'api/classFunctionsParameters',
+				'api/classfunctionsFunctionCalls'
 			],
 		},
 	],
@@ -477,6 +516,7 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
+				'notes/v1.0.0-beta.4',
 				'notes/v1.0.0-beta.3',
 				'notes/v1.0.0-beta.2',
 				'notes/v1.0.0-beta.1'

@@ -18,7 +18,7 @@ Events can be set to trigger either when end-users perform specific actions or w
 
 ### User events
 
-You can configure events to activate in response to specific actions performed by end-users, such as clicking buttons, moving the mouse cursor, and more. 
+You can configure events to activate in response to specific actions performed by end-users, such as clicking buttons, moving the mouse cursor, and more.
 
 Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](components/stylebox.md#triggers-and-events).
 
@@ -45,7 +45,7 @@ To bind class functions, navigation actions or standard actions with events, fol
 
 1. **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./create-webform.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-webform) area.
 
-2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource. 
+2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource.
 
 
 3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '13%'}} /> you wish to bind to the event. You have three options:
@@ -53,7 +53,7 @@ To bind class functions, navigation actions or standard actions with events, fol
     - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
     - [Navigation Action](#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
     - [Class Function](#binding-class-functions-to-events): Use a custom function to handle the event.
-    - [Dialog Action](#): 
+    - [Dialog Action](#):
 
 4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '22%'}} /> displayed on the left side of events that have already been configured (if any).
 
@@ -255,7 +255,7 @@ After binding a standard action with an event, follow these steps:
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Remove any content and create a new, empty selection of the same dataclass                                                    |
     |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity selection datasource to its initial value (All or none)                                                                                       |
     |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity selection to a target entity selection datasource                                                             |
-    | Entity           | Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity from the corresponding dataclass                                                                         |
+    | Entity           | Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity in memory from the corresponding dataclass (see Note)                                                                         |
     |                  | Save       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
     |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
@@ -266,7 +266,7 @@ After binding a standard action with an event, follow these steps:
     |                  | Previous              | ![Previous Record](./img/standardAction_previousRecord.png)                                                 | Move to the previous entity within the entity selection                                                                        |
     |                  | Next                  | ![Next Record](./img/standardAction_nextRecord.png)                                                         | Advance to the next entity within the entity selection                                                                         |
     |                  | Last                  | ![Last Record](./img/standardAction_lastRecord.png)                                                         | Navigate to the last entity within the entity selection                                                                        |
-    | Entity (Standalone)| Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity from the corresponding dataclass                                                                         |
+    | Entity (Standalone)| Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity in memory from the corresponding dataclass (see Note)                                                                        |
     |                  | Save       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
     |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
@@ -278,6 +278,11 @@ After binding a standard action with an event, follow these steps:
 [Entities originating from an entity selection datasource](datasources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](datasources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
 :::
 
+:::Note About Create entity action
+
+Keep in mind that the **Create** action only creates a new, blank entity in memory. If you want to save this entity in the datastore, you need to execute the **Save** action. New entity attributes are filled with null values. If you want to create, initialize, and save a new entity, you might consider using a [QodlyScript function](../../orda/data.md#creating-an-entity). 
+
+:::
 <br />
 
 2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
@@ -305,24 +310,24 @@ After binding a standard action with an event, follow these steps:
 	</Column.Item>
 </Column.List>
 
-The navigation target can be defined in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
+The navigation target can be defined in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
 
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Webform or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
+        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Webform or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/contextualPanel_NavigationWithDatasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_NavigationWithDatasource.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Webform from the webforms list or providing a direct link as a hardcoded value.
+        <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Webform from the webforms list or providing a direct link as a hardcoded value.
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/contextualPanel_NavigationWithHardcoded.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_NavigationWithHardcoded.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -361,8 +366,8 @@ To set up a navigation action after linking it with an event, proceed as follows
             <img src={require('./img/contextualPanel_navigationAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
- 
-:::tip 
+
+:::tip
 The feature for providing feedback is not applicable in the context of navigation events.
 :::
 
@@ -394,14 +399,14 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
         <img src={require('./img/externalLink2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
- 
+
 
 
 ### Shared Folder
 
 Accessing content stored in the **Shared** folder follows a process similar to [navigating to external links](#external-links). You have the option to display items from this folder, like images, in either a new tab or the current tab by specifying the image path (e.g., `/$shared/visuals/banner.png`) in the target field. Ensure that the path begins with `/$shared`.
 
-:::tip 
+:::tip
 When the path points to a file, it doesn't open it in a new tab but instead initiates a download.
 :::
 
@@ -421,7 +426,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
 
-2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img alt="explorer" src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
+2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
 
 3. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
@@ -453,7 +458,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 5. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. 
+		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_provideFeedback.png').default} style={{borderRadius: '6px'}} />
@@ -461,7 +466,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 </Column.List>
 
 
-:::tip 
+:::tip
 A single class function can be utilized across multiple events, allowing you to assign multiple events to a single function and observe a coordinated sequence of actions taking place.
 :::
 
@@ -469,14 +474,14 @@ A single class function can be utilized across multiple events, allowing you to 
 
 #### Parameter Handling
 
-There are two primary methods for ensuring precise parameter handling: 
+There are two primary methods for ensuring precise parameter handling:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        <img alt="explorer" src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img alt="explorer" src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
+        <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
     </Column.Item>
     <Column.Item width="47%">
-        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_classFunctionWithValuesParams.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -503,7 +508,7 @@ There are two primary methods for ensuring precise parameter handling:
         Toggling hardcoded values and entering values that differ from the specified type will promptly trigger an error message beneath the parameter field.
     </Column.Item>
     <Column.Item width="37%">
-        <img alt="explorer" src={require('./img/hardcodedError.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/hardcodedError.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 :::
@@ -512,11 +517,11 @@ There are two primary methods for ensuring precise parameter handling:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        <img alt="explorer" src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
+        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
         Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
     </Column.Item>
     <Column.Item width="47%">
-        <img alt="explorer" src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -527,7 +532,7 @@ There are two primary methods for ensuring precise parameter handling:
         Utilize the <code>...</code> notation in function prototypes to handle a <a href="/language/basics/lang-parameters#declaring-variadic-parameters">variable number of parameters</a>.
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/variadic1.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/variadic1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -536,18 +541,18 @@ There are two primary methods for ensuring precise parameter handling:
         When creating a variadic function, such as one of type integer, without parameters, associating it with an event initially generates an empty function prototype.
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/variadic2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/variadic2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters. 
+        However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters.
         <br/><br/>
         <a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -557,7 +562,7 @@ There are two primary methods for ensuring precise parameter handling:
         If a variadic function incorporates mixed parameter types, like a string parameter followed by variadic parameters of type integer:
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/variadic4.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/variadic4.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 <Column.List align="center" justifyContent="between">
@@ -565,7 +570,7 @@ There are two primary methods for ensuring precise parameter handling:
         Qodly ensures the first parameter is of type string when associating it with an event. Subsequent parameters will align with their specified types, such as number for the variadic parameters.
     </Column.Item>
     <Column.Item width="45%">
-        <img alt="explorer" src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/variadic5.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 :::
@@ -578,7 +583,7 @@ There are two primary methods for ensuring precise parameter handling:
         Components within a web form can be configured to trigger dialog-related events. By choosing the <code>Add a dialog action</code> in a component's event configuration, you can define the following:
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/dialogAction1.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogAction1.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -593,7 +598,7 @@ There are two primary methods for ensuring precise parameter handling:
         </ul>
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/dialogAction2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogAction2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -602,7 +607,7 @@ There are two primary methods for ensuring precise parameter handling:
         The name of the dialog to be affected by this interaction.
     </Column.Item>
     <Column.Item width="40%">
-        <img alt="explorer" src={require('./img/dialogAction3.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogAction3.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -612,9 +617,9 @@ For further details, refer to the [Dialog](./components/dialog.md) section.
 
 ## Providing feedback
 
-To provide feedback within the user interface, enable the `Provide Feedback` checkbox. This feature allows the backend to communicate with the user by displaying relevant messages regarding the outcomes of different functions or standard actions. 
+To provide feedback within the user interface, enable the `Provide Feedback` checkbox. This feature allows the backend to communicate with the user by displaying relevant messages regarding the outcomes of different functions or standard actions.
 
-:::info 
+:::info
 Importantly, this customized feedback aligns with the application's business rules and does not disrupt the application's navigation flow.
 :::
 
@@ -622,7 +627,7 @@ Importantly, this customized feedback aligns with the application's business rul
 
 When the `Provide Feedback` checkbox is enabled, it introduces a **hidden internal feedback element** into the web page, known as a **toast** notification. This element automatically showcases messages generated by the application code in response to events, using [dedicated webForm functions](../../language/WebFormClass.md) or by specifying them for `On Success` or `On Failure` in the WebForm editor interface, for the case of standard actions.
 
-:::info 
+:::info
 If this feature is not enabled, feedback sent from the backend will not be displayed within the user interface.
 :::
 
@@ -645,7 +650,7 @@ Three tiers of feedback are accessible and will be displayed as colored **toasts
 
 <br/>
 
-:::info 
+:::info
 Displaying multiple toasts through a single function is not supported.
 
 Upon calling a function, it initiates an HTTP request, updating the UI simultaneously with the latest changes. This aligns with the principle that one HTTP request results in one response, leading to a single UI update.
@@ -655,14 +660,14 @@ Consequently, only the final update from the function will be visible in the UI,
 
 The time these **toast notifications** remain visible is typically managed by Qodly Studio's internal logic.
 
-:::info 
+:::info
 They will automatically disappear after a preset **5-second** period. Users can also manually dismiss them by clicking on the `x` icon.
 :::
 
 
 ## Example of datasource events
 
-In this scenario: 
+In this scenario:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
