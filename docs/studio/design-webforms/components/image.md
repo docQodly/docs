@@ -17,13 +17,14 @@ The **Image** component offers versatile solutions for enhancing your web applic
 
 
 ## Display Options
-The **Image** component offers multiple options for displaying images:
+
+The **Image** component offers multiple options for displaying images.
+
+### Datasource Binding
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <ul>
-            <li><strong>Datasource Binding</strong>: You can bind the Image component to a datasource of type <code>image</code>, causing the displayed image to update according to the value within the datasource.</li>
-        </ul>
+        You can bind the Image component to a datasource of type <code>image</code>, causing the displayed image to update according to the value within the datasource.
 	</Column.Item>
 	<Column.Item width="45%">
          <img src={require('./img/image_DatasourceBinding.png').default} style={{borderRadius: '6px'}} />
@@ -31,13 +32,11 @@ The **Image** component offers multiple options for displaying images:
 </Column.List>
 
 
-<br/>
+### Image Source
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <ul>
-            <li><strong>Image Source</strong>: Alternatively, you can specify an image source directly. This source can be a URL or a path to the image stored in the Shared folder.</li>
-        </ul>
+        Alternatively, you can specify an image source directly. This source can be a URL or a path to the image stored in the Shared folder.
 	</Column.Item>
 	<Column.Item width="45%">
          <img src={require('./img/image_ImageSource.png').default} style={{borderRadius: '6px'}} />
@@ -48,25 +47,44 @@ The **Image** component offers multiple options for displaying images:
 For instance, if you've uploaded an image named "booking.png" in a "visuals" folder, you can set the image source as `/$shared/visuals/booking.png`.
 :::
 
-<br/>
 
-- **Direct Image Upload**: The Image component simplifies the process of adding new images. By clicking on the image component and uploading the desired picture, the image is automatically added to the Shared folder's <code>/$shared/assets/images</code> subdirectory. The component's image source is updated accordingly.
+## Image Management
 
-<br/>
+### Direct Image Upload
+
+The Image component simplifies the process of adding new images. By clicking on the image component and uploading the desired picture, the image is automatically added to the Shared folder's <code>/$shared/assets/images</code> subdirectory. The component's image source is updated accordingly.
+
 
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping an image datasource onto the webform, which will automatically add an Image component with the datasource bound to it.
 :::
 
 
-- **Default Image Source**: In Image components, by default Qodly displays a "missing image" placeholder when the bound image datasource is null:
+### Default Image Source
 
-	![default-image-placeholder](img/image_Default_factory.png)
 
-	This is the case for example when the "photo" attribute of and "Employee" entity was not uploaded. You can use the **Default Image Source** property to define your own default image: 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        Qodly displays a "missing image" placeholder in the Image component when the bound image datasource is null, such as when the "photo" attribute of an "Employee" entity has not been uploaded:
+	</Column.Item>
+	<Column.Item width="45%">
+         <img src={require('./img/image_Default_factory.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
-	![default-image](img/image_Default.png)
 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        Use the Default Image Source property to define your own default image, allowing you to replace the standard placeholder with a custom image that fits your application's aesthetics or branding:
+	</Column.Item>
+	<Column.Item width="45%">
+         <img src={require('./img/image_Default.png').default} style={{borderRadius: '6px', width: '40%'}} />
+	</Column.Item>
+</Column.List>
+
+### Drag and Drop from Shared Folder
+
+The Image component supports a drag and drop functionality that allows users to move images directly from a shared folder to become the image source. This feature is particularly useful for rapidly updating the image souce without the need for navigating through files.
 
 ## Triggers and Events
 
