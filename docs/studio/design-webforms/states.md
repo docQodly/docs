@@ -1,17 +1,17 @@
 ---
-id: states
+id: normalStates
 title: Normal States
 ---
 
 import Column from '@site/src/components/Column'
 
 
-Webform states offer a versatile solution for developers to apply diverse changes to webforms. This feature is particularly useful for altering the user interface (UI), styling, and other properties dynamically. It enables the tailoring of webforms to meet specific privileges or scenarios without requiring heavy reliance on server-side processing.
+Webform states provide developers with a versatile solution for dynamically applying a variety of changes to webforms. This feature is particularly useful for modifying the user interface (UI), styling, and other properties on the fly. By leveraging webform states, developers can tailor webforms to meet specific privileges, datasource values, contexts, or scenarios without relying heavily on server-side processing.
 
 
 ## State Characteristics
 
-Each state is characterized by its differences from the original, or base, webform. The key characteristics of these states include:
+Each state is defined by its differences from the original webform, known as the `Base` state. The key characteristics of these states include:
 
 - **Dynamic UI Customization**:
 
@@ -62,20 +62,24 @@ Each state is characterized by its differences from the original, or base, webfo
     :::
 
 
+:::note
+Note that states only apply styles. No additional function calls are possible compared to the Base webform.
+:::
+
 ## State Classifications
 
 Webforms typically operate in one of two primary states:
 
 ### Normal State
 
-This is the default mode of a webform. In the **Normal State**, the webform functions in its basic form without any special conditions or triggers. It represents the standard layout and behavior before any specific conditions are applied.
+In the **Normal State**, the webform functions according to its Base State, operating in its standard form without any special conditions or triggers. This represents the default layout and behavior before any specific conditions are applied.
 
 ### Conditional State
 
 The **Conditional State** activates when predefined conditions are met, unlike the Normal State. These conditions are based on criteria such as privilege levels or data source value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
 
 :::info
-For additional details on how to implement the Conditional State, please refer to the [Conditional States](./conditionalStates.md) section.
+For additional details on how to implement the Conditional State, please refer to the [Conditional States](./conditionalStates) section.
 :::
 
 
@@ -128,7 +132,11 @@ Start editing a state by selecting it from the states panel, which then opens it
 
 The editing process involves:
 
-- **CSS Class Editinn**: Alter CSS classes linked to components.
+- **CSS Class Editing**: Alter CSS classes linked to components.
+
+  :::tip
+  Clearing styles is allowed on states because modifying styles is permitted.
+  :::
 
 - **Component Visibility**: Dynamically display or hide components.
 
@@ -136,7 +144,7 @@ The editing process involves:
   Adding or deleting components is not allowed. This limitation is reflected by disabling specific keyboard shortcuts like remove, cut, paste into, clear content, duplicate, and clear styles.
   :::
 
-- **Component Properties**: Adjust component properties like datatable columns, with limitations to ensure state integrity.
+- **Component Properties**: Adjust component properties like datatable columns, with limitations to ensure state integrity. All styling properties (e.g., color, font) can also be modified.
 
   :::info
   To maintain state integrity, the "Data Access" category within component properties is deactivated during state editing.
@@ -148,8 +156,9 @@ The editing process involves:
   Initially, the contextual panel notes that `You can only view/modify CSS classes when editing a state`.
   :::
 
-- **Airy Mode Restrictions**: Once established in the base state, "Airy Mode" becomes disabled in subsequent states, ensuring its settings are not altered.
+- **Airy Mode**: Enable or disable airy mode settings for specific states.
 
+- **Datasource Restrictions**: On a state, no datasources can be dragged and dropped on components on the canvas.
 
 ### Removing a State
 
@@ -204,7 +213,7 @@ All references to the state in the events are automatically updated post-renamin
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    The <code>Reset</code> button allows users to revert any changes made to a component back to its original settings from the base state.
+    The <code>Reset</code> button allows users to revert any changes made to a component back to its original settings from the Base state.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/stateReset1.png').default} style={{borderRadius: '6px'}} />
@@ -232,7 +241,7 @@ In webform management, defining a `Default State` is critical for ensuring that 
 
 ### What is a Default State?
 
-The `Default State` is the state that a webform will display upon initial load, before any user interaction or conditions are met. While the `Base State` contains all potential components and configurations, the `Default State` can be customized to meet specific initial visibility and behavior requirements.
+The `Default State` is the state that a webform will display upon initial load, before any user interaction or conditions are met.
 
 ### Setting a Default State
 
@@ -250,16 +259,12 @@ To designate a state as the default:
 	</Column.Item>
 </Column.List>
 
-:::tip Automatic Uncheck
-If another state is already set as the default, checking a new state will automatically uncheck the previous one. Only one state can be the default at any given time.
-:::
-
 ### Base State vs. Default State
 
-The `Base State` should contain all components and configurations that the webform could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
+The `Base State` contains all components and configurations that the webform could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
 
 :::tip 
-If there are components that should not be visible until certain conditions are met (e.g., user input, data retrieved), setting a different state as the default instead of the base state can help in tailoring the initial user experience.
+If there are components that should not be visible until certain conditions are met, setting a different state as the default instead of the base state can help in tailoring the initial user experience.
 :::
 
 
@@ -269,7 +274,6 @@ If there are components that should not be visible until certain conditions are 
 ### Standard Actions
 
 Standard actions in webform states are integral to defining the webform’s behavior in response to user interactions:
-
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -296,31 +300,36 @@ When a new state is applied or removed as a user interacts with an input field, 
 :::
 
 
-  <Column.List align="center" justifyContent="between">
-    <Column.Item width="55%">
-      When triggering these actions, users can select from available states, which are then tagged in the state field. The base state, however, is not included among these selectable options.
-    </Column.Item>
-    <Column.Item width="40%">
-      <img src={require('./img/state_standardAction.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-  </Column.List>
+<Column.List align="center" justifyContent="between">
+<Column.Item width="55%">
+    When triggering these actions, users can select from available states, which are then tagged in the state field. 
+</Column.Item>
+<Column.Item width="40%">
+    <img src={require('./img/state_standardAction.png').default} style={{borderRadius: '6px'}} />
+</Column.Item>
+</Column.List>
 
 <br/>
 
-:::warning
-These standard actions are designed to be used solely with "Normal" states. Applying them to "Conditional" states will lead to errors.
-
-Additionally, if a state is initially "Normal" but later transitions to a "Conditional" state, any standard actions previously applied to this state will trigger errors in the sanity check.
+:::info
+The `Base` state and `Conditional` states, however, are not included among these selectable options. Only normal states are included.
 :::
 
+:::tip
+The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../language/WebFormClass#enablestate) is called several times with different states).
+:::
+
+:::warning
+If a state is initially "Normal" but later transitions to a "Conditional" state, any standard actions previously applied to this state will be removed.
+:::
 
 
 ### Webform Object Functions
 
 In addition to the standard actions, webform object exposes several states related functions with error handling for "Conditional" states, like:
 
-- [`enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current webform.
-- [`disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the webform.
+- [`WebForm.enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current webform.
+- [`WebForm.disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the webform.
 
 :::info
 These functions are designed to target only "Normal" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
@@ -345,4 +354,9 @@ During state editing, the `Preview in Studio` button allows developers to see re
 
 :::tip
 To prevent any confusion between the editable and base states, the `Preview` button is disabled while editing states <img src={require('./img/PreviewDisabled.png').default} style={{borderRadius: '6px', width:'10%'}} />.
+:::
+
+
+:::info
+Remember that when previewing in the studio, you are on the WebAdmin port, so no privilege restrictions are applied (even if you have [Conditional states](./conditionalStates) that reference privileges).
 :::

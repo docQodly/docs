@@ -5,9 +5,17 @@ title: Conditional States
 
 import Column from '@site/src/components/Column'
 
+## Overview
 
 Conditional states enhance webforms by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
+:::info
+Once a condition is associated with a `Normal` state, it becomes a `Conditional` state.
+:::
+
+:::tip
+As soon as the condition is `True`, the state is enabled. If the condition is `False`, the state is disabled.
+:::
 
 ## Scope of Conditions
 
@@ -169,6 +177,33 @@ Each condition within the schema is represented by an interactive card, providin
 | Name         | Icon | Description | Available Operators                                   |
 |--------------|------|-------------|-------------------------------------------------------|
 | Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified datasource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
+
+:::info Comparators vary depending on the datasource type:
+
+String:
+- EQUAL: hardcoded value or datasource
+- DIFFERENT: hardcoded value or datasource
+- CONTAINS: hardcoded value or datasource
+- STARTSWITH: hardcoded value or datasource
+- IN (value1, value2, ...): hardcoded values or datasources
+- ISNULL
+- REGEX: hardcoded value only
+
+Number, Dates, Duration:
+- GREATER THAN: hardcoded value or datasource
+- GREATER THAN OR EQUAL: hardcoded value or datasource
+- LOWER THAN: hardcoded value or datasource
+- LOWER THAN OR EQUAL: hardcoded value or datasource
+- BETWEEN (value1, value2): hardcoded values or datasources
+- ISNULL
+
+Boolean:
+- ISTRUE
+- ISFALSE
+- ISNULL
+- EQUALS (datasource): another boolean datasource
+
+:::
 
 #### Example
 
