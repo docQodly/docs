@@ -10,7 +10,7 @@ import Column from '@site/src/components/Column'
 Conditional states enhance webforms by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
 :::info
-Once a condition is associated with a `Normal` state, it becomes a `Conditional` state.
+Once a condition is associated with a state, it becomes a `Conditional` state.
 :::
 
 :::tip

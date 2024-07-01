@@ -100,7 +100,7 @@ const sidebars = {
 					type: 'category',
 					label: 'States',
 					items: [
-						'studio/design-webforms/normalStates',
+						'studio/design-webforms/states',
 						'studio/design-webforms/conditionalStates',
 					],
 				},

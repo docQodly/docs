@@ -1,6 +1,6 @@
 ---
-id: normalStates
-title: Normal States
+id: states
+title: Non-Conditional States
 ---
 
 import Column from '@site/src/components/Column'
@@ -70,13 +70,13 @@ Note that states only apply styles. No additional function calls are possible co
 
 Webforms typically operate in one of two primary states:
 
-### Normal State
+### Non-Conditional State
 
-In the **Normal State**, the webform functions according to its Base State, operating in its standard form without any special conditions or triggers. This represents the default layout and behavior before any specific conditions are applied.
+In the **Non-Conditional State**, the webform functions according to its Base State, operating in its standard form without any special conditions or triggers. This represents the default layout and behavior before any specific conditions are applied.
 
 ### Conditional State
 
-The **Conditional State** activates when predefined conditions are met, unlike the Normal State. These conditions are based on criteria such as privilege levels or data source value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
+The **Conditional State** activates when predefined conditions are met, unlike the Non-Conditional State. These conditions are based on criteria such as privilege levels or data source value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
 
 :::info
 For additional details on how to implement the Conditional State, please refer to the [Conditional States](./conditionalStates) section.
@@ -144,7 +144,7 @@ The editing process involves:
   Adding or deleting components is not allowed. This limitation is reflected by disabling specific keyboard shortcuts like remove, cut, paste into, clear content, duplicate, and clear styles.
   :::
 
-- **Component Properties**: Adjust component properties like datatable columns, with limitations to ensure state integrity. All styling properties (e.g., color, font) can also be modified.
+- **Component Properties**: Adjust component properties with limitations to ensure state integrity. All styling properties (e.g., color, font) can also be modified.
 
   :::info
   To maintain state integrity, the "Data Access" category within component properties is deactivated during state editing.
@@ -259,6 +259,11 @@ To designate a state as the default:
 	</Column.Item>
 </Column.List>
 
+:::tip Applying Multiple States to a Webform
+You can apply multiple states to a single webform. This allows for dynamic and conditional displays based on user interactions or other conditions.
+:::
+
+
 ### Base State vs. Default State
 
 The `Base State` contains all components and configurations that the webform could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
@@ -312,7 +317,7 @@ When a new state is applied or removed as a user interacts with an input field, 
 <br/>
 
 :::info
-The `Base` state and `Conditional` states, however, are not included among these selectable options. Only normal states are included.
+The `Base` state and `Conditional` states, however, are not included among these selectable options. Only Non-Conditional states are included.
 :::
 
 :::tip
@@ -320,7 +325,7 @@ The states are enabled in the given order of the standard action (same if [`WebF
 :::
 
 :::warning
-If a state is initially "Normal" but later transitions to a "Conditional" state, any standard actions previously applied to this state will be removed.
+If a state is initially "Non-Conditional" but later transitions to a "Conditional" state, any standard actions previously applied to this state will be removed.
 :::
 
 
@@ -332,7 +337,7 @@ In addition to the standard actions, webform object exposes several states relat
 - [`WebForm.disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the webform.
 
 :::info
-These functions are designed to target only "Normal" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
+These functions are designed to target only "Non-Conditional" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
 :::
 
 ### Event Handling
