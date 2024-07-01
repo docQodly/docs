@@ -194,6 +194,14 @@ const config = {
                 label: "Contact us",
                 to: "mailto:contact@qodly.com",
               },
+              {
+                label: "License",
+                to: "https://qodly.com/qodly-platform-license",
+              },
+              {
+                label: "SLA",
+                to: "https://qodly.com/qodly-beta-service-level-agreement",
+              }
             ],
           },
           {
