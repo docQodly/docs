@@ -1,6 +1,6 @@
 ---
 id: google-looker-studio
-title: Google Looker Studio
+title: Qodly Looker Studio connector
 ---
 
 ## Create custom reports using your Qodly app data
@@ -28,3 +28,8 @@ Use our certified connector with the Google Looker Studio API to:
 Ready to get started? Connect your Qodly application account to Google Looker Studio today via the [Google Looker Studio Community Connector’s Gallery](https://datastudio.google.com/datasources/create?connectorId=AKfycbx8kWt2YF52GY8bXaQZxotaAp0Bx1ZqlhAf-Tpcrf19YCSsJh2yXKQDBomHzTpn3lcwHQ&authuser=0).
 
 Technical questions? Check out our documentation for more information.
+
+
+## Disclosure
+
+Qodly Looker Studio connector adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes) while using and transferring information received from Google APIs to other applications, including Google’s Limited Use requirements. You can revoke Qodly Looker Studio connector right to access your data at any point from your Google account control panel (https://security.google.com/settings/security/permissions).
