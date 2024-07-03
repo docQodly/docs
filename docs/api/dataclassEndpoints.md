@@ -23,7 +23,7 @@ This section outlines the operations available for interacting with `dataClass` 
 | `/rest/dataClass[key]/entityClassFunction`    | `City[2]/getPopulation`              | Performs a function on a specific entity identified by the key within the `dataClass`.           |
 
 :::info
-For detailed descriptions and usage of class functions, refer to the [Class Functions documentation](classFunctions.md).
+For detailed descriptions and usage of class functions, refer to the [Class Functions documentation](classFunctionsOverview.md).
 :::
 
 

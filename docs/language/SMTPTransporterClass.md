@@ -172,19 +172,19 @@ The SMTP connection is automatically closed:
 <!-- REF #SMTPTransporterClass.send().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mail|object|->|[Email](EmailobjectClass.md#email-object) to send|
+|mail|object|->|[Email](EmailObjectClass.md#email-object) to send|
 |Result|object|<-|SMTP status|
 <!-- END REF -->
 
 #### Description
 
-The `.send()` function <!-- REF #SMTPTransporterClass.send().Summary -->sends the [*mail* object](EmailobjectClass.md) to the SMTP server defined in the `transporter` object and returns a status object<!-- END REF -->.
+The `.send()` function <!-- REF #SMTPTransporterClass.send().Summary -->sends the [*mail* object](EmailObjectClass.md) to the SMTP server defined in the `transporter` object and returns a status object<!-- END REF -->.
 
 >The `transporter` object must have already been created using the [`4D.SMTPTransporter.new()`](#4dsmtptransporternew) constructor.
 
 The function creates the SMTP connection if it is not already alive. If the `.keepAlive` property of the `transporter` object is **false**, the SMTP connection is automatically closed after the execution of `.send()`, otherwise it stays alive until the `transporter` object is destroyed. For more information, please refer to the [`4D.SMTPTransporter.new()`](#4dsmtptransporternew) constructor description.
 
-In *mail*, pass a valid [`Email` object](EmailobjectClass.md) to send. The origination (where the email is coming from) and destination (one or more recipients) properties must be included, the remaining properties are optional.
+In *mail*, pass a valid [`Email` object](EmailObjectClass.md) to send. The origination (where the email is coming from) and destination (one or more recipients) properties must be included, the remaining properties are optional.
 
 #### Returned object
 
