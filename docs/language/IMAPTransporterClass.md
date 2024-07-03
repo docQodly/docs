@@ -65,7 +65,7 @@ In the *server* parameter, pass an object containing the following properties:
 
 |*server*|Default value (if omitted)|
 |---|---|
-|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
+|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
 |.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode) - <!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
 |[<!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Syntax -->](#checkconnectiondelay) - <!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Summary -->|300|
@@ -80,7 +80,7 @@ In the *server* parameter, pass an object containing the following properties:
 
 #### Result
 
-The function returns an [**IMAP transporter object**](#imap-transporter-object). All returned properties are **read-only**.
+The function returns an **IMAP transporter object**. All returned properties are **read-only**.
 
 >The IMAP connection is automatically closed when the transporter object is destroyed.
 
@@ -435,7 +435,7 @@ options = newObject()
 
 options.host = "imap.gmail.com"
 options.user = "test@gmail.com"
-options.password = "XXXX" 
+options.password = "XXXX"
 
 transporter = 4D.IMAPTransporter.new(options)
 
