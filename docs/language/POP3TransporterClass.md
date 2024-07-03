@@ -244,7 +244,7 @@ The *headerOnly* option may not be supported by the server.
 
 :::
 
-The method returns Null if:
+The function returns Null if:
 
 * *msgNumber* designates a non-existing message,
 * the message was marked for deletion using [`.delete()`](#delete).
@@ -258,119 +258,107 @@ The method returns Null if:
 
 You want to know the sender of the first mail of the mailbox:
 
-```4d
- var $server; $transporter : object
- var $mailInfo : Collection
- var $sender : Variant
+```qs
+var server : object
+var transporter : 4D.POP3Transporter
+var mailInfo : collection
+var sender : variant
 
- $server:=New object
- $server.host:="pop.gmail.com" //Mandatory
- $server.port:=995
- $server.user:="4d@gmail.com"
- $server.password:="XXXXXXXX"
+server = newObject()
+server.host = "pop.gmail.com" //Mandatory
+server.port = 995
+server.user = "qodly@gmail.com"
+server.password = "XXXXXXXX"
 
- $transporter:=POP3 New transporter($server)
+transporter = 4D.POP3Transporter.new (server)
 
- $mailInfo:=$transporter.getMailInfoList()
+mailInfo = transporter.getMailInfoList()
 
- $sender:=$transporter.getMail($mailInfo[0].number).from
+sender = transporter.getMail(mailInfo[0].number).from
 ```
 
 ## .getMailInfo()
 
-<details><summary>History</summary>
 
-|Release|Changes|
-|---|---|
-|18 R2|Added|
-
-</details>
-
-<!-- REF #POP3TransporterClass.getMailInfo().Syntax -->**.getMailInfo**( *msgNumber* : Integer ) : object<!-- END REF -->
+<!-- REF #POP3TransporterClass.getMailInfo().Syntax -->**.getMailInfo**( *msgNumber* : integer ) : object<!-- END REF -->
 
 
 <!-- REF #POP3TransporterClass.getMailInfo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|Integer|->|Number of the message in the list |
+|msgNumber|integer|->|Number of the message in the list |
 |Result|object|<-|mailInfo object|
 <!-- END REF -->
 
 ##### Description
 
-The `.getMailInfo()` function <!-- REF #POP3TransporterClass.getMailInfo().Summary -->returns a `mailInfo` object corresponding  corresponding to the *msgNumber* in the mailbox designated by the [`POP3 transporter`](#pop3-transporter-object)<!-- END REF -->. This function allows you to retrieve information about the email.
+The `.getMailInfo()` function <!-- REF #POP3TransporterClass.getMailInfo().Summary -->returns a `mailInfo` object corresponding  corresponding to the *msgNumber* in the mailbox designated by the `POP3 transporter`<!-- END REF -->. This function allows you to retrieve information about the email.
 
-In *msgNumber*, pass the number of the message to retrieve. This number is returned in the number property by the [`.getMailInfoList()`](#getmailinfolist) method.
+In *msgNumber*, pass the number of the message to retrieve. This number is returned in the "number" property by the [`.getMailInfoList()`](#getmailinfolist) function.
 
 The `mailInfo` object returned contains the following properties:
 
 |Property|Type|Description|
 |---|---|---|
-|size| Number| Message size in bytes|
+|size| number| Message size in bytes|
 |id| string| Unique ID of the message |
 
 The method returns **Null** if:
 
 * *msgNumber* designates a non-existing message,
-* the message was marked for deletion using `.delete( )`.
+* the message was marked for deletion using [`.delete()`](#delete).
 
 ##### Example
 
-```4d
- var $server; $mailInfo : object
- var $mailNumber : Integer
+```qs
+var server , mailInfo : object
+var mailNumber : integer
+var transporter : 4D.POP3Transporter
+var info : string
 
- $server.host:="pop.gmail.com" //Mandatory
- $server.port:=995
- $server.user:="4d@gmail.com"
- $server.password:="XXXXXXXX"
+server.host = "pop.gmail.com" //Mandatory
+server.port = 995
+server.user = "qodly@gmail.com"
+server.password:="XXXXXXXX"
 
- var $transporter : 4D.POP3Transporter
- $transporter:=POP3 New transporter($server)
+transporter = 4D.POP3Transporter.new (server)
 
-  //message info
- $mailInfo:=$transporter.getMailInfo(1) //get the first mail
- If($mailInfo #Null)
-    ALERT("First mail size is:"+String($mailInfo.size)+" bytes.")
- End if
+ //message info
+mailInfo = transporter.getMailInfo(1) //get the first mail
+if (mailInfo != null)
+   info = "First mail size is:"+string(mailInfo.size)+" bytes."
+end
 ```
 
 ## .getMailInfoList()
 
-<details><summary>History</summary>
 
-|Release|Changes|
-|---|---|
-|18 R2|Added|
-
-</details>
-
-<!-- REF #POP3TransporterClass.getMailInfoList().Syntax -->**.getMailInfoList()** : Collection<!-- END REF -->
+<!-- REF #POP3TransporterClass.getMailInfoList().Syntax -->**.getMailInfoList()** : collection<!-- END REF -->
 
 
 <!-- REF #POP3TransporterClass.getMailInfoList().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|Collection|<-|Collection of `mailInfo` objects|
+|Result|collection|<-|Collection of `mailInfo` objects|
 <!-- END REF -->
 
 ##### Description
 
-The `.getMailInfoList()` function <!-- REF #POP3TransporterClass.getMailInfoList().Summary -->returns a collection of `mailInfo` objects describing all messages in the mailbox designated by the [`POP3 transporter`](#pop3-transporter-object)<!-- END REF -->. This function allows you to locally manage the list of messages located on the POP3 mail server.
+The `.getMailInfoList()` function <!-- REF #POP3TransporterClass.getMailInfoList().Summary -->returns a collection of `mailInfo` objects describing all messages in the mailbox designated by the `POP3 transporter`<!-- END REF -->. This function allows you to locally manage the list of messages located on the POP3 mail server.
 
 Each `mailInfo` object in the returned collection contains the following properties:
 
 |Property| Type| Description|
 |---|---|---|
-|\[ ].size|Number|Message size in bytes|
-|\[ ].number|Number|Message number|
-|\[ ].id|string|Unique ID of the message (useful if you store the message locally)|
+|\[].size|number|Message size in bytes|
+|\[].number|number|Message number|
+|\[].id|string|Unique ID of the message (useful if you store the message locally)|
 
 If the mailbox does not contain a message, an empty collection is returned.
 
 #### number and ID properties
 
-*number* is the number of a message in the mailbox at the time the `POP3_transporter` was created. The *number* property is not a static value in relation to any specific message and will change from session to session dependent on its relation to other messages in the mailbox at the time the session was opened. The numbers assigned to the messages are only valid during the lifetime of the [`POP3_transporter`](#pop3-transporter-object). At the time the `POP3_transporter` is deleted any message marked for deletion will be removed. When the user logs back into the server, the current messages in the mailbox will be renumbered from 1 to x.
+*number* is the number of a message in the mailbox at the time the `POP3_transporter` was created. The *number* property is not a static value in relation to any specific message and will change from session to session dependent on its relation to other messages in the mailbox at the time the session was opened. The numbers assigned to the messages are only valid during the lifetime of the `POP3_transporter` object. At the time the `POP3_transporter` is deleted any message marked for deletion will be removed. When the user logs back into the server, the current messages in the mailbox will be renumbered from 1 to x.
 
 The *id* however is a unique number assigned to the message when it was received by the server. This number is calculated using the time and date that the message is received and is a value assigned by your POP3 server. Unfortunately, POP3 servers do not use the *id* as the primary reference to their messages. Throughout the POP3 sessions you will need to specify the *number* as the reference to messages on the server. Developers may need to take some care if developing solutions which bring references to messages into a database but leave the body of the message on the server.
 
@@ -378,82 +366,75 @@ The *id* however is a unique number assigned to the message when it was received
 
 You want to know the total number and size of emails in the mailbox:
 
-```4d
- var $server : object
- $server:=New object
- $server.host:="pop.gmail.com" //Mandatory
- $server.port:=995
- $server.user:="4d@gmail.com"
- $server.password:="XXXXXXXX"
+```qs
+var server : object
+var transporter : 4D.POP3Transporter
+var mailInfo : collection
+var vNum , vSize : integer
+var info = string
 
- var $transporter : 4D.POP3Transporter
- $transporter:=POP3 New transporter($server)
+server = newObject()
+server.host = "pop.gmail.com" //Mandatory
+server.port = 995
+server.user = "qodly@gmail.com"
+server.password = "XXXXXXXX"
 
- C_COLLECTION($mailInfo)
- C_LONGINT($vNum;$vSize)
+transporter = 4D.POP3Transporter.new (server)
 
- $mailInfo:=$transporter.getMailInfoList()
- $vNum:=$mailInfo.length
- $vSize:=$mailInfo.sum("size")
+mailInfo = transporter.getMailInfoList()
+vNum = mailInfo.length
+vSize = mailInfo.sum("size")
 
- ALERT("The mailbox contains "+String($vNum)+" message(s) for "+String($vSize)+" bytes.")
+info = "The mailbox contains "+string(vNum)+" message(s) for "+string(vSize)+" bytes.")
 ```
 
 ## .getMIMEAsBlob()
 
-<details><summary>History</summary>
-
-|Release|Changes|
-|---|---|
-|18 R3|Added|
-
-</details>
-
-<!-- REF #POP3TransporterClass.getMIMEAsBlob().Syntax -->**.getMIMEAsBlob**( *msgNumber* : Integer ) : Blob<!-- END REF -->
+<!-- REF #POP3TransporterClass.getMIMEAsBlob().Syntax -->**.getMIMEAsBlob**( *msgNumber* : integer ) : Blob<!-- END REF -->
 
 
 <!-- REF #POP3TransporterClass.getMIMEAsBlob().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|Integer|-> |Number of the message in the list|
-|Result|Blob|<-|Blob of the MIME string returned from the mail server|
+|msgNumber|integer|-> |Number of the message in the list|
+|Result|blob|<-|Blob of the MIME string returned from the mail server|
 <!-- END REF -->
 
 ##### Description
 
-The `.getMIMEAsBlob()` function <!-- REF #POP3TransporterClass.getMIMEAsBlob().Summary -->returns a BLOB containing the MIME contents for the message corresponding to the *msgNumber* in the mailbox designated by the [`POP3_transporter`](#pop3-transporter-object)<!-- END REF -->.
+The `.getMIMEAsBlob()` function <!-- REF #POP3TransporterClass.getMIMEAsBlob().Summary -->returns a BLOB containing the MIME contents for the message corresponding to the *msgNumber* in the mailbox designated by the `POP3_transporter`<!-- END REF -->.
 
-In *msgNumber*, pass the number of the message to retrieve. This number is returned in the number property by the [`.getMailInfoList()`](#getmailinfolist) method.
+In *msgNumber*, pass the number of the message to retrieve. This number is returned in the "number" property by the [`.getMailInfoList()`](#getmailinfolist) function.
 
-The method returns an empty BLOB if:
+The function returns an empty BLOB if:
 
 * *msgNumber* designates a non-existing message,
-* the message was marked for deletion using `.delete()`.
+* the message was marked for deletion using [`.delete()`](#delete).
 
-**Returned BLOB**
+**Returned blob**
 
-`.getMIMEAsBlob()` returns a `BLOB` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#email-object) with the `MAIL Convert from MIME` command.
+`.getMIMEAsBlob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#email-object) with the [`MAIL Convert from MIME`](commands/mailConvertFromMIME.md) command.
 
 ##### Example
 
 You want to know the total number and size of emails in the mailbox:
 
-```4d
- var $server : object
- var $mailInfo : Collection
- var $blob : Blob
- var $transporter : 4D.POP3Transporter
+```qs
+var server : object
+var mailInfo : collection
+var blob : blob
+var transporter : 4D.POP3Transporter
 
- $server:=New object
- $server.host:="pop.gmail.com"
- $server.port:=995
- $server.user:="4d@gmail.com"
- $server.password:="XXXXXXXX"
+server = newObject()
+server.host = "pop.gmail.com" //Mandatory
+server.port = 995
+server.user = "qodly@gmail.com"
+server.password = "XXXXXXXX"
 
- $transporter:=POP3 New transporter($server)
+transporter = 4D.POP3Transporter.new (server)
 
- $mailInfo:=$transporter.getMailInfoList()
- $blob:=$transporter.getMIMEAsBlob($mailInfo[0].number)
+mailInfo = transporter.getMailInfoList()
+blob = transporter.getMIMEAsBlob(mailInfo[0].number)
 ```
 
 <!-- INCLUDE transporter.host.Desc -->
@@ -464,14 +445,6 @@ You want to know the total number and size of emails in the mailbox:
 
 <!-- REF POP3TransporterClass.undeleteAll().Desc -->
 ## .undeleteAll()
-
-<details><summary>History</summary>
-
-|Release|Changes|
-|---|---|
-|18 R2|Added|
-
-</details>
 
 <!-- REF #POP3TransporterClass.undeleteAll().Syntax -->**.undeleteAll()**<!-- END REF -->
 
@@ -484,7 +457,7 @@ You want to know the total number and size of emails in the mailbox:
 
 ##### Description
 
-The `.undeleteAll()` function <!-- REF #POP3TransporterClass.undeleteAll().Summary -->removes all delete flags set on the emails in the [`POP3_transporter`](#pop3-transporter-object)<!-- END REF -->.
+The `.undeleteAll()` function <!-- REF #POP3TransporterClass.undeleteAll().Summary -->removes all delete flags set on the emails in the `POP3_transporter` object<!-- END REF -->.
 
 <!-- END REF -->
 
