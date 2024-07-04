@@ -114,3 +114,14 @@ A Qodly API key must be included in the **HTTP header** of every REST requests s
 
 - using the [`openDatastore`](../language/commands/openDatastore.md) command to target another Qodly application: you pass both API endpoint and API key through `hotsname` and `api-key` properties in the *connectionInfo* parameter and that's it! Underlying REST requests automatically handle the API keys in HTTP headers.
 - using the [REST API](../api/overview): use the API endpoint url and insert the `api-key` header with API key value in every REST requests (for more information, see [this example](../api/overview.md#api-endpoint-usage-example-in-postman)).
+
+## How to manage your API Access (Tutorial video)
+
+See this tutorial video to learn how to:
+
+- Access the API Key from your Qodly app dashboard.
+- Authenticate requests with different roles and privileges for secure data access.
+- Read product data based on user permissions.
+- Create new products using the API.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0NafveAMEHg?si=JfA7PYZnJYZVdwJ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
