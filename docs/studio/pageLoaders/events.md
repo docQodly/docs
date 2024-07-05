@@ -686,8 +686,8 @@ In this scenario:
 
 When a button is clicked or a radio button is selected, the `employees` qodlysource updates, prompting the `on Change` event. This function receives the value of the **choice** qodlysource as a parameter and produces general or detailed statistics as an object based on the parameter value.
 
-![event-qodlysource-event](img/event-qodlysource-event.png)
+![event-qodlysource-event](img/event-QodlySource-event.png)
 
 Here's what you obtain after the button is clicked:
 
-![event-qodlysource-result](img/event-qodlysource-result.png)
+![event-qodlysource-result](img/event-QodlySource-result.png)
