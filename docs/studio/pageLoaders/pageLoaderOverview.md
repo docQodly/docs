@@ -361,7 +361,7 @@ This process ensures the seamless replication of even local datasources and loca
 
 ### Example
 
-Let's explore the JSON representation of a Page that includes a [Page Loader](./components/pageloader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
+Let's explore the JSON representation of a Page that includes a [Page Loader](./components/pageLoader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
 
 <img src={require('./img/pageJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
 

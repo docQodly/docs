@@ -38,7 +38,7 @@ Access to Qodly Studio is granted to developers once they complete a series of a
 
 
 
-## Qodly Studio Homepage
+## Qodly Studio Home Page
 
 When you first step into Qodly Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
 
@@ -66,7 +66,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 3. **Grid container**: houses a collection of swift shortcuts for a range of actions:
 
     - **Create New**: Offers convenient quick links for:
-        - ![qodlyOverview](./img/overview_Page.png) [Pages](./pageLoaders/pageLoaderOverview#creating-a-Page): Speedily initiate the creation of a new Page.
+        - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview#creating-a-Page): Speedily initiate the creation of a new Page.
         - ![qodlyOverview](./img/overview_class.png) [Classes](./coding#creating): Generate a new Class.
         - ![qodlyOverview](./img/overview_method.png) [Methods](./coding#creating): Generate a new Method.
         - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
@@ -78,7 +78,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
 Qodly Studio displays open items with tabs in the title area above the current editor.
 
-![tabs](./img/tabs.png)
+<img src={require('./img/tabs.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
 [By default](#preview-mode), when you open a file, a new tab is added for that file. New tabs are added to the right of the existing tabs. All Qodly files and editors use tabs: model, Pages, methods, classes, roles and privileges, settings, pictures, and so on. 
 
@@ -86,14 +86,14 @@ Tabs let you quickly navigate between items and you can drag and drop tabs to re
 
 When you have more open items than can fit in the title area, you can use the scroll bar between the tab and editor regions to drag tabs into view. 
 
-![tabs](./img/tabs-scroll.png)
+<img src={require('./img/tabs-scroll.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
 
 ### Contextual menu
 
 Every tab provides access to a contextual menu that you can display with a **right-click** on the tab header:
 
-![tabs](./img/tabs-menu.png)
+<img src={require('./img/tabs-menu.png').default} style={{borderRadius: '6px', width:'20%'}} />
 
 The following actions are available:
 
@@ -110,11 +110,11 @@ The following actions are available:
 
 When the contents of a tab has been modified locally but has not been saved, a colored spot is displayed on the right part of the tab header:
 
-![unsaved tab](./img/tabs-unsaved.png)
+<img src={require('./img/tabs-unsaved.png').default} style={{borderRadius: '6px', width:'20%'}} />
 
 When closing or reloading a tab, if it contains unsaved changes, an alert window is displayed, allowing you to ignore the changes and close the tab (**Confirm**) or cancel the closure and let you click the [**Save all**](#homepage) button to save the changes. 
 
-![tabs close](./img/tabs-close.png)
+<img src={require('./img/tabs-close.png').default} style={{borderRadius: '6px', width:'50%'}} />
 
 ### Preview mode
 
@@ -126,6 +126,6 @@ When the tabs preview mode is enabled, clicking a file in the Explorer displays 
 
 Preview mode tab is indicated by *italics* in the tab heading:
 
-![preview tab](img/settings-tabpreview.png)
+<img src={require('./img/settings-tabpreview.png').default} style={{borderRadius: '6px', width:'50%'}} />
 
 If you'd prefer to not use preview mode and always create a new tab, just let the selector off (default mode). 
