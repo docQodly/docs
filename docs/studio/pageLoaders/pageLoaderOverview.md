@@ -31,10 +31,10 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 
 <img src={require('./img/PageEditorOverview.png').default} style={{borderRadius: '6px'}} />
 
-1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview Pages.
+1. **Canvas**: The workspace for assembling components, styles, and qodlysources. You can drag and drop components, apply CSS, and preview Pages.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
 3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
-4. **States**: Coming Soon.
+4. [**States**](states.md): Dynamically adjusts Page's UI, styling, and properties based on user contexts and data, minimizing server-side processing needs.
 5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
 6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
 7. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
@@ -67,7 +67,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
         By clicking on an element within the list, you can select it for further action, or utilize the drag-and-drop functionality within the outline to reposition elements. To manage the visibility of specific elements, simply click the eye icon <img src={require('./img/eye.png').default} style={{borderRadius: '6px',height: '4%', width: '4%'}} />, toggling their display on or off as needed.
 	</Column.Item>
 	<Column.Item width="30%">
-        <img src={require('./img/outline.png').default} style={{borderRadius: '6px',height: '70%', width: '70%'}} />
+        <img src={require('./img/outline.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -144,9 +144,9 @@ The Sanity Check serves as an informative tool. Even if errors are present, a Pa
 :::
 
 
-### Datasources Color
+### Qodly Source Color
 
-The Datasources Color button <img alt="Dialog Icon" src={require('./img/headerPanel_dtscolor.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel allows easy identification of the background color of datasources linked to a component.
+The Qodly Sources Color button <img alt="Dialog Icon" src={require('./img/headerPanel_dtscolor.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel allows easy identification of the background color of qodlysources linked to a component.
 
 
 ### Preview
@@ -159,7 +159,7 @@ For further details, refer to the [Rendering a Page](../rendering.md) section.
 
 ## Contextual panel
 
-The **Contextual Panel** is a multifaceted interface, consisting of three distinct tabs: the Component tab, the Datasource tab, and the CSS tab.
+The **Contextual Panel** is a multifaceted interface, consisting of three distinct tabs: the Component tab, the Qodly Source tab, and the CSS tab.
 
 :::tip Memory Functionality for Enhanced User Experience
 
@@ -180,11 +180,11 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 </Column.List>
 
 
-### Datasource Tab
+### Qodly Source Tab
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    The Datasource tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a datasource, providing a centralized interface for coordinating components and their data interactions.
+    The Qodly Source tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a qodlysource, providing a centralized interface for coordinating components and their data interactions.
 	</Column.Item>
 	<Column.Item width="50%">
         <img src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
@@ -192,7 +192,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 </Column.List>
 
 :::tip
-The Datasource tab becomes accessible only when a component is linked to a datasource.
+The Qodly Source tab becomes accessible only when a component is linked to a qodlysource.
 :::
 
 ### CSS Tab
@@ -246,7 +246,7 @@ The Properties Panel offers a pair of distinctive modes:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/pageloader">Page loader component</a> navigation actions. The reference for a Page component is consistently set to ROOT <img src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/pageLoader">Page Loader component</a> navigation actions. The reference for a Page component is consistently set to ROOT <img src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
     </Column.Item>
     <Column.Item width="30%">
         <img src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
@@ -276,24 +276,26 @@ Each component's documentation contains its own dedicated section explaining the
 
 ### Data Access Category
 
-Configure the interaction between your chosen component and its associated datasource, if applicable. These property details are extensively covered in the [**Datasources**](datasources.md) section.
+Configure the interaction between your chosen component and its associated qodlysource, if applicable. These property details are extensively covered in the [**Qodly Sources**](datasources.md) section.
 
 The Data Access properties encompass distinct options and fields tailored to each specific component, including:
 
-- **DataSource**: Identifies the data source for component iteration.
+- **Qodly Source**: Identifies the qodlysource for component iteration.
 - **Selected Element**: Specifies the currently selected element within the component.
-- **Iterate with**: Utilizes a datasource for looping through the same dataset.
+- **Iterate with**: Utilizes a qodlysource for looping through the same dataset.
 
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-        <ul>
-            <li><strong>Server Side</strong>: Provides the means to exercise server-side control over a component's behavior. This involves assigning a <code>Server Side</code> reference, essentially an "address" on the server, to a specific component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.</li>
-        </ul>        
-	</Column.Item>
-	<Column.Item width="40%">
-        <img src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
+  #### Server Side:
+
+  <Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+      Server Side Provides the means to exercise server-side control over a component's behavior. This involves assigning a <code>Server Side</code> reference, essentially an "address" on the server, to a specific component. By doing so, you enable the utilization of this reference in class functions, thereby governing the component's actions.
+    </Column.Item>
+    <Column.Item width="40%">
+          <img src={require('./img/serverSide.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+  </Column.List>
+
+<br/>
 
 :::info 
 Server Side allows you to control the component's behavior, such as [hiding](../../language/WebFormItemClass.md#hide), [showing](../../language/WebFormItemClass.md#show), [adding CSS classes](../../language/WebFormItemClass.md#addcssclass), or [removing CSS classes](../../language/WebFormItemClass.md#removecssclass) from it.
@@ -336,11 +338,11 @@ Explore below for specific options:
 ## Page JSON Representation
 
 <Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
+	<Column.Item width="50%">
         In Qodly Studio, every Page possesses a unique JSON representation. <br/><br/>
         This representation can be accessed through a text editor by selecting the Page in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
 	</Column.Item>
-	<Column.Item width="40%">
+	<Column.Item width="45%">
         <img src={require('./img/textEditor.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -356,7 +358,7 @@ The JSON representation serves as a fundamental blueprint for the Page. Its prim
 - **Easy Replication**: It allows users to effortlessly replicate the entire Page, including its design and functionality, by copying and pasting it into another web form's text editor.
 
 :::tip Notably:
-This process ensures the seamless replication of even local datasources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target Page.
+This process ensures the seamless replication of even local qodlysources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target Page.
 :::
 
 ### Example
@@ -373,7 +375,7 @@ The JSON representation of the Page is structured as follows:
 {
   "metadata": {
     "v": "1.0",
-    "datasources": [
+    "qodlysources": [
       {
         "id": "homePage",
         "type": "scalar",
@@ -419,7 +421,7 @@ The JSON representation of the Page is structured as follows:
             "returns": {
               "name": "$0",
               "type": "Variable",
-              "datasource": "userManagement:user"
+              "qodlysource": "userManagement:user"
             }
           }
         ],
@@ -468,7 +470,8 @@ The JSON representation of the Page is structured as follows:
           "minWidth": "100%",
           "height": "10%"
         },
-        "serverSideRef": ""
+        "serverSideRef": "",
+        "iterableChild": true
       },
       "displayName": "Stylebox",
       "custom": {
@@ -501,8 +504,8 @@ The JSON representation of the Page is structured as follows:
                 "bold": true
               },
               {
-                "type": "datasource",
-                "datasource": "version",
+                "type": "qodlysource",
+                "qodlysource": "version",
                 "children": [
                   {
                     "italic": false,
@@ -517,12 +520,11 @@ The JSON representation of the Page is structured as follows:
               },
               {
                 "text": ""
-
               }
             ]
           }
         ],
-        "datasource": "version",
+        "qodlysource": "version",
         "style": {
           "fontSize": "40px",
           "textAlign": "center",
@@ -535,7 +537,8 @@ The JSON representation of the Page is structured as follows:
         "classNames": [
           "comforterBrush"
         ],
-        "serverSideRef": "textRef"
+        "serverSideRef": "textRef",
+        "iterableChild": true
       },
       "displayName": "Text",
       "custom": {},
@@ -555,7 +558,8 @@ The JSON representation of the Page is structured as follows:
           "minHeight": "40px",
           "display": "flex",
           "alignItems": "center"
-        }
+        },
+        "iterableChild": true
       },
       "displayName": "Stylebox",
       "custom": {},
@@ -594,7 +598,7 @@ The JSON representation of the Page is structured as follows:
             "id": "f9mqtjJG2nap5EJKaMqKM5"
           }
         ],
-        "datasource": "Ui:mainPage",
+        "qodlysource": "Ui:mainPage",
         "style": {
           "color": "#000000ff",
           "textTransform": "uppercase",
@@ -615,7 +619,9 @@ The JSON representation of the Page is structured as follows:
       },
       "isCanvas": false,
       "props": {
+        "classNames": [],
         "events": [],
+        "componentName": "PageLoader",
         "style": {
           "width": "100%",
           "height": "90%",
@@ -624,10 +630,10 @@ The JSON representation of the Page is structured as follows:
           "paddingBottom": "0px",
           "paddingTop": "0px"
         },
-        "datasource": "Ui:mainPage",
+        "qodlysource": "Ui:mainPage",
         "Page": "home",
-        "classNames": [],
-        "serverSideRef": "pageLoaderRef"
+        "serverSideRef": "pageLoaderRef",
+        "text": "Some Text"
       },
       "displayName": "Page Loader",
       "custom": {},
@@ -650,13 +656,13 @@ The JSON representation of the Page consists of two major elements: `metadata` a
 <ul>
     <li><code>v</code> : Version of the Page.</li> 
     <br/>
-    <li><code>datasources</code> : An array of local datasources scoped to the Page, with the following sub-attributes:</li>
+    <li><code>qodlysources</code> : An array of local qodlysources scoped to the Page, with the following sub-attributes:</li>
     <ul>
-        <li><code>id</code> : Identifier for each datasource.</li>
-        <li><code>type</code> : Specifies the type of the datasource.</li>
-        <li><code>namespace</code> : Denotes the namespace of the datasource, which is empty if the datasource is local.</li>
-        <li><code>dataType</code> : Represents the data type of the datasource.</li>
-        <li><code>initialValue</code> : Indicates the initial value of the datasource name.</li>
+        <li><code>id</code> : Identifier for each qodlysource.</li>
+        <li><code>type</code> : Specifies the type of the qodlysource.</li>
+        <li><code>namespace</code> : Denotes the namespace of the qodlysource, which is empty if the qodlysource is local.</li>
+        <li><code>dataType</code> : Represents the data type of the qodlysource.</li>
+        <li><code>initialValue</code> : Indicates the initial value of the qodlysource name.</li>
     </ul> 
     <br/>
     <li><code>styles</code> : An array of local css classes scoped to the Page. It includes the following sub-attributes:</li>
@@ -702,23 +708,23 @@ The JSON representation of the Page consists of two major elements: `metadata` a
         - `doc`:
             - `type`: Describe the type of the Text component.
             - `children`: 
-                - `type`: If this attribute is visible with a value of "datasource", it means that portion of the text content is bound to a datasource. If not, then it's static text.
-                - `datasource`: The name of the datasource bound to the portion of the text content.
+                - `type`: If this attribute is visible with a value of "qodlysource", it means that portion of the text content is bound to a qodlysource. If not, then it's static text.
+                - `qodlysource`: The name of the qodlysource bound to the portion of the text content.
                 - `children`: Specifies the text content visual formatting.
-                - `dsType`: The data type of the datasource.
-                - `format`: Specifies the data formatting for the datasource.
-        - `datasource`: The name of the datasource bound to the component.
+                - `dsType`: The data type of the qodlysource.
+                - `format`: Specifies the data formatting for the qodlysource.
+        - `qodlysource`: The name of the qodlysource bound to the component.
 
     - **KELZVVKAHP** (RADIO):
         - `defaultValue`: Sets the default value for the radio.
         - `mode`: Specifies the radio selection mode.
         - `type`: Determines the display type of the radio.
         - `options`: Lists the available radio options.
-        - `datasource`: The name of the datasource bound to the component.
+        - `qodlysource`: The name of the qodlysource bound to the component.
 
     - **bXx3gBHhJA** (Page Loader):
         - `page`: The name of the Page set as an initial value.
-        - `datasource`: The name of the datasource bound to the component.
+        - `qodlysource`: The name of the qodlysource bound to the component.
 
 ### Syntax Check
 
