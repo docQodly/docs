@@ -96,6 +96,14 @@ const sidebars = {
 				'studio/design-webforms/date-time-formats',
 				'studio/design-webforms/datasources',
 				'studio/design-webforms/events',
+				{
+					type: 'category',
+					label: 'States',
+					items: [
+						'studio/design-webforms/states',
+						'studio/design-webforms/conditionalStates',
+					],
+				},
 				'studio/design-webforms/styling',
 				'studio/rendering',
 			],

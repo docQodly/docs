@@ -35,7 +35,7 @@ When the `On Change` event is linked to a datasource, it will trigger in the fol
 |Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 |Scalar datasource|The contents of the scalar datasource change|
 
-## Managing events
+## Events Management
 
 The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application.
 
