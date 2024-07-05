@@ -32,9 +32,9 @@ Components are the fundamental building blocks that constitute your application'
 
 ## Adding Components
 
-Incorporating components into your webform is a straightforward process that involves **drag-and-drop** functionality. Simply select a component and place it onto your working area or canvas. 
+Incorporating components into your Page is a straightforward process that involves **drag-and-drop** functionality. Simply select a component and place it onto your working area or canvas. 
 
-You have the flexibility to drop components directly onto the webform itself, as well as within other components that accept nested elements. This versatility allows you to construct complex layouts and hierarchies by combining different components within one another. 
+You have the flexibility to drop components directly onto the Page itself, as well as within other components that accept nested elements. This versatility allows you to construct complex layouts and hierarchies by combining different components within one another. 
 
 <img src={require('./img/addingComponents.gif').default} style={{borderRadius: '6px'}} />
 
@@ -54,7 +54,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
-        When you select a component on the canvas, a contextual tooltip becomes available, offering a variety of actions that can be performed on the chosen component. These actions provide you with the tools to efficiently manage and manipulate your webform's design. Here's a breakdown of the actions available in the tooltip:
+        When you select a component on the canvas, a contextual tooltip becomes available, offering a variety of actions that can be performed on the chosen component. These actions provide you with the tools to efficiently manage and manipulate your Page's design. Here's a breakdown of the actions available in the tooltip:
 	</Column.Item>
 	<Column.Item width="25%">
         <img src={require('./img/tooltip2.png').default} style={{borderRadius: '6px'}} />
@@ -80,7 +80,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 |---|---|
 |Copy| Make a copy of the selected component. As an alternative solution, you can use the shortcut **Alt + C (⌥ + C for Mac)**|
 |Cut| Cuts the selected component so you can paste it elsewhere. As an alternative solution, you can use the shortcut **Alt + X (⌥ + X for Mac)**|
-|Paste| Paste the copied component directly into your webform. As an alternative solution, you can use the shortcut **Alt + V (⌥ + V for Mac)**|
+|Paste| Paste the copied component directly into your Page. As an alternative solution, you can use the shortcut **Alt + V (⌥ + V for Mac)**|
 |Paste into| Paste the copied component into another component. As an alternative solution, you can use the shortcut **Alt + ⇧ + V (⌥ + ⇧ + V for Mac)**|
 |Duplicate| Duplicate the selected component in the same parent component. As an alternative solution, you can use the shortcut **Alt + D (⌥ + D for Mac)**|
 |Save as craft| Save the component, its child components, and their styles as a reusable component. As an alternative solution, you can use the shortcut **Alt + K (⌥ + K for Mac)**|
@@ -93,7 +93,7 @@ You have the flexibility to drop components directly onto the webform itself, as
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-                Your webforms can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
+                Your Pages can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
         </Column.Item>
         <Column.Item width="35%">
                 <img src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />

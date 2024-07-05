@@ -5,7 +5,7 @@ title: Tabs
 import Column from '@site/src/components/Column'
 
 
-The **Tabs** component is a versatile UI element designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your webform.
+The **Tabs** component is a versatile UI element designed to organize components within a tabs system, providing an intuitive way to navigate through different sections of your Page.
 
 
 :::info 

@@ -5,7 +5,7 @@ title: Text Input
 import Column from '@site/src/components/Column'
 
 
-The **Text Input** component is an interactive UI element that enables user interactions by allowing the input of alphanumeric data within a webform. With support for various input types, this component accommodates diverse data entry scenarios.
+The **Text Input** component is an interactive UI element that enables user interactions by allowing the input of alphanumeric data within a Page. With support for various input types, this component accommodates diverse data entry scenarios.
 
 
 :::info 
@@ -149,7 +149,7 @@ See <a href="componentsBasics#data-formatting">Formats</a> for a description of 
 
 ## Data Integration
 
-The **Text Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
+The **Text Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The datasource for the **Text Input** component should be of type `text`, `number`, `date`, or `duration`.

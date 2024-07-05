@@ -1,6 +1,6 @@
 ---
 id: rendering
-title: Webform Rendering
+title: Page Rendering
 ---
 import Column from '@site/src/components/Column'
 
@@ -17,33 +17,33 @@ At its core, rendering represents the pivotal stage where the abstract blueprint
 
 In the case of Qodly Studio, rendering takes a different path compared to conventional web development. Here's how it works:
 
-- **Design and Configuration**: Users initiate the webform creation process within **Qodly Studio** by arranging components, mapping datasources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
+- **Design and Configuration**: Users initiate the Page creation process within **Qodly Studio** by arranging components, mapping datasources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
 
-- **JSON Representation**: Instead of generating conventional HTML code, **Qodly Studio** encapsulates the entire webform, including layout, data connections, and event-driven logic, in a structured JSON file. This JSON file serves as the representation of the webform.
+- **JSON Representation**: Instead of generating conventional HTML code, **Qodly Studio** encapsulates the entire Page, including layout, data connections, and event-driven logic, in a structured JSON file. This JSON file serves as the representation of the Page.
 
-- **Rendering Trigger**: Accessing the webform directly in a web browser is not an option. Instead, the webform is "**rendered**" when users initiate the rendering process, which can be done in one of two ways:
+- **Rendering Trigger**: Accessing the Page directly in a web browser is not an option. Instead, the Page is "**rendered**" when users initiate the rendering process, which can be done in one of two ways:
 
-    - **Preview in the Studio**: Users have the option to [preview the webform within the Qodly Studio interface](#preview-in-the-studio).
+    - **Preview in the Studio**: Users have the option to [preview the Page within the Qodly Studio interface](#preview-in-the-studio).
 
-    - **Dedicated Browser Tab**: Alternatively, users can opt to [render the webform in a separate browser tab](#preview-in-a-browser-window).
+    - **Dedicated Browser Tab**: Alternatively, users can opt to [render the Page in a separate browser tab](#preview-in-a-browser-window).
 
 
 
-When a webform is rendered for the end user, what is returned is the final HTML code and CSS that represent the webform's visual appearance and functionality.
+When a Page is rendered for the end user, what is returned is the final HTML code and CSS that represent the Page's visual appearance and functionality.
 
 
 :::info
-The webform is transformed into an HTML/CSS representation that can be displayed and interacted with in a web browser. JSON is used internally for data representation and configuration but is not what the end user receives when viewing the webform.
+The Page is transformed into an HTML/CSS representation that can be displayed and interacted with in a web browser. JSON is used internally for data representation and configuration but is not what the end user receives when viewing the Page.
 :::
 
 ## Runtime Rendering
 
-At **runtime**, webforms are generated and interpreted by the built-in renderer engine. This engine takes the JSON representation and transforms it into a functional, interactive form that end-users can engage with.
+At **runtime**, Pages are generated and interpreted by the built-in renderer engine. This engine takes the JSON representation and transforms it into a functional, interactive form that end-users can engage with.
 
 
-## Unique Webform URLs
+## Unique Page URLs
 
-Crucially, each webform is assigned a **unique URL** on the Qodly Web server. These URLs serve as access points for end-users to interact with and render the webforms they require.
+Crucially, each Page is assigned a **unique URL** on the Qodly Web server. These URLs serve as access points for end-users to interact with and render the Pages they require.
 
 
 ## Data Flow and Server Architecture
@@ -52,16 +52,16 @@ The flow of data within the Qodly Studio ecosystem is carefully orchestrated, en
 
 <img src={require('./img/workflow.png').default} style={{borderRadius: '6px'}} />
 
-- Qodly Studio operates with an embedded Studio web server, providing secure web access. Users can conveniently preview webforms within the protected confines of Qodly Studio.
+- Qodly Studio operates with an embedded Studio web server, providing secure web access. Users can conveniently preview Pages within the protected confines of Qodly Studio.
 
 - Additionally, the Qodly web server functions as a REST server, facilitating communication between the rendering engine and the web server through REST requests.
 
-- After deployment, webforms become readily accessible to end-users, who can render and interact with them directly in their web browsers.
+- After deployment, Pages become readily accessible to end-users, who can render and interact with them directly in their web browsers.
 
 
-## Webform Rendering Options
+## Page Rendering Options
 
-Rendering a webform in Qodly Studio provides versatile control and accessibility. You can preview it in the Studio or a separate browser window, but It's important to note that:
+Rendering a Page in Qodly Studio provides versatile control and accessibility. You can preview it in the Studio or a separate browser window, but It's important to note that:
 
 :::info
 Database resource access control depends on the chosen rendering method.
@@ -72,7 +72,7 @@ Database resource access control depends on the chosen rendering method.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        This option enables you to render the current page directly within the webform editor window. Here, the webform is rendered by the Qodly Studio's embedded web server. <br/><br/>
+        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by the Qodly Studio's embedded web server. <br/><br/>
         This approach provides a comprehensive view of data classes, functions, and attributes, even if they are not exposed as REST resources.
     </Column.Item>
     <Column.Item width="20%">
@@ -91,7 +91,7 @@ This preview is conducted with **Administrative** privileges, utilizing the **Ad
 
 ### Preview in a Browser Window
 
-You have the flexibility to render the current webform or the entire website in a browser window. In both scenarios, the webform is rendered by the Qodly web renderer engine. This engine diligently applies **REST resource restrictions and permission actions** defined in your Qodly project, ensuring that only exposed resources are rendered in the browser.
+You have the flexibility to render the current Page or the entire website in a browser window. In both scenarios, the Page is rendered by the Qodly web renderer engine. This engine diligently applies **REST resource restrictions and permission actions** defined in your Qodly project, ensuring that only exposed resources are rendered in the browser.
 
 It's worth noting that:
 
@@ -100,11 +100,11 @@ This preview operates under the logged-in user's privileges. During your initial
 :::
 
 
-#### Preview Webform in a New Tab
+#### Preview Page in a New Tab
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        This option allows you to display the current webform in a browser window tab, offering a convenient way to assess its appearance and functionality.
+        This option allows you to display the current Page in a browser window tab, offering a convenient way to assess its appearance and functionality.
     </Column.Item>
     <Column.Item width="20%">
         <img src={require('./img/preview-tab.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
@@ -125,10 +125,10 @@ This preview operates under the logged-in user's privileges. During your initial
 
 :::info
 
-When the **Preview** button is clicked and unsaved changes are present in open webforms, a popup is displayed to ensure users are aware of their unsaved work. This popup prevents the application from rendering until the unsaved changes are addressed.
+When the **Preview** button is clicked and unsaved changes are present in open Pages, a popup is displayed to ensure users are aware of their unsaved work. This popup prevents the application from rendering until the unsaved changes are addressed.
 
 <img src={require('./img/preview-pop.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
-Users can choose to save all changes in open webforms before rendering, without seeing this popup again, by checking the "Memorize..." checkbox at the popup's bottom. Alternatively, this alert can be controlled through the ["**Show Unsaved Files Pop Over**" setting](settings.md#show-unsaved-files-pop-over) in user preferences.
+Users can choose to save all changes in open Pages before rendering, without seeing this popup again, by checking the "Memorize..." checkbox at the popup's bottom. Alternatively, this alert can be controlled through the ["**Show Unsaved Files Pop Over**" setting](settings.md#show-unsaved-files-pop-over) in user preferences.
 
 :::

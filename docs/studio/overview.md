@@ -7,7 +7,7 @@ Development in Qodly relies on the use of **Qodly Studio**, an innovative platfo
 
 - Design and modify data models that align with your business logic.
 - Effortlessly link data with [ORDA](../concepts/platform.md#the-orda-concept)  dataclasses.
-- Visually craft webforms by simply dragging and dropping components onto a canvas.
+- Visually craft Pages by simply dragging and dropping components onto a canvas.
 - Instantly preview web pages.
 - Execute QodlyScript code directly within web events or datasource events.
 - Write and debug code directly within the browser.
@@ -46,7 +46,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
 1. **Explorer**: is where you'll find an overview of your project's essential elements:
 
-    - ![qodlyOverview](./img/overview_webforms.png) [Webforms](./design-webforms/create-webform#overview): Serve as containers, enveloping various components within your application. 
+    - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview#overview): Serve as containers, enveloping various components within your application. 
     - ![qodlyOverview](./img/overview_methods&Func.png) [Methods](./coding#methods): Function as distinct blocks of code that fulfill specific roles within your application. While they can be invoked from class functions or other methods, components can't directly interact with them.
     - ![qodlyOverview](./img/overview_methods&Func.png) [Classes](./coding#classes): Serve as the cornerstone for organizing your code around objects, granting components the capability to directly interact with them.
     - ![qodlyOverview](./img/overview_shared.png) Shared: Streamline the management and integration of local images and files within your app.
@@ -66,7 +66,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 3. **Grid container**: houses a collection of swift shortcuts for a range of actions:
 
     - **Create New**: Offers convenient quick links for:
-        - ![qodlyOverview](./img/overview_webform.png) [Webforms](./design-webforms/create-webform#creating-a-webform): Speedily initiate the creation of a new Webform.
+        - ![qodlyOverview](./img/overview_Page.png) [Pages](./pageLoaders/pageLoaderOverview#creating-a-Page): Speedily initiate the creation of a new Page.
         - ![qodlyOverview](./img/overview_class.png) [Classes](./coding#creating): Generate a new Class.
         - ![qodlyOverview](./img/overview_method.png) [Methods](./coding#creating): Generate a new Method.
         - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
@@ -80,7 +80,7 @@ Qodly Studio displays open items with tabs in the title area above the current e
 
 ![tabs](./img/tabs.png)
 
-[By default](#preview-mode), when you open a file, a new tab is added for that file. New tabs are added to the right of the existing tabs. All Qodly files and editors use tabs: model, webforms, methods, classes, roles and privileges, settings, pictures, and so on. 
+[By default](#preview-mode), when you open a file, a new tab is added for that file. New tabs are added to the right of the existing tabs. All Qodly files and editors use tabs: model, Pages, methods, classes, roles and privileges, settings, pictures, and so on. 
 
 Tabs let you quickly navigate between items and you can drag and drop tabs to reorder them. Only one instance of an item can be open in the same editor window.
 
@@ -104,7 +104,7 @@ The following actions are available:
 -  **Close all**: closes all the opened tabs.
 -  **Close saved**: closes all the tabs that contain saved contents. Tabs with unsaved contents are not closed. 
 -  **Close tabs to the right/to the left**: closes all opened tabs located at the right side or the left side of the current tab.
--  **Switch to Text Editor** (only available with webform and model tabs): displays the [current webform](design-webforms/create-webform.md/#webform-json-representation) or [model](model/model-editor-interface.md#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to WebForm Editor**/**Switch to Model Editor**. 
+-  **Switch to Text Editor** (only available with Page and model tabs): displays the [current Page](./pageLoaders/pageLoaderOverview.md/#Page-json-representation) or [model](model/model-editor-interface.md#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to Page Editor**/**Switch to Model Editor**. 
 
 ### Unsaved contents
 

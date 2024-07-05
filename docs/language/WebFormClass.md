@@ -4,7 +4,7 @@ title: WebForm
 ---
 
 
-The `4D.WebForm` class object provides an interface that allows you to handle your webform components. `4D.WebForm` objects are instantiated with the [`webForm`](#webform) command.
+The `4D.WebForm` class object provides an interface that allows you to handle your Page components. `4D.WebForm` objects are instantiated with the [`webForm`](#webform) command.
 
 
 
@@ -28,7 +28,7 @@ The `4D.WebForm` class object provides an interface that allows you to handle yo
 
 #### Description
 
-The components of webforms are <!-- REF #WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these webforms.
+The components of Pages are <!-- REF #WebFormClass.componentName.Summary -->objects that are available directly as properties<!-- END REF --> of these Pages.
 
 The returned objects are of the [`4D.WebFormItem`](#webformitem-class) class. These objects have functions that you can use to manage your components dynamically.
 
@@ -78,7 +78,7 @@ webForm.setError("My error message")
 
 ```
 
-If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the web form and disappears automatically after 5 seconds:
 
 ![](img/message-error.png)
 
@@ -116,7 +116,7 @@ webForm.setMessage("My information message")
 
 ```
 
-If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the web form and disappears automatically after 5 seconds:
 
 ![](img/message-info.png)
 
@@ -149,6 +149,6 @@ webForm.setWarning("My warning message")
 
 ```
 
-If the [**Provide feedback**](../studio/design-webforms/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events.md#provide-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the web form and disappears automatically after 5 seconds:
 
 ![](img/message-warning.png)

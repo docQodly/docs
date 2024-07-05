@@ -4,7 +4,7 @@ title: Text
 ---
 import Column from '@site/src/components/Column'
 
-The **Text** component is a UI element designed to display text content on webforms.
+The **Text** component is a UI element designed to display text content on Pages.
 
 
 ## Use Cases
@@ -79,7 +79,7 @@ The **Text** component is not limited to static text, it is also data-bound, whi
 The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping a datasource of type `text`, `number`, `date`, or `duration` onto the webform, resulting in the automatic addition of a Text component with the datasource bound to it.
+Alternatively, you can establish the connection by dragging and dropping a datasource of type `text`, `number`, `date`, or `duration` onto the Page, resulting in the automatic addition of a Text component with the datasource bound to it.
 :::
 
 ## Triggers and Events

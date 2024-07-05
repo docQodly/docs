@@ -3,7 +3,7 @@ id: stylebox
 title: Style Box
 ---
 
-The **Stylebox** component serves as a versatile container designed to enhance content alignment and legibility within webforms. By adhering to precise position rules and flexbox layout, **Styleboxes** ensure that enclosed elements are well-organized and visually harmonious.
+The **Stylebox** component serves as a versatile container designed to enhance content alignment and legibility within Pages. By adhering to precise position rules and flexbox layout, **Styleboxes** ensure that enclosed elements are well-organized and visually harmonious.
 
 
 ## Enhancing Content Presentation

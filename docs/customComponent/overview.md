@@ -3,7 +3,7 @@ id: overview
 title: Overview
 ---
 
-Qodly introduces the concept of **Custom Components**, empowering developers to extend the capabilities of the platform and tailor webforms to their specific needs.
+Qodly introduces the concept of **Custom Components**, empowering developers to extend the capabilities of the platform and tailor Pages to their specific needs.
 
 ## What Are Custom Components?
 
@@ -13,7 +13,7 @@ Qodly introduces the concept of **Custom Components**, empowering developers to 
 
 The integration of Custom Components into Qodly Studio offers a range of advantages:
 
-- **Extensibility**: Tailor webforms precisely to meet specific project requirements, providing a flexible and customizable solution.
+- **Extensibility**: Tailor Pages precisely to meet specific project requirements, providing a flexible and customizable solution.
 
 - **Reusability**: Share Custom Components seamlessly across diverse projects or within the Qodly community. This fosters collective enhancement and collaboration among developers.
 

@@ -6,12 +6,12 @@ title: Non-Conditional States
 import Column from '@site/src/components/Column'
 
 
-Webform states provide developers with a versatile solution for dynamically applying a variety of changes to webforms. This feature is particularly useful for modifying the user interface (UI), styling, and other properties on the fly. By leveraging webform states, developers can tailor webforms to meet specific privileges, datasource values, contexts, or scenarios without relying heavily on server-side processing.
+Page states provide developers with a versatile solution for dynamically applying a variety of changes to Pages. This feature is particularly useful for modifying the user interface (UI), styling, and other properties on the fly. By leveraging Page states, developers can tailor Pages to meet specific privileges, datasource values, contexts, or scenarios without relying heavily on server-side processing.
 
 
 ## State Characteristics
 
-Each state is defined by its differences from the original webform, known as the `Base` state. The key characteristics of these states include:
+Each state is defined by its differences from the original Page, known as the `Base` state. The key characteristics of these states include:
 
 - **Dynamic UI Customization**:
 
@@ -35,10 +35,10 @@ Each state is defined by its differences from the original webform, known as the
 
 - **User-Centric Design**:
 
-    - **Tailored Experiences**: Configure webforms for varied privileges.
+    - **Tailored Experiences**: Configure Pages for varied privileges.
 
     :::info Example
-    In a company intranet portal, the webform displays different fields for submitting IT requests based on whether the user is an employee or a department head.
+    In a company intranet portal, the Page displays different fields for submitting IT requests based on whether the user is an employee or a department head.
     :::
 
     - **Real-Time Feedback**: Offer instant UI updates as users interact.
@@ -63,16 +63,16 @@ Each state is defined by its differences from the original webform, known as the
 
 
 :::note
-Note that states only apply styles. No additional function calls are possible compared to the Base webform.
+Note that states only apply styles. No additional function calls are possible compared to the Base Page.
 :::
 
 ## State Classifications
 
-Webforms typically operate in one of two primary states:
+Pages typically operate in one of two primary states:
 
 ### Non-Conditional State
 
-In the **Non-Conditional State**, the webform functions according to its Base State, operating in its standard form without any special conditions or triggers. This represents the default layout and behavior before any specific conditions are applied.
+In the **Non-Conditional State**, the Page functions according to its Base State, operating in its standard form without any special conditions or triggers. This represents the default layout and behavior before any specific conditions are applied.
 
 ### Conditional State
 
@@ -118,7 +118,7 @@ For additional details on how to implement the Conditional State, please refer t
 
 
 :::info
-There is no restriction on the number of states that can be associated with a single webform.
+There is no restriction on the number of states that can be associated with a single Page.
 :::
 
 
@@ -205,7 +205,7 @@ Once a state is successfully deleted, it is automatically disassociated from any
 </Column.List>
 
 :::tip
-All references to the state in the events are automatically updated post-renaming, preserving the webform’s functional integrity.
+All references to the state in the events are automatically updated post-renaming, preserving the Page’s functional integrity.
 :::
 
 
@@ -225,7 +225,7 @@ Steps to Reset a Component:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <ol>
-        <li><strong>Locate the Component</strong>: Find the component in the webform outline.</li><br/>
+        <li><strong>Locate the Component</strong>: Find the component in the Page outline.</li><br/>
         <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li><br/>
         <li><strong>Confirm Reset</strong>: When prompted, confirm the action to ensure changes are reverted.</li>
     </ol>
@@ -237,11 +237,11 @@ Steps to Reset a Component:
 
 ## Setting a Default State
 
-In webform management, defining a `Default State` is critical for ensuring that the webform displays the most appropriate view when first accessed by a user.
+In Page management, defining a `Default State` is critical for ensuring that the Page displays the most appropriate view when first accessed by a user.
 
 ### What is a Default State?
 
-The `Default State` is the state that a webform will display upon initial load, before any user interaction or conditions are met.
+The `Default State` is the state that a Page will display upon initial load, before any user interaction or conditions are met.
 
 ### Setting a Default State
 
@@ -259,14 +259,14 @@ To designate a state as the default:
 	</Column.Item>
 </Column.List>
 
-:::tip Applying Multiple States to a Webform
-You can apply multiple states to a single webform. This allows for dynamic and conditional displays based on user interactions or other conditions.
+:::tip Applying Multiple States to a Page
+You can apply multiple states to a single Page. This allows for dynamic and conditional displays based on user interactions or other conditions.
 :::
 
 
 ### Base State vs. Default State
 
-The `Base State` contains all components and configurations that the webform could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
+The `Base State` contains all components and configurations that the Page could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
 
 :::tip 
 If there are components that should not be visible until certain conditions are met, setting a different state as the default instead of the base state can help in tailoring the initial user experience.
@@ -278,7 +278,7 @@ If there are components that should not be visible until certain conditions are 
 
 ### Standard Actions
 
-Standard actions in webform states are integral to defining the webform’s behavior in response to user interactions:
+Standard actions in Page states are integral to defining the Page’s behavior in response to user interactions:
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -329,12 +329,12 @@ If a state is initially "Non-Conditional" but later transitions to a "Conditiona
 :::
 
 
-### Webform Object Functions
+### Page Object Functions
 
-In addition to the standard actions, webform object exposes several states related functions with error handling for "Conditional" states, like:
+In addition to the standard actions, Page object exposes several states related functions with error handling for "Conditional" states, like:
 
-- [`WebForm.enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current webform.
-- [`WebForm.disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the webform.
+- [`WebForm.enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current Page.
+- [`WebForm.disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the Page.
 
 :::info
 These functions are designed to target only "Non-Conditional" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
@@ -342,20 +342,20 @@ These functions are designed to target only "Non-Conditional" states. In the eve
 
 ### Event Handling
 
-The `onLoad` event triggers when the webform initially loads. However, it's designed not to re-trigger with subsequent state applications because:
+The `onLoad` event triggers when the Page initially loads. However, it's designed not to re-trigger with subsequent state applications because:
 
-- **Performance**: Preventing re-triggering maintains webform responsiveness and avoids unnecessary processing.
+- **Performance**: Preventing re-triggering maintains Page responsiveness and avoids unnecessary processing.
 
-- **State Integrity**: This ensures modifications due to state changes don’t reset the webform’s initial setup.
+- **State Integrity**: This ensures modifications due to state changes don’t reset the Page’s initial setup.
 
 
 ## Conflict Resolution
 
-When a webform has multiple states applied, the most recently applied state will take priority in the event of any conflicts. This approach is essential to ensure that the webform accurately reflects the most up-to-date modifications.
+When a Page has multiple states applied, the most recently applied state will take priority in the event of any conflicts. This approach is essential to ensure that the Page accurately reflects the most up-to-date modifications.
 
 ## Preview and Rendering
 
-During state editing, the `Preview in Studio` button allows developers to see real-time changes, offering an immediate glimpse of how state modifications impact the webform. However, when it comes to `Rendering`, it defaults to displaying the base state. 
+During state editing, the `Preview in Studio` button allows developers to see real-time changes, offering an immediate glimpse of how state modifications impact the Page. However, when it comes to `Rendering`, it defaults to displaying the base state. 
 
 :::tip
 To prevent any confusion between the editable and base states, the `Preview` button is disabled while editing states <img src={require('./img/PreviewDisabled.png').default} style={{borderRadius: '6px', width:'10%'}} />.

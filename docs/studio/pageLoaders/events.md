@@ -43,7 +43,7 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./create-webform.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-webform) area.
+1. **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-Page) area.
 
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource.
 
@@ -107,7 +107,7 @@ When the contextual panel is opened for a component or a datasource, all events 
 
 #### Standard Action
 
-For events bound to Standard actions, the collapsed card displays the datasource name involved, followed by its namespace if it's shared or `Webform` when local, on the left side. On the right side, the icon of the standard action is shown.
+For events bound to Standard actions, the collapsed card displays the datasource name involved, followed by its namespace if it's shared or `Page` when local, on the left side. On the right side, the icon of the standard action is shown.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -131,7 +131,7 @@ However, in specific cases, there may be minor differences in the display. For i
 
 #### Navigation Action
 
-For events bound to Navigation actions, the collapsed card displays only the targeted webform on the left side, with the icon of the transition method on the right side.
+For events bound to Navigation actions, the collapsed card displays only the targeted Page on the left side, with the icon of the transition method on the right side.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -223,10 +223,10 @@ In the preview section, various capabilities are available when actions are boun
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
-        <strong>Open Linked Webform</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the webform associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
+        <strong>Open Linked Page</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the Page associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
 	</Column.Item>
 	<Column.Item width="55%">
-		<img src={require('./img/preview_OpenLinkedWebform.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/preview_OpenLinkedPage.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -315,7 +315,7 @@ The navigation target can be defined in two ways using the toggle <img src={requ
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Webform or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
+        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Page or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
     </Column.Item>
     <Column.Item width="40%">
         <img src={require('./img/contextualPanel_NavigationWithDatasource.png').default} style={{borderRadius: '6px'}} />
@@ -324,7 +324,7 @@ The navigation target can be defined in two ways using the toggle <img src={requ
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Webform from the webforms list or providing a direct link as a hardcoded value.
+        <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Page from the Pages list or providing a direct link as a hardcoded value.
     </Column.Item>
     <Column.Item width="40%">
         <img src={require('./img/contextualPanel_NavigationWithHardcoded.png').default} style={{borderRadius: '6px'}} />
@@ -332,34 +332,34 @@ The navigation target can be defined in two ways using the toggle <img src={requ
 </Column.List>
 
 
-### Webforms
+### Pages
 
 To set up a navigation action after linking it with an event, proceed as follows:
 
 1. <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Choose Target Type</strong>: Select the "Webform" option.
+        <strong>Choose Target Type</strong>: Select the "Page" option.
 	</Column.Item>
 	<Column.Item width="40%">
-		<img src={require('./img/webform.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/page.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
 2. Either:
 
-    - **Specify Target Webforms for "Datasource" type targets**: Enter the string-type datasource containing the name of the intended webform.
+    - **Specify Target Pages for "Datasource" type targets**: Enter the string-type datasource containing the name of the intended Page.
 
-    - **Explore Target Webforms for "Hardcoded Value" type targets**: Browse through the list of available webforms, each serving as a potential navigation destination.
+    - **Explore Target Pages for "Hardcoded Value" type targets**: Browse through the list of available Pages, each serving as a potential navigation destination.
 
-3. **Define Transition Method**: Define the approach through which the target webform will be presented based on the following options:
+3. **Define Transition Method**: Define the approach through which the target Page will be presented based on the following options:
 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
                 <li> <code>New Tab</code>: Induce the opening of a new browser tab.</li>
-                <li> <code>Current Tab</code>: Replace the ongoing browser tab with the chosen webform.</li>
-                <li> <code>Webform Loader</code>: Access the intended webform through a dedicated <a href="components/webformloader">Webform loader</a>.</li>
-                <li> <code>Webform Loader (Self)</code>: Reveals content within the existing <a href="components/webformloader">Webform loader</a></li>.
+                <li> <code>Current Tab</code>: Replace the ongoing browser tab with the chosen Page.</li>
+                <li> <code>Page Loader</code>: Access the intended Page through a dedicated <a href="components/pageloader">Page loader</a>.</li>
+                <li> <code>Page Loader (Self)</code>: Reveals content within the existing <a href="components/pageloader">Page loader</a></li>.
             </ul>
         </Column.Item>
         <Column.Item width="40%">
@@ -373,7 +373,7 @@ The feature for providing feedback is not applicable in the context of navigatio
 
 ### External Links
 
-In addition to navigating to webforms, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for webforms](#webforms), with a slight variation in the "Target Type" step:
+In addition to navigating to Pages, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#Pages), with a slight variation in the "Target Type" step:
 
 
 1. <Column.List align="center" justifyContent="between">
@@ -387,7 +387,7 @@ In addition to navigating to webforms, Qodly Studio offers a convenient way to d
 
 2. <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        <strong>Define Transition Method</strong>: Similar to configuring webform navigation, you can specify how the external link will open. However, for external links, you have two options:
+        <strong>Define Transition Method</strong>: Similar to configuring Page navigation, you can specify how the external link will open. However, for external links, you have two options:
         <br/><br/>
         <ul>
             <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li>
@@ -517,7 +517,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#webform-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>webform</code>, it signifies a local datasource visible only within the current webform. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
+        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#Page-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local datasource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
         Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
     </Column.Item>
     <Column.Item width="47%">
@@ -625,7 +625,7 @@ Importantly, this customized feedback aligns with the application's business rul
 
 ### Toast Notifications
 
-When the `Provide Feedback` checkbox is enabled, it introduces a **hidden internal feedback element** into the web page, known as a **toast** notification. This element automatically showcases messages generated by the application code in response to events, using [dedicated webForm functions](../../language/WebFormClass.md) or by specifying them for `On Success` or `On Failure` in the WebForm editor interface, for the case of standard actions.
+When the `Provide Feedback` checkbox is enabled, it introduces a **hidden internal feedback element** into the web page, known as a **toast** notification. This element automatically showcases messages generated by the application code in response to events, using [dedicated Page functions](../../language/WebFormClass.md) or by specifying them for `On Success` or `On Failure` in the Page Editor interface, for the case of standard actions.
 
 :::info
 If this feature is not enabled, feedback sent from the backend will not be displayed within the user interface.
@@ -672,7 +672,7 @@ In this scenario:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         &nbsp; &bull; The Employee <a href="./components/datatable">Datatable component</a> displays a list of employees, utilizing an entity selection (bound to the <code>employees</code> catalog datasource). <br/><br/>
-        &nbsp; &bull; The "General statistics/Detailed statistics" <a href="./components/radio">Radio component</a> is linked to the <code>choice</code> webform datasource.<br/><br/>
+        &nbsp; &bull; The "General statistics/Detailed statistics" <a href="./components/radio">Radio component</a> is linked to the <code>choice</code> Page datasource.<br/><br/>
         &nbsp; &bull; Buttons are bound to standard actions that perform queries on the <code>employee</code> datasource (e.g., "salary &lt; 23000").<br/><br/>
         &nbsp; &bull; An <code>on Change</code> event is assigned to both the <code>employees</code> and <code>choice</code> datasources. These events call the same function from the <code>EmployeeSelection</code> class, named <code>statistics</code>.<br/><br/>
         &nbsp; &bull; For simplicity, the <code>statistics</code> scalar datasource (object) is visualized as a <a href="./components/text">Text component</a>

@@ -4,11 +4,11 @@ title: WebFormItem
 ---
 
 
-The `4D.WebFormItem` class allows you to handle the behavior of your webform components.
+The `4D.WebFormItem` class allows you to handle the behavior of your Page components.
 
 `4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass.md) object returned by the [`webForm`](WebFormClass.md#webform) command. 
 
-When you call the [`webForm`](WebFormClass.md#webform) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/design-webforms/create-webform.md#data-access-category) in your webform.
+When you call the [`webForm`](WebFormClass.md#webform) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/pageLoaders/pageLoaderOverview.md#data-access-category) in your Page.
 
 For example, `WebFormObject.myImage` refers to the image component with `myImage` as server reference.
 

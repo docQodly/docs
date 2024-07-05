@@ -144,11 +144,11 @@ For every environment, you can access your files on the server using the **Secur
 | methodName.4qs | `Text` | Project methods defined in the project. One file per method |
 
 
-#### Webforms
+#### Pages
 
 | Contents            | Format | Description                            |
 | ------------------- | ------ | -------------------------------------- |
-| webformName.webForm | `JSON` | The JSON representation of the webform |
+| pageName.page | `JSON` | The JSON representation of the Page |
 
 :::info
 While it is possible to download all folders and files, some restrictions apply to modifying them. Due to Permissions issues, some folders/files cannot be modified or replaced directly. For instance, attempting to delete or replace the Catalog may result in denial, accompanied by a message prompting you to contact your web hosting service provider for assistance.

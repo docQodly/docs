@@ -14,7 +14,7 @@ title: webEvent
 
 #### Description
 
-`webEvent` <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a webform component<!-- END REF -->.
+`webEvent` <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a Page component<!-- END REF -->.
 
 The command must be called in the context of a web form handled by the Qodly web server.
 
@@ -24,7 +24,7 @@ The returned object contains the following properties:
 
 | Property |  |Type| Description |
 |----|---|----|----|
-| caller |  |string| [Server-side reference](../../studio/design-webforms/create-webform.md#data-access-category) of the component triggering the event |
+| caller |  |string| [Server-side reference](../../studio/pageLoaders/pageLoaderOverview.md#data-access-category) of the component triggering the event |
 | eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `WebForm` component loads</li>|
 | data	| |object|Additional information depending on the involved component|
 | 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|
@@ -71,7 +71,7 @@ end
 
 ```
 
-To open the WebForm with the help on `orderNumber` hidden, you can associate this function to the `onload` event of the WebForm:
+To open the Page with the help on `orderNumber` hidden, you can associate this function to the `onload` event of the Page:
 
 ```qs
 exposed function hideOnLoad()

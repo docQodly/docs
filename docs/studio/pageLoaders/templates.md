@@ -4,7 +4,7 @@ title: Templates
 ---
 import Column from '@site/src/components/Column'
 
-Templates serve as a dynamic resource, offering pre-designed structures to kickstart your webform building process. These templates are carefully crafted to cater to various design needs, from minimalist landing pages to intricate multi-page forms. 
+Templates serve as a dynamic resource, offering pre-designed structures to kickstart your Page building process. These templates are carefully crafted to cater to various design needs, from minimalist landing pages to intricate multi-page forms. 
 
 These templates come ready-made, though they may require some customization to perfectly align with your project's unique needs.
 

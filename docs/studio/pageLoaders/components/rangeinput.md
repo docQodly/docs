@@ -120,7 +120,7 @@ The **Display** property allows to control how they are drawn:
 
 ## Data Integration
 
-The **Range Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
+The **Range Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The datasource for the **Range Input** component should be a numeric value.

@@ -1,37 +1,37 @@
 ---
-id: create-webform
-title: Webform Editor
+id: pageLoaderOverview
+title: Page Editor
 ---
 import Column from '@site/src/components/Column'
 
-## Creating a webform
+## Creating a Page
 
-In Qodly, a project's groundwork starts with a webform, which acts as the primary container integrating various components such as buttons and style boxes. There are three methods available for creating a webform:
+In Qodly, a project's groundwork starts with a Page, which acts as the primary container integrating various components such as buttons and style boxes. There are three methods available for creating a Page:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Webform</code> and name the new webform in the creation modal.</li><br/><br/><br/><br/><br/>
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Webforms</code>. </li><br/><br/><br/><br/>
-            <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for <code>Webform</code>.</li>
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li><br/><br/><br/><br/><br/>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li><br/><br/><br/><br/>
+            <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img src={require('./img/homepageNewWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img src={require('./img/plusWebform.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img src={require('./img/homepageNewPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img src={require('./img/plusPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
         <img src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
 	</Column.Item>
 </Column.List>
 
 
 
-## Webform Editor Overview
+## Page Editor Overview
 
-The Webform Editor enhances your application by providing a versatile toolkit for interface and content customization:
+The Page Editor enhances your application by providing a versatile toolkit for interface and content customization:
 
-<img src={require('./img/WebformEditorOverview.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/PageEditorOverview.png').default} style={{borderRadius: '6px'}} />
 
-1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview webforms.
+1. **Canvas**: The workspace for assembling components, styles, and datasources. You can drag and drop components, apply CSS, and preview Pages.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
 3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
 4. **States**: Coming Soon.
@@ -43,7 +43,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
 10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-12. [**Tabs**](../overview.md#tabs): Organizes open webforms and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
+12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
 13. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs
@@ -63,7 +63,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
-        The outline section provides a visual representation of your webform's hierarchy, allowing you to grasp the structural arrangement. 
+        The outline section provides a visual representation of your Page's hierarchy, allowing you to grasp the structural arrangement. 
         By clicking on an element within the list, you can select it for further action, or utilize the drag-and-drop functionality within the outline to reposition elements. To manage the visibility of specific elements, simply click the eye icon <img src={require('./img/eye.png').default} style={{borderRadius: '6px',height: '4%', width: '4%'}} />, toggling their display on or off as needed.
 	</Column.Item>
 	<Column.Item width="30%">
@@ -88,7 +88,7 @@ The Webform Editor enhances your application by providing a versatile toolkit fo
 
 ### Dialogs
 
-The Dialog button <img alt="Dialog Icon" src={require('./img/headerPanel_Dialogs.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel provides access to a list of Dialogs. Each Dialog is designed as a popup overlay, aimed at enhancing user engagement by displaying additional content  within the existing webform.
+The Dialog button <img alt="Dialog Icon" src={require('./img/headerPanel_Dialogs.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel provides access to a list of Dialogs. Each Dialog is designed as a popup overlay, aimed at enhancing user engagement by displaying additional content  within the existing Page.
 
 :::info
 For further details, refer to the [Dialog](./components/dialog.md) section.
@@ -106,7 +106,7 @@ The initial state of the toggle is context-dependent, adapting to the specific f
 
 ### Sanity Check
 
-The Sanity Check button <img alt="Dialog Icon" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel plays a role in upholding the integrity and consistency of your Webforms. It is automatically engaged when editing an open webform. 
+The Sanity Check button <img alt="Dialog Icon" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel plays a role in upholding the integrity and consistency of your Pages. It is automatically engaged when editing an open Page. 
 
 When the form is error-free, the icon appears as <img alt="Sanity Check OK" src={require('./img/headerPanel_sanity-ok.png').default} style={{borderRadius: '6px', height: '26px', width: '3%' }} />, serving as a vital signifier of the form's health.
 
@@ -140,7 +140,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 </Column.List>
 
 :::info
-The Sanity Check serves as an informative tool. Even if errors are present, a webform can still be saved. 
+The Sanity Check serves as an informative tool. Even if errors are present, a Page can still be saved. 
 :::
 
 
@@ -151,10 +151,10 @@ The Datasources Color button <img alt="Dialog Icon" src={require('./img/headerPa
 
 ### Preview
 
-The Preview buttons <img alt="Dialog Icon" src={require('./img/headerPanel_render1.png').default} style={{borderRadius: '6px', width: '3%'}} /> and <img alt="Dialog Icon" src={require('./img/headerPanel_render2.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel render a webform either directly in Qodly Studio or using the webform URL.
+The Preview buttons <img alt="Dialog Icon" src={require('./img/headerPanel_render1.png').default} style={{borderRadius: '6px', width: '3%'}} /> and <img alt="Dialog Icon" src={require('./img/headerPanel_render2.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel render a Page either directly in Qodly Studio or using the Page URL.
 
 :::info
-For further details, refer to the [Rendering a webform](../rendering.md) section.
+For further details, refer to the [Rendering a Page](../rendering.md) section.
 :::
 
 ## Contextual panel
@@ -229,7 +229,7 @@ The Properties panel is a powerful tool for customizing a wide array of componen
 
 The Properties Panel offers a pair of distinctive modes:
 
-- **Standard mode**: This mode presents a concise and straightforward view, ideal for configuring essential properties swiftly. Utilize it to quickly set up key attributes for your webform components. 
+- **Standard mode**: This mode presents a concise and straightforward view, ideal for configuring essential properties swiftly. Utilize it to quickly set up key attributes for your Page components. 
 - **Advanced mode**: In this mode, a comprehensive view showcasing all available properties is provided. Choose this mode for intricate property definition, enabling meticulous configuration of design choices and parameters.
 
 <Column.List align="center" justifyContent="between">
@@ -246,7 +246,7 @@ The Properties Panel offers a pair of distinctive modes:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/webformloader">Webform loader component</a> navigation actions. The reference for a webform component is consistently set to ROOT <img src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
+        This section introduces the internal ID assigned to the chosen component during creation. This unique identifier is utilized for referencing during <a href="components/pageloader">Page loader component</a> navigation actions. The reference for a Page component is consistently set to ROOT <img src={require('./img/propertiesPanel_refRoot.png').default} style={{borderRadius: '6px', height: '20%', width: '20%' }} />.
     </Column.Item>
     <Column.Item width="30%">
         <img src={require('./img/propertiesPanel_ref.png').default} style={{borderRadius: '6px'}} />
@@ -333,12 +333,12 @@ Explore below for specific options:
 </Column.List>
 :::
 
-## Webform JSON Representation
+## Page JSON Representation
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        In Qodly Studio, every webform possesses a unique JSON representation. <br/><br/>
-        This representation can be accessed through a text editor by selecting the webform in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
+        In Qodly Studio, every Page possesses a unique JSON representation. <br/><br/>
+        This representation can be accessed through a text editor by selecting the Page in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
 	</Column.Item>
 	<Column.Item width="40%">
         <img src={require('./img/textEditor.png').default} style={{borderRadius: '6px'}} />
@@ -347,25 +347,25 @@ Explore below for specific options:
 
 ### Purpose
 
-The JSON representation serves as a fundamental blueprint for the webform. Its primary purposes include:
+The JSON representation serves as a fundamental blueprint for the Page. Its primary purposes include:
 
-- **Secure Preservation**: It securely preserves the webform in a structured, machine-readable format.
+- **Secure Preservation**: It securely preserves the Page in a structured, machine-readable format.
 
-- **Consistent Modification**: It simplifies the process of modifying component-related details to customize the webform, resolve issues, or perform global search and replace operation.
+- **Consistent Modification**: It simplifies the process of modifying component-related details to customize the Page, resolve issues, or perform global search and replace operation.
 
-- **Easy Replication**: It allows users to effortlessly replicate the entire webform, including its design and functionality, by copying and pasting it into another web form's text editor.
+- **Easy Replication**: It allows users to effortlessly replicate the entire Page, including its design and functionality, by copying and pasting it into another web form's text editor.
 
 :::tip Notably:
-This process ensures the seamless replication of even local datasources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target webform.
+This process ensures the seamless replication of even local datasources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target Page.
 :::
 
 ### Example
 
-Let's explore the JSON representation of a webform that includes a [Webform Loader](./components/webformloader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
+Let's explore the JSON representation of a Page that includes a [Page Loader](./components/pageloader.md) component and a [Stylebox](./components/stylebox.md) component encapsulating a [Text](./components/text.md) component and a [Radio](./components/radio.md) component.
 
-<img src={require('./img/webformJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/pageJSONRepresentation.png').default} style={{borderRadius: '6px'}} />
 
-The JSON representation of the webform is structured as follows:
+The JSON representation of the Page is structured as follows:
 
 <div class="longCode-block">
 
@@ -375,7 +375,7 @@ The JSON representation of the webform is structured as follows:
     "v": "1.0",
     "datasources": [
       {
-        "id": "homeWebform",
+        "id": "homePage",
         "type": "scalar",
         "namespace": "",
         "dataType": "string",
@@ -431,9 +431,9 @@ The JSON representation of the webform is structured as follows:
           "paddingBottom": "0px",
           "paddingLeft": "0px"
         },
-        "serverSideRef": "webformRef"
+        "serverSideRef": "PageRef"
       },
-      "displayName": "Webform",
+      "displayName": "Page",
       "custom": {},
       "parent": "",
       "hidden": false,
@@ -594,7 +594,7 @@ The JSON representation of the webform is structured as follows:
             "id": "f9mqtjJG2nap5EJKaMqKM5"
           }
         ],
-        "datasource": "Ui:mainWebform",
+        "datasource": "Ui:mainPage",
         "style": {
           "color": "#000000ff",
           "textTransform": "uppercase",
@@ -611,7 +611,7 @@ The JSON representation of the webform is structured as follows:
     },
     "bXx3gBHhJA": {
       "type": {
-        "resolvedName": "WebformLoader"
+        "resolvedName": "PageLoader"
       },
       "isCanvas": false,
       "props": {
@@ -624,12 +624,12 @@ The JSON representation of the webform is structured as follows:
           "paddingBottom": "0px",
           "paddingTop": "0px"
         },
-        "datasource": "Ui:mainWebform",
-        "webform": "home",
+        "datasource": "Ui:mainPage",
+        "Page": "home",
         "classNames": [],
-        "serverSideRef": "webformLoaderRef"
+        "serverSideRef": "pageLoaderRef"
       },
-      "displayName": "Webform Loader",
+      "displayName": "Page Loader",
       "custom": {},
       "parent": "ROOT",
       "hidden": false,
@@ -644,13 +644,13 @@ The JSON representation of the webform is structured as follows:
 
 ### Dissection
 
-The JSON representation of the webform consists of two major elements: `metadata` and `components`.
+The JSON representation of the Page consists of two major elements: `metadata` and `components`.
 
-1. **metadata**: Contains metadata related to the webform.
+1. **metadata**: Contains metadata related to the Page.
 <ul>
-    <li><code>v</code> : Version of the webform.</li> 
+    <li><code>v</code> : Version of the Page.</li> 
     <br/>
-    <li><code>datasources</code> : An array of local datasources scoped to the webform, with the following sub-attributes:</li>
+    <li><code>datasources</code> : An array of local datasources scoped to the Page, with the following sub-attributes:</li>
     <ul>
         <li><code>id</code> : Identifier for each datasource.</li>
         <li><code>type</code> : Specifies the type of the datasource.</li>
@@ -659,17 +659,17 @@ The JSON representation of the webform consists of two major elements: `metadata
         <li><code>initialValue</code> : Indicates the initial value of the datasource name.</li>
     </ul> 
     <br/>
-    <li><code>styles</code> : An array of local css classes scoped to the webform. It includes the following sub-attributes:</li>
+    <li><code>styles</code> : An array of local css classes scoped to the Page. It includes the following sub-attributes:</li>
     <ul>
         <li><code>name</code> : Name of the css class.</li>
         <li><code>content</code> : The actual CSS content of the CSS class.</li>
         <li><code>parentId</code> : Identifier of the parent CSS class, if applicable.</li>
         <li><code>id</code> : Unique identifier for each CSS class.</li>
-        <li><code>scope</code> : Defines the scope in which the style operates, remaining local at all times, as the styles exclusively represent an array of local CSS classes confined to the webform.</li>
+        <li><code>scope</code> : Defines the scope in which the style operates, remaining local at all times, as the styles exclusively represent an array of local CSS classes confined to the Page.</li>
     </ul> 
 </ul> 
 
-2. **components**: Represents the individual components used in the webform. Each component shares these common attributes:
+2. **components**: Represents the individual components used in the Page. Each component shares these common attributes:
 
     - `type`: 
         - `resolvedName`: Specifies the component's type.<br/><br/>
@@ -696,7 +696,7 @@ The JSON representation of the webform consists of two major elements: `metadata
 
     - **ROOT** (Container):
         - `className`: The CSS class name for styling.
-        - `airyMode`: Indicates whether airy mode is enabled for the webform.
+        - `airyMode`: Indicates whether airy mode is enabled for the Page.
 
     - **0ANLVNGY8X** (TEXT):
         - `doc`:
@@ -716,8 +716,8 @@ The JSON representation of the webform consists of two major elements: `metadata
         - `options`: Lists the available radio options.
         - `datasource`: The name of the datasource bound to the component.
 
-    - **bXx3gBHhJA** (Webform Loader):
-        - `webform`: The name of the webform set as an initial value.
+    - **bXx3gBHhJA** (Page Loader):
+        - `page`: The name of the Page set as an initial value.
         - `datasource`: The name of the datasource bound to the component.
 
 ### Syntax Check
@@ -772,7 +772,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 :::warning
 It is essential to exercise caution when editing the JSON representation, as the syntax check does not validate whether attribute names match the expected ones or if there are issues with the attribute names. Similarly, it does not necessarily catch issues where a boolean value is used in place of a string value. 
 
-These discrepancies may not trigger errors, but they can potentially corrupt your webform or, in more severe cases, break it until the errors are rectified. Therefore, thorough validation of attribute names and values is crucial to ensure the integrity and functionality of your webform.
+These discrepancies may not trigger errors, but they can potentially corrupt your Page or, in more severe cases, break it until the errors are rectified. Therefore, thorough validation of attribute names and values is crucial to ensure the integrity and functionality of your Page.
 :::
 
 ## Japanese Character Support
@@ -787,7 +787,7 @@ Japanese characters are now supported in all elements created in Qodly. This inc
 - **Dataclass Names**
 - **Property (Field) Names**
 - **Craft Components**
-- **Webforms**
+- **Pages**
 - **States**
 - **Method Names**
 - **Roles and Privileges**

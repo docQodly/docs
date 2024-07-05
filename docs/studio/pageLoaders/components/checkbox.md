@@ -90,7 +90,7 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
 
 ## Data Integration
 
-The **Checkbox** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the webform.
+The **Checkbox** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The datasource for the **Checkbox** component should be binary, with values limited to `true` or `false`.

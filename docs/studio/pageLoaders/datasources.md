@@ -4,7 +4,7 @@ title: Datasources
 ---
 import Column from '@site/src/components/Column'
 
-Datasources are integral to Qodly's architectural design, simplifying the development of web applications. They act as **data connectors, serving as references** that automatically activate events upon data changes. These datasources can be **linked** to webform components, providing an intuitive way to display and manage data within your application.
+Datasources are integral to Qodly's architectural design, simplifying the development of web applications. They act as **data connectors, serving as references** that automatically activate events upon data changes. These datasources can be **linked** to Page components, providing an intuitive way to display and manage data within your application.
 
 ## Understanding Datasources
 
@@ -40,27 +40,27 @@ It's crucial to emphasize that Scalar datasources do not originate from the Data
 
 ## Datasource Scopes
 
-### Webform Datasources
+### Page Datasources
 
-Webform Datasources are scoped to the webform where they are defined. They can only be used within that specific webform.
+Page Datasources are scoped to the Page where they are defined. They can only be used within that specific Page.
 
 ### Shared Datasources
 
-Shared Datasources, on the other hand, are scoped to the entire application and can be utilized in multiple webforms within the same project.
+Shared Datasources, on the other hand, are scoped to the entire application and can be utilized in multiple Pages within the same project.
 
 :::info
-By default, when you [**create a datasource**](#creating-a-datasource) without specifying a namespace, you define a webform datasource.
+By default, when you [**create a datasource**](#creating-a-datasource) without specifying a namespace, you define a Page datasource.
 :::
 
 #### Shared functions
 
-Shared functions are also accessible when Entity and Entity Selection serve as shared datasources, making them available for use in multiple webforms within the same project.
+Shared functions are also accessible when Entity and Entity Selection serve as shared datasources, making them available for use in multiple Pages within the same project.
 
 ### Determining the Scope of Datasources
 
 When selecting a component bound to a datasource, the Properties panel provides information about whether the datasource is shared:
 
-- If the tag reads **webform**, it signifies a local datasource visible only within the current webform.
+- If the tag reads **Page**, it signifies a local datasource visible only within the current Page.
 
 - On the other hand, if there is a tag with **a specific name**, it implies that you have passed a shared datasource belonging to a namespace.
 
@@ -70,7 +70,7 @@ When configuring a function event, the Contextual panel indicates whether the fu
 
 ## Creating a datasource
 
-Within the Webform Editor, the **Datasources** section conveniently organizes available datasources. This section includes:
+Within the Page Editor, the **Datasources** section conveniently organizes available datasources. This section includes:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -85,7 +85,7 @@ Within the Webform Editor, the **Datasources** section conveniently organizes av
                 <li>Functions defined at the datastore level and within each dataclass.</li>
             </ul>
             <br/>
-            <li><strong>This Webform</strong>: Datasources exclusive to the current webform.</li>
+            <li><strong>This Page</strong>: Datasources exclusive to the current Page.</li>
             <br/>
             <li><strong>Namespaces</strong>: Shared datasources organized by namespaces. You can create a namespace by clicking the <code>+</code> icon or when defining a shared datasource.</li>
         </ul>        
@@ -98,7 +98,7 @@ Within the Webform Editor, the **Datasources** section conveniently organizes av
 
 ### From the Catalog
 
-To create Webform or Shared datasources directly from the Catalog, follow these steps:
+To create Page or Shared datasources directly from the Catalog, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
@@ -111,7 +111,7 @@ To create Webform or Shared datasources directly from the Catalog, follow these 
                         <br/>
                         <li>Select the datasource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA data source. Afterward, proceed to configure its settings, including initial values, page size, and depth.</li>
                         <br/>
-                        <li>To create a shared datasource, specify a <code>Namespace</code>, for a webform (non-shared) datasource, leave the field empty.</li>
+                        <li>To create a shared datasource, specify a <code>Namespace</code>, for a Page (non-shared) datasource, leave the field empty.</li>
                 </ul>        
 	</Column.Item>
 	<Column.Item width="45%">
@@ -120,17 +120,17 @@ To create Webform or Shared datasources directly from the Catalog, follow these 
 </Column.List>
 
 :::info
-Specifying a namespace places the datasource in the **Namespaces** section, while without a namespace, it is situated in the **This Webform** section.
+Specifying a namespace places the datasource in the **Namespaces** section, while without a namespace, it is situated in the **This Page** section.
 :::
 
-### From This Webform
+### From This Page
 
-To create Webform datasources, follow these steps:
+To create Page datasources, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
                 <ul>
-                        <li>Click the <code>+</code> icon in the header of the <strong>This Webform</strong> section.</li>
+                        <li>Click the <code>+</code> icon in the header of the <strong>This Page</strong> section.</li>
                         <br/>
                         <li>Enter the name of the datasource. </li>
                         <br/>
@@ -138,7 +138,7 @@ To create Webform datasources, follow these steps:
                 </ul>        
 	</Column.Item>
 	<Column.Item width="45%">
-                <img src={require('./img/ThisWebform.png').default} style={{borderRadius: '6px'}} />
+                <img src={require('./img/ThisPage.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -245,9 +245,9 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        The <strong>Inspect</strong> option allows you to see where your datasources are used within your webforms.
+        The <strong>Inspect</strong> option allows you to see where your datasources are used within your Pages.
         <br/><br/>
-        Toggle the option by clicking the icon, then hover over a datasource to highlight its location in your webform.
+        Toggle the option by clicking the icon, then hover over a datasource to highlight its location in your Page.
 	</Column.Item>
 	<Column.Item width="40%">
         <img src={require('./img/inspect-button.png').default} style={{borderRadius: '6px'}} />
@@ -260,14 +260,14 @@ Please note that when renaming a shared datasource, only opened web forms can ha
 
 ### Deleting a Datasource
 
-To delete a Datasource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Data Sources list. If you confirm the dialog box, the datasource is deleted and its references in webforms are removed.
+To delete a Datasource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Data Sources list. If you confirm the dialog box, the datasource is deleted and its references in Pages are removed.
 
 
 ### Removing Unused Datasources
 
-An unused datasource refers to any local datasource that is defined but not utilized in any section of the webform. 
+An unused datasource refers to any local datasource that is defined but not utilized in any section of the Page. 
 
-Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Data Sources's header to cleanse your webform of unnecessary local datasource.
+Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Data Sources's header to cleanse your Page of unnecessary local datasource.
 
 
 ### Deleting a Namespace

@@ -124,7 +124,7 @@ There are two ways for removing Dialogs:
     </Column.Item>
 </Column.List>
 
-This will open the dialog within the current webform, providing a dedicated interface for modifying its content.
+This will open the dialog within the current Page, providing a dedicated interface for modifying its content.
 
 :::info
 
@@ -211,5 +211,5 @@ The Dialog component can respond to various events, enabling dynamic user experi
 | On Close  | Calls for an action to be performed just before the dialog is closed. |
 
 :::tip
-In scenarios where the `Dialog` includes a `Webform Loader`, these events are triggered before the `On Load` actions of the `Webform Loader`.
+In scenarios where the `Dialog` includes a `Page Loader`, these events are triggered before the `On Load` actions of the `Page Loader`.
 :::

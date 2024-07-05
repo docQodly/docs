@@ -15,9 +15,9 @@ The Styles Library provides three distinct types of CSS classes:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ul>
-          <li><strong>Local</strong>: These CSS classes are specific to the Webforms in which they are created and do not have an icon next to them.</li>
-          <li><strong>Theme</strong>: Predefined CSS classes designed for standard themes, which can be applied across all Webforms in your application. You can recognize them by this icon <img alt="styles-library" src={require('./img/theme.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
-          <li><strong>Shared</strong>: CSS classes that are shareable and can be used across all Webforms within your application. These are identifiable by this unique icon <img alt="styles-library" src={require('./img/shared.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
+          <li><strong>Local</strong>: These CSS classes are specific to the Pages in which they are created and do not have an icon next to them.</li>
+          <li><strong>Theme</strong>: Predefined CSS classes designed for standard themes, which can be applied across all Pages in your application. You can recognize them by this icon <img alt="styles-library" src={require('./img/theme.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
+          <li><strong>Shared</strong>: CSS classes that are shareable and can be used across all Pages within your application. These are identifiable by this unique icon <img alt="styles-library" src={require('./img/shared.png').default} style={{borderRadius: '6px', width: '5%'}} />.</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="40%">
@@ -66,7 +66,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 	</Column.Item>
 </Column.List>
 
-- Both **Local** and **Shared** CSS class codes can be modified in the [Contextual panel](../design-webforms/create-webform#contextual-panel) at the interface's bottom.
+- Both **Local** and **Shared** CSS class codes can be modified in the [Contextual panel](../pageLoaders/pageLoaderOverview#contextual-panel) at the interface's bottom.
 
   <img alt="styles-library" src={require('./img/editCSSClassCode.png').default} style={{borderRadius: '6px'}} />
 
@@ -116,9 +116,9 @@ Theme CSS classes cannot be deleted.
 
 ### Removing Unused CSS Classes
 
-An unused CSS class refers to any local class that is defined but not utilized in any section of the webform. 
+An unused CSS class refers to any local class that is defined but not utilized in any section of the Page. 
 
-Click on the `Delete Unused Elements` button <img alt="styles-library" src={require('./img/delete-unused_css.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Styles Library's header to cleanse your webform of unnecessary CSS classes.
+Click on the `Delete Unused Elements` button <img alt="styles-library" src={require('./img/delete-unused_css.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Styles Library's header to cleanse your Page of unnecessary CSS classes.
 
 
 ### Converting a Local CSS Class to Shared
@@ -129,7 +129,7 @@ Inside the Contextual panel, you'll find a field with the class name <img alt="s
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    The <strong>Inspect</strong> option allows you to see where your CSS classes are used within your webforms. 
+    The <strong>Inspect</strong> option allows you to see where your CSS classes are used within your Pages. 
 	</Column.Item>
 	<Column.Item width="40%">
     <img src={require('./img/inspect-button2.png').default} style={{borderRadius: '6px'}} />
@@ -138,7 +138,7 @@ Inside the Contextual panel, you'll find a field with the class name <img alt="s
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="35%">
-    Toggle the option by clicking the button, then hover over a CSS class to highlight its location in your webform.
+    Toggle the option by clicking the button, then hover over a CSS class to highlight its location in your Page.
 	</Column.Item>
 	<Column.Item width="60%">
 		<img src={require('./img/cssinspect.png').default} style={{borderRadius: '6px'}} />
@@ -518,9 +518,9 @@ Customizing the appearance of the progress bar is facilitated through the follow
   }
   ```
 
-## CSS Cascading in Webform Loaders
+## CSS Cascading in Page Loaders
 
-When components like a button in a webform loader and another in the main webform share the same local CSS class name, unexpected style mergers can occur. This is a result of CSS cascading, where styles from the parent webform combine with those of nested elements, causing design inconsistencies.
+When components like a button in a Page loader and another in the main Page share the same local CSS class name, unexpected style mergers can occur. This is a result of CSS cascading, where styles from the parent Page combine with those of nested elements, causing design inconsistencies.
 
 ```html
 <div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
@@ -535,18 +535,18 @@ When components like a button in a webform loader and another in the main webfor
 ```
 
 :::tip
-To prevent such issues, it's important to use unique class names, particularly in webforms with layered structures.
+To prevent such issues, it's important to use unique class names, particularly in Pages with layered structures.
 :::
 
-This issue is also prevalent in more complex webform arrangements, such as dialogs within webform loaders, where CSS cascading can lead to similarly unexpected styling challenges.
+This issue is also prevalent in more complex Page arrangements, such as dialogs within Page loaders, where CSS cascading can lead to similarly unexpected styling challenges.
 
 
 
 <!--
 
-## CSS Class Behavior and Cascading in Webforms
+## CSS Class Behavior and Cascading in Pages
 
-In webforms, particularly those with webform loaders, understanding how CSS classes behave is crucial. Even when elements like buttons are nested within multiple layers, the naming of CSS classes plays a significant role. If a button in a webform loader and one in the main webform share the same local class name, , CSS cascading can lead to unexpected style mergers, the css styles for the nested element are merged from both the parent webform css class ad its own. This is a common challenge in web design, where styles defined in a parent element or component can inadvertently affect child elements or components, especially when they share class names.
+In Pages, particularly those with Page loaders, understanding how CSS classes behave is crucial. Even when elements like buttons are nested within multiple layers, the naming of CSS classes plays a significant role. If a button in a Page loader and one in the main Page share the same local class name, , CSS cascading can lead to unexpected style mergers, the css styles for the nested element are merged from both the parent Page css class ad its own. This is a common challenge in web design, where styles defined in a parent element or component can inadvertently affect child elements or components, especially when they share class names.
 
 
 ```html
@@ -562,16 +562,16 @@ In webforms, particularly those with webform loaders, understanding how CSS clas
 ```
 
 :::tip
-It's important to be mindful of CSS class naming, especially when the same class names are used across different levels in a webform.
+It's important to be mindful of CSS class naming, especially when the same class names are used across different levels in a Page.
 :::
 
-the same issue could happen in webforms with complex structures, including dialog elements loaded within webform loader within a parent webform, CSS cascading can lead to unexpected style mergers. 
+the same issue could happen in Pages with complex structures, including dialog elements loaded within Page loader within a parent Page, CSS cascading can lead to unexpected style mergers. 
 
 
 <!--- 
 ### Scoped CSS Classes in Deep Elements
 
-When a button is deeply nested within a webform, it have a unique, scoped class name, like `cayesbngcmkfgmndlxvaxoinvdmh`. This scoping ensures that styles from parent local CSS classes that have the same name as the local css class of the button, do not unintentionally affect this button, even if they share the same class name.
+When a button is deeply nested within a Page, it have a unique, scoped class name, like `cayesbngcmkfgmndlxvaxoinvdmh`. This scoping ensures that styles from parent local CSS classes that have the same name as the local css class of the button, do not unintentionally affect this button, even if they share the same class name.
 
 ```html
 <div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
@@ -597,7 +597,7 @@ Scoped CSS classes provide a way to isolate styles, preventing unwanted inherita
 
 ### Cascading Effect with Dialog Elements
 
-Unlike the scoped button, dialog elements displayed in a webform loader in the parent webform might not be scoped. Consequently, the CSS cascading effect can cause unintended style mergers:
+Unlike the scoped button, dialog elements displayed in a Page loader in the parent Page might not be scoped. Consequently, the CSS cascading effect can cause unintended style mergers:
 
 ```html
 <div class="fd-canvas fd-canvas--airy overflow-auto bg-white">
@@ -608,10 +608,10 @@ Unlike the scoped button, dialog elements displayed in a webform loader in the p
 </div>
 ```
 
-In cases where the main and sub webforms both declare a CSS/style class as a local class, and the sub webform in the webform loader has a dialog then the cascading effect may result in a merger of styles from both classes. This can lead to inconsistent or undesired styling.
+In cases where the main and sub Pages both declare a CSS/style class as a local class, and the sub Page in the Page loader has a dialog then the cascading effect may result in a merger of styles from both classes. This can lead to inconsistent or undesired styling.
 
 :::tip Solution Suggestion
-Be mindful of class naming and scoping, especially in complex nested structures like dialogs in webforms.
+Be mindful of class naming and scoping, especially in complex nested structures like dialogs in Pages.
 :::
 
 --->

@@ -5,7 +5,7 @@ title: Button
 import Column from '@site/src/components/Column'
 
 
-The **Button**  component is a UI element that prompts user engagement and triggers actions within your webform. 
+The **Button**  component is a UI element that prompts user engagement and triggers actions within your Page. 
 
 
 :::info 

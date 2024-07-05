@@ -7,7 +7,7 @@ import Column from '@site/src/components/Column'
 
 ## Overview
 
-Conditional states enhance webforms by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
+Conditional states enhance Pages by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
 :::info
 Once a condition is associated with a state, it becomes a `Conditional` state.
@@ -38,7 +38,7 @@ For more details, please refer to the [Saved Conditions](#saved-conditions-area)
 
 ## Conditions Interface
 
-Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of webform states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
+Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of Page states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
 
 ### States Area
 
@@ -55,7 +55,7 @@ Accessible via the `Conditions` button <img alt="explorer" src={require('./img/s
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-	This area allows users to create, store, and manage conditions that can be reused across various states within the webform.
+	This area allows users to create, store, and manage conditions that can be reused across various states within the Page.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/conditionsInterface_savedConditions.png').default} style={{borderRadius: '6px'}} />
@@ -471,7 +471,7 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="70%">
-		To better reflect a condition's role within the webform, the <code>Rename condition</code> option enables users to change its default name.
+		To better reflect a condition's role within the Page, the <code>Rename condition</code> option enables users to change its default name.
 		<br/><br/>
 		Alternatively, users can click on the <img alt="explorer" src={require('./img/state_edit.png').default} style={{borderRadius: '6px', width:'4%'}} /> button next to the condition's name to initiate renaming
 		<br/><br/><br/>
@@ -542,7 +542,7 @@ Upon addition, each condition's initial JSON structure appears in the editor as 
 }
 ```
 
-This initial blueprint provides a template that users can modify to fit the specific requirements of their webform conditions.
+This initial blueprint provides a template that users can modify to fit the specific requirements of their Page conditions.
 
 
 ### Common JSON Fields
