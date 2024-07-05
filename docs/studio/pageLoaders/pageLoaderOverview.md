@@ -33,7 +33,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 
 1. **Canvas**: The workspace for assembling components, styles, and qodlysources. You can drag and drop components, apply CSS, and preview Pages.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
-3. [**Data Sources**](datasources.md):Connectors linked to components for data display and management.
+3. [**Data Sources**](qodlySources.md):Connectors linked to components for data display and management.
 4. [**States**](states.md): Dynamically adjusts Page's UI, styling, and properties based on user contexts and data, minimizing server-side processing needs.
 5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
 6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
@@ -187,7 +187,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
     The Qodly Source tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a qodlysource, providing a centralized interface for coordinating components and their data interactions.
 	</Column.Item>
 	<Column.Item width="50%">
-        <img src={require('./img/contextualPanel_tabDatasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_tabQodlySource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -276,7 +276,7 @@ Each component's documentation contains its own dedicated section explaining the
 
 ### Data Access Category
 
-Configure the interaction between your chosen component and its associated qodlysource, if applicable. These property details are extensively covered in the [**Qodly Sources**](datasources.md) section.
+Configure the interaction between your chosen component and its associated qodlysource, if applicable. These property details are extensively covered in the [**Qodly Sources**](qodlySources.md) section.
 
 The Data Access properties encompass distinct options and fields tailored to each specific component, including:
 

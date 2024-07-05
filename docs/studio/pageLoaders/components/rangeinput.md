@@ -120,10 +120,10 @@ The **Display** property allows to control how they are drawn:
 
 ## Data Integration
 
-The **Range Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
+The **Range Input** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
-The datasource for the **Range Input** component should be a numeric value.
+The qodlysource for the **Range Input** component should be a numeric value.
 :::
 
 ### Data Binding
@@ -134,7 +134,7 @@ To associate data with the Range Input component, follow these steps:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ol>
-            <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
+            <li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Range Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct qodlysource of type number. For instance, you can select an entity, such as <code>dayplan.hotel_ID</code>.</li>
         </ol>
     </Column.Item>
     <Column.Item width="45%">
@@ -143,15 +143,15 @@ To associate data with the Range Input component, follow these steps:
 </Column.List>
 
 
-3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>dayplan.hotel_ID.rating</code>.
+3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type qodlysource, such as <code>dayplan.hotel_ID.rating</code>.
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the Range Input component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the Range Input component.
 :::
 
 ### Server-Side Interaction
 
-Interacting with user input data is straightforward. When you bind a datasource to the **Range Input** component, you can access and make use of the input content.
+Interacting with user input data is straightforward. When you bind a qodlysource to the **Range Input** component, you can access and make use of the input content.
 
 Subsequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 

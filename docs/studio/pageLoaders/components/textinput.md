@@ -149,10 +149,10 @@ See <a href="componentsBasics#data-formatting">Formats</a> for a description of 
 
 ## Data Integration
 
-The **Text Input** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
+The **Text Input** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
-The datasource for the **Text Input** component should be of type `text`, `number`, `date`, or `duration`.
+The qodlysource for the **Text Input** component should be of type `text`, `number`, `date`, or `duration`.
 :::
 
 ### Data Binding
@@ -163,7 +163,7 @@ To associate data with the Text Input component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ol>
-                <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct datasource of type text. For instance, you can select an entity, such as <code>package</code>.</li>
+                <li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Text Input or retrieve from user input. This can be an attribute from an entity, an array, or a direct qodlysource of type text. For instance, you can select an entity, such as <code>package</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="40%">
@@ -172,20 +172,20 @@ To associate data with the Text Input component, follow these steps:
 </Column.List>
 
 
-3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type datasource, such as <code>package.name</code>.
+3. **Choose the Attribute**: Choose the specific attribute that you want to display within the component when using an entity or an array type qodlysource, such as <code>package.name</code>.
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the Text Input component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the Text Input component.
 :::
 
 ### Server-Side Interaction
 
-Retrieving user input data is equally effortless. By binding a datasource to the **Text Input** component, you can access and employ user-entered content.
+Retrieving user input data is equally effortless. By binding a qodlysource to the **Text Input** component, you can access and employ user-entered content.
 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-                Imagine a search input where users type to find packages. Binding a datasource captures the input. 
+                Imagine a search input where users type to find packages. Binding a qodlysource captures the input. 
 	</Column.Item>
 	<Column.Item width="50%">
                 <img src={require('./img/textInput_Server-SideInteraction.png').default} style={{borderRadius: '6px'}} />

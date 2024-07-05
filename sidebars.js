@@ -94,7 +94,7 @@ const sidebars = {
 				'studio/pageLoaders/craftedComponents',
 				'studio/pageLoaders/templates',
 				'studio/pageLoaders/date-time-formats',
-				'studio/pageLoaders/datasources',
+				'studio/pageLoaders/qodlySources',
 				'studio/pageLoaders/events',
 				{
 					type: 'category',

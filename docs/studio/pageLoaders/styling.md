@@ -298,13 +298,13 @@ The following specific CSS classes are supported:
 |Header|.header|The entire header|
 ||.header-cell|All cells in the header|
 ||.header-even|Header of even columns|
-||.header-datasourceName (*)|The header of the corresponding datasource|
+||.header-qodlysourceName (*)|The header of the corresponding qodlysource|
 |Row|.row|All rows|
 ||.selected|The selected row|
 ||.row-even|All even rows|
 ||.hover|The hovered row|
 |Cell|.cell|All cells|
-|Column|.col-datasourceName (*)|The column of the corresponding datasource|
+|Column|.col-qodlysourceName (*)|The column of the corresponding qodlysource|
 ||.col-even|Even columns|
 ||.sorted|Sorted colums|
 ||.sorted-asc|Ascending sorted columns|
@@ -419,7 +419,7 @@ self .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {
 
 #### Example 3 - Dark Mode DataTable
 
-This example assumes that the DataTable contains a column associated with a `lastname` datasource.
+This example assumes that the DataTable contains a column associated with a `lastname` qodlysource.
 
 ![dark-mode-datatable](img/Dark-mode.png)
 

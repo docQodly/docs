@@ -100,14 +100,14 @@ Within the **File Upload** component, an embedded **Icon** allows for further cu
 The **File Upload** component uses data-binding to link user interactions with the underlying data structure.
 
 :::info 
-The datasource for the **File Upload** component can take the form of either a `Blob` or a `Picture`.
+The qodlysource for the **File Upload** component can take the form of either a `Blob` or a `Picture`.
 :::
 
 ### Data Binding
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-		Bind the component to an attribute of Blob or Picture type within an entity datasource. This specific attribute will serve as the storage location for the uploaded file.
+		Bind the component to an attribute of Blob or Picture type within an entity qodlysource. This specific attribute will serve as the storage location for the uploaded file.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/fileUpload_dataBinding.png').default} style={{borderRadius: '6px'}} />
@@ -115,7 +115,7 @@ The datasource for the **File Upload** component can take the form of either a `
 </Column.List>
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the File Upload component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the File Upload component.
 :::
 
 ## Showcase

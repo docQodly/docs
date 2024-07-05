@@ -6,7 +6,7 @@ import Column from '@site/src/components/Column'
 
 Events serve as a mechanism for initiating specific actions, often employed to trigger particular behaviors. They collaborate with various actions to establish dynamic interactions within an application.
 
-For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a datasource](#datasource-events).
+For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a qodlysource](#qodly-source-events).
 
 Within Qodly Studio, events play a pivotal role in executing code on the Qodly web server, without requiring any supplementary JavaScript.
 
@@ -14,7 +14,7 @@ Within Qodly Studio, events play a pivotal role in executing code on the Qodly w
 
 ## Types of Events
 
-Events can be set to trigger either when end-users perform specific actions or when datasources are updated.
+Events can be set to trigger either when end-users perform specific actions or when qodlysources are updated.
 
 ### User events
 
@@ -22,18 +22,18 @@ You can configure events to activate in response to specific actions performed b
 
 Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](components/stylebox.md#triggers-and-events).
 
-### Datasource events
+### Qodly Source events
 
-Besides events triggered by end-user actions, events can also be automated to respond when datasources undergo changes. The primary event for datasources is the `On Change` event.
+Besides events triggered by end-user actions, events can also be automated to respond when qodlysources undergo changes. The primary event for qodlysources is the `On Change` event.
 
-When the `On Change` event is linked to a datasource, it will trigger in the following scenarios:
+When the `On Change` event is linked to a qodlysource, it will trigger in the following scenarios:
 
 |Trigger|Description|
 |---|---|
-|Datasource|<li>The reference pointed to by the datasource changes in the web browser (not on the server)</li><li>The entity is [touched](../../language/EntityClass.md#touched)</li>|
-|Entity datasource|The contents of the entity attribute change|
-|Entity selection datasource| <li>The reference pointed by the datasource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
-|Scalar datasource|The contents of the scalar datasource change|
+|Qodly Source|<li>The reference pointed to by the qodlysource changes in the web browser (not on the server)</li><li>The entity is [touched](../../language/EntityClass.md#touched)</li>|
+|Entity Qodly Source|The contents of the entity attribute change|
+|Entity Selection Qodly Source| <li>The reference pointed by the qodlysource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
+|Scalar qodlysource|The contents of the scalar qodlysource change|
 
 ## Events Management
 
@@ -43,14 +43,14 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Datasource**: Begin by choosing the component or datasource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview.md#outline), or, in the case of datasources, either the [shared datasources](datasources.md#from-a-namespace) area or the [local datasources](datasources.md#from-this-Page) area.
+1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview#outline), or, in the case of qodlysources, either the [shared qodlysources](./qodlySources#from-a-namespace-shared-qodlysource) area or the [local qodlysources](./qodlySources#from-this-page) area.
 
-2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or datasource.
+2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or qodlysource.
 
 
 3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '13%'}} /> you wish to bind to the event. You have three options:
 
-    - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on datasources, such as create, save, drop, or order by, without the need for coding.
+    - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on qodlysources, such as create, save, drop, or order by, without the need for coding.
     - [Navigation Action](#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
     - [Class Function](#binding-class-functions-to-events): Use a custom function to handle the event.
     - [Dialog Action](#):
@@ -92,7 +92,7 @@ This feature is valuable for scenarios like debugging or temporarily pausing spe
 
 ### Toggle Event Card Visibility
 
-When the contextual panel is opened for a component or a datasource, all events are initially collapsed to provide a concise representation of their content. To expand all event cards, click the <img src={require('./img/expandAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button at the top right of the contextual panel, and to collapse them, click on the <img src={require('./img/collapseAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button.
+When the contextual panel is opened for a component or a qodlysource, all events are initially collapsed to provide a concise representation of their content. To expand all event cards, click the <img src={require('./img/expandAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button at the top right of the contextual panel, and to collapse them, click on the <img src={require('./img/collapseAll.png').default} style={{borderRadius: '6px', width:'3%'}} /> button.
 
 :::tip
 <Column.List align="center" justifyContent="between">
@@ -107,7 +107,7 @@ When the contextual panel is opened for a component or a datasource, all events 
 
 #### Standard Action
 
-For events bound to Standard actions, the collapsed card displays the datasource name involved, followed by its namespace if it's shared or `Page` when local, on the left side. On the right side, the icon of the standard action is shown.
+For events bound to Standard actions, the collapsed card displays the qodlysource name involved, followed by its namespace if it's shared or `Page` when local, on the left side. On the right side, the icon of the standard action is shown.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -118,7 +118,7 @@ For events bound to Standard actions, the collapsed card displays the datasource
     </Column.Item>
 </Column.List>
 
-However, in specific cases, there may be minor differences in the display. For instance, in the case of the standard `Copy` action, the right side, instead of showing the icon of the standard action, displays the targeted datasource where the copying is intended.
+However, in specific cases, there may be minor differences in the display. For instance, in the case of the standard `Copy` action, the right side, instead of showing the icon of the standard action, displays the targeted qodlysource where the copying is intended.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -171,7 +171,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Datasource</code> keyword, encompass shared functions when these entities serve as shared datasources.</li>
+            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -233,35 +233,35 @@ In the preview section, various capabilities are available when actions are boun
 
 ## Binding Standard Actions to Events
 
-Standard actions apply to datasources, and their availability depends on the type of datasource. Datasources can be categorized into three types: Entity, Entity Selection, and Scalar.
+Standard actions apply to qodlysources, and their availability depends on the type of qodlysource. Qodlysourcess can be categorized into three types: Entity, Entity Selection, and Scalar.
 
-### Datasources
+### Qodly Sources
 
 After binding a standard action with an event, follow these steps:
 
 
-1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the datasource:
+1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the qodlysource:
 
-    | Datasource Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
+    | Qodly Source Type | Action                | Icon                                                                                                           | Description                                                                                                                     |
     |------------------|-----------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-    | Scalar           | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                        | Copy the content of the datasource to a target datasource                                                                      |
-    |                  | Set Value             | ![SetValue](./img/standardAction_setValue.png)                                                                        | Update the datasource with a new value, which can be a String, Number, Boolean, Date, Array, or Object (with JSON validity). Note that this will trigger any configured OnChange event for the datasource.                                                                     |
-    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                      | Erase the content within the datasource                                                                                       |
-    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the datasource to its initial value                                                                                       |
+    | Scalar           | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                        | Copy the content of the qodlysource to a target qodlysource                                                                      |
+    |                  | Set Value             | ![SetValue](./img/standardAction_setValue.png)                                                                        | Update the qodlysource with a new value, which can be a String, Number, Boolean, Date, Array, or Object (with JSON validity). Note that this will trigger any configured OnChange event for the qodlysource.                                                                     |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                      | Erase the content within the qodlysource                                                                                       |
+    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the qodlysource to its initial value                                                                                       |
     | Entity Selection | Order By              | ![Order By](./img/standardAction_orderBy.png)                                                                | Specify one or more attributes to sort and select direction                                                                    |
-    |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with datasources or data as-is  |
+    |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with qodlysources or data as-is  |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload the entire entity selection from the server                                                                             |
     |                  | All                   | ![All](./img/standardAction_all.png)                                                                        | Load all entities of the same dataclass                                                                                        |
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Remove any content and create a new, empty selection of the same dataclass                                                    |
-    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity selection datasource to its initial value (All or none)                                                                                       |
-    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity selection to a target entity selection datasource                                                             |
+    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity selection qodlysource to its initial value (All or none)                                                                                       |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity selection to a target entity selection qodlysource                                                             |
     | Entity           | Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity in memory from the corresponding dataclass (see Note)                                                                         |
     |                  | Save       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
     |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
-    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity datasource                                                                                  |
-    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element        |
-    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity datasource to its initial value (First or none)                                                                                       |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity qodlysource                                                                                  |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the qodlysource. If the qodlysource is the selected element of a component (Matrix, Select box, Datatable), clearing the qodlysource also unselects the selected element        |
+    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity qodlysource to its initial value (First or none)                                                                                       |
     |                  | First                 | ![First Record](./img/standardAction_firstRecord.png)                                                     | Navigate to the first entity within the entity selection                                                                      |
     |                  | Previous              | ![Previous Record](./img/standardAction_previousRecord.png)                                                 | Move to the previous entity within the entity selection                                                                        |
     |                  | Next                  | ![Next Record](./img/standardAction_nextRecord.png)                                                         | Advance to the next entity within the entity selection                                                                         |
@@ -270,12 +270,12 @@ After binding a standard action with an event, follow these steps:
     |                  | Save       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
     |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
-    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity datasource                                                                                  |
-    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the datasource. If the datasource is the selected element of a component (Matrix, Select box, Datatable), clearing the datasource also unselects the selected element        |
-    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the datasource to its initial value                                                                                       |
+    |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity qodlysource                                                                                  |
+    |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the qodlysource. If the qodlysource is the selected element of a component (Matrix, Select box, Datatable), clearing the qodlysource also unselects the selected element        |
+    |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the qodlysource to its initial value                                                                                       |
 
 :::info
-[Entities originating from an entity selection datasource](datasources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](datasources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
+[Entities originating from an entity selection qodlysource](qodlySources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](qodlySources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
 :::
 
 :::Note About Create entity action
@@ -310,15 +310,15 @@ Keep in mind that the **Create** action only creates a new, blank entity in memo
 	</Column.Item>
 </Column.List>
 
-The navigation target can be defined in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
+The navigation target can be defined in two ways using the toggle <img src={require('./img/qodlysourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
 
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Datasources</strong>: When the destination Page or external link is generated through server-side business logic. In such cases, provide a datasource of type string.
+        <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Qodly Sources</strong>: When the destination Page or external link is generated through server-side business logic. In such cases, provide a qodlysource of type string.
     </Column.Item>
     <Column.Item width="40%">
-        <img src={require('./img/contextualPanel_NavigationWithDatasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_NavigationWithQodlySource.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -347,7 +347,7 @@ To set up a navigation action after linking it with an event, proceed as follows
 
 2. Either:
 
-    - **Specify Target Pages for "Datasource" type targets**: Enter the string-type datasource containing the name of the intended Page.
+    - **Specify Target Pages for "Qodly Source" type targets**: Enter the string-type qodlysource containing the name of the intended Page.
 
     - **Explore Target Pages for "Hardcoded Value" type targets**: Browse through the list of available Pages, each serving as a potential navigation destination.
 
@@ -417,7 +417,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        Data model class functions can be linked to events, utilizing parameters from datasources or static values, with the option to assign the result to a datasource as needed. After binding a class function with an event, follow these steps:
+        Data model class functions can be linked to events, utilizing parameters from qodlysources or static values, with the option to assign the result to a qodlysource as needed. After binding a class function with an event, follow these steps:
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/contextualPanel_addFuctionEvent.png').default} style={{borderRadius: '6px'}} />
@@ -426,10 +426,10 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
 
-2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/datasourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
+2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/qodlysourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
 
-3. **Select a Datasource for the returned result**: In the return parameter section, choose a datasource to store the function's returned result. <br/>
+3. **Select a qodlysource for the returned result**: In the return parameter section, choose a qodlysource to store the function's returned result. <br/>
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
@@ -517,11 +517,11 @@ There are two primary methods for ensuring precise parameter handling:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        <img src={require('./img/toggleDatasource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Datasources</strong>: Pass <a href="datasources#Page-datasources">local</a> or <a href="datasources#shared-datasources">shared datasources</a> as parameters to the class function. The scope of the datasource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local datasource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared datasource belonging to a namespace. <br/>
-        Make sure the datasource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
+        <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="./qodlySources#page-qodly-sources">local</a> or <a href="qodlySources#shared-qodly-sources">shared qodlysources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. <br/>
+        Make sure the qodlysource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
     </Column.Item>
     <Column.Item width="47%">
-        <img src={require('./img/contextualPanel_classFunctionWithDatasourcesParams.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/contextualPanel_classFunctionWithQodlySourceParams.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -665,29 +665,29 @@ They will automatically disappear after a preset **5-second** period. Users can 
 :::
 
 
-## Example of datasource events
+## Example of Qodly Source events
 
 In this scenario:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        &nbsp; &bull; The Employee <a href="./components/datatable">Datatable component</a> displays a list of employees, utilizing an entity selection (bound to the <code>employees</code> catalog datasource). <br/><br/>
-        &nbsp; &bull; The "General statistics/Detailed statistics" <a href="./components/radio">Radio component</a> is linked to the <code>choice</code> Page datasource.<br/><br/>
-        &nbsp; &bull; Buttons are bound to standard actions that perform queries on the <code>employee</code> datasource (e.g., "salary &lt; 23000").<br/><br/>
-        &nbsp; &bull; An <code>on Change</code> event is assigned to both the <code>employees</code> and <code>choice</code> datasources. These events call the same function from the <code>EmployeeSelection</code> class, named <code>statistics</code>.<br/><br/>
-        &nbsp; &bull; For simplicity, the <code>statistics</code> scalar datasource (object) is visualized as a <a href="./components/text">Text component</a>
+        &nbsp; &bull; The Employee <a href="./components/datatable">Datatable component</a> displays a list of employees, utilizing an entity selection (bound to the <code>employees</code> catalog qodlysource). <br/><br/>
+        &nbsp; &bull; The "General statistics/Detailed statistics" <a href="./components/radio">Radio component</a> is linked to the <code>choice</code> Page qodlysource.<br/><br/>
+        &nbsp; &bull; Buttons are bound to standard actions that perform queries on the <code>employee</code> qodlysource (e.g., "salary &lt; 23000").<br/><br/>
+        &nbsp; &bull; An <code>on Change</code> event is assigned to both the <code>employees</code> and <code>choice</code> qodlysources. These events call the same function from the <code>EmployeeSelection</code> class, named <code>statistics</code>.<br/><br/>
+        &nbsp; &bull; For simplicity, the <code>statistics</code> scalar qodlysource (object) is visualized as a <a href="./components/text">Text component</a>
     </Column.Item>
     <Column.Item width="40%">
-        <img src={require('./img/event-datasource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/event-qodlysource.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
 <br/>
 
-When a button is clicked or a radio button is selected, the `employees` datasource updates, prompting the `on Change` event. This function receives the value of the **choice** datasource as a parameter and produces general or detailed statistics as an object based on the parameter value.
+When a button is clicked or a radio button is selected, the `employees` qodlysource updates, prompting the `on Change` event. This function receives the value of the **choice** qodlysource as a parameter and produces general or detailed statistics as an object based on the parameter value.
 
-![event-datasource-event](img/event-datasource-event.png)
+![event-qodlysource-event](img/event-qodlysource-event.png)
 
 Here's what you obtain after the button is clicked:
 
-![event-datasource-result](img/event-datasource-result.png)
+![event-qodlysource-result](img/event-qodlysource-result.png)

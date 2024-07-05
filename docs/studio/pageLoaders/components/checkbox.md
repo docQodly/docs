@@ -90,10 +90,10 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
 
 ## Data Integration
 
-The **Checkbox** component allows for seamless integration of datasources, enabling dynamic data binding and interaction within the Page.
+The **Checkbox** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
-The datasource for the **Checkbox** component should be binary, with values limited to `true` or `false`.
+The qodlysource for the **Checkbox** component should be binary, with values limited to `true` or `false`.
 :::
 
 
@@ -102,15 +102,15 @@ To associate data with the Checkbox component, follow these steps:
 
 1. **Navigate to the Properties Panel**: Access the Data Access category located within the Properties panel for the Checkbox component.
 
-2. **Define the Datasource**: Specify the relevant Datasource that will capture the user's selected choice.
+2. **Define the Qodly Source**: Specify the relevant qodlysource that will capture the user's selected choice.
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the Checkbox component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the Checkbox component.
 :::
 
 ### Server-Side Interaction
 
-Interacting with user input data is straightforward. When you bind a datasource to the **Checkbox** component, you can access and make use of the input content.
+Interacting with user input data is straightforward. When you bind a qodlysource to the **Checkbox** component, you can access and make use of the input content.
 
 Subsequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 

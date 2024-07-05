@@ -14,7 +14,7 @@ The **Select Input** component contains an embedded **Select** and a **Label** e
 
 <br/>
 
-The **Select Input** component is notable for its options that are easily configured directly within the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it doesn't rely on a datasource for options. Furthermore, while the **Select Input** component doesn't support embedding components within the list for customized displays alongside other elements, it efficiently serves its purpose.
+The **Select Input** component is notable for its options that are easily configured directly within the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it doesn't rely on a qodlysource for options. Furthermore, while the **Select Input** component doesn't support embedding components within the list for customized displays alongside other elements, it efficiently serves its purpose.
 
 
 
@@ -93,7 +93,7 @@ Within the **Select Input** component, an embedded **Select** allows for further
 The **Select Input** component captures and reflects the user's choice within this set.
 
 :::info 
-The **Select Input** component provides selections from a predefined set of options within the [properties panel](#properties-customization), without relying on datasources.
+The **Select Input** component provides selections from a predefined set of options within the [properties panel](#properties-customization), without relying on qodlysources.
 :::
 
 ### Data Binding
@@ -104,7 +104,7 @@ To associate data with the Select Input component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-                <li value="2"><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected input.</li>
+                <li value="2"><strong>Define the Qodly Source</strong>: Specify the relevant qodlysource that will capture the user's selected input.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -115,12 +115,12 @@ To associate data with the Select Input component, follow these steps:
 
 ### Server-Side Interaction
 
-Retrieving user choices is straightforward. By binding a datasource to the **Select Input** component, you can access and utilize the selected content.
+Retrieving user choices is straightforward. By binding a qodlysource to the **Select Input** component, you can access and utilize the selected content.
 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-                For example, when users make a single choice from a set of options, binding a datasource captures the selected option. <br/> <br/>
+                For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. <br/> <br/>
                 Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
@@ -132,7 +132,7 @@ Retrieving user choices is straightforward. By binding a datasource to the **Sel
 Additionally: 
 
 :::tip 
-The **Select Input** component's datasource can also be linked to the value of an attribute in the currently selected entity of another datasource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
+The **Select Input** component's qodlysource can also be linked to the value of an attribute in the currently selected entity of another qodlysource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
 :::
 
 

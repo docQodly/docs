@@ -20,7 +20,7 @@ Components are the fundamental building blocks that constitute your application'
         <br/><br/>
         <li><strong>Simple</strong>: Components that display scalar or native data, images, and facilitate user actions</li>
         <br/><br/>
-        <li><strong>List</strong>: Components that iterate over datasources and manage user interactions with this data.</li>
+        <li><strong>List</strong>: Components that iterate over qodlysources and manage user interactions with this data.</li>
         <br/><br/>
         <li><strong>Custom Components</strong>: These are external React components that have been imported into Qodly by the user.</li>
     </Column.Item>
@@ -93,7 +93,7 @@ You have the flexibility to drop components directly onto the Page itself, as we
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
-                Your Pages can incorporate datasource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
+                Your Pages can incorporate qodlysource attributes with data types such as string, number, date, time, or duration. When these attributes are presented within components, you have the option to choose their display format in the Properties section.
         </Column.Item>
         <Column.Item width="35%">
                 <img src={require('./img/formats.png').default} style={{borderRadius: '6px'}} />
@@ -200,7 +200,7 @@ This section serves as a fundamental introduction to the integration of data sou
 
 - **Dynamic Attribute Display**: This section explains how a component can automatically display attributes of a selected data source, offering detailed information without extra interactions.
 
-- **Server-Side Interaction**: This section explains obtaining user selections in a server-side context when a datasource is bound to a component, enabling content retrieval and use.
+- **Server-Side Interaction**: This section explains obtaining user selections in a server-side context when a qodlysource is bound to a component, enabling content retrieval and use.
 
 :::note
 Please note that the following subsections (Data Binding, Data Display, Dynamic Attribute Display, and Server-Side Interaction) may or may not be applicable to all components. Their presence or absence depends on the specific component's functionality and use case. 

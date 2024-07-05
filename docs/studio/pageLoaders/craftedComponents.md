@@ -4,7 +4,7 @@ title: Crafted components
 ---
 import Column from '@site/src/components/Column'
 
-**Crafted components** allow you to create reusable components by encapsulating existing components along with their styles, child components, event configurations, and datasource references. 
+**Crafted components** allow you to create reusable components by encapsulating existing components along with their styles, child components, event configurations, and qodlysource references. 
 
 :::info 
 Crafted components enable you to transform any component, except the Page component, into a reusable unit. 
@@ -60,18 +60,18 @@ When a component is styled with a **shared** CSS class and you save it as a craf
 
 
 
-## Datasource Reference
+## Qodly Source Reference
 
-Crafted components come with references to datasources, however, the actual datasources themselves are not bundled. This leads to two distinct scenarios:
+Crafted components come with references to qodlysources, however, the actual qodlysources themselves are not bundled. This leads to two distinct scenarios:
 
-### Shared Datasources
+### Shared Qodly Sources
 
-When a **shared datasource** is used within a crafted component, it retains its connection across Pages. This ensures that the **shared datasource** remains linked, regardless of the Page in which the crafted component is employed.
+When a **shared qodlysource** is used within a crafted component, it retains its connection across Pages. This ensures that the **shared qodlysource** remains linked, regardless of the Page in which the crafted component is employed.
 
 
-### Page Datasources
+### Page Qodly Sources
 
-With **Page datasources**, caution is needed. **Page Datasources** linked to the crafted component from the originating Page will not be automatically imported into the target Page where you aim to implement it. To ensure the intended functionality, you must manually establish these datasource connections in the target Page or employ the shared datasources.
+With **Page qodlysources**, caution is needed. **Page qodlysources** linked to the crafted component from the originating Page will not be automatically imported into the target Page where you aim to implement it. To ensure the intended functionality, you must manually establish these qodlysource connections in the target Page or employ the shared qodlysources.
 
 
 

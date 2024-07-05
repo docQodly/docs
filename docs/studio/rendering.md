@@ -17,7 +17,7 @@ At its core, rendering represents the pivotal stage where the abstract blueprint
 
 In the case of Qodly Studio, rendering takes a different path compared to conventional web development. Here's how it works:
 
-- **Design and Configuration**: Users initiate the Page creation process within **Qodly Studio** by arranging components, mapping datasources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
+- **Design and Configuration**: Users initiate the Page creation process within **Qodly Studio** by arranging components, mapping qodlysources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
 
 - **JSON Representation**: Instead of generating conventional HTML code, **Qodly Studio** encapsulates the entire Page, including layout, data connections, and event-driven logic, in a structured JSON file. This JSON file serves as the representation of the Page.
 

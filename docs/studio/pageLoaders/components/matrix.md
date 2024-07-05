@@ -9,7 +9,7 @@ The **Matrix** component is a UI element designed to display a dynamic array of 
 
 :::info 
 
-Categorized under iterative components, the **Matrix** component is specialized in showcasing dynamic arrays of **Stylebox** components based on the component's designated datasource.
+Categorized under iterative components, the **Matrix** component is specialized in showcasing dynamic arrays of **Stylebox** components based on the component's designated qodlysource.
 
 :::
 
@@ -49,10 +49,10 @@ Enhance the **Matrix** component to align with your application's requirements u
 
 ## Data Integration
 
-The **Matrix** component is data-bound, meaning it relies on an external datasource to populate its options. This allows the component to display and interact with data.
+The **Matrix** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
 
 :::info 
-The datasource for the **Matrix** component can take the form of either an `ORDA entity selection` or an `array`.
+The qodlysource for the **Matrix** component can take the form of either an `ORDA entity selection` or an `array`.
 :::
 
 ### Data Binding
@@ -64,7 +64,7 @@ To associate data with the **Matrix** component, follow these steps:
         <ol>
             <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
             <br/>
-            <li value="é"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
+            <li value="é"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -73,12 +73,12 @@ To associate data with the **Matrix** component, follow these steps:
 </Column.List>
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the Matrix component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the Matrix component.
 :::
 
 ### Data Display
 
-To display data iterated over a datasource, you can follow these additional steps:
+To display data iterated over a qodlysource, you can follow these additional steps:
 
 1. **Access the Matrix**: Within the Matrix component, locate the embedded Stylebox.
 2. **Add a Component**: Add a Text component or other relevant components within the Stylebox.
@@ -86,7 +86,7 @@ To display data iterated over a datasource, you can follow these additional step
 
 3. **Configure the Component**: Click on the component you've added to enter its editing mode. The process of configuring components varies based on their type:
 
-    - **Toggle Datasource**: Prepare to connect the component to the datasource in the next step by using the `Toggle Datasource` button.
+    - **Toggle Qodly Source**: Prepare to connect the component to the qodlysource in the next step by using the `Toggle Qodly Source` button.
 
     - **Properties Panel**: In the next step, you'll configure them through the `Data Access` category in the Properties panel. 
 
@@ -102,7 +102,7 @@ To display data iterated over a datasource, you can follow these additional step
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
-        The <code>Matrix</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+        The <code>Matrix</code> component can link its currently selected entity to a qodlysource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
 	</Column.Item>
 	<Column.Item width="30%">
         <img src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
@@ -120,7 +120,7 @@ To display data iterated over a datasource, you can follow these additional step
 
 ### Server-Side Interaction
 
-You can associate functions with embedded components in the **Matrix** component using `$This`. This capability enables the execution of functions from the entity class of the datasource that is providing data and being iterated upon in response to event triggers, such as button clicks.
+You can associate functions with embedded components in the **Matrix** component using `$This`. This capability enables the execution of functions from the entity class of the qodlysource that is providing data and being iterated upon in response to event triggers, such as button clicks.
 
 
 To implement this functionality, follow these steps:
@@ -129,10 +129,10 @@ To implement this functionality, follow these steps:
 	<Column.Item width="45%">
 		<ol start="1">
         	<li>Integrate the Matrix component into the interface.</li> <br/><br/>
-			<li>Select a datasource like <code>Rooms</code> for the Matrix.</li> <br/><br/>
+			<li>Select a qodlysource like <code>Rooms</code> for the Matrix.</li> <br/><br/>
 			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> <br/><br/>
             <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> <br/><br/>
-            <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element datasource as a parameter to the function.</li> 
+            <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element qodlysource as a parameter to the function.</li> 
 		</ol>
 	</Column.Item>
 	<Column.Item width="50%">

@@ -12,7 +12,7 @@ The **Image** component is a UI element that enables you to integrate images int
 The **Image** component offers versatile solutions for enhancing your web application's visual experience:
 
 - **Static Images**: Display fixed visual elements, such as logos, icons, and decorative images.
-- **Dynamic Content**: Display dynamic content fetched from datasources.
+- **Dynamic Content**: Display dynamic content fetched from qodlysources.
 - **Data Visualization**: Display charts, graphs, and diagrams as images, enabling the visualization of complex data in a more accessible and engaging manner.
 
 
@@ -20,14 +20,14 @@ The **Image** component offers versatile solutions for enhancing your web applic
 
 The **Image** component offers multiple options for displaying images.
 
-### Datasource Binding
+### Qodly Source Binding
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        You can bind the Image component to a datasource of type <code>image</code>, causing the displayed image to update according to the value within the datasource.
+        You can bind the Image component to a qodlysource of type <code>image</code>, causing the displayed image to update according to the value within the qodlysource.
 	</Column.Item>
 	<Column.Item width="45%">
-         <img src={require('./img/image_DatasourceBinding.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/image_QodlySourceBinding.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -56,7 +56,7 @@ The Image component simplifies the process of adding new images. By clicking on 
 
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping an image datasource onto the Page, which will automatically add an Image component with the datasource bound to it.
+Alternatively, you can establish the connection by dragging and dropping an image qodlysource onto the Page, which will automatically add an Image component with the qodlysource bound to it.
 :::
 
 
@@ -65,7 +65,7 @@ Alternatively, you can establish the connection by dragging and dropping an imag
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        Qodly displays a "missing image" placeholder in the Image component when the bound image datasource is null, such as when the "photo" attribute of an "Employee" entity has not been uploaded:
+        Qodly displays a "missing image" placeholder in the Image component when the bound image qodlysource is null, such as when the "photo" attribute of an "Employee" entity has not been uploaded:
 	</Column.Item>
 	<Column.Item width="45%">
          <img src={require('./img/image_Default_factory.png').default} style={{borderRadius: '6px'}} />

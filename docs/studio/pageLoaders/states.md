@@ -6,7 +6,7 @@ title: Non-Conditional States
 import Column from '@site/src/components/Column'
 
 
-Page states provide developers with a versatile solution for dynamically applying a variety of changes to Pages. This feature is particularly useful for modifying the user interface (UI), styling, and other properties on the fly. By leveraging Page states, developers can tailor Pages to meet specific privileges, datasource values, contexts, or scenarios without relying heavily on server-side processing.
+Page states provide developers with a versatile solution for dynamically applying a variety of changes to Pages. This feature is particularly useful for modifying the user interface (UI), styling, and other properties on the fly. By leveraging Page states, developers can tailor Pages to meet specific privileges, qodlysource values, contexts, or scenarios without relying heavily on server-side processing.
 
 
 ## State Characteristics
@@ -158,7 +158,7 @@ The editing process involves:
 
 - **Airy Mode**: Enable or disable airy mode settings for specific states.
 
-- **Datasource Restrictions**: On a state, no datasources can be dragged and dropped on components on the canvas.
+- **Qodly Source Restrictions**: On a state, no qodlysources can be dragged and dropped on components on the canvas.
 
 ### Removing a State
 

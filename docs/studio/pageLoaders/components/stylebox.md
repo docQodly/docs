@@ -21,7 +21,7 @@ The **Stylebox** component serves as a versatile container designed to enhance c
 
 
 ## Data Integration
-When you drag and drop a datasource attribute to a **Stylebox**, the following automatic creations occur:
+When you drag and drop a qodlysource attribute to a **Stylebox**, the following automatic creations occur:
 
 - **Entity Attribute**: Generates a [Text component](text.md) or an [Image component](image.md) linked to **entity.attribute** based on its type.
 <img src={require('./img/styleBox_dataBinding_entityAttribute.gif').default} style={{borderRadius: '6px'}} />

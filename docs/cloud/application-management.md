@@ -120,7 +120,7 @@ For every environment, you can access your files on the server using the **Secur
 
 | Contents            | Format   | Description                                                                                |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------ |
-| Shared              | `Folder` | The shared resources, such as visuals, custom components, shared css, shared datasource... |
+| Shared              | `Folder` | The shared resources, such as visuals, custom components, shared css, shared qodlysource... |
 | catalog.4DCatalog   | `XML`    | Table and field definitions                                                                |
 | folders.json        | `JSON`   | Explorer folder definitions                                                                |
 | menus.json          | `JSON`   | Menu definitions                                                                           |

@@ -9,7 +9,7 @@ The **Radio** component is an interactive UI element that enables users to make 
 
 :::info 
 
-Unlike certain other components, the **Radio** component cannot be linked to a datasource to display data, instead, options must be configured through the properties panel.
+Unlike certain other components, the **Radio** component cannot be linked to a qodlysource to display data, instead, options must be configured through the properties panel.
 
 :::
 
@@ -97,7 +97,7 @@ Enhance the **Radio** component to align with your application's requirements us
 The **Radio** component captures and reflects the user's choice within this set.
 
 :::info 
-The **Radio** component provides selections from a predefined set of options within the [properties panel](#properties-customization), without relying on datasources.
+The **Radio** component provides selections from a predefined set of options within the [properties panel](#properties-customization), without relying on qodlysources.
 :::
 
 ### Data Binding
@@ -109,7 +109,7 @@ To enable data capture for the Radio component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li value="2"><strong>Define the Datasource</strong>: Specify the relevant Datasource that will capture the user's selected choice.</li>
+            <li value="2"><strong>Define the Qodly Source</strong>: Specify the relevant qodlysource that will capture the user's selected choice.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -118,16 +118,16 @@ To enable data capture for the Radio component, follow these steps:
 </Column.List>
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the Radio component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the Radio component.
 :::
 
 ### Server-Side Interaction
 
-Retrieving user choices is straightforward. By binding a datasource to the **Radio** component, you can access and utilize the selected content.
+Retrieving user choices is straightforward. By binding a qodlysource to the **Radio** component, you can access and utilize the selected content.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-        For example, when users make a single choice from a set of options, binding a datasource captures the selected option. <br/> <br/> <br/>
+        For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. <br/> <br/> <br/>
         Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">
@@ -138,7 +138,7 @@ Retrieving user choices is straightforward. By binding a datasource to the **Rad
 Additionally: 
 
 :::tip 
-The **Radio** component's datasource can also be linked to the value of an attribute in the currently selected entity of another datasource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
+The **Radio** component's qodlysource can also be linked to the value of an attribute in the currently selected entity of another qodlysource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
 :::
 
 ## Showcase

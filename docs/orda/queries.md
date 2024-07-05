@@ -3,7 +3,7 @@ id: queries
 title: Queries
 ---
 
-Querying data is the most common database operation. You will always need to search, filter, and sort your data in datasources using different criteria.
+Querying data is the most common database operation. You will always need to search, filter, and sort your data in qodlysources using different criteria.
 
 Querying the Qodly datastore can be done through two APIs:
 

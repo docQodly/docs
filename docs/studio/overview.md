@@ -9,7 +9,7 @@ Development in Qodly relies on the use of **Qodly Studio**, an innovative platfo
 - Effortlessly link data with [ORDA](../concepts/platform.md#the-orda-concept)  dataclasses.
 - Visually craft Pages by simply dragging and dropping components onto a canvas.
 - Instantly preview web pages.
-- Execute QodlyScript code directly within web events or datasource events.
+- Execute QodlyScript code directly within web events or qodlysource events.
 - Write and debug code directly within the browser.
 - Fine-tune privileges and roles as per your requirements.
 

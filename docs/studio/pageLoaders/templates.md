@@ -74,10 +74,10 @@ While templates provide a solid starting point, customization is essential for a
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <strong>Datasource</strong>: Identify and set the appropriate datasource for the component.
+        <strong>Qodly Source</strong>: Identify and set the appropriate qodlysource for the component.
 	</Column.Item>
 	<Column.Item width="30%">
-        <img alt="styles-library" src={require('./img/templates_datatableCustomizeDatasource.png').default} style={{borderRadius: '6px'}} />
+        <img alt="styles-library" src={require('./img/templates_datatableCustomizeQodlySource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 

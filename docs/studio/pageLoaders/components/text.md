@@ -13,7 +13,7 @@ The **Text** component is capable of fulfilling various text display needs:
 
 - **Static Text**: Use it to display unchanging content such as instructions, labels, and consistent information.
 
-- **Dynamic Content**: The Text component is not limited to static text. It can display dynamic content pulled from your datasources. This dynamic feature allows you to show text that adapts and updates based on data values.
+- **Dynamic Content**: The Text component is not limited to static text. It can display dynamic content pulled from your qodlysources. This dynamic feature allows you to show text that adapts and updates based on data values.
 
 
 ## Properties Customization
@@ -34,11 +34,11 @@ Enhance the **Text** component to align with your application's requirements usi
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Toggle DataSource</strong>: Bind the Text component's content to a datasource, making the text content dynamic and data-driven. By inserting a placeholder in the text on the canvas and specifying the datasource path (using keywords like <code>package.description</code> or <code>$This</code> in iterative components), you can dynamically populate the text content. </li>
+            <li><strong>Toggle Qodly Source</strong>: Bind the Text component's content to a qodlysource, making the text content dynamic and data-driven. By inserting a placeholder in the text on the canvas and specifying the qodlysource path (using keywords like <code>package.description</code> or <code>$This</code> in iterative components), you can dynamically populate the text content. </li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
-         <img src={require('./img/text_ToggleDataSource.png').default} style={{borderRadius: '6px'}} />
+         <img src={require('./img/text_ToggleqodlySource.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -46,7 +46,7 @@ Enhance the **Text** component to align with your application's requirements usi
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Format Support</strong>: Depending on the chosen datasource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li>
+            <li><strong>Format Support</strong>: Depending on the chosen qodlysource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -57,7 +57,7 @@ Enhance the **Text** component to align with your application's requirements usi
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Toggle Link</strong>: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from datasources. </li>
+            <li><strong>Toggle Link</strong>: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from qodlysources. </li>
         </ul>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -72,14 +72,14 @@ This follows the same concept as [Navigate to Shared Folder Content](../events.m
 
 ## Data Integration
 
-The **Text** component is not limited to static text, it is also data-bound, which means it depends on a datasource to populate its options.
+The **Text** component is not limited to static text, it is also data-bound, which means it depends on a qodlysource to populate its options.
 
 ### Data Binding
 
-The **Text** component's content can be dynamically bound to datasources through the [properties customization](#properties-customization) using the Toggle DataSource option. 
+The **Text** component's content can be dynamically bound to qodlysources through the [properties customization](#properties-customization) using the Toggle Qodly Source option. 
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping a datasource of type `text`, `number`, `date`, or `duration` onto the Page, resulting in the automatic addition of a Text component with the datasource bound to it.
+Alternatively, you can establish the connection by dragging and dropping a qodlysource of type `text`, `number`, `date`, or `duration` onto the Page, resulting in the automatic addition of a Text component with the qodlysource bound to it.
 :::
 
 ## Triggers and Events

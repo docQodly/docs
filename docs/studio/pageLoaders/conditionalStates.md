@@ -176,32 +176,32 @@ Each condition within the schema is represented by an interactive card, providin
 
 | Name         | Icon | Description | Available Operators                                   |
 |--------------|------|-------------|-------------------------------------------------------|
-| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified datasource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
+| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified qodlysource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
 
-:::info Comparators vary depending on the datasource type:
+:::info Comparators vary depending on the qodlysource type:
 
 String:
-- EQUAL: hardcoded value or datasource
-- DIFFERENT: hardcoded value or datasource
-- CONTAINS: hardcoded value or datasource
-- STARTSWITH: hardcoded value or datasource
-- IN (value1, value2, ...): hardcoded values or datasources
+- EQUAL: hardcoded value or qodlysource
+- DIFFERENT: hardcoded value or qodlysource
+- CONTAINS: hardcoded value or qodlysource
+- STARTSWITH: hardcoded value or qodlysource
+- IN (value1, value2, ...): hardcoded values or qodlysources
 - ISNULL
 - REGEX: hardcoded value only
 
 Number, Dates, Duration:
-- GREATER THAN: hardcoded value or datasource
-- GREATER THAN OR EQUAL: hardcoded value or datasource
-- LOWER THAN: hardcoded value or datasource
-- LOWER THAN OR EQUAL: hardcoded value or datasource
-- BETWEEN (value1, value2): hardcoded values or datasources
+- GREATER THAN: hardcoded value or qodlysource
+- GREATER THAN OR EQUAL: hardcoded value or qodlysource
+- LOWER THAN: hardcoded value or qodlysource
+- LOWER THAN OR EQUAL: hardcoded value or qodlysource
+- BETWEEN (value1, value2): hardcoded values or qodlysources
 - ISNULL
 
 Boolean:
 - ISTRUE
 - ISFALSE
 - ISNULL
-- EQUALS (datasource): another boolean datasource
+- EQUALS (qodlysource): another boolean qodlysource
 
 :::
 
@@ -222,7 +222,7 @@ Boolean:
   "op": "and",
   "conditions": [
     {
-      "type": "datasource",
+      "type": "qodlysource",
       "id": "auto_generated_unique_identifier_2",
       "name": "Age over 25",
       "path": "employee.age",
@@ -230,7 +230,7 @@ Boolean:
       "value": 25
     },
     {
-      "type": "datasource",
+      "type": "qodlysource",
       "id": "auto_generated_unique_identifier_3",
       "name": "Lastname starts with D",
       "path": "employee.lastname",
@@ -551,7 +551,7 @@ When working with conditions in the JSON Editor, users will encounter several co
 
 - **id**: A unique identifier for the condition (type: string).
 - **name**: The name of the condition (type: string).
-- **type**: Specifies the type of condition (e.g., datasource, privilege, parentState, reference, combination).
-- **path**: The data path within the datasource (for datasource conditions).
+- **type**: Specifies the type of condition (e.g., qodlysource, privilege, parentState, reference, combination).
+- **path**: The data path within the qodlysource (for qodlysource conditions).
 - **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
 - **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).

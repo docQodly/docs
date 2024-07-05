@@ -42,7 +42,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Dynamic Binding</strong>: Establish a binding with a <strong>datasource of type Text</strong>. By binding the component to this datasource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Page Loader. The initial value should correspond to the name of the target Page you intend to display. 
+        <strong>Dynamic Binding</strong>: Establish a binding with a <strong>qodlysource of type Text</strong>. By binding the component to this qodlysource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Page Loader. The initial value should correspond to the name of the target Page you intend to display. 
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/pageloader_DynamicBinding.png').default} style={{borderRadius: '6px'}} />
@@ -52,7 +52,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
  
 Note that:
 :::info 
-In the case of concurrent application of both methods, the content sourced from the bound datasource takes priority.
+In the case of concurrent application of both methods, the content sourced from the bound qodlysource takes priority.
 :::
 
 ## Navigating with Page Loader

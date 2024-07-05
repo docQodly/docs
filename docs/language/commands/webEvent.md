@@ -29,7 +29,7 @@ The returned object contains the following properties:
 | data	| |object|Additional information depending on the involved component|
 | 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|
 | 	|row |number|Data Table component: row number |
-| 	|name |string|Data Table component: datasource name of the column (e.g. "firstname", "address.city")|
+| 	|name |string|Data Table component: qodlysource name of the column (e.g. "firstname", "address.city")|
 
 
 #### Example

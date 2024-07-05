@@ -4,7 +4,7 @@ title: Data Table
 ---
 import Column from '@site/src/components/Column'
 
-The **DataTable** component is a versatile UI element used to display data in a tabular format, resembling a table. It efficiently iterates through a designated datasource, converting it into an organized list comprising rows and columns. In the DataTable, columns represent attributes, rows represent entities, and a header row labels the columns.
+The **DataTable** component is a versatile UI element used to display data in a tabular format, resembling a table. It efficiently iterates through a designated qodlysource, converting it into an organized list comprising rows and columns. In the DataTable, columns represent attributes, rows represent entities, and a header row labels the columns.
 
 
 
@@ -64,7 +64,7 @@ Enhance the **DataTable** component to align with your application's requirement
                 <Column.Item width="60%">
                         <ul>
                                 <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.</li><br/>
-                                <li><strong>Source</strong>: The source attribute specifies the datasource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's DataSource. This determines the content to be displayed in the column cells.</li><br/>
+                                <li><strong>Source</strong>: The source attribute specifies the qodlysource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's qodlysource. This determines the content to be displayed in the column cells.</li><br/>
                                 <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li><br/>
                                 <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).</li><br/>
                                 <li><strong>Sorting</strong>: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.</li>
@@ -85,7 +85,7 @@ Enhance the **DataTable** component to align with your application's requirement
 The **DataTable** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
 
 :::info 
-The datasource for the **DataTable** component can take the form of either an `ORDA entity selection` or an `array`.
+The qodlysource for the **DataTable** component can take the form of either an `ORDA entity selection` or an `array`.
 :::
 
 ### Data Binding
@@ -96,7 +96,7 @@ To associate data with the **DataTable** component, follow these steps:
 	<Column.Item width="60%">
                 <ol>
                         <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.</li><br/>
-                        <li value="2"><strong>Define the Datasource</strong>: Specify the appropriate Datasource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
+                        <li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
                 </ol>
 	</Column.Item>
 	<Column.Item width="35%">
@@ -105,7 +105,7 @@ To associate data with the **DataTable** component, follow these steps:
 </Column.List>
 
 :::tip 
-Alternatively, you can establish the connection by dragging and dropping the datasource onto the DataTable component.
+Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the DataTable component.
 :::
 
 ### Data Display
@@ -114,14 +114,14 @@ When it comes to displaying columns in the DataTable component, you have two opt
 
 - **Property Customization in the Columns Area**: Modify column settings according to your preferences directly from the [Columns Area](#properties-customization).
 
-- **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the datasource onto the DataTable.
+- **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the qodlysource onto the DataTable.
 
 ### Dynamic Attribute Display
 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
-                The <code>Data Table</code> component can link its currently selected entity to a datasource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
+                The <code>Data Table</code> component can link its currently selected entity to a qodlysource in the <code>Selected Element</code> field. This feature allows the component to automatically display the attributes of the selected element whenever a new entity is chosen. 
 	</Column.Item>
 	<Column.Item width="30%">
                 <img src={require('./img/dynamicAttributeDisplay_SelectedElement.png').default} style={{borderRadius: '6px'}} />
@@ -154,7 +154,7 @@ Common attributes for `onheaderclick` and `oncellclick`:
 |Attribute|Type|Description|
 |---|---|---|
 |index| Number | The index of the clicked column header (starting from 0).|
-|name| Text | The datasource of the column.|
+|name| Text | The qodlysource of the column.|
 
 
 - **oncellclick**: Triggered when a user clicks a cell in a row. The data object attribute includes:
@@ -162,7 +162,7 @@ Common attributes for `onheaderclick` and `oncellclick`:
 |Attribute|Type|Description|
 |---|---|---|
 |index| Number | The index of the clicked column header (starting from 0).|
-|name| Text | The datasource of the column.|
+|name| Text | The qodlysource of the column.|
 |row| Number | The number of the clicked row.|
 
 
@@ -194,7 +194,7 @@ Customize the styles of the DataTable component by utilizing specific CSS classe
 
 The **DataTable** component can respond to various events, enabling dynamic user experiences. 
 
-Additional information including the **column number**, **row number**, and **column datasource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
+Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
 
 Events that can trigger actions within the component include:
 
