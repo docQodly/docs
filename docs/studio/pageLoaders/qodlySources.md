@@ -12,7 +12,7 @@ Qodly Sources are integral to Qodly's architectural design, simplifying the deve
 
 [Components](./components/componentsBasics.md) are UI elements that can be bound to qodlysources, allowing them to display attributes from these qodlysources. When a qodlysource changes, the component automatically reflects the updated data. For instance, if a function returns a qodlysource as a result, any changes to that qodlysource will be immediately reflected in the associated component.
 
-![components](./img/qodlysource-1.1.png)
+![components](./img/QodlySource-1.1.png)
 
 ### Events and Qodly Sources
 
