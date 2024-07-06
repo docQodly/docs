@@ -76,7 +76,7 @@ To change the primary key, select an attribute from the Primary Key drop-down me
 
 ### Class Name
 
-The name of the datastore class, which allows you to [rename the datastore class](#rename-a-datastore-class) and its [associated model classes](../../orda/data-model.md).
+The name of the datastore class, which allows you to [rename the datastore class](#renaming-a-datastore-class) and its [associated model classes](../../orda/data-model.md).
 
 
 ### Selection Name
@@ -93,7 +93,7 @@ Specifies whether the dataclass is exposed for external access via REST requests
 
 
 :::tip
-This property can also be set at the [attribute level](attributes.md#scope), and attributes inherit this property from their parent datastore class. An attribute can override this with "Do not expose as REST" if the parent is exposed, but cannot do so if the parent is not exposed.
+This property can also be set at the [attribute level](attributes#overview), and attributes inherit this property from their parent datastore class. An attribute can override this with "Do not expose as REST" if the parent is exposed, but cannot do so if the parent is not exposed.
 :::
 
 ### Page size

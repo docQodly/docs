@@ -3,7 +3,7 @@ id: MailAttachmentClass
 title: MailAttachment
 ---
 
-Attachment objects allow referencing files within a [`Email`](EmailObjectClass.md) object. 
+Attachment objects allow referencing files within a [`Email`](EmailObjectClass) object. 
 
 
 ### Functions and properties
@@ -44,7 +44,7 @@ Attachment objects are created using the [`4D.MailAttachment.new()`](#4dmailatta
 
 #### Description
 
-The `4D.MailAttachment.new` function <!-- REF #4D.MailAttachment.new().Summary -->allows you to create an attachment object that you can add to an [Email object](EmailObjectClass.md#email-object)<!-- END REF -->.
+The `4D.MailAttachment.new` function <!-- REF #4D.MailAttachment.new().Summary -->allows you to create an attachment object that you can add to an [Email object](EmailObjectClass#properties)<!-- END REF -->.
 
 To define the attachment, you can use:
 
@@ -169,7 +169,7 @@ The `.disposition` property contains <!-- REF #MailAttachmentClass.disposition.S
 
 #### Description
 
-The `.getContent()` function <!-- REF #MailAttachmentClass.getContent().Summary -->returns the contents of the attachment object in a `4D.Blob` object<!-- END REF -->. You can use this method with attachment objects received by the [`mailConvertFromMIME`](EmailObjectClass.md#mailconvertfrommime) command.
+The `.getContent()` function <!-- REF #MailAttachmentClass.getContent().Summary -->returns the contents of the attachment object in a `4D.Blob` object<!-- END REF -->. You can use this method with attachment objects received by the [`mailConvertFromMIME`](commands/mailConvertFromMIME) command.
 
 
 

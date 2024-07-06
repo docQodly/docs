@@ -227,7 +227,7 @@ info = "The mailbox contains "+string(boxInfo.mailCount)+" messages.")
 |---------|--- |:---:|------|
 |msgNumber|integer|->|Number of the message in the list |
 |headerOnly|boolean|->|True to download only the email headers (default is false) |
-|Result|object|<-|[Email object](EmailObjectClass.md)|
+|Result|object|<-|[Email object](EmailObjectClass)|
 <!-- END REF -->
 
 ##### Description
@@ -236,7 +236,7 @@ The `.getMail()` function <!-- REF #POP3TransporterClass.getMail().Summary -->re
 
 Pass in *msgNumber* the number of the message to retrieve. This number is returned in the `number` property by the [`.getMailInfoList()`](#getmailinfolist) function.
 
-Optionally, you can pass `true` in the *headerOnly* parameter to exclude the body parts from the returned `Email` object. Only headers properties ([`headers`](EmailObjectClass.md#headers), [`to`](EmailObjectClass.md#to), [`from`](EmailObjectClass.md#from)...) are then returned. This option allows you to optimize the downloading step when a lot of emails are on the server.   
+Optionally, you can pass `true` in the *headerOnly* parameter to exclude the body parts from the returned `Email` object. Only headers properties ([`headers`](EmailObjectClass#headers), [`to`](EmailObjectClass#to), [`from`](EmailObjectClass#from)...) are then returned. This option allows you to optimize the downloading step when a lot of emails are on the server.   
 
 :::note
 
@@ -251,7 +251,7 @@ The function returns Null if:
 
 **Returned object**
 
-`.getMail()` returns an [`Email` object](EmailObjectClass.md#email-object).
+`.getMail()` returns an [`Email` object](EmailObjectClass#properties).
 
 
 ##### Example
@@ -413,7 +413,7 @@ The function returns an empty BLOB if:
 
 **Returned blob**
 
-`.getMIMEAsBlob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#email-object) with the [`MAIL Convert from MIME`](commands/mailConvertFromMIME.md) command.
+`.getMIMEAsBlob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass#properties) with the [`MAIL Convert from MIME`](commands/mailConvertFromMIME.md) command.
 
 ##### Example
 

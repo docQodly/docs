@@ -38,7 +38,7 @@ GET {{ApiEndpoint}}/rest/Employee/?$top=10&$skip=20
 
 ### Creating and Updating Entities
 
-Entities can be added or modified using the POST or PUT methods with [`$method=update`](./$method):
+Entities can be added or modified using the POST or PUT methods with [`$method=update`](./$method#methodupdate):
 
 ```
 POST {{ApiEndpoint}}/rest/Employee?$method=update
@@ -52,7 +52,7 @@ Entities can be removed by using the `DELETE` method:
 DELETE {{ApiEndpoint}}/rest/Employee[123]
 ```
 
-Or the [`$method=delete`](./$method) in a GET request:
+Or the [`$method=delete`](./$method#methoddelete) in a GET request:
 
 ```
 GET {{ApiEndpoint}}/rest/Employee[123]?$method=delete
@@ -66,14 +66,14 @@ Entity sets or selections are collections of entities accessed through REST and 
 
 ### Entity Set Creation
 
-Entity sets, which are cached selections of entities, are created with the [`$method=entityset`](./$method) for enhanced performance and reduced data re-fetching:
+Entity sets, which are cached selections of entities, are created with the [`$method=entityset`](./$method#methodentityset) for enhanced performance and reduced data re-fetching:
 
 ```
 GET {{ApiEndpoint}}/rest/Employee?$method=entityset
 ```
 
 :::tip
-A new selection of entities is returned; however, you can also create a new entity set by calling [$method=entityset](./$method) at the end of the REST request.
+A new selection of entities is returned; however, you can also create a new entity set by calling [$method=entityset](./$method#methodentityset) at the end of the REST request.
 :::
 
 ### Accessing an Entity Set
@@ -110,7 +110,7 @@ Each time an entity set is accessed, its expiration timer is reset to the specif
 
 ### Deleting Entity Sets
 
-An entity set could be removed from cache with [`$method=release`](./$method):
+An entity set could be removed from cache with [`$method=release`](./$method#methodrelease):
 
 ```
 GET {{ApiEndpoint}}/rest/Employee/$entityset/{{entitySetID}}?$method=release

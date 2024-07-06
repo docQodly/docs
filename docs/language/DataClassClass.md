@@ -315,7 +315,7 @@ In this example, the first entity will be created and saved but the second will 
 
 #### See also
 
-[**.toCollection()**](EntitySelectionClass.md#tocollection)
+[**.toCollection()**](EntitySelectionClass#tocollection-)
 
 <!-- END REF -->
 

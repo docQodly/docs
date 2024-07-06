@@ -42,7 +42,7 @@ Object instantiation can be done in one of the following ways:
 
 :::info
 
-Several commands and functions return objects, for example [`jsonParse`](../commands/jsonParse.md) or [`file`](../FileClass.md#file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
+Several commands and functions return objects, for example [`jsonParse`](../commands/jsonParse.md) or [`file`](../commands/file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
 
 :::
 

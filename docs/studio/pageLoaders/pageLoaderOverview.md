@@ -316,7 +316,7 @@ Explore below for specific options:
 |-----------------|-------------|
 | CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the [Styles Library](styling.md) for additional details. |
 | Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
-| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events.md#navigation---shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
+| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
 | Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
 | Layout          | Gain control over component alignment using margins and paddings.                             |
 | Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|

@@ -88,7 +88,7 @@ Although the **Tabs** component isn't inherently data-bound, you can still creat
 
 The **Tabs** component can respond to various events, enabling dynamic user experiences.
 
-The [`webEvent` command](../../../language/WebFormClass.md#webevent) returns the involved **tab index** when called in an event function triggered by a **Tabs** component.
+The [`webEvent` command](../../../language/commands/webEvent) returns the involved **tab index** when called in an event function triggered by a **Tabs** component.
 
 Events that can trigger actions within the component include:
 

@@ -61,7 +61,7 @@ Several QodlyScript commands and functions return collections, for example [`las
 
 ### `newCollection` command 
 
-The [`newCollection`](../CollectionClass.md#newcollection) command creates a new empty or prefilled collection and returns its reference.
+The [`newCollection`](../commands/newCollection) command creates a new empty or prefilled collection and returns its reference.
 
 Examples:
 
@@ -107,8 +107,8 @@ users = [{name: "Alice", \
 
 You can create two types of collections:
 
-- regular (non-shared) collections, using the [`newCollection`](../CollectionClass.md#newcollection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes. 
-- shared collections, using the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command. These collections can be shared between processes, including preemptive threads. Access to these collections is controlled by [`use...end`](lang-shared.md#useend) structures. 
+- regular (non-shared) collections, using the [`newCollection`](../commands/newCollection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes. 
+- shared collections, using the [`newSharedCollection`](../commands/newSharedCollection) command. These collections can be shared between processes, including preemptive threads. Access to these collections is controlled by [`use...end`](lang-shared.md#useend) structures. 
 
 For more information, refer to the [Shared objects and collections](lang-shared.md) section.
 

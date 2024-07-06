@@ -104,7 +104,7 @@ The following actions are available:
 -  **Close all**: closes all the opened tabs.
 -  **Close saved**: closes all the tabs that contain saved contents. Tabs with unsaved contents are not closed. 
 -  **Close tabs to the right/to the left**: closes all opened tabs located at the right side or the left side of the current tab.
--  **Switch to Text Editor** (only available with Page and model tabs): displays the [current Page](./pageLoaders/pageLoaderOverview.md/#Page-json-representation) or [model](model/model-editor-interface.md#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to Page Editor**/**Switch to Model Editor**. 
+-  **Switch to Text Editor** (only available with Page and model tabs): displays the [current Page](./pageLoaders/pageLoaderOverview#page-json-representation) or [model](model/model-editor-interface#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to Page Editor**/**Switch to Model Editor**. 
 
 ### Unsaved contents
 

@@ -20,7 +20,7 @@ The `$catalog` endpoint offers several variants to retrieve different levels of 
 | [**$catalog**](#catalog)                    | Lists all dataclasses with basic access URIs. |
 | [**$catalog/$all**](#catalogall)            | Provides detailed information about all dataclasses and their attributes. |
 | [**$catalog/{{dataClass}}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
-| [**$catalog/{{dataStoreClassFunction}}**](#) | Executes a specific datastore class function if available.   |
+| [**$catalog/{{dataStoreClassFunction}}**](./classFunctionsOverview.md) | Executes a specific datastore class function if available.   |
 
 ## Properties Returned
 
@@ -35,7 +35,7 @@ Each response from the `$catalog` endpoint variants includes some common propert
 | `__NAME`            | String          | The name of the Qodly application to identify the session context.   |
 | `properties`         | Object          | Contains additional settings or flags relevant to the response.         |
 | &#x21AA; `supportJSONEntityKey` | Boolean       | Indicates if JSON entity keys are supported, here it is `true`.         |
-| `methods`            | Array of Objects| Lists methods available for execution through the data store. For more details, please refer to the [Methods Array Details](#methods-array-details) section. |
+| `methods`            | Array of Objects| Lists methods available for execution through the data store. For more details, please refer to the [Methods Array Details](#methods-array) section. |
 | `dataClasses`     | Array of Objects   | Lists dataclasses exposed through the API.                      |
 
 ### `Methods` Array
@@ -71,7 +71,6 @@ Each dataclass listed by the `$catalog` endpoint returns the following propertie
 :::tip
 Only the exposed dataclasses are shown in this list for your project's datastore. For more information, please refer to [Configuring Data Access](./overview#configuring-data-access) section.
 :::
-
 
 ### Sample Usage Example in Postman
 

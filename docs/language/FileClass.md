@@ -3,7 +3,7 @@ id: FileClass
 title: File
 ---
 
-`File` objects are created with the [`file`](#file) command. They contain references to disk files that may or may not actually exist on disk. For example, when you execute the `file` command to create a new file, a valid `file` object is created but nothing is actually stored on disk until you call the [`file.create()`](#create) function.
+`File` objects are created with the [`file`](../commands/file) command. They contain references to disk files that may or may not actually exist on disk. For example, when you execute the `file` command to create a new file, a valid `file` object is created but nothing is actually stored on disk until you call the [`file.create()`](#create) function.
 
 ### Example
 
