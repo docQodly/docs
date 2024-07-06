@@ -678,7 +678,7 @@ In this scenario:
         &nbsp; &bull; For simplicity, the <code>statistics</code> scalar qodlysource (object) is visualized as a <a href="./components/text">Text component</a>
     </Column.Item>
     <Column.Item width="40%">
-        <img src={require('./img/event-qodlysource.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/event-QodlySource.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
