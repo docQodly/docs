@@ -85,7 +85,7 @@ The select box can display a maximum of 15 items.
 
 ## Data Integration
 
-The **Select Box** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
+The **Select Box** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
 
 :::info 
 The qodlysource for the **Select Box** component can take the form of either an `ORDA entity selection` or a `collection`.

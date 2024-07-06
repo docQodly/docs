@@ -142,7 +142,7 @@ Facilitate a switch between detailed and overview modes by using the global expa
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    Each condition card within the schema serves as an access point for configuring the specific properties of a condition. When a card is collapsed, it displays essential information at a glance, such as the condition's type and the data source it is connected to. 
+    Each condition card within the schema serves as an access point for configuring the specific properties of a condition. When a card is collapsed, it displays essential information at a glance, such as the condition's type and the qodlysource it is connected to. 
 	</Column.Item>
 	<Column.Item width="50%">
 		<img src={require('./img/conditionsInterface_schema6.png').default} style={{borderRadius: '6px'}} />

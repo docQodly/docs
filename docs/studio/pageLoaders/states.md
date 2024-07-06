@@ -76,7 +76,7 @@ In the **Non-Conditional State**, the Page functions according to its Base State
 
 ### Conditional State
 
-The **Conditional State** activates when predefined conditions are met, unlike the Non-Conditional State. These conditions are based on criteria such as privilege levels or data source value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
+The **Conditional State** activates when predefined conditions are met, unlike the Non-Conditional State. These conditions are based on criteria such as privilege levels or qodlysource value changes. The state changes dynamically, triggered or deactivated according to the evaluation of these conditions as TRUE or FALSE.
 
 :::info
 For additional details on how to implement the Conditional State, please refer to the [Conditional States](./conditionalStates) section.

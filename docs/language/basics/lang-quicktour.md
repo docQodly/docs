@@ -3,13 +3,13 @@ id: lang-quicktour
 title: A Quick Tour
 ---
 
-Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a web form to be displayed and the following line:
+Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a Page to be displayed and the following line:
 
 ```qs  
 webForm.setMessage("Hello, World!")
 ```
 
-This code will display a "Hello, World!" message at the bottom of your web form.
+This code will display a "Hello, World!" message at the bottom of your Page.
 
 ## Assigning Values
 

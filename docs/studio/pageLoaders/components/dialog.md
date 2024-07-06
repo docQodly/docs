@@ -12,7 +12,7 @@ A Dialog is an interactive, dynamic UI element designed as a popup overlay to st
 
 ## Dialog Creation 
 
-To initiate a dialog, navigate to the edited web form header panel and select the `Dialogs` button <img src={require('./img/dialogs.png').default} style={{borderRadius: '6px', width: '10%'}} />. 
+To initiate a dialog, navigate to the edited Page header panel and select the `Dialogs` button <img src={require('./img/dialogs.png').default} style={{borderRadius: '6px', width: '10%'}} />. 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
@@ -130,7 +130,7 @@ This will open the dialog within the current Page, providing a dedicated interfa
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        The dialog that is currently being edited in the web form will be highlighted in the dialog list, making it easy to identify which dialog is under modification.
+        The dialog that is currently being edited in the Page will be highlighted in the dialog list, making it easy to identify which dialog is under modification.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/dialogEdit2.png').default} style={{borderRadius: '6px'}} />

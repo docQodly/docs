@@ -192,13 +192,13 @@ Formatting options may vary based on the specific data type of the attribute and
 
 ## Data Integration
 
-This section serves as a fundamental introduction to the integration of data sources with components. It's essential to note that each component has its own dedicated section on its respective page, including the following subsections:
+This section serves as a fundamental introduction to the integration of qodlysources with components. It's essential to note that each component has its own dedicated section on its respective page, including the following subsections:
 
-- **Data Binding**: This step configures the connection between a component and a data source, determining where the component retrieves its data.
+- **Data Binding**: This step configures the connection between a component and a qodlysource, determining where the component retrieves its data.
 
 - **Data Display**: After binding data, this section guides you in visually presenting data within the component, including configuring its appearance and additional components.
 
-- **Dynamic Attribute Display**: This section explains how a component can automatically display attributes of a selected data source, offering detailed information without extra interactions.
+- **Dynamic Attribute Display**: This section explains how a component can automatically display attributes of a selected qodlysource, offering detailed information without extra interactions.
 
 - **Server-Side Interaction**: This section explains obtaining user selections in a server-side context when a qodlysource is bound to a component, enabling content retrieval and use.
 

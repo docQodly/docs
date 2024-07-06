@@ -39,14 +39,14 @@ The returned objects are of the [`4D.WebFormItem`](WebFormItemClass) class. Thes
 var myForm: 4D.WebForm
 var component: 4D.WebFormItem
 
-myForm = webForm //returns the web form as an object, each property is a component
-component = myForm.myImage //returns the myImage component of the web form
+myForm = webForm //returns the page as an object, each property is a component
+component = myForm.myImage //returns the myImage component of the page
 
 ```
 
 :::info
 
-While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate web form components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
+While `myForm` may not display typical object properties when examined in the debugger, it behaves as if it were the actual `webForm` object. You can interact with the underlying `webForm` object's properties and functions through `myForm`. For example, you can dynamically manipulate page components or transmit messages to web pages using specialized functions like `myForm.setMessage()`.
 
 :::
 
@@ -58,12 +58,12 @@ While `myForm` may not display typical object properties when examined in the de
 <!-- REF #WebFormClass.setError().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Error message to display in the web form|
+|msg|string|->|Error message to display in the Page|
 <!-- END REF -->
 
 #### Description
 
-The `.setError()` function  <!-- REF #WebFormClass.setError().Summary -->sends *msg* as an error message to the web form<!-- END REF -->.
+The `.setError()` function  <!-- REF #WebFormClass.setError().Summary -->sends *msg* as an error message to the Page<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "error".
 
@@ -78,7 +78,7 @@ webForm.setError("My error message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-error.png)
 
@@ -96,12 +96,12 @@ If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) f
 <!-- REF #WebFormClass.setMessage().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Information message to display in the web form|
+|msg|string|->|Information message to display in the Page|
 <!-- END REF -->
 
 #### Description
 
-The `.setMessage()` function  <!-- REF #WebFormClass.setMessage().Summary -->sends *msg* as an information message to the web form<!-- END REF -->.
+The `.setMessage()` function  <!-- REF #WebFormClass.setMessage().Summary -->sends *msg* as an information message to the Page<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "message".
 
@@ -116,7 +116,7 @@ webForm.setMessage("My information message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-info.png)
 
@@ -129,12 +129,12 @@ If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) f
 <!-- REF #WebFormClass.setWarning().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Warning message to display in the web form|
+|msg|string|->|Warning message to display in the Page|
 <!-- END REF -->
 
 #### Description
 
-The `.setWarning()` function  <!-- REF #WebFormClass.setWarning().Summary -->sends *msg* as a warning message to the web form<!-- END REF -->.
+The `.setWarning()` function  <!-- REF #WebFormClass.setWarning().Summary -->sends *msg* as a warning message to the Page<!-- END REF -->.
 
 The function returns a response with a `200 OK` status and a `__WEBFORM` object in the body with a `__NOTIFICATION.message` property set to *msg* and a `__NOTIFICATION.type` set to "warning".
 
@@ -149,6 +149,6 @@ webForm.setWarning("My warning message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the web form and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-warning.png)

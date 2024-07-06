@@ -166,7 +166,7 @@ Simultaneously, a folder is created with a name corresponding to the unique ID o
 
 - **components**: This file contains a minified and compressed file that encompasses functionality related to dynamic module loading, shared modules, dynamic script creation and loading, error handling, and references to Webpack chunks. It is crucial for efficient operation and integration of the custom component within Qodly Studio.
 
-- **main.e029b478**: A minified JavaScript file containing code related to the React component "ExampleComponent". It includes modules for a web form editor (@ws-ui/webform-editor) and the React library itself. The code defines and exports components, settings, and other functionality.
+- **main.e029b478**: A minified JavaScript file containing code related to the React component "ExampleComponent". It includes modules for a Page editor (@ws-ui/webform-editor) and the React library itself. The code defines and exports components, settings, and other functionality.
 
 - **main.e029b478.js.LICENSE**: Licensing information for the JavaScript file "main.e029b478". It includes details about the license under which the code is distributed.
 

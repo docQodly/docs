@@ -33,7 +33,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 
 1. **Canvas**: The workspace for assembling components, styles, and qodlysources. You can drag and drop components, apply CSS, and preview Pages.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
-3. [**Data Sources**](qodlySources.md):Connectors linked to components for data display and management.
+3. [**Qodly Sources**](qodlySources.md):Connectors linked to components for data display and management.
 4. [**States**](states.md): Dynamically adjusts Page's UI, styling, and properties based on user contexts and data, minimizing server-side processing needs.
 5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
 6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
@@ -96,7 +96,7 @@ For further details, refer to the [Dialog](./components/dialog.md) section.
 
 ### Toggle Airy Layout
 
-The Airy mode button <img alt="Dialog Icon" src={require('./img/headerPanel_Airy.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel is a feature that enhances the creation of user-friendly web forms. When activated, this mode automatically applies default margins between components, fostering a more spacious and aesthetically pleasing layout. By introducing gaps between form components, Airy mode streamlines the design process, producing visually appealing web forms with minimal need for manual style adjustments.
+The Airy mode button <img alt="Dialog Icon" src={require('./img/headerPanel_Airy.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel is a feature that enhances the creation of user-friendly Pages. When activated, this mode automatically applies default margins between components, fostering a more spacious and aesthetically pleasing layout. By introducing gaps between form components, Airy mode streamlines the design process, producing visually appealing Pages with minimal need for manual style adjustments.
 
 To reflect the selected mode, a toggle is incorporated on the canvas, allowing developers to switch between Airy mode and Neutral mode. 
 
@@ -114,7 +114,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent data source.
+    <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent qodlysource.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_error.png').default} style={{borderRadius: '6px'}} />
@@ -123,7 +123,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a data source.
+    <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a qodlysource.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_warning.png').default} style={{borderRadius: '6px'}} />
@@ -132,7 +132,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 - <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Informational</strong>: Informational notices are in grey, like when a data source is created but not utilized.
+    <strong>Informational</strong>: Informational notices are in grey, like when a qodlysource is created but not utilized.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_info.png').default} style={{borderRadius: '6px'}} />
@@ -355,7 +355,7 @@ The JSON representation serves as a fundamental blueprint for the Page. Its prim
 
 - **Consistent Modification**: It simplifies the process of modifying component-related details to customize the Page, resolve issues, or perform global search and replace operation.
 
-- **Easy Replication**: It allows users to effortlessly replicate the entire Page, including its design and functionality, by copying and pasting it into another web form's text editor.
+- **Easy Replication**: It allows users to effortlessly replicate the entire Page, including its design and functionality, by copying and pasting it into another Page's text editor.
 
 :::tip Notably:
 This process ensures the seamless replication of even local qodlysources and locally defined CSS classes, guaranteeing a consistent visual style and behavior across the target Page.
@@ -785,8 +785,8 @@ These discrepancies may not trigger errors, but they can potentially corrupt you
 
 Japanese characters are now supported in all elements created in Qodly. This includes:
 
-- **Data Source Names**
-- **Namespace of Shared Data Sources**
+- **Qodly Source Names**
+- **Namespace of Shared Qodly Sources**
 - **"Iterate with" Names**
 - **Server Side References**
 - **CSS Class Names**

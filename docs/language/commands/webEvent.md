@@ -16,7 +16,7 @@ title: webEvent
 
 `webEvent` <!-- REF #_command_.webEvent.Summary -->returns an object with information on a triggered event linked to a Page component<!-- END REF -->.
 
-The command must be called in the context of a web form handled by the Qodly web server.
+The command must be called in the context of a Page handled by the Qodly web server.
 
 **Result**
 
@@ -25,7 +25,7 @@ The returned object contains the following properties:
 | Property |  |Type| Description |
 |----|---|----|----|
 | caller |  |string| [Server-side reference](../../studio/pageLoaders/pageLoaderOverview.md#data-access-category) of the component triggering the event |
-| eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `WebForm` component loads</li>|
+| eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `Page` loads</li>|
 | data	| |object|Additional information depending on the involved component|
 | 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|
 | 	|row |number|Data Table component: row number |

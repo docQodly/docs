@@ -82,7 +82,7 @@ Enhance the **DataTable** component to align with your application's requirement
 
 ## Data Integration
 
-The **DataTable** component is data-bound, meaning it relies on an external data source to populate its options. This allows the component to display and interact with data.
+The **DataTable** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
 
 :::info 
 The qodlysource for the **DataTable** component can take the form of either an `ORDA entity selection` or an `array`.

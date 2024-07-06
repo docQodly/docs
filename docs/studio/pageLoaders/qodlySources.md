@@ -109,7 +109,7 @@ To create Page or Shared qodlysources directly from the Catalog, follow these st
                         <br/>
                         <li>Enter the name of the qodlysource. </li>
                         <br/>
-                        <li>Select the qodlysource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA data source. Afterward, proceed to configure its settings, including initial values, page size, and depth.</li>
+                        <li>Select the qodlysource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA qodlysource. Afterward, proceed to configure its settings, including initial values, page size, and depth.</li>
                         <br/>
                         <li>To create a shared qodlysource, specify a <code>Namespace</code>, for a Page (non-shared) qodlysource, leave the field empty.</li>
                 </ul>        
@@ -145,7 +145,7 @@ To create Page qodlysources, follow these steps:
 <br/>
 
 :::info
-For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
+For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA qodlysource.
 :::
 
 
@@ -172,7 +172,7 @@ To create Shared qodlysources, follow these steps:
 <br/>
 
 :::info
-For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA data source.
+For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA qodlysource.
 :::
 
 ### Standalone Entity vs Entity from ES
@@ -237,7 +237,7 @@ You can easily rename a qodlysource from the contextual panel. In doing so, Qodl
 - In other qodlysources where the renamed qodlysource serves as the origin.
 
 :::caution
-Please note that when renaming a shared qodlysource, only opened web forms can have their references renamed.
+Please note that when renaming a shared qodlysource, only opened Pages can have their references renamed.
 :::
 
 ### Tracking Qodly Source Usage
@@ -260,14 +260,14 @@ Please note that when renaming a shared qodlysource, only opened web forms can h
 
 ### Deleting a Qodly Source
 
-To delete a qodlysource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Data Sources list. If you confirm the dialog box, the qodlysource is deleted and its references in Pages are removed.
+To delete a qodlysource, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Qodly Sources list. If you confirm the dialog box, the qodlysource is deleted and its references in Pages are removed.
 
 
 ### Removing Unused Qodly Sources
 
 An unused qodlysource refers to any local qodlysource that is defined but not utilized in any section of the Page. 
 
-Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Data Sources's header to cleanse your Page of unnecessary local qodlysource.
+Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Qodly Sources's header to cleanse your Page of unnecessary local qodlysource.
 
 
 ### Deleting a Namespace
@@ -279,7 +279,7 @@ To delete a namespace, click the delete button <img alt="styles-library" src={re
 
 Binding a qodlysource to a component can be accomplished through several methods:
 
-- Dragging and dropping it from the **Data Sources** section onto a component.
+- Dragging and dropping it from the **Qodly Sources** section onto a component.
 
 - Selecting a component and entering the name of the qodlysource in the **Properties panel** > **Data Access** > **Qodly Source**.
 
@@ -309,9 +309,9 @@ Iterative components can be bound to two types of qodlysources:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ul>
-            <li><strong>Qodly Source</strong>: This is the primary data source used for iterating through data. Its attributes are bound to the component, allowing you to display and work with the iterative data. Typically, this data source represents an entity selection or a array. </li>
+            <li><strong>Qodly Source</strong>: This is the primary qodlysource used for iterating through data. Its attributes are bound to the component, allowing you to display and work with the iterative data. Typically, this qodlysource represents an entity selection or a array. </li>
             <br/>
-            <li><strong>Selected Element</strong>: This secondary data source is used to retrieve the currently selected item within the iterative component. In most cases, it represents an entity or a array element.</li>
+            <li><strong>Selected Element</strong>: This secondary qodlysource is used to retrieve the currently selected item within the iterative component. In most cases, it represents an entity or a array element.</li>
         </ul>        
 	</Column.Item>
 	<Column.Item width="40%">
