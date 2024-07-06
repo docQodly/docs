@@ -18,7 +18,7 @@ Qodly Sources are integral to Qodly's architectural design, simplifying the deve
 
 You can also attach events to qodlysources, triggering specific actions when these qodlysources are updated in the web browser. Please refer to [Qodly Source Events](events.md#qodlysource-events) for more details.
 
-![components](./img/qodlysource-1.2.png)
+![components](./img/QodlySource-1.2.png)
 
 ## Qodly Source Types
 
