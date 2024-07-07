@@ -54,22 +54,6 @@ Also, object instances from ORDA data model user classes benefit from their pare
 - an Entity class object can call functions from the [ORDA Entity generic class](../language/EntityClass.md).
 
 
-### Creating Data Model Classes
-
-In Qodly Studio, you can create all the classes related to a dataclass by clicking on a single button:
-
-1. Open the [Model Editor](../studio/model/model-editor-interface) and select the dataclass for which you want to create classes.
-2. Click on the `<...>` button at the top right side of the panel.
-
-![](img/create-classes.png)
-
-All classes are automatically created and can be displayed in the **Classes** section of the Explorer:
-
-![](img/create-classes2.png)
-
-
-
-
 ## Datastore
 
 The datastore is the interface object to a database. It builds a representation of the whole database as object. A datastore is made of a **model** and **data**:
