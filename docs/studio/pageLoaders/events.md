@@ -6,7 +6,7 @@ import Column from '@site/src/components/Column'
 
 Events serve as a mechanism for initiating specific actions, often employed to trigger particular behaviors. They collaborate with various actions to establish dynamic interactions within an application.
 
-For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a qodlysource](#qodly-source-events).
+For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a Qodly Source](#qodly-source-events).
 
 Within Qodly Studio, events play a pivotal role in executing code on the Qodly web server, without requiring any supplementary JavaScript.
 
@@ -20,7 +20,7 @@ Events can be set to trigger either when end-users perform specific actions or w
 
 You can configure events to activate in response to specific actions performed by end-users, such as clicking buttons, moving the mouse cursor, and more.
 
-Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on [each component's page](components/stylebox.md#triggers-and-events).
+Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyup`, and others. The available events may vary depending on the selected component, and detailed documentation can be found in the **Triggers and Events section** on each component's page.
 
 ### Qodly Source events
 
@@ -33,7 +33,7 @@ When the `On Change` event is linked to a qodlysource, it will trigger in the fo
 |Qodly Source|<li>The reference pointed to by the qodlysource changes in the web browser (not on the server)</li><li>The entity is [touched](../../language/EntityClass.md#touched)</li>|
 |Entity Qodly Source|The contents of the entity attribute change|
 |Entity Selection Qodly Source| <li>The reference pointed by the qodlysource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
-|Scalar qodlysource|The contents of the scalar qodlysource change|
+|Scalar Qodly Source|The contents of the scalar qodlysource change|
 
 ## Events Management
 
@@ -43,7 +43,7 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview#outline), or, in the case of qodlysources, either the [shared qodlysources](./qodlySources#from-a-namespace-shared-qodlysource) area or the [local qodlysources](./qodlySources#from-this-page) area.
+1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](./qodlySources#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](./qodlySources#from-this-page) area.
 
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or qodlysource.
 
@@ -53,12 +53,12 @@ To bind class functions, navigation actions or standard actions with events, fol
     - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on qodlysources, such as create, save, drop, or order by, without the need for coding.
     - [Navigation Action](#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
     - [Class Function](#binding-class-functions-to-events): Use a custom function to handle the event.
-    - [Dialog Action](#):
+    - [Dialog Action](#binding-dialog-actions-to-events): Configure to trigger dialog-related events. 
 
 4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '22%'}} /> displayed on the left side of events that have already been configured (if any).
 
 
-5. **Configure Event Properties**: Complete the remaining steps specific to each action type, as detailed in the respective sections within the [Configuring Events](#binding-actions-to-events) section.
+5. **Configure Event Properties**: Complete the remaining steps specific to each action type, as detailed in the respective sections within the configuring events section.
 
 :::tip
 You can define different actions for the same event.
@@ -221,14 +221,8 @@ In the preview section, various capabilities are available when actions are boun
 
 <br/>
 
-- <Column.List align="center" justifyContent="between">
-	<Column.Item width="40%">
-        <strong>Open Linked Page</strong>: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the Page associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
-	</Column.Item>
-	<Column.Item width="55%">
-		<img src={require('./img/preview_OpenLinkedPage.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
+- **Open Linked Page**: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the Page associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '3%'}} />.
+    <img src={require('./img/preview_OpenLinkedPage.png').default} style={{borderRadius: '6px'}} />
 
 
 ## Binding Standard Actions to Events
@@ -255,6 +249,7 @@ After binding a standard action with an event, follow these steps:
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Remove any content and create a new, empty selection of the same dataclass                                                    |
     |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the entity selection qodlysource to its initial value (All or none)                                                                                       |
     |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity selection to a target entity selection qodlysource                                                             |
+    |                  | Clean                  | ![Clean](./img/standardAction_clean.png)                                                                      | Clean the entity selection to ensure it references only existing entities, maintaining consistent length with the referenced entities Qodly Source                                                             |
     | Entity           | Create   | ![Create New Entity](./img/standardAction_createNewEntity.png)                                               | Generate a new entity in memory from the corresponding dataclass (see Note)                                                                         |
     |                  | Save       | ![Save Entity](./img/standardAction_saveEntity.png)                                                         | Save the entity on the server                                                                                                 |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload entity values from the server                                                                                          |
@@ -274,15 +269,18 @@ After binding a standard action with an event, follow these steps:
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the qodlysource. If the qodlysource is the selected element of a component (Matrix, Select box, Datatable), clearing the qodlysource also unselects the selected element        |
     |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the qodlysource to its initial value                                                                                       |
 
+
+
 :::info
-[Entities originating from an entity selection qodlysource](qodlySources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](qodlySources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
+[Entities originating from an Entity Selection Qodly Source](qodlySources.md#standalone-entity-vs-entity-from-es) enable iterative navigation within the selection, while [Independently Created Standalone Entities](qodlySources.md#standalone-entity-vs-entity-from-es) are generated independently and lack any selection affiliation.
 :::
 
-:::Note About Create entity action
+<br />
 
+:::note About Create entity action
 Keep in mind that the **Create** action only creates a new, blank entity in memory. If you want to save this entity in the datastore, you need to execute the **Save** action. New entity attributes are filled with null values. If you want to create, initialize, and save a new entity, you might consider using a [QodlyScript function](../../orda/data.md#creating-an-entity). 
-
 :::
+
 <br />
 
 2. **Provide Feedback**: Enable the <code>Provide Feedback</code> checkbox to customize the handling of unexpected error messages, determining what will be displayed to end users. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section. Here, you have the ability to:
@@ -517,7 +515,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 - <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="./qodlySources#page-qodly-sources">local</a> or <a href="qodlySources#shared-qodly-sources">shared qodlysources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. <br/>
+        <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="./qodlySources#page-qodly-sources">Local</a> or <a href="qodlySources#shared-qodly-sources">Shared Qodly Sources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. <br/>
         Make sure the qodlysource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
     </Column.Item>
     <Column.Item width="47%">
@@ -549,7 +547,7 @@ There are two primary methods for ensuring precise parameter handling:
     <Column.Item width="50%">
         However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters.
         <br/><br/>
-        <a href="#reload-event-function-prototype">Refreshing the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
+        <a href="#reload-event-function-prototype">Reloading the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
     </Column.Item>
     <Column.Item width="45%">
         <img src={require('./img/variadic3.png').default} style={{borderRadius: '6px'}} />
@@ -664,6 +662,7 @@ The time these **toast notifications** remain visible is typically managed by Qo
 They will automatically disappear after a preset **5-second** period. Users can also manually dismiss them by clicking on the `x` icon.
 :::
 
+<!--
 
 ## Example of Qodly Source events
 
@@ -691,3 +690,4 @@ When a button is clicked or a radio button is selected, the `employees` qodlysou
 Here's what you obtain after the button is clicked:
 
 ![event-qodlysource-result](img/event-QodlySource-result.png)
+-->
