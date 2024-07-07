@@ -179,6 +179,19 @@ For events bound to Class functions, the collapsed card displays the function si
     </Column.Item>
 </Column.List>
 
+#### Dialog
+
+For events bound to Dialogs, the collapsed card displays the action type name, followed by the dialog name involved.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <img src={require('./img/compactCard_dialog1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/compactCard_dialog2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
 ### Reload Event Function Prototype
 
 <Column.List align="center" justifyContent="between">
@@ -227,11 +240,11 @@ In the preview section, various capabilities are available when actions are boun
 
 ## Binding Standard Actions to Events
 
-Standard actions apply to qodlysources, and their availability depends on the type of qodlysource. Qodlysourcess can be categorized into three types: Entity, Entity Selection, and Scalar.
+Standard actions are applicable to both Qodly Sources and States, with their availability and specific functionality depending on the type of qodlysource or state involved. Qodly Sources can be categorized into three types: Entity, Entity Selection, and Scalar. Additionally, actions within Page states play a crucial role in defining the page's behavior in response to user interactions, further enhancing the dynamic capabilities of the system.
 
 ### Qodly Sources
 
-After binding a standard action with an event, follow these steps:
+After binding a standard action to a qodlysource with an event, follow these steps:
 
 
 1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the qodlysource:
@@ -296,6 +309,62 @@ Keep in mind that the **Create** action only creates a new, blank entity in memo
             <img src={require('./img/contextualPanel_provideFeedbackStandardAction.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
+
+### States
+
+Upon binding a standard action to a state, follow these steps:
+
+1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the qodlysource:
+
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <strong>Add Action</strong>: Utilized for incorporating modifications from selected states into the base state.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/state_standardAction_add.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+- <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <strong>Delete Action</strong>: This action facilitates the removal of selected states, along with their changes, in relation to the base state.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/state_standardAction_delete.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+:::tip
+When a new state is applied or removed as a user interacts with an input field, the interaction remains uninterrupted ensuring that the focus on the input field is not lost by the state change.
+:::
+
+
+<Column.List align="center" justifyContent="between">
+<Column.Item width="55%">
+    When triggering these actions, users can select from available states, which are then tagged in the state field. 
+</Column.Item>
+<Column.Item width="40%">
+    <img src={require('./img/state_standardAction.png').default} style={{borderRadius: '6px'}} />
+</Column.Item>
+</Column.List>
+
+<br/>
+
+:::info
+The `Base` state and `Conditional` states, however, are not included among these selectable options. Only Non-Conditional states are included.
+:::
+
+:::tip
+The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../language/WebFormClass#enablestate) is called several times with different states).
+:::
+
+:::warning
+If a state is initially "Non-Conditional" but later transitions to a "Conditional" state, any standard actions previously applied to this state will be removed.
+:::
+
 
 ## Binding Navigation Actions to Events
 
