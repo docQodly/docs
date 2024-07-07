@@ -109,6 +109,41 @@ Once an [event action is copied](#copying-an-event-action), it can be pasted int
     When pasting an event action, only those events that are compatible with the targeted component or Qodly Source will be retained. For example, if you copy an action designed for an `onClick` event from a button and paste it onto a Qodly Source that only supports `onChange`, you will need to define appropriate events manually.
     :::
 
+### Modifying a Function Call
+
+Customize your application by modifying the function calls within event actions without the need to recreate the action from scratch.
+
+
+1. **Select the Event Action**: Identify and select the event action you need to modify.
+
+2. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Edit the Function Call</strong>: To change the function, click the "Edit Function" button <img src={require('./img/edit.png').default} style={{borderRadius: '6px'}} /> next to the function name. This will open a dialog where you can select a new function.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/modifyFuncCall2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+3. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Choose the Function</strong>: Use the typeahead dropdown to select the new function you wish to use. Options appear based on your input for easier selection.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/modifyFuncCall3.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+
+4. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Confirm the Changes</strong>: Once you select the new function, click "Confirm" to update the event action. The event action will maintain its parameters and return values as closely as possible to the original configuration.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/modifyFuncCall4.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 ### Toggling Event Execution
 
