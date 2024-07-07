@@ -49,7 +49,7 @@ Page qodlysource are scoped to the Page where they are defined. They can only be
 Shared qodlysource, on the other hand, are scoped to the entire application and can be utilized in multiple Pages within the same project.
 
 :::info
-By default, when you [**create a Qodly Source**](#creating-a-qodlySource) without specifying a namespace, you define a Page qodlysource.
+By default, when you [**create a Qodly Source**](#creating-a-qodly-source) without specifying a namespace, you define a Page qodlysource.
 :::
 
 #### Shared functions
@@ -149,9 +149,9 @@ For Entity Selection or Entity types, make sure to also configure additional set
 :::
 
 
-### From a Namespace (shared qodlysource)
+### From a Namespace (Shared Qodly Source)
 
-To create Shared qodlysources, follow these steps:
+To create Shared Qodly Sources, follow these steps:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
@@ -220,7 +220,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-                This action will display the qodlysource in the <code>Contextual panel</code>. To alter an editable property, simply click on the "Edit" icon situated on the right side of the property.
+                This action will display the Qodly Source in the <code>Contextual panel</code>. To alter an editable property, simply click on the "Edit" icon situated on the right side of the property.
 	</Column.Item>
 	<Column.Item width="35%">
 	        <img src={require('./img/QodlySourceEdit2.png').default} style={{borderRadius: '6px'}} />
@@ -251,7 +251,7 @@ Please note that when renaming a shared qodlysource, only opened Pages can have 
 	</Column.Item>
 	<Column.Item width="40%">
         <img src={require('./img/inspect-button.png').default} style={{borderRadius: '6px'}} />
-		<img src={require('./img/inspect-button.gif').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/inspect-button3.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -270,9 +270,9 @@ An unused qodlysource refers to any local qodlysource that is defined but not ut
 Click on the `Delete Unused Elements` button <img src={require('./img/delete-unused_dts.png').default} style={{borderRadius: '6px', width: '30%'}} /> located in the Qodly Sources's header to cleanse your Page of unnecessary local qodlysource.
 
 
-### Deleting a Namespace
+### Automatic Deletion of Empty Namespace
 
-To delete a namespace, click the delete button <img alt="styles-library" src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '2%'}} /> next to its name in the Namespaces list. The delete button is only available if the namespace is empty.
+Namespaces are automatically deleted once they become empty and all Qodly Sources within them are removed.
 
 
 ## Binding a Qodly Source to a Component
@@ -288,9 +288,9 @@ Binding a qodlysource to a component can be accomplished through several methods
 For efficiency, if you drag and drop an Entity Selection attribute onto a [**Select Box**](components/selectbox.md) or [**Matrix**](components/matrix.md) component, the **$This.attributeName** binding is automatically established:
 
 
-For [**images**](components/image.md), the binding is automatically displayed in the Data Access panel:
+For [**images**](components/image.md), the binding is automatically displayed in the Data Access panel.
 
-<img src={require('./img/BindingQodlySourceToComponent.gif').default} style={{borderRadius: '6px'}} />
+<!-- <img src={require('./img/BindingQodlySourceToComponent.gif').default} style={{borderRadius: '6px'}} /> -->
 
 :::
 
