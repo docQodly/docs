@@ -42,7 +42,7 @@ Enhance the **Matrix** component to align with your application's requirements u
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img src={require('./img/matrix_orientations.gif').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/matrix_orientations.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
@@ -78,7 +78,7 @@ Alternatively, you can establish the connection by dragging and dropping the qod
 
 ### Data Display
 
-To display data iterated over a qodlysource, you can follow these additional steps:
+To display data iterated over a Qodly Source, you can follow these additional steps:
 
 1. **Access the Matrix**: Within the Matrix component, locate the embedded Stylebox.
 2. **Add a Component**: Add a Text component or other relevant components within the Stylebox.
@@ -95,7 +95,7 @@ To display data iterated over a qodlysource, you can follow these additional ste
 
 5. **Choose the Attribute**: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could include related entity selections. For example, use an embedded Matrix within the same Matrix to present various choices like room options (with/without breakfast).
 
-    <img src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
+    <img src={require('./img/matrix_DataDisplay_embeddedMatrix.png').default} style={{borderRadius: '6px', width :'70%', borderStyle: 'solid'}} />
 
 ### Dynamic Attribute Display
 
@@ -126,17 +126,17 @@ You can associate functions with embedded components in the **Matrix** component
 To implement this functionality, follow these steps:
 
 <Column.List align="center" justifyContent="between">
-	<Column.Item width="45%">
+	<Column.Item width="40%">
 		<ol start="1">
         	<li>Integrate the Matrix component into the interface.</li> <br/><br/>
-			<li>Select a qodlysource like <code>Rooms</code> for the Matrix.</li> <br/><br/>
+			<li>Select a Qodly Source like <code>Rooms</code> for the Matrix.</li> <br/><br/>
 			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> <br/><br/>
             <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> <br/><br/>
             <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element qodlysource as a parameter to the function.</li> 
 		</ol>
 	</Column.Item>
-	<Column.Item width="50%">
-        <img src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px', width: '100%'}} />
+	<Column.Item width="56%">
+        <img src={require('./img/matrix_ServerSideInteraction_RelatedEntity.png').default} style={{borderRadius: '6px'}} />
         <img src={require('./img/currrentElem.png').default} style={{borderRadius: '6px', width: '100%'}} />
 	</Column.Item>
 </Column.List>

@@ -55,7 +55,7 @@ Enhance the **Range Input** component to align with your application's requireme
             </ul>
         </Column.Item>
         <Column.Item width="35%">
-            <img src={require('./img/rangeInput_orientation.gif').default} style={{borderRadius: '6px'}} />
+            <img src={require('./img/rangeInput_orientation.png').default} style={{borderRadius: '6px',width: '50%'}} />
         </Column.Item>
     </Column.List>
 
@@ -120,7 +120,7 @@ The **Display** property allows to control how they are drawn:
 
 ## Data Integration
 
-The **Range Input** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
+The **Range Input** component allows for seamless integration of Qodly Sources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The qodlysource for the **Range Input** component should be a numeric value.

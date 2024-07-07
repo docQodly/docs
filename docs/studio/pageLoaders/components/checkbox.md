@@ -90,7 +90,7 @@ Within the **Checkbox** component, an embedded **Label** allows for further cust
 
 ## Data Integration
 
-The **Checkbox** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
+The **Checkbox** component allows for seamless integration of Qodly Sources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The qodlysource for the **Checkbox** component should be binary, with values limited to `true` or `false`.

@@ -149,7 +149,7 @@ See <a href="componentsBasics#data-formatting">Formats</a> for a description of 
 
 ## Data Integration
 
-The **Text Input** component allows for seamless integration of qodlysources, enabling dynamic data binding and interaction within the Page.
+The **Text Input** component allows for seamless integration of Qodly Sources, enabling dynamic data binding and interaction within the Page.
 
 :::info 
 The qodlysource for the **Text Input** component should be of type `text`, `number`, `date`, or `duration`.
@@ -180,7 +180,7 @@ Alternatively, you can establish the connection by dragging and dropping the qod
 
 ### Server-Side Interaction
 
-Retrieving user input data is equally effortless. By binding a qodlysource to the **Text Input** component, you can access and employ user-entered content.
+Retrieving user input data is equally effortless. By binding a Qodly Source to the **Text Input** component, you can access and employ user-entered content.
 
 
 <Column.List align="center" justifyContent="between">

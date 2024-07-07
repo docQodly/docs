@@ -63,14 +63,7 @@ Enhance the Tabs component to align with your application's requirements using t
 
     <br/>
 
-    - <Column.List align="center" justifyContent="between">
-        <Column.Item width="60%">
-            <strong>Direct Canvas Addition</strong>: Directly add new tabs onto the canvas using the <code>+</code> icon.
-        </Column.Item>
-        <Column.Item width="35%">
-            <img src={require('./img/dataTable_RowHeight.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
+    - **Direct Canvas Addition**: Directly add new tabs onto the canvas using the <code>+</code> icon.
 
 
 ## Data Integration

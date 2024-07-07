@@ -21,10 +21,10 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
 ## Properties Customization
 
 <Column.List align="center" justifyContent="between">
-    <Column.Item width="60%">
+    <Column.Item width="40%">
         The <strong>Page Loader</strong> component functions by displaying a designated Page within the current Page. The Page to be displayed is determined based on the initial value set for the Page Loader component. This initial value can be configured using either of the following methods:
     </Column.Item>
-    <Column.Item width="35%">
+    <Column.Item width="55%">
         <img src={require('./img/pageloader_InitialValue.png').default} style={{borderRadius: '6px', borderStyle: 'solid'}} />
     </Column.Item>
 </Column.List>
@@ -59,7 +59,7 @@ In the case of concurrent application of both methods, the content sourced from 
 
 When orchestrating navigation actions through the Page Loader component, it's crucial to employ the `Ref` property to specify the components requiring processing during the navigation event. This property guarantees that the target Page is loaded, and its contents are integrated into the current Page.
 
-<img src={require('./img/pageloader_Navigation.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/pageloader_Navigation.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 Consider a travel agency's backoffice solution, where a content manager needs to manage various aspects of travel packages. For instance, when the content manager attempts to delete a specific flight associated with a package, clicking on the delete button can trigger a navigation action. This action could lead to the loading of the Page `modal_removeFlight` using the **Page Loader** component with the reference `0FW_eM-2g1`.
 

@@ -4,7 +4,7 @@ title: Data Table
 ---
 import Column from '@site/src/components/Column'
 
-The **DataTable** component is a versatile UI element used to display data in a tabular format, resembling a table. It efficiently iterates through a designated qodlysource, converting it into an organized list comprising rows and columns. In the DataTable, columns represent attributes, rows represent entities, and a header row labels the columns.
+The **DataTable** component is a versatile UI element used to display data in a tabular format, resembling a table. It efficiently iterates through a designated Qodly Source, converting it into an organized list comprising rows and columns. In the DataTable, columns represent attributes, rows represent entities, and a header row labels the columns.
 
 
 
@@ -82,7 +82,7 @@ Enhance the **DataTable** component to align with your application's requirement
 
 ## Data Integration
 
-The **DataTable** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
+The **DataTable** component is data-bound, meaning it relies on an external Qodly Source to populate its options. This allows the component to display and interact with data.
 
 :::info 
 The qodlysource for the **DataTable** component can take the form of either an `ORDA entity selection` or an `array`.
@@ -114,7 +114,7 @@ When it comes to displaying columns in the DataTable component, you have two opt
 
 - **Property Customization in the Columns Area**: Modify column settings according to your preferences directly from the [Columns Area](#properties-customization).
 
-- **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the qodlysource onto the DataTable.
+- **Attribute Drag-and-Drop**: Alternatively, you can include columns by dragging and dropping attributes from the Qodly Source onto the DataTable.
 
 ### Dynamic Attribute Display
 

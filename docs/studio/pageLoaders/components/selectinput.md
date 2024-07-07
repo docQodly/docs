@@ -14,7 +14,7 @@ The **Select Input** component contains an embedded **Select** and a **Label** e
 
 <br/>
 
-The **Select Input** component is notable for its options that are easily configured directly within the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it doesn't rely on a qodlysource for options. Furthermore, while the **Select Input** component doesn't support embedding components within the list for customized displays alongside other elements, it efficiently serves its purpose.
+The **Select Input** component is notable for its options that are easily configured directly within the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it doesn't rely on a Qodly Source for options. Furthermore, while the **Select Input** component doesn't support embedding components within the list for customized displays alongside other elements, it efficiently serves its purpose.
 
 
 
@@ -115,7 +115,7 @@ To associate data with the Select Input component, follow these steps:
 
 ### Server-Side Interaction
 
-Retrieving user choices is straightforward. By binding a qodlysource to the **Select Input** component, you can access and utilize the selected content.
+Retrieving user choices is straightforward. By binding a Qodly Source to the **Select Input** component, you can access and utilize the selected content.
 
 
 <Column.List align="center" justifyContent="between">

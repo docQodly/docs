@@ -63,7 +63,7 @@ Within the <strong>Button</strong> component, an embedded <strong>Icon</strong> 
 
 ## Data Integration
 
-When it comes to data-binding, it's important to note that the **Button** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified qodlysources, the **Button** component primarily focuses on initiating actions and interactions within the user interface.
+When it comes to data-binding, it's important to note that the **Button** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified Qodly Sources, the **Button** component primarily focuses on initiating actions and interactions within the user interface.
 
 
 ## Triggers and Events

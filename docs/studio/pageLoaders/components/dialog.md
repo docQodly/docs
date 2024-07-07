@@ -120,7 +120,7 @@ There are two ways for removing Dialogs:
         Or, access it via the outline: 
     </Column.Item>
     <Column.Item width="35%">
-        <img src={require('./img/dialogEditOutline.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/dialogsOutline.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 

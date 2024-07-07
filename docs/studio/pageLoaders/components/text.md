@@ -13,7 +13,7 @@ The **Text** component is capable of fulfilling various text display needs:
 
 - **Static Text**: Use it to display unchanging content such as instructions, labels, and consistent information.
 
-- **Dynamic Content**: The Text component is not limited to static text. It can display dynamic content pulled from your qodlysources. This dynamic feature allows you to show text that adapts and updates based on data values.
+- **Dynamic Content**: The Text component is not limited to static text. It can display dynamic content pulled from your Qodly Sources. This dynamic feature allows you to show text that adapts and updates based on data values.
 
 
 ## Properties Customization
@@ -76,7 +76,7 @@ The **Text** component is not limited to static text, it is also data-bound, whi
 
 ### Data Binding
 
-The **Text** component's content can be dynamically bound to qodlysources through the [properties customization](#properties-customization) using the Toggle Qodly Source option. 
+The **Text** component's content can be dynamically bound to Qodly Sources through the [properties customization](#properties-customization) using the Toggle Qodly Source option. 
 
 :::tip 
 Alternatively, you can establish the connection by dragging and dropping a qodlysource of type `text`, `number`, `date`, or `duration` onto the Page, resulting in the automatic addition of a Text component with the qodlysource bound to it.

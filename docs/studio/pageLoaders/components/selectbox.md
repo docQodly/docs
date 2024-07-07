@@ -5,7 +5,7 @@ title: Select Box
 import Column from '@site/src/components/Column'
 
 
-The **Select Box** component is a UI element for item selection from a list of embedded Stylebox components. It streamlines selection through a dropdown-style interface, sourcing display data from a qodlysource and allowing customization with multiple embedded components.
+The **Select Box** component is a UI element for item selection from a list of embedded Stylebox components. It streamlines selection through a dropdown-style interface, sourcing display data from a Qodly Source and allowing customization with multiple embedded components.
 
 :::info 
 
@@ -85,7 +85,7 @@ The select box can display a maximum of 15 items.
 
 ## Data Integration
 
-The **Select Box** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
+The **Select Box** component is data-bound, meaning it relies on an external Qodly Source to populate its options. This allows the component to display and interact with data.
 
 :::info 
 The qodlysource for the **Select Box** component can take the form of either an `ORDA entity selection` or a `collection`.
@@ -113,7 +113,7 @@ Alternatively, you can establish the connection by dragging and dropping the qod
 
 ### Data Display
 
-To associate data iterated over a qodlysource, you can follow these additional steps:
+To associate data iterated over a Qodly Source, you can follow these additional steps:
 
 1. **Access the Select Box**: Within the Select Box component, locate the embedded Stylebox.
 2. **Add a Component**: Add a Text component or other relevant components within the Stylebox.
@@ -124,13 +124,13 @@ To associate data iterated over a qodlysource, you can follow these additional s
     b. **Properties Panel**: In the next step, you'll configure them through the `Data Access` category in the Properties panel. 
 
 <Column.List align="center" justifyContent="between">
-	<Column.Item width="60%">
+	<Column.Item width="50%">
         <ol>
             <li value="4"><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.</li> <br/>
 			<li value="5"><strong>Choose the Attribute</strong>: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could be attributes like the name of the destination, the country, or any other relevant information.</li>
         </ol>
 	</Column.Item>
-	<Column.Item width="35%">
+	<Column.Item width="45%">
          <img src={require('./img/selectBox_DataDisplay.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -166,7 +166,7 @@ You can associate functions with embedded components in the **Select Box** compo
 To implement this functionality, follow these steps:
 
 1. Integrate the Select Box component into the interface.
-2. Select a qodlysource for the Select Box.
+2. Select a Qodly Source for the Select Box.
 3. Embed a component (e.g., a button) within the Select Box for each iterated data.
 
 <Column.List align="center" justifyContent="between">
