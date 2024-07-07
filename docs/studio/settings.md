@@ -60,7 +60,7 @@ Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which
 
 Configure settings specific to your web application.
 
-<img src={require('./img/settings-application.png').default} style={{borderRadius: '6px', width: '40%'}} />
+<img src={require('./img/settings-application.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Start Page

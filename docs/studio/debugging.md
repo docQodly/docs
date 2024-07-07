@@ -68,9 +68,9 @@ If you wish to stop a debug session, follow these steps:
 
 Breakpoints allow you to pause code execution at specific points in your code. You can set breakpoints on any line of code where you want the execution to halt. Here's how to create a breakpoint:
 
-1. Click in the left margin of the code editor. This action will display a red bullet. <img src={require('./img/debug6.png').default} style={{borderRadius: '6px', width: '40%'}} />
+1. Click in the left margin of the code editor. This action will display a red bullet. <img src={require('./img/debug6.png').default} style={{borderRadius: '6px', width: '20%'}} />
 
-2. When you launch the code, a yellow arrow will appear in the left margin to indicate where the execution paused and mark the next line to be executed. <img src={require('./img/debug7.png').default} style={{borderRadius: '6px', width: '40%'}} />
+2. When you launch the code, a yellow arrow will appear in the left margin to indicate where the execution paused and mark the next line to be executed. <img src={require('./img/debug7.png').default} style={{borderRadius: '6px', width: '20%'}} />
 
 3. At this point, you can use the debugger panel at the bottom of the window to evaluate and debug your code.
 <img src={require('./img/debug8.png').default} style={{borderRadius: '6px'}} />

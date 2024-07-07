@@ -51,9 +51,9 @@ You can create a method or class using one of the three methods:
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
+        <img src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px'}} /> <br/>
+        <img src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} /> <br/>
+        <img src={require('./img/+New.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
