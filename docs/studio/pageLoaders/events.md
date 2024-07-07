@@ -76,6 +76,39 @@ You can define different actions for the same event.
 	</Column.Item>
 </Column.List>
 
+### Copying an Event Action
+
+To facilitate easier management of repetitive event actions across various parts of your application, follow these steps:
+
+1. <Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+        <strong>Locate the Event Action</strong>: Navigate to the event action you intend to copy.
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/copyEvent.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+2. **Copy the Event Action**: Click the copy button <img src={require('./img/copyEvent2.png').default} style={{borderRadius: '6px'}} /> associated with the event action. This copies the event action to your system clipboard.
+
+### Pasting an Event Action
+
+Once an [event action is copied](#copying-an-event-action), it can be pasted into another event. Here’s how:
+
+1. **Access the Target Event**: Navigate to the component event panel where you wish to integrate the copied action.
+
+2. **Paste the Event Action**: Click the paste button <img src={require('./img/pasteEvent.png').default} style={{borderRadius: '6px', width:'10%'}} /> in the action section of the contextual panel.
+
+    :::tip
+    If the paste button is inactive <img src={require('./img/pasteEvent2.png').default} style={{borderRadius: '6px', width: '5%'}} />, it indicates that there is no event action currently copied to your clipboard.
+    :::
+
+3. **Adjust Events**: Adapt the pasted event action to fit the new context. Modify it as necessary to ensure compatibility with the target component or Qodly Source.
+
+    :::info Event Compatibility
+    When pasting an event action, only those events that are compatible with the targeted component or Qodly Source will be retained. For example, if you copy an action designed for an `onClick` event from a button and paste it onto a Qodly Source that only supports `onChange`, you will need to define appropriate events manually.
+    :::
+
 
 ### Toggling Event Execution
 
