@@ -61,20 +61,20 @@ While `myForm` may not display typical object properties when examined in the de
 <!-- REF #WebFormClass.disableState().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|state|string|->|Name of state to disable from the web form|
+|state|string|->|Name of state to disable from the Page|
 <!-- END REF -->
 
 #### Description
 
-The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->disables the rendering of the *state* in the current web form<!-- END REF -->.
+The `.disableState()` function <!-- REF #WebFormClass.disableState().Summary -->disables the rendering of the *state* in the current Page<!-- END REF -->.
 
 This function does nothing if:
-- the *state* is currently not enabled in the web form,
-- the *state* does not exist for the web form.
+- the *state* is currently not enabled in the Page,
+- the *state* does not exist for the Page.
 
 If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on web form states, please refer to the [States](../studio/design-webforms/states.md) section.
+For more information on Page states, please refer to the [States](../studio/pageLoaders/states.md) section.
 
 
 
@@ -87,20 +87,20 @@ For more information on web form states, please refer to the [States](../studio/
 <!-- REF #WebFormClass.enableState().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|state|string|->|Name of state to enable on the web form|
+|state|string|->|Name of state to enable on the Page|
 <!-- END REF -->
 
 #### Description
 
-The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->enables the rendering of the *state* in the current web form<!-- END REF -->.
+The `.enableState()` function <!-- REF #WebFormClass.enableState().Summary -->enables the rendering of the *state* in the current Page<!-- END REF -->.
 
 This function does nothing if:
-- the *state* has already been enabled on the web form,
-- the *state* does not exist for the web form.
+- the *state* has already been enabled on the Page,
+- the *state* does not exist for the Page.
 
 If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on web form states, please refer to the [States](../studio/design-webforms/states.md) section.
+For more information on Page states, please refer to the [States](../studio/pageLoaders/states.md) section.
 
 
 
