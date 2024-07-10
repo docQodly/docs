@@ -18,6 +18,7 @@ Entity selections can be created from existing selections using various function
 |[<!-- INCLUDE #EntitySelectionClass.and().Syntax -->](#and)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.and().Summary -->|
 |[<!-- INCLUDE #EntitySelectionClass.at().Syntax -->](#attributename)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.at().Summary -->|
 |[<!-- INCLUDE #EntitySelectionClass.average().Syntax -->](#average)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.average().Summary -->|
+|[<!-- INCLUDE #EntitySelectionClass.clean().Syntax -->](#clean)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.clean().Summary -->|
 |[<!-- INCLUDE #EntitySelectionClass.contains().Syntax -->](#contains)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.contains().Summary -->|
 |[<!-- INCLUDE #EntitySelectionClass.count().Syntax -->](#count)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.count().Summary -->|
 |[<!-- INCLUDE #EntitySelectionClass.distinct().Syntax -->](#distinct)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntitySelectionClass.distinct().Summary -->|
@@ -390,6 +391,47 @@ We want to obtain a list of employees whose salary is higher than the average sa
 
 <!-- END REF -->
 
+<!-- REF EntitySelectionClass.clean().Desc -->
+## .clean()   
+
+
+<!-- REF #EntitySelectionClass.clean().Syntax -->**.clean**() : 4D.EntitySelection<!-- END REF -->
+
+
+<!-- REF #EntitySelectionClass.clean().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|4D.EntitySelection|<-|New entity selection without deleted entities|
+<!-- END REF -->
+
+#### Description
+
+The `.clean()` function <!-- REF #EntitySelectionClass.clean().Summary -->returns a new entity selection based upon the original entity selection but without deleted entities, if any<!-- END REF -->.
+
+By default, when an entity is [dropped](EntitySelectionClass.md#drop), its reference(s) in existing entity selection(s) become *undefined* but are not removed from the entity selection object(s). Deleted entities are still included in the [`.length`](#length) property and are displayed as blank lines if the entity selection is bound to an interface object such as a list. In this case, calling the `.clean()` function on the entity selection allows you to get a new, up-to-date entity selection, not containing *undefined* entity references.
+
+The resulting entity selection keeps the same [order criteria](../orda/dsMapping.md#ordered-or-unordered-entity-selection) and the same [alterable/shareable](../orda/data-model.md#ordered-or-unordered-entity-selection)) property as the original entity selection.
+
+
+#### Example   
+
+```qs
+var sel , sel2 : cs.SpecialitySelection
+var status : object
+
+sel = ds.Speciality.query("ID <= 4")
+status = ds.Speciality.get(2).drop() //delete the entity from the dataclass
+  //sel.length == 4
+
+sel2 = sel.clean()
+  //sel2.length == 3
+```
+
+#### See also
+
+[`.refresh()`](#refresh)
+
+<!-- END REF -->
 
 
 <!-- REF EntitySelectionClass.contains().Desc -->

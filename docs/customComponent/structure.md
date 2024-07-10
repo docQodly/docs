@@ -493,7 +493,7 @@ The `index.tsx` file serves as the epicenter of the `ExampleComponent` custom co
 
   - `T4DComponent`: Imports a custom component type for the Webform Editor.
 
-  - `useEnhancedEditor`: Imports a hook from `@ws-ui/webform-editor` for handling enhanced editor features.
+  - `useEnhancedEditor`: Imports a hook from `@ws-ui/Page-editor` for handling enhanced editor features.
 
   - `Build` and `Render`: Import components responsible for building and rendering the `ExampleComponent`.
 
@@ -503,7 +503,7 @@ The `index.tsx` file serves as the epicenter of the `ExampleComponent` custom co
   const ExampleComponent: T4DComponent<IExampleComponentProps> = (props) => {
   ```
 
-  - Declares a constant variable `ExampleComponent` of type `T4DComponent<IExampleComponentProps>`, indicating that it is a custom component for the Webform Editor.
+  - Declares a constant variable `ExampleComponent` of type `T4DComponent<IExampleComponentProps>`, indicating that it is a custom component for the Page Editor.
 
   - The component is a functional component that receives `props` of type `IExampleComponentProps`.
 

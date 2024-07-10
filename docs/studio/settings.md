@@ -27,13 +27,13 @@ Toggle the pop-up for different URL schemes in the [renderer](rendering.md) and 
 
 ### Show Unsaved Files Pop Over
 
-Toggle the warning pop-up for unsaved webform changes when rendering, when you click on the [**Preview** button](rendering.md#preview-the-entire-site).
+Toggle the warning pop-up for unsaved Page changes when rendering, when you click on the [**Preview** button](rendering.md#preview-the-entire-site).
 
 <img src={require('./img/preview-pop.png').default} style={{borderRadius: '6px', width: '40%'}} />
 
 ### Tooltip Behavior
 
-Set [tooltip display on component hover](design-webforms/components/componentsBasics.md#tooltip) <img src={require('./img/tool-tip.png').default} style={{borderRadius: '6px', width: '10%'}} />. Options include show/hide after a timeout.
+Set [tooltip display on component hover](pageLoaders/components/componentsBasics.md#tooltip) <img src={require('./img/tool-tip.png').default} style={{borderRadius: '6px', width: '10%'}} />. Options include show/hide after a timeout.
 
 - **Show after timeout**: The tooltip appears following a specified delay and remains visible until the mouse is moved.
 - **Hide after timeout**: The tooltip shows up instantly and then disappears after the set duration.
@@ -44,7 +44,7 @@ Duration before the tooltip behavior activates, in seconds.
 
 ### Enable Helper Tips
 
-Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the webform editor.
+Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the Page Editor.
 
 ### Activate Welcome Tour
 
@@ -52,7 +52,7 @@ Turn on/off the [Welcome tour dialogs](../concepts/quickstart.md#step-3-navigate
 
 ### Activate tabs preview mode
 
-Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which allows you to open and preview your Qodly files (webforms, model, classes, methods, or any other file) in a single tab. As a result, this option can reduce drastically the number of opened tabs in your project.
+Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which allows you to open and preview your Qodly files (Pages, model, classes, methods, or any other file) in a single tab. As a result, this option can reduce drastically the number of opened tabs in your project.
 
 
 
@@ -60,21 +60,21 @@ Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which
 
 Configure settings specific to your web application.
 
-<img src={require('./img/settings-application.png').default} style={{borderRadius: '6px', width: '40%'}} />
+<img src={require('./img/settings-application.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Start Page
 
-Enables selection of a webform to serve as the application’s start page. This chosen webform will automatically render in the following situations:
+Enables selection of a Page to serve as the application’s start page. This chosen Page will automatically render in the following situations:
 
-- When the **Preview** button is clicked in the webform editor, the webform opens in a new tab.
-- When the **Preview URL** area in the Qodly Cloud dashboard is clicked, the webform is displayed.
+- When the **Preview** button is clicked in the Page Editor, the Page opens in a new tab.
+- When the **Preview URL** area in the Qodly Cloud dashboard is clicked, the Page is displayed.
 
 ### Default Display Mode
 
-Choose the default mode for displaying components in webforms:
+Choose the default mode for displaying components in Pages:
 
 - **Neutral** (default): No extra margins.
 - **Airy**: Adds default margins for enhanced design.
 
-The **Airy** mode can also be selected at the webform level.
+The **Airy** mode can also be selected at the Page level.

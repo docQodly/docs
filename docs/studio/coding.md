@@ -7,7 +7,7 @@ import Column from '@site/src/components/Column'
 Qodly is a groundbreaking hybrid **low-code** application development platform that redefines how you build applications. With Qodly, you'll find yourself needing only a minimal amount of code, and sometimes, no code at all. It's as simple as designing your application, and Qodly Studio takes care of generating all the necessary code on your behalf.
 
 
-While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](design-webforms/events.md) in combination with class functions to effectively manage the intricacies of your web application.
+While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](pageLoaders/events.md) in combination with class functions to effectively manage the intricacies of your web application.
 
 
 ## Coding Structures
@@ -47,13 +47,13 @@ You can create a method or class using one of the three methods:
         <ol>
             <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
-            <li>While in the <strong>Webform Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
+            <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img alt="explorer" src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img alt="explorer" src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
-        <img alt="explorer" src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
+        <img src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px'}} /> <br/>
+        <img src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} /> <br/>
+        <img src={require('./img/+New.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
@@ -64,7 +64,7 @@ You can create a method or class using one of the three methods:
       A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -75,7 +75,7 @@ You can create a method or class using one of the three methods:
         When duplicating existing methods or classes, Qodly suggests a naming convention in the <code>itemName_copy_N</code> format.
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_duplicate.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/coding_duplicate.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -92,7 +92,7 @@ To rename a method or class, you can either:
 		</ul>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_rename.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/coding_rename.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -109,7 +109,7 @@ Deleting a method or class is straightforward:
 		  </ol>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_delete.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/coding_delete.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -120,7 +120,7 @@ Deleting a method or class is straightforward:
 		  </ol>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_delete2.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/coding_delete2.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -133,14 +133,14 @@ Deleting a method or class is straightforward:
 		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_tabManagement.png').default} style={{borderRadius: '6px', width: '70%'}} />
+		<img src={require('./img/coding_tabManagement.png').default} style={{borderRadius: '6px', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
 ### Executing Methods
 
-For testing purposes, a method can be executed from the Explorer <img alt="explorer" src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} /> <br/>
-Or directly from the toolbar <img alt="explorer" src={require('./img/coding_execute2.png').default} style={{borderRadius: '6px', width: '25%'}} />
+For testing purposes, a method can be executed from the Explorer <img src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} /> <br/>
+Or directly from the toolbar <img src={require('./img/coding_execute2.png').default} style={{borderRadius: '6px', width: '25%'}} />
 
 :::info
 For comprehensive information on debugging your code, please refer to the [Debugger](./debugging.md) section.
@@ -152,7 +152,7 @@ Ensure the integrity and consistency of your method and class code in Qodly with
 
 ### Saving
 
-Your code modifications are automatically saved at regular intervals. However, if you want to ensure immediate saving, you can click `Save all` to save all edited tabs. <img alt="explorer" src={require('./img/coding_save.png').default} style={{borderRadius: '6px', width: '10%'}} />
+Your code modifications are automatically saved at regular intervals. However, if you want to ensure immediate saving, you can click `Save all` to save all edited tabs. <img src={require('./img/coding_save.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
 ### Reloading code
 
@@ -162,7 +162,7 @@ Your code modifications are automatically saved at regular intervals. However, i
 		    To fetch the latest version, right-click the tab and choose <code>Reload</code>. This action initiates an immediate refresh of the code content directly from the server, ensuring that you are always working with the latest code, even if you haven't made any local edits.
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/coding_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />
+		<img src={require('./img/coding_reload.png').default} style={{borderRadius: '6px', width: '70%'}} />
     </Column.Item>
 </Column.List>
 
@@ -192,7 +192,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
         </ul>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/codingCollaborative_reload.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/codingCollaborative_reload.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -203,7 +203,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
         </ul>
     </Column.Item>
     <Column.Item width="30%">
-		<img alt="explorer" src={require('./img/codingCollaborative_saveAll.png').default} style={{borderRadius: '6px'}} />
+		<img src={require('./img/codingCollaborative_saveAll.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
@@ -216,7 +216,7 @@ This collaborative editing behavior aligns with common practices in collaborativ
 
 ### LSP
 
-Qodly Studio relies on the Language Server Protocol ([LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol)) to offer advanced coding features like code completion and syntax highlighting. <img alt="explorer" src={require('./img/lsp.png').default} style={{borderRadius: '6px', width: '15%'}} />
+Qodly Studio relies on the Language Server Protocol ([LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol)) to offer advanced coding features like code completion and syntax highlighting. <img src={require('./img/lsp.png').default} style={{borderRadius: '6px', width: '15%'}} />
 
 :::info
 Reloading is recommended in cases where a connection is not established. Without this connection, while you can still write and save your code, you will miss out on LSP-related features.
@@ -246,11 +246,11 @@ When a QodlyScript command or function is entered in the code editor, you can ge
 
 The Command Palette offers easy access to all available commands in the code editor, including any associated shortcuts. You can open it by right-clicking in the code editor window or pressing `F1`.
 
-<img alt="explorer" src={require('./img/coding_palette.png').default} style={{borderRadius: '6px', width: '50%'}} />
+<img src={require('./img/coding_palette.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
 The palette includes a filtering option to find specific commands quickly.
 
-<img alt="explorer" src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px',width: '50%'}} />
+<img src={require('./img/coding_palette2.png').default} style={{borderRadius: '6px',width: '50%'}} />
 
 ### Warnings and errors
 

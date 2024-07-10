@@ -7,18 +7,14 @@ title: Shared objects and collections
 
 Shared objects and shared collections can be stored in standard `object` and `collection` type [variables](lang-variables.md), but must be instantiated using specific commands:
 
-- to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command,
-- to create a shared collection, use the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command.
+- to create a shared object, use the [`newSharedObject`](../commands/newSharedObject.md) command or call the [`new()`](../ClassClass.md#new) function of a [shared class](lang-classes.md#shared-classes),
+- to create a shared collection, use the [`newSharedCollection`](../commands/newSharedCollection.md) command.
 
-:::note
-
-Shared objects and collections can be set as properties of standard (not shared) objects or collections.
-
-:::
+Shared objects and collections can only contain scalar values or other shared objects and collections. However, shared objects and collections can be set as properties of standard (not shared) objects or collections.
 
 In order to modify a shared object/collection, the **use...end** structure must be called. Reading a shared object/collection value does not require **use...end**.
 
-To know if an object or a collection is shared, use the [`objectIsShared`](..commands/objectIsShared.md) command.
+To know if an object or a collection is shared, use the [`objectIsShared`](../commands/objectIsShared.md) command.
 
 A unique, global catalog returned by the [`storage`](../commands/storage.md) command is always available throughout the project, and can be used to store all shared objects and collections.
 
@@ -33,6 +29,13 @@ Modifications can be applied to shared objects and shared collections:
 - adding or removing object properties,
 - adding or editing values (provided they are supported in shared objects), including other shared objects or collections (which creates a shared group, see below).
 
+:::note
+
+Keep in mind that objects or collections set as the content of a shared object or collection must themselves be shared.
+
+:::
+
+
 However, all modification instructions in a shared object or collection must be surrounded by the `use...end` keywords, otherwise an error is generated.
 
 ```qs
@@ -42,7 +45,7 @@ use(s_obj)
 end
 ```
 
-A shared object/collection can only be modified by one process at a time. `use` locks the shared object/collection from other threads, while `end` unlocks the shared object/collection (if the locking counter is at 0, see below). Trying to modify a shared object/collection without at least one `use...end` generates an error. When a process calls `use...end` on a shared object/collection that is already in use by another process, it is simply put on hold until the `end` unlocks it (no error is generated). Consequently, instructions within `use...end` structures should execute quickly and unlock the elements as soon as possible. Thus, it is strongly advised to avoid modifying a shared object or collection directly from the interface, e.g. through a web form.
+A shared object/collection can only be modified by one process at a time. `use` locks the shared object/collection from other threads, while `end` unlocks the shared object/collection (if the locking counter is at 0, see below). Trying to modify a shared object/collection without at least one `use...end` generates an error. When a process calls `use...end` on a shared object/collection that is already in use by another process, it is simply put on hold until the `end` unlocks it (no error is generated). Consequently, instructions within `use...end` structures should execute quickly and unlock the elements as soon as possible. Thus, it is strongly advised to avoid modifying a shared object or collection directly from the interface, e.g. through a Page.
 
 Assigning shared objects/collections to properties or elements of other shared objects/collections is allowed and creates **shared groups**. A shared group is automatically created when a shared object/collection is set as property value or element of another shared object/collection. Shared groups allow nesting shared objects and collections but enforce additional rules:
 

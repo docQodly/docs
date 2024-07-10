@@ -29,7 +29,7 @@ To add a role, follow these steps:
 3. Click on the `Roles` tab to access role management.
 4. To create a new role, click on the `Add new role` card.
 
-<img alt="explorer" src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
@@ -59,7 +59,7 @@ To add a privilege, follow these steps:
 3. Click on the `Privileges` tab to access privileges management.
 4. Click on the `+` button to create a new privilege.
 
-<img alt="explorer" src={require('./img/addPrivilege.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/addPrivilege.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
@@ -86,7 +86,7 @@ To assign one or multiple privileges to a role, follow these steps:
 5. To assign a privilege, click the `+` icon.
 6. To remove a privilege, simply click the `-` icon.
 
-<img alt="explorer" src={require('./img/InterplayBetweenRoles_and_Privileges.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/InterplayBetweenRoles_and_Privileges.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
@@ -110,7 +110,7 @@ For instance, in the `development` environment:
 4. Find a dropdown menu labeled `Profile` towards the end of the form, displaying roles added from Qodly Studio under the `Roles and Privileges` section.
 5. Select and assign the appropriate role to the new user from the list, providing specific privileges associated with that role.
 
-<img alt="explorer" src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
 
 The impact of these role assignments goes beyond mere user administration. As you mold your application, these roles exert a direct influence on the user journey. 
 

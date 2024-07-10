@@ -1780,7 +1780,7 @@ All *colsToSort* collections must have the same number of elements, otherwise an
 
 :::
 
-If you want to sort the collections in some other order than ascending, you must supply a *formula* ([Formula object](FunctionClass.md#formula) that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: **true** if *$1.value* is less than *$1.value2*, **false** if *$1.value* is greater than *$1.value2*. You can provide additional parameters to the formula if necessary.
+If you want to sort the collections in some other order than ascending, you must supply a *formula* ([Formula object](FunctionClass#formula-objects) that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: **true** if *$1.value* is less than *$1.value2*, **false** if *$1.value* is greater than *$1.value2*. You can provide additional parameters to the formula if necessary.
 
 The formula receives the following parameters:
 

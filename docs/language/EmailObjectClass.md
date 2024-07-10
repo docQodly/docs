@@ -8,11 +8,11 @@ Creating, sending or receiving emails in Qodly is done by handling an `Email` ob
 `Email` objects are created when receiving mails through a *transporter* class function:
 
 - IMAP - [`.getMail()`](IMAPTransporterClass.md#getmail) and [`.getMails()`](IMAPTransporterClass.md#getmails) functions to get emails from an IMAP server
-- POP3 - `.getMail()` function to get an email from a POP3 server.
+- POP3 - [`.getMail()`](POP3TransporterClass.md#getmail) function to get an email from a POP3 server.
 
 > You can also create a new, blank `Email` object by calling the `New object` command, and then fill it with [Email object properties](#email-object).
 
-You send `Email` objects using the SMTP `.send()` function.
+You send `Email` objects using the SMTP [`.send()`](SMTPTransporterClass.md#send) function.
 
 [`mailConvertFromMIME`](commands/mailConvertFromMIME.md) and [`mailConvertToMIME`](commands/mailConvertToMIME.md) commands can be used to convert `Email` objects to and from MIME contents.
 
@@ -113,7 +113,7 @@ The [`stringBody`](#stringbody) and [`htmlBody`](#htmlbody) properties are only 
 
 The `.attachments` property contains a <!-- REF #EmailobjectClass.attachments.Summary -->collection of `4D.MailAttachment` object(s)<!-- END REF -->.
 
-Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentClass.md#mailnewattachment) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
+Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentClass#4dmailattachmentnew) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
 
 ## .bcc
 
@@ -362,4 +362,3 @@ The `.stringBody` property contains the <!-- REF #EmailobjectClass.stringBody.Su
 #### Description
 
 The `.to` property contains the <!-- REF #EmailobjectClass.to.Summary -->primary recipient [addresse(s)](#email-addresses) of the email<!-- END REF -->.
-

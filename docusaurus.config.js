@@ -132,6 +132,12 @@ const config = {
             label: 'Architecture',
           },
           {
+            type: 'doc',
+            docId: 'api/overview',
+            position: 'left',
+            label: 'REST API',
+          },
+          {
             type: "doc",
             docId: "customComponent/overview",
             position: "left",
@@ -143,13 +149,6 @@ const config = {
             docId: "faq/faq",
             label: "FAQ",
           },
-          /*{
-              type: 'doc',
-              docId: '/category/API',
-              position: 'left',
-              label: 'API',
-            },
-          */
           /*
             {to: '/blog', label: 'Blog', position: 'left'},
             {
@@ -176,7 +175,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.3",
+                to: "notes/v1.0.0-beta.4",
               },
             ],
           },
@@ -195,6 +194,14 @@ const config = {
                 label: "Contact us",
                 to: "mailto:contact@qodly.com",
               },
+              {
+                label: "License",
+                to: "https://qodly.com/qodly-platform-license",
+              },
+              {
+                label: "SLA",
+                to: "https://qodly.com/qodly-beta-service-level-agreement",
+              }
             ],
           },
           {

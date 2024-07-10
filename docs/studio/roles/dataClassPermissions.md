@@ -19,7 +19,7 @@ import Column from '@site/src/components/Column'
 - Alternatively, type the resource name, such as `Employee` dataclass, directly into the search bar.
 
 :::info
-The <img alt="explorer" src={require('./img/dataclass.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **DataClass** ressources.
+The <img src={require('./img/dataclass.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **DataClass** ressources.
 :::
 
 ## Hierarchy and Overrides 
@@ -28,7 +28,7 @@ Expanding on the [second solution](datastorePermissions#2nd-solution-full-access
 
 While **Datastore** permissions cascade down to more specific **Dataclasses** levels, they remain adaptable, allowing for overrides or supplements as required. 
 
-<img alt="explorer" src={require('./img/overriddingDataStore.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/overriddingDataStore.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 

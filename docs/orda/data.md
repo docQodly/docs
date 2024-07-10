@@ -21,26 +21,27 @@ For example, we want to create a new entity in the "Employee" dataclass in the c
 
 ```qs
 var myEntity : cs.EmployeeEntity
-myEntity=ds.Employee.new() //Create a new object of the entity type
-myEntity.name="Dupont" //assign 'Dupont' to the 'name' attribute
-myEntity.firstname="John" //assign 'John' to the 'firstname' attribute
+myEntity = ds.Employee.new() //Create a new object of the entity type
+myEntity.name = "Dupont" //assign 'Dupont' to the 'name' attribute
+myEntity.firstname = "John" //assign 'John' to the 'firstname' attribute
 myEntity.save() //save the entity
 ```
 
 
-## Entities and references 
- 
+## Entities and references
+
 An entity contains a reference to a database record. Different entities can reference the same record. Also, since an entity can be stored in an object variable, different variables can contain a reference to the same entity.
 
 If you execute the following code:
 
 ```qs
- var e1, e2 : cs.EmployeeEntity
- e1=ds.Employee.get(1) //access the employee with ID 1
- e2=e1
- e1.name="Hammer"
+var e1, e2 : cs.EmployeeEntity
+e1 = ds.Employee.get(1) //access the employee with ID 1
+e2 = e1
+e1.name = "Hammer"
   //both variables e1 and e2 share the reference to the same entity
   //e2.name contains "Hammer"
+if (e1 == e2) //true
 ```
 
 This is illustrated by the following graphic:
@@ -50,13 +51,14 @@ This is illustrated by the following graphic:
 Now if you execute:
 
 ```qs
- var e1,e2 : cs.EmployeeEntity
- e1=ds.Employee.get(1)
- e2=ds.Employee.get(1)
- e1.name="Hammer"
+var e1,e2 : cs.EmployeeEntity
+e1 = ds.Employee.get(1)
+e2 = ds.Employee.get(1)
+e1.name = "Hammer"
   //variable e1 contains a reference to an entity
   //variable e2 contains another reference to another entity
   //e2.name contains "smith"
+if (e1 == e2) //false
 ```
 
 This is illustrated by the following graphic:
@@ -72,7 +74,7 @@ In fact, `e1` and `e2` are not the entity itself, but a reference to the entity.
     do_Capitalize(entity)
  end
 ```
- 
+
 And the *do_Capitalize* method is:
 
 ```qs
@@ -84,7 +86,7 @@ And the *do_Capitalize* method is:
  end
  entity.lastname=name
 ```
- 
+
 You can handle entities like any other object and pass their references directly as [parameters](../language/basics/lang-parameters.md).
 
 :::note
@@ -137,7 +139,7 @@ Each employee can be a manager and can have a manager. To get the manager of the
 
 ### Assigning files to picture or blob attributes
 
-You can store images in picture attributes; similarly, you can store any binary data in blob attributes. 
+You can store images in picture attributes; similarly, you can store any binary data in blob attributes.
 
 Qodly lets you assign either the data itself, i.e. an image or a blob object, or a **reference to a file** containing the data to the attribute. Only the file path is saved within the entity.
 
@@ -156,17 +158,17 @@ function createCompany(name : string, logo : 4D.File)
 	var company : cs.CompanyEntity
 	company = ds.Company.new()
 
-	company.name = name 
+	company.name = name
 		//assignment using a file object
-	company.logo = logo 
+	company.logo = logo
 		//assignment using a path
 	company.datablob = "/RESOURCES/"+$name+"/data.bin"
-	company.save() 
+	company.save()
 ```
 
-Regardless of how the attribute is assigned (data itself or reference to a file), read access to the attribute is transparent from the application's point of view. 
+Regardless of how the attribute is assigned (data itself or reference to a file), read access to the attribute is transparent from the application's point of view.
 
-The file does not have to exist on disk at the time of assignment (no error is returned in this case). If the referenced file is not found when the attribute is read, a null value is returned. 
+The file does not have to exist on disk at the time of assignment (no error is returned in this case). If the referenced file is not found when the attribute is read, a null value is returned.
 
 :::tip
 
@@ -236,7 +238,13 @@ You can create an object of type [entity selection](data-model#entity-selection)
 *	Using the [`entity.getSelection()`](../language/EntityClass.md#getselection) function;
 *	Using a relation attribute of kind `relatedEntities` such as `empSel=company.employees`, or a projection such as `empSel.name`.
 
-You can simultaneously create and use as many different entity selections as you want for a dataclass. Keep in mind that an entity selection only contains references to entities. Different entity selections can contain references to the same entities. 
+:::note
+
+You can filter which entities must be included in entity selections for a dataclass depending on any business rules, thanks to the [restricted entity selection](#restricting-entity-selections) feature.
+
+:::
+
+You can simultaneously create and use as many different entity selections as you want for a dataclass. Keep in mind that an entity selection only contains references to entities. Different entity selections can contain references to the same entities.
 
 :::note
 
@@ -257,7 +265,7 @@ All storage attributes (string, number, boolean, date) are available as properti
 
 ### Entity selections and Relation attributes  
 
-In addition to the variety of ways you can query, you can also use relation attributes as properties of entity selections to return new entity selections. For example, consider the following structure: 
+In addition to the variety of ways you can query, you can also use relation attributes as properties of entity selections to return new entity selections. For example, consider the following structure:
 
 ![](img/structure6.png)
 
@@ -271,9 +279,10 @@ In addition to the variety of ways you can query, you can also use relation attr
 
 The last line will return in *myInvoices* an entity selection of all invoices that have at least one invoice item related to a part in the entity selection *myParts*. When a relation attribute is used as a property of an entity selection, the result is always another entity selection, even if only one entity is returned. When a relation attribute is used as a property of an entity selection and no entities are returned, the result is an empty entity selection, not null.
 
+
 ### Shareable or alterable entity selections
 
-An entity selection can be **shareable** (readable by multiple processes, but not alterable after creation) or **alterable** (supports the [`.add()`](../language/EntitySelectionClass.md#add) function, but only usable by the current process). 
+An entity selection can be **shareable** (readable by multiple processes, but not alterable after creation) or **alterable** (supports the [`.add()`](../language/EntitySelectionClass.md#add) function, but only usable by the current process).
 
 #### Properties
 
@@ -284,8 +293,8 @@ A **shareable** entity selection has the following characteristics:
 - it does not allow the addition of new entities. Trying to add an entity to a shareable entity selection will trigger an error (1637 - This entity selection cannot be altered). To add an entity to a shareable entity selection, you must first transform it into a non-shareable entity selection using the [`.copy()`](../language/EntitySelectionClass.md#copy) function, before calling [`.add()`](../language/EntitySelectionClass.md#add).
 
 :::note
-	
-Most entity selection functions (such as [`.slice()`](../language/EntitySelectionClass.md#slice), [`.and()`](../language/EntitySelectionClass.md#and)...) support shareable entity selections since they do not need to alter the original entity selection (they return a new one). 
+
+Most entity selection functions (such as [`.slice()`](../language/EntitySelectionClass.md#slice), [`.and()`](../language/EntitySelectionClass.md#and)...) support shareable entity selections since they do not need to alter the original entity selection (they return a new one).
 
 :::
 
@@ -293,11 +302,11 @@ An **alterable** entity selection has the following characteristics:
 
 - it cannot be shared between processes, nor be stored in a shared object or collection. Trying to store a non-shareable entity selection in a shared object or collection will trigger an error (-10721 - Not supported value type in a shared object or shared collection);
 - it accepts the addition of new entities, i.e. it is supports the [`.add()`](../language/EntitySelectionClass.md#add) function.
-	
+
 
 #### How are they defined?
 
-The **shareable** or **alterable** nature of an entity selection is defined when the entity selection is created (it cannot be modified afterwards). You can know the nature of an entity selection using the [.isAlterable()](../language/EntitySelectionClass.md#isalterable) function. 
+The **shareable** or **alterable** nature of an entity selection is defined when the entity selection is created (it cannot be modified afterwards). You can know the nature of an entity selection using the [.isAlterable()](../language/EntitySelectionClass.md#isalterable) function.
 
 
 A new entity selection is **shareable** in the following cases:
@@ -306,7 +315,7 @@ A new entity selection is **shareable** in the following cases:
 - the new entity selection is based upon a relation [entity.*attributeName*](../language/EntityClass.md#attributename) (e.g. "company.employees") when *attributeName* is a one-to-many related attribute but the entity does not belong to an entity selection.
 - the new entity selection is explicitely copied as shareable with [entitySelection.copy()](../language/EntitySelectionClass.md#copy) (i.e. with the `ck shared` option).
 
-Example: 
+Example:
 
 ```qs
 var myComp : cs.CompanyEntity
@@ -337,7 +346,7 @@ A new entity selection **inherits** from the original entity selection nature in
 	- [.extract()](../language/EntitySelectionClass.md#extract) when the resulting collection contains entity selections (same nature as the entity selection).
 
 Examples:
- 
+
 ```qs
 var highSal, lowSal : cs.EmployeeSelection
 var comp, comp2 : cs.CompanySelection
@@ -345,7 +354,7 @@ highSal=ds.Employee.query("salary >= :1", 1000000)
 	//highSal is shareable because of the query on dataClass
 comp=highSal.employer //comp is shareable because highSal is shareable
 
-lowSal=ds.Employee.query("salary <= :1", 10000).copy() 
+lowSal=ds.Employee.query("salary <= :1", 10000).copy()
 	//lowSal is alterable because of the copy()
 comp2=lowSal.employer //comp2 is alterable because lowSal is alterable
 ```
@@ -364,18 +373,18 @@ unpaid=ds.Invoices.query("status=:1", "Unpaid")
 
 //We pass entity selection references as parameters to the worker
 callWorker("mailing", "sendMails", paid, unpaid)
- 
+
 ```
 
 The `sendMails` method:
 
-```qs 
+```qs
 
  declare (paid : cs.InvoicesSelection, unpaid : cs.InvoicesSelection)
  var invoice : cs.InvoicesEntity
- 
+
  var server, transporter, email, status : object
- 
+
   //Prepare emails
  server=newObject()
  server.host="exchange.company.com"
@@ -384,20 +393,123 @@ The `sendMails` method:
  transporter=smtpNewTransporter(server)
  email=newObject()
  email.from="myName@company.com"
- 
+
   //Loops on entity selections
  forEach(invoice,paid)
     email.to=invoice.customer.address // email address of the customer
     email.subject="Payment OK for invoice # "+string(invoice.number)
     status=transporter.send(email)
  end
- 
+
  forEach(invoice,unpaid)
     email.to=invoice.customer.address // email address of the customer
     email.subject="Please pay invoice # "+string(invoice.number)
     status=transporter.send(email)
  end
 ```
+
+
+## Restricting entity selections
+
+In ORDA, you can create filters to restrict access to entities of any of your dataclasses. Once implemented, a filter is automatically applied whenever the entities of the dataclass are accessed either by **ORDA class functions** such as [`all()`](../language/DataClassClass.md#all) or [`query()`](../language/EntitySelectionClass.md#query), or by the REST API (which involves the [Data Explorer](../data-explorer/data-explorer.md) and [remote datastores](../language/commands/openDatastore.md)).
+
+A filter creates a restricted view of the data, built upon any business rules such as current session user. For example, in an application used by salespersons to make deals with their customers, you can restrict the read customers to those managed by the authenticated salesperson.
+
+:::info
+
+Filters apply to **entities**. If you want restrict access to a **dataclass** itself or to one or more of its **attributes**, you might consider using [session privileges](../studio/roles/rolesPrivilegesOverview.md) which are more appropriate in this case.
+
+:::
+
+
+### How to define a restrict filter
+
+You create a filter for a dataclass by defining an `event restrict` function in the [**dataclass class**](../orda/data-model.md#dataclass-class) of the dataclass. The filter is then automatically enabled.
+
+
+### `Function event restrict`
+
+#### Syntax
+
+```qs
+function event restrict() -> result : cs.*DataClassName*Selection
+// code
+```
+
+This function is called whenever an entity selection or an entity of the dataclass is requested. The filter is run once, when the entity selection is created.
+
+The filter must return an entity selection of the dataclass. It can be an entity selection built upon a query, stored in the [`storage`], etc.
+
+:::note
+
+For performance reasons, we recommend to use **indexed attributes** in the definition of the filter.
+
+:::
+
+The function must return a valid entity selection of the dataclass. No filter is applied (all entities corresponding of the initial request are returned) if:
+
+- the function returns **null**,
+- the function returns **undefined**,
+- the function does not return a valid entity selection.
+
+
+#### Example
+
+When accessed from a web or REST request, we want the Customers dataclass to only expose customers belonging to the identified sales person. During the authentication phase, the sales person is stored in the `session` object. Other types of requests are also handled.
+
+```qs
+Class extends DataClass
+
+
+function event restrict() : cs.CustomersSelection
+
+        switch
+                // Only return the customers of the authenticated sales person stored in the session
+            : (session.storage.salesInfo != null)
+                return this.query("sales.internalId = :1", session.storage.salesInfo.internalId)
+
+                //Data explorer - No filter is applied
+            : (session.hasPrivilege("WebAdmin"))
+                return null
+            else
+                //No customers can be read
+                return this.newSelection()
+
+        end
+```
+
+
+### Filter activation details
+
+Filters apply to all ORDA or REST requests executed in your Qodly projects. A filter is activated as soon as the project is opened.
+
+
+
+|Functions|Comment|
+|---|---|
+|[dataclass.get()](../language/DataClassClass.md#get)|If the entity does not match the filter, `null` is returned|
+|[entity.reload()](../language/EntityClass.md#reload)|Only in remote datastores|
+|[dataclass.all()](../language/DataClassClass.md#all)||
+|[dataclass.fromCollection()](../language/DataClassClass.md#fromcollection)|<li>In case of update, only entities matching the filter can be updated. If the collection refers to entities not matching the filter, they are created as new entities (if no duplicate PK error)</li><li>In case of creation, entities not matching the filter are created but will not be read after creation</li>|
+|[entitySelection.and()](../language/EntitySelectionClass.md#and)|Only entities matching the filter are returned|
+|[entitySelection.or()](../language/EntitySelectionClass.md#or)|Only entities matching the filter are returned|
+|[entitySelection.minus()](../language/EntitySelectionClass.md#minus)|Only entities matching the filter are returned|
+|[dataclass.query()](../language/DataClassClass.md#query)||
+|[entitySelection.query()](../language/EntitySelectionClass.md#query)||
+|[entitySelection.attributeName](../language/EntitySelectionClass.md#attributename)|Filter applied if *attributeName* is a related entity or related entities of a filtered dataclass (including alias or computed attribute)|
+|[entity.attributeName](../language/EntityClass.md#attributename)|Filter applied if *attributeName* corresponds to related entities of a filtered dataclass (including alias or computed attribute)|
+|[Create entity selection](../language/EntitySelectionClass.md#create-entity-selection)||
+
+
+Other ORDA functions accessing data do not directly trigger the filter, but they nevertheless benefit from it. For example, the [`entity.next()`](../language/EntityClass.md#next) function will return the next entity in the already-filtered entity selection. On the other hand, if the entity selection is not filtered, [`entity.next()`](../language/EntityClass.md#next) will work on non-filtered entities.
+
+:::note
+
+If there is an error in the filter at runtime, it is thrown as if the error came from the ORDA function itself.
+
+:::
+
+
 
 
 ## Entity Locking
@@ -421,15 +533,15 @@ This automatic mechanism is based on the concept of "optimistic locking" which i
 
 The following diagram illustrates optimistic locking:
 
-1. Two processes load the same entity. 
+1. Two processes load the same entity.
 
 ![](img/optimisticLock1.png)
 
-2. The first process modifies the entity and validates the change. The [`entity.save()`](../language/EntityClass.md#save) fucntion is called. The Qodly engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented. 
+2. The first process modifies the entity and validates the change. The [`entity.save()`](../language/EntityClass.md#save) fucntion is called. The Qodly engine automatically compares the internal stamp value of the modified entity with that of the entity stored in the data. Since they match, the entity is saved and its stamp value is incremented.
 
 ![](img/optimisticLock2.png)
 
-3. The second process also modifies the loaded entity and validates its changes. The `entity.save()` function is called. Since the stamp value of the modified entity does not match the one of the entity stored in the data, the save is not performed and an error is returned. 
+3. The second process also modifies the loaded entity and validates its changes. The `entity.save()` function is called. Since the stamp value of the modified entity does not match the one of the entity stored in the data, the save is not performed and an error is returned.
 
 ![](img/optimisticLock3.png)
 

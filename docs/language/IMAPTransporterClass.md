@@ -65,7 +65,7 @@ In the *server* parameter, pass an object containing the following properties:
 
 |*server*|Default value (if omitted)|
 |---|---|
-|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp,&nbsp,&nbsp,&nbsp,<!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
+|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
 |.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode) - <!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
 |[<!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Syntax -->](#checkconnectiondelay) - <!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Summary -->|300|
@@ -80,7 +80,7 @@ In the *server* parameter, pass an object containing the following properties:
 
 #### Result
 
-The function returns an [**IMAP transporter object**](#imap-transporter-object). All returned properties are **read-only**.
+The function returns an **IMAP transporter object**. All returned properties are **read-only**.
 
 >The IMAP connection is automatically closed when the transporter object is destroyed.
 
@@ -215,7 +215,7 @@ status = transporter.addFlags(kIMAPAll,flags)
 
 The `.append()` function <!-- REF #IMAPTransporterClass.append().Summary -->appends a `mailObj` to the `destinationBox`<!-- END REF -->.
 
-In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailObjectClass.md#email-object). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
+In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailObjectClass#properties). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
 
 The optional `destinationBox` parameter lets you pass the name of a mailbox where the `mailObj` will be appended. If omitted, the current mailbox is used.
 
@@ -435,7 +435,7 @@ options = newObject()
 
 options.host = "imap.gmail.com"
 options.user = "test@gmail.com"
-options.password = "XXXX" 
+options.password = "XXXX"
 
 transporter = 4D.IMAPTransporter.new(options)
 
@@ -822,7 +822,7 @@ See [`getBoxList()` example](#getboxlist).
 |msgNumber|integer|->|Sequence number of the message|
 |msgID|string|->|Unique ID of the message|
 |options|object|->|Message handling instructions|
-|Result|object|<-|[Email object](EmailObjectClass.md#email-object)|<!-- END REF -->
+|Result|object|<-|[Email object](EmailObjectClass#properties)|<!-- END REF -->
 
 #### Description
 
@@ -846,7 +846,7 @@ The optional *options* parameter allows you pass an object defining additional i
 
 #### Result
 
-`.getMail()` returns an [`Email` object](EmailObjectClass.md#email-object) with the following specific IMAP properties: *id*, *receivedAt*, and *size*.
+`.getMail()` returns an [`Email` object](EmailObjectClass) with the following specific IMAP properties: *id*, *receivedAt*, and *size*.
 
 #### Example
 
@@ -889,7 +889,7 @@ You want to get the message with ID = 1:
 |startMsg|integer|->|Sequence number of the first message|
 |endMsg |integer|->|Sequence number of the last message|
 |options|object|->|Message handling instructions|
-|Result|object|<-|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass.md#email-object) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
+|Result|object|<-|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
 
 #### Description
 
@@ -933,7 +933,7 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 |Property | Type | Description |
 |---|---|---|
-|list  |collection |collection of [`Email` objects](EmailObjectClass.md#email-object). If no Email objects are found, an empty collection is returned.|
+|list  |collection |collection of [`Email` objects](EmailObjectClass#properties). If no Email objects are found, an empty collection is returned.|
 |notFound |collection| collection of:<br/><ul><li>first syntax - previously passed message IDs that do not exist</li><li>second syntax - sequence numbers of messages between startMsg and endMsg that do not exist</li></ul>An empty collection is returned if all messages are found.|
 
 #### Example
@@ -1003,7 +1003,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 
 #### Result
 
-`.getMIMEAsblob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#email-object) with the `mailConvertFromMIME` command.
+`.getMIMEAsblob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass#properties) with the `mailConvertFromMIME` command.
 
 #### Example
 

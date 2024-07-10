@@ -13,11 +13,11 @@ After [logging in to your Qodly account](../concepts/quickstart.md), the QCMC pr
 
 Your Qodly applications fall into three categories:
 
-- **Sandbox**: This serves as a trial application where you can freely explore Qodly's features and experiment. Please note that the Sandbox is accessible only in the [development environment](../concepts/platform.md#environments-and-services). 
+- **Sandbox**: This serves as a trial application where you can freely explore Qodly's features and experiment. Please note that the Sandbox is accessible only in the [development environment](../cloud/getStarted#environments-and-services). 
 - **Applications**: This section lists all applications you've created, excluding the Sandbox.
 - **Shared Applications**: Here, you'll find applications developed by other collaborators and shared with you through invitations.
 
-<img alt="explorer" src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+<img src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 ## Environments and services
 
@@ -46,7 +46,7 @@ Rather than starting from scratch, you have the option to clone any existing app
 
 To initiate application cloning, locate the desired application in the Apps list and click the **Clone** button:
 
-<img alt="explorer" src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+<img src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 The cloning process duplicates all your code, except data and resources.
 

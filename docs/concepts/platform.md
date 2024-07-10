@@ -21,12 +21,12 @@ The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform*
 
 The Qodly Studio is a new way of building business web applications. Our vision is to provide developers a 100% web-browser-based experience by allowing them to:
 
-* design web forms visually by drag and dropping components on a canvas
-* preview pages instantly
-* easily map data with ORDA dataclasses
-* directly execute QodlyScript code on web events or datasource events
-* code & debug in the browser
-* and even edit a data model
+* Design Pages visually by drag and dropping components on a canvas
+* Preview pages instantly
+* Easily map data with ORDA dataclasses
+* directly execute QodlyScript code on web events or qodlysource events
+* Code & debug in the browser
+* And even edit a data model
 
 At the end of the road, developers will be able to build complete web business applications using only a web browser and very few lines of QodlyScript code. There is no JavaScript involved.
 
@@ -39,9 +39,9 @@ Qodly Server includes:
 
 - an **HTTP server**, handling all incoming requests. It provides a high level of security by supporting user sessions and their associated roles, connected to your own user directory in the cloud through **Amazon Cognito**. 
 - a **REST server** with a comprehensive API. The REST server handles requests that access the resources of the Qodly application, for example to get data from the datastore or to execute functions. The REST server exposes an automatically generated REST API to access and manipulate data. For example, if you have an exposed dataclass named "Product", it can automatically return its entities using the `/Product` request. The REST server also has a memory link between the web and the datastore layer to achieve very short processing times.
-- a **Web application server**, handling your application webforms and features.
+- a **Web application server**, handling your application Pages and features.
 - **Qodly Database**, a built-in relational database. The Qodly Database has extended capabilities to store and process data. Model and data access is done through **ORDA** (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept. 
-- the **QodlyScript** language, that can be used in all layers of the project: to configure the model, the application layer, the datasources, the web forms, the events. No other language is required to develop a Qodly application. QodlyScript is an object-oriented language containing built-in classes that you can extend, and also user classes. ORDA provides data model classes that are very efficient to handle data.  
+- the **QodlyScript** language, that can be used in all layers of the project: to configure the model, the application layer, the qodlysources, the pages, the events. No other language is required to develop a Qodly application. QodlyScript is an object-oriented language containing built-in classes that you can extend, and also user classes. ORDA provides data model classes that are very efficient to handle data.  
 
 All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
 
