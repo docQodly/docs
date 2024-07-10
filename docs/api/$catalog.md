@@ -17,8 +17,8 @@ The `$catalog` endpoint offers several variants to retrieve different levels of 
 
 | Endpoint                        | Description                                                   |
 |---------------------------------|---------------------------------------------------------------|
-| [**$catalog**](#catalog)                    | Lists all dataclasses with basic access URIs. |
-| [**$catalog/$all**](#catalogall)            | Provides detailed information about all dataclasses and their attributes. |
+| [**$catalog**](#catalog)                    | Lists [shared singletons](#singletons) (if any) and all dataclasses with basic access URIs. |
+| [**$catalog/$all**](#catalogall)            | Lists [shared singletons](#singletons) (if any) and provides detailed information about all dataclasses and their attributes. |
 | [**$catalog/{{dataClass}}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
 | [**$catalog/{{dataStoreClassFunction}}**](./classFunctionsOverview.md) | Executes a specific datastore class function if available.   |
 
@@ -350,3 +350,34 @@ The response structure for the `$catalog/{{dataClass}}` endpoint looks something
 }
 ```
 
+## singletons
+
+If you have defined [shared singletons](../language/basics/lang-classes.md#singleton-classes) containing at least one [exposed function](../orda/data-model.md#exposed-vs-non-exposed-functions), a `singletons` section is added to the returned json for both the `/$catalog` and `/$catalog/$all` syntaxes. It contains the collection of singleton classes as objects with their **name** and **methods** (i.e., exposed functions).
+
+Singleton functions can be called by REST requests using the [`$singleton` command]($singleton.md).
+
+
+### Example  
+
+`GET  /rest/$catalog/$all`
+
+**Result**:
+
+```json
+{...
+	singletons": [
+    {
+      "name": "VehicleFactory",
+      "methods": [
+        {
+          "name": "buildVehicle",
+          "allowedOnHTTPGET": false,
+          "exposed": true
+        }
+      ]
+    }
+  ],
+
+	dataClasses: [...]
+}
+```

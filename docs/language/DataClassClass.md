@@ -611,14 +611,14 @@ attributePath|formula comparator value
 
 where:
 
-*	**attributePath**: path of attribute on which you want to execute the query. this parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `collection`, \[ ] notation is used to handle all the occurences (for example "children\[ ].age"). You can also use a **placeholder** (see below).
+*	**attributePath**: path of attribute on which you want to execute the query. this parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `collection`, \[] notation is used to handle all the occurences (for example "children\[].age"). You can also use a **placeholder** (see below).
 
-	>*You cannot use directly attributes whose name contains special characters such as ".", "\[ ]", or " = ", ">", "#"..., because they will be incorrectly evaluated in the query string. If you need to query on such attributes, you must consider using placeholders, which allow an extended range of characters in attribute paths (see* **Using placeholders** *below).*
+	>*You cannot use directly attributes whose name contains special characters such as ".", "\[]", or " = ", ">", "#"..., because they will be incorrectly evaluated in the query string. If you need to query on such attributes, you must consider using placeholders, which allow an extended range of characters in attribute paths (see* **Using placeholders** *below).*
 
 *	**formula**: a valid formula passed as `string` or `object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `this` object.  
 
 	*	**string**: the formula string must be preceeded by the `eval( )` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(this.lastname) >= 30)"*
-	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`] or [`formula from string`] command.
+	*	**object**: the [formula object](FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](commands/formula.md) or [`formulaFromString`](commands/formulaFromString.md) command.
 
 	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators.
 	>* If the formula is not the only search criteria, the query engine optimizer could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.   
@@ -633,7 +633,7 @@ where:
 	|Comparison|	Symbol(s)|	Comment|
 	|---|---|---|
 	|Equal to	| == ,  = 	|Gets matching data, supports the wildcard (@), neither case-sensitive nor diacritic.|
-	|| ==  = , IS|	Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
+	|| === , IS|	Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
 	|Not equal to|	 != , #	|Supports the wildcard (@)|
 	|| !== , IS NOT|	Considers the @ as a standard character|
 	|Less than|	<|	|
@@ -644,13 +644,13 @@ where:
 	|Not condition applied on a statement|	NOT|	Parenthesis are mandatory when NOT is used before a statement containing several operators|
 	|Contains keyword|	%|	Keywords can be used in attributes of string or picture type|
 
-*	**value**: the value to compare to the current value of the property of each entity in the entity selection or element in the collection. It can be a **placeholder** (see **Using placeholders** below) or any expression matching the data type property. When using a constant value, the following rules must be respected:
+*	**value**: the value to compare to the current value of the property of each entity in the entity selection. It can be a **placeholder** (see **Using placeholders** below) or any expression matching the data type property. When using a constant value, the following rules must be respected:
 	*	**text** type constant can be passed with or without simple quotes (see **Using quotes** below). To query a string within a string (a "contains" query), use the wildcard symbol (@) in value to isolate the string to be searched for as shown in this example: "@Smith@". The following keywords are forbidden for text constants: true, false.
 	*	**boolean** type constants: **true** or **false** (case sensitive).
 	*	**numeric** type constants: decimals are separated by a '.' (period).
     * **date type constants** : "YYYY-MM-DD" format
 	*	**null** constant: using the "null" keyword will find **null** and **undefined** properties.  
-	*	in case of a query with an IN comparator, value must be a collection, or values matching the type of the attribute path between \[ ] separated by commas (for strings, " characters must be escaped with "\").
+	*	in case of a query with an IN comparator, value must be a collection, or values matching the type of the attribute path between \[] separated by commas (for strings, " characters must be escaped with "\").
 
 *	**logicalOperator**: used to join multiple conditions in the query (optional). You can use one of the following logical operators (either the name or the symbol can be used):
 
@@ -770,7 +770,7 @@ ds.People.places:
 You want to find people with a "home" location kind in the city "paris". If you write:
 
 ```qs
-ds.People.query("places.locations[].kind =  :1 and places.locations[].city =  :2","home","paris")
+ds.People.query("places.locations[].kind == :1 and places.locations[].city == :2","home","paris")
 ```
 
 ... the query will return "martin" **and** "smith" because "smith" has a "locations" element whose "kind" is "home" and a "locations" element whose "city" is "paris", even though they are different elements.
@@ -783,7 +783,7 @@ If you want to only get entities where matching arguments are in the same collec
 With the above entities, if you write:
 
 ```qs
-ds.People.query("places.locations[a].kind ==  :1 and places.locations[a].city ==  :2","home","paris")
+ds.People.query("places.locations[a].kind == :1 and places.locations[a].city == :2","home","paris")
 ```
 
 ... the query will only return "martin" because it has a "locations" element whose "kind" is "home" and whose "city" is "paris". The query will not return "smith" because the values "home" and "paris" are not in the same collection element.

@@ -2215,23 +2215,209 @@ You want to sort the resulting collection:
 #### Description
 
 
-The `.query()` function <!-- REF #collection.query().Summary -->returns all elements of a collection of objects that match the search conditions <!-- END REF -->defined by *queryString* and (optionally) *value* or *querySettings*. If the original collection is a shared collection, the returned collection is also a shared collection.
+The `.query()` function <!-- REF #collection.query().Summary -->returns all elements of a collection of objects that match the search conditions<!-- END REF --> defined by *queryString* and (optionally) *value* or *querySettings*. If the original collection is a shared collection, the returned collection is also a shared collection.
+
+An empty collection is returned if the collection in which the query is executed does not contain the searched *value*.
 
 >This function does not modify the original collection.
 
+#### queryString parameter
+
 The *queryString* parameter uses the following syntax:
 
-```qs
+```4d
 propertyPath comparator value {logicalOperator propertyPath comparator value}
 ```
 
-For detailed information on how to build a query using *queryString*, *value* and *querySettings* parameters, please refer to the [`dataClass.query()`](DataClassClass.md#query) function description.
+where:
 
-:::info
+* **propertyPath**: path of property on which you want to execute the query. This parameter can be a simple name (for example "country") or any valid attribute path (for example "country.name".) In case of an attribute path whose type is `collection`, `[]` notation is used to handle all the occurences (for example `children[].age`).
 
-Formulas are not supported by the `collection.query()` function, neither in the *queryString* parameter nor as *formula* object parameter.
 
-:::
+* **comparator**: symbol that compares *propertyPath* and *value*. The following symbols are supported:
+
+ |Comparison| Symbol(s)| Comment|
+ |---|---|---|
+ |Equal to |==, = |Gets matching data, supports the wildcard (@), neither case-sensitive nor diacritic.|
+ ||===, IS| Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
+ |Not equal to| #, != |Supports the wildcard (@). Equivalent to "Not condition applied on a statement" ([see below](#not-equal-to-in-collections)).|
+ ||!==, IS NOT| Considers the @ as a standard character|
+ |Not condition applied on a statement| NOT| Parenthesis are mandatory when NOT is used before a statement containing several operators. Equivalent to "Not equal to" ([see below](#not-equal-to-in-collections)).|
+ |Less than| <| |
+ |Greater than| > ||
+ |Less than or equal to| <=||
+ |Greater than or equal to| >= ||
+ |Included in| IN |Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
+
+* **value**: the value to compare to the current value of the property of each element in the collection. It can be any constant value expression matching the element's data type property or a [**placeholder**](#using-placeholders).
+When using a constant value, the following rules must be respected:
+  * **text** type constant can be passed with or without simple quotes (see **Using quotes** below). To query a string within a string (a "contains" query), use the wildcard symbol (@) in value to isolate the string to be searched for as shown in this example: "@Smith@". The following keywords are forbidden for text constants: true, false.
+  * **boolean** type constants: **true** or **false** (case sensitive).
+  * **numeric** type constants: decimals are separated by a '.' (period).
+  * **date** type constants: "YYYY-MM-DD" format
+  * **null** constant: using the "null" keyword will find **null** and **undefined** properties.  
+  * in case of a query with an IN comparator, *value* must be a collection, or values matching the type of the attribute path between \[] separated by commas (for strings, `"` characters must be escaped with `\`).
+
+* **logicalOperator**: used to join multiple conditions in the query (optional). You can use one of the following logical operators (either the name or the symbol can be used):
+
+ |Conjunction|Symbol(s)|
+ |---|---|
+ |AND|&, &&, and|
+ |OR | &#124;,&#124;&#124;, or|
+
+
+#### Using quotes
+
+When you use quotes within queries, you must use single quotes ' ' inside the query and double quotes " " to enclose the whole query, otherwise an error is returned. For example:
+
+```qs
+"employee.name == 'smith' AND employee.firstname == 'john'"
+```
+
+>Single quotes (') are not supported in searched values since they would break the query string. For example "comp.name == 'John's pizza' " will generate an error. If you need to search on values with single quotes, you may consider using placeholders (see below).
+
+
+#### Using parenthesis
+
+You can use parentheses in the query to give priority to the calculation. For example, you can organize a query as follows:
+
+```qs
+"(employee.age >= 30 OR employee.age <= 65) AND (employee.salary <= 10000 OR employee.status = 'Manager')"
+```
+
+
+#### Using placeholders
+
+Qodly allows you to use placeholders for *propertyPath* and *value* arguments within the *queryString* parameter. A placeholder is a parameter that you insert in query strings and that is replaced by another value when the query string is evaluated. The value of placeholders is evaluated once at the beginning of the query; it is not evaluated for each element.
+
+Two types of placeholders can be used: **indexed placeholders** and **named placeholders**.
+
+- **Indexed placeholders**: parameters are inserted as `:paramIndex` (for example ":1", ":2"...) in *queryString* and their corresponding values are provided by the sequence of *value* parameter(s). You can use up to 128 *value* parameters.
+
+Example:
+
+```qs
+c = myCol.query(":1=:2" , "city" , "Chicago")
+```
+
+- **Named placeholders**: parameters are inserted as `:paramName` (for example ":myparam") and their values are provided in the "attributes" and/or "parameters" objects in the *querySettings* parameter.
+
+Example:
+
+```qs
+o.attributes = {att : "city"}
+o.parameters = {name : "Chicago")
+c = myCol.query(":att == :name" , o)
+```
+
+You can mix all argument kinds in *queryString*. A *queryString* can contain, for *propertyPath* and *value* parameters:
+
+* direct values (no placeholders),
+* indexed placeholders and/or named placeholders.
+
+Using placeholders in queries **is recommended** for the following reasons:
+
+1. It prevents malicious code insertion: if you directly use user-filled variables within the query string, a user could modifiy the query conditions by entering additional query arguments. For example, imagine a query string like:
+
+```qs
+ vquery = "status == 'public' & name == "+myname //user enters their name
+ result = col.query(vquery)
+```
+
+This query seems secured since non-public data are filtered. However, if the user enters in the *myname* area something like *"smith OR status='private'*, the query string would be modified at the interpretation step and could return private data.
+
+When using placeholders, overriding security conditions is not possible:
+
+```qs
+ result = col.query("status == 'public' & name == :1" , myname)
+```
+
+In this case if the user enters *smith OR status='private'* in the *myname* area, it will not be interpreted in the query string, but only passed as a value. Looking for a person named "smith OR status='private'" will just fail.
+
+2. It prevents having to worry about formatting or character issues, especially when handling *propertyPath* or *value* parameters that might contain non-alphanumeric characters such as ".", "['...
+
+3. It allows the use of variables or expressions in query arguments. Examples:
+
+```qs
+result = col.query("address.city = :1 & name =:2" , city , myVar + "@")
+result2 = col.query("company.name = :1" , "John's Pizzas")
+```
+
+> Using a [**collection reference** or **object reference**](#object-or-collection-reference-as-value) in the *value* parameter is not supported with this syntax. You must use the [*querySettings* parameter](#querysettings-parameter).
+
+
+#### Looking for null values
+
+When you look for null values, you cannot use the placeholder syntax because the query engine considers null as an unexpected comparison value. For example, if you execute the following query:
+
+```qs
+vSingles = colPersons.query("spouse == :1" , null) // will NOT work
+```
+
+You will not get the expected result because the null value will be evaluated by Qodly as an error resulting from the parameter evaluation (for example, an attribute coming from another query). For these kinds of queries, you must use the direct query syntax:
+
+```qs
+vSingles = colPersons.query("spouse == null") //correct syntax
+```
+
+#### Object or collection reference as value
+
+You can query a collection using an object reference or a collection reference as the *value* parameter to compare. The query will match objects in the collection that refer (point to) the same **instance of** object or collection.
+
+The following comparators are supported:
+
+|Comparison| Symbol|
+|---|---|
+|Equal to |== |
+|Not equal to|!= |
+
+
+To build a query with an object or a collection reference, you must use the *querySettings* parameter syntax. Example with an object reference:
+
+```qs
+var o1 = {a: 1}
+var o2 = {a: 1} //same object but another reference
+var o3 = o1 //same object and reference
+
+var col, colResult : collection
+
+col = [{o: o1} , {o: o2} , {o: o3}]
+colResult = col.query("o = :v" , {parameters: {v: o3}})
+	//colResult.length=2
+	//colResult[0].o == o1 is true
+	//colResult[1].o == o1 is true
+
+```
+
+Example with a collection reference:
+
+```qs
+
+c1 = [1 , 2 , 3]
+c2 = [1 , 2 , 3] //same collection but another reference
+c3 = c1 //same collection and reference
+
+col = [{c: c1} , {c: c2} , {c: c3}]
+col2=col.query("c = :v" , {parameters: {v: c3}})
+	//col2.length=2
+	//col2[0].c == c1 is true
+	//col2[1].c == c1 is true
+
+```
+
+
+#### querySettings parameter
+
+In the *querySettings* parameter, you can pass an object containing query placeholders as objects. The following properties are supported:
+
+|Property| Type| Description|
+|---|---|---|
+|parameters|object|**Named placeholders for values** used in the *queryString*. Values are expressed as property / value pairs, where property is the placeholder name inserted for a value in the *queryString* (":placeholder") and value is the value to compare. You can mix indexed placeholders (values directly passed in value parameters) and named placeholder values in the same query.|
+|attributes|object|**Named placeholders for attribute paths** used in the *queryString*. Attributes are expressed as property / value pairs, where property is the placeholder name inserted for an attribute path in the *queryString* (":placeholder"), and value can be a string or a collection of strings. Each value is a path that can designate a property in an object of the collection<table><tr><th>Type</th><th>Description</th></tr><tr><td>string</td><td>attributePath expressed using the dot notation, e.g. "name" or "user.address.zipCode"</td></tr><tr><td>collection of strings</td><td>Each string of the collection represents a level of attributePath, e.g. \["name"] or \["user","address","zipCode"]. Using a collection allows querying on attributes with names that are not compliant with dot notation, e.g. \["Qodly1.1","en/fr"]</td></tr></table>You can mix indexed placeholders (values directly passed in *value* parameters) and named placeholder values in the same query.|
+
+> Using this parameter is mandatory if you want to query a collection [using a **collection reference** or **object reference**](#object-or-collection-reference-as-value).
+
+
 
 
 #### Example 1
@@ -2295,9 +2481,11 @@ This example returns persons hired more than 90 days ago:
   //col:[{name:Smith...},{name:Sterling...},{name:Mark...}] if today is 01/10/2018
 ```
 
-
+:::info
 
 More examples of queries can be found in the [`dataClass.query()`](DataClassClass.md#query) section.
+
+:::
 
 <!-- END REF -->
 

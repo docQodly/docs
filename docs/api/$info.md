@@ -26,6 +26,8 @@ The `$info` endpoint returns structured information as outlined in the following
 | [`ProgressInfo`](#progressinfo-details) | Array      | Operational progress indicators that may impact server performance.    |
 | [`sessionInfo`](#sessioninfo-details)   | Array         | Data on active user sessions, including session duration and expiration.           |
 | [`memMetrics`](#memmetrics-details)     | Array         | Detailed memory usage statistics related to client and server processes.           |
+|`privileges`|	Object	|An object with a "privileges" property (collection of objects). Each object of the collection has a "privilege" property with a privilege name of the user session as value.|
+
 
 
 ### `entitySet` Details

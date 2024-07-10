@@ -14,7 +14,7 @@ A **`4D.Function`** object contains a piece of code that can be executed from an
 
 ### formula objects
 
-The [formula](#formula-objects) and [formulaFromString](commands/formulaFromString) commands allow you to create **formula functions,** i.e. `4D.Function` objects to execute any expression or code expressed as text.
+The [formula](commands/formula.md) and [formulaFromString](commands/formulaFromString.md) commands allow you to create **formula functions,** i.e. `4D.Function` objects to execute any expression or code expressed as text.
 
 formula objects can be encapsulated in object properties:
 
