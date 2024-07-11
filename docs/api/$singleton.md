@@ -1,5 +1,5 @@
 ---
-id: singleton
+id: $singleton
 title: $singleton
 ---
 

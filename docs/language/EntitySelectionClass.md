@@ -410,7 +410,7 @@ The `.clean()` function <!-- REF #EntitySelectionClass.clean().Summary -->return
 
 By default, when an entity is [dropped](EntitySelectionClass.md#drop), its reference(s) in existing entity selection(s) become *undefined* but are not removed from the entity selection object(s). Deleted entities are still included in the [`.length`](#length) property and are displayed as blank lines if the entity selection is bound to an interface object such as a list. In this case, calling the `.clean()` function on the entity selection allows you to get a new, up-to-date entity selection, not containing *undefined* entity references.
 
-The resulting entity selection keeps the same [order criteria](../orda/dsMapping.md#ordered-or-unordered-entity-selection) and the same [alterable/shareable](../orda/data-model.md#ordered-or-unordered-entity-selection)) property as the original entity selection.
+The resulting entity selection keeps the same [order criteria](../orda/data-model.md#ordered-or-unordered-entity-selection) and the same [alterable/shareable](../orda/data.md#shareable-or-alterable-entity-selections) property as the original entity selection.
 
 
 #### Example   

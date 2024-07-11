@@ -1,5 +1,5 @@
 ---
-id: clean
+id: $clean
 title: $clean
 ---
 
