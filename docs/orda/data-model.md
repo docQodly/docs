@@ -813,7 +813,7 @@ exposed function <functionName>
 
 :::note
 
-The `exposed` keyword can only be used with Data model class functions. If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
+The `exposed` keyword can only be used with Data model class functions as well as [shared singleton functions](../language/basics/lang-classes.md#singleton-classes). If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
 
 :::
 

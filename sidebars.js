@@ -474,7 +474,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Server Informations API',
+			label: 'Server Information API',
 			items: [
 				'api/$catalog',
 				'api/$info'
@@ -490,6 +490,7 @@ const sidebars = {
 				'api/$atomic$atOnce',
 				'api/$attributes',
 				'api/$binary',
+				'api/$clean',
 				'api/$compute',
 				'api/$distinct',
 				'api/$entityset',
@@ -504,6 +505,7 @@ const sidebars = {
 				'api/$querypath',
 				'api/$savedfilter',
 				'api/$savedorderby',
+				'api/$singleton',
 				'api/$skip',
 				'api/$timeout',
 				'api/$top$limit',
@@ -526,6 +528,7 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
+				'notes/v1.0.0-beta.5',
 				'notes/v1.0.0-beta.4',
 				'notes/v1.0.0-beta.3',
 				'notes/v1.0.0-beta.2',

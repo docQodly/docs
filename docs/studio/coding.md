@@ -22,16 +22,28 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 
 ### Classes
 
-[Classes](../language/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes:
+[Classes](../language/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes: **ORDA classes** and **user classes**.
 
-- User Classes: Used for controlling component behavior, such as displaying or hiding components in response to events using the [4D.WebFormItem class functions](../language/WebFormItemClass.md).
 
-- [ORDA Classes](../orda/data-model.md): Employed to configure data models and implement business logic.
+#### ORDA Classes
+
+[ORDA Classes](../orda/data-model.md) are used to configure the data model and implement business logic. ORDA classes are automatically available (empty by default) in the [Explorer](overview.md#qodly-studio-home-page):
+
+- The [DataStore class](../orda/data-model.md#datastore) is always displayed in first position.
+- Dataclass names are listed along with icons that you can expand/collapse. When expanded, a dataclass gives access to its related [DataClass class](../orda/data-model.md#dataclass-class), [Entity class](../orda/data-model.md#entity-class), and [Entity selection class](../orda/data-model.md#entity-class).
+
+Non-created element names appear in light grey. To create an ORDA class, just click on the element: its name is then displayed in white. When you delete an ORDA class, the code is removed and the element name gets back to a light grey color.
+
+<img src={require('./img/qodly-classes.png').default} style={{borderRadius: '6px'}} />
+
+#### User Classes
+
+User classes are used for controlling component behavior or any part of your application, without no specific connection to the data model. User classes can declare functions and properties. [Singleton classes](../language/basics/lang-classes.md#singleton-classes) are user classes.
 
 
 ### .4qs files
 
-Each method and each class is stored in its own QodlyScript file (.4qs): `<methodName>.4qs` for methods and `<className>.4qs` for classes. 
+Each method and each class is stored in its own QodlyScript file (.4qs): `<methodName>.4qs` for methods and `<className>.4qs` for classes.
 
 
 ## Method and Function Management
@@ -183,7 +195,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 
 	- **Assessing the "Outdated" Status**: Additionally, the application assesses the `outdated` status based on an attribute within the tab state flags section. This attribute serves as an indicator of whether the current state is outdated compared to the version stored on the server.
 
-	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes. 
+	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
@@ -237,7 +249,7 @@ The Qodly Studio code editor includes helpful type-ahead and auto-completion fea
 When a QodlyScript command or function is entered in the code editor, you can get documentation on this command or function by hovering the cursor over the command or function name:
 
 - a tooltip appears, displaying the parameters of the command or function along with a short description;
-- you can also click on the **Show documentation** link within the tip, which opens the complete documentation for the command or function on [developer.qodly.com](https://developer.qodly.com/docs) in your browser. 
+- you can also click on the **Show documentation** link within the tip, which opens the complete documentation for the command or function on [developer.qodly.com](https://developer.qodly.com/docs) in your browser.
 
 <img alt="documentation tooltip" src={require('./img/show-documentation.png').default} style={{borderRadius: '6px'}} />
 
@@ -261,9 +273,9 @@ Qodly automatically checks the code syntax to see if it is correct. If you enter
 - Yellow underlines are **warnings**<br/>
 ![warning](img/warning.png)<br/>
 Warnings are intended to draw your attention to statements that might lead to execution errors. They are not considered as coding errors.
-- Red underlines are **errors** <br/> 
+- Red underlines are **errors** <br/>
 ![error](img/error.png)<br/>
-Errors are anomalies that prevent the code from being executed correctly. It includes syntax errors, declaration errors, etc. They must be fixed, otherwise the code will not run correctly. 
+Errors are anomalies that prevent the code from being executed correctly. It includes syntax errors, declaration errors, etc. They must be fixed, otherwise the code will not run correctly.
 
 Whatever the incorrect expression, you can move the mouse over the line to display a help tip providing the cause of the warning/error:
 

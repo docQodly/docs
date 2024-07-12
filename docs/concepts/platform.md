@@ -33,14 +33,14 @@ At the end of the road, developers will be able to build complete web business a
 
 ## Qodly Server
 
-The Qodly platform backend relies on **Qodly Server**. Qodly Server is actually a full stack of integrated servers and development layers and supports all necessary requirements to develop, test, and deploy business web applications. 
+The Qodly platform backend relies on **Qodly Server**. Qodly Server is actually a full stack of integrated servers and development layers and supports all necessary requirements to develop, test, and deploy business web applications.
 
 Qodly Server includes:
 
-- an **HTTP server**, handling all incoming requests. It provides a high level of security by supporting user sessions and their associated roles, connected to your own user directory in the cloud through **Amazon Cognito**. 
+- an **HTTP server**, handling all incoming requests. It provides a high level of security by supporting [user sessions](#user-sessions) and their associated privileges, connected to your own user directory in the cloud through **Amazon Cognito**.
 - a **REST server** with a comprehensive API. The REST server handles requests that access the resources of the Qodly application, for example to get data from the datastore or to execute functions. The REST server exposes an automatically generated REST API to access and manipulate data. For example, if you have an exposed dataclass named "Product", it can automatically return its entities using the `/Product` request. The REST server also has a memory link between the web and the datastore layer to achieve very short processing times.
 - a **Web application server**, handling your application Pages and features.
-- **Qodly Database**, a built-in relational database. The Qodly Database has extended capabilities to store and process data. Model and data access is done through **ORDA** (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept. 
+- **Qodly Database**, a built-in relational database. The Qodly Database has extended capabilities to store and process data. Model and data access is done through **ORDA** (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept.
 - the **QodlyScript** language, that can be used in all layers of the project: to configure the model, the application layer, the qodlysources, the pages, the events. No other language is required to develop a Qodly application. QodlyScript is an object-oriented language containing built-in classes that you can extend, and also user classes. ORDA provides data model classes that are very efficient to handle data.  
 
 All these elements are included in one single executable running under Linux OS, providing the best performances by eliminating unnecessary intermediary connectors.
@@ -48,9 +48,9 @@ All these elements are included in one single executable running under Linux OS,
 
 ## Qodly Database
 
-At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly Database is an evolution of the 4D Database which has proven itself in terms of reliability and robustness for over 30 years. 
+At the heart of the Qodly platform is the **Qodly Database**. Qodly Database is a powerful **relational database** (RDBMS) fully integrated to the ORDA technology. Qodly Database is an evolution of the 4D Database which has proven itself in terms of reliability and robustness for over 30 years.
 
-Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized. 
+Qodly Database is a **nosql** database. Queries are expressed using a natural syntax and automatically optimized.
 
 Unlike other databases that require the addition and configuration of an external ORM (Object Relational Mapping) component, the Qodly Database is automatically available as an object thanks to the dynamic ORM layer implemented by the [ORDA technology](#the-orda-concept). In addition to performance, this architecture allows direct access to the datastore and the application API. Any change in the underlying model is automatically available in the API.
 
@@ -72,6 +72,7 @@ The following table lists all available Qodly Database scalar data types and how
 |Long|`real`|An integer number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
 |Object|`object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
 |Image|`picture`	|A path to an image file or an actual image.	|
+|Blob|`blob` or `object`	|Binary Large Object stored as a scalar value or a `4D.Blob` object 	|
 
 
 
@@ -86,7 +87,7 @@ The following table lists the maximum capabilities of the Qodly Database per app
 |Number of entities per dataclass|1 billion|
 |Number of index keys per dataclass|128 billion|
 |Size of text attributes|2 GB|
-|*Size BLOB fields*|2 GB|
+|Size of BLOB attributes|2 GB|
 |Size of object attributes|2 GB|
 |Number of properties per object attribute|up to 128 billion*|
 |Number of transaction levels|Unlimited|
@@ -99,7 +100,19 @@ The following table lists the maximum capabilities of the Qodly Database per app
 The Qodly Database supports **transactions**. A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling `ds.validateTransaction()`. If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
 
 
+### User sessions
 
+When a user connects to a Qodly application, a *user session* is automatically opened on the Qodly server to manage their access with regards to their privileges. A session cookie is generated.
+
+The session automatically gets [privileges](../studio/roles/rolesPrivilegesOverview.md) according to the **Profile** [associated to the user in the dashboard](../cloud/application-management.md#invite-developers-and-users).
+
+The Qodly developer can also handle a user session through the [`Session` class](../language/SessionClass.md). For example, you can get the list of privileges associated to the session using the [`getPrivileges()`](../language/SessionClass.md#getprivileges) function, or store user information in the session's [`storage`](../language/SessionClass.md#storage) property.
+
+:::info
+
+A Qodly user session never expires, however the parent **Amazon Cognito** session expires after one week of inactivity.
+
+:::
 
 
 ## The ORDA Concept
@@ -109,7 +122,7 @@ ORDA stands for **Object Relational Data Access**. It is an enhanced technology 
 
 Relations are transparently included in the concept, in combination with [lazy loading](#lazy-loading), to remove all the typical hassles of data selection or transfer from the developer.
 
-With ORDA, data is accessed through an abstraction layer, the [datastore](../orda/data-model.md#datastore). A datastore is an object that provides an interface to the database model and data through objects and classes. For example, a table is mapped to a [dataclass](../orda/data-model.md#dataclass) object, a field is an [attribute](../orda/data-model.md##attribute) of a dataclass, and records are accessed through [entities](../orda/data-model.md#entity) and [entity selections](../orda/data-model.md#entity-selection). 
+With ORDA, data is accessed through an abstraction layer, the [datastore](../orda/data-model.md#datastore). A datastore is an object that provides an interface to the database model and data through objects and classes. For example, a table is mapped to a [dataclass](../orda/data-model.md#dataclass) object, a field is an [attribute](../orda/data-model.md##attribute) of a dataclass, and records are accessed through [entities](../orda/data-model.md#entity) and [entity selections](../orda/data-model.md#entity-selection).
 
 
 ### Why use ORDA?  
@@ -125,7 +138,7 @@ A query returns a list of entities called an entity selection, which fulfills th
 
 ### How to use ORDA?  
 
-Basically, ORDA handles objects. In ORDA, all main concepts, including the datastore itself, are available through objects. The datastore is automatically mapped upon the underlying database structure. 
+Basically, ORDA handles objects. In ORDA, all main concepts, including the datastore itself, are available through objects. The datastore is automatically mapped upon the underlying database structure.
 
 ORDA objects can be handled like standard objects, but they automatically benefit from specific properties and methods.
 
@@ -153,14 +166,14 @@ In this documentation, "any" data type is used to designate the various type of 
 *(\*) picture type is not supported by statistical methods such as* `entitySelection.max( )`.
 
 
-#### Attribute 
- 
+#### Attribute
+
 An attribute is the smallest storage cell in a relational database (see also [Relation attribute](#relation-attribute)). Do not confuse dataclass attributes and entity attributes:
 
 *	In a dataclass object, each property is a dataclass attribute that maps to a corresponding field in the corresponding table (same name and type).
 *	In an entity object, entity attributes are properties that contain values for the corresponding datastore attributes.
 
-*Attributes* and *properties* are similar concepts. "Attribute" is used to designate dataclass properties that store data, while "property" is more generic and defines a piece of data stored within an object. 
+*Attributes* and *properties* are similar concepts. "Attribute" is used to designate dataclass properties that store data, while "property" is more generic and defines a piece of data stored within an object.
 
 #### AttributePath  
 
@@ -172,7 +185,7 @@ A calculated attribute doesn't actually store information. Instead, it determine
 
 #### Class code
 
-Code for the user class function(s). 
+Code for the user class function(s).
 
 #### Class function
 
@@ -186,7 +199,7 @@ $myClass.query("name = smith")
 
 #### Data model class
 
-Extended class available for a data model object. 
+Extended class available for a data model object.
 
 #### Data model object
 
@@ -205,7 +218,7 @@ A dataclass is related to a single datastore.
 
 #### DataClass class
 
-Class for specific dataclass objects, in which you can add custom functions. 
+Class for specific dataclass objects, in which you can add custom functions.
 
 #### Datastore  
 
@@ -219,15 +232,15 @@ A datastore provides:
 
 #### DataStore class
 
-Class for datastore objects, in which you can add custom functions. 
+Class for datastore objects, in which you can add custom functions.
 
 
 #### DataStoreImplementation
 
 Internal name of the generic DataStore class in the `4D` class store.
 
-#### Deep copy 
- 
+#### Deep copy
+
 A deep copy duplicates an object and all the references it contains. After a deep copy, a copied collection contains duplicated elements and thus, new references, of all of the orginal elements. See also [Shallow copy](#shallow-copy).
 
 #### ds  
@@ -259,16 +272,16 @@ See [Class function](#class-function).
 
 #### Generic class
 
-Built-in class for ORDA objects such as entities, or dataclasses. Functions and properties of generic classes are automatically available in user extended classes, e.g. `EmployeeEntity`. 
+Built-in class for ORDA objects such as entities, or dataclasses. Functions and properties of generic classes are automatically available in user extended classes, e.g. `EmployeeEntity`.
 
 
-#### Lazy loading 
- 
+#### Lazy loading
+
 Since entities are managed as references, data is loaded only when necessary, i.e. when accessing it in the code or through interface widgets. This optimization principle is called lazy loading.
 
 #### Main datastore  
 
-The Datastore object matching the opened Qodly database (standalone or client/server). The main datastore is returned by the `ds` command. 
+The Datastore object matching the opened Qodly database (standalone or client/server). The main datastore is returned by the `ds` command.
 
 #### Optimistic Lock  
 
@@ -318,20 +331,17 @@ Entity selections may refer to related entities according to the relation attrib
 
 #### Session  
 
-When a user connects to a Qodly application, a Session object is created on the Server (HTTP). A session cookie is generated. 
-
-Each Session object provides a `.storage` property which is a shared object. Privileges are associated to user sessions. 
+When a user connects to a Qodly application, a [Session object](../language/SessionClass.md) is created on the Server (HTTP), used to manage the [user session](#user-sessions). Privileges are associated to user sessions.
 
 
-#### Shallow copy 
- 
+#### Shallow copy
+
 A shallow copy only duplicates the structure of elements, and keeps the same internal references. After a shallow copy, two collections will both share the individual elements. See also [Deep copy](#deep-copy).
 
-#### Stamp 
- 
+#### Stamp
+
 Used in "optimistic" locking technology. All entities have an internal counter, the stamp, which is incremented each time the entity is saved. By automatically comparing stamps between an entity being saved and its version stored on disk, ORDA can prevent concurrent modifications on the same entities.
 
 #### Storage attribute
 
 A storage attribute (sometimes referred to as a scalar attribute) is the most basic type of attribute in a datastore class and most directly corresponds to a field in a relational database. A storage attribute holds a single value for each entity in the class.
-

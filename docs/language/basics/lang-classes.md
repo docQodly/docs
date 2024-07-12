@@ -865,7 +865,7 @@ The class singleton is instantiated at the first call of the [`cs.<class>.me`](.
 
 If you need to instantiate a singleton with parameters, you can also call the [`new()`](../ClassClass.md#new) function. In this case, it is recommended to instantiate the singleton in some code executed at application startup.  
 
-The scope of a singleton instance can be the current process or all processes. A *process* singleton has a unique value for the process in which it is instantiated, while an *interprocess* singleton has a unique value for all processes of the application. Singletons are useful to define values that need to be available from anywhere in an application or process.
+The scope of a singleton instance can be the current process or all processes. By default, a singleton has a unique value for the process in which it is instantiated, while a *shared* singleton has a unique value for all processes of the application. Singletons are useful to define values that need to be available from anywhere in an application or process.
 
 Once instantiated, a singleton class (and its singleton) exists as long as a reference to it exists somewhere in the application.
 
@@ -882,9 +882,9 @@ Singleton classes are not supported by [ORDA-based classes](../../orda/data-mode
 
 
 
-### Creating a process singleton
+### Creating a singleton
 
-To create a process singleton class, add the `singleton` keyword before [`Class Constructor`](#constructor). For example:
+To create a (not shared) singleton class, add the `singleton` keyword before [`Class Constructor`](#constructor). For example:
 
 ```qs
 	//class: ProcessTag
@@ -914,11 +914,11 @@ var myOtherSingleton = cs.ProcessTag.me
 ```
 
 
-### Creating an interprocess singleton
+### Creating a shared singleton
 
-To create an interprocess singleton, add the `shared singleton` keywords before the [Class Constructor](#constructor). For example:
+To create a shared singleton, add the `shared singleton` keywords before the [Class Constructor](#constructor). For example:
 
-```4d
+```qs
 //Class VehicleFactory
 
 property vehicleBuilt : integer
