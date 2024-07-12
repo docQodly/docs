@@ -247,6 +247,19 @@ For events bound to Class functions, the collapsed card displays the function si
     </Column.Item>
 </Column.List>
 
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li>Exposed <a href="../../language/basics/lang-classes#singleton-classes">singleton class functions</a>, distinguished by the <code>Page</code> keyword.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="49%">
+        <img src={require('./img/keyword_page.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
 #### Dialog
 
 For events bound to Dialogs, the collapsed card displays the action type name, followed by the dialog name involved.
@@ -559,7 +572,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 	</Column.Item>
 </Column.List>
 
-1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, and entity selection class functions.
+1. **Select a Function**: Browse the available functions and select an appropriate class function. You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, entity selection class functions, and singleton class functions.
 
 2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/QodlySourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
