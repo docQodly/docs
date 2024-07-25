@@ -35,6 +35,29 @@ When the `On Change` event is linked to a qodlysource, it will trigger in the fo
 |Entity Selection Qodly Source| <li>The reference pointed by the qodlysource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 |Scalar Qodly Source|The contents of the scalar qodlysource change|
 
+:::danger Using Reload with On Change Event Freezes Qodly Studio
+
+Using the reload action within an on-change event can create a circular dependency. This causes Qodly Studio to enter an infinite loop of reloading, which results in the application freezing.
+
+When you set an on-change event to reload the datasource, the following happens:
+
+- A change in the datasource triggers the on-change event.
+
+- The on-change event contains a reload action.
+
+- The reload action causes the datasource to reload, which is considered a change.
+
+- This change triggers the on-change event again.
+
+This creates a loop:
+
+    Change → On-Change Event → Reload → Change → On-Change Event → Reload → ...
+
+This loop continues indefinitely until Qodly Studio runs out of resources or crashes, leading to the application freezing.
+
+
+:::
+
 ## Events Management
 
 The Contextual panel facilitates the association of class functions, navigation actions, and standard actions with distinct events within your application.
