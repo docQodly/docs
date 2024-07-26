@@ -274,6 +274,61 @@ Enhance a component to align with your application's requirements using the avai
 Each component's documentation contains its own dedicated section explaining these customization possibilities.
 :::
 
+### Component
+
+#### Disabling a Component
+
+The "Disable" feature allows to disable components within a Page, ensuring they exhibit consistent behavior and appearance when disabled. When a component is disabled, it has distinct behaviors in both build mode and rendering mode:
+
+1. **Build Mode**:
+
+    - **Behavior**: All potentially triggered events actions on certain events are activated. This ensures that the component is visually distinct and users are aware that it is disabled.
+
+    - **Appearance**: The component appears grayed out only, indicating that it is disabled and not interactive. Nothing else is changed in the appearance.
+
+2. **Rendering Mode**:
+
+    - **Behavior**: Actions set up on events are not triggered. This ensures that no interactions can occur with the disabled component, maintaining the intended functionality.
+
+    - **Appearance**: Most components share the same appearance details when disabled:
+
+      - **Cursor**: `not-allowed`
+      - **Opacity**: applied
+
+      However, certain components have additional behaviors when disabled:
+
+      | Component    | Additional Behavior                     |
+      |--------------|-----------------------------------------|
+      | Tabs         | Not clickable                           |
+      | Text Input   | No text entry                           |
+      | File Upload  | No file selection                       |
+      | Radio        | Not clickable                           |
+      | Range Input  | Slider cannot be moved                  |
+      | Select Input | Value cannot be changed                 |
+      | Check Box    | Not clickable                           |
+      | Select Box   | Selection cannot be changed, CSS selectors not applied |
+      | Datatable    | Selection cannot be changed, CSS selectors not applied |
+      | Matrix       | Selection cannot be changed, CSS selectors not applied |
+
+
+:::info
+For complex components such as Text Input, Slider, Select Input, and Check Box, the disabled property is also applicable to sub-components.
+:::
+
+:::tip Customizing Disabled Rendering
+Overwriting the default disabled rendering is achieved by applying custom CSS classes. This allows for flexibility in design while maintaining the disabled state functionality.
+
+
+```css
+self:disabled {
+  background-color: #e9f1fc;
+}
+```
+
+:::
+
+
+
 ### Data Access Category
 
 Configure the interaction between your chosen component and its associated qodlysource, if applicable. These property details are extensively covered in the [**Qodly Sources**](qodlySources.md) section.
