@@ -339,6 +339,12 @@ Boolean:
 |--------------|------|-------------|---------------------------|
 | Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level. | `=`, `!=`, `regex` |
 
+:::tip Handling Privilege Changes with Conditional States
+
+A conditional state on a privilege evaluates whether the privileges have changed on the server. The front end requests the current session privileges from the server if the privileges stamp has changed. This ensures that any changes in privileges are accurately reflected in the application's state.
+
+:::
+
 #### Example
 
 <Tabs groupId="condition-types">
