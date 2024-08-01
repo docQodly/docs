@@ -11,7 +11,7 @@ const isProduction = process.env.GITHUB_REPOSITORY_OWNER === 'qodly';
 const config = {
   title: 'Qodly Developer Center',
   tagline: 'Welcome to the Qodly Documentation',
-  url: isProduction ? "https://qodly.github.io" : "https://docqodly.github.io",
+  url: isProduction ? "https://developer.qodly.com" : "https://docqodly.github.io",
   baseUrl: "/docs/",
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
