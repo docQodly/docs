@@ -561,3 +561,29 @@ When working with conditions in the JSON Editor, users will encounter several co
 - **path**: The data path within the qodlysource (for qodlysource conditions).
 - **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
 - **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
+
+
+## Impact of Singleton Computed Properties on State
+
+Singleton computed properties are used to manage and return objects stored in Qodly Sources. These properties are typically invoked to refresh data or trigger server-side processes. However, their interaction with a state can lead to significant implications:
+
+- **State Dependency**: When a singleton computed property updates a Qodly Source that is bound to a state condition on the Qodly Page, any change in this source can trigger a state change.
+
+- **Deserialize and Re-rendering**: Clicking a button that invokes a singleton computed property can cause a state change. This triggers Qodly to deserialize and re-render the page to update the internal state of CraftJS, which can result in an entire page reload.
+
+
+:::info To illustrate, consider the following sequence of events:
+
+1. **Initial Action**: A button with an onClick event calls a singleton computed property that returns an object and stores it in a Qodly Source. Clicking this button alone works as expected without reloading the page.
+
+2. **Triggering a Server-side Process**: Another action triggers a server-side process through the singleton computed property.
+
+3. **Subsequent Action**: Clicking the initial button again causes the page to reload. This happens because the Qodly Source used in the state condition is updated, triggering a state change. Qodly then deserializes and re-renders the page through CraftJS, leading to a full page reload.
+:::
+
+
+To avoid unintended page reloads when using singleton computed properties, consider the following strategies:
+
+- **Minimize State Changes**: Avoid binding state conditions to Qodly Sources that are frequently updated by singleton computed properties. This helps reduce unnecessary re-renders.
+
+- **Proper Navigation Handling**: If you use a datasource for navigation purposes, ensure its value is correctly updated during navigation events. This prevents unintended reloads due to outdated datasource values.
