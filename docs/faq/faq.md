@@ -16,6 +16,22 @@ See the requirements list [here](../studio/overview.md#requirements).
 </details>
 
 
+<details>
+<summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Why are privileges lost after a page refresh in Qodly?</summary>
+
+The issue may be due to different URL schemes (HTTP vs. HTTPS) being used by the WebAdmin and the 4D web server, leading to incorrect session management.
+
+Explanation:
+
+- **URL Schemes**: Qodly Studio's URL scheme configuration (HTTP and HTTPS) determines how many licenses are retained when rendering Qodly forms.
+
+- **WebAdmin Web Server**: Provides secured web access to Qodly Studio, typically running on HTTPS.
+
+- **4D Web Server**: Communicates with the Qodly renderer using REST requests and may run on HTTP or HTTPS.
+
+If the two servers (WebAdmin and 4D web server) do not use the same scheme, it might lead to incorrect license counting and session issues, such as losing privileges after a page refresh.
+
+</details>
 
 
 ## Qodly Cloud  
