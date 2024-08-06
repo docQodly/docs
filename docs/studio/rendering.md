@@ -132,3 +132,36 @@ When the **Preview** button is clicked and unsaved changes are present in open P
 Users can choose to save all changes in open Pages before rendering, without seeing this popup again, by checking the "Memorize..." checkbox at the popup's bottom. Alternatively, this alert can be controlled through the ["**Show Unsaved Files Pop Over**" setting](settings.md#show-unsaved-files-pop-over) in user preferences.
 
 :::
+
+
+## Page/Renderer Lifecycle
+
+Understanding the lifecycle of a page lifecycle is crucial in diagnosing and fixing rendering issues. Here's a detailed breakdown:
+
+1. **Initialization**:
+
+    - **Page Loading**: Essential components and placeholders are initialized.
+
+    - **Initial Scripts and Styles**: Basic scripts and styles necessary for rendering are prepared.
+
+2. **Loading**:
+
+    - **Fetching Data**: The page begins to fetch necessary data such as user information, configuration settings, and other resources.
+
+    - **Setting Qodly Sources**: Qodly Sources are contacted, and conditions are evaluated based on initial data.
+
+3. **Rendering**:
+
+    - **Initial Rendering**: The page renders its initial state, which often defaults to the Base state.
+    
+    - **Applying Initial Styles and Layouts**: Any initial styles and layouts are applied.
+
+4. **Post-Render Updates**:
+
+    - **State Application**: Based on fetched Qodly Sources and evaluated conditions, the page updates its state. Conditional states modify the initial Base state to reflect user-specific configurations.
+
+5. **Interaction**:
+
+    - **User Interaction**: Users interact with the page, triggering further state changes and updates.
+
+    - **Dynamic Condition Evaluation**: New conditions might be evaluated, leading to additional state transitions.
