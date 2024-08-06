@@ -859,14 +859,15 @@ This enhancement ensures that all elements within Qodly can be named and utilize
 
 ## Triggers and Events
 
-The **Page** can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+The **Page** can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the page include:
 
-|Event|Description|
-|---|---|
-|On Click| Calls for an action when the user clicks on the component. |
-|On Blur| Calls for an action when the component loses focus (user clicks outside). |
-|On Focus| Calls for an action when the component gains focus (user clicks on it). |
-|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
-|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
-|On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
-|On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
+| Event       | Description                                                                                               |
+|-------------|-----------------------------------------------------------------------------------------------------------|
+| **On Init** | Triggered before the page is rendered, ensuring that all necessary data and conditions are in place. This pre-render event helps in setting up the page correctly before any content is displayed to the user.            |
+| **On Loaded** | Fired once the page and its components are fully loaded. Ideal for post-load processing.                 |
+| **On Click** | Activated when a user clicks on a specific element, enabling interaction handling.                      |
+| **On KeyUp** | Occurs when a key is released while the page or a component is focused, useful for key-based interactions.|
+| **On KeyDown** | Triggered when a key is pressed down, allowing pre-emptive handling of key events.                     |
+| **On MouseEnter** | Fired when the mouse pointer enters a specific element, useful for hover effects and tooltips.      |
+| **On MouseLeave** | Activated when the mouse pointer leaves an element, often used to revert hover effects.             |
+
