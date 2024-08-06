@@ -30,11 +30,9 @@ Conditional states are primarily applied during the Rendering and Post-Render Up
 	- Users interact with the page, which might trigger further state changes and updates.
 
 
-### Why the Base State is Initially Visible
+### Preventing Base State Visibility
 
 The Base state might be visible initially due to the timing of data fetching and condition evaluation relative to the rendering process. The page initializes its structure and components, then renders the Base state, which contains all potential elements and components.
-
-### Preventing Base State Visibility
 
 To ensure the Base state is not visible before the correct state is applied, follow these steps:
 
