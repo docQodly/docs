@@ -857,3 +857,16 @@ Japanese characters are now supported in all elements created in Qodly. This inc
 
 This enhancement ensures that all elements within Qodly can be named and utilized using Japanese characters, providing full localization support for Japanese-speaking users.
 
+## Triggers and Events
+
+The **Page** can respond to various events, enabling dynamic user experiences. Events that can trigger actions within the component include:
+
+|Event|Description|
+|---|---|
+|On Click| Calls for an action when the user clicks on the component. |
+|On Blur| Calls for an action when the component loses focus (user clicks outside). |
+|On Focus| Calls for an action when the component gains focus (user clicks on it). |
+|On MouseEnter| Calls for an action when the user's mouse cursor enters the area of the component.|
+|On MouseLeave| Calls for an action when the user's mouse cursor exits the area of the component.|
+|On Keyup| Calls for an action when a keyboard key is released while the component is in focus|
+|On KeyDown| Calls for an action when a keyboard key is pressed down while the component is in focus. |
