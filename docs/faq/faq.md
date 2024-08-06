@@ -21,7 +21,7 @@ See the requirements list [here](../studio/overview.md#requirements).
 
 The Base state becomes momentarily visible because the actual correct state is applied only after the [page has initially rendered](../studio/rendering#pagerenderer-lifecycle). This occurs due to the timing of when qodly sources and conditions are processed. Initially, the page loads and displays the Base state by default. As qodly sources are fetched and conditions evaluated, the appropriate state for the user is determined and applied, causing the transition from the Base state to the correct state.
 
-To resolve this, the `onInit` event should be used to ensure that all necessary datasources and conditions are set up before the page is rendered. This approach prevents the Base state from being displayed and ensures the page renders directly into the correct state based on the user's role and conditions.
+To resolve this, the `onInit` event should be used to ensure that all necessary qodly sources and conditions are set up before the page is rendered. This approach prevents the Base state from being displayed and ensures the page renders directly into the correct state based on the user's role and conditions.
 
 </details>
 

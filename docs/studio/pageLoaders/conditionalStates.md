@@ -9,13 +9,51 @@ import Column from '@site/src/components/Column'
 
 Conditional states enhance Pages by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
-:::info
-Once a condition is associated with a state, it becomes a `Conditional` state.
-:::
+Once a condition is associated with a state, it becomes a `Conditional` state. As soon as the condition is `True`, the state is enabled. If the condition is `False`, the state is disabled.
 
-:::tip
-As soon as the condition is `True`, the state is enabled. If the condition is `False`, the state is disabled.
-:::
+### Conditional State Lifecycle
+
+Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../rendering#pagerenderer-lifecycle):
+
+1. **Rendering Phase**: 
+
+	- The page renders its initial state, often defaulting to the Base state. This is when the initial content, styles, and layouts are displayed to the user.
+
+	- Conditional states are then evaluated and applied based on the fetched data and conditions.
+
+2. **Post-Render Updates Phase**:
+
+	- Based on the evaluated conditions and fetched qodly sources, the page updates its state. Conditional states modify the Base state to reflect user-specific configurations.
+
+	- Users interact with the page, which might trigger further state changes and updates.
+
+
+### Why the Base State is Initially Visible
+
+The Base state might be visible initially due to the timing of data fetching and condition evaluation relative to the rendering process. The page initializes its structure and components, then renders the Base state, which contains all potential elements and components.
+
+### Preventing Base State Visibility
+
+To ensure the Base state is not visible before the correct state is applied, follow these steps:
+
+1. **Use the `onInit` Event**:
+
+   - Utilize the `onInit` event to set up all necessary qodly sources and conditions before the page is rendered.
+
+   - This event runs before the rendering phase, allowing you to prepare the page state in advance.
+
+2. **Initialize Qodly Sources Early**:
+
+   - Ensure that all required qodly sources are fetched and available during the `onInit` event.
+
+   - This ensures that the data needed for conditional states is ready before rendering.
+
+3. **Evaluate Conditions Pre-render**:
+
+   - Evaluate all conditions necessary to determine the user-specific state within the `onInit` event.
+
+   - This includes checking priviliges and other relevant criteria.
+
 
 ## Scope of Conditions
 
@@ -33,7 +71,6 @@ Saved Conditions are reusable and can be applied across different states, stored
 :::info
 For more details, please refer to the [Saved Conditions](#saved-conditions-area) area section.
 :::
-
 
 
 ## Conditions Interface
@@ -586,4 +623,4 @@ To avoid unintended page reloads when using singleton computed properties, consi
 
 - **Minimize State Changes**: Avoid binding state conditions to Qodly Sources that are frequently updated by singleton computed properties. This helps reduce unnecessary re-renders.
 
-- **Proper Navigation Handling**: If you use a datasource for navigation purposes, ensure its value is correctly updated during navigation events. This prevents unintended reloads due to outdated datasource values.
+- **Proper Navigation Handling**: If you use a qodly source for navigation purposes, ensure its value is correctly updated during navigation events. This prevents unintended reloads due to outdated qodly source values.
