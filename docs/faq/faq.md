@@ -17,6 +17,17 @@ See the requirements list [here](../studio/overview.md#requirements).
 
 
 <details>
+<summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Why is the Base State Visible Before the Correct State?</summary>
+
+The Base state becomes momentarily visible because the actual correct state is applied only after the page has initially rendered. This occurs due to the timing of when qodly sources and conditions are processed. Initially, the page loads and displays the Base state by default. As qodly sources are fetched and conditions evaluated, the appropriate state for the user is determined and applied, causing the transition from the Base state to the correct state.
+
+To resolve this, the `onInit` event should be used to ensure that all necessary datasources and conditions are set up before the page is rendered. This approach prevents the Base state from being displayed and ensures the page renders directly into the correct state based on the user's role and conditions.
+
+</details>
+
+
+
+<details>
 <summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Why are privileges lost after a page refresh in Qodly?</summary>
 
 The issue may be due to different URL schemes (HTTP vs. HTTPS) being used by the WebAdmin and the 4D web server, leading to incorrect session management.
