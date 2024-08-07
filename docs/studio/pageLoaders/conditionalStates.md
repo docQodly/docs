@@ -29,48 +29,6 @@ For more details, please refer to the [Saved Conditions](#saved-conditions-area)
 :::
 
 
-## Conditional State Lifecycle
-
-Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../rendering#pagerenderer-lifecycle):
-
-1. **Rendering Phase**: 
-
-	- The page renders its initial state, often defaulting to the Base state. This is when the initial content, styles, and layouts are displayed to the user.
-
-	- Conditional states are then evaluated and applied based on the fetched data and conditions.
-
-2. **Post-Render Updates Phase**:
-
-	- Based on the evaluated conditions and fetched qodly sources, the page updates its state. Conditional states modify the Base state to reflect user-specific configurations.
-
-	- Users interact with the page, which might trigger further state changes and updates.
-
-
-:::tip Preventing Base State Visibility
-
-The Base state might be visible initially due to the timing of data fetching and condition evaluation relative to the rendering process. The page initializes its structure and components, then renders the Base state, which contains all potential elements and components.
-
-To ensure the Base state is not visible before the correct state is applied, follow these steps:
-
-1. **Use the `onInit` Event**:
-
-   - Utilize the `onInit` event to set up all necessary qodly sources and conditions before the page is rendered.
-
-   - This event runs before the rendering phase, allowing you to prepare the page state in advance.
-
-2. **Initialize Qodly Sources Early**:
-
-   - Ensure that all required qodly sources are fetched and available during the `onInit` event.
-
-   - This ensures that the data needed for conditional states is ready before rendering.
-
-3. **Evaluate Conditions Pre-render**:
-
-   - Evaluate all conditions necessary to determine the user-specific state within the `onInit` event.
-
-   - This includes checking priviliges and other relevant criteria.
-:::
-
 ## Conditions Interface
 
 Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of Page states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
@@ -598,7 +556,49 @@ When working with conditions in the JSON Editor, users will encounter several co
 - **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
 :::
 
-## Impact of Singleton Computed Properties on State
+## Conditional State Lifecycle
+
+Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../rendering#pagerenderer-lifecycle):
+
+1. **Rendering Phase**: 
+
+	- The page renders its initial state, often defaulting to the Base state. This is when the initial content, styles, and layouts are displayed to the user.
+
+	- Conditional states are then evaluated and applied based on the fetched data and conditions.
+
+2. **Post-Render Updates Phase**:
+
+	- Based on the evaluated conditions and fetched qodly sources, the page updates its state. Conditional states modify the Base state to reflect user-specific configurations.
+
+	- Users interact with the page, which might trigger further state changes and updates.
+
+
+:::tip Preventing Base State Visibility
+
+The Base state might be visible initially due to the timing of data fetching and condition evaluation relative to the rendering process. The page initializes its structure and components, then renders the Base state, which contains all potential elements and components.
+
+To ensure the Base state is not visible before the correct state is applied, follow these steps:
+
+1. **Use the `onInit` Event**:
+
+   - Utilize the `onInit` event to set up all necessary qodly sources and conditions before the page is rendered.
+
+   - This event runs before the rendering phase, allowing you to prepare the page state in advance.
+
+2. **Initialize Qodly Sources Early**:
+
+   - Ensure that all required qodly sources are fetched and available during the `onInit` event.
+
+   - This ensures that the data needed for conditional states is ready before rendering.
+
+3. **Evaluate Conditions Pre-render**:
+
+   - Evaluate all conditions necessary to determine the user-specific state within the `onInit` event.
+
+   - This includes checking priviliges and other relevant criteria.
+:::
+
+## Singleton Properties's Impact on State
 
 Singleton computed properties are used to manage and return objects stored in Qodly Sources. These properties are typically invoked to refresh data or trigger server-side processes. However, their interaction with a state can lead to significant implications:
 
