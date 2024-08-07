@@ -5,7 +5,7 @@ title: Conditional States
 
 import Column from '@site/src/components/Column'
 
-## Overview
+## Scope of Conditions
 
 Conditional states enhance Pages by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
 
@@ -13,7 +13,23 @@ Conditional states enhance Pages by allowing dynamic adaptation based on specifi
 Once a condition is associated with a state, it becomes a `Conditional` state. As soon as the condition is `True`, the state is enabled. If the condition is `False`, the state is disabled.
 :::
 
-### Conditional State Lifecycle
+Conditions within Qodly are classified into two types:
+
+### Local Conditions
+
+Local Conditions are specific to the currently selected state and can be customized to meet unique logic requirements of that state.
+
+
+### Saved Conditions
+
+Saved Conditions are reusable and can be applied across different states, stored within the `Saved Conditions` area for easy access and application.
+
+:::info
+For more details, please refer to the [Saved Conditions](#saved-conditions-area) area section.
+:::
+
+
+## Conditional State Lifecycle
 
 Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../rendering#pagerenderer-lifecycle):
 
@@ -30,7 +46,7 @@ Conditional states are primarily applied during the Rendering and Post-Render Up
 	- Users interact with the page, which might trigger further state changes and updates.
 
 
-### Preventing Base State Visibility
+:::tip Preventing Base State Visibility
 
 The Base state might be visible initially due to the timing of data fetching and condition evaluation relative to the rendering process. The page initializes its structure and components, then renders the Base state, which contains all potential elements and components.
 
@@ -53,31 +69,13 @@ To ensure the Base state is not visible before the correct state is applied, fol
    - Evaluate all conditions necessary to determine the user-specific state within the `onInit` event.
 
    - This includes checking priviliges and other relevant criteria.
-
-
-## Scope of Conditions
-
-Conditions within Qodly are classified into two types:
-
-### Local Conditions
-
-Local Conditions are specific to the currently selected state and can be customized to meet unique logic requirements of that state.
-
-
-### Saved Conditions
-
-Saved Conditions are reusable and can be applied across different states, stored within the `Saved Conditions` area for easy access and application.
-
-:::info
-For more details, please refer to the [Saved Conditions](#saved-conditions-area) area section.
 :::
-
 
 ## Conditions Interface
 
 Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of Page states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
 
-### States Area
+#### States Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -88,7 +86,7 @@ Accessible via the `Conditions` button <img alt="explorer" src={require('./img/s
 	</Column.Item>
 </Column.List>
 
-### Saved Conditions Area
+#### Saved Conditions Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -106,11 +104,11 @@ The tab representing the condition currently being modified is distinctly highli
 Adding a new saved condition involves clicking the <img alt="explorer" src={require('./img/addCssClass.png').default} style={{borderRadius: '6px', width:'3%'}} /> button, which initializes it with a generic name.
 
 
-### Schema Area
+#### Schema Area
 
 The Schema Editor is introduced here as a central tool for visualizing and editing the logical connections between conditions. For detailed information on utilizing this tool, see the [Schema Editor](#conditions-schema-editor) section.
 
-### JSON Area
+#### JSON Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
@@ -588,7 +586,7 @@ Upon addition, each condition's initial JSON structure appears in the editor as 
 This initial blueprint provides a template that users can modify to fit the specific requirements of their Page conditions.
 
 
-### Common JSON Fields
+:::info Common JSON Fields
 
 When working with conditions in the JSON Editor, users will encounter several common fields:
 
@@ -598,7 +596,7 @@ When working with conditions in the JSON Editor, users will encounter several co
 - **path**: The data path within the qodlysource (for qodlysource conditions).
 - **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
 - **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
-
+:::
 
 ## Impact of Singleton Computed Properties on State
 
