@@ -136,32 +136,43 @@ Users can choose to save all changes in open Pages before rendering, without see
 
 ## Page/Renderer Lifecycle
 
-Understanding the lifecycle of a page lifecycle is crucial in diagnosing and fixing rendering issues. Here's a detailed breakdown:
+Understanding the lifecycle of a page is crucial for diagnosing and fixing rendering issues. Here’s a detailed breakdown:
 
 1. **Initialization**:
 
-    - **Page Loading**: Essential components and placeholders are initialized.
+    - **Fetching Data**: The lifecycle begins with fetching essential user-specific data, such as user privileges and catalog information, to determine the content and features accessible to the user.
 
-    - **Initial Scripts and Styles**: Basic scripts and styles necessary for rendering are prepared.
+    - **Fetching Assets**: Necessary assets are also retrieved, including `shared_css.json`, `shared_datasources.json`, `saved_conditions.json`, and `CustomComponents/manifest.json`. These files provide shared CSS styles, shared Qodly sources, predefined conditions, and details about custom components.
+
 
 2. **Loading**:
 
-    - **Fetching Data**: The page begins to fetch necessary data such as user information, configuration settings, and other resources.
+    - **Fetching Custom Components JavaScript Files**: In this phase, the system retrieve JavaScript files for custom components used within the page, ensuring custom behaviors and interactive elements are ready to be initialized.
 
-    - **Setting Qodly Sources**: Qodly Sources are contacted, and conditions are evaluated based on initial data.
+    - **Loading the Main Page**: Once all necessary assets and custom component files are fetched, the main structure of the page is loaded. This involves initializing the primary layout and placeholders for content and interactive elements, preparing the page to be populated with data and components.
+
 
 3. **Rendering**:
 
+    - **Initializing Shared Qodly Sources**: During rendering, shared Qodly sources are initialized. These sources provide data that multiple parts of the page can access and use.
+
+    - **Initializing Local Qodly Sources**: Following the initialization of shared Qodly sources, local Qodly sources specific to individual components are set up, ensuring each component has access to the data it needs.
+
+    - **Executing `onInit` Event**: The `onInit` event is executed for the component at this point. This event is used to perform any necessary setup actions when the component is first created. Actions may include fetching initial data, setting default values, or any other initialization tasks required to prepare the component for use.
+
     - **Initial Rendering**: The page renders its initial state, which often defaults to the Base state.
-    
-    - **Applying Initial Styles and Layouts**: Any initial styles and layouts are applied.
+
 
 4. **Post-Render Updates**:
 
-    - **State Application**: Based on fetched Qodly Sources and evaluated conditions, the page updates its state. Conditional states modify the initial Base state to reflect user-specific configurations.
+    - **Initializing States Conditions**: This phase involves evaluating conditions to track state changes. By setting up conditional states, the page can dynamically react to changes in data and user interactions. This ensures that the page remains interactive and responsive by updating its state and re-rendering as needed.
 
 5. **Interaction**:
 
-    - **User Interaction**: Users interact with the page, triggering further state changes and updates.
+    - **Displaying the Page**: Finally, the page is rendered and displayed to the user, combining all fetched data, initialized components, and evaluated conditions to produce the final interactive page.
 
-    - **Dynamic Condition Evaluation**: New conditions might be evaluated, leading to additional state transitions.
+    - **Executing `onLoaded` Event**: After the page has fully loaded, the `onLoaded` event is triggered. This event can be used to perform any final setup actions, such as starting animations, or fetching additional data. The `onLoaded` event ensures that the page is fully prepared for user interaction and any additional tasks are completed.
+
+    - **Loading JSON of Sub Pages**: In some cases, additional sub pages need to be loaded dynamically based on user interactions or specific conditions. This involves fetching and loading JSON files for sub pages, allowing for the dynamic expansion of content.
+
+    - **Restarting Initialization for Sub Pages**: Once the JSON of sub pages is loaded, the initialization process restarts from **initializing local Qodly sources** for these sub pages. This ensures that each sub page has access to the necessary data and components, repeating the initialization steps to prepare the sub page for display.
