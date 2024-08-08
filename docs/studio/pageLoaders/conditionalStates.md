@@ -564,10 +564,8 @@ Conditional states are primarily applied during the Rendering and Post-Render Up
 
 	- The page renders its initial state, often defaulting to the Base state. This is when the initial content, styles, and layouts are displayed to the user.
 
-	- Conditional states are then evaluated and applied based on the fetched data and conditions.
-
 2. **Post-Render Updates Phase**:
-
+	
 	- Based on the evaluated conditions and fetched qodly sources, the page updates its state. Conditional states modify the Base state to reflect user-specific configurations.
 
 	- Users interact with the page, which might trigger further state changes and updates.
