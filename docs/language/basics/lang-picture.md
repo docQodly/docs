@@ -40,6 +40,8 @@ The following codec IDs are supported:
 |Resizing	|Picture * Number	|Picture	|Resize Picture by Number ratio|
 |Horizontal scaling	|Picture *+ Number	|Picture	|Resize Picture horizontally by Number ratio|
 |Vertical scaling	|Picture *&#124; Number	|Picture	|Resize Picture vertically by Number ratio|
+|Contains keyword  |Picture % String |Boolean |If the keyword "Mer" is associated with the picture stored in *PictureExpr* (attribute or variable), then `PictureExpr % "Mer"` is true|
+
 
 
 :::note Notes

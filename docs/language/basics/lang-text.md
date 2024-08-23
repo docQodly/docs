@@ -62,9 +62,6 @@ In the following example, the **Carriage return** character (escape sequence `\r
 |   |||"abd" <= "abc" |False|
 |Contains keyword |String % String |Boolean  |"Alpha Bravo" % "Bravo" |True|
 |   |||"Alpha Bravo" % "ravo" |False|
-| |Picture % String |Boolean |Picture_expr % "Mer" |True (1)|
-
-(1) If the keyword "Mer" is associated with the picture stored in the picture expression (attribute or variable).
 
 ## String comparisons
 
