@@ -15,9 +15,9 @@ This section outlines the operations available for interacting with `dataClass` 
 
 | Endpoint                                            | Example                              | Description                                                                                      |
 |-----------------------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------|
-| [`/rest/dataClass`](#dataclass)                                 | `/Employee`                          | Retrieves all entities within the `dataClass`, defaulting to the first 100 entities.             |
-| [`/rest/dataClass[key]`](#dataclasskey)                          | `/Employee[22]`                      | Fetches details for a specific entity identified by the primary key within the `dataClass`.      |
-| [`/rest/dataClass:attribute(value)`](#dataclassattributevalue)              | `/Employee:firstName(John)`          | Retrieves entities where a specific attribute matches the given value.                           |
+| [`/rest/dataClass`](#restdataclass)                                 | `/Employee`                          | Retrieves all entities within the `dataClass`, defaulting to the first 100 entities.             |
+| [`/rest/dataClass[key]`](#restdataclasskey)                          | `/Employee[22]`                      | Fetches details for a specific entity identified by the primary key within the `dataClass`.      |
+| [`/rest/dataClass:attribute(value)`](#restdataclassattributevalue)              | `/Employee:firstName(John)`          | Retrieves entities where a specific attribute matches the given value.                           |
 | `/rest/dataClass/dataClassClassFunction`        | `/City/getCity`                      | Executes a class function that affects the entire data class.                                    |
 | `/rest/dataClass/entitySelectionClassFunction`  | `/City/getPopulation/?$filter="ID<3"`| Executes a function on a selection of entities, with optional filter parameters.                 |
 | `/rest/dataClass[key]/entityClassFunction`    | `City[2]/getPopulation`              | Performs a function on a specific entity identified by the key within the `dataClass`.           |

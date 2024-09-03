@@ -39,7 +39,7 @@ QodlyScript uses the POSIX syntax. With this syntax:
 - absolute pathnames start with a "/"
 - to move up one folder in a relative path, use "../" in front of the pathname (for security, you cannot move up the filesystem).
 
-In POSIX syntax, you will generally use `filesystem` pathnames with [`file`](../FileClass.md#file) and [`folder`](../FolderClass.md#folder) commands, for example:
+In POSIX syntax, you will generally use `filesystem` pathnames with [`file`](../commands/file) and [`folder`](../commands/folder) commands, for example:
 
 ```qs
 pathFile = file("/DATA/Archives/file 2.txt")
@@ -50,7 +50,7 @@ pathFolder = folder("/RESOURCES/Pictures")
 
 ## `file` and `folder` constructors
 
-[`file`](../FileClass.md#file) and [`Folder`](../FolderClass.md#folder) commands only accept **absolute pathnames**. Relative pathnames are not supported and will return errors. For example, the following code is not allowed:
+[`file`](../commands/file) and [`Folder`](../commands/folder) commands only accept **absolute pathnames**. Relative pathnames are not supported and will return errors. For example, the following code is not allowed:
 
 ```qs
 	//ERROR

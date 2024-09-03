@@ -40,7 +40,7 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 - [**Logical operators**](lang-boolean.md#logical-operators) (on **boolean** expressions)
 - [**Date operators**](lang-date.md#date-operators)
 - [**Time operators**](lang-time.md#time-operators)
-- [**Number operators**](lang-number.md#number-operators)
+- [**Number operators**](lang-number.md#numeric-operators)
 - [**Bitwise operators**](lang-number.md#bitwise-operators) (on **integer** expressions)
 - [**Picture operators**](lang-picture.md#picture-operators)
 - [**String operators**](lang-text.md#string-operators)
@@ -306,7 +306,7 @@ All other values are considered **truthy**, including:
 
 * 0 - numeric zero (integer or otherwise)
 
-In QodlyScript, **truthy** and **falsy** evaluation reflects the **usability** of a value, which means that a truthy value exists and can be processed by the code without generating errors or unexpected results. The rationale behind this is to provide a convenient way to handle *undefined* and *null* values in objects and collections, so that a reduced number of [if…else](lang-control-flow.md#if-else-end) statements are necessary to avoid runtime errors.
+In QodlyScript, **truthy** and **falsy** evaluation reflects the **usability** of a value, which means that a truthy value exists and can be processed by the code without generating errors or unexpected results. The rationale behind this is to provide a convenient way to handle *undefined* and *null* values in objects and collections, so that a reduced number of [if…else](lang-control-flow#ifelseend) statements are necessary to avoid runtime errors.
 
 For example, when you use a [short-circuit OR operator](#short-circuit-or-operator-):
 

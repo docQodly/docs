@@ -17,9 +17,9 @@ Variables, attributes or expressions of the object type can contain various type
 	- picture(2)
 	- collection
 
-(1)ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**.
+(1) ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**.
 
-(2)When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]".
+(2) When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]".
 
 :::note
 
@@ -42,7 +42,7 @@ Object instantiation can be done in one of the following ways:
 
 :::info
 
-Several commands and functions return objects, for example [`jsonParse`](../commands/jsonParse.md) or [`file`](../FileClass.md#file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
+Several commands and functions return objects, for example [`jsonParse`](../commands/jsonParse.md) or [`file`](../commands/file). In this case, it is not necessary to instantiate the object explicitly, the QodlyScript language does it for you.
 
 :::
 
@@ -265,6 +265,26 @@ When expressions of a given type are expected in your code, you can make sure th
  myString = lowercase(string(o.a.b)) //make sure you get a string value even if undefined
   //to avoid errors in the code
 ```
+
+## Object operators
+
+You can use comparison operators with **object references**, which means that you can evaluate if two or more references point to the same instance of an object.
+
+```qs
+var o1 = {a: 42} //reference to an instance
+var o2 = {a: 42} //reference to a different instance
+var o3 = o1 //reference to the same instance
+```
+
+Based upon the code above, the comparison table is:
+
+
+|Operation |Syntax |Returns |Expression |Value|
+|---|---|---|---|---|
+|Equality |objectRef == objectRef |boolean |o1 == o3 |true|
+|  | ||o1 == o2 |false|
+|Inequality |objectRef # objectRef |boolean |o1 != o3 |false|
+|   |||o1 != o2 |true|
 
 
 ## Examples

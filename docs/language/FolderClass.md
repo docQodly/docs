@@ -5,7 +5,7 @@ title: Folder
 
 
 
-`Folder` objects are created with the [`folder`](#folder) command. They contain references to folders that may or may not actually exist on disk. For example, when you execute the `folder` command to create a new folder, a valid `folder` object is created but nothing is actually stored on disk until you call the [`folder.create()`](#create) function.
+`Folder` objects are created with the [`folder`](commands/folder) command. They contain references to folders that may or may not actually exist on disk. For example, when you execute the `folder` command to create a new folder, a valid `folder` object is created but nothing is actually stored on disk until you call the [`folder.create()`](#create) function.
 
 ### Example
 
@@ -31,9 +31,9 @@ curfolder = folder("/PACKAGE/JohnSmith")
 |[<!-- INCLUDE #FolderClass.delete().Syntax -->](#delete)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #FolderClass.delete().Summary -->|
 |[<!-- INCLUDE #directory.exists.Syntax -->](#exists)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.exists.Summary -->|
 |[<!-- INCLUDE #directory.extension.Syntax -->](#extension)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.extension.Summary -->|  
-|[<!-- INCLUDE #directory.file().Syntax -->](#file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.file().Summary -->|  
-|[<!-- INCLUDE #directory.files().Syntax -->](#files)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.files().Summary -->|  
-|[<!-- INCLUDE #directory.folder().Syntax -->](#folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folder().Summary -->|  
+|[<!-- INCLUDE #directory.file().Syntax -->](./commands/file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.file().Summary -->|  
+|[<!-- INCLUDE #directory.files().Syntax -->](./commands/file)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.files().Summary -->|  
+|[<!-- INCLUDE #directory.folder().Syntax -->](commands/folder)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folder().Summary -->|  
 |[<!-- INCLUDE #directory.folders().Syntax -->](#folders)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.folders().Summary -->|  
 |[<!-- INCLUDE #directory.fullName.Syntax -->](#fullname)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.fullName.Summary -->|
 |[<!-- INCLUDE #directory.hidden.Syntax -->](#hidden)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #directory.hidden.Summary -->|

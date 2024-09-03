@@ -12,6 +12,7 @@ Session objects are returned by the [`Session`](commands/session.md) command. Th
 |---|
 |[<!-- INCLUDE #SessionClass.clearPrivileges().Syntax -->](#clearprivileges)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.clearPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.expirationDate.Syntax -->](#expirationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.expirationDate.Summary -->|
+|[<!-- INCLUDE #SessionClass.getPrivileges().Syntax -->](#getprivileges)<br/><!-- INCLUDE #SessionClass.getPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.hasPrivilege().Syntax -->](#hasprivilege)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.hasPrivilege().Summary -->|
 |[<!-- INCLUDE #SessionClass.idleTimeout.Syntax -->](#idletimeout)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.idleTimeout.Summary -->|
 |[<!-- INCLUDE #SessionClass.isGuest().Syntax -->](#isguest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.isGuest().Summary -->|
@@ -76,6 +77,59 @@ expiration = session.expirationDate //eg "2021-11-05T17:10:42Z"
 ```
 
 <!-- END REF -->
+
+
+<!-- REF SessionClass.getPrivileges().Desc -->
+## .getPrivileges()
+
+<!-- REF #SessionClass.getPrivileges().Syntax -->**.getPrivileges**() : cCollection<!-- END REF -->
+
+
+<!-- REF #SessionClass.getPrivileges().Params -->
+|Parameter|Type||Description|
+|---------|--- |:---:|------|
+|Result|collection|<-|Collection of privilege names (strings)|
+<!-- END REF -->
+
+#### Description
+
+The `.getPrivileges()` function <!-- REF #SessionClass.getPrivileges().Summary -->returns a collection of all the privilege names associated to the session<!-- END REF -->.
+
+:::info
+
+Privileges are assigned to a Session using the [`setPrivileges()`](#setprivileges) function.
+
+:::
+
+
+#### Example
+
+
+The session role is assigned in an `authentify()` datastore function:
+
+```qs
+  //Datastore Class
+
+exposed function authentify( role : string) : string
+	session.clearPrivileges()
+	session.setPrivileges( roles : role})
+```
+
+Assuming the `authentify()` function is called with the "Medium" role:
+
+```qs
+var privileges : collection
+privileges = Session.getPrivileges()
+//privileges : ["simple","medium"]
+```
+
+
+#### See also
+
+[.setPrivileges()](#setprivileges)
+
+<!-- END REF -->
+
 
 
 

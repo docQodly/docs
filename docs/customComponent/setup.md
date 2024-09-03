@@ -5,7 +5,7 @@ title: Project Setup
 
 import Column from '@site/src/components/Column'
 
-Qodly's API simplifies the creation of **Custom Components** using **React** through its dedicated CLI tool, [**@qodly/cli**](https://www.npmjs.com/package/@qodly/cli). This API streamlines the initiation of the **React** project, allowing developers to build and share reusable custom components within the Qodly community, providing a user-friendly integration into Webforms through a straightforward drag-and-drop mechanism.
+Qodly's API simplifies the creation of **Custom Components** using **React** through its dedicated CLI tool, [**@qodly/cli**](https://www.npmjs.com/package/@qodly/cli). This API streamlines the initiation of the **React** project, allowing developers to build and share reusable custom components within the Qodly community, providing a user-friendly integration into Pages through a straightforward drag-and-drop mechanism.
 
 ## Initial Setup
 
@@ -47,7 +47,7 @@ npm i
 ## Configuring Environment 
 
 
-To ensure the smooth operation of the Standalone Webform Editor, you can choose between running a Cloud instance or a 4D instance. Each setup has specific requirements for setting up and running your development environment.
+To ensure the smooth operation of the Standalone Page Editor, you can choose between running a Cloud instance or a 4D instance. Each setup has specific requirements for setting up and running your development environment.
 
 ### Run a Cloud Instance
 
@@ -90,7 +90,7 @@ Ensure to keep your API_KEY secure and never expose it in client-side code where
 
 ### Run a 4D Instance
 
-To operate a 4D instance effectively, you need to run a 4D Web Server alongside your React project. Failing to do so can lead to connection issues that prevent the Webform Editor from functioning correctly.
+To operate a 4D instance effectively, you need to run a 4D Web Server alongside your React project. Failing to do so can lead to connection issues that prevent the Page Editor from functioning correctly.
 
 
 :::info
@@ -103,7 +103,7 @@ Error: connect ECONNREFUSED 127.0.0.1:7443
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16)
 ```
 
-This error indicates that your local server setup is trying to connect to a 4D instance at 127.0.0.1:7443 but cannot establish a connection, resulting in the Standalone Webform Editor not loading.
+This error indicates that your local server setup is trying to connect to a 4D instance at 127.0.0.1:7443 but cannot establish a connection, resulting in the Standalone Page Editor not loading.
 
 :::
 
@@ -117,7 +117,7 @@ Below is an overview of the production dependencies listed in the `package.json`
 
 | Dependency                     | Description                                                                                                  |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `@ws-ui/webform-editor`         | Provides the Webform Editor functionality for Qodly, allowing developers to create and edit webforms.       |
+| `@ws-ui/webform-editor`         | Provides the Page Editor functionality for Qodly, allowing developers to create and edit Pages.       |
 | `react`                         | A JavaScript library for building user interfaces, used in the project for creating custom components.       |
 | `react-dom`                     | ReactDOM provides DOM-specific methods for React, enabling interaction with the DOM and rendering components.|
 
@@ -133,7 +133,7 @@ Below is an overview of the development dependencies listed in the `package.json
 | `@typescript-eslint/eslint-plugin`          | ESLint plugin for TypeScript, identifying and reporting patterns found in TypeScript code.                            |
 | `@typescript-eslint/parser`                 | TypeScript parser for ESLint, allowing ESLint to lint TypeScript code.                                                 |
 | `@vitejs/plugin-react-swc`                  | Vite plugin for React with SWC, facilitating fast web development with React. SWC is a JavaScript/TypeScript compiler. |
-| `@ws-ui/webform-editor-standalone`         | Standalone version of the Qodly webform editor, used for local development and testing.                        |
+| `@ws-ui/webform-editor-standalone`         | Standalone version of the Qodly Page editor, used for local development and testing.                        |
 | `eslint`                                    | ESLint is a linter tool for identifying and reporting patterns found in ECMAScript/JavaScript code.                    |
 | `eslint-config-prettier`                    | ESLint configuration that turns off rules unnecessary or conflicting with Prettier.                                    |
 | `eslint-plugin-prettier`                    | ESLint plugin for Prettier, allowing ESLint to run Prettier as an ESLint rule.                                          |
@@ -147,7 +147,7 @@ Below is an overview of the development dependencies listed in the `package.json
 
 ### Running the Development Server
 
-Launch Qodly Studio in local mode with only the **Standalone Webform Editor** using the following command:
+Launch Qodly Studio in local mode with only the **Standalone Page Editor** using the following command:
 
 ```bash
 npm run dev
@@ -177,7 +177,7 @@ Used to generate a production-ready build of your entire project, the build proc
 The ID generated is established during the [initialization of a new project](#project-initialization) and remains consistent throughout the project's lifecycle. As a result, each execution of the build ensures that the `qodly_ID.zip` folder contains the same generated ID.
 :::
 
-Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](../studio/design-webforms/components/uploadCustomComponents.md) in Qodly Studio for installation.
+Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](../studio/pageLoaders/components/uploadCustomComponents.md) in Qodly Studio for installation.
 
 ## Generating a New Component
 
@@ -196,7 +196,7 @@ A project can contain multiple custom components, as in a custom `Chart` project
 The `generate:component` command internally executes `qodly new component`, which then generates the necessary files and folders for the component within the `components` directory.
 
 :::danger
-Custom components must use unique names to avoid conflicts with Qodly Studio's built-in components. If a custom component shares the same name as a built-in component, the custom component will take precedence when dragged and dropped onto the webform editor.
+Custom components must use unique names to avoid conflicts with Qodly Studio's built-in components. If a custom component shares the same name as a built-in component, the custom component will take precedence when dragged and dropped onto the Page editor.
 :::
 
 The `components` directory serves as the repository for custom components:

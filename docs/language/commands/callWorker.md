@@ -46,7 +46,7 @@ A worker process remains alive until the application is closed or the `killWorke
 #### Example
 
 
-In a webform, a button starts a computation: for example, statistics for the selected year. The button creates or calls a worker process that computes the data while the user can continue to work in the form.
+In a Page, a button starts a computation: for example, statistics for the selected year. The button creates or calls a worker process that computes the data while the user can continue to work in the form.
 
 The code called from the button:
 

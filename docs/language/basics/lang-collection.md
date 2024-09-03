@@ -44,7 +44,7 @@ If you assign an element's index that surpasses the last existing element of the
   //myCol[4]: null
 ```
 
-## Instantiation 
+## Instantiation
 
 Collections must be instantiated, otherwise trying to read or modify their elements will generate a syntax error.
 
@@ -59,20 +59,20 @@ Several QodlyScript commands and functions return collections, for example [`las
 
 :::
 
-### `newCollection` command 
+### `newCollection` command
 
-The [`newCollection`](../CollectionClass.md#newcollection) command creates a new empty or prefilled collection and returns its reference.
+The [`newCollection`](../commands/newCollection) command creates a new empty or prefilled collection and returns its reference.
 
 Examples:
 
 ```qs
  var colVar : collection //creation of collection type variable
   //instantiation of the collection and assignment to the variable
- colVar = newCollection 
- 
+ colVar = newCollection
+
  var colFilled : collection
   //instantiation and assignment of a prefilled collection
- colFilled = newCollection("a","b",1,42,{}) 
+ colFilled = newCollection("a","b",1,42,{})
 
 ```
 
@@ -107,8 +107,8 @@ users = [{name: "Alice", \
 
 You can create two types of collections:
 
-- regular (non-shared) collections, using the [`newCollection`](../CollectionClass.md#newcollection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes. 
-- shared collections, using the [`newSharedCollection`](../CollectionClass.md#newsharedcollection) command. These collections can be shared between processes, including preemptive threads. Access to these collections is controlled by [`use...end`](lang-shared.md#useend) structures. 
+- regular (non-shared) collections, using the [`newCollection`](../commands/newCollection) command or collection literal syntax (`[]`). These collections can be edited without any specific access control but cannot be shared between processes.
+- shared collections, using the [`newSharedCollection`](../commands/newSharedCollection) command. These collections can be shared between processes, including preemptive threads. Access to these collections is controlled by [`use...end`](lang-shared.md#useend) structures.
 
 For more information, refer to the [Shared objects and collections](lang-shared.md) section.
 
@@ -131,7 +131,7 @@ Some functions return the original collection after modification, so that you ca
 ```
 
 
-### *propertyPath* parameter 
+### *propertyPath* parameter
 
 
 Several functions accept a *propertyPath* as parameter. This parameter stands for:
@@ -139,3 +139,21 @@ Several functions accept a *propertyPath* as parameter. This parameter stands fo
 - either an object property name, for example "lastName"
 - or an object property path, i.e. a hierarchical sequence of sub-properties linked with dot characters, for example "employee.children.firstName".
 
+## Collection operators
+
+You can use comparison operators with **collection references**, which means that you can evaluate if two or more references point to the same instance of a collection.
+
+```qs
+var c1 = ["a",42] //reference to an instance
+var c2 = ["a",42] //reference to a different instance
+var c3 = c1 //reference to the same instance
+```
+
+Based upon the code above, the comparison table is:
+
+|Operation |Syntax |Returns |Expression |Value|
+|---|---|---|---|---|
+|Equality |collectionRef == collectionRef |boolean |$c1 == $c3 |true|
+|  | ||c1 == c2 |false|
+|Inequality |collectionRef # collectionRef |boolean |$c1 != $c3 |false|
+|   |||c1 != c2 |true|

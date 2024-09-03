@@ -172,7 +172,7 @@ The SMTP connection is automatically closed:
 <!-- REF #SMTPTransporterClass.send().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mail|object|->|[Email](EmailObjectClass.md#email-object) to send|
+|mail|object|->|[Email](EmailObjectClass#properties) to send|
 |Result|object|<-|SMTP status|
 <!-- END REF -->
 

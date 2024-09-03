@@ -12,7 +12,7 @@ Expressions are made up of almost all the other parts of the language: commands,
 Expressions rarely "stand alone". There are several places in QodlyScript where an expression can be used by itself. It includes:
 
 - Formula API (`apply()`, `query()` with formula, `orderByFormula()`...)
-- Web forms, where an expression can be used as a data source for most of components
+- Pages, where an expression can be used as a Qodly Source for most of components
 - Debugger where the value of expressions can be checked
 
 

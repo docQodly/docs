@@ -18,7 +18,7 @@ You want to create a "Contacts" application. This application should organize an
 In this tutorial, we'll see how:
 
 - create a dataclass and define its attributes to organize your data
-- create a webform
+- create a Page
 
 ## Step 1: Create an empty application
 

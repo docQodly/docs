@@ -13,7 +13,7 @@ Once created, you can use a variable wherever you need it in your code. For exam
 myEntity.text = MyString //put the MyString variable contents into the text attribute
 ```
 
-Variables are language objects; you can create and use variables that will never appear on the screen. In your web forms, you can display variables on the screen, enter data into them, and print them in reports. 
+Variables are language objects; you can create and use variables that will never appear on the screen. In your Pages, you can display variables on the screen, enter data into them, and print them in reports. 
 
 ## Declaring Variables
 

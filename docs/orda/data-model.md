@@ -41,7 +41,7 @@ All ORDA data model classes are exposed as properties of the **`cs`** class stor
 
 |Class|Example name|Instantiated by|
 |---|---|---|
-|cs.DataStore|cs.DataStore|[`ds`](../language/DataStoreClass.md#ds) command|
+|cs.DataStore|cs.DataStore|[`ds`](../language/commands/ds) command|
 |cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../language/DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
 |cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../language/DataClassClass.md#get), [`dataClass.new()`](../language/DataClassClass.md#new), [`entitySelection.first()`](../language/EntitySelectionClass.md#first), [`entitySelection.last()`](../language/EntitySelectionClass.md#last), [`entity.previous()`](../language/EntityClass.md#previous), [`entity.next()`](../language/EntityClass.md#next), [`entity.first()`](../language/EntityClass.md#first), [`entity.last()`](../language/EntityClass.md#last), [`entity.clone()`](../language/EntityClass.md#clone)|
 |cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../language/DataClassClass.md#query), [`entitySelection.query()`](../language/EntitySelectionClass.md#query), [`dataClass.all()`](../language/DataClassClass.md#all), [`dataClass.fromCollection()`](../language/DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../language/DataClassClass.md#newselection), [`entitySelection.drop()`](../language/EntitySelectionClass.md#drop), [`entity.getSelection()`](../language/EntityClass.md#getselection), [`entitySelection.and()`](../language/EntitySelectionClass.md#and), [`entitySelection.minus()`](../language/EntitySelectionClass.md#minus), [`entitySelection.or()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../language/EntitySelectionClass.md#orderbyformula), [`entitySelection.slice()`](../language/EntitySelectionClass.md#slice)|
@@ -54,22 +54,6 @@ Also, object instances from ORDA data model user classes benefit from their pare
 - an Entity class object can call functions from the [ORDA Entity generic class](../language/EntityClass.md).
 
 
-### Creating Data Model Classes
-
-In Qodly Studio, you can create all the classes related to a dataclass by clicking on a single button:
-
-1. Open the [Model Editor](../studio/model/model-editor-interface) and select the dataclass for which you want to create classes.
-2. Click on the `<...>` button at the top right side of the panel.
-
-![](img/create-classes.png)
-
-All classes are automatically created and can be displayed in the **Classes** section of the Explorer:
-
-![](img/create-classes2.png)
-
-
-
-
 ## Datastore
 
 The datastore is the interface object to a database. It builds a representation of the whole database as object. A datastore is made of a **model** and **data**:
@@ -77,7 +61,7 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object named DataStore, returned by the [`ds`](../language/DataStoreClass.md#ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
+When handled through the code, the datastore is an object named DataStore, returned by the [`ds`](../language/commands/ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
 The DataStore object itself cannot be copied as an object:
 
@@ -829,7 +813,7 @@ exposed function <functionName>
 
 :::note
 
-The `exposed` keyword can only be used with Data model class functions. If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
+The `exposed` keyword can only be used with Data model class functions as well as [shared singleton functions](../language/basics/lang-classes.md#singleton-classes). If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
 
 :::
 

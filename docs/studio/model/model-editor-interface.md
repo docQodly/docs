@@ -101,17 +101,6 @@ You can select the datastore class in the workspace by clicking on it in the lis
 Removing a dataclass from the model does not remove its associated functions.
 :::
 
-
-## Data Model Classes Button
-
-The Data Model Classes button allows you to generate the [QodlyScript classes](../../orda/data-model.md) related to your data model. You can generate only the datastore class.
-
-<img src={require('./img/class-button.png').default} style={{borderRadius: '6px'}} />
-
-:::info
-For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
-:::
-
 ## Properties Area
 
 The Properties area displays the properties for the selected element: [datastore class](datastore-classes.md#datastore-class-properties), [attribute](attributes.md#properties), or [function](functions.md#permissions).
@@ -218,6 +207,6 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 :::warning
 
-Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes.md#rename-a-datastore-class).
+Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes#renaming-a-datastore-class).
 
 :::

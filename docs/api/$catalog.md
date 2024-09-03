@@ -17,10 +17,10 @@ The `$catalog` endpoint offers several variants to retrieve different levels of 
 
 | Endpoint                        | Description                                                   |
 |---------------------------------|---------------------------------------------------------------|
-| [**$catalog**](#catalog)                    | Lists all dataclasses with basic access URIs. |
-| [**$catalog/$all**](#catalogall)            | Provides detailed information about all dataclasses and their attributes. |
+| [**$catalog**](#catalog)                    | Lists [shared singletons](#singletons) (if any) and all dataclasses with basic access URIs. |
+| [**$catalog/$all**](#catalogall)            | Lists [shared singletons](#singletons) (if any) and provides detailed information about all dataclasses and their attributes. |
 | [**$catalog/{{dataClass}}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
-| [**$catalog/{{dataStoreClassFunction}}**](#) | Executes a specific datastore class function if available.   |
+| [**$catalog/{{dataStoreClassFunction}}**](./classFunctionsOverview.md) | Executes a specific datastore class function if available.   |
 
 ## Properties Returned
 
@@ -35,7 +35,7 @@ Each response from the `$catalog` endpoint variants includes some common propert
 | `__NAME`            | String          | The name of the Qodly application to identify the session context.   |
 | `properties`         | Object          | Contains additional settings or flags relevant to the response.         |
 | &#x21AA; `supportJSONEntityKey` | Boolean       | Indicates if JSON entity keys are supported, here it is `true`.         |
-| `methods`            | Array of Objects| Lists methods available for execution through the data store. For more details, please refer to the [Methods Array Details](#methods-array-details) section. |
+| `methods`            | Array of Objects| Lists methods available for execution through the data store. For more details, please refer to the [Methods Array Details](#methods-array) section. |
 | `dataClasses`     | Array of Objects   | Lists dataclasses exposed through the API.                      |
 
 ### `Methods` Array
@@ -71,7 +71,6 @@ Each dataclass listed by the `$catalog` endpoint returns the following propertie
 :::tip
 Only the exposed dataclasses are shown in this list for your project's datastore. For more information, please refer to [Configuring Data Access](./overview#configuring-data-access) section.
 :::
-
 
 ### Sample Usage Example in Postman
 
@@ -351,3 +350,34 @@ The response structure for the `$catalog/{{dataClass}}` endpoint looks something
 }
 ```
 
+## singletons
+
+If you have defined [shared singletons](../language/basics/lang-classes.md#singleton-classes) containing at least one [exposed function](../orda/data-model.md#exposed-vs-non-exposed-functions), a `singletons` section is added to the returned json for both the `/$catalog` and `/$catalog/$all` syntaxes. It contains the collection of singleton classes as objects with their **name** and **methods** (i.e., exposed functions).
+
+Singleton functions can be called by REST requests using the [`$singleton` command]($singleton.md).
+
+
+### Example  
+
+`GET  /rest/$catalog/$all`
+
+**Result**:
+
+```json
+{...
+	singletons": [
+    {
+      "name": "VehicleFactory",
+      "methods": [
+        {
+          "name": "buildVehicle",
+          "allowedOnHTTPGET": false,
+          "exposed": true
+        }
+      ]
+    }
+  ],
+
+	dataClasses: [...]
+}
+```

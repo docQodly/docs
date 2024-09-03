@@ -17,7 +17,9 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 - Alternatively, type the resource name, such as the `register` function, directly into the search bar.
 
 :::info
-The <img src={require('./img/function.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Function** ressources.
+
+- The <img src={require('./img/function.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Function** ressources.
+- The <img src={require('./img/singleton.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Singleton function** ressources.
 :::
 
 ### Execute Permission

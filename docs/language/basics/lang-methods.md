@@ -111,7 +111,7 @@ end
 
 You can encapsulate your methods in **formula** objects and call them from your objects.
 
-The [`formula`](../FunctionClass.md#formula) and [`formulaFromString`](../FunctionClass.md#formulafromstring) commands allow you to create formula objects that you can encapsulate in object properties. It allows you to implement custom object methods.
+The [`formula`](../FunctionClass#formula-objects) and [`formulaFromString`](../commands/formulaFromString) commands allow you to create formula objects that you can encapsulate in object properties. It allows you to implement custom object methods.
 
 To execute a method stored in an object property, use the **()** operator after the property name. For example:
 
