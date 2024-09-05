@@ -22,6 +22,18 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 - The <img src={require('./img/singleton.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Singleton function** ressources.
 :::
 
+:::tip
+
+- If you try to select the **Singleton function** from the available permissions and it doesn’t appear, follow these steps to enable it:
+
+    - Check your Singleton in the class section: <img src={require('./img/singletonClass.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+
+    - You may observe an **absence of exposed functions** inside your Singleton class. To resolve this, add at least one **EXPOSED function** to it. Check the example 👉 <img src={require('./img/singletonExposedFunction.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+
+    - Save your changes, then re-check the dropdown list of permissions <img src={require('./img/singletonFunctionPermission.png').default} style={{borderRadius: '6px', width:'20%'}} />. You should now be able to select your Singleton function , whether it’s the normal Singleton or the shared one.
+
+:::
+
 ### Execute Permission
 
 Execute permissions allow the designated privilege to run the function's code <img src={require('./img/executeFunction.png').default} style={{borderRadius: '6px', width:'5%'}} />.
