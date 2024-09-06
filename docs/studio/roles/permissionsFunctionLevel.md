@@ -24,19 +24,19 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 
 :::tip
 
-If the Singleton class is not available in the permissions dropdown list, follow these steps to enable it:
+If the Singleton class is not available in the permissions dropdown, follow these steps to enable it:
 
-1. Visit the [Singleton class](../../language/basics/lang-classes/#singleton-classes) in the class section: <img src={require('./img/singletonClass.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+1. Navigate to the [Singleton class](../../language/basics/lang-classes/#singleton-classes) in the class section.
 
-2. Check for the **absence of an exposed function** inside the Singleton class: <img src={require('./img/singletonFunctionNotExposed.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+2. Check if the **Singleton class** is missing any exposed functions.
 
-3. To resolve this, add at least one **exposed** function. Here’s an example: <img src={require('./img/singletonFunctionExposed_.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+3. If there are no exposed functions, add at least one. Here’s an example:<img src={require('./img/singletonFunctionExposed_.png').default} style={{borderRadius: '6px', width:'35%', verticalAlign: 'middle', marginLeft: '2px'}} />.
 
-4. Save the changes, then re-check the permissions dropdown list: <img src={require('./img/singletonFunctionPermission.png').default} style={{borderRadius: '6px', width:'20%'}} />. 
+4. Save the changes and re-check the permissions dropdown. 
 
-5. If the Singleton class still doesn't appear, right-click on the Roles and Privileges page and select [Reload](../overview/#contextual-menu) to apply the latest changes<img src={require('./img/reload.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />. 
+5. If the Singleton class still doesn't appear, [reload](../overview/#contextual-menu) the changes by following the documentation for applying the latest updates. 
 
-The Singleton class should now be available for selection, whether it’s the normal Singleton or the shared one.
+Now, the Singleton class should be available for selection, whether it’s the standard class Singleton or the shared one.
 
 :::
 
