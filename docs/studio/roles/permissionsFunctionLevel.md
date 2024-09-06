@@ -24,13 +24,19 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 
 :::tip
 
-- If you try to select the **Singleton function** from the available permissions and it doesn’t appear, follow these steps to enable it:
+If the Singleton class is not available in the permissions dropdown list, follow these steps to enable it:
 
-    - Check your Singleton in the class section: <img src={require('./img/singletonClass.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+1. Visit the [Singleton class](../../language/basics/lang-classes/#singleton-classes) in the class section: <img src={require('./img/singletonClass.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />.
 
-    - You may observe an **absence of exposed functions** inside your Singleton class. To resolve this, add at least one **EXPOSED function** to it. Check the example 👉 <img src={require('./img/singletonExposedFunction.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+2. Check for the **absence of an exposed function** inside the Singleton class: <img src={require('./img/singletonFunctionNotExposed.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
 
-    - Save your changes, then re-check the dropdown list of permissions <img src={require('./img/singletonFunctionPermission.png').default} style={{borderRadius: '6px', width:'20%'}} />. You should now be able to select your Singleton function , whether it’s the normal Singleton or the shared one.
+3. To resolve this, add at least one **exposed** function. Here’s an example: <img src={require('./img/singletonFunctionExposed_.png').default} style={{borderRadius: '6px', width:'40%', verticalAlign: 'middle', marginLeft: '10px'}} />.
+
+4. Save the changes, then re-check the permissions dropdown list: <img src={require('./img/singletonFunctionPermission.png').default} style={{borderRadius: '6px', width:'20%'}} />. 
+
+5. If the Singleton class still doesn't appear, right-click on the Roles and Privileges page and select [Reload](../overview/#contextual-menu) to apply the latest changes<img src={require('./img/reload.png').default} style={{borderRadius: '6px', width: '20%', verticalAlign: 'middle', marginLeft: '10px'}} />. 
+
+The Singleton class should now be available for selection, whether it’s the normal Singleton or the shared one.
 
 :::
 
