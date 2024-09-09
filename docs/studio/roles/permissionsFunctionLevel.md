@@ -24,19 +24,19 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 
 :::tip
 
-If the Singleton class is not available in the permissions dropdown, follow these steps to enable it:
+If the Singleton class or its exposed functions don't appear in the permissions dropdown, follow these steps to enable it:
 
-1. Navigate to the [Singleton class](../../language/basics/lang-classes/#singleton-classes) in the class section.
+1. Navigate to the [Singleton class](../../language/basics/lang-classes#singleton-classes) in the class section.
 
 2. Check if the **Singleton class** is missing any exposed functions.
 
-3. If there are no exposed functions, add at least one. Here’s an example:<img src={require('./img/singletonFunctionExposed_.png').default} style={{borderRadius: '6px', width:'35%', verticalAlign: 'middle', marginLeft: '2px'}} />.
+3. If there are no exposed functions, add at least one. Here’s an example:<img src={require('./img/singletonFunctionExposed.png').default} style={{borderRadius: '6px', width:'35%', verticalAlign: 'middle', marginLeft: '2px'}} />.
 
 4. Save the changes and re-check the permissions dropdown. 
 
-5. If the Singleton class still doesn't appear, [reload](../overview/#contextual-menu) the changes by following the documentation for applying the latest updates. 
+5. If the Singleton class and its exposed functions still don't appear, [reload](../overview#contextual-menu) the changes by following the documentation for applying the latest updates. 
 
-Now, the Singleton class should be available for selection, whether it’s the standard class Singleton or the shared one.
+Now, the Singleton class and its exposed functions should be available for selection, whether it’s the standard class Singleton or the shared one.
 
 :::
 
