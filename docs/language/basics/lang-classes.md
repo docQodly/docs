@@ -478,7 +478,7 @@ The property type can be one of the following supported types:
 |`blob`|Scalar Blob value|
 |`collection`|Collection value|
 |`variant`|Variant value|
-|`object`|Object with default class (4D.Object)|
+|`object`|Object with default class|
 |`4D.<className>`|Object of the 4D class name|
 |`cs.<className>`|Object of the user class name|
 
@@ -878,10 +878,10 @@ Singleton classes are only supported in [User classes](#user-classes). They are 
 
 ### Scope of singletons
 
-The scope of a singleton instance can be the current process or all processes. 
+The scope of a singleton instance can be the current process or all processes.
 
 - a **singleton** has a unique value for the **process** in which it is instantiated (default),
-- a **shared singleton** has a unique value for **all processes** of the application. 
+- a **shared singleton** has a unique value for **all processes** of the application.
 
 You create a shared singleton to define values that need to be available from anywhere in the application.
 

@@ -22,6 +22,12 @@ The `instanceOf` command returns <!-- REF #_command_.instanceOf.Summary -->retur
 
 If *class* is not a valid Class object, the error -10745 is returned.
 
+:::note
+
+Each time a class's sources are modified, a new Class object is generated. As previously instantiated objects do not belong to the new class, `objectClass` will return false if you pass a Class object other than the one used for instantiation.
+
+:::
+
 
 #### Example
 
