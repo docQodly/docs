@@ -478,7 +478,7 @@ The property type can be one of the following supported types:
 |`blob`|Scalar Blob value|
 |`collection`|Collection value|
 |`variant`|Variant value|
-|`object`|Object with default class (4D.Object)|
+|`object`|Object with default class|
 |`4D.<className>`|Object of the 4D class name|
 |`cs.<className>`|Object of the user class name|
 
@@ -865,20 +865,25 @@ The class singleton is instantiated at the first call of the [`cs.<class>.me`](.
 
 If you need to instantiate a singleton with parameters, you can also call the [`new()`](../ClassClass.md#new) function. In this case, it is recommended to instantiate the singleton in some code executed at application startup.  
 
-The scope of a singleton instance can be the current process or all processes. By default, a singleton has a unique value for the process in which it is instantiated, while a *shared* singleton has a unique value for all processes of the application. Singletons are useful to define values that need to be available from anywhere in an application or process.
-
 Once instantiated, a singleton class (and its singleton) exists as long as a reference to it exists somewhere in the application.
-
 
 The [`.isSingleton`](../ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
 
-
 :::info
 
-Singleton classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
 
 :::
 
+
+### Scope of singletons
+
+The scope of a singleton instance can be the current process or all processes.
+
+- a **singleton** has a unique value for the **process** in which it is instantiated (default),
+- a **shared singleton** has a unique value for **all processes** of the application.
+
+You create a shared singleton to define values that need to be available from anywhere in the application.
 
 
 
