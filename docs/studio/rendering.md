@@ -156,6 +156,10 @@ Understanding the lifecycle of a page is crucial for diagnosing and fixing rende
 
     - **Initializing Shared Qodly Sources**: During rendering, shared Qodly sources are initialized. These sources provide data that multiple parts of the page can access and use.
 
+    :::info
+    Since Qodly treats each page load or tab navigation as a new rendering cycle, these shared sources are reinitialized every time the page renders. This ensures that the page always reflects the most up-to-date data. However, this also means that Shared Qodly Sources are reset during each re-render **unless navigation is done through a page loader**. When [**Binding Navigation Actions to Events**](./pageLoaders/events#binding-navigation-actions-to-events) and using a **Page Loader** or **Page Loader (Self)**, the Shared Qodly Source persist across navigations. The [Page Loader](./pageLoaders/pageLoaderOverview) manages state in a way that prevents full reinitialization, maintaining the Shared Qodly Sources and ensuring continuity across navigations without resetting the data.
+    :::
+
     - **Initializing Local Qodly Sources**: Following the initialization of shared Qodly sources, local Qodly sources specific to individual components are set up, ensuring each component has access to the data it needs.
 
     - **Executing `onInit` Event**: The `onInit` event is executed for the component at this point. This event is used to perform any necessary setup actions when the component is first created. Actions may include fetching initial data, setting default values, or any other initialization tasks required to prepare the component for use.

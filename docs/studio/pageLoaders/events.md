@@ -538,6 +538,10 @@ To set up a navigation action after linking it with an event, proceed as follows
         </Column.Item>
     </Column.List>
 
+:::info
+Shared datasources are reinitialized with each tab navigation. However, when using a Page Loader (or Page Loader Self) during navigation, shared values persist across pages, preventing reinitialization and maintaining state continuity.
+:::
+
 :::tip
 The feature for providing feedback is not applicable in the context of navigation events.
 :::
