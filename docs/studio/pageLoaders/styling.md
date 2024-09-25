@@ -277,9 +277,9 @@ A priority-based scenario determines which styles take precedence over others:
 
 - When assigning the **theme** CSS class `bg-red-500` to a component, the `background` property displays `rgb(239,68,68)`. 
 
-- Subsequently assigning a **local** CSS class to the same component, featuring a different background color, will override the initial value set by the **theme** CSS class.
+- Subsequently assigning a **shared** CSS class to the same component, featuring a different background color, will override the initial value set by the **theme** CSS class.
 
-- A **shared** CSS class takes precedence, prioritizing its styles over those of the **local** class, thereby overriding the initial value set by the **local** CSS class.
+- A **local** CSS class takes precedence, prioritizing its styles over those of the **shared** class, thereby overriding the initial value set by the **shared** CSS class.
 
 - Modifying this value with another background color from the **properties panel** will lead to the **theme**, **local** and **shared** CSS classes being overridden.
 
