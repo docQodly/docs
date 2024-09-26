@@ -182,13 +182,13 @@ The **DataTable** component provides a range of user-friendly features:
 
 ## Customizing DataTable Styles
 
-The **DataTable** component offers extensive customization options through CSS, allowing you to adjust the appearance of various table elements.
+The **DataTable** component offers extensive customization options through CSS, enabling adjustments to the appearance of various table elements.
 
 <img src={require('./img/datatable-schema.jpg').default} style={{borderRadius: '6px'}}/>
 
 ### Understanding DataTable CSS Classes
 
-The DataTable component supports a range of CSS classes, enabling you to customize the appearance of headers, rows, cells, and columns. Below is a detailed list of supported CSS classes and the elements they apply to.
+The DataTable component supports a range of CSS classes, allowing customization of the appearance of headers, rows, cells, and columns. Below is a detailed list of supported CSS classes and the elements they apply to.
 
 #### Table Header Classes
 
@@ -231,12 +231,11 @@ For fields associated with relationships, use a dash (`-`) instead of a dot (`.`
 
 ### Custom Styling Examples
 
-In this section, we’ll walk through different CSS styling examples to help you create customized DataTable designs.
+This section provides various CSS styling examples designed to create customized DataTable layouts.
 
 #### Example 1 – Blue Headers
 
-In this example, we will customize the DataTable to feature blue-colored headers with rounded borders and shadow effects.
-This example adds a soft blue background color to header cells and uses a light shade for even-numbered rows.
+This example customizes the DataTable to feature blue-colored headers with rounded borders, and shadow effects. Additionally, a soft blue background is applied to the header cells, and a light shade is used for even-numbered rows.
 
 <img src={require('./img/BlueHeaders.png').default} style={{borderRadius: '6px'}}/>
 
