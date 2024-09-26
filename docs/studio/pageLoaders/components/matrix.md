@@ -148,18 +148,18 @@ The same principle applies to Related Entity Interaction when you have embedded 
 ## Customizing Matrix Styles
 
 The **Matrix** component offers additional customization options through CSS, allowing the personalization of the appearance of matrix elements.
-<img src={require('./img/matrix_schema.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_schema.png').default} style={{borderRadius: '6px', width: '80%', display: 'block', margin: '0 auto'}} />
 
 ### Understanding Matrix CSS Classes
 
-The Matrix component supports a range of CSS classes, enabling you to customize the appearance of the inner scroll container, the virtual grid and the styleboxes. Below is a detailed list of supported CSS classes and the elements they apply to.
+The Matrix component supports a range of CSS classes, enabling you to customize the appearance of the inner scroll container, the virtual grid and the default styleboxes. Below is a detailed list of supported CSS classes and the elements they apply to.
 
 #### Matrix Classes
 
 | **Class Name**   | **Applies To**                 | **Description**                            |
 |------------------|-------------------------------|--------------------------------------------|
 | `.FdVirtualGrid`        | The entire matrix              | Styles the entire matrix area.       |
-| `.innerScrollContainer`   | All styleboxes in the matrix              | Targets all styleboxes inside the matrix.           |
+| `.innerScrollContainer`   | All the default styleboxes in the matrix              | Targets all the [default styleboxes](stylebox#enhancing-content-presentation) incorporated in the matrix.           |
 | `.innerScrollContainer > div.selected`   | The selected stylebox     | Applies styles to the currently selected stylebox. |
 | `.innerScrollContainer > div:hover`   | The hovered stylebox     | Applies styles to the currently hovered stylebox. |
 | `.fd-stylebox > div` | The internal elements of styleboxes | Targets the internal components of the styleboxes that form the main Matrix. |
@@ -169,60 +169,62 @@ It is important to prefix each class name with **self** to ensure it is applied 
 :::
 
 ### Custom styling examples
-In this section, customizing matrix styling will become simple and intuitive.
+The following examples demonstrate how to customize the Matrix component's appearance.
 
-#### Example 1 - Violet matrix
-In this example, we customize the matrix to have a violet background, rounded borders with a double border style, and shadow effects applied to the left and bottom for added depth. Add to that, we personalzie the writing style by making it in bold and white color.
+#### Example 1 - Virtual Grid
+This example styles the matrix with a white background, rounded corners, a double border, and shadow effects for added depth. The text color is changed to black.
 
-<img src={require('./img/matrix_fdVirtualGrid.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_fdVirtualGrid.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
 
 ```css
 self .FdVirtualGrid {
-    background-color: rgb(159, 67, 229);
+    background-color: white;
     border-radius: 10px; 
 	border-style: double;
-    box-shadow: -4px 4px 8px rgba(98, 88, 96, 0.86), -6px 6px 20px rgba(99, 92, 101, 0.874);
+	border-color: rgb(187, 196, 243);
+	border-width: 1px;
+    box-shadow: -4px 4px 8px rgba(187, 196, 243, 0.5), -4px 4px 10px rgba(187, 196, 243,0.5);
     padding: 20px;  
-	color: white;
-	font-weight: bold;
+	color: rgb(21, 18, 18);
 }
 ```
-#### Example 2 - Container customized
-In this example, we customize the matrix inner scroll container to have a dark violet background, rounded borders with a double border style similar to the main matrix, and shadow effects applied to the left and bottom for added depth. By applying this styling we can highlight the difference between the innerscrollcontainer and the `fdvirtualgrid` CSS classes.
+#### Example 2 - Inner Scroll Container
+This example customize the inner scroll container with a light shade of white, rounded borders, a double border style, and shadow effects . This styling differenciates the `innerScrollContainer` from the `FdVirtualGrid`  class.
 
-<img src={require('./img/matrix_innerScrollContainer.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_innerScrollContainer.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
 
 ```css
 self .innerScrollContainer {
-	background-color: rgb(109, 76, 192);
-	box-shadow: -4px 4px 8px rgba(185, 156, 179, 0.86), -6px 6px 20px rgba(197, 187, 200, 0.874);
-	border-radius: 10px; 
-	border-style: double;
+	background-color: rgb(254, 253, 255);
+	box-shadow: -4px 4px 8px rgba(187, 196, 243, 0.86), -4px 4px 20px rgba(187, 196, 243, 0.874);
+	border-radius: 10px;
+	border-color: rgb(187, 196, 243);
 }
 ```
-#### Example 3 - Stylebox selected
-In this example, we customize the selected stylebox in the matrix to have a different violet background color, and applied italic font-family on the text.
+#### Example 3 - Selected Stylebox
+In this example, the selected stylebox is customized with a periwinkle blue background, blue text color, and italic font style.
 
-<img src={require('./img/matrix_selected.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_selected.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
 
 ```css
 self .innerScrollContainer > div.selected {
 	font-family: italic;
-	background-color:  rgb(159, 67, 229);
+	background-color:  rgb(187, 196, 243);
+	color:rgb(19, 19, 197);
 }
 ```
-#### Example 4 - Stylebox hovered
-In this example, we customize the hovered stylebox in the matrix to have a rounded border, cursive font, and a shadow arround it.
+#### Example 4 - Hovered Stylebox 
+This example customizes the hovered stylebox in the matrix with a rounded border, cursive font, green text color, and shadow effects for a highlighted appearance. Additionally, the border color is set to a light green.
 
-<img src={require('./img/matrix_innerScrollContainer_hover.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_hover.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
 
 ```css
-
 self .innerScrollContainer > div:hover {
-	box-shadow: -4px 4px 8px rgba(185, 156, 179, 0.86), -6px 6px 20px rgba(197, 187, 200, 0.874);
+	box-shadow: -4px 4px 8px rgba(187, 196, 243, 0.4), -6px 6px 20px rgba(187, 196, 243, 0.4);
 	font-family:cursive;
 	border-radius: 10px;
-	border-color: aliceblue;
+	border-color: rgb(198, 222, 200);
+	color:rgb(27, 88, 8);
 }
 ```
 
@@ -230,7 +232,7 @@ self .innerScrollContainer > div:hover {
 
 Here's a glimpse of how the **Matrix** component will look and behave in action:
 
-<img src={require('./img/matrix_showcase.png').default} style={{borderRadius: '6px'}} />
+<img src={require('./img/matrix_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 
 ## Triggers and Events
