@@ -4,7 +4,7 @@ title: string
 ---
 
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : any { , *format* : string } ) : string<br/>**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number { , *format* : string } ) : string<br/>**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
 
 
 
@@ -12,7 +12,7 @@ title: string
 <!-- REF #_command_.string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be number, integer, date, time, string, boolean, undefined, or null)|
+|expression|any|->|Expression for which to return the string form (can be number, date, time, string, boolean, undefined, or null)|
 |format|string, integer|->|Format to use|
 |addTime|time|->|Time to add on if expression is a date|
 |Result|string|<-|String form of the expression|
@@ -205,16 +205,18 @@ In this case, the *format* parameter, if passed, is ignored.
 
 #### Boolean Expressions
 
-If *expression* is of the boolean type, the command returns the string “True” or “False”.
+If *expression* is of the boolean type, the command returns the string "True" or "False".
 In this case, the *format* parameter, if passed, is ignored.
 
 #### Undefined Expressions
 
 If *expression* is evaluated to undefined, the command returns an empty string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be undefined.
+In this case, the *format* parameter, if passed, is ignored.
 
 #### Null Expressions
 
 If *expression* is evaluated to null, the command returns the "null" string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be null.
+In this case, the *format* parameter, if passed, is ignored.
 
 #### See also
 
