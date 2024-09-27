@@ -4,15 +4,16 @@ title: string
 ---
 
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number { , *format* : string } ) : string<br/>**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+
 
 
 
 <!-- REF #_command_.string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be number, integer, date, time, string, boolean, undefined, or null)|
-|format|string, integer|->|Display format|
+|expression|any|->|Expression for which to return the string form (can be number, date, time, string, boolean, undefined, or null)|
+|format|string, integer|->|Format to use|
 |addTime|time|->|Time to add on if expression is a date|
 |Result|string|<-|String form of the expression|
 <!-- END REF -->
@@ -25,33 +26,49 @@ If you do not pass the optional *format* parameter, the string is returned with 
 
 The optional *addTime* parameter adds a time to a date in a combined format. It can only be used when the *expression* parameter is a date (see below).
 
-**Numeric Expressions**
+#### Numeric Expressions
 
-If *expression* is a numeric expression (number or integer), you can pass an optional string *format*. Following are some examples:
+If *expression* is a numeric expression (number or integer), you can pass an optional string *format*. The following elements are supported in *format*:
+
+|Elements in *format*|Name|Description|
+|---|---|---|
+|#|Placeholder|Returns nothing for a leading or trailing zero|
+|0|Placeholder|Returns 0 for a leading or trailing zero|
+|^|Placeholder|Returns a space for a leading or trailing zero|
+|*|Placeholder|Returns an asterisk for a leading or trailing zero|
+|any|Static characters|You can use any characters in *format*. When used alone, or placed before or after placeholders, the characters are always returned. For example, with a "$##0" *format*, a dollar sign is always returned because it is placed before the placeholders. If characters are placed between placeholders, they are returned only if there are digits are on both sides. For example, with a "###.##0" *format*, a comma is returned only if the *expression* contains at least four digits. Spaces are treated as characters.|
+|"*positive*;*negative*;*zero*"|Three-parts format to handle positive, negative, and zero values|You specify up to three parts by separating them with semicolons. If you use just one part, Qodly uses it for all numbers, placing a minus sign in front of negative numbers. If you use two parts, Qodly uses the first part for positive numbers and zero, and the second part for negative numbers. Here is an example of a number display format that shows dollar signs and commas, places negative values in parentheses, and does not display zeros: "$###,##0.00;($###,##0.00);". Notice that the presence of the second semicolon instructs Qodly to use nothing to return zero. The following format is similar except that the absence of the second semicolon instructs Qodly to use the positive number format for zero: "$###,##0.00;($###,##0.00)". In this case, the returned string for zero would be "$0.00.". Note that the third part (zero) is not interpreted and does not accept replacement characters. If you enter "###;###;#", a zero value will be returned "#". In other words, what you actually enter is what will be returned for the zero value.|
+|"&"+number|Scientific notation|A "&" followed by a number to specify the number of digits you want to return. For example, the format "&3" would return "759.62e as "7.60e+2". The scientific notation format is the only format that will automatically round the number. Note in the example that the number is rounded up to 7.60e+2 instead of truncating to 7.59e+2.|
+|"&x"|Hexadecimal|Returns hexadecimal numbers using the "0xFFFF" format|
+|"&$"|Hexadecimal|Returns hexadecimal numbers using the "$FFFF" format.|
+|"&xml"|XML notation|Returns a number compliant with XML standard rules. In particular, the decimal separator character will be a period "." in all cases|
+
+
+ Following are some examples:
 
 |Example|Result|Comments|
 |:----|:----|:----|
-|string(2^15)|32768|Default format|
-|string(2^15;"###,##0 Inhabitants")|32,768 Inhabitants|
-|string(1/3;"##0.00000")|0.33333|
-|string(1/3)|0.3333333333333|Default format|
-|string(Arctan(1)*4)|3.14159265359|Default format|
-|string(Arctan(1)*4;"##0.00")|3.14|
-|string(-1;"&x")|0xFFFFFFFF|
-|string(-1;"&$")|$FFFFFFFF|
-|string(0 ?+ 7;"&x")|0x0080|
-|string(0 ?+ 7;"&$")|$80|
-|string(0 ?+ 14;"&x")|0x4000|
-|string(0 ?+ 14;"&$")|$4000|
-|string(50.3;"&xml")|50.3|Always "." as decimal separator|
-|string(num(1 = 1);"True;;False")|True|
-|string(num(1 = 2);"True;;False")|False|
-|string(log(-1))| |Undefined number|
-|string(1/0)|INF|Positive infinite number|
-|string(-1/0)|-INF|Negative infinite number|
+|string(2^15)|"32768"|Default format|
+|string(2^15;"###,##0 Inhabitants")|"32,768 Inhabitants"|
+|string(1/3;"##0.00000")|"0.33333"|
+|string(1/3)|"0.3333333333333"|Default format (13 digits)|
+|string(Arctan(1)*4)|"3.14159265359"|Default format (13 digits)|
+|string(Arctan(1)*4;"##0.00")|"3.14"|
+|string(-1;"&x")|"0xFFFFFFFF"|
+|string(-1;"&$")|"$FFFFFFFF"|
+|string(0 ?+ 7;"&x")|"0x0080"|
+|string(0 ?+ 7;"&$")|"$80"|
+|string(0 ?+ 14;"&x")|"0x4000"|
+|string(0 ?+ 14;"&$")|"$4000"|
+|string(50.3;"&xml")|"50.3"|Always "." as decimal separator|
+|string(num(1 = 1);"True;;False")|"True"|
+|string(num(1 = 2);"True;;False")|"False"|
+|string(log(-1))|""|Undefined number|
+|string(1/0)|"INF"|Positive infinite number|
+|string(-1/0)|"-INF"|Negative infinite number|
 
 
-**Date Expressions**
+#### Date Expressions
 
 If *expression* is a date expression and if you omit the *format* parameter, the string is returned using the default format.
 
@@ -139,7 +156,7 @@ You can also pass a time in the *addTime* parameter. This parameter lets you com
 
 	```
 
-**Time Expressions**
+#### Time Expressions
 
 If *expression* is a time expression, the string is returned using the default **HH:MM:SS** format. In the *format* parameter, you can pass:
 
@@ -181,23 +198,25 @@ Examples:
 ```
 
 
-**String Expressions**
+#### String Expressions
 
 If *expression* is of the string type, the command returns the same value as the one passed in the parameter. This can be useful more particularly in generic programming using pointers.
 In this case, the *format* parameter, if passed, is ignored.
 
-**Boolean Expressions**
+#### Boolean Expressions
 
-If *expression* is of the boolean type, the command returns the string “True” or “False”.
+If *expression* is of the boolean type, the command returns the string "True" or "False".
 In this case, the *format* parameter, if passed, is ignored.
 
-**Undefined Expressions**
+#### Undefined Expressions
 
 If *expression* is evaluated to undefined, the command returns an empty string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be undefined.
+In this case, the *format* parameter, if passed, is ignored.
 
-**Null Expressions**
+#### Null Expressions
 
 If *expression* is evaluated to null, the command returns the "null" string. This is useful when you expect the result of an expression (e.g. an object attribute) to be a string, even if it can be null.
+In this case, the *format* parameter, if passed, is ignored.
 
 #### See also
 
