@@ -135,6 +135,77 @@ Additionally:
 The **Select Input** component's qodlysource can also be linked to the value of an attribute in the currently selected entity of another qodlysource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
 :::
 
+## Customizing Select Input Styles
+
+The **Select Input** component offers additional customization options through CSS, providing control over the appearance of select input elements.
+
+### Understanding Select Input CSS Classes
+
+The Select Input component supports various CSS classes that enable the customization of its appearance. Below is a detailed list of the supported CSS classes and the elements they apply to.
+
+#### Select Input Tags
+
+| **Tag Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `select `        | The embedded select element            | Applies styles to the select element within the main select input.       |
+| `option`        | The list of available options           | Styles all the available options within the select input.       |
+| `checked`        | The checked option              | Customizes the appearance of the selected option.       |
+
+### Custom styling examples
+The following examples demonstrate how to customize the appearance of the Select Input component.
+
+#### Example 1: The embedded Select element
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	        This example styles the embedded select element, applying a white background color, rounded borders, italicized font, and the Helvitica font family.
+	</Column.Item>
+	<Column.Item width="40%">
+                <img src={require('./img/selectInput.png').default} style={{ borderRadius: '6px', display: 'block' }}/>
+	</Column.Item>
+</Column.List>
+
+```css
+self {
+	border-radius: 10px;
+	padding: 15px;
+	color:darkblue;
+	font-weight: 700;
+}
+self select {
+	border-radius: 10px;
+	padding: 10px;
+	background-color: white;
+	font-style: italic;
+	font-weight: 400;
+	font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+#### Example 2: The embedded option element
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	        This example styles the embedded options, using a white background and bold text. When an option is selected, the font changes to cursive, and the background color is updated to a light blue.
+	</Column.Item>
+	<Column.Item width="40%">
+                <img src={require('./img/selectInput_option_checked.png').default} style={{ borderRadius: '6px', display: 'block' }}/>
+	</Column.Item>
+</Column.List>
+
+```css
+self option {
+	font-weight: 700px;
+	background-color:white;
+	color:rgb(3, 3, 68);
+}
+self option:checked {
+	font-weight: 700px;
+	font-family: cursive;
+	background-color: rgb(172, 189, 251);
+	color:white;
+}
+```
 
 ## Showcase
 

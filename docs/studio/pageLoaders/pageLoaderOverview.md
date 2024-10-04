@@ -865,6 +865,7 @@ The **Page** can respond to various events, enabling dynamic user experiences. E
 |-------------|-----------------------------------------------------------------------------------------------------------|
 | **On Init** | Triggered before the page is rendered, ensuring that all necessary data and conditions are in place. This pre-render event helps in setting up the page correctly before any content is displayed to the user.            |
 | **On Loaded** | Fired once the page and its components are fully loaded. Ideal for post-load processing.                 |
+| **On PrivilegeChange** |  Triggered when a user's privilege is changed. Ensures that appropriate elements are displayed based on the user's current privileges. |   
 | **On Click** | Activated when a user clicks on a specific element, enabling interaction handling.                      |
 | **On KeyUp** | Occurs when a key is released while the page or a component is focused, useful for key-based interactions.|
 | **On KeyDown** | Triggered when a key is pressed down, allowing pre-emptive handling of key events.                     |
