@@ -141,6 +141,96 @@ Additionally:
 The **Radio** component's qodlysource can also be linked to the value of an attribute in the currently selected entity of another qodlysource. This enables the component to automatically display the saved value of the selected option whenever a new entity is chosen.
 :::
 
+## Customizing Radio Styles
+
+The **Radio** component offers additional customization options through CSS, providing control over the appearance of radio elements.
+
+### Understanding Radio CSS Classes
+
+The Radio component supports various CSS classes that enable the customization of radio item appearance. Below is a detailed list of supported CSS classes and the elements they apply to.
+
+#### Radio Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.fd-radio__item`        | The entire set of choices             | Styles all the radio elements.       |
+| `.selected`        | The selected choice           | Applies to the radio option that is currently selected.       |
+| `hover`        | The hovered choice              | Customizes the radio option when hovered over.       |
+
+### Custom styling examples
+The following examples demonstrate how to customize the Radio component's appearance.
+
+#### Example 1: Radio Items styling
+In this example, all radio choices are styled with a whitesmoke background, rounded corners, and dark blue text for contrast.
+<Column.List align="center" justifyContent="between">
+ <Column.Item width="40%">
+    <img
+      src={require('./img/Radio_fd-radio_items.png').default}
+      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
+    />
+  </Column.Item>
+  <Column.Item width="60%">
+    <pre>
+      <code className="language-css">
+{`self .fd-radio__item {
+color: rgb(10, 5, 55);
+border-radius: 5px;
+padding: 8px;
+width: 80px;
+background-color: whitesmoke;
+margin: 5px;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+</Column.List>
+
+
+#### Example 2: Selected Radio styling
+This example customizes the selected radio item by setting its background color to a muted green with a cursive font and italicized style.
+<Column.List align="center" justifyContent="between">
+ <Column.Item width="40%">
+    <img
+      src={require('./img/Radio_selected.png').default}
+      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
+    />
+  </Column.Item>
+  <Column.Item width="60%">
+    <pre>
+      <code className="language-css">
+{`self .fd-radio__item.selected {
+	background-color: rgb(124, 146, 115);
+	font-family: cursive;
+	font-style:italic;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+</Column.List>
+
+#### Example 3: Hovered Radio styling
+In this example, the hovered radio item is customized by changing its background color to a soft green and adding a shadow effect for depth. The text color is set to dark blue, and the font is made bold for emphasis.
+<Column.List align="center" justifyContent="between">
+ <Column.Item width="40%">
+    <img
+      src={require('./img/Radio_hovered.png').default}
+      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
+    />
+  </Column.Item>
+  <Column.Item width="60%">
+    <pre>
+      <code className="language-css">
+{`self .fd-radio__item:hover {
+	background-color: rgb(240, 248, 235);
+	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
+	font-weight: 500;
+	color:darkblue;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+</Column.List>
+
 ## Showcase
 
 Here's a glimpse of how the **Radio** component will look and behave in action:

@@ -152,7 +152,7 @@ The **Matrix** component offers additional customization options through CSS, al
 
 ### Understanding Matrix CSS Classes
 
-The Matrix component supports a range of CSS classes, enabling you to customize the appearance of the inner scroll container, the virtual grid and the default styleboxes. Below is a detailed list of supported CSS classes and the elements they apply to.
+The Matrix component supports a range of CSS classes, enabling customization of the appearance of the inner scroll container, the virtual grid and the default styleboxes. Below is a detailed list of supported CSS classes and the elements they apply to.
 
 #### Matrix Classes
 

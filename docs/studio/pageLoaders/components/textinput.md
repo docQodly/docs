@@ -201,6 +201,87 @@ Retrieving user input data is equally effortless. By binding a Qodly Source to t
 	</Column.Item>
 </Column.List>
 
+## Customizing Text Input Styles
+
+The **Text Input** component offers extensive customization options through CSS, enabling adjustments to the appearance of the text input elements.
+
+### Understanding Text Input CSS Classes
+
+The text input component supports a variety of CSS classes, allowing customization of the appearance of the label, span, and input elements. Below is a detailed list of the available CSS classes and the elements they apply to.
+
+#### Text Input Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `label`        |  The label element           |   Applies styles to the label element.    |
+| `span`         |  The span element             |  Styles the span element.  |
+| `input`        |  The embedded input element             |  Styles the embedded input element.      |
+| `hover`        |  The hovered span or input             |  Applies styles to the hovered span or input.      |
+
+
+### Custom styling examples
+The following examples demonstrate how to customize the Text Input component's appearance.
+
+#### Example 1 - Label Styling
+
+This example customizes the Text Input by adding a white background, rounded corners, and shadow effects to enhance depth. On hover, the background changes to silver, and the label's text turns black with a white background.
+
+```css
+self {
+	background-color: rgb(255, 255, 255);
+	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
+	width: 100%;
+	border-radius: 20px;
+	padding: 30px;
+	width: 40px;
+}
+
+self:hover{
+	background-color: silver;
+}
+
+self label {
+	color: rgb(6, 6, 8);
+}
+
+self label:hover {
+	color: rgb(6, 6, 8);
+	background-color: white;
+}
+```
+#### Example 2 - Span Styling
+
+This example customizes the span element with a black color. On hover, the text color changes to white, and the background color becomes dark.
+
+```css
+self span {
+	color: rgb(0, 0, 0);
+}
+
+self span:hover {
+        color: white;
+	background-color: black;       
+}
+```
+#### Example 3 - Input Styling
+
+In this example the embedded input field is customized with a white background and a subtle shadow effect for added depth. The width is set to 100%, ensuring it expands fully, and the text is styled in black. On hover, the background color changes to a light gray, and the text color changes to dark blue.
+<img src={require('./img/textInput_input.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+
+```css
+self input {
+	background-color: rgb(255, 255, 255);
+	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
+	width: 100%;
+	color: black;
+	margin: 2px 2px 2px 2px;
+}
+
+self input:hover {
+	background-color: rgb(239, 236, 236);
+	color: darkblue;
+}
+```
 ## Showcase
 
 Here's a glimpse of how the **Text Input** component will look and behave in action:
