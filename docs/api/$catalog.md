@@ -10,6 +10,8 @@ title: $catalog
 
 The `$catalog` endpoint provides metadata about the dataclasses and attributes available in your Qodly application's datastore. This metadata facilitates the discovery of data structures and access points essential for client applications interacting with the API.
 
+The `$catalog` endpoint also provides [shared singletons](../language/basics/lang-classes.md#singleton-classes) available in the application.
+
 
 ## `$catalog` Endpoint Variants
 

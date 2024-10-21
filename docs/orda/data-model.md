@@ -913,22 +913,23 @@ You can return a value of the [`4D.OutGoingMessage`](../language/OutGoingMessage
 You have defined the following function:
 
 ```qs
-extends DataClass
 
+extends DataClass
 
 exposed onHTTPGet function getThumbnail(name : string, width : integer, height : integer) : 4D.OutgoingMessage
 	
+	var fileRef = file("/RESOURCES/Images/"+name+".jpg")
+	var blob = fileRef.getContent()
+	blobToPicture(blob,image)
+
 	var image, thumbnail : picture
-	var blob : blob
 	var response = 4D.OutgoingMessage.new()
-	
-	var file = file("/RESOURCES/Images/"+$name+".jpg")
-	READ PICTURE FILE($file.platformPath; $image)
-	CREATE THUMBNAIL($image; $thumbnail; $width; $height; Scaled to fit)
-	PICTURE TO BLOB($thumbnail; $blob; "image/jpeg")
-	$response.setBody($blob)	
-	$response.setHeader("Content-Type"; "image/jpeg")
-	return $response
+
+	createThumbnail(image, thumbnail, width, height, kScaledToFit)
+	response.setBody(image)	
+	response.setHeader("Content-Type", "image/jpeg")
+	return response
+
 ```
 
 It can be called by the following HTTP GET request:
