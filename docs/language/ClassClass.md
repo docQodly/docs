@@ -13,12 +13,28 @@ When a user class is [defined](basics/lang-classes.md#class-definition) in the p
 
 ||
 |---|
+|[<!-- INCLUDE #ClassClass.isSessionSingleton.Syntax -->](#issessionsingleton)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.isSessionSingleton.Summary -->|
 |[<!-- INCLUDE #ClassClass.isShared.Syntax -->](#isshared)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.isShared.Summary -->|
 |[<!-- INCLUDE #ClassClass.isSingleton.Syntax -->](#issingleton)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.isSingleton.Summary -->|
 |[<!-- INCLUDE #ClassClass.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.me.Summary -->|
 |[<!-- INCLUDE #ClassClass.name.Syntax -->](#name)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.name.Summary -->|
 |[<!-- INCLUDE #ClassClass.new().Syntax -->](#new)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.new().Summary --> |
 |[<!-- INCLUDE #ClassClass.superclass.Syntax -->](#superclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #ClassClass.superclass.Summary --> |
+
+
+<!-- REF ClassClass.isSessionSingleton.Desc -->
+## .isSessionSingleton   
+
+<!-- REF #ClassClass.isSessionSingleton.Syntax -->**.isSessionSingleton** : boolean<!-- END REF -->
+
+#### Description
+
+The `.isSessionSingleton` property <!-- REF #ClassClass.isSessionSingleton.Summary -->returns `true` if the user class has been defined as a [session singleton class](basics/lang-classes.md#singleton-classes)<!-- END REF -->, and `false` otherwise.   
+
+This property is **read-only**.
+
+<!-- END REF -->
+
 
 
 <!-- REF ClassClass.isShared.Desc -->
