@@ -316,8 +316,8 @@ const sidebars = {
 						'language/commands/pictureSize',
 						'language/commands/pictureToBlob',
 						'language/commands/position',
+						'language/commands/processInfo',
 						'language/commands/processNumber',
-						'language/commands/processProperties',
 						'language/commands/processState',
 						'language/commands/random',
 						'language/commands/replaceString',
@@ -528,6 +528,7 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
+				'notes/v1.0.0-beta.6',
 				'notes/v1.0.0-beta.5',
 				'notes/v1.0.0-beta.4',
 				'notes/v1.0.0-beta.3',

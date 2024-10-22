@@ -8,7 +8,7 @@ title: $singleton
 
 You can directly call exposed [functions of your shared singletons](../language/basics/lang-classes.md#singleton-classes) through REST.
 
-Singleton functions are called in POST requests with the `$singleton` command and without `()`. For example, if you have defined a `buildVehicle()` function in the `VehicleFactory` shared singleton class, you could call it using the following request:
+Singleton functions are called in POST or GET requests with the `$singleton` command and without `()`. For example, if you have defined a `buildVehicle()` function in the `VehicleFactory` shared singleton class, you could call it using the following request:
 
 ```json
 /rest/$singleton/VehicleFactory/buildVehicle
@@ -18,7 +18,7 @@ with data in the body of the POST request: ["truck"]
 
 In QodlyScript language, this call is equivalent to:
 
-```4d
+```qs
 singleton = cs.VehicleFactory.me.buildVehicle("truck")
 ```
 
@@ -30,20 +30,37 @@ Keep in mind that only functions with the [`exposed` keyword](../orda/data-model
 
 
 
+## Function calls
 
-## Syntax
+Singleton functions can be called using REST **POST** or **GET** requests.
 
-Singleton functions must always be called using REST **POST** requests (a GET request will receive an error). The formal syntax is:
+The formal syntax is:
 
-```
-/rest/$singleton/{{SingletonClass}}/{{SingletonClassFunction}}
-```
+#### POST request
+
+`/rest/$singleton/SingletonClass/SingletonClassFunction`
+
+with data in the body of the POST request: `["myparam"]`
+
+
+#### GET request
+
+`/rest/$singleton/SingletonClass/SingletonClassFunction?$params='["myparam"]'`
+
+:::note
+
+The `SingletonClassFunction()` function must have been declared with the `onHttpGet` keyword to be callable with `GET` (see [Function configuration](ClassFunctions#function-configuration)). 
+
+:::
+
 
 :::info
 
-You can restrict calls to specific singleton functions by configuring [appropriate privileges](../studio/roles/rolesPrivilegesOverview.md).
+You can restrict calls to specific singleton functions by configuring appropriate [permissions](../studio/roles/permissionsFunctionLevel.md#configuring-function-permissions).
 
 :::
+
+
 
 ## Parameters
 

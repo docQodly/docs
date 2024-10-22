@@ -6,12 +6,12 @@ title: Overview
 
 ## Introduction
 
-ORDA (Object Relational Data Access) allows developers to interact with the data model of an application through REST APIs. By defining class functions within the ORDA data model, these functions can be exposed and called via REST requests. This allows external systems and clients to leverage the data and business logic encapsulated within an application.
+ORDA (Object Relational Data Access) allows developers to interact with the data model of an application through REST APIs. Class functions defined in the ORDA data model and [singleton class functions]($singleton.md) can be exposed and called via REST requests. This allows external systems and clients to leverage the data and business logic encapsulated within an application.
 
 
 ## Prerequisites
 
-### Exposed Functions
+### `exposed` Functions
 
 Only functions marked with the `exposed` keyword can be called from REST requests. This ensures that only intended functions are available for external access.
 
@@ -27,16 +27,29 @@ exposed function getTest() : string
 For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../orda/data-model#exposed-vs-non-exposed-functions).
 :::
 
+### `onHttpGet` Functions
+
+Functions allowed to be called from HTTP `GET` requests must also be specifically declared with the [`onHttpGet` keyword](../orda/data-model.md#onhttpget-keyword). For example:
+
+```qs
+//allowing GET requests
+exposed onHttpGet function getSomeInfo() : 4D.OutgoingMessage
+```
+
+
 
 ## Key Concepts
 
 ### Function Call Syntax
 
-Functions are called using POST requests on the appropriate ORDA interface without parentheses. The URL and body of the request vary depending on the type of class function being called.
+Functions are called using POST or GET requests on the appropriate ORDA interface without parentheses. The URL and body of the request vary depending on the type of class function being called.
 
 ```
 POST {{ApiEndpoint}}/rest/Product/getProductDetails
 ```
+
+POST requests provide a better security level because they avoid running sensitive code through an action as simple as clicking on a link. However, GET requests can be more compliant with user experience, allowing to call functions by entering an URL in a browser (note: the developer must ensure no sensitive action is done in such functions).
+
 
 ### Handling Non-Exposed Functions
 
@@ -69,6 +82,7 @@ The ORDA REST API provides several endpoints to call class functions:
 |[Dataclass Class](../orda/data-model#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
 |[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
 |[Entity Class](../orda/data-model#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
+|[Singleton class](../language/basics/lang-classes.md#singleton-classes)|`/rest/$singleton/SingletonClass/SingletonClassFunction` (see [$singleton page]($singleton.md))|
 
 
 

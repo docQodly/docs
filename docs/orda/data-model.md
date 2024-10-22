@@ -854,3 +854,86 @@ status=ds.Schools.registerNewStudent(student) //can be called from a web request
 // id=ds.Schools.computeIDNumber() // Error "Unknown member method" if called from a web request 
 ```
 
+## onHttpGet keyword
+
+Use the `onHttpGet` keyword to declare functions that can be called through HTTP requests using the `GET` verb. Such functions can return any web contents, for example using the [`4D.OutGoingMessage`](../language/OutGoingMessageClass.md) class. 
+
+The `onHttpGet` keyword is available with:
+
+- ORDA Data model class functions
+- [Singletons class functions](../language/basics/lang-classes.md#singleton-classes)
+
+The formal syntax is:
+
+```qs  
+// declare an onHttpGet function
+exposed onHttpGet function <functionName>(params) : result
+```
+
+:::info
+
+The `exposed` keyword must also be added in this case, otherwise an error will be generated.
+
+:::
+
+:::caution
+
+As this type of call is an easy offered action, the developer must ensure no sensitive action is done in such functions.
+
+:::
+
+### params
+
+A function with `onHttpGet` keyword accepts [parameters](../language/basics/lang-parameters.md).
+
+In the HTTP GET request, parameters must be passed directly in the URL and declared using the `$params` keyword (they must be enclosed in a collection). 
+
+```
+IP:port/rest/<dataclass>/functionName?$params='[<params>]'
+```
+
+See the [Parameters](../api/classFunctionsParameters.md) section in the REST API documentation. 
+
+
+
+### result
+
+A function with `onHttpGet` keyword can return any value of a supported type (same as for REST [parameters](../api/classFunctionsParameters.md)).
+
+:::info
+
+You can return a value of the [`4D.OutGoingMessage`](../language/OutGoingMessageClass.md) class type to benefit from properties and functions to set the header, the body, and the status of the answer. 
+
+:::
+
+
+
+### Example
+
+You have defined the following function:
+
+```qs
+
+extends DataClass
+
+exposed onHTTPGet function getThumbnail(name : string, width : integer, height : integer) : 4D.OutgoingMessage
+	
+	var fileRef = file("/RESOURCES/Images/"+name+".jpg")
+	var blob = fileRef.getContent()
+	blobToPicture(blob,image)
+
+	var image, thumbnail : picture
+	var response = 4D.OutgoingMessage.new()
+
+	createThumbnail(image, thumbnail, width, height, kScaledToFit)
+	response.setBody(image)	
+	response.setHeader("Content-Type", "image/jpeg")
+	return response
+
+```
+
+It can be called by the following HTTP GET request:
+
+```
+IP:port/rest/Products/getThumbnail?$params='["Yellow Pack",200,200]'
+```
