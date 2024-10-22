@@ -54,30 +54,13 @@ The `SingletonClassFunction()` function must have been declared with the `onHttp
 :::
 
 
-
-> All 4D code called from REST requests **must be thread-safe** if the project runs in compiled mode, because the REST Server always uses preemptive processes in this case (the [*Use preemptive process* setting value](../WebServer/preemptiveWeb.md#enabling-the-preemptive-mode-for-the-web-server) is ignored by the REST Server).
-
 :::info
 
-You can restrict calls to specific singleton functions by configuring appropriate privileges in the [**roles.json**](../ORDA/privileges.md#rolesjson-file) file.
+You can restrict calls to specific singleton functions by configuring appropriate [permissions](../studio/roles/permissionsFunctionLevel.md#configuring-function-permissions).
 
 :::
 
 
-
-## Syntax
-
-Singleton functions must always be called using REST **POST** requests (a GET request will receive an error). The formal syntax is:
-
-```
-/rest/$singleton/{{SingletonClass}}/{{SingletonClassFunction}}
-```
-
-:::info
-
-You can restrict calls to specific singleton functions by configuring [appropriate privileges](../studio/roles/rolesPrivilegesOverview.md).
-
-:::
 
 ## Parameters
 

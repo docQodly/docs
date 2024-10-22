@@ -117,5 +117,4 @@ preemptive = processInfo(currentProcess).preemptive
 #### See also 
 
 [processState](processState.md)  
-[sessionInfo](sessionInfo.md)  
 

@@ -867,7 +867,7 @@ QodlyScript supports three types of singletons:
 
 - a **process singleton** has a unique instance for the process in which it is instantiated, 
 - a **shared singleton** has a unique instance for all processes.
-- a **session singleton** is a shared singleton but with a unique instance for all processes in the [session](../language/SessionClass.md). Session singletons are shared within an entire session but vary between sessions. In Qodly, session singletons make it possible to create and use a different instance for each session, and therefore for each user.
+- a **session singleton** is a shared singleton but with a unique instance for all processes in the [session](../SessionClass.md). Session singletons are shared within an entire session but vary between sessions. In Qodly, session singletons make it possible to create and use a different instance for each session, and therefore for each user.
 
 Singletons are useful to define values that need to be available from anywhere in an application, a session, or a process.
 
