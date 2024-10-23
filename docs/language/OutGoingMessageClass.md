@@ -95,6 +95,8 @@ The `.headers` property is read-only. To set a header, use the [`setHeader()`](#
 
 
 <!-- REF #OutGoingMessageClass.setBody().Params -->
+|Parameter|Type||Description|
+|---|--- |---|------|
 |body|any |->|Body of the outgoing message|
 <!-- END REF -->
 
@@ -128,6 +130,8 @@ If *body* is not of a supported value type, an error is returned.
 
 
 <!-- REF #OutGoingMessageClass.setHeader().Params -->
+|Parameter|Type||Description|
+|---|--- |---|------|
 |key|string|->|Header property to set|
 |value|string|->|Value of the header property|
 <!-- END REF -->
@@ -154,6 +158,8 @@ If you set a *value* for the "Content-Type" header *key*, make sure you call thi
 
 
 <!-- REF #OutGoingMessageClass.setStatus().Params -->
+|Parameter|Type||Description|
+|---|--- |---|------|
 |status|integer|->|Status to set|
 <!-- END REF -->
 
