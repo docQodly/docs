@@ -22,7 +22,6 @@ title: Commands
 |[<!-- INCLUDE #_command_.char.Syntax -->](char.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.char.Summary -->|
 |[<!-- INCLUDE #_command_.characterCode.Syntax -->](characterCode.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.characterCode.Summary -->|
 |[<!-- INCLUDE #_command_.clearSemaphore.Syntax -->](clearSemaphore.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.clearSemaphore.Summary -->|
-|[<!-- INCLUDE #_command_.combinePictures.Syntax -->](combinePictures.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.combinePictures.Summary -->|
 |[<!-- INCLUDE #_command_.compareStrings.Syntax -->](compareStrings.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.compareStrings.Summary -->|
 |[<!-- INCLUDE #_command_.convertFromString.Syntax -->](convertFromString.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.convertFromString.Summary -->|
 |[<!-- INCLUDE #_command_.convertPicture.Syntax -->](convertPicture.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.convertPicture.Summary -->|
@@ -120,7 +119,6 @@ title: Commands
 |[<!-- INCLUDE #_command_.timeString.Syntax -->](timeString.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.timeString.Summary -->|
 |[<!-- INCLUDE #_command_.timestamp.Syntax -->](timestamp.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.timestamp.Summary -->|
 |[<!-- INCLUDE #_command_.trace.Syntax -->](trace.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.trace.Summary -->|
-|[<!-- INCLUDE #_command_.transformPicture.Syntax -->](transformPicture.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.transformPicture.Summary -->|
 |[<!-- INCLUDE #_command_.true.Syntax -->](true.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.true.Summary -->|
 |[<!-- INCLUDE #_command_.trunc.Syntax -->](trunc.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.trunc.Summary -->|
 |[<!-- INCLUDE #_command_.uppercase.Syntax -->](uppercase.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.uppercase.Summary -->|

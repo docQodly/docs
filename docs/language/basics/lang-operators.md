@@ -42,7 +42,6 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 - [**Time operators**](lang-time.md#time-operators)
 - [**Number operators**](lang-number.md#numeric-operators)
 - [**Bitwise operators**](lang-number.md#bitwise-operators) (on **integer** expressions)
-- [**Picture operators**](lang-picture.md#picture-operators)
 - [**String operators**](lang-text.md#string-operators)
 - [**Null operators**](lang-null-undefined.md#null-operators)
 - [**Undefined operators**](lang-null-undefined.md#undefined-operators)
