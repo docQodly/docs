@@ -271,10 +271,6 @@ The `onLoad` event triggers when the Page initially loads. However, it's designe
 - **State Integrity**: This ensures modifications due to state changes don’t reset the Page’s initial setup.
 
 
-## Conflict Resolution
-
-When a Page has multiple states applied, the most recently applied state will take priority in the event of any conflicts. This approach is essential to ensure that the Page accurately reflects the most up-to-date modifications.
-
 ## Preview and Rendering
 
 During state editing, the `Preview in Studio` button allows developers to see real-time changes, offering an immediate glimpse of how state modifications impact the Page. However, when it comes to `Rendering`, it defaults to displaying the base state. 

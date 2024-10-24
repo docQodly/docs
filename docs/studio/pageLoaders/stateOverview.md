@@ -47,13 +47,6 @@ The key characteristics of Non-Conditional States include:
 - **Static Behavior**: Non-Conditional States apply fixed changes to the UI that do not depend on any condition or user action.
 
 
-- **Static Visibility**: Elements can be made visible or hidden, similar to how they appear in the Base State, but without dynamic conditions.
-
-:::info Example 
-A travel booking website hides the sidebar on mobile devices for better usability when the page first loads.
-:::
-
-
 - **Style Modifications**: Non-Conditional States can include changes to styles (like colors or fonts) without dynamic interaction.
 
 :::info Example 
@@ -61,10 +54,24 @@ A travel booking website applies a blue background color to the entire page to a
 :::
 
 
-- **Field Properties**: Input fields can be set to read-only or have modified styles, ensuring users see the same Base State structure but with certain fields not editable.
+- **Text & Label Modifications**: You can modify the text of components, such as labels, text boxes, or buttons in a Non-Conditional State. These changes are applied statically and don't depend on external data sources or logic.
+
+:::info Example 
+In a dashboard, the label of a “Save” button could be changed to “Saved” after the user performs a save action. 
+:::
+
+
+- **Component-Specific Properties**: The properties that you can modify depend on the type of component. For example, some components allow their visibility to be toggled, while others may allow the change of properties such as the read-only property, which ensures users see the same Base State structure but with certain fields not editable.
 
 :::info Example 
 In the travel booking website, fields for selecting travel dates become read-only after the user has clicked on the button to submit their choices, preventing further edits. 
+:::
+
+
+- **Static Visibility**: Elements can be made visible or hidden, similar to how they appear in the Base State, but without dynamic conditions.
+
+:::info Example 
+A travel booking website hides the sidebar on mobile devices for better usability when the page first loads.
 :::
 
 
@@ -118,3 +125,14 @@ When a user filters flights based on price or duration, the travel booking websi
 | **Condition Dependence** | No conditions; applied when triggered by an event.	 | Applied only when predefined conditions are met. |
 | **Purpose** | Static UI modifications or basic user interactions. | Dynamic behavior based on logic or input (Qodly sources, states or privileges). |
 | **When Applied** | On page load or when an event is triggered (e.g., button click). | Dynamically, as conditions are evaluated (true or false). |
+
+
+## Conflict Resolution
+
+When multiple states are applied to a page, conflicts may arise if more than one state modifies the same element (e.g., visibility, style, or properties). In such cases, Qodly uses the following conflict resolution rules:
+
+- **Most Recently Applied State Wins**: If two or more states modify the same element in conflicting ways, the most recent state takes precedence.
+
+- **Conditional States Have Priority Over Non-Conditional States**: If both a Conditional State and a Non-Conditional State are applied to the same element, the Conditional State will take priority, provided the condition is met.
+
+- **Base State as Defaul**t: If no states modify a specific element, the page retains its Base State settings for that element.
