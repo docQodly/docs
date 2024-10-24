@@ -140,20 +140,6 @@ Facilitate a switch between detailed and overview modes by using the global expa
 For additional details, please refer to the [Condition Types](#condition-types) section.
 :::
 
-### Condition Actions
-
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="45%">
-    Every condition card is equipped with a set of actions, facilitating modifications like renaming or deleting the condition. 
-	</Column.Item>
-	<Column.Item width="50%">
-		<img src={require('./img/conditionsInterface_schema5.png').default} style={{borderRadius: '6px', width:'53%'}} />
-	</Column.Item>
-</Column.List>
-
-  For additional details, please refer to the [Conditions Actions](#condition-management) section.
-
-
 
 ## Condition Types
 
@@ -167,28 +153,49 @@ Each condition within the schema is represented by an interactive card, providin
 
 :::info Comparators vary depending on the qodlysource type:
 
-String:
-- EQUAL: hardcoded value or qodlysource
-- DIFFERENT: hardcoded value or qodlysource
-- CONTAINS: hardcoded value or qodlysource
-- STARTSWITH: hardcoded value or qodlysource
-- IN (value1, value2, ...): hardcoded values or qodlysources
-- ISNULL
-- REGEX: hardcoded value only
 
-Number, Dates, Duration:
-- GREATER THAN: hardcoded value or qodlysource
-- GREATER THAN OR EQUAL: hardcoded value or qodlysource
-- LOWER THAN: hardcoded value or qodlysource
-- LOWER THAN OR EQUAL: hardcoded value or qodlysource
-- BETWEEN (value1, value2): hardcoded values or qodlysources
-- ISNULL
+| **Value Type**       | **Operator** | **Description**                                                                                                      |
+|----------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
+| **String**            | `=`          | Checks if the string is exactly equal to the specified value.                                                        |
+|                      | `!=`         | Checks if the string is not equal to the specified value.                                                            |
+|                      | `regex`      | Evaluates the string using a regular expression. Useful for pattern matching, e.g., checking if a string follows a format. |
+|                      | `starts with`| Checks if the string starts with the specified substring.                                                            |
+|                      | `in`         | Checks if the string is present within a list of values.                                                             |
+|                      | `not in`     | Checks if the string is not present within a list of values.                                                         |
+|                      | `is null`    | Checks if the string is `null`, meaning it has no value or is undefined.                                             |
+|                      | `not null`   | Checks if the string is not `null`, meaning it has a defined value.                                                  |
+| **Number**            | `=`          | Checks if the number is exactly equal to the specified value.                                                        |
+|                      | `!=`         | Checks if the number is not equal to the specified value.                                                            |
+|                      | `>`          | Checks if the number is greater than the specified value.                                                            |
+|                      | `>=`         | Checks if the number is greater than or equal to the specified value.                                                |
+|                      | `<`          | Checks if the number is less than the specified value.                                                               |
+|                      | `<=`         | Checks if the number is less than or equal to the specified value.                                                   |
+|                      | `between`    | Checks if the number falls within a specified range of two values.                                                   |
+|                      | `is null`    | Checks if the number is `null`, meaning it has no value.                                                             |
+|                      | `not null`   | Checks if the number is not `null`, meaning it has a defined value.                                                  |
+| **Boolean**           | `is true`    | Checks if the value is `true`.                                                                                       |
+|                      | `is false`   | Checks if the value is `false`.                                                                                      |
+|                      | `is null`    | Checks if the boolean value is `null`.                                                                               |
+|                      | `not null`   | Checks if the boolean value is not `null`.                                                                           |
+| **Object**            | `=`          | Checks if the object is exactly equal to the specified object.                                                       |
+|                      | `!=`         | Checks if the object is not equal to the specified object.                                                           |
+|                      | `isempty`    | Checks if the object is empty, meaning it contains no key-value pairs.                                               |
+|                      | `is null`    | Checks if the object is `null`, meaning it has no value or has not been initialized.                                 |
+|                      | `not null`   | Checks if the object is not `null`, meaning it exists and contains data.                                             |
+| **Array**             | `=`          | Checks if the array is exactly equal to the specified array.                                                         |
+|                      | `!=`         | Checks if the array is not equal to the specified array.                                                             |
+|                      | `isempty`    | Checks if the array is empty, meaning it contains no elements.                                                       |
+|                      | `is null`    | Checks if the array is `null`, meaning it has no value or is undefined.                                              |
+|                      | `not null`   | Checks if the array is not `null`, meaning it contains elements or is initialized.                                   |
+| **Entity Selection**  | `=`          | Checks if the selected entity matches the specified entity.                                                          |
+|                      | `!=`         | Checks if the selected entity does not match the specified entity.                                                   |
+|                      | `is null`    | Checks if no entity has been selected or if the selection is `null`.                                                 |
+|                      | `not null`   | Checks if an entity has been selected and is not `null`.                                                             |
+| **Entity**            | `=`          | Checks if the entity is equal to the specified entity.                                                               |
+|                      | `!=`         | Checks if the entity is not equal to the specified entity.                                                           |
+|                      | `is null`    | Checks if the entity is `null`, meaning it does not exist or has not been defined.                                   |
+|                      | `not null`   | Checks if the entity exists and is not `null`.                                                                       |
 
-Boolean:
-- ISTRUE
-- ISFALSE
-- ISNULL
-- EQUALS (qodlysource): another boolean qodlysource
 
 :::
 
@@ -236,7 +243,7 @@ Boolean:
 
 | Name          | Icon | Description | Available Operators       |
 |---------------|------|-------------|---------------------------|
-| Current State | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the state of the current element. | `=`, `!=`, `regex` |
+| Current State | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the currently applied state of a page against a specified condition. | `=`, `!=`, `regex` |
 
 #### Example
 
@@ -280,7 +287,7 @@ Boolean:
 
 | Name        | Icon | Description | Available Operators       |
 |-------------|------|-------------|---------------------------|
-| Parent State| <img src={require('./img/typeParentState.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the state of a parent element. | `=`, `!=`, `regex` |
+| Parent State| <img src={require('./img/typeParentState.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates the currently applied state of a page's parent page against a specified condition. This condition is typically used when a Page Loader component is added to a certain page, and the loaded page must evaluate the parent page's state to determine the behavior of it. | `=`, `!=`, `regex` |
 
 #### Example
 
@@ -324,7 +331,7 @@ Boolean:
 
 | Name         | Icon | Description | Available Operators       |
 |--------------|------|-------------|---------------------------|
-| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level. | `=`, `!=`, `regex` |
+| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex` |
 
 :::tip Handling Privilege Changes with Conditional States
 
@@ -415,6 +422,16 @@ A conditional state on a privilege evaluates whether the privileges have changed
 
 
 ## Condition Management
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+    Every condition card is equipped with a set of actions, facilitating modifications like renaming or deleting the condition. 
+	</Column.Item>
+	<Column.Item width="60%">
+		<img src={require('./img/conditionsInterface_schema5.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
 
 ### Add Condition (Local)
 
