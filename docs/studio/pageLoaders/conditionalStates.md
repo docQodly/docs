@@ -7,12 +7,6 @@ import Column from '@site/src/components/Column'
 
 ## Scope of Conditions
 
-Conditional states enhance Pages by allowing dynamic adaptation based on specified conditions, significantly improving interactivity and user-specific functionality.
-
-:::tip
-Once a condition is associated with a state, it becomes a `Conditional` state. As soon as the condition is `True`, the state is enabled. If the condition is `False`, the state is disabled.
-:::
-
 Conditions within Qodly are classified into two types:
 
 ### Local Conditions
