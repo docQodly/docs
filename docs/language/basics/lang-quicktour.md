@@ -93,13 +93,13 @@ QodlyScript provides a large number of built-in methods (or *commands*) but also
 
 A method is composed of statements; each statement consists of one line in the method. A statement performs an action, and may be simple or complex.
 
-For example, the following line is a statement that will crop a picture:
+For example, the following line is a statement that will compare two strings and return a result:
 
 ```qs
-transformPicture(vpGears,Crop,50,50,100,100))
+myResult = compareStrings(string1,string2,kCharCodes)
 ```
 
-A method also contains tests and loops that control the flow of the execution. QodlyScript methods support `if...else...end` and `case of...else...end` branching structures as well as looping structures: `while...end`, `repeat...until`, `for...end`, and `forEach...end`:
+A method also contains tests and loops that control the flow of the execution. QodlyScript methods support `if...else...end` and `switch...else...end` branching structures as well as looping structures: `while...end`, `repeat...until`, `for...end`, and `forEach...end`:
 
 The following example goes through all the characters of the text *vtSomeText*:
 

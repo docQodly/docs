@@ -30,6 +30,3 @@ This command can return one of the values provided by the following constants:
 |kWaitingForUserEvent|2|
 
 
-#### See also
-
-[`processProperties`](processProperties.md)

@@ -861,6 +861,39 @@ If the `shared` function keyword is used in a non-shared user class, it is ignor
 
 A **singleton class** is a user class that only produces a single instance. For more information on singletons, please see the [Wikipedia page about singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
 
+### Singletons types
+
+QodlyScript supports three types of singletons:
+
+- a **process singleton** has a unique instance for the process in which it is instantiated, 
+- a **shared singleton** has a unique instance for all processes.
+- a **session singleton** is a shared singleton but with a unique instance for all processes in the [session](../SessionClass.md). Session singletons are shared within an entire session but vary between sessions. In Qodly, session singletons make it possible to create and use a different instance for each session, and therefore for each user.
+
+Singletons are useful to define values that need to be available from anywhere in an application, a session, or a process.
+
+:::info
+
+Singleton classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+
+:::
+
+
+
+### Creating and using singletons
+
+You declare singleton classes by adding appropriate keyword(s) before the [`Class constructor`](#class-constructor):
+
+- To declare a (process) singleton class, write `singleton Class Constructor()`.
+- To declare a shared singleton class, write `shared singleton Class constructor()`.
+- To declare a session singleton class, write `session singleton Class constructor()`.
+
+:::note
+
+- Session singletons are automatically shared singletons (there's no need to use the `shared` keyword in the class constructor). 
+- Singleton shared functions support [`onHttpGet` keyword](../../orda/data-model.md#onhttpget-keyword).
+
+:::
+
 The class singleton is instantiated at the first call of the [`cs.<class>.me`](../ClassClass.md#me) property. The instantiated class singleton is then always returned when the [`me`](../ClassClass.md#me) property is used.
 
 If you need to instantiate a singleton with parameters, you can also call the [`new()`](../ClassClass.md#new) function. In this case, it is recommended to instantiate the singleton in some code executed at application startup.  
@@ -869,6 +902,8 @@ Once instantiated, a singleton class (and its singleton) exists as long as a ref
 
 The [`.isSingleton`](../ClassClass.md#issingleton) property of Class objects allows to know if the class is a singleton.
 
+The [`.isSessionSingleton`](../ClassClass.md#issessionsingleton) property of Class objects allows to know if the class is a session singleton.
+
 :::info
 
 Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
@@ -876,20 +911,10 @@ Singleton classes are only supported in [User classes](#user-classes). They are 
 :::
 
 
-### Scope of singletons
+### Examples
 
-The scope of a singleton instance can be the current process or all processes.
+#### Process singleton
 
-- a **singleton** has a unique value for the **process** in which it is instantiated (default),
-- a **shared singleton** has a unique value for **all processes** of the application.
-
-You create a shared singleton to define values that need to be available from anywhere in the application.
-
-
-
-### Creating a singleton
-
-To create a (not shared) singleton class, add the `singleton` keyword before [`Class Constructor`](#constructor). For example:
 
 ```qs
 	//class: ProcessTag
@@ -919,9 +944,8 @@ var myOtherSingleton = cs.ProcessTag.me
 ```
 
 
-### Creating a shared singleton
+### Shared singleton
 
-To create a shared singleton, add the `shared singleton` keywords before the [Class Constructor](#constructor). For example:
 
 ```qs
 //Class VehicleFactory
@@ -955,3 +979,29 @@ vehicle = cs.VehicleFactory.me.buildVehicle("truck")
 ```
 
 Since the *buildVehicle()* function modifies the **cs.VehicleFactory** (by incrementing `this.vehicleBuilt`) you need to add the `shared` keyword to it.
+
+#### Session singleton
+
+In an inventory application, you want to implement an item inventory using session singletons. 
+
+```qs
+//class ItemInventory
+
+property itemList : collection = []
+
+session singleton constructor()
+
+shared function addItem (item : object)
+    this.itemList.push (item)
+```
+
+By defining the ItemInventory class as a session singleton, you make sure that every session and therefore every user has their own inventory. Accessing the user's inventory is as simple as:
+
+```qs
+//in a user session
+myList = cs.ItemInventory.me.itemList
+//current user's item list
+
+```
+
+

@@ -11,13 +11,15 @@ You can send parameters to data model functions through the REST API. The parame
 
 The following rules must be followed:
 
-- **Body of the POST Request**: Parameters must be passed in the body of a POST request.
+- In functions called through POST requests, parameters must be passed **in the body of the POST request**.
+
+- In functions called through GET requests, parameters must be passed **in the URL with "?$params=" syntax**. 
 
 - **JSON Format**: Parameters must be enclosed within a collection (JSON format).
 
 - **Supported Data Types**: All scalar data types supported in JSON collections can be passed as parameters, including strings, numbers, booleans, and dates.
 
-- **Entities and Entity Selections**: Both individual entities and entity selections can be passed as parameters. The JSON object must contain specific attributes (`__DATACLASS`, `__ENTITY`, `__ENTITIES`, `__DATASET`) to identify and assign data to the corresponding ORDA objects.
+- **Entities and Entity Selections as parameters**: Both individual entities and entity selections can be passed as parameters. The JSON object must contain specific attributes (`__DATACLASS`, `__ENTITY`, `__ENTITIES`, `__DATASET`) to identify and assign data to the corresponding ORDA objects.
 
 ## Scalar Value Parameter
 
@@ -26,6 +28,19 @@ For scalar value parameters, simply enclose them in a collection in the body of 
 :::tip
 All JSON data types are supported, including JSON pointers. Dates can be conveyed as strings adhering to ISO 8601 format (e.g., "2020-08-22T22:00:000Z").
 :::
+
+For example, with a  dataclass function `getCities()` receiving text parameters:
+
+#### POST request
+
+`/rest/City/getCities`  
+
+**Parameters in body:** ["Aguada","Paris"]
+
+#### GET request
+
+`/rest/City/getCities?$params='["Aguada","Paris"]'`  
+
 
 ### Example
 
@@ -38,7 +53,8 @@ exposed function calculateDiscount(price : number, discountRate : number) : numb
 	return discountedPrice
 ```
 
-**Request:**
+#### POST request
+
 
 ```
 POST {{ApiEndpoint}}/rest/Product/calculateDiscount
@@ -50,7 +66,13 @@ POST {{ApiEndpoint}}/rest/Product/calculateDiscount
 [100, 0.15]
 ```
 
-**Response:**
+#### GET request
+
+```
+GET {{ApiEndpoint}}/rest/Product/calculateDiscount?$params='[100,0.15]'` 
+```
+
+#### Response
 
 ```json
 {
@@ -315,3 +337,61 @@ If the entity selection or discount is missing or invalid:
     ]
   }
   ```
+
+## GET request examples
+
+### Returning a document
+
+You want to propose a link to download the user manual for a selected product with several formats available. You write a `getUserManual()` function of the Products dataclass. You return an object of the [`OutgoingMessage` class](../language/OutGoingMessageClass.md). 
+
+```qs
+// Product dataclass
+exposed onHTTPGet function getUserManual(productId : integer, type : string) : 4D.OutgoingMessage
+  
+var vfile : 4D.File
+var response = 4D.OutgoingMessage.new()
+var doc = "/RESOURCES/User manuals/product_" + string(productId)
+
+switch 
+  : (type == "pdf")
+    vfile = file(doc+".pdf")
+    response.setBody(vfile.getContent()) // This is binary content 
+    response.setHeader("Content-Type", "application/pdf")
+      
+  : (type == "jpeg")
+    vfile = file(doc+".jpeg")
+    response.setBody(vfile.getContent()) // This is binary content 
+    response.setHeader("Content-Type", "image/jpeg")
+end 
+  
+return response
+
+```
+
+You can call the function using a request like:
+
+**GET** `{{ApiEndpoint}}/rest/Products/getUserManual?$params='[1,"pdf"]'`
+
+
+### Using an entity to download a PDF document 
+
+Same example as above but you want to pass an entity as parameter to the datastore function. 
+
+```qs
+// Product dataclass
+exposed onHTTPGet function getUserManual(product : cs.ProductEntity) : 4D.OutgoingMessage
+  
+  var vfile : 4D.File
+  var response = 4D.OutgoingMessage.new()
+  
+  vfile = file("/RESOURCES/User manuals/"+product.name+".pdf")
+  response.setBody(vfile.getContent())
+  response.setHeader("Content-Type", "application/pdf")
+  
+  return response
+```
+
+You can call the function using this request:
+
+**GET** `{{ApiEndpoint}}/rest/Product/getUserManual?$params='[{"__DATACLASS":"Product","__ENTITY":true,"__KEY":41}]'`
+
