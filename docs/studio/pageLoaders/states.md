@@ -157,43 +157,6 @@ Steps to Reset a Component:
 	</Column.Item>
 </Column.List>
 
-## Setting a Default State
-
-In Page management, defining a `Default State` is critical for ensuring that the Page displays the most appropriate view when first accessed by a user.
-
-### What is a Default State?
-
-The `Default State` is the state that a Page will display upon initial load, before any user interaction or conditions are met.
-
-### Setting a Default State
-
-To designate a state as the default:
-
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="55%">
-    <ol>
-        <li><strong>Locate the State</strong>: In the "States" panel, find the state you want to set as the default..</li><br/>
-        <li><strong>Set as Default Button</strong>: Next to the state's name, you will see a checkbox labeled "Set as default state". Check this box to set the state as the default.</li><br/>
-    </ol>
-	</Column.Item>
-	<Column.Item width="40%">
-		<img src={require('./img/defaultState.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-:::tip Applying Multiple States to a Page
-You can apply multiple states to a single Page. This allows for dynamic and conditional displays based on user interactions or other conditions.
-:::
-
-
-### Base State vs. Default State
-
-The `Base State` contains all components and configurations that the Page could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
-
-:::tip 
-If there are components that should not be visible until certain conditions are met, setting a different state as the default instead of the base state can help in tailoring the initial user experience.
-:::
-
 
 ## Event and Function Handling
 

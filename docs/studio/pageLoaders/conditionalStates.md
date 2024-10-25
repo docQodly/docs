@@ -27,7 +27,7 @@ For more details, please refer to the [Saved Conditions](#saved-conditions-area)
 
 Accessible via the `Conditions` button <img alt="explorer" src={require('./img/statesConditions.png').default} style={{borderRadius: '6px', width:'25%'}} /> next to the `States` header, this interface is pivotal in visualizing and managing conditions that define the behavior of Page states. It includes major tools such as the `States Area`, `Saved Conditions Area`, `Schema Editor`, and `JSON Editor`, each designed to facilitate specific aspects of condition management.
 
-#### States Area
+### States Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -38,7 +38,7 @@ Accessible via the `Conditions` button <img alt="explorer" src={require('./img/s
 	</Column.Item>
 </Column.List>
 
-#### Saved Conditions Area
+### Saved Conditions Area
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -55,24 +55,50 @@ The tab representing the condition currently being modified is distinctly highli
 
 Adding a new saved condition involves clicking the <img alt="explorer" src={require('./img/addCssClass.png').default} style={{borderRadius: '6px', width:'3%'}} /> button, which initializes it with a generic name.
 
-
-#### Schema Area
-
-The Schema Editor is introduced here as a central tool for visualizing and editing the logical connections between conditions. For detailed information on utilizing this tool, see the [Schema Editor](#conditions-schema-editor) section.
-
-#### JSON Area
+### JSON Editor
 
 <Column.List align="center" justifyContent="between">
-	<Column.Item width="40%">
-	The JSON Editor is an advanced tool for those who need to directly manipulate the condition's properties in JSON format. For more details on how to use this feature, refer to the <a href="#conditions-json-editor">JSON Editor</a> section.
+	<Column.Item width="50%">
+	The JSON Editor is an advanced tool for those who need to directly manipulate the condition's properties in JSON format.
 	</Column.Item>
-	<Column.Item width="55%">
+	<Column.Item width="45%">
 		<img src={require('./img/conditionsInterface_json.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+		The JSON Editor can be accessed through the Conditions Interface by clicking on the JSON Editor button. This opens a dedicated editing area where users can view and edit the JSON representation of their conditions.
+	</Column.Item>
+	<Column.Item width="45%">
+		<img src={require('./img/accessJsonEditor.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+Upon addition, each condition's initial JSON structure appears in the editor as follows:
+
+```json
+{
+  "id": "auto_generated_unique_identifier",
+  "name": "default_condition_name",
+  "type": "unspecified"
+}
+```
+
+This initial blueprint provides a template that users can modify to fit the specific requirements of their Page conditions.
 
 
+:::info Common JSON Fields
+
+When working with conditions in the JSON Editor, users will encounter several common fields:
+
+- **id**: A unique identifier for the condition (type: string).
+- **name**: The name of the condition (type: string).
+- **type**: Specifies the type of condition (e.g., qodlysource, privilege, parentState, reference, combination).
+- **path**: The data path within the qodlysource (for qodlysource conditions).
+- **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
+- **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
+:::
 
 ## Conditions Schema Editor
 
@@ -187,7 +213,7 @@ Each condition within the schema is represented by an interactive card, providin
 |                      | `isempty`    | Checks if the array is empty, meaning it contains no elements.                                                       |
 |                      | `is null`    | Checks if the array is `null`, meaning it has no value or is undefined.                                              |
 |                      | `not null`   | Checks if the array is not `null`, meaning it contains elements or is initialized.                                   |
-| **Entity Selection**  | `=`          | Checks if the selected entity matches the specified entity.                                                          |
+| **Entity Selection**  | `=`          | Checks if the selected entity selection matches the specified entity selection.                                                          |
 |                      | `!=`         | Checks if the selected entity does not match the specified entity.                                                   |
 |                      | `is null`    | Checks if no entity has been selected or if the selection is `null`.                                                 |
 |                      | `not null`   | Checks if an entity has been selected and is not `null`.                                                             |
@@ -525,47 +551,6 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 	</Column.Item>
 </Column.List>
 
-
-## Conditions JSON Editor
-
-
-### Accessing the JSON Editor
-
-<Column.List align="center" justifyContent="between">
-	<Column.Item width="50%">
-		The JSON Editor can be accessed through the Conditions Interface by clicking on the JSON Editor button. This opens a dedicated editing area where users can view and edit the JSON representation of their conditions.
-	</Column.Item>
-	<Column.Item width="45%">
-		<img src={require('./img/accessJsonEditor.png').default} style={{borderRadius: '6px'}} />
-	</Column.Item>
-</Column.List>
-
-### Initial JSON Blueprint
-
-Upon addition, each condition's initial JSON structure appears in the editor as follows:
-
-```json
-{
-  "id": "auto_generated_unique_identifier",
-  "name": "default_condition_name",
-  "type": "unspecified"
-}
-```
-
-This initial blueprint provides a template that users can modify to fit the specific requirements of their Page conditions.
-
-
-:::info Common JSON Fields
-
-When working with conditions in the JSON Editor, users will encounter several common fields:
-
-- **id**: A unique identifier for the condition (type: string).
-- **name**: The name of the condition (type: string).
-- **type**: Specifies the type of condition (e.g., qodlysource, privilege, parentState, reference, combination).
-- **path**: The data path within the qodlysource (for qodlysource conditions).
-- **value**: The value to compare against, which can be of various types (number, string, boolean, object, array, or null).
-- **op**: The operator for comparison (e.g., eq, neq, regex, in, nin, gt, gte, lt, lte).
-:::
 
 ## Conditional State Lifecycle
 

@@ -136,3 +136,54 @@ When multiple states are applied to a page, conflicts may arise if more than one
 - **Conditional States Have Priority Over Non-Conditional States**: If both a Conditional State and a Non-Conditional State are applied to the same element, the Conditional State will take priority, provided the condition is met.
 
 - **Base State as Defaul**t: If no states modify a specific element, the page retains its Base State settings for that element.
+
+## Setting a Default State
+
+In Page management, defining a `Default State` is critical for ensuring that the Page displays the most appropriate view when first accessed by a user.
+
+### What is a Default State?
+
+The `Default State` is the state that a Page will display upon initial load, before any user interaction or conditions are met.
+
+### Setting a Default State
+
+To designate a state as the default:
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="55%">
+    <ol>
+        <li><strong>Locate the State</strong>: In the "States" panel, find the state you want to set as the default..</li><br/>
+        <li><strong>Set as Default Button</strong>: Next to the state's name, you will see a checkbox labeled "Set as default state". Check this box to set the state as the default.</li><br/>
+    </ol>
+	</Column.Item>
+	<Column.Item width="40%">
+		<img src={require('./img/defaultState.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::tip Applying Multiple Default States to a Page
+You can apply multiple default states to a single Page. This allows for dynamic and conditional displays based on user interactions or other conditions.
+:::
+
+:::warning
+When the Default State is used with a Conditional State that has an unmet condition (a condition that evaluates as false), the Default State will be overridden.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="45%">
+        A warning icon appears next to the <strong>Default State</strong> icon when paired with a <strong>Conditional State with an unmet condition</strong>. Hovering over the icon displays: "Default state will be overridden when used with an unmet conditional state."
+	</Column.Item>
+	<Column.Item width="50%">
+		<img src={require('./img/defaultStateWconditionalState.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+:::
+
+
+### Base State vs. Default State
+
+The `Base State` contains all components and configurations that the Page could possibly display. In contrast, the `Default State` might hide certain components that should only appear under specific conditions. This strategy follows Qodly's best practices by keeping the `Base State` comprehensive and using the `Default State` for initial, conditional displays.
+
+:::tip 
+If there are components that should not be visible until certain conditions are met, setting a different state as the default instead of the base state can help in tailoring the initial user experience.
+:::
