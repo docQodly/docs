@@ -131,11 +131,11 @@ const sidebars = {
 			label: 'Roles & Privileges',
 			items: [
 				'studio/roles/overview',
-				'studio/roles/rolesPrivilegesOverview',
 				{
 					type: 'category',
 					label: 'Permissions',
 					items: [
+						'studio/roles/permissionsOverview',
 						'studio/roles/datastorePermissions',
 						'studio/roles/dataClassPermissions',
 						'studio/roles/attributesPermissions',

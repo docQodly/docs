@@ -1,5 +1,5 @@
 ---
-id: rolesPrivilegesOverview
+id: overview
 title: Configuring Roles & Privilege
 ---
 import Column from '@site/src/components/Column'
