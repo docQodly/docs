@@ -21,7 +21,7 @@ DataClass-level permissions can override or supplement those set at the datastor
 The <img src={require('./img/dataclass.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **DataClass** ressources.
 :::
 
-## Hierarchy and Overrides 
+## Example: DataClass-Level Access Control
 
 Building on the approach where the [Guest privilege is granted initial read access to the entire datastore](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), you can gradually restrict access to specific resources by configuring **DataClass** permissions. This involves excluding the `Guest` privilege from certain DataClasses.
 

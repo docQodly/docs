@@ -20,7 +20,7 @@ import Column from '@site/src/components/Column'
 The <img src={require('./img/attribute.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **Attribute** ressources.
 :::
 
-## Hierarchy and Overrides 
+## Example: Attribute-Level Access Control
 
 While **Dataclass** permissions cascade down to attributes, you can adapt them by overriding or supplementing permissions as needed.
 

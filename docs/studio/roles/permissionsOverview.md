@@ -8,6 +8,8 @@ In managing access control within your application, understanding the hierarchy 
 
 ## Permissions
 
+### Permission Types
+
 Permissions define essential actions on resources, covering tasks such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
 
 | Permission | Datastore | Dataclass | Attribute | Function |
@@ -19,6 +21,12 @@ Permissions define essential actions on resources, covering tasks such as creati
 | Describe | Provides metadata access throughout the Model. | Provides metadata access for the chosen Dataclass. | Provides metadata access for the selected Attribute. | Provides metadata access for the chosen Dataclass function. |
 | Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
 | Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
+
+### How to Assign Permissions
+
+Permissions for specific resources—such as Datastore, DataClass, and Attribute—are easily set by checking the corresponding boxes in the permissions grid. Each permission (such as Read, Create, Update, Delete, Describe, Execute, and Promote) can be granted by selecting the checkbox under the relevant column for each resource.
+
+<img src={require('./img/Permissions.png').default} style={{borderRadius: '6px'}} />
 
 
 ## Inheritance
@@ -50,6 +58,13 @@ Permissions set at a higher level are automatically inherited by lower levels un
 
 If you don't set specific permissions at a lower level, the resource will inherit the permissions from the higher level.
 
+### Show/Hide Inherited Permissions
+
+When managing permissions, you can toggle between showing and hiding inherited permissions. By default, inherited permissions are visible, allowing you to see which permissions a privilege has inherited from other privileges for a resource. You can toggle off this option to hide any inherited permissions and focus only on permissions explicitly defined within the current privilege.
+
+- **Enabled**: Displays all permissions defined for resources, including those inherited from other privileges.
+
+- **Disabled**: Hides inherited permissions defined for resources. If a resource's permissions are entirely inherited and no explicit permissions are defined in the current privilege, the entire resource row will be hidden. If an explicit permission exists (e.g., Describe) for a resource, only the inherited permissions (e.g., Create) are unchecked while the resource row remains visible.
 
 ## Overrides
 

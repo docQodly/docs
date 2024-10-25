@@ -98,9 +98,7 @@ Not all data should be accessible to users. Sensitive user data, confidential re
 To balance data accessibility and security, the next crucial step is to utilize [**DataClass Permissions**](../roles/dataClassPermissions.md) to selectively control access to specific sets of data.
 
 
-## Permission Management
-
-### Inherited Permissions 
+## Guest Inherited Permission
 
 Permissions of the `Guest` privilege are automatically inherited across various privileges. This parallels the behavior observed in the `Restricted` privilege, where the capability of reading from the **Datastore** is evident.
 
@@ -114,9 +112,3 @@ The <img src={require('./img/inherit.png').default} style={{borderRadius: '6px',
 :::tip
 You can retain the inherited permission by checking the checkbox <img src={require('./img/check.png').default} style={{borderRadius: '6px', width:'2%'}} />, ensuring that even if the originating privilege is deleted, the permission set on the resource remains intact.
 :::
-
-### Supplementing Permissions 
-
-**Datastore** permissions maintain adaptability, allowing for supplementation as necessary.
-
-<img src={require('./img/supplementing.png').default} style={{borderRadius: '6px'}} />
