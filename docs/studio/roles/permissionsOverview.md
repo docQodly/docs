@@ -3,6 +3,8 @@ id: permissionsOverview
 title: Overview
 ---
 
+import Column from '@site/src/components/Column'
+
 In managing access control within your application, understanding the hierarchy and how permissions can override one another is crucial. Permissions can be set at various levels—**Datastore**, **DataClass**, and **Attribute**—each with the ability to override or supplement permissions set at higher levels. This hierarchical structure allows for granular control over user access to resources.
 
 
@@ -60,7 +62,14 @@ If you don't set specific permissions at a lower level, the resource will inheri
 
 ### Show/Hide Inherited Permissions
 
-When managing permissions, you can toggle between showing and hiding inherited permissions. By default, inherited permissions are visible, allowing you to see which permissions a privilege has inherited from other privileges for a resource. You can toggle off this option to hide any inherited permissions and focus only on permissions explicitly defined within the current privilege.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        When managing permissions, you can toggle between showing and hiding inherited permissions. By default, inherited permissions are visible, allowing you to see which permissions a privilege has inherited from other privileges for a resource. You can toggle off this option to hide any inherited permissions and focus only on permissions explicitly defined within the current privilege.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/showInheritedPermissions.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 - **Enabled**: Displays all permissions defined for resources, including those inherited from other privileges.
 
