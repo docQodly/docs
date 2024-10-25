@@ -128,9 +128,9 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Access Control',
+			label: 'Roles & Privileges',
 			items: [
-				'studio/roles/accessControlMechanisms',
+				'studio/roles/overview',
 				'studio/roles/rolesPrivilegesOverview',
 				{
 					type: 'category',

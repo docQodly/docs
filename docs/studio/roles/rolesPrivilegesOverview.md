@@ -1,28 +1,24 @@
 ---
 id: rolesPrivilegesOverview
-title: Roles and Privileges
+title: Configuring Roles & Privilege
 ---
 import Column from '@site/src/components/Column'
 
-In the realm of data security and access control, Qodly introduces a robust system of **Roles and Privileges**. These two fundamental concepts are at the heart of enforcing data access restrictions within the application. By understanding the **Roles and Privileges**, you can ensure that each user accesses only the data pertinent to their designated role. 
 
 ## Roles: Defining User Profiles 
 
 ### Understanding Roles  
 
-Roles play a pivotal role in defining distinct user profiles within Qodly. Each role corresponds to a specific set of responsibilities, privileges, and access levels. 
-
-:::note Example
-In a backoffice travel agency solution, roles like `Agent`, `Content Manager`, and `Sales Manager` define distinct user profiles, each with specific actions and operations.
-:::
+Roles are essential in defining distinct user profiles within Qodly. Each role corresponds to a specific set of privileges, and access levels (Permissions).
 
 ### Role Hierarchy  
 
-Roles are hierarchically structured, allowing for the establishment of an organized and layered access control system. This hierarchy ensures that higher-level roles encompass the **privileges** of lower-level roles, creating a seamless and efficient method of managing user access. This hierarchical access control enhances the granularity of access management, facilitating a streamlined and systematic approach.
+Roles can be structured hierarchically, allowing for an organized and layered access control system. In Qodly, higher-level roles can inherit the **privileges** of lower-level roles, creating an efficient method of managing user access. This hierarchy enhances the granularity of access management and facilitates a streamlined approach.
+
 
 ### Adding Roles  
 
-To add a role, follow these steps:
+To add a role:
 
 1. Open the `Explorer` Panel.
 2. Navigate to the `Roles and Privileges` section.
@@ -34,7 +30,7 @@ To add a role, follow these steps:
 <br/><br/>
 
 :::note Example
-In a backoffice travel agency solution, you can customize unique roles such as `Agent`, `Content Manager`, and `Sales Manager` to perfectly align with your specific application needs:
+In a back-office travel agency solution, you might create roles such as:
 
 
 |Roles          |Description|
@@ -48,11 +44,11 @@ In a backoffice travel agency solution, you can customize unique roles such as `
 
 ### Understanding Privileges  
 
-Privileges are the building blocks of access control. They define the specific technical capabilities and actions that users of different roles can perform. By assigning privileges to roles, you determine the extent of a user's access to data and functionalities. 
+Privileges define the specific permissions that users of different roles can perform. By assigning privileges to roles, you determine the extent of a user's access to data and functionalities.
 
 ### Adding Privileges  
 
-To add a privilege, follow these steps:
+To add a privilege:
 
 1. Open the `Explorer` Panel.
 2. Navigate to the `Roles and Privileges` section.
@@ -64,7 +60,7 @@ To add a privilege, follow these steps:
 <br/><br/>
 
 :::note Example
-In a backoffice travel agency solution, you can customize distinct privileges like `ManageReports`, `ManageBookings`, and `ManageContent` to align with the capabilities and actions assigned to each role."
+In a back-office travel agency solution, you might create privileges such as:
 
 |Privileges     |Description|
 |---------------|---|
@@ -77,7 +73,7 @@ In a backoffice travel agency solution, you can customize distinct privileges li
 
 Achieving the optimal synchronization of roles and privileges ensures seamless task execution for users while maintaining robust data security. 
 
-To assign one or multiple privileges to a role, follow these steps:
+To assign one or multiple privileges to a role:
 
 1. Navigate to the `Roles` tab within the `Roles and Privileges` section.
 2. Select the desired role (e.g., `Sales Manager`).
@@ -96,13 +92,13 @@ For instance, a `Sales Manager` role might possess privileges like `ManageBookin
 
 ## Assigning Roles
 
-Through the **Qodly Management Console** of your application, you can seamlessly integrate roles for users across various environments, be it `development`, `staging`, or `production` – each with its own tailored configuration. 
+Through the **Qodly Management Console** of your application, you can assign roles to users across various environments—`development`, `staging`, or `production`—each with its own configuration.
 
 :::info
-It's important to note that roles added in the development environment may not necessarily align with those in the production environment for example.
+Roles configured in the development environment may differ from those in production. It's essential to manage roles appropriately in each environment to ensure consistent access control.
 :::
 
-For instance, in the `development` environment:
+To assign a role to a user in the `development` environment:
 
 1. Go to the `Teams` tab to see a list of available users, each linked to their respective roles.
 2. Click the `Add User` button in the upper-right corner to add a new user.
@@ -112,15 +108,12 @@ For instance, in the `development` environment:
 
 <img src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
 
-The impact of these role assignments goes beyond mere user administration. As you mold your application, these roles exert a direct influence on the user journey. 
-
-:::info
-View management restrictions are just the initial step, subsequent stages will involve extending these limitations to various other aspects of interaction.
-:::
 
 ## Retrieving Current Session Information
 
-In Qodly, user information in the current session is available via `cs.Qodly.Users` class. This allows you to retrieve essential user details, such as their `email`, `role`, `first name`, and `last name`. Use the code below:
+You can retrieve user information in the current session using the `cs.Qodly.Users` class. This allows you to access essential user details, such as their email, role, first name, and last name.
+
+Here's how you can retrieve and store user data for session-wide access:
 
 ```qs
 exposed Function loadSessionUserInfo()
@@ -132,24 +125,6 @@ exposed Function loadSessionUserInfo()
 		session.storage.currentUser = userCS.getCurrentUser()
 	end
 
-    ds.User.linkAccount()
-```
-
-By utilizing the `loadSessionUserInfo()` function, fetch and store user data for session-wide access.
-
-
-On the other hand, the `linkAccount()` function links sessions and profiles, allowing extended data storage. This enhances profiles with varied information such as images, preferences, and historical data.
-
-```qs
-exposed function linkAccount()
-	if(session.storage.currentUser!=null)
-		user = this.query("email = :1", session.storage.currentUser.email).first()
-		if(user == null)
-			user = ds.User.new()
-			user.email = session.storage.currentUser.email
-			user.save()
-		end
-	end
 ```
 
 For more detailed information, refer to the [Sessions](../../language/SessionClass.md) and [Users](../../language/UsersClass.md) sections.
@@ -158,7 +133,7 @@ For more detailed information, refer to the [Sessions](../../language/SessionCla
 
 ## Roles and privileges JSON Representation
 
-In Qodly Studio, the Roles and privileges possesses a JSON representation that is useful for troubleshooting or to copy/paste selected parts.
+In Qodly Studio, roles and privileges have a JSON representation that can be useful for troubleshooting or copying selected parts.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
@@ -171,8 +146,8 @@ In Qodly Studio, the Roles and privileges possesses a JSON representation that i
 
 <br/>
 
-You can view, copy, or edit the JSON representation. 
+This allows you to view, copy, or edit the JSON representation.
 
 :::warning
-It is essential to exercise caution when editing the JSON representation, as the syntax check does not validate whether attribute names match the expected ones or if there are issues with the attribute names.
+Exercise caution when editing the JSON representation. The syntax checker does not validate whether attribute names match the expected ones or if there are issues with attribute names. Always ensure you have a backup before making changes.
 :::
