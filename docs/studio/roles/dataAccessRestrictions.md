@@ -3,35 +3,36 @@ id: overview
 title: Overview
 ---
 
-`Data Access Restrictions` establish a foundation by focusing on fundamental principles and tactics used to limit and manage access to sensitive data. In contrast, `Role-Based Access Control (RBAC)` delves into a comprehensive security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Together, these concepts create a robust system, ensuring data security and controlled user interactions.
+In the realm of data security and access control, two fundamental concepts are essential: `Data Access Restrictions` and `Role-Based Access Control (RBAC)`. Together, they form a robust system that ensures data security and controlled user interactions.
+
 
 ## Data Access Restrictions
 
-**Data Access Restrictions** are fundamental to safeguarding sensitive data's confidentiality, integrity, and availability. The implementation of Data Access Restrictions in Qodly provides numerous benefits:
+**Data Access Restrictions** are foundational to safeguarding the confidentiality, integrity, and availability of sensitive data. Implementing data access restrictions provides numerous benefits:
 
-- **Enhanced Security**: Limits data access to authorized individuals, reducing the risk of unauthorized data breaches.
+- **Enhanced Security**: Limits data access to authorized individuals, minimizing the risk of unauthorized access and data breaches.
 - **Compliance**: Ensures adherence to industry regulations and data protection laws.
 - **Customization**: Enables a tailored user experience based on roles and privilege levels.
-- **Auditability**: Facilitates tracking and monitoring of user interactions with sensitive data for security analysis.
+- **Auditability**: Facilitates tracking and monitoring of user interactions with sensitive data to support security audits and analyses.
 
 ## Role-Based Access Control (RBAC) 
 
-**Role-Based Access Control** (RBAC) is a core security model in Qodly, ensuring controlled and secure resource access. The implementation of RBAC in Qodly provides several benefits:
+**Role-Based Access Control (RBAC)** is a core security model that assigns roles and privileges to users, orchestrating a controlled environment for accessing essential resources. Implementing RBAC provides several benefits:
 
-- **Granular Access Control**: Fine-grained control over user access to resources.
-- **Simplified Management**: Streamlined access management through role assignments.
-- **Security and Compliance**: Enforces security policies and complies with data protection regulations.
+- **Granular Access Control**: Offers fine-grained control over user access to resources.
+- **Simplified Management**: Streamlines access management through role assignments.
+- **Security and Compliance**: Enforces security policies and ensures compliance with data protection regulations.
 - **Scalability**: Efficiently scales as the application grows by adding new roles and adjusting privilege assignments.
 
 ## Key Concepts 
 
-### ORDA Concepts
+### Object-Relational Data Access (ORDA)
 
 Central to Qodly's data manipulation are the principles of Object-Relational Data Access (ORDA). Data organization revolves around the DataStore and DataClasses, which serve as pivotal resources. ORDA introduces attributes and functions within classes, streamlining the data management process.
 
 ### Resources  
 
-Qodly encompasses a range of resources including the DataStore, DataClasses, Attributes, and Functions. Each of these resources has the potential for linked privileges that govern permissible actions.
+Qodly encompasses a range of resources, including the DataStore, DataClasses, Attributes, and Functions. Each of these resources can have linked privileges that govern permissible actions.
 
 |Resource           |Description|
 |---------------------|---|
@@ -44,6 +45,7 @@ Qodly encompasses a range of resources including the DataStore, DataClasses, Att
 ### Permissions
 
 Permissions define essential actions on resources, covering tasks such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
+
 
 | Permission | Datastore | Dataclass | Attribute | Function |
 |------------|-----------|-----------|-----------|----------|
@@ -58,7 +60,7 @@ Permissions define essential actions on resources, covering tasks such as creati
 
 ### Data Access Granularity Hierarchy
 
-At the core of Qodly's data security lies a well-defined granularity hierarchy that lets you control who accesses your resources and how. This hierarchy ensures that data access restrictions can be set at different levels, catering to the specific needs of your application and users. Let's explore the granularity levels in detail:
+A well-defined granularity hierarchy allows you to control who accesses your resources and how. This hierarchy ensures that data access restrictions can be set at different levels, catering to the specific needs of your application and users. Let's explore the granularity levels in detail:
 
 
 1. **DataStore Level**: This top-level granularity encompasses the entire DataStore. Permissions established here have a wide-reaching impact, influencing all resources within the DataStore.
