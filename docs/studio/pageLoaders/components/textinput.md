@@ -203,103 +203,129 @@ Retrieving user input data is equally effortless. By binding a Qodly Source to t
 
 ## Customizing Text Input Styles
 
-The **Text Input** component offers extensive customization options through CSS, enabling adjustments to the appearance of the text input elements.
+The **Text Input** component consists of embedded elements that can be styled individually to enhance appearance and usability. Below are customization details for the **HTML tags** and **HTML attributes** used in this component.
 
-### Understanding Embedded HTML Tags in Text Input
+### HTML Tags
 
-The text input component supports a variety of CSS tags, allowing the customization of the label, and input areas. Below is a list of the available CSS tags and the elements they apply to.
+The following HTML tags make up the structure of the **Text Input** component. Each tag can be individually styled to adjust its appearance and interaction.
 
-| **Tag Name**   | **Applies To**                 | **Description**                            |
-|------------------|-------------------------------|--------------------------------------------|
-| `label`        |  The embedded label element           |   Applies styles to the embedded label tag.    |
-| `input`        |  The embedded input element             |  Customizes the embedded input element.      |
+| **Tag Name** | **Applies To**              | **Description**                                                                                                            |
+|--------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `<label>`    | Container for the text label | This wraps the label text for the input field. Customizing the label with CSS can change its font size, color, and spacing, affecting its visibility and alignment relative to the input. |
+| `<span>`     | Label text inside `<label>` | Displays the actual label text. CSS changes to the span can modify text color, style, or opacity, influencing the label’s emphasis and readability.                                   |
+| `<input>`    | Field for user text entry   | The primary element where users enter data. Styling the input affects border, background, padding, and focus state, impacting its overall look, spacing, and user interaction feedback. |
 
+### HTML Attributes
 
-### Custom styling examples
-The following examples demonstrate how to customize the appearance of the Text Input component.
+HTML attributes within the **Text Input** component provide additional customization options, particularly for guiding user interactions.
 
-#### Example 1 - Blue Embedded Label
+| **Attribute Name** | **Applies To** | **Description**                                                                                                 |
+|--------------------|----------------|-----------------------------------------------------------------------------------------------------------------|
+| `placeholder`      | Input field    | Provides hint text within the input field when it is empty. Styling the placeholder can change its color, font style, and opacity, offering subtle guidance to users on what to enter. |
 
-In this example, the embedded label of the Text Input component is customized with rounded corners and shadow effects for added depth. The text color is set to dark blue for contrast, and the font family is changed to Times with medium-sized text.
+### Example 1 - Overall Component Style
+
+The `self` selector targets the entire Text Input component, allowing you to customize its size, font, and shadow effects.
 
 <Column.List align="center" justifyContent="between">
-  <Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`self label {
-        color: rgb(5, 5, 49);
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-size:medium;
-        box-shadow: 4px 4px 10px rgba(226, 228, 232, 0.9),4px 4px 10px rgba(221, 221, 232, 0.9),4px 4px 10px rgba(240, 240, 244, 0.9),4px 4px 10px rgba(227, 227, 234, 0.9);
-        border-radius: 5px;
+{`/* Main component styling*/
+self {
+    width: 20.4rem;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+    box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
+    background: none;
+    font-family: inherit;
+    color: #9a8ff8;
+}
+/* Set initial font color */
+self > :first-child{
+    display: flex;
 }`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_label_style.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/textInput_style1.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 
-#### Example 2 - Shadowed Embedded Input
+### Example 2 - Placeholder Style
 
-This example customizes the embedded input field by applying a white background and a subtle shadow effect. The width is set to 100%, ensuring it fully expands to fill the container. 
+The `self input::placeholder` selector targets the placeholder text, giving it a distinct color for clarity.
 
 <Column.List align="center" justifyContent="between">
-  <Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`self input {
-	background-color: rgb(255, 255, 255);
-	box-shadow: 4px 4px 10px rgba(229, 232, 239, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9),4px 4px 10px rgba(227, 227, 234, 0.9);
-	width: 100%;
-	margin: 2px;
-}
-`}
+{`/* Placeholder text color */
+self input::placeholder{ 
+    color: #a3a9b5; 
+}`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_input_style.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/textInput_style2.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 
-#### Example 3 - Grey Hover Effect on Embedded Input
+### Example 3 - Focus Style
 
-In this example, the embedded input is styled to change on hover. When hovered, the background color transitions to light gray, and the text color changes to dark blue.
+The `self:focus-within` selector applies when the input is focused, such as when a user clicks or types in the field, adding a visual effect to indicate that the field is active.
 
 <Column.List align="center" justifyContent="between">
-  <Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`self input:hover {
-	background-color: lightgray;
-	margin: 2px;
-	color: rgb(13, 13, 81);
-}
-`}
+{`/* Focus state styling */
+self:focus-within { 
+    color: #6d5dfc;
+    outline: none; 
+    box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+}`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_inputHovered_style.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/textInput_style3.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 
-## Showcase
+### Example 4 - Label as a Search Icon
 
-Here's a glimpse of how the **Text Input** component will look and behave in action:
-
-<img src={require('./img/textInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Turn label into a search icon */
+self label::before{
+	content: "\f002";
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: x-large;
+	color: #9baacf;
+}
+/* Change search icon color when filling data*/
+self:focus-within label::before{ 
+	color: #6d5dfc;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/textInput_style4.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+  </Column.Item>
+</Column.List>
 
 
 ## Triggers and Events
