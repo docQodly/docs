@@ -414,6 +414,27 @@ There are two primary methods for ensuring precise parameter handling:
 </Column.List>
 :::
 
+### Binding onHttpGet Functions
+
+Functions defined with the [onHttpGet](#) keyword and returning an instance of the [4D.OutgoingMessage](#) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
+
+:::info Example
+Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.
+:::
+
+#### Configuring Display Options
+
+`onHttpGet` functions include a distinct `Open In` setting to control how the `4D.OutgoingMessage` response is displayed in the browser. This setting provides three options:
+
+- **New Browser Tab**: Opens the response in a new browser tab, allowing users to view or download content like PDFs independently.
+
+- **Current Browser Tab**: Loads the content in the current tab, replacing the existing page content.
+
+- **Nowhere**: Ignores the response, preventing the browser from displaying any content, even if the function returns a 4D.OutgoingMessage instance. This option is useful for backend processing where a visible response is not required.
+
+:::tip No Result Datasource
+`onHttpGet` functions cannot store their results in a Qodly datasource. The result is handled purely through the display options in `Open In`, ensuring that the function’s output is managed directly by the browser rather than the application’s data layer.
+:::
 
 ## Binding Dialog Actions to Events
 
