@@ -186,7 +186,7 @@ The **DataTable** component offers extensive customization options through CSS, 
 
 <img src={require('./img/datatable-schema.jpg').default} style={{borderRadius: '6px'}}/>
 
-### Understanding DataTable CSS Classes
+### Component-Specific CSS Classes
 
 The DataTable component supports a range of CSS classes, allowing customization of the appearance of headers, rows, cells, and columns. Below is a detailed list of supported CSS classes and the elements they apply to.
 
@@ -228,12 +228,7 @@ The DataTable component supports a range of CSS classes, allowing customization 
 For fields associated with relationships, use a dash (`-`) instead of a dot (`.`) in class names (e.g., `.header-employer-name`).
 :::
 
-
-### Custom Styling Examples
-
-This section provides various CSS styling examples designed to create customized DataTable layouts.
-
-#### Example 1 – Blue Headers
+### Example 1 – Blue Headers
 
 This example customizes the DataTable to feature blue-colored headers with rounded borders, and shadow effects. Additionally, a soft blue background is applied to the header cells, and a light shade is used for even-numbered rows.
 
@@ -270,9 +265,7 @@ self .row-even:not(.selected):not(:hover) {
 }
 ```
 
-
-
-#### Example 2 – Green Headers
+### Example 2 – Green Headers
 
 This example customizes the DataTable to feature a green color scheme, with specific styles for even-numbered header cells.
 
@@ -305,7 +298,7 @@ self .row.selected {
 This example highlights alternating header cells with a green background and provides custom styling for selected rows.
 
 
-#### Example 3 – Dark Mode DataTable
+### Example 3 – Dark Mode DataTable
 
 This example demonstrates a dark mode design for the DataTable, where the background and text colors are adjusted for better visibility in low-light environments.
 

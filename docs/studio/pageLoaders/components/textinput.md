@@ -205,7 +205,7 @@ Retrieving user input data is equally effortless. By binding a Qodly Source to t
 
 The **Text Input** component consists of embedded elements that can be styled individually to enhance appearance and usability. Below are customization details for the **HTML tags** and **HTML attributes** used in this component.
 
-### HTML Tags
+### Component-Specific Tags
 
 The following HTML tags make up the structure of the **Text Input** component. Each tag can be individually styled to adjust its appearance and interaction.
 
@@ -215,7 +215,7 @@ The following HTML tags make up the structure of the **Text Input** component. E
 | `<span>`     | Label text inside `<label>` | Displays the actual label text. CSS changes to the span can modify text color, style, or opacity, influencing the label’s emphasis and readability.                                   |
 | `<input>`    | Field for user text entry   | The primary element where users enter data. Styling the input affects border, background, padding, and focus state, impacting its overall look, spacing, and user interaction feedback. |
 
-### HTML Attributes
+### Component-Specific Attributes
 
 HTML attributes within the **Text Input** component provide additional customization options, particularly for guiding user interactions.
 
@@ -303,20 +303,22 @@ self:focus-within {
 
 ### Example 4 - Label as a Search Icon
 
+In this example, the Text Input component’s label is positioned on the left and is visible. The `self label::before` selector is used to replace the label with a search icon, and `self:focus-within label::before` changes the icon’s color when the input is focused.
+
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
 {`/* Turn label into a search icon */
 self label::before{
-	content: "\f002";
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: x-large;
-	color: #9baacf;
+    content: "\f002";
+    ont: normal normal normal 14px/1 FontAwesome;
+    font-size: x-large;
+    color: #9baacf;
 }
 /* Change search icon color when filling data*/
 self:focus-within label::before{ 
-	color: #6d5dfc;
+    color: #6d5dfc;
 }`}
       </code>
     </pre>
