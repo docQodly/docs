@@ -7,7 +7,7 @@ import Column from '@site/src/components/Column'
 Qodly is a groundbreaking hybrid **low-code** application development platform that redefines how you build applications. With Qodly, you'll find yourself needing only a minimal amount of code, and sometimes, no code at all. It's as simple as designing your application, and Qodly Studio takes care of generating all the necessary code on your behalf.
 
 
-While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](pageLoaders/events.md) in combination with class functions to effectively manage the intricacies of your web application.
+While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](pageLoaders/events/bindingActionToEvents.md) in combination with class functions to effectively manage the intricacies of your web application.
 
 
 ## Coding Structures

@@ -95,7 +95,15 @@ const sidebars = {
 				'studio/pageLoaders/templates',
 				'studio/pageLoaders/date-time-formats',
 				'studio/pageLoaders/qodlySources',
-				'studio/pageLoaders/events',
+				{
+					type: 'category',
+					label: 'Events',
+					items: [
+						'studio/pageLoaders/events/overview',
+						'studio/pageLoaders/events/eventsManagement',
+						'studio/pageLoaders/events/bindingActionToEvents',
+					],
+				},
 				{
 					type: 'category',
 					label: 'States',
