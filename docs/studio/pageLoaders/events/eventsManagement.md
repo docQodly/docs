@@ -11,17 +11,17 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](./pageLoaderOverview#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](./qodlySources#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](./qodlySources#from-this-page) area.
+1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](../pageLoaderOverview#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](../qodlySources#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](../qodlySources#from-this-page) area.
 
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or qodlysource.
 
 
 3. **Bind the Desired Action to the Event**: Next, select the type of action <img src={require('./img/events_actions.png').default} style={{borderRadius: '6px', width: '13%'}} /> you wish to bind to the event. You have three options:
 
-    - [Standard Action](#binding-standard-actions-to-events): Configure automatic actions on qodlysources, such as create, save, drop, or order by, without the need for coding.
-    - [Navigation Action](#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
-    - [Class Function](#binding-class-functions-to-events): Use a custom function to handle the event.
-    - [Dialog Action](#binding-dialog-actions-to-events): Configure to trigger dialog-related events. 
+    - [Standard Action](./bindingActionToEvents.md#binding-standard-actions-to-events): Configure automatic actions on qodlysources, such as create, save, drop, or order by, without the need for coding.
+    - [Navigation Action](./bindingActionToEvents.md#binding-navigation-actions-to-events): Set up actions related to navigation within the application, such as opening another page or redirecting to an external URL.
+    - [Class Function](./bindingActionToEvents.md#binding-class-functions-to-events): Use a custom function to handle the event.
+    - [Dialog Action](./bindingActionToEvents.md#binding-dialog-actions-to-events): Configure to trigger dialog-related events. 
 
 4. **Action Bound to Event**: In the list of available events, you will notice a purple bullet <img src={require('./img/events_purpleBullet.png').default} style={{borderRadius: '6px', width: '22%'}} /> displayed on the left side of events that have already been configured (if any).
 
@@ -185,7 +185,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -196,7 +196,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -207,7 +207,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../orda/data-model#entity-class">entity class functions</a> and <a href="../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
+            <li>Exposed <a href="../../../orda/data-model#entity-class">entity class functions</a> and <a href="../../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -219,7 +219,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../language/basics/lang-classes#singleton-classes">singleton class functions</a>, distinguished by the <code>Page</code> keyword.</li>
+            <li>Exposed <a href="../../../language/basics/lang-classes#singleton-classes">singleton class functions</a>, distinguished by the <code>Page</code> keyword.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
