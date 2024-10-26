@@ -420,17 +420,44 @@ Functions defined with the [onHttpGet](#) keyword and returning an instance of t
 
 :::info Example
 Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.
+
+```qs
+exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMessage
+    var manual : 4D.File
+    var response : 4D.OutgoingMessage = 4D.OutgoingMessage.new()
+
+    // Specify the file location based on the product name
+    manual = file("/SOURCES/Shared/" + productName + ".pdf")
+
+    // Set the file content as the body of the outgoing message
+    response.setBody(manual.getContent())
+        
+    // Set the appropriate Content-Type for a PDF
+    response.setHeader("Content-Type", "application/pdf")
+    
+    // Return the constructed response
+    return response
+```
 :::
 
 #### Configuring Display Options
 
 `onHttpGet` functions include a distinct `Open In` setting to control how the `4D.OutgoingMessage` response is displayed in the browser. This setting provides three options:
 
-- **New Browser Tab**: Opens the response in a new browser tab, allowing users to view or download content like PDFs independently.
-
-- **Current Browser Tab**: Loads the content in the current tab, replacing the existing page content.
-
-- **Nowhere**: Ignores the response, preventing the browser from displaying any content, even if the function returns a 4D.OutgoingMessage instance. This option is useful for backend processing where a visible response is not required.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li><strong>New Browser Tab</strong>: Opens the response in a new browser tab, allowing users to view or download content like PDFs independently.</li>
+            <br/>
+            <li><strong>Current Browser Tab</strong>: Loads the content in the current tab, replacing the existing page content.</li>
+            <br/>
+            <li><strong>Nowhere</strong>: Ignores the response, preventing the browser from displaying any content, even if the function returns a 4D.OutgoingMessage instance. This option is useful for backend processing where a visible response is not required.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+        <img src={require('./img/bindingonHttpGet.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 :::tip No Result Datasource
 `onHttpGet` functions cannot store their results in a Qodly datasource. The result is handled purely through the display options in `Open In`, ensuring that the function’s output is managed directly by the browser rather than the application’s data layer.
