@@ -74,7 +74,7 @@ This function does nothing if:
 
 If you [enable](#enablestate) or disable several states in the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on Page states, please refer to the [States](../studio/pageLoaders/states.md) section.
+For more information on Page states, please refer to the [States](../studio/pageLoaders/states/stateOverview.md) section.
 
 
 
@@ -100,7 +100,7 @@ This function does nothing if:
 
 If you enable or [disable](#disablestate) several states within the same user function, all modifications are sent at the same time to the client once the function ends.
 
-For more information on Page states, please refer to the [States](../studio/pageLoaders/states.md) section.
+For more information on Page states, please refer to the [States](../studio/pageLoaders/states/stateOverview.md) section.
 
 
 

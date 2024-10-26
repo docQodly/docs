@@ -100,9 +100,9 @@ const sidebars = {
 					type: 'category',
 					label: 'States',
 					items: [
-						'studio/pageLoaders/stateOverview',
-						'studio/pageLoaders/states',
-						'studio/pageLoaders/conditionalStates',
+						'studio/pageLoaders/states/stateOverview',
+						'studio/pageLoaders/states/nonConditionalState',
+						'studio/pageLoaders/states/conditionalState',
 					],
 				},
 				'studio/pageLoaders/styling',

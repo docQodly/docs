@@ -37,7 +37,7 @@ Importantly, Non-Conditional States do not allow any sort of binding (e.g., func
 :::
 
 :::tip
-For additional details on how to implement Non-Conditional States, please refer to the [Non-Conditional States](./states) section.
+For additional details on how to implement Non-Conditional States, please refer to the [Non-Conditional States](nonConditionalState) section.
 :::
 
 ### Key Characteristics:
@@ -86,7 +86,7 @@ Once a condition is associated with a state, it becomes a `Conditional` state. A
 :::
 
 :::tip
-For additional details on how to implement Conditional States, please refer to the [Conditional States](./conditionalStates) section.
+For additional details on how to implement Conditional States, please refer to the [Conditional States](conditionalState) section.
 :::
 
 ### Key Characteristics

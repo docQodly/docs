@@ -1,5 +1,5 @@
 ---
-id: conditionalStates
+id: conditionalState
 title: Conditional States
 ---
 
