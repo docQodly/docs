@@ -554,7 +554,7 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 
 ## Conditional State Lifecycle
 
-Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../rendering#pagerenderer-lifecycle):
+Conditional states are primarily applied during the Rendering and Post-Render Updates phases of the [Page/Renderer lifecycle](../../rendering.md#pagerenderer-lifecycle):
 
 1. **Rendering Phase**: 
 

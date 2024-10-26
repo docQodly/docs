@@ -193,8 +193,8 @@ To set up a navigation action after linking it with an event, proceed as follows
             <ul>
                 <li> <code>New Tab</code>: Induce the opening of a new browser tab.</li>
                 <li> <code>Current Tab</code>: Replace the ongoing browser tab with the chosen Page.</li>
-                <li> <code>Page Loader</code>: Access the intended Page through a dedicated <a href="components/pageloader">Page loader</a>.</li>
-                <li> <code>Page Loader (Self)</code>: Reveals content within the existing <a href="components/pageloader">Page loader</a></li>.
+                <li> <code>Page Loader</code>: Access the intended Page through a dedicated <a href="../components/pageloader">Page loader</a>.</li>
+                <li> <code>Page Loader (Self)</code>: Reveals content within the existing <a href="../components/pageloader">Page loader</a></li>.
             </ul>
         </Column.Item>
         <Column.Item width="40%">

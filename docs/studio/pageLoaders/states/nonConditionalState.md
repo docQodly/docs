@@ -206,7 +206,7 @@ The `Base` state and `Conditional` states, however, are not included among these
 :::
 
 :::tip
-The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../language/WebFormClass#enablestate) is called several times with different states).
+The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../../language/WebFormClass#enablestate) is called several times with different states).
 :::
 
 :::warning
@@ -218,8 +218,8 @@ If a state is initially "Non-Conditional" but later transitions to a "Conditiona
 
 In addition to the standard actions, Page object exposes several states related functions with error handling for "Conditional" states, like:
 
-- [`WebForm.enableState`](../../language/WebFormClass#enablestate): Applies the differences from selected states to the current Page.
-- [`WebForm.disableState`](../../language/WebFormClass#disablestate): Removes the applied differences from the Page.
+- [`WebForm.enableState`](../../../language/WebFormClass#enablestate): Applies the differences from selected states to the current Page.
+- [`WebForm.disableState`](../../../language/WebFormClass#disablestate): Removes the applied differences from the Page.
 
 :::info
 These functions are designed to target only "Non-Conditional" states. In the event a "Conditional" state is used, the function will either return an error or not execute any action.
