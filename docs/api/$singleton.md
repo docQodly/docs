@@ -49,7 +49,7 @@ with data in the body of the POST request: `["myparam"]`
 
 :::note
 
-The `SingletonClassFunction()` function must have been declared with the `onHttpGet` keyword to be callable with `GET` (see [Function configuration](ClassFunctions#function-configuration)). 
+The `SingletonClassFunction()` function must have been declared with the `onHttpGet` keyword to be callable with `GET` (see [function prerequisites](classFunctionsOverview.md#prerequisites)). 
 
 :::
 
