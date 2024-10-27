@@ -65,6 +65,55 @@ Within the <strong>Button</strong> component, an embedded <strong>Icon</strong> 
 
 When it comes to data-binding, it's important to note that the **Button** component itself is not inherently data-bound. Unlike components like the **DataTable** that derive their content from specified Qodly Sources, the **Button** component primarily focuses on initiating actions and interactions within the user interface.
 
+## Customizing Button Styles
+
+### Example 1 - Overall Component Style
+
+The `self` selector targets the entire Button component, allowing you to customize its size, shape, and appearance with background color and shadows.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Main component styling*/
+self {
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background: #6d5dfc;
+    box-shadow:inset .2rem .2rem 1rem #8abdff, inset -.2rem -.2rem 1rem #5b0eeb, 0rem 0rem 1rem #c8d0e7, 0rem 0rem 0.5rem #FFFFFF;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/button_style1.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+### Example 2 - Active Button Style
+
+The `self:active` selector applies when the button is actively pressed or clicked, providing visual feedback with a change in shadow effect to simulate a "pressed-in" appearance.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Button active (pressed) styling */
+self:active{
+    box-shadow:inset .2rem .2rem 1rem #5b0eeb, inset -.2rem -.2rem 1rem #8abdff;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/button_style2.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
 
 ## Triggers and Events
 

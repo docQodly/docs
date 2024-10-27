@@ -253,7 +253,7 @@ self > :first-child{
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_style1.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+      src={require('./img/textInput_style1.png').default} style={{ borderRadius: '6px' }}/>
   </Column.Item>
 </Column.List>
 
@@ -274,7 +274,7 @@ self input::placeholder{
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_style2.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+      src={require('./img/textInput_style2.png').default} style={{ borderRadius: '6px' }}/>
   </Column.Item>
 </Column.List>
 
@@ -297,7 +297,7 @@ self:focus-within {
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_style3.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+      src={require('./img/textInput_style3.png').default} style={{ borderRadius: '6px' }}/>
   </Column.Item>
 </Column.List>
 
@@ -311,8 +311,8 @@ In this example, the Text Input component’s label is positioned on the left an
       <code className="language-css">
 {`/* Turn label into a search icon */
 self label::before{
-    content: "\f002";
-    ont: normal normal normal 14px/1 FontAwesome;
+    content: "\\f002";
+    font: normal normal normal 14px/1 FontAwesome;
     font-size: x-large;
     color: #9baacf;
 }
@@ -325,7 +325,7 @@ self:focus-within label::before{
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/textInput_style4.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+      src={require('./img/textInput_style4.png').default} style={{ borderRadius: '6px' }}/>
   </Column.Item>
 </Column.List>
 
