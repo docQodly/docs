@@ -148,7 +148,7 @@ If an [error-handling method](#installing-an-error-handling-method) is installed
 
 ```qs
 var text : string
-var file : 4D.File = file("/RESOURCES/myFile.txt")
+var file : 4D.File = file("/SOURCES/Shared/myFile.txt")
 var fileHandle : 4D.FileHandle = try(file.open())
 if (fileHandle != null)
   text = try(fileHandle.readText()) || "Error reading the file"

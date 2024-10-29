@@ -162,7 +162,7 @@ function createCompany(name : string, logo : 4D.File)
 		//assignment using a file object
 	company.logo = logo
 		//assignment using a path
-	company.datablob = "/RESOURCES/"+$name+"/data.bin"
+	company.datablob = "/SOURCES/Shared/"+$name+"/data.bin"
 	company.save()
 ```
 

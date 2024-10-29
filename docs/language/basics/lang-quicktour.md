@@ -121,7 +121,7 @@ When you call a method, you just type its name:
 ```qs
 myText = "hello"
 myText = Do_Something(myText) //Call the Do_Something method
-file("/RESOURCES/Hello.txt").setText(myText) //writes "HELLO"
+file("/SOURCES/Shared/Hello.txt").setText(myText) //writes "HELLO"
  
   //code of the method Do_Something  
 declare ( input : string) -> output : string 

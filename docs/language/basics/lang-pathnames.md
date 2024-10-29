@@ -6,7 +6,7 @@ title: Pathnames
 File and folder functions, properties, and commands allow you to handle files and folders as objects. This makes file and folder management powerful and flexible. For example, to create a new file in the resources folder, you can write:
 
 ```qs
-ok = file("/RESOURCES/Archives/JohnQ.prefs").create()
+ok = file("/SOURCES/Shared/Archives/JohnQ.prefs").create()
 ```
 
 File and folder objects support `fileSystem pathnames`, which provide contextual path to main application folders.
@@ -43,7 +43,7 @@ In POSIX syntax, you will generally use `filesystem` pathnames with [`file`](../
 
 ```qs
 pathFile = file("/DATA/Archives/file 2.txt")
-pathFolder = folder("/RESOURCES/Pictures")
+pathFolder = folder("/SOURCES/Shared/Pictures")
 ```
 
 

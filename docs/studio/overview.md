@@ -49,9 +49,9 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
     - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview#overview): Serve as containers, enveloping various components within your application. 
     - ![qodlyOverview](./img/overview_methods&Func.png) [Methods](./coding#methods): Function as distinct blocks of code that fulfill specific roles within your application. While they can be invoked from class functions or other methods, components can't directly interact with them.
     - ![qodlyOverview](./img/overview_methods&Func.png) [Classes](./coding#classes): Serve as the cornerstone for organizing your code around objects, granting components the capability to directly interact with them.
-    - ![qodlyOverview](./img/overview_shared.png) Shared: Streamline the management and integration of local images and files within your app.
+    - ![qodlyOverview](./img/overview_shared.png) Shared: Use this folder to store any contents (local images, downloadable files...) you might need within your app. The contents of this folder can be accessed from Qodyy pages using the [`/$shared` link](pageLoaders/events/bindingActionToEvents.md#shared-folder) or from the QodlyScript language using the [`/SOURCES/Shared`](../language/basics/lang-pathnames.md#filesystem-pathnames) file path.
     - ![qodlyOverview](./img/overview_debugger.png) [Debugger](./debugging.md): Provides a suite of debugging tools that address different types of errors during the development phase.
-    - ![qodlyOverview](./img/overview_roles.png) [Roles And Privileges](./roles/rolesPrivilegesOverview.md): Play a pivotal role in enforcing data access restrictions within your application, ensuring that the right users access the right data.
+    - ![qodlyOverview](./img/overview_roles.png) [Roles And Privileges](./roles/rolesPrivilegesOverview.md): Plays a pivotal role in enforcing data access restrictions within your application, ensuring that the right users access the right data.
     - ![qodlyOverview](./img/overview_model.png) [Model](./model/model-editor-interface.md): Defines how data is accessed and stored within structures referred to as datastore classes.
     - ![qodlyOverview](./img/overview_settings.png) [Settings](./settings.md): Offer options to configure application-specific settings.
 

@@ -918,7 +918,7 @@ extends DataClass
 
 exposed onHTTPGet function getThumbnail(name : string, width : integer, height : integer) : 4D.OutgoingMessage
 	
-	var fileRef = file("/RESOURCES/Images/"+name+".jpg")
+	var fileRef = file("/SOURCES/Shared/Images/"+name+".jpg")
 	var blob = fileRef.getContent()
 	blobToPicture(blob,image)
 

@@ -22,7 +22,7 @@ extends DataStoreImplementation
 exposed onHTTPGet function getFile() : 4D.OutgoingMessage
 	
 	var result = 4D.OutgoingMessage.new()
-	var vfile = file("/RESOURCES/testFile.pdf")
+	var vfile = file("/SOURCES/Shared/testFile.pdf")
 	
 	result.setBody(vfile.getContent())  
 	result.setHeader("Content-Type", "application/pdf")

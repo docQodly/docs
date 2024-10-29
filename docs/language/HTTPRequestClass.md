@@ -251,7 +251,7 @@ HTTP itself is a stateless communication protocol. Within this framework, client
 #### Example 
 
 ```qs
-var request : string=file("/RESOURCES/HTTPrequest.txt").getText()
+var request : string=file("/SOURCES/Shared/HTTPrequest.txt").getText()
 var parsedMessage : object=httpParseMessage(request)
 //parsedMessage= {
 //headers:{"User-Agent":"XX/20.4.0",...},

@@ -350,7 +350,7 @@ exposed onHTTPGet function getUserManual(productId : integer, type : string) : 4
   
 var vfile : 4D.File
 var response = 4D.OutgoingMessage.new()
-var doc = "/RESOURCES/User manuals/product_" + string(productId)
+var doc = "/SOURCES/Shared/User manuals/product_" + string(productId)
 
 switch 
   : (type == "pdf")
@@ -384,7 +384,7 @@ exposed onHTTPGet function getUserManual(product : cs.ProductEntity) : 4D.Outgoi
   var vfile : 4D.File
   var response = 4D.OutgoingMessage.new()
   
-  vfile = file("/RESOURCES/User manuals/"+product.name+".pdf")
+  vfile = file("/SOURCES/Shared/User manuals/"+product.name+".pdf")
   response.setBody(vfile.getContent())
   response.setHeader("Content-Type", "application/pdf")
   
