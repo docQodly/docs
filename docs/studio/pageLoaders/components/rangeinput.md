@@ -210,6 +210,7 @@ self .fd-slidercontainer{
     cursor: pointer;
     box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
     border-radius: 1rem;
+    padding: 0 !important;
 }`}
       </code>
     </pre>
@@ -338,6 +339,10 @@ self .chakra-slider__thumb[data-active]::after {
 
 In this example, the Range Input component is transformed into a star rating system using Unicode stars. The `self::before` selector creates an empty star display, and conditional styles fill in stars based on the slider’s current value.
 
+:::tip
+To adjust the size of stars, select the component and modify its size.
+:::
+
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
@@ -349,8 +354,10 @@ self::before {
 }
 /* Hide the slider but keep functionality */
 self .fd-slidercontainer{
-	position: absolute !important;
-	opacity: 0;
+  position: absolute !important;
+  opacity: 0;
+  width: 130px;
+  padding: 0;
 }
 /* Fill the stars based on the 'aria-valuenow' attribute */
 self:has([aria-valuenow="1"])::before{

@@ -231,20 +231,19 @@ The `self` selector targets the entire Text Input component, allowing you to cus
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`/* Main component styling*/
-self {
+{`/* Input tag styling*/
+self input{
     width: 20.4rem;
     height: 4rem;
-    border: none;
     border-radius: 1rem;
     font-size: 1.4rem;
-    padding-left: 1.4rem;
     box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
     background: none;
     font-family: inherit;
     color: #9a8ff8;
+    border: 0 !important;
 }
-/* Set initial font color */
+/* Layout adjustment to display the first child element as a flex container */
 self > :first-child{
     display: flex;
 }`}
@@ -286,11 +285,11 @@ The `self:focus-within` selector applies when the input is focused, such as when
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`/* Focus state styling */
-self:focus-within { 
-    color: #6d5dfc;
+{`/* Focus state styling for the input tag */
+self input:focus-within { 
     outline: none; 
     box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+    color: #6d5dfc;
 }`}
       </code>
     </pre>
@@ -301,22 +300,59 @@ self:focus-within {
   </Column.Item>
 </Column.List>
 
-### Example 4 - Label as a Search Icon
+### Example 4 - Label as a Search Icon Inside the Text Input Field
 
 In this example, the Text Input component’s label is positioned on the left and is visible. The `self label::before` selector is used to replace the label with a search icon, and `self:focus-within label::before` changes the icon’s color when the input is focused.
+
+:::tip
+Make sure that the label text is empty so that you won’t have an icon next to the text label you put.
+:::
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
-      <code className="language-css">
-{`/* Turn label into a search icon */
+      <code className="language-css longCode-block">
+{`/* Main component styling*/
+self {
+    width: 20.4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
+    background: none;
+    font-family: inherit;
+	padding-left: 1.4rem;
+}
+/* Input tag styling*/
+self input{
+	color: #9a8ff8;
+	border: 0 !important;
+}
+/* Layout adjustment to display the first child element as a flex container */
+self > :first-child{
+    display: flex;
+}
+/* Placeholder text color */
+self input::placeholder{ 
+    color: #a3a9b5; 
+}
+/* Focus state styling for the main component */
+self:focus-within { 
+    outline: none; 
+    box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+}
+/* Focus state styling for input text color */
+self input:focus-within { 
+    color: #6d5dfc;
+}
+/* Adds an icon before the label text */
 self label::before{
-    content: "\\f002";
+    content: "\f002";
     font: normal normal normal 14px/1 FontAwesome;
     font-size: x-large;
     color: #9baacf;
 }
-/* Change search icon color when filling data*/
+/* Changes the search icon color when the input is in focus */
 self:focus-within label::before{ 
     color: #6d5dfc;
 }`}
