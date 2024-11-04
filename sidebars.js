@@ -535,12 +535,19 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
-				'notes/v1.0.0',
-				'notes/v1.0.0-beta.5',
-				'notes/v1.0.0-beta.4',
-				'notes/v1.0.0-beta.3',
-				'notes/v1.0.0-beta.2',
-				'notes/v1.0.0-beta.1'
+				'notes/1.0.0',
+				{
+					type: 'category',
+					label: 'Archives',
+					collapsed: true,
+					items: [
+						'notes/v1.0.0-beta.5',
+						'notes/v1.0.0-beta.4',
+						'notes/v1.0.0-beta.3',
+						'notes/v1.0.0-beta.2',
+						'notes/v1.0.0-beta.1'
+					],
+				},
 			],
 		},
 	],
