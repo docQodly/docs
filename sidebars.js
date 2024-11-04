@@ -536,12 +536,7 @@ const sidebars = {
 			collapsed: false,
 			items: [
 
-						'notes/v1.0.0-beta.6',
-						'notes/v1.0.0-beta.5',
-						'notes/v1.0.0-beta.4',
-						'notes/v1.0.0-beta.3',
-						'notes/v1.0.0-beta.2',
-						'notes/v1.0.0-beta.1'
+						'notes/1.0.0'
 					],
 		},
 	],
