@@ -25,7 +25,7 @@ In the *process* parameter, you can specify the worker using its process name or
 - If you pass the number of a process that does not exist, or if the process specified was not created by `callWorker`, `callWorker` does nothing.
 - If you pass the name of a process that does not exist, a new worker process is created.
 
-The worker process is returned by the [`processProperties`](processProperties.md) command when applied to this process.
+The worker process is returned by the [`processInfo`](processInfo.md) command when applied to this process.
 
 In *formula*, you designate the code to execute in the context of the worker process. You can pass either:
 

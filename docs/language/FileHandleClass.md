@@ -243,7 +243,7 @@ When a file handle is created, the `.offset` value is a number of bytes. However
 var vFileHandle : 4D.File
 var vBlob : 4D.Blob
 var vString : string
-vFileHandle = file("/RESOURCES/sample_utf_16.txt").open()
+vFileHandle = file("/SOURCES/Shared/sample_utf_16.txt").open()
   // read the 20 first bytes (i.e. 10 characters)
 vBlob = vFileHandle.readBlob(20) // vFileHandle.offset=20
   // then read all text skipping the first 10 characters we just read in previous blob

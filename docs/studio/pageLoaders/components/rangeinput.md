@@ -13,7 +13,6 @@ The **Range Input** component contains embedded elements: **Slider Container**, 
 :::
 
 
-
 ## Use Cases
 
 **Range Input** component can be applied in various scenarios:
@@ -155,12 +154,241 @@ Interacting with user input data is straightforward. When you bind a qodlysource
 
 Subsequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 
+## Customizing Range Input Styles
 
-## Showcase
+The **Range Input** component provides additional customization options through CSS, allowing for a personalized appearance of its elements.
 
-Here's a glimpse of how the **Range Input** component will look and behave in action:
+### Component-Specific Classes
 
-<img src={require('./img/rangeInput_Preview.gif').default} style={{borderRadius: '6px', height: '90%', width: '90%'}} />
+The following CSS classes are applied to elements within the **Range Input** component, defining their layout, style, and responsive behavior. Each class can be customized to adjust the look and functionality of specific parts of the component.
+
+| **Class Name**            | **Applies To**              | **Description**                                                                                                            |
+|---------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `fd-slidercontainer`      | Slider container            | Wrapper around the slider track and thumb, controlling padding and spacing between these elements.                         |
+| `fd-slider`               | Main slider container       | Defines the main structure of the slider component, setting up basic layout and responsiveness.                           |
+| `chakra-slider`           | Main slider element         | Provides styling and positioning for the main slider element, including adjustments for focus and user interaction.        |
+| `chakra-slider__track`    | Slider track                | Styles the visible slider track, controlling background color, height, and positioning of the track element.              |
+| `chakra-slider__thumb`    | Slider thumb                | Styles the draggable thumb, setting properties like size, color, and border radius for the thumb.                         |
+
+### Component-Specific Tags
+
+The following HTML tags make up the structure of the **Range Input** component. Each tag can be styled individually to adjust its appearance and interaction.
+
+| **Tag Name**       | **Applies To**                      | **Description**                                                                                                            |
+|--------------------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `<label>`          | Container for the range label      | Wraps the label text for the range input. Customizing the label with CSS can change its font size, color, and spacing, impacting its position and alignment relative to the slider. |
+
+### Component-Specific Attributes
+
+HTML attributes within the **Range Input** component provide additional customization options, particularly for managing slider interactions and value display.
+
+| **Attribute Name**  | **Applies To**                 | **Description**                                                                                                            |
+|---------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `aria-valuemin`     | Slider thumb                   | Sets the minimum value allowed on the range input.                                                                         |
+| `aria-valuemax`     | Slider thumb                   | Sets the maximum value allowed on the range input.                                                                         |
+| `aria-valuenow`     | Slider thumb                   | Indicates the current value of the slider thumb.                                                                           |
+| `aria-orientation`  | Slider thumb                   | Specifies the orientation (horizontal or vertical) of the slider.                                                          |
+| `tabindex`          | Slider thumb                   | Manages keyboard navigation to make the slider thumb focusable.                                                            |
+
+There is also the `data-cy` attributes that provide clear and consistent identifiers, ensuring that specific elements within the **Range Input** component can be reliably targeted and interacted with.
+
+| **Attribute Name**   | **Value** | **Applies To**                  | **Description**                                                                                                            |
+|----------------------|----------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `data-cy` | `data-cy="cypress_slider_filled_track"` | Filled track | Identifies the portion of the track that fills as the slider is moved, often used in testing to confirm the value range.   |
+
+### Example 1 - Slider Container
+
+The `self .fd-slidercontainer` selector targets the main container for the slider, allowing customization of its size, cursor style, and shadow effect.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Slider container styling */
+self .fd-slidercontainer{
+    width: 100%;
+    cursor: pointer;
+    box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
+    border-radius: 1rem;
+    padding: 0 !important;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style1.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+
+### Example 2 - Slider Track
+
+The `self .chakra-slider__track` selector styles the slider track, adjusting its height, border radius, and background.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Slider track styling */
+self .chakra-slider__track{
+    height: 100%;
+    border-radius: 1rem;
+    background: none;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style2.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+
+### Example 3 - Filled Track
+
+The `self [data-cy="cypress_slider_filled_track"]` or the `self .chakra-slider__track > :first-child` selector targets the filled portion of the slider track, applying a gradient color that visually indicates the current slider value.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Filled track styling */
+self [data-cy="cypress_slider_filled_track"]{      
+    background: linear-gradient(-1deg, #5b0eeb 0%, #6d5dfc 50%, #8abdff 100%);
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style3.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+
+### Example 4 - Slider Thumb
+
+The `self .chakra-slider__thumb` selector customizes the thumb of the slider, adjusting its size, shape, and shadow effect, and the `self .chakra-slider__thumb::after` selector adds a smaller inner circle to the thumb, creating a layered effect with additional shadows.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Slider thumb styling */
+self .chakra-slider__thumb{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px .1rem .3rem 0px #bec8e4;
+}
+/* Inner circle for slider thumb */
+self .chakra-slider__thumb::after {
+    content: '';
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style4.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+### Example 5 - Slider Thumb Tooltip
+
+The `self .chakra-slider__thumb[data-active]::after` selector creates a tooltip that displays the current slider value above the thumb when active.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Slider thumb tooltip styling */
+self .chakra-slider__thumb[data-active]::after {
+    content: attr(aria-valuenow) '%';
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 3rem;
+    border-radius: .6rem;
+    font-size: medium;
+    color: #6d5dfc;
+    box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+    opacity: 1;
+    transition: opacity .3s ease;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style5.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
+### Example 6 - Star Rating
+
+In this example, the Range Input component is transformed into a star rating system using Unicode stars. The `self::before` selector creates an empty star display, and conditional styles fill in stars based on the slider’s current value.
+
+:::tip
+To adjust the size of stars, select the component and modify its size.
+:::
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Create the empty stars */
+self::before {
+  content: "\\2606 \\2606 \\2606 \\2606 \\2606"; /* Unicode representation of empty star */
+  color: #ccc; 
+}
+/* Hide the slider but keep functionality */
+self .fd-slidercontainer{
+  position: absolute !important;
+  opacity: 0;
+  width: 130px;
+  padding: 0;
+}
+/* Fill the stars based on the 'aria-valuenow' attribute */
+self:has([aria-valuenow="1"])::before{
+  content: "\\2605 \\2606 \\2606 \\2606 \\2606"; 
+  color: #6d5dfc;
+}
+self:has([aria-valuenow="2"])::before{
+	content: "\\2605 \\2605 \\2606 \\2606 \\2606"; 
+  color: #6d5dfc;
+}
+self:has([aria-valuenow="3"])::before{
+  content: "\\2605 \\2605 \\2605 \\2606 \\2606"; 
+  color: #6d5dfc;
+}
+self:has([aria-valuenow="4"])::before{
+  content: "\\2605 \\2605 \\2605 \\2605 \\2606"; 
+  color: #6d5dfc;
+}
+self:has([aria-valuenow="5"])::before{
+  content: "\\2605 \\2605 \\2605 \\2605 \\2605"; 
+  color: #6d5dfc;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/rangeInput_style6.png').default} style={{ borderRadius: '6px' }}/>
+  </Column.Item>
+</Column.List>
+
 
 ## Triggers and Events
 

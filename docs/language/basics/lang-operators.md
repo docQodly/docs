@@ -42,7 +42,6 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 - [**Time operators**](lang-time.md#time-operators)
 - [**Number operators**](lang-number.md#numeric-operators)
 - [**Bitwise operators**](lang-number.md#bitwise-operators) (on **integer** expressions)
-- [**Picture operators**](lang-picture.md#picture-operators)
 - [**String operators**](lang-text.md#string-operators)
 - [**Null operators**](lang-null-undefined.md#null-operators)
 - [**Undefined operators**](lang-null-undefined.md#undefined-operators)
@@ -50,11 +49,11 @@ Operator results depend on the **data types** they are applied to. QodlyScript s
 
 ## Compound assignment operators
 
-QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+ = `):
+QodlyScript provides **compound assignment operators** that combine assignment with another operation. One example is the addition assignment operator (`+= `):
 
 ```qs
 a = 1 
-a+ = 2 // a = 3
+a += 2 // a = 3
 ```
 
 
@@ -62,32 +61,32 @@ The following compound assignment operators are supported:
 
 |Operator|Syntax|Assigns|Example
 |---|---|---|---|
-|Addition|Text + =  Text|Text|`t+ = " World"  //t = t+" World"`|
-||Number + =  Number |Number|`n+ = 5 //n = n+5`|
-||Date + =  Number |Date|`d+ = 5 //d = d+5`|
-||Time + =  Time |Time|`t1+ = t2 //t1 = t1+t2`|
-||Time + =  Number |Number |`t1+ = 5 //t1 = t1+5`|
-||Picture + =  Picture|Picture|`p1+ = p2 //p1 = p1+p2 (add p2 to the right of p1)`|
-||Picture + =  Number|Picture|`p1+ = 5 //p1 = p1+5 (move p1 horizontally 5 pixels to the right)`|
-|Subtraction|Number - =  Number |Number|`n- = 5 //n = n-5`|
-||Date - =  Number |Date|`d- = 5 //d = d-5`|
-||Time - =  Time |Time|`t1- = t2 //t1 = t1-t2`|
-||Time - =  Number |Number |`t1- = 5 //t1 = t1-5`|
-||Picture - =  Number|Picture|`p1- = 5 //p1 = p1-5 (move p1 horizontally 5 pixels to the left)`|
-|Division|Number / =  Number |Number|`n/ = 5 //n = n/5`|
-||Time / =  Time |Time|`t1/ = t2 //t1 = t1/t2`|
-||Time / =  Number |Number |`t1/ = 5 //t1 = t1/5`|
-||Picture / =  Picture|Picture|`p1/ = p2 //p1 = p1/p2 (add p2 to the bottom of p1)`|
-||Picture / =  Number|Picture|`p1/ = 5 //p1 = p1/5 (move p1 vertically 5 pixels)`|
-|Multiplication|Text * =  Number |Text|`t* = "abc"  //t = t*"abc"`|
-||Number * =  Number |Number|`n* = 5 //n = n*5`|
-||Time * =  Time |Time|`t1* = t2 //t1 = t1*t2`|
-||Time * =  Number |Number |`t1* = 5 //t1 = t1*5`|
-||Picture * =  Number|Picture|`p1* = 5 //p1 = p1*5 (resize p1 by 5)`|
+|Addition|Text +=  Text|Text|`t += " World"  //t = t + " World"`|
+||Number +=  Number |Number|`n += 5 //n = n + 5`|
+||Date +=  Number |Date|`d += 5 //d = d + 5`|
+||Time +=  Time |Time|`t1 += t2 //t1 = t1 + t2`|
+||Time +=  Number |Number |`t1 += 5 //t1 = t1 + 5`|
+||Picture +=  Picture|Picture|`p1 += p2 //p1 = p1 + p2 (add p2 to the right of p1)`|
+||Picture +=  Number|Picture|`p1 += 5 //p1 = p1 + 5 (move p1 horizontally 5 pixels to the right)`|
+|Subtraction|Number -=  Number |Number|`n -= 5 //n = n - 5`|
+||Date -=  Number |Date|`d -= 5 //d = d - 5`|
+||Time -=  Time |Time|`t1 -= t2 //t1 = t1 - t2`|
+||Time -=  Number |Number |`t1 -= 5 //t1 = t1 - 5`|
+||Picture -=  Number|Picture|`p1 -= 5 //p1 = p1 - 5 (move p1 horizontally 5 pixels to the left)`|
+|Division|Number /=  Number |Number|`n /= 5 //n = n/5`|
+||Time /=  Time |Time|`t1 /= t2 //t1 = t1/t2`|
+||Time /=  Number |Number |`t1 /= 5 //t1 = t1 / 5`|
+||Picture /=  Picture|Picture|`p1 /= p2 //p1 = p1 / p2 (add p2 to the bottom of p1)`|
+||Picture /=  Number|Picture|`p1 /= 5 //p1 = p1 / 5 (move p1 vertically 5 pixels)`|
+|Multiplication|Text *=  Number |Text|`t *= "abc"  //t = t * "abc"`|
+||Number *=  Number |Number|`n *= 5 //n = n * 5`|
+||Time *=  Time |Time|`t1 *= t2 //t1 = t1 * t2`|
+||Time *=  Number |Number |`t1 *= 5 //t1 = t * 5`|
+||Picture *=  Number|Picture|`p1 *= 5 //p1 = p1*5 (resize p1 by 5)`|
 
 These operators apply on any [assignable expressions](lang-expressions.md#assignable-vs-non-assignable-expressions) (except pictures as object properties or collection elements).
 
-The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+ = 1` the `getPointer` method is called only once.
+The operation "source `operator` value" is not strictly equivalent to "source = source `operator` value" because the expression designating the source (variable, field, object property, collection element) is only evaluated once. For example, in such expression as `getPointer()->+= 1` the `getPointer` method is called only once.
 
 > [Character indexing in text](lang-text.md#character-reference-symbols) and [byte indexing in blob](lang-blob.md#accessing-a-scalar-blobs-bytes) do not support these operators.
 > 
@@ -96,32 +95,32 @@ The operation "source `operator` value" is not strictly equivalent to "source = 
 ```qs
 // Addition
 x = 2
-x+ = 5 //x = 7
+x += 5 //x = 7
 
 t = "Hello" 
-t+ = " World" //t = "Hello World" 
+t += " World" //t = "Hello World" 
 
 d = !2000-11-10!
-d+ = 10 //d = !2000-11-20!
+d += 10 //d = !2000-11-20!
 
 // Subtraction
 x1 = 10
-x1- = 5 //x1 = 5
+x1 -= 5 //x1 = 5
 
 d1 = !2000-11-10!
-d1- = 10 // d1 = !2000-10-31!
+d1 -= 10 // d1 = !2000-10-31!
 
 // Division
 x3 = 10
-x3/ = 2 // x3 = 5
+x3 /= 2 // x3 = 5
 
 
 // Multiplication
 x2 = 10
-x2* = 5 // x2 = 10
+x2 *= 5 // x2 = 50
 
 t2 = "Hello" 
-t2* = 2 // t2 = "HelloHello"
+t2 *= 2 // t2 = "HelloHello"
 
 ```
 

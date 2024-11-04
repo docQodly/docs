@@ -191,6 +191,135 @@ To implement this functionality, follow these steps:
 	</Column.Item>
 </Column.List>
 
+## Customizing Select Box Styles
+
+The **Select Box** component offers additional customization options through CSS, allowing for a personalized appearance of its elements.
+
+### Understanding Select Box CSS Classes
+
+The Select Box component supports various CSS classes, enabling customization of the select box wrapper, container, menu wrapper, and virtual list. Below is a detailed list of the supported CSS classes and their corresponding elements.
+
+#### Select Box Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.fd-selectbox__wrapper`        | The select box header              | Styles the default view of the select box, displaying the selected option when the select box is closed.       |
+| `.fd-selectbox__container`   |    The choices inside the select box          |  Applies styles to all available choices inside the select box.          |
+| `.fd-selectbox__container > div:hover`   | Components within choices    | Styles individual components inside each choice when hovered. |
+| `.FdVirtualList`   | The select box options list    | Applies styles to the list of choices in the select box. |
+| `.fd-selectbox__menu_wrapper`   | The select box menu    | Styles the entire select box menu, including the search area. |
+
+### Custom styling examples
+The following examples demonstrate how to customize the Select Box component's appearance.
+
+#### Example 1: Select Box Wrapper
+This example styles the Select Box header, using a silver background color, rounded corners, and shadow effects to create a sense of depth.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	<pre>
+        <code className="language-css">{`
+self .fd-selectbox__wrapper {
+border-radius: 10px;
+background-color: #E0E0E0; 
+box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
+		}`}
+        </code>
+	</pre>
+	</Column.Item>
+	<Column.Item width="40%">
+         <img src={require('./img/selectbox_wrapper.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+	</Column.Item>
+</Column.List>
+
+#### Example 2: Select Box Container
+This example styles the Select Box Container with rounded corners, a soft text color, the Georgia font, and shadow effect to enhance its appearance.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	<pre>
+		<code className="language-css">
+			{`
+self .fd-selectbox__container {
+border-radius: 10px;
+box-shadow: -4px -4px 10px rgba(220, 220, 220, 0.4), 4px -4px 10px rgba(192, 192, 192, 0.3);  
+color: rgba(28, 32, 157, 0.8); 
+font-family:Georgia, 'Times New Roman', Times, serif;
+margin: 0 5% 5% 5%;
+			}`}
+		</code>
+	</pre>
+	</Column.Item>
+	<Column.Item width="40%">
+			<img src={require('./img/selectbox_container.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+	</Column.Item>
+</Column.List>
+
+#### Example 3: Select Box Container Hovered
+In this example each choice within the select box is customized with rounded corners, a Gill Sans font, and a shadow effect to highlight it when hovered.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	<pre>
+		<code className="language-css">
+			{`
+self .fd-selectbox__container > div:hover{
+border-radius: 5px;
+box-shadow:  -4px 4px 10px rgba(185, 168, 208, 0.949), -2px 2px 10px rgba(179, 132, 188, 0.3);
+color: rgba(6, 5, 5, 0.963); 
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size:50px;
+}`}
+		</code>
+	</pre>
+	</Column.Item>
+	<Column.Item width="40%">
+			<img src={require('./img/selectbox_container_hover.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+	</Column.Item>
+</Column.List>
+
+#### Example 4: Select Box Virtual List
+In this example, the virtual list of the Select Box is customized by applying a background color in purple  and text color that contrasts well. The font is set to "Gill Sans" for a clean, modern appearance. 
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	<pre>
+		<code className="language-css">
+			{`
+self .FdVirtualList {
+	background-color: rgb(87, 17, 127);
+	color: rgb(141, 147, 217);
+	font-family: "Gill Sans", sans-serif;
+}`}
+		</code>
+	</pre>
+	</Column.Item>
+	<Column.Item width="40%">
+			<img src={require('./img/selectbox_fd_virtual_list.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+	</Column.Item>
+</Column.List>
+
+#### Example 5: Select Box menu wrapper
+This example customizes the Select Box menu by applying a light gray background, a cursive font for the text, and a soft shadow for added depth.
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="60%">
+	<pre>
+		<code className="language-css">
+			{`
+self .fd-selectbox__menu_wrapper {
+	color:rgb(152, 92, 8);
+	background-color: #E0E0E0; 
+	font-family: cursive;
+	box-shadow:  -4px 4px 10px rgba(184, 184, 185, 0.949), -2px 2px 10px rgba(152, 151, 152, 0.3);
+}`}
+		</code>
+	</pre>
+	</Column.Item>
+	<Column.Item width="40%">
+			<img src={require('./img/selectbox_menu_wrapper.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+	</Column.Item>
+</Column.List>
+
 ## Showcase
 
 Here's a glimpse of how the **Select Box** component will look and behave in action:

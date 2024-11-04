@@ -8,34 +8,33 @@ import Column from '@site/src/components/Column'
 
 ## Purpose and Scope
 
-**DataClass** Permissions empower you with the ability to shape and control access to specific **DataClasses** within your **Datastore**. These permissions dictate what actions and interactions users are allowed to perform on individual **DataClasses**.
-
+**DataClass** Permissions empower you to shape and control access to specific DataClasses within your datastore. These permissions dictate what actions users are allowed to perform on individual DataClasses, enabling fine-grained access control over your data.
 
 ## Configuring DataClass Permissions 
 
-**DataClass**-level permissions hold the power to override or supplement those set at the **DataStore** level. To set **DataClass** permissions for a specific privilige:
+DataClass-level permissions can override or supplement those set at the datastore level. To set DataClass permissions for a specific privilege:
 
-- Choose the resource name, like the `Employee` dataclass, from the dropdown list.
-- Alternatively, type the resource name, such as `Employee` dataclass, directly into the search bar.
+- Select the resource name, like the `Employee` dataclass, from the dropdown list.
+- Or, type the resource name directly into the search bar.
 
 :::info
 The <img src={require('./img/dataclass.png').default} style={{borderRadius: '6px', width:'3%'}} /> icon in the dropdown list indicates **DataClass** ressources.
 :::
 
-## Hierarchy and Overrides 
+## Example: DataClass-Level Access Control
 
-Expanding on the [second solution](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), it starts by granting the `Guest` privilege initial read access to the entire **Datastore** before gradually restricting access to other resources through **DataClass** permissions, excluding the `Guest` privilege from specific **Dataclasses**.
+Building on the approach where the [Guest privilege is granted initial read access to the entire datastore](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), you can gradually restrict access to specific resources by configuring **DataClass** permissions. This involves excluding the `Guest` privilege from certain DataClasses.
 
-While **Datastore** permissions cascade down to more specific **Dataclasses** levels, they remain adaptable, allowing for overrides or supplements as required. 
+:::tip
+While datastore permissions cascade down to DataClasses, they remain adaptable. DataClass permissions allow you to override or supplement the broader settings as needed.
+:::
 
 <img src={require('./img/overriddingDataStore.png').default} style={{borderRadius: '6px'}} />
 
 <br/><br/>
 
-Setting DataClass permissions in the `Restricted` privilege grants the `Guest` privilege the freedom to explore the Datastore while restricting access to confidential resources. 
+By setting specific permissions in the `Restricted` privilege for the `Employee` DataClass, you prevent users with the `Guest` privilege from accessing sensitive employee data.
 
 :::info 
-In this context, the permissions set at the DataStore level ( `Guest` ) is overridden by the `Restricted` privilege. As a result, those with a `Guest` role no longer have access to the `Employee` dataclass.
+In this context, the permissions set at the datastore level for the Guest privilege are overridden by the Restricted privilege at the DataClass level. As a result, users with the Guest role no longer have access to the Employee DataClass.
 :::
-
-A similar approach applies to confidential Reporting documents and Bookings. The `ManageReports` privilege is granted total permissions for the `Reporting` resource, and `ManageBookings` similarly gains full control over the `Booking` resource. 

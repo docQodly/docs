@@ -79,7 +79,7 @@ Qodly does not support the "-" character as reference to nonexistent arrray elem
 JSON pointers are resolved recursively, which means that if a resolved pointer also contains pointers, they are resolved recursively and so on, until all pointers are resolved. In this context, all file paths found in JSON pointer URIs can be relative or absolute. They must use '/' as path delimiter and are resolved the following way:
 
 * A relative path must not start with '/'. It is resolved relatively to the JSON document where the path string has been found,
-* An absolute path starts with '/'. Only filesystem pathnames are accepted as absolute paths. For example, "/RESOURCES/templates/myfile.json" points to the file "myfile.json" located in the current database resources folder.
+* An absolute path starts with '/'. Only filesystem pathnames are accepted as absolute paths. For example, "/SOURCES/Shared/templates/myfile.json" points to the file "myfile.json" located in the current database resources folder.
 
 :::note
 

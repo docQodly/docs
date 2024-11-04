@@ -274,7 +274,7 @@ You want to copy a Pictures *folder* from the resources folder to the data folde
 
 ```qs
 var userImages, copiedImages : 4D.Folder
-userImages = folder("/RESOURCES/Pictures/")
+userImages = folder("/SOURCES/Shared/Pictures/")
 copiedImages = userImages.copyTo(folder("/DATA"),kOverwrite)
 ```
 

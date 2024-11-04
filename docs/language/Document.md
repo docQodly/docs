@@ -122,7 +122,7 @@ This property is **read-only**.
 **Example**  
 
 ```qs
- myFile = file("/RESOURCES/Archives/ReadMe.txt")
+ myFile = file("/SOURCES/Shared/Archives/ReadMe.txt")
  if(myFile.isWritable)
     myNewFile = myFile.setText("Added text")
  end
@@ -273,7 +273,7 @@ You want to copy a picture *file* from the user's document folder to the applica
 
 ```qs
 var source, copy : 4D.File
-source = file("/RESOURCES/Pictures/photo.png")
+source = file("/SOURCES/Shared/Pictures/photo.png")
 copy = source.copyTo(folder("/PACKAGE"),kOverwrite)
 ```
 
@@ -307,7 +307,7 @@ To save a document's contents in a `Blob` attribute:
  var myFile : 4D.File
  var vEntity : cs.myClassEntity
  
- myFile = file("/RESOURCES/Archives/data.txt")
+ myFile = file("/SOURCES/Shared/Archives/data.txt")
  vEntity = ds.myClass.all().first() //get an entity
  vEntity.infoBlob = myFile.getContent()
  vEntity.save()
@@ -377,7 +377,7 @@ When you execute this code:
 ```qs
  var myFile : 4D.File
  var txt : string
- myFile = file("/RESOURCES/Billing.txt") //UTF-8 by default
+ myFile = file("/SOURCES/Shared/Billing.txt") //UTF-8 by default
  txt = myFile.getText()
 ```
 

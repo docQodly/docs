@@ -133,7 +133,7 @@ A `4D.File` object with the `isAlias` property set to **true**.
 You want to create a symbolic link to a file in your resources folder:
 
 ```qs
- myFile = file("/RESOURCES/Archives/ReadMe.txt")
+ myFile = file("/SOURCES/Shared/Archives/ReadMe.txt")
  aliasFile = myFile.createAlias(file("/RESOURCES"),"ReadMe")
 ```
 <!-- END REF -->
@@ -237,7 +237,7 @@ The moved `file` object.
 #### Example
 
 ```qs
-myFolder = folder("/RESOURCES/Contents")
+myFolder = folder("/SOURCES/Shared/Contents")
 myFile = myFolder.file("Infos.txt")
 myFile.moveTo(myFolder.folder("Archives"),"Infos_old.txt")
 ```

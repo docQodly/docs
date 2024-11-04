@@ -95,13 +95,22 @@ const sidebars = {
 				'studio/pageLoaders/templates',
 				'studio/pageLoaders/date-time-formats',
 				'studio/pageLoaders/qodlySources',
-				'studio/pageLoaders/events',
+				{
+					type: 'category',
+					label: 'Events',
+					items: [
+						'studio/pageLoaders/events/overview',
+						'studio/pageLoaders/events/eventsManagement',
+						'studio/pageLoaders/events/bindingActionToEvents',
+					],
+				},
 				{
 					type: 'category',
 					label: 'States',
 					items: [
-						'studio/pageLoaders/states',
-						'studio/pageLoaders/conditionalStates',
+						'studio/pageLoaders/states/stateOverview',
+						'studio/pageLoaders/states/nonConditionalState',
+						'studio/pageLoaders/states/conditionalState',
 					],
 				},
 				'studio/pageLoaders/styling',
@@ -127,14 +136,14 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Access Control',
+			label: 'Roles & Privileges',
 			items: [
-				'studio/roles/accessControlMechanisms',
-				'studio/roles/rolesPrivilegesOverview',
+				'studio/roles/overview',
 				{
 					type: 'category',
 					label: 'Permissions',
 					items: [
+						'studio/roles/permissionsOverview',
 						'studio/roles/datastorePermissions',
 						'studio/roles/dataClassPermissions',
 						'studio/roles/attributesPermissions',
@@ -241,7 +250,6 @@ const sidebars = {
 						'language/commands/char',
 						'language/commands/characterCode',
 						'language/commands/clearSemaphore',
-						'language/commands/combinePictures',
 						'language/commands/compareStrings',
 						'language/commands/convertFromString',
 						'language/commands/convertPicture',
@@ -316,8 +324,8 @@ const sidebars = {
 						'language/commands/pictureSize',
 						'language/commands/pictureToBlob',
 						'language/commands/position',
+						'language/commands/processInfo',
 						'language/commands/processNumber',
-						'language/commands/processProperties',
 						'language/commands/processState',
 						'language/commands/random',
 						'language/commands/replaceString',
@@ -341,7 +349,6 @@ const sidebars = {
 						'language/commands/timestamp',
 						'language/commands/timeString',
 						'language/commands/trace',
-						'language/commands/transformPicture',
 						'language/commands/true',
 						'language/commands/trunc',
 						'language/commands/uppercase',
@@ -528,12 +535,14 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
-				'notes/v1.0.0-beta.5',
-				'notes/v1.0.0-beta.4',
-				'notes/v1.0.0-beta.3',
-				'notes/v1.0.0-beta.2',
-				'notes/v1.0.0-beta.1'
-			],
+
+						'notes/v1.0.0-beta.6',
+						'notes/v1.0.0-beta.5',
+						'notes/v1.0.0-beta.4',
+						'notes/v1.0.0-beta.3',
+						'notes/v1.0.0-beta.2',
+						'notes/v1.0.0-beta.1'
+					],
 		},
 	],
 };

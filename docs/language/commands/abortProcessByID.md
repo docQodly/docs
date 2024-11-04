@@ -18,7 +18,7 @@ title: abortProcessByID
 
 The `abortProcessByID` command <!-- REF #_command_.abortProcessByID.Summary -->stops a specific process on the Qodly Server<!-- END REF -->.
 
-In the *uniqueID* parameter, pass the unique ID of the process running on the server that you want to stop. You can retrieve the process ID with the [`getProcessActivity`](getProcessActivity.md) or the [`processProperties`](processProperties.md) command.
+In the *uniqueID* parameter, pass the unique ID of the process running on the server that you want to stop. You can retrieve the process ID with the [`getProcessActivity`](getProcessActivity.md) or the [`processInfo`](processInfo.md) command.
 
 :::note
 

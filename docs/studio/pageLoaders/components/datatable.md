@@ -180,6 +180,155 @@ The **DataTable** component provides a range of user-friendly features:
 
 
 
+## Customizing DataTable Styles
+
+The **DataTable** component offers extensive customization options through CSS, enabling adjustments to the appearance of various table elements.
+
+<img src={require('./img/datatable-schema.jpg').default} style={{borderRadius: '6px'}}/>
+
+### Component-Specific CSS Classes
+
+The DataTable component supports a range of CSS classes, allowing customization of the appearance of headers, rows, cells, and columns. Below is a detailed list of supported CSS classes and the elements they apply to.
+
+#### Table Header Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.header`        | The entire header              | Styles the entire table header area.       |
+| `.header-cell`   | All header cells               | Targets individual header cells.           |
+| `.header-even`   | Even-numbered header cells     | Applies styles to header cells in even columns. |
+| `.header-qodlysourceName` | The header of a specific column | Targets the header of a specific column, where `qodlysourceName` refers to the associated data field (e.g., `.header-lastname`). |
+
+#### Table Row Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.row`           | All rows                      | Applies styles to all rows in the table.   |
+| `.selected`      | The selected row              | Highlights the currently selected row.     |
+| `.row-even`      | Even-numbered rows            | Styles the even rows in the table.         |
+| `.hover`         | The hovered row               | Styles the row that is currently hovered.  |
+
+#### Table Cell Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.cell`          | All cells                     | Targets all cells within the rows.         |
+
+#### Table Column Classes
+
+| **Class Name**   | **Applies To**                 | **Description**                            |
+|------------------|-------------------------------|--------------------------------------------|
+| `.col-qodlysourceName` | A specific column        | Targets the column associated with a particular data field (e.g., `.col-lastname`). |
+| `.col-even`      | Even-numbered columns          | Styles columns that are even-numbered.     |
+| `.sorted`        | Sorted columns                | Highlights columns that are sorted.        |
+| `.sorted-asc`    | Ascending sorted columns      | Applies styles to columns sorted in ascending order. |
+| `.sorted-desc`   | Descending sorted columns     | Applies styles to columns sorted in descending order. |
+
+:::tip
+For fields associated with relationships, use a dash (`-`) instead of a dot (`.`) in class names (e.g., `.header-employer-name`).
+:::
+
+### Example 1 – Blue Headers
+
+This example customizes the DataTable to feature blue-colored headers with rounded borders, and shadow effects. Additionally, a soft blue background is applied to the header cells, and a light shade is used for even-numbered rows.
+
+<img src={require('./img/BlueHeaders.png').default} style={{borderRadius: '6px'}}/>
+
+
+```css
+self {
+  border-radius: 10px;
+  box-shadow: 0 0 40px 0 rgb(0 0 0 / 15%);
+}
+
+self .header .header-cell {
+  background-color: #6c7ae0;
+  color: #fff;
+  font-weight: bold;
+  padding: 1.25rem 2rem;
+}
+
+self .row {
+  align-items: center;
+}
+
+self .row .cell {
+  padding: 0.5rem 2rem;
+}
+
+self .row.selected {
+  background-color: #d2d7f5;
+}
+
+self .row-even:not(.selected):not(:hover) {
+  background-color: #f8f6ff;
+}
+```
+
+### Example 2 – Green Headers
+
+This example customizes the DataTable to feature a green color scheme, with specific styles for even-numbered header cells.
+
+<img src={require('./img/GreenHeaders.png').default} style={{borderRadius: '6px'}}/>
+
+```css
+self .header .header-cell {
+  background-color: #324960;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+self .header .header-even {
+  background-color: #4fc3a1;
+}
+
+self .row {
+  align-items: center;
+}
+
+self .row.selected {
+  background-color: #caede2;
+}
+```
+
+This example highlights alternating header cells with a green background and provides custom styling for selected rows.
+
+
+### Example 3 – Dark Mode DataTable
+
+This example demonstrates a dark mode design for the DataTable, where the background and text colors are adjusted for better visibility in low-light environments.
+
+<img src={require('./img/Dark-mode.png').default} style={{borderRadius: '6px'}}/>
+
+```css
+self {
+  background-color: rgb(61, 54, 61);
+}
+
+self .row {
+  align-items: center;
+}
+
+self .header .header-cell {
+  background-color: transparent;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+self .row:hover .col-lastname {
+  color: #b474e4;
+  font-weight: bold;
+}
+```
+
+This dark theme provides a sleek and modern look, with specific styles applied to hovered rows and the `lastname` column.
+
+
 ## Showcase
 
 Here's a glimpse of how the **DataTable** component will look and behave in action:

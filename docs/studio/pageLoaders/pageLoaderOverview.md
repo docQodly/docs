@@ -34,7 +34,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 1. **Canvas**: The workspace for assembling components, styles, and qodlysources. You can drag and drop components, apply CSS, and preview Pages.
 2. [**Components**](components/componentsBasics.md):  Fundamental building blocks for dynamic user interfaces.
 3. [**Qodly Sources**](qodlySources.md):Connectors linked to components for data display and management.
-4. [**States**](states.md): Dynamically adjusts Page's UI, styling, and properties based on user contexts and data, minimizing server-side processing needs.
+4. [**States**](states/stateOverview.md): Dynamically adjusts Page's UI, styling, and properties based on user contexts and data, minimizing server-side processing needs.
 5. [**Styles Library**](styling.md): Stores pre-defined and customized styles for easy application.
 6. [**Outline**](#outline): Visual hierarchy representation, aiding structural understanding and element repositioning.
 7. [**Contextual panel**](#contextual-panel): Binds functions, actions to events as well as serves as an interface for css class modifications.
@@ -172,7 +172,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    The Component tab enables linking actions like <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
+    The Component tab enables linking actions like <a href="./events/bindingActionToEvents#binding-class-functions-to-events">Class Functions</a>, <a href="./events/bindingActionToEvents#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events/bindingActionToEvents#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events/bindingActionToEvents#binding-dialog-actions-to-events">Dialog Actions</a> to a component's specific events, streamlining event-driven functionalities.
 	</Column.Item>
 	<Column.Item width="50%">
         <img src={require('./img/contextualPanel_tabComponent.png').default} style={{borderRadius: '6px'}} />
@@ -184,7 +184,7 @@ The intuitive design of Qodly includes a feature that memorizes the last active 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-    The Qodly Source tab facilitates management of actions such as <a href="./events#binding-class-functions-to-events">Class Functions</a>, <a href="./events#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a qodlysource, providing a centralized interface for coordinating components and their data interactions.
+    The Qodly Source tab facilitates management of actions such as <a href="./events/bindingActionToEvents#binding-class-functions-to-events">Class Functions</a>, <a href="./events/bindingActionToEvents#binding-navigation-actions-to-events">Navigation Actions</a>, <a href="./events/bindingActionToEvents#binding-standard-actions-to-events">Standard Actions</a> and <a href="./events/bindingActionToEvents#binding-dialog-actions-to-events">Dialog Actions</a> tied to events linked with a qodlysource, providing a centralized interface for coordinating components and their data interactions.
 	</Column.Item>
 	<Column.Item width="50%">
         <img src={require('./img/contextualPanel_tabQodlySource.png').default} style={{borderRadius: '6px'}} />
@@ -371,7 +371,7 @@ Explore below for specific options:
 |-----------------|-------------|
 | CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the [Styles Library](styling.md) for additional details. |
 | Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
-| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
+| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events/bindingActionToEvents#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
 | Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
 | Layout          | Gain control over component alignment using margins and paddings.                             |
 | Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|
@@ -865,6 +865,7 @@ The **Page** can respond to various events, enabling dynamic user experiences. E
 |-------------|-----------------------------------------------------------------------------------------------------------|
 | **On Init** | Triggered before the page is rendered, ensuring that all necessary data and conditions are in place. This pre-render event helps in setting up the page correctly before any content is displayed to the user.            |
 | **On Loaded** | Fired once the page and its components are fully loaded. Ideal for post-load processing.                 |
+| **On PrivilegeChange** |  Triggered when a user's privilege is changed. Ensures that appropriate elements are displayed based on the user's current privileges. |   
 | **On Click** | Activated when a user clicks on a specific element, enabling interaction handling.                      |
 | **On KeyUp** | Occurs when a key is released while the page or a component is focused, useful for key-based interactions.|
 | **On KeyDown** | Triggered when a key is pressed down, allowing pre-emptive handling of key events.                     |

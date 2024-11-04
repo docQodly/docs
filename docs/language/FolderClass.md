@@ -247,8 +247,8 @@ You want to move and rename a folder:
 
 ```qs
  var tomove, tomove2 : 4D.Folder
- tomove = folder("/RESOURCES/Pictures")
- tomove2 = tomove.moveTo(folder("/RESOURCES/Archives"),"Pic_Archives")
+ tomove = folder("/SOURCES/Shared/Pictures")
+ tomove2 = tomove.moveTo(folder("/SOURCES/Shared/Archives"),"Pic_Archives")
 ```
 <!-- END REF -->
 
@@ -287,6 +287,6 @@ The renamed `folder` object.
 
 ```qs
  var toRename : 4D.Folder
- toRename = folder("/RESOURCES/Pictures").rename("Images")
+ toRename = folder("/SOURCES/Shared/Pictures").rename("Images")
 ```
 <!-- END REF -->
