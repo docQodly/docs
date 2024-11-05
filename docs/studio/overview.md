@@ -31,10 +31,11 @@ Deployed Qodly applications are accessible on all popular web browsers, with no 
 
 ## Accessing Qodly Studio
 
-Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Console, as outlined in the [Architecture chapter](../concepts/cloud.md). From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in Qodly Studio by either:
+Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in Qodly Studio by either:
 
 - Clicking on the [Studio](../cloud/application-management#open-qodly-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/application-management#open-qodly-studio) in the General tab for the open environment.
+
 
 
 

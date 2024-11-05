@@ -8,13 +8,23 @@ The Qodly platform is a fully integrated environment where you can develop, test
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
 
 
-## Qodly Platform
+## Qodly Cloud Platform
 
 
 ![schema-cloud](img/cloud.png)
 
 
-[Click here for more information about the Qodly Cloud architecture](cloud.md)
+
+Qodly Cloud is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).  
+
+Every [Qodly Server](../concepts/platform.md#qodly-server) is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
+
+User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. 
+
+Every developer or application user needs to be `declared in QIS` with an appropriate [role](../studio/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign assign different permissions at database level for user sessions.
+
+Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
+
 
 
 ## Qodly Studio

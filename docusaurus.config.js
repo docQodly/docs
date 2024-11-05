@@ -128,12 +128,6 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'concepts/platform',
-            position: 'left',
-            label: 'Architecture',
-          },
-          {
-            type: 'doc',
             docId: 'api/overview',
             position: 'left',
             label: 'REST API',

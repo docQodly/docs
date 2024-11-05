@@ -45,6 +45,11 @@ const sidebars = {
 			id: 'concepts/quickstart',
 			label: "Quickstart"
 		},
+		{
+			type: 'doc',
+			id: 'concepts/platform',
+			label: "Qodly Platform Overview"
+		},
 	],
 	Develop: [
 		{
@@ -415,7 +420,7 @@ const sidebars = {
 		{
 			type: "doc",
 			id: "cloud/getStarted",
-			label: "Qodly Applications",
+			label: "Overview",
 		},
 		{
 			type: "doc",
@@ -434,18 +439,6 @@ const sidebars = {
 		},
 	],
 
-	Architecture: [
-		{
-			type: 'doc',
-			id: 'concepts/platform',
-			label: "Platform Overview"
-		},
-		{
-			type: 'doc',
-			id: 'concepts/cloud',
-			label: "Cloud Architecture"
-		},
-	],
 	ReactComponent: [
 		{
 			type: 'doc',
