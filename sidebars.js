@@ -45,6 +45,11 @@ const sidebars = {
 			id: 'concepts/quickstart',
 			label: "Quickstart"
 		},
+		{
+			type: 'doc',
+			id: 'concepts/how-to',
+			label: "How to Guide"
+		},
 	],
 	Develop: [
 		{
@@ -418,12 +423,22 @@ const sidebars = {
 		{
 			type: "doc",
 			id: "cloud/getStarted",
-			label: "Overview",
+			label: "Home",
+		},
+		{
+			type: "doc",
+			id: "cloud/creating-apps",
+			label: "Creating Applications",
 		},
 		{
 			type: "doc",
 			id: "cloud/application-management",
-			label: "Application Management",
+			label: "Managing Applications",
+		},
+		{
+			type: "doc",
+			id: "cloud/user-account",
+			label: "User Account",
 		},
 		{
 			type: "doc",
