@@ -14,7 +14,7 @@ The Data Model Editor in Qodly enables you to create and modify the **model** fo
 
 ### ORDA Concepts
 
-In Qodly, each datastore class can have attributes that store or calculate data, or refer to data in other datastore classes (relation attributes). You can also create functions to interact with the data in your model, following the ORDA concepts.
+In Qodly, each datastore class can have attributes that store or calculate data, or refer to data in other datastore classes (relation attributes). You can also create functions to interact with the data in your model, following the [ORDA concepts](../../orda/data-model.md#the-orda-concept).
 
 ### Permissions
 

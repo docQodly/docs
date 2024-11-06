@@ -63,9 +63,27 @@ To create a storage attribute:
 2. Give a [name](#attribute-name) to the attribute.
 3. Select a predefined data type from the list and press **Enter**.
 
-:::info
-The **Qodly database** supports [an extended set of data types](../../concepts/platform.md#data-types).
-:::
+
+### Data types
+
+The following table lists all available Qodly Database storage (*aka* scalar) data types and how they are handled in the [QodlyScript language](../../language/basics/lang-data-types.md):
+
+|Data Types	|Language support|Description|
+|---|----|---|
+|Text|`string`	|A sequence of characters up to 2 GB|
+|String	|`string`	|A sequence of characters with properties|
+|UUID|-|Universally Unique Identifier: a 16-bytes (128 bits) number containing 32 hexadecimal characters|
+|Date|`date`	|If the **Date only** property is selected for this attribute type, the date value will include only the "MM/DD/YYYY" format (e.g., "10/05/2023"). Otherwise, the date value including the time, stored in UTC. The date is expressed in the following format: YYYY-MM-DDTHH:MM:ss.SSSZ (e.g., "2023-10-05T23:00:00.000Z" for October 5, 2023 in the Central European Timezone). SSS represents the milliseconds, which can be between 0 to 999.	|
+|Duration|`time`	|A time value which is stored as a duration between two dates	|
+|Bool|`boolean`|A Boolean value: either true or false.|
+|Byte|-|A sequence of 8 bits.|
+|Word|-|A 16-bit signed integer. Range: -32,767 to 32,768|
+|Number|`real`|A numeric value, can be a Real or a Long. Range: ±1.7e±308 (real), -2^31 to (2^31)-1 (long)|
+|Long|`real`|An integer number, greater than or equal to a standard number. Range: -2,147,483,648 to 2,147,483,647 |
+|Object|`object`|Object containing any kind of property/value pairs, including collections. This data type can be indexed. Functions and recursive references are not supported|
+|Image|`picture`	|A path to an image file or an actual image.	|
+|Blob|`blob` or `object`	|Binary Large Object stored as a scalar value or a `4D.Blob` object 	|
+
 
 ## Create a relation attribute
 

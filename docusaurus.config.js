@@ -98,8 +98,8 @@ const config = {
           alt: 'Qodly',
           //src: 'img/qodly-logo-dark.svg',
           //srcDark: 'img/qodly-logo-white.svg',
-          src: 'img/Qodly-beta-D.png',
-          srcDark: 'img/Qodly-beta-W.png',
+          src: 'img/qodly-light-version.svg',
+          srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
           {

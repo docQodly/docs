@@ -5,7 +5,6 @@ title: Overview
 
 
 
-
 ## Qodly Dashboard
 
 The Qodly Dashboard is the portal from which you can manage all your Qodly applications. 

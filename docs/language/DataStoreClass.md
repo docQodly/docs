@@ -177,6 +177,13 @@ The `.startTransaction()` function <!-- REF #DataStoreClass.startTransaction().S
 You can nest several transactions (sub-transactions). Each transaction or sub-transaction must eventually be cancelled or validated. Note that if the main transaction is cancelled, all of its sub-transactions are also cancelled even if they were validated individually using the `.validateTransaction()` function.
 
 
+:::info
+
+ A transaction represents a series of changes made within a context on interconnected data. A transaction is only permanently saved in the datastore when the transaction is validated as a whole by calling [`.validateTransaction()`](#validatetransaction). If a transaction has not been validated, whether it was cancelled or because of some external event, the changes are not saved.
+
+:::
+
+
 #### Example
 
 

@@ -45,11 +45,6 @@ const sidebars = {
 			id: 'concepts/quickstart',
 			label: "Quickstart"
 		},
-		{
-			type: 'doc',
-			id: 'concepts/platform',
-			label: "Qodly Platform Overview"
-		},
 	],
 	Develop: [
 		{
@@ -162,7 +157,10 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Programming Guide',
-			items: ['orda/data-model', 'orda/data', 'orda/queries',
+			items: [	'orda/data-model', 
+						'orda/data',
+						'orda/queries',
+						'orda/sessions',
 			],
 		},
 		{
