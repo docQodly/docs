@@ -1,6 +1,6 @@
 ---
-id: application-management
-title: Managing Applications
+id: user-account
+title: User Account
 ---
 
 import Column from '@site/src/components/Column'

@@ -1,57 +1,30 @@
 ---
 id: getStarted
-title: Qodly Applications
+title: Home
 ---
 
 
-## Application Overview
 
-The Qodly Cloud Management Console (QCMC) is the portal from which you can manage all your Qodly applications. 
+The Qodly Dashboard is the portal from which you can [manage](application-management.md) all your Qodly applications and [create](creating-apps.md) new Qodly applications. It also displays your pending invitations.
 
-After [logging in to your Qodly account](../concepts/quickstart.md), the QCMC presents an organized display of your Qodly applications on a single page.
+After [logging in to your Qodly account](../concepts/quickstart.md), the Dashboard presents an organized display of your Qodly applications on a single page.
 
-
-Your Qodly applications fall into three categories:
-
-- **Sandbox**: This serves as a trial application where you can freely explore Qodly's features and experiment. Please note that the Sandbox is accessible only in the [development environment](../cloud/getStarted#environments-and-services). 
-- **Applications**: This section lists all applications you've created, excluding the Sandbox.
-- **Shared Applications**: Here, you'll find applications developed by other collaborators and shared with you through invitations.
-
-<img src={require('./img/console.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-
-## Environments and services
-
-For each application, the [Qodly Server](../concepts/platform.md#qodly-server) is deployed across three distinct instances, referred to as environments:
-
-- **Development**: This environment is ideal for developers to create, design, and enhance their Qodly applications.
-- **Staging**: In this environment, developers, product managers, or quality teams can thoroughly test application features in a configuration that closely simulates the production environment.
-- **Production**: The production environment is where users can access and utilize your finalized application.
+<img src={require('./img/invitations.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
-Each environment offers a unique set of services:
+## Sandbox
 
-||Development|Staging|Production|
-|---|---|---|---|
-|Access to Qodly Studio|X|||
-|Invite developers|X|||
-|Invite users||X|X|
-|Data Backup and Restore|||X|
-|Updates|X|X|X|
+The Sandbox application serves as a trial application where you can freely explore Qodly's features and experiment. 
+
+Note that you can only create a single Sandbox per user and the Sandbox is accessible only in a [single environment](#environments-and-services). 
+
+To create your sandbox application, click on the New sandbox button. 
+
+<img src={require('./img/new-sandbox.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
 
-## Cloning Applications
-
-Rather than starting from scratch, you have the option to clone any existing application and kickstart a new project based on the same codebase.
-
-To initiate application cloning, locate the desired application in the Apps list and click the **Clone** button:
-
-<img src={require('./img/clone.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-
-The cloning process duplicates all your code, except data and resources.
-
-
-## Sleep Mode for Sandbox Applications
+### Sleep Mode for Sandbox Applications
 
 Sandbox environments benefit from an automatic Sleep Mode feature, intended to enhance resource efficiency. 
 
@@ -70,3 +43,47 @@ You will receive an email notification before any action is taken, ensuring you'
 We believe this feature will not only improve our system's efficiency but also encourage more active engagement with your sandbox projects.
 
 :::
+
+
+## My Apps
+
+This section lists all applications you've created, excluding the Sandbox. 
+
+
+## Shared Applications
+
+Here, you'll find applications developed by other collaborators and shared with you through [invitations]. For these applications, you can access the Studio and view other details but you cannot manage [billing]. 
+
+
+## Invitations to own new applications pending
+
+This section lists invitations your received to own and pay for an application. Someone invited you to pay for an app, in which case you will become the owner of that app and they will be added as a developer in it. You can pay or decline.
+
+## Invitations Awaiting Response
+
+This section lists invitations you sent to other people and that are awaiting for payment. A pending invitation can be either resent or cancelled.
+
+
+## Environments and services
+
+For each application (except the SandBox), the Qodly Server can be deployed across several instances, referred to as **environments**. You can [create as many environments as necessary](creating-apps.md#add-environment), depending on your needs. 
+
+Environments usually match the main steps or states of an application and you can enable services related to each state. For example, you can create three environments: 
+
+- **Development**: for developers to create, design, and enhance their Qodly applications.
+- **Staging**: developers, product managers, or quality teams can thoroughly test application features in a configuration that closely simulates the production environment.
+- **Production**: where users can access and utilize your finalized application.
+
+Each environment could offer the following set of services:
+
+||Development|Staging|Production|
+|---|---|---|---|
+|Access to Qodly Studio|X|||
+|Invite developers|X|||
+|Invite users||X|X|
+|Data Backup and Restore|||X|
+|Updates|X|X|X|
+
+When an environment is created, you can check its [status] at any moment.  
+
+

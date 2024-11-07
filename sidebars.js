@@ -45,6 +45,23 @@ const sidebars = {
 			id: 'concepts/quickstart',
 			label: "Quickstart"
 		},
+		{
+			type: 'category',
+			label: 'How to',
+			items: ['how-to/intro',
+				'how-to/test-debug',
+				'how-to/deployment',
+				'how-to/data-management',
+				'how-to/security',
+				'how-to/maintenance',
+				'how-to/advanced',
+				'how-to/templates',
+				'how-to/community',
+				'how-to/billing',
+				'how-to/payments',
+				'how-to/refunds',
+			],
+		},
 	],
 	Develop: [
 		{
@@ -157,7 +174,10 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Programming Guide',
-			items: ['orda/data-model', 'orda/data', 'orda/queries',
+			items: [	'orda/data-model', 
+						'orda/data',
+						'orda/queries',
+						'orda/sessions',
 			],
 		},
 		{
@@ -415,12 +435,22 @@ const sidebars = {
 		{
 			type: "doc",
 			id: "cloud/getStarted",
-			label: "Qodly Applications",
+			label: "Home",
+		},
+		{
+			type: "doc",
+			id: "cloud/creating-apps",
+			label: "Creating Applications",
 		},
 		{
 			type: "doc",
 			id: "cloud/application-management",
-			label: "Application Management",
+			label: "Managing Applications",
+		},
+		{
+			type: "doc",
+			id: "cloud/user-account",
+			label: "User Account",
 		},
 		{
 			type: "doc",
@@ -434,18 +464,6 @@ const sidebars = {
 		},
 	],
 
-	Architecture: [
-		{
-			type: 'doc',
-			id: 'concepts/platform',
-			label: "Platform Overview"
-		},
-		{
-			type: 'doc',
-			id: 'concepts/cloud',
-			label: "Cloud Architecture"
-		},
-	],
 	ReactComponent: [
 		{
 			type: 'doc',
@@ -536,12 +554,7 @@ const sidebars = {
 			collapsed: false,
 			items: [
 
-						'notes/v1.0.0-beta.6',
-						'notes/v1.0.0-beta.5',
-						'notes/v1.0.0-beta.4',
-						'notes/v1.0.0-beta.3',
-						'notes/v1.0.0-beta.2',
-						'notes/v1.0.0-beta.1'
+						'notes/1.0.0'
 					],
 		},
 	],

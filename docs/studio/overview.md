@@ -6,7 +6,7 @@ title: Overview
 Development in Qodly relies on the use of **Qodly Studio**, an innovative platform for creating business web applications. Our primary goal with **Qodly Studio** is to provide developers with a seamless, 100% web-based development experience. This platform empowers developers to:
 
 - Design and modify data models that align with your business logic.
-- Effortlessly link data with [ORDA](../concepts/platform.md#the-orda-concept)  dataclasses.
+- Effortlessly link data with [ORDA](../orda/data-model.md#the-orda-concept)  dataclasses.
 - Visually craft Pages by simply dragging and dropping components onto a canvas.
 - Instantly preview web pages.
 - Execute QodlyScript code directly within web events or qodlysource events.
@@ -31,10 +31,11 @@ Deployed Qodly applications are accessible on all popular web browsers, with no 
 
 ## Accessing Qodly Studio
 
-Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Console, as outlined in the [Architecture chapter](../concepts/cloud.md). From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in Qodly Studio by either:
+Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in Qodly Studio by either:
 
 - Clicking on the [Studio](../cloud/application-management#open-qodly-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/application-management#open-qodly-studio) in the General tab for the open environment.
+
 
 
 

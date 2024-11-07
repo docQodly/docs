@@ -91,7 +91,7 @@ You can handle entities like any other object and pass their references directly
 
 :::note
 
-You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the [lazy loading](../concepts/platform.md#lazy-loading) mechanism, which means that only the needed information is loaded.
+You can use as many entities as you need at the same time, there is no automatic lock on an entity (see [Entity locking](#entity-locking)). When an entity is loaded, it uses the **lazy loading** mechanism, which means that only the needed information is loaded.
 
 :::
 
