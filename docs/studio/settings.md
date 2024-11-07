@@ -68,7 +68,7 @@ Configure settings specific to your web application.
 Enables selection of a Page to serve as the application’s start page. This chosen Page will automatically render in the following situations:
 
 - When the **Preview** button is clicked in the Page Editor, the Page opens in a new tab.
-- When the **Preview URL** area in the Qodly Cloud dashboard is clicked, the Page is displayed.
+- When the **Preview URL** area in the Qodly Cloud console is clicked, the Page is displayed.
 
 ### Default Display Mode
 

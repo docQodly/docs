@@ -14,12 +14,10 @@ The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform*
 </details>
 
 
-## Qodly Cloud  
-
 <details>
-<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> How is Qodly Cloud structured?</summary>
+<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> How is Qodly structured in the cloud?</summary>
 
-Qodly Cloud is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).  
+Qodly is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).  
 
 Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
 

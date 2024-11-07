@@ -33,7 +33,7 @@ const FeatureList = [
     description: (
       <>
         Launch and monitor your Qodly applications using a
-        full-featured dashboard in our cloud infrastructure.
+        full-featured console in our cloud infrastructure.
       </>
     ),
 		link: "cloud/getStarted"

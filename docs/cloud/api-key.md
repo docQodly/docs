@@ -119,7 +119,7 @@ A Qodly API key must be included in the **HTTP header** of every REST requests s
 
 See this tutorial video to learn how to:
 
-- Access the API Key from your Qodly app dashboard.
+- Access the API Key from your Qodly app console.
 - Authenticate requests with different roles and privileges for secure data access.
 - Read product data based on user permissions.
 - Create new products using the API.

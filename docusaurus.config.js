@@ -112,7 +112,7 @@ const config = {
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
-            label: 'Dashboard',
+            label: 'console',
           },*/
           {
             type: 'doc',

@@ -435,7 +435,7 @@ const sidebars = {
 		{
 			type: "doc",
 			id: "cloud/getStarted",
-			label: "Home",
+			label: "Qodly Console",
 		},
 		{
 			type: "doc",

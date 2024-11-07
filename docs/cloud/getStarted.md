@@ -1,13 +1,13 @@
 ---
 id: getStarted
-title: Home
+title: Qodly Console
 ---
 
 
 
-The Qodly Dashboard is the portal from which you can [manage](application-management.md) all your Qodly applications and [create](creating-apps.md) new Qodly applications. It also displays your pending invitations.
+The Qodly Console is the portal from which you can [manage](application-management.md) all your Qodly applications and [create](creating-apps.md) new Qodly applications. It also displays your pending invitations.
 
-After [logging in to your Qodly account](../concepts/quickstart.md), the Dashboard presents an organized display of your Qodly applications on a single page.
+After [logging in to your Qodly account](../concepts/quickstart.md), the Qodly Console home page presents an organized display of your Qodly applications on a single page.
 
 <img src={require('./img/invitations.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -16,9 +16,14 @@ After [logging in to your Qodly account](../concepts/quickstart.md), the Dashboa
 
 The Sandbox application serves as a trial application where you can freely explore Qodly's features and experiment. 
 
-Note that you can only create a single Sandbox per user and the Sandbox is accessible only in a [single environment](#environments-and-services). 
+The Sandbox application has the following rules:
 
-To create your sandbox application, click on the New sandbox button. 
+- All Qodly features are available for free
+- A watermark is displayed on pages
+- You can only create one Sandbox per user; however you can delete your sandbox and create a new one at any moment. 
+- The Sandbox is available on a [single environment](#environments). 
+
+To create your sandbox application, click on the **New sandbox** button. 
 
 <img src={require('./img/new-sandbox.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -64,25 +69,20 @@ This section lists invitations your received to own and pay for an application. 
 This section lists invitations you sent to other people and that are awaiting for payment. A pending invitation can be either resent or cancelled.
 
 
-## Environments and services
+## Environments
 
-For each application (except the SandBox), the Qodly Server can be deployed across several instances, referred to as **environments**. You can [create as many environments as necessary](creating-apps.md#add-environment), depending on your needs. 
+For each application (except the SandBox), the Qodly Server can be deployed across several instances, referred to as **environments**. 
 
-Environments usually match the main steps or states of an application and you can enable services related to each state. For example, you can create three environments: 
+By default, the **Development environment** is available, and you can [create as many deployment environments as necessary](creating-apps.md#add-environment), depending on your needs. Environments usually match the main steps or states of an application. For example, you can use the following environments: 
 
 - **Development**: for developers to create, design, and enhance their Qodly applications.
-- **Staging**: developers, product managers, or quality teams can thoroughly test application features in a configuration that closely simulates the production environment.
-- **Production**: where users can access and utilize your finalized application.
+- **Staging** (deployment): developers, product managers, or quality teams can thoroughly test application features in a configuration that closely simulates the production environment.
+- **Production** (deployment): where users can access and utilize your finalized application.
 
-Each environment could offer the following set of services:
+The main difference between development and deployment environments is the avaibility of Qodly Studo:
 
-||Development|Staging|Production|
-|---|---|---|---|
-|Access to Qodly Studio|X|||
-|Invite developers|X|||
-|Invite users||X|X|
-|Data Backup and Restore|||X|
-|Updates|X|X|X|
+<img src={require('./img/environments.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
 
 When an environment is created, you can check its [status] at any moment.  
 
