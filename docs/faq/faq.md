@@ -134,6 +134,13 @@ No, Qodly Server is only proposed a a cloud service.
 </details>
 
 
+<details>
+<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is the lazy loading?</summary>
+
+Since entities are managed as references, data is loaded only when necessary, i.e. when accessing it in the code or through interface widgets. This optimization principle is called lazy loading.
+
+</details>
+
 
 
 ## QodlyScript

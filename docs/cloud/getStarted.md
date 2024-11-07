@@ -66,7 +66,7 @@ This section lists invitations you sent to other people and that are awaiting fo
 
 ## Environments and services
 
-For each application (except the SandBox), the Qodly Server can be deployed across several instances, referred to as **environments**. You can [create as many environments as necessary](#add-environment), depending on your needs. 
+For each application (except the SandBox), the Qodly Server can be deployed across several instances, referred to as **environments**. You can [create as many environments as necessary](creating-apps.md#add-environment), depending on your needs. 
 
 Environments usually match the main steps or states of an application and you can enable services related to each state. For example, you can create three environments: 
 

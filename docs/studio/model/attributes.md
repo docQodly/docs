@@ -21,7 +21,7 @@ You can view and modify a few of the attribute’s properties when you select or
   - a name in _italics_ indicates a not exposed attribute
 - **Primary Key**: Indicates the primary key attribute for the datastore class. This attribute is mandatory, you can rename it but not delete it.
 - **Type Icon**: Displays the datastore entity type as an icon.
-- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable. An attribute type can be [scalar](../../concepts/platform.md#data-types) or based upon a [relation](#create-a-relation-attribute), in which case it can be of the _classNameEntity_ or _classNameSelection_ type.
+- **Type**: Attribute type that you can change by double-clicking on it to render the area enterable. An attribute type can be [scalar](#data-types) or based upon a [relation](#create-a-relation-attribute), in which case it can be of the _classNameEntity_ or _classNameSelection_ type.
 
 All attributes of a datastore class are also listed in the [Outline area](model-editor-interface#outline) of the model editor.
 
@@ -41,7 +41,7 @@ There are several categories of attributes in Qodly:
  Indicates an alias attribute.
 - **Calculated**: A [calculated attribute](#calculated-attributes) does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. <img src={require('./img/image2.png').default} style={{borderRadius: '6px', width: '3%'}} /> Indicates a calculated attribute.
 
-The data type list contains [predefined data types](../../concepts/platform.md#qodly-database) as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
+The data type list contains [predefined data types](#data-types) as well as datastore classes and entity selections (in bold), and relation attributes if some have already been defined:
 
 <img src={require('./img/types.png').default} style={{borderRadius: '6px'}} />
 

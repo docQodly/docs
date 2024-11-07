@@ -46,9 +46,21 @@ const sidebars = {
 			label: "Quickstart"
 		},
 		{
-			type: 'doc',
-			id: 'concepts/how-to',
-			label: "How to Guide"
+			type: 'category',
+			label: 'How to',
+			items: ['how-to/intro',
+				'how-to/test-debug',
+				'how-to/deployment',
+				'how-to/data-management',
+				'how-to/security',
+				'how-to/maintenance',
+				'how-to/advanced',
+				'how-to/templates',
+				'how-to/community',
+				'how-to/billing',
+				'how-to/payments',
+				'how-to/refunds',
+			],
 		},
 	],
 	Develop: [

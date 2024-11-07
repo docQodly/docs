@@ -39,14 +39,24 @@ This panel allows you to configure the new application.
 
 ### Environments
 
-Use this area to configure the appropriate **Power**, **Storage**, and **Networking** for every environment of your application. By default, only the "Development environment" is available.
+Use this area to configure the appropriate package (**Power**) suitable for your needs for every environment of your application. Each package encompasses a level for using resources:
 
-You can adjust values depending on your needs. When you select an option, the price is calculated in the upper right area. You can modify these options at any moment if necessary. 
+**Storage**: size of data stored in the cloud. 
+**Data transfert to Internet**: size of data sent to the network. 
 
+You can adjust values depending on your needs. When you select a package, the price is calculated in the upper right area. You can modify these options at any moment if necessary. 
+
+:::note
+
+The Sandbox has a resource configuration similar to **Power 1**, so that you can use your Sandbox application to evaluate your needs. 
+
+:::
 
 ### Add environment
 
-Use this button to add as many [environments](getStarted.md#environments-and-services) as required for your application. You can configure each environment separately. 
+By default, only the "Development environment" is available.
+
+You can use the **Add environment** button to add as many [environments](getStarted.md#environments-and-services) as required for your application. You can configure each environment separately. 
 
 
 ## Cloning Applications
