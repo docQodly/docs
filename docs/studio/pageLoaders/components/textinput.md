@@ -321,12 +321,12 @@ self {
     box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF;
     background: none;
     font-family: inherit;
-	padding-left: 1.4rem;
+    padding-left: 1.4rem;
 }
 /* Input tag styling*/
 self input{
-	color: #9a8ff8;
-	border: 0 !important;
+    color: #9a8ff8;
+    border: 0 !important;
 }
 /* Layout adjustment to display the first child element as a flex container */
 self > :first-child{
