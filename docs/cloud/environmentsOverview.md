@@ -1,12 +1,10 @@
 ---
-id: environments
-title: Environments
+id: environmentsOverview
+title: Overview 
 ---
 
 import Column from '@site/src/components/Column'
 
-
-## Overview
 
 By default, Qodly applications come with a Development environment, but you can add additional environments as needed for Staging, Production, or other custom purposes. Following best practices, environments are typically named according to their role.
 
