@@ -317,7 +317,6 @@ const sidebars = {
 						'language/commands/delayProcess',
 						'language/commands/deleteString',
 						'language/commands/ds',
-						'language/commands/equalPictures',
 						'language/commands/exp',
 						'language/commands/false',
 						'language/commands/file',

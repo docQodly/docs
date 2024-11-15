@@ -40,7 +40,6 @@ title: Commands
 |[<!-- INCLUDE #_command_.delayProcess.Syntax -->](delayProcess.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.delayProcess.Summary -->|
 |[<!-- INCLUDE #_command_.deleteString.Syntax -->](deleteString.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.deleteString.Summary -->|
 |[<!-- INCLUDE #_command_.ds.Syntax -->](ds.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.ds.Summary -->|
-|[<!-- INCLUDE #_command_.equalPictures.Syntax -->](equalPictures.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.equalPictures.Summary -->|
 |[<!-- INCLUDE #_command_.exp.Syntax -->](exp.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.exp.Summary -->|
 |[<!-- INCLUDE #_command_.false.Syntax -->](false.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.false.Summary -->|
 |[<!-- INCLUDE #_command_.file.Syntax -->](file.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.file.Summary -->|
