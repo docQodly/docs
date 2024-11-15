@@ -14,6 +14,7 @@ The **Team** tab in Qodly enables you to manage user access within each environm
 To add a user to the environment:
 
 1. Click the **Add User** button on the right.
+
 2. Choose to either **Select from existing users** or **Add a new user**.
 
    - **Select from existing users**: Pick a user who has previously been added to other environments or applications.
