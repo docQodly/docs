@@ -104,7 +104,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'concepts/quickstart',
+            docId: 'get-started/quickstart',
             position: 'left',
             label: 'Getting Started',
           },

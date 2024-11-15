@@ -3,10 +3,21 @@ id: quickstart
 title: Quickstart
 ---
 
-To begin your Qodly experience, follow these steps to create an account on the Qodly Central Management Console (QCMC) and explore the Sandbox environment.
+## Welcome
+
+Qodly is a global platform for developing, deploying, and running web applications. It consists of three main components:
+
+- **Qodly Studio**: Develop and test your application.
+- **Qodly Server**: Backend including 4D database, Web Server, and ORDA.
+- **Cloud Console**: Manage your deployments.
+
+Everything you need is included in your subscription. You can create your application from start to finish without installing anything. You can also extend your widgets by building or installing custom components in the Studio.
+
+The best way to start is by creating your **Sandbox**. It's completely free and perfect for trying out Qodly, exploring samples, and testing new features. You can even create a quick demo for your client before beginning your application. You'll have the option to clone it or start from scratch.
 
 
-## Step 1: Create your account
+
+## Create your account
 
 1. Go to [**cloud.qodly.com/signup**](https://cloud.qodly.com/signup) and create your account in a few clicks. 
 
@@ -23,7 +34,9 @@ To begin your Qodly experience, follow these steps to create an account on the Q
 4. Click **Submit** to access the Qodly Cloud Management Console.
 
 
-## Step 2: Set Up Your Sandbox and Environment
+## Create your Sandbox
+
+Creating your Sandbox is the first step for your journey in Qodly.
 
 1. Choose a Template to create your sandbox application. Two options are available:
 
@@ -31,7 +44,7 @@ To begin your Qodly experience, follow these steps to create an account on the Q
     - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.
     <br/><br/>
     <img src={require('./img/qs4.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-
+You can delete and reinstall it as needed. The only limitation is one sandbox per user.
 
 2. The development environment of your sandbox application is automatically prepared. This step takes just a few seconds.
 
@@ -44,7 +57,7 @@ The application name is automatically generated for sandbox applications.
 :::
 
 
-## Step 3: Navigate Qodly Studio and Begin the Welcome Tour
+## Navigate Qodly Studio and Begin the Welcome Tour
 
 
 With the development environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
@@ -73,6 +86,9 @@ With the development environment ready, it's time to access Qodly Studio and fol
     :::
 
 <br/><br/>
+
+
+
 
 :::tip
 

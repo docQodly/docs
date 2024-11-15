@@ -42,25 +42,54 @@ const sidebars = {
 	GetStarted: [
 		{
 			type: 'doc',
-			id: 'concepts/quickstart',
-			label: "Quickstart"
+			id: 'get-started/quickstart'
 		},
 		{
-			type: 'category',
-			label: 'How to',
-			items: ['how-to/intro',
-				'how-to/test-debug',
-				'how-to/deployment',
-				'how-to/data-management',
-				'how-to/security',
-				'how-to/maintenance',
-				'how-to/advanced',
-				'how-to/templates',
-				'how-to/community',
-				'how-to/billing',
-				'how-to/payments',
-				'how-to/refunds',
-			],
+			type: 'doc',
+			id: 'get-started/first-app'
+		},{
+			type: 'doc',
+			id: 'get-started/test-debug'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/deployment'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/data-management'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/security'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/maintenance'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/advanced'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/templates'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/community'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/billing'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/payments'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/refunds'
 		},
 	],
 	Develop: [
