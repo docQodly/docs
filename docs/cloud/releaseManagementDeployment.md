@@ -1,6 +1,6 @@
 ---
-id: releaseManagementDeployment
-title: Release Management Deployment
+id: deployManagement
+title: Deploy Management 
 ---
 
 import Column from '@site/src/components/Column'
