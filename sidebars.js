@@ -432,36 +432,23 @@ const sidebars = {
 	],
 
 	Run: [
+		'cloud/consoleOverview',
 		{
-			type: "doc",
-			id: "cloud/getStarted",
-			label: "Qodly Console",
+			type: 'category',
+			label: 'Applications',
+			items: [
+				'cloud/sandbox',
+				'cloud/myApps',
+			],
 		},
-		{
-			type: "doc",
-			id: "cloud/creating-apps",
-			label: "Creating Applications",
-		},
-		{
-			type: "doc",
-			id: "cloud/application-management",
-			label: "Managing Applications",
-		},
-		{
-			type: "doc",
-			id: "cloud/user-account",
-			label: "User Account",
-		},
-		{
-			type: "doc",
-			id: "cloud/api-key",
-			label: "API Keys",
-		},
-		{
-			type: "doc",
-			id: "cloud/deployment",
-			label: "Release Management and Deployment",
-		},
+		'cloud/environments',
+		'cloud/resourceMonitoring',
+		'cloud/teamUserManagement',
+		'cloud/dataManagement',
+		'cloud/apiKeys',
+		'cloud/releaseManagementDeployment',
+		'cloud/billingSubscriptionManagement',
+		'cloud/userAccountManagement',
 	],
 
 	ReactComponent: [

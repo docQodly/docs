@@ -1,9 +1,6 @@
 ---
-id: user-account
-title: User Account
+id: teamUserManagement
+title: Team User Management
 ---
 
 import Column from '@site/src/components/Column'
-
-
-... to do

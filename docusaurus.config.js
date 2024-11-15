@@ -122,7 +122,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'cloud/getStarted',
+            docId: 'cloud/consoleOverview',
             position: 'left',
             label: 'Run & Manage',
           },
