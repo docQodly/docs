@@ -8,7 +8,7 @@ title: Quickstart
 Qodly is a global platform for developing, deploying, and running web applications. It consists of three main components:
 
 - **Qodly Studio**: Develop and test your application.
-- **Qodly Server**: Backend including 4D database, Web Server, and ORDA.
+- **Qodly Server**: Backend including a database, a Web Server, and [ORDA](../orda/data-model.md).
 - **Cloud Console**: Manage your deployments.
 
 Everything you need is included in your subscription. You can create your application from start to finish without installing anything. You can also extend your widgets by building or installing custom components in the Studio.
@@ -39,11 +39,11 @@ The best way to start is by creating your **Sandbox**. It's completely free and 
 Creating your Sandbox is the first step for your journey in Qodly.
 
 1. Choose a Template to create your sandbox application. Two options are available:
-
     - **Create a sandbox from scratch**: Select the **Blank app** template to begin with an empty sandbox application.
-    - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.
-    <br/><br/>
+    - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.<br/><br/>
+
     <img src={require('./img/qs4.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
 You can delete and reinstall it as needed. The only limitation is one sandbox per user.
 
 2. The development environment of your sandbox application is automatically prepared. This step takes just a few seconds.

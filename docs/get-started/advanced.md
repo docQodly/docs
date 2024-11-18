@@ -4,7 +4,7 @@ title: Advanced Features
 ---
 
 
-- Custom login
-- Custom Components
-- Hybrid App: Public and Private Access
+- [Custom login](../language/SessionClass.md)
+- [Custom Components](../customComponent/overview.md)
+- Hybrid App: [Public and Private Access](../cloud/resourceMonitoring.md#application-access)
 - Integration
