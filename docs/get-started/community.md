@@ -15,7 +15,7 @@ Participate in forums and user groups:
 - [Youtube](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg)
 - [Linkedin](https://www.linkedin.com/showcase/qodly)
 
-## Documentation**
+## Documentation
 
 Refer to the [official documentation](https://developer.qodly.com/docs) for detailed guides.
 
