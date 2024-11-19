@@ -52,11 +52,15 @@ Each application, whether Sandbox, My Apps, or Shared Applications, provides a s
 ## Application Overview Details
 
 The **Overview Page** in the Console provides a summary of essential information for any application, including Sandbox, paid applications, or Shared Applications. This is the first screen you see upon accessing an application in the Console, giving you a quick snapshot of its current status, resources, and recent activities. Here’s a breakdown of each section:
+<img src={require('./img/applicationOverview.png').default} style={{borderRadius: '6px'}} />
 
 
 ### Instance Information
 
 The top section of the Overview page displays key metrics and the status of your application’s environment, helping you monitor its health and resource usage:
+<img src={require('./img/instanceInformation.png').default} style={{borderRadius: '6px'}} />
+
+- **Refresh button**: The <img src={require('./img/refresh.png').default} style={{borderRadius: '6px', width: '3%'}} /> button to refresh the information about the environment.
 
 - **Instance**: Shows the current state of the application instance.
 
@@ -73,47 +77,85 @@ The top section of the Overview page displays key metrics and the status of your
 
   - **OFFLINE**: The server is not accessible.
 
-- **Refresh button**: Button to refresh the information about the environment.
-
-- **Disk Usage**: Displays the percentage of disk storage currently in use, providing a quick overview of your storage consumption. This metric helps you manage and adjust storage resources as needed.
+- **Disk**: Displays the percentage of disk storage currently in use, providing a quick overview of your storage consumption. This metric helps you manage and adjust storage resources as needed.
 
 
-- **Memory Usage**: Shows the memory utilization percentage of your application. Monitoring memory usage ensures that your application has sufficient resources to operate smoothly.
+- **Memory**: Shows the memory utilization percentage of your application. Monitoring memory usage ensures that your application has sufficient resources to operate smoothly.
 
 
-- **Bandwidth**: Tracks the data consumption of your application, listing both the current usage and the allocated limit (e.g., 94/500MB). Exceeding your bandwidth limit can lead to additional charges or a throttling of data transfers.
+- **Outbound**: Tracks the data consumption of your application, listing both the current usage and the allocated limit (e.g., 94/1024MB). Exceeding your bandwidth limit can lead to additional charges or a throttling of data transfers.
 
+  :::info Edit Alert Button
+  <Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      An Edit Alert button is available in this section, allowing you to configure threshold alerts for outbound data usage. This feature ensures that you are notified before reaching critical levels of bandwidth consumption.
+      <br/><br/>
+      Steps to Configure an Alert:
+      <ul>
+        <li> Click Edit alert next to the outbound data section.</li>
+        <li> Enter the percentage threshold at which you want to receive an email notification.</li>
+        <li> Click Confirm to save the alert, or Cancel to discard changes.</li>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/editAlert.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+  </Column.List>
+  :::
 
 - **Users**: Indicates the number of active users who have access to the environment.
 
 
 - **Version**: Displays the current version of Qodly running in the environment, with updates logged in the Activity section.
 
+  :::info Upgrade to the Latest Version
+    <Column.List align="center" justifyContent="between">
+      <Column.Item width="55%">
+      If a new version is available, a (Upgrade to latest version) link will appear beside the version number. Clicking this link initiates the upgrade process.
+      </Column.Item>
+      <Column.Item width="40%">
+        <img src={require('./img/upgradeToLatestVersion.png').default} style={{borderRadius: '6px'}} />
+      </Column.Item>
+    </Column.List>
+  :::
 
+  :::danger
+    Upgrading may cause temporary downtime depending on the changes being applied, so plan upgrades during non-critical hours if possible.
+  :::
 
 ### Activity History
 
-Below the instance information, the **Activity** section logs recent actions and events within the application. This is particularly useful for tracking system changes and monitoring user activities over time.
+Below the instance information, the **Activity** section logs recent actions and events within the application. This is particularly useful for tracking system changes and monitoring user activities over time, like:
 
 - **Update Version**: Logs version updates of Qodly for the environment, including the user who performed the update.
 
-- **Application Wake Up**: Indicates when the application was reactivated after a period of inactivity or sleep mode.
+- **Sandbox Wake Up**: Indicates when the sandbox was reactivated after a period of inactivity or sleep mode.
 
 - **Start Server**: Records each instance of the server being started, providing an audit trail of server uptime.
 
 
-Each entry in the Activity history includes:
-
-- **Event Description**: Details the action taken, such as updating the version or starting the server.
-
-- **User**: Shows which user initiated the action.
-
-- **Timestamp**: Displays the date and time when the event occurred.
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="50%">
+    Each entry in the Activity history includes:
+    <br/>    <br/>
+    <ul>
+        <li> <strong>Event Description</strong>: Details the action taken, such as updating the version or starting the server.</li>
+        <br/>
+        <li> <strong>User</strong>: Shows which user initiated the action.</li>
+        <br/>
+        <li> <strong>Timestamp</strong>: Displays the date and time when the event occurred.</li>
+    </ul>
+	</Column.Item>
+	<Column.Item width="45%">
+    <img src={require('./img/activityHistory.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
 
 
 ### Accessing Qodly Studio
 
-To begin working on your application, you can click the **Studio** button located in the top-right corner of the Overview page. This button provides direct access to Qodly Studio, where you can build, configure, and customize your application. 
+To begin working on your application, you can click the **Open Studio** button located in the top-right corner of the Overview page. This button provides direct access to Qodly Studio, where you can build, configure, and customize your application. 
+<img src={require('./img/openStudio.png').default} style={{borderRadius: '6px'}} />
 
 :::info
 Qodly Studio is only accessible in the development environment. Other environments, such as staging or production, do not offer access to Qodly Studio and are primarily intended for testing, showcasing, or final user deployment.
