@@ -17,13 +17,21 @@ The **General Tab** contains core information and key actions, providing an at-a
 
 ### Environment Info
 
-1. **Usage**:
+#### 1. **Usage**:
+
+The Usage card contains:
+
    - **Disk Usage**: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.
    - **Memory Usage**: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.
 
-2. **Users**: Indicates the number of users with access to this environment.
+#### 2. **Users**:
 
-3. **Server Status**:
+The Users card indicates the number of users with access to this environment.
+
+#### 3. **Server Status**:
+
+The Server Status card contains:
+
    - **Online**: The server is operational and accessible.
    - **Control Buttons**:
      - **Stop**: Stops the server, making it unavailable temporarily.
@@ -35,12 +43,18 @@ The **General Tab** contains core information and key actions, providing an at-a
 
 This section provides links for accessing the application through different URLs, depending on the environment's authentication and access configuration:
 
-- **Studio URL**: Opens the environment directly in the Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
+#### 1. **Studio URL**: 
 
-- **Authenticated URL**: Directs to a login-protected version of the application, where only users in the application’s user registry have access. This link ensures that only authorized users can access this environment securely. You can either open this in a new tab or copy the URL.
+The Studio URL directs to the environment directly in the Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
+
+#### 2. **Authenticated URL**: 
+
+The Authenticated URL directs to a login-protected version of the application, where only users in the application’s user registry have access. This link ensures that only authorized users can access this environment securely. You can either open this in a new tab or copy the URL.
 
 
-- **Public URL: Development Environment Only**: Provides a publicly accessible URL, allowing anyone to access the application without authentication. This is useful for exposing specific pages to the public or setting up custom login management.
+#### 3. **Public URL (Development Environment Only)**: 
+
+The Authenticated URL provides a publicly accessible URL, allowing anyone to access the application without authentication. This is useful for exposing specific pages to the public or setting up custom login management.
 
   - **Activate Public Access**: Click to enable public access. A confirmation dialog will appear to verify your choice.
   

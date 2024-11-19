@@ -13,9 +13,9 @@ The Console homepage provides a centralized view of all applications associated 
 
 The Console homepage displays an organized list of your applications, grouped by type:
 
-- [**Sandbox**](#): Appears as a separate section, with a single entry (since each user is limited to one Sandbox at a time).
+- [**Sandbox**](./sandbox.md): Appears as a separate section, with a single entry (since each user is limited to one Sandbox at a time).
 
-- [**My Apps**](#): Lists all applications you’ve created, including any paid applications or clones of the Sandbox.
+- [**My Apps**](./myApps.md): Lists all applications you’ve created, including any paid applications or clones of the Sandbox.
 
 - **Shared Applications**: Lists applications owned by other users that have been shared with you. Access permissions vary based on the owner’s settings, allowing you to collaborate with some limitations.
 
