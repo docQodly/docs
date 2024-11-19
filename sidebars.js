@@ -575,7 +575,14 @@ const sidebars = {
 			collapsed: false,
 			items: [
 
-						'notes/1.0.0'
+						'notes/1.0.0',
+						'notes/1.0.0-beta.6',
+						'notes/1.0.0-beta.5',
+						'notes/1.0.0-beta.4',
+						'notes/1.0.0-beta.3',
+						'notes/1.0.0-beta.2',
+						'notes/1.0.0-beta.1',
+						'notes/1.0.0-beta.0'
 					],
 		},
 	],
