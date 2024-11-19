@@ -11,7 +11,9 @@ The [Data Explorer](../data-explorer/data-explorer.md) allows you to access and 
 
 ## Automatic backup
 
-In the Qodly Console you can activate the [backup option](../cloud/dataManagement.md). You can choose the frequency of your full backup. Incremental backup is created every hour in between. You can restore any backup at any time.
+In the Qodly Console you can activate the [backup option](../cloud/dataManagement.md). You can choose the frequency of your full backup. Incremental backup is created every hour in between. You can restore any backup at any time. 
+
+Your data are transferred from your environment and backed up in [AWS S3 services](https://aws.amazon.com/s3/). This process ensures that your information is securely stored in the cloud, protecting it from potential data loss or system failures. Using AWS S3, your data benefits from high durability and availability. The service employs advanced encryption methods to safeguard your information both in transit and at rest. 
 
 ## sFTP access
 
