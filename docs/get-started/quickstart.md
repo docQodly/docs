@@ -11,7 +11,7 @@ Qodly is a global platform for developing, deploying, and running web applicatio
 - **Qodly Server**: Backend including a database, a Web Server, and [ORDA](../orda/data-model.md).
 - **Cloud Console**: Manage your deployments.
 
-Everything you need is included in your subscription. You can create your application from start to finish without installing anything. You can also extend your widgets by building or installing custom components in the Studio.
+Everything you need is included in your subscription. You can create your application from start to finish without installing anything. You can also extend your widgets by building or installing custom components in Qodly Studio.
 
 The best way to start is by creating your **Sandbox**. It's completely free and perfect for trying out Qodly, exploring samples, and testing new features. You can even create a quick demo for your client before beginning your application. You'll have the option to clone it or start from scratch.
 
@@ -57,10 +57,10 @@ The application name is automatically generated for sandbox applications.
 :::
 
 
-## Navigate the Studio and Begin the Welcome Tour
+## Navigate Qodly Studio and Begin the Welcome Tour
 
 
-With the development environment ready, it's time to access the Studio and follow the Welcome Tour.
+With the development environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
 
 1. Click on the name of your sandbox application:
 
@@ -71,7 +71,7 @@ With the development environment ready, it's time to access the Studio and follo
    <img src={require('./img/qs5bis.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
-3. Click **Next** to start the Welcome Tour within the Studio!
+3. Click **Next** to start the Welcome Tour within Qodly Studio!
 
     <img src={require('./img/qs7.png').default} style={{borderRadius: '6px', height: '50%', width: '50%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -79,7 +79,7 @@ With the development environment ready, it's time to access the Studio and follo
 
     :::note
 
-    You can skip or reactivate the Welcome Tour anytime through [the Studio Settings](../studio/settings.md#activate-welcome-tour). 
+    You can skip or reactivate the Welcome Tour anytime through [Qodly Studio Settings](../studio/settings.md#activate-welcome-tour). 
 
     <img src={require('./img/qs8.png').default} style={{borderRadius: '6px', height: '50%', width: '50%'}} />
 

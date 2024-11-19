@@ -111,10 +111,10 @@ Each entry in the Activity history includes:
 - **Timestamp**: Displays the date and time when the event occurred.
 
 
-### Accessing the Studio
+### Accessing Qodly Studio
 
-To begin working on your application, you can click the **Studio** button located in the top-right corner of the Overview page. This button provides direct access to the Studio, where you can build, configure, and customize your application. 
+To begin working on your application, you can click the **Studio** button located in the top-right corner of the Overview page. This button provides direct access to Qodly Studio, where you can build, configure, and customize your application. 
 
 :::info
-The Studio is only accessible in the development environment. Other environments, such as staging or production, do not offer access to the Studio and are primarily intended for testing, showcasing, or final user deployment.
+Qodly Studio is only accessible in the development environment. Other environments, such as staging or production, do not offer access to Qodly Studio and are primarily intended for testing, showcasing, or final user deployment.
 :::

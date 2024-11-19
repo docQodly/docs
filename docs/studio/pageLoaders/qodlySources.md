@@ -230,7 +230,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
 
 ### Renaming a Qodly Source
 
-You can easily rename a qodlysource from the contextual panel. In doing so, the Studio will automatically update references to the renamed qodlysource:
+You can easily rename a qodlysource from the contextual panel. In doing so, Qodly Studio will automatically update references to the renamed qodlysource:
 
 - Within components bound to the qodlysource.
 

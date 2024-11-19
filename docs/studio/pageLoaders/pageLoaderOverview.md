@@ -11,7 +11,7 @@ In Qodly, a project's groundwork starts with a Page, which acts as the primary c
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">the Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li><br/><br/><br/><br/><br/>
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li><br/><br/><br/><br/>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
@@ -151,7 +151,7 @@ The Qodly Sources Color button <img alt="Dialog Icon" src={require('./img/header
 
 ### Preview
 
-The Preview buttons <img alt="Dialog Icon" src={require('./img/headerPanel_render1.png').default} style={{borderRadius: '6px', width: '3%'}} /> and <img alt="Dialog Icon" src={require('./img/headerPanel_render2.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel render a Page either directly in the Studio or using the Page URL.
+The Preview buttons <img alt="Dialog Icon" src={require('./img/headerPanel_render1.png').default} style={{borderRadius: '6px', width: '3%'}} /> and <img alt="Dialog Icon" src={require('./img/headerPanel_render2.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel render a Page either directly in Qodly Studio or using the Page URL.
 
 :::info
 For further details, refer to the [Rendering a Page](../rendering.md) section.
@@ -394,7 +394,7 @@ Explore below for specific options:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
-        In the Studio, every Page possesses a unique JSON representation. <br/><br/>
+        In Qodly Studio, every Page possesses a unique JSON representation. <br/><br/>
         This representation can be accessed through a text editor by selecting the Page in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
 	</Column.Item>
 	<Column.Item width="45%">

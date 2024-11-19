@@ -11,7 +11,7 @@ Qodly introduces the concept of **Custom Components**, empowering developers to 
 
 ## Benefits of Custom Components
 
-The integration of Custom Components into the Studio offers a range of advantages:
+The integration of Custom Components into Qodly Studio offers a range of advantages:
 
 - **Extensibility**: Tailor Pages precisely to meet specific project requirements, providing a flexible and customizable solution.
 
@@ -21,7 +21,7 @@ The integration of Custom Components into the Studio offers a range of advantage
 
 ## Key Distinctions from Built-in Components
 
-While the Studio offers a variety of built-in components, Custom Components provide developers with the freedom to design and implement functionalities tailored to their projects. Key distinctions include:
+While Qodly Studio offers a variety of built-in components, Custom Components provide developers with the freedom to design and implement functionalities tailored to their projects. Key distinctions include:
 
 | **Aspect**               | **Built-in Components**                                      | **Custom Components**                                        |
 |--------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
@@ -34,9 +34,9 @@ While the Studio offers a variety of built-in components, Custom Components prov
 | **Deprecation Risk**     | No risk of deprecation.                                      | Risk depends on Qodler's commitment to maintaining the component. |
 
 :::info
-Custom components are managed in the Studio to match the performance of built-in components, mitigating any potential drawbacks associated with response and interaction times.
+Custom components are managed in Qodly Studio to match the performance of built-in components, mitigating any potential drawbacks associated with response and interaction times.
 :::
 
 ## Community's Custom Components
 
-The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for the Studio page**](https://github.com/qodly/custom-components).
+The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for Qodly Studio page**](https://github.com/qodly/custom-components).

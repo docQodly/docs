@@ -10,7 +10,7 @@ Events serve as a mechanism for initiating specific actions, often employed to t
 
 For instance, when a user interacts with a webpage by clicking a button, you have the flexibility to determine the response, whether it involves invoking a function or opening another webpage. Furthermore, events can be activated in response to [updates in a Qodly Source](#qodly-source-events).
 
-Within the Studio, events play a pivotal role in executing code on the Qodly web server, without requiring any supplementary JavaScript.
+Within Qodly Studio, events play a pivotal role in executing code on the Qodly web server, without requiring any supplementary JavaScript.
 
 
 
@@ -39,7 +39,7 @@ When the `On Change` event is linked to a qodlysource, it will trigger in the fo
 
 ## Circular Dependency Risk
 
-Using the `Reload` standard action within an `On Change` event can create a circular dependency. This causes the Studio to enter an infinite loop of reloading, which results in the application freezing.
+Using the `Reload` standard action within an `On Change` event can create a circular dependency. This causes Qodly Studio to enter an infinite loop of reloading, which results in the application freezing.
 
 When you set an **On Change** event to reload the qodly source, the following happens:
 
@@ -55,5 +55,5 @@ This creates a loop:
 
     Change → On Change Event → Reload Standard Action → Change → On Change Event → Reload Standard Action → ...
 
-This loop continues indefinitely until the Studio runs out of resources or crashes, leading to the application freezing.
+This loop continues indefinitely until Qodly Studio runs out of resources or crashes, leading to the application freezing.
 

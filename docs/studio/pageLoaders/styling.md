@@ -257,7 +257,7 @@ When assigning both a shared and a local CSS class with the same name:
 </Column.List>
 :::
 
-The Studio permits the use of the same name for both a local and shared CSS class. 
+Qodly Studio permits the use of the same name for both a local and shared CSS class. 
 
 :::info However
 <Column.List align="center" justifyContent="between">

@@ -12,7 +12,7 @@ Qodly is a global platform for developing, deploying, and running web applicatio
 - **Cloud Console**: Manage your deployments.
 
 Everything you need is included in your subscription. You can create your application from start to finish without installing anything.
-You can also extend your widgets by building or installing custom components in the Studio.
+You can also extend your widgets by building or installing custom components in Qodly Studio.
 The best way to start is by creating your Sandbox. It's completely free and perfect for trying out Qodly, exploring samples, and testing new features. You can even create a quick demo for your client before beginning your application. You'll have the option to clone it or start from scratch.
 
 ## Creating your Sandbox
@@ -31,7 +31,7 @@ Creating your Sandbox is the first step for your journey in Qodly.
 4. Add your billing details. You can add your own card or invite someone else to add theirs.
 5. Subscribe.
 6. Your development environment is installed. You can go to Studio and start building your app.
-7. A welcome tour will begin for a quick overview of the studio.
+7. A welcome tour will begin for a quick overview of Qodly Studio.
 8. Start from the frontend by dragging and dropping components (or widgets) or use pre-made templates. Alternatively, begin by preparing your data using the Data Model, code your functions, and then bind them with Qodly Sources to the frontend.
 9. Manage roles and privileges in the editor.
 10. Your app is ready for testing or deployment.

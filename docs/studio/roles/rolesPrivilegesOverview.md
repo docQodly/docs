@@ -103,7 +103,7 @@ To assign a role to a user in the `development` environment:
 1. Go to the `Teams` tab to see a list of available users, each linked to their respective roles.
 2. Click the `Add User` button in the upper-right corner to add a new user.
 3. Complete the form that appears with the necessary user data.
-4. Find a dropdown menu labeled `Profile` towards the end of the form, displaying roles added from the Studio under the `Roles and Privileges` section.
+4. Find a dropdown menu labeled `Profile` towards the end of the form, displaying roles added from Qodly Studio under the `Roles and Privileges` section.
 5. Select and assign the appropriate role to the new user from the list, providing specific privileges associated with that role.
 
 <img src={require('./img/addingRolesviaCloud.png').default} style={{borderRadius: '6px'}} />
@@ -133,7 +133,7 @@ For more detailed information, refer to the [Sessions](../../language/SessionCla
 
 ## Roles and privileges JSON Representation
 
-In the Studio, roles and privileges have a JSON representation that can be useful for troubleshooting or copying selected parts.
+In Qodly Studio, roles and privileges have a JSON representation that can be useful for troubleshooting or copying selected parts.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">

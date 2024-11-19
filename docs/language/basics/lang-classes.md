@@ -41,7 +41,7 @@ hello = person.sayHello() //"Hello John Doe"
 
 ### User classes
 
-To create a new user class in the Studio, click on the **+** button of the Explorer and give a name to the class:
+To create a new user class in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
 
 ![class](img/class3.png)
 

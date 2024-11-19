@@ -9,7 +9,7 @@ Templates serve as a dynamic resource, offering pre-designed structures to kicks
 These templates come ready-made, though they may require some customization to perfectly align with your project's unique needs.
 
 :::note
-The current list of available templates is not exhaustive and will continue to expand as the Studio evolves.
+The current list of available templates is not exhaustive and will continue to expand as Qodly Studio evolves.
 :::
 
 ## Explore Templates

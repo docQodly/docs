@@ -5,7 +5,7 @@ title: Page Rendering
 import Column from '@site/src/components/Column'
 
 
-The concept of rendering plays a fundamental role in bringing digital interfaces to life. However, the Studio has a unique approach to rendering that sets it apart from traditional methods.
+The concept of rendering plays a fundamental role in bringing digital interfaces to life. However, Qodly Studio has a unique approach to rendering that sets it apart from traditional methods.
 
 
 ## What is Rendering?
@@ -15,15 +15,15 @@ At its core, rendering represents the pivotal stage where the abstract blueprint
 
 ## Understanding the Qodly Approach
 
-In the case of the Studio, rendering takes a different path compared to conventional web development. Here's how it works:
+In the case of Qodly Studio, rendering takes a different path compared to conventional web development. Here's how it works:
 
-- **Design and Configuration**: Users initiate the Page creation process within **the Studio** by arranging components, mapping qodlysources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
+- **Design and Configuration**: Users initiate the Page creation process within **Qodly Studio** by arranging components, mapping qodlysources to these components, and configuring event-driven behaviors. This design phase captures the form's layout and desired functionality.
 
-- **JSON Representation**: Instead of generating conventional HTML code, **the Studio** encapsulates the entire Page, including layout, data connections, and event-driven logic, in a structured JSON file. This JSON file serves as the representation of the Page.
+- **JSON Representation**: Instead of generating conventional HTML code, **Qodly Studio** encapsulates the entire Page, including layout, data connections, and event-driven logic, in a structured JSON file. This JSON file serves as the representation of the Page.
 
 - **Rendering Trigger**: Accessing the Page directly in a web browser is not an option. Instead, the Page is "**rendered**" when users initiate the rendering process, which can be done in one of two ways:
 
-    - **Preview in the Studio**: Users have the option to [preview the Page within the Studio interface](#preview-in-the-studio).
+    - **Preview in Qodly Studio**: Users have the option to [preview the Page within Qodly Studio interface](#preview-in-the-studio).
 
     - **Dedicated Browser Tab**: Alternatively, users can opt to [render the Page in a separate browser tab](#preview-in-a-browser-window).
 
@@ -48,11 +48,11 @@ Crucially, each Page is assigned a **unique URL** on the Qodly Web server. These
 
 ## Data Flow and Server Architecture
 
-The flow of data within the Studio ecosystem is carefully orchestrated, ensuring a seamless rendering experience:
+The flow of data within Qodly Studio ecosystem is carefully orchestrated, ensuring a seamless rendering experience:
 
 <img src={require('./img/workflow.png').default} style={{borderRadius: '6px'}} />
 
-- The Studio operates with an embedded Studio web server, providing secure web access. Users can conveniently preview Pages within the protected confines of the Studio.
+- Qodly Studio operates with an embedded Studio web server, providing secure web access. Users can conveniently preview Pages within the protected confines of Qodly Studio.
 
 - Additionally, the Qodly web server functions as a REST server, facilitating communication between the rendering engine and the web server through REST requests.
 
@@ -61,18 +61,18 @@ The flow of data within the Studio ecosystem is carefully orchestrated, ensuring
 
 ## Page Rendering Options
 
-Rendering a Page in the Studio provides versatile control and accessibility. You can preview it in the Studio or a separate browser window, but It's important to note that:
+Rendering a Page in Qodly Studio provides versatile control and accessibility. You can preview it in Qodly Studio or a separate browser window, but It's important to note that:
 
 :::info
 Database resource access control depends on the chosen rendering method.
 :::
 
 
-### Preview in the Studio
+### Preview in Qodly Studio
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by the Studio's embedded web server. <br/><br/>
+        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by Qodly Studio's embedded web server. <br/><br/>
         This approach provides a comprehensive view of data classes, functions, and attributes, even if they are not exposed as REST resources.
     </Column.Item>
     <Column.Item width="20%">

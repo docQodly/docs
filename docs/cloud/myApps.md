@@ -70,7 +70,7 @@ As you make selections for each environment resource, the total estimated cost w
 After completing the configuration and payment steps:
 
 1. Your development environment will be created, and the app will be listed under **My Apps**.
-2. **Studio Access**: You’ll see an option to open the app in the Studio, where you can start building and customizing your application.
+2. **Studio Access**: You’ll see an option to open the app in Qodly Studio, where you can start building and customizing your application.
 
 
 Once created, the application will appear in the My Apps list. This list, displays all applications you have created, excluding the Sandbox environment. 

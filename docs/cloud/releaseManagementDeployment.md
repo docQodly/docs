@@ -10,7 +10,7 @@ import Column from '@site/src/components/Column'
 
 The **Deploy** tab offers crucial tools for managing and deploying application versions in a controlled and organized way. Each step in the deployment process helps ensure your application’s integrity and functionality before it reaches end-users. This tab is typically used to manage staging and production environments, where stable and tested versions are essential.
 
-The key difference between development and deployment environments is the availability of the Studio:
+The key difference between development and deployment environments is the availability of Qodly Studio:
 
 <img src={require('./img/environments.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 

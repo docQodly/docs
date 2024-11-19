@@ -3,7 +3,7 @@ id: settings
 title: Settings
 ---
 
-The Settings panel allows you to customize the Studio interface for the current user and the current application. 
+The Settings panel allows you to customize Qodly Studio interface for the current user and the current application. 
 
 To open the Settings panel, click on the **Settings** button <img src={require('./img/settings-button.png').default} style={{borderRadius: '6px', width: '10%'}} /> from the Explorer or the toolbar:
  
@@ -19,11 +19,11 @@ Navigate by selecting labels in the top left area of the panel:
 
 ## User Settings
 
-Adjustments for the Studio's user interface.
+Adjustments for Qodly Studio's user interface.
 
 ### Show Renderer Pop Over
 
-Toggle the pop-up for different URL schemes in the [renderer](rendering.md) and the Studio.
+Toggle the pop-up for different URL schemes in the [renderer](rendering.md) and Qodly Studio.
 
 ### Show Unsaved Files Pop Over
 
@@ -48,7 +48,7 @@ Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} st
 
 ### Activate Welcome Tour
 
-Turn on/off the [Welcome tour dialogs](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) for the Studio.
+Turn on/off the [Welcome tour dialogs](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
 
 ### Activate tabs preview mode
 

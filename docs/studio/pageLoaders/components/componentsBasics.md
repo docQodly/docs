@@ -42,7 +42,7 @@ You have the flexibility to drop components directly onto the Page itself, as we
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      The Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload <a href="uploadCustomComponents">Custom Components</a>.
+      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload <a href="uploadCustomComponents">Custom Components</a>.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/customComponent_1.png').default} style={{borderRadius: '6px'}} />

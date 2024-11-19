@@ -45,7 +45,7 @@ This section provides links for accessing the application through different URLs
 
 #### 1. **Studio URL**: 
 
-The Studio URL directs to the environment directly in the Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
+Qodly Studio URL directs to the environment directly in Qodly Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
 
 #### 2. **Authenticated URL**: 
 

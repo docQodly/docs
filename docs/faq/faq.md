@@ -43,7 +43,7 @@ Your data are stored on AWS (Amazon Cloud).
 #### Developer Access
 
 
-Developers possess entry to the Studio environment within the development phase, where they engage in coding activities. The procedure for gaining the Studio access mandates a sequence of steps encompassing transit through a Content Delivery Network (CDN) and a Web Application Firewall (WAF). These measures reinforce security measures, providing a shield against potential threats. 
+Developers possess entry to Qodly Studio environment within the development phase, where they engage in coding activities. The procedure for gaining Qodly Studio access mandates a sequence of steps encompassing transit through a Content Delivery Network (CDN) and a Web Application Firewall (WAF). These measures reinforce security measures, providing a shield against potential threats. 
  
 Across each [environment](../cloud/environmentsOverview.md#overview), dedicated databases store essential data. Moreover, in the production environment, data undergoes periodic migration to a backup storage repository via a scheduled Cron job. This backup data is subsequently preserved in an S3 bucket, bolstering redundancy and enhancing data protection. Throughout the entirety of the developmental life cycle, meticulous oversight is maintained, and all relevant processes and components are meticulously tracked within the App Source code repository. This concerted approach ensures a secure and seamless workflow from inception to deployment. 
 
@@ -61,12 +61,12 @@ End users are granted authorization to interact with renderers across all enviro
 ## Studio
 
 <details>
-<summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Do I need specific expertise in HTML, CSS, or JavaScript to use the Studio?</summary>
-No, the Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies.
+<summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Do I need specific expertise in HTML, CSS, or JavaScript to use Qodly Studio?</summary>
+No, Qodly Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies.
 </details>
 
 <details>
-<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Is the Studio supported on all Web browsers?</summary>
+<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Is Qodly Studio supported on all Web browsers?</summary>
 
 See the requirements list [here](../studio/overview.md#requirements).
 
