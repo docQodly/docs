@@ -14,7 +14,7 @@ const FeatureList = [
 		the application building world!
       </>
     ),
-		link: "concepts/quickstart"
+		link: "get-started/quickstart"
   },
   {
     title: 'Develop',
@@ -36,7 +36,7 @@ const FeatureList = [
         full-featured console in our cloud infrastructure.
       </>
     ),
-		link: "cloud/getStarted"
+		link: "cloud/consoleOverview"
   },
   {
     title: 'REST API',
@@ -47,7 +47,7 @@ const FeatureList = [
         using the highly secured, comprehensive Qodly REST API.
       </>
     ),
-		link: "concepts/platform"
+		link: "api/overview"
   },
   {
     title: 'Custom Components',
