@@ -8,16 +8,20 @@ import Column from '@site/src/components/Column'
 ## Overview
 
 The Console homepage provides a centralized view of all applications associated with your Qodly account. Here, you can access, manage, and monitor various types of applications, including your Sandbox, paid applications, and applications shared with you by other users.
+<img src={require('./img/consoleOverview.png').default} style={{borderRadius: '6px'}} />
 
 ## Console Homepage
 
 The Console homepage displays an organized list of your applications, grouped by type:
 
 - [**Sandbox**](./sandbox.md): Appears as a separate section, with a single entry (since each user is limited to one Sandbox at a time).
+<img src={require('./img/consoleSandbox.png').default} style={{borderRadius: '6px'}} />
 
 - [**My Apps**](./myApps.md): Lists all applications you’ve created, including any paid applications or clones of the Sandbox.
+<img src={require('./img/consoleMyApps.png').default} style={{borderRadius: '6px'}} />
 
 - **Shared Applications**: Lists applications owned by other users that have been shared with you. Access permissions vary based on the owner’s settings, allowing you to collaborate with some limitations.
+<img src={require('./img/consoleSharedApplications.png').default} style={{borderRadius: '6px'}} />
 
 
 Each application is displayed with key details:
@@ -39,10 +43,10 @@ Each application, whether Sandbox, My Apps, or Shared Applications, provides a s
 
 | Action  | Sandbox | My Apps | Shared Applications |
 |---------|---------|---------|---------------------|
-| **Clone** | Cloning converts the Sandbox into a fully functional paid application with additional features and no Sandbox limitations. | Cloning duplicates the configuration and code of the paid application (excluding data) to create a new project based on the same codebase. | Cloning is applicabale to only applications under your ownership. |
-| **Users** | Allows you to add users for collaborative testing, but with Sandbox limitations. | Allows adding users with various roles (e.g., developer, tester, admin) for full project collaboration. | Only the owner has full control over user access. |
-| **Delete** | Permanently deletes the Sandbox, allowing you to create a new one if needed. | Permanently deletes the paid application. This action is irreversible, so ensure backups are taken if needed. | Only the owner can delete the shared application; you cannot delete it yourself. |
-| **Wake Up**	| Available for My Apps when they enter Sleep Mode after inactivity. | Available for My Apps when they enter Sleep Mode after inactivity.	| Available for My Apps when they enter Sleep Mode after inactivity.|
+| **Clone** | Cloning converts the Sandbox into a fully functional paid application with additional features and no Sandbox limitations. | Cloning duplicates the configuration and code of the paid application (excluding data) to create a new project based on the same codebase. | Not Available. |
+| **Users** | Allows you to add users for collaborative testing, but with Sandbox limitations. | Allows adding users with various roles (e.g., developer, tester, admin) for full project collaboration. | Not Available. |
+| **Delete** | Permanently deletes the Sandbox. | Permanently deletes the paid application. | Not Available. |
+| **Wake Up**	| Available for the Sandbox when it enters Sleep Mode after inactivity. | Not Available.	| Not Available.|
 
 
 ## Application Overview Details
