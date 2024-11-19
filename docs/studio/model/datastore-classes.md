@@ -52,7 +52,7 @@ To rename a datastore class:
 
 :::info
 
-When you rename a datastore class, Qodly Studio automatically renames the associated [Data Model classes](../../orda/data-model.md). For instance, renaming "Emp" to "Employee" will result in "Emp", "EmpEntity", and "EmpSelection" being renamed to "Employee", "EmployeeEntity", and "EmployeeSelection" respectively. Note that the entity selection class can be [renamed separately in the Properties](#selection-name).
+When you rename a datastore class, the Studio automatically renames the associated [Data Model classes](../../orda/data-model.md). For instance, renaming "Emp" to "Employee" will result in "Emp", "EmpEntity", and "EmpSelection" being renamed to "Employee", "EmployeeEntity", and "EmployeeSelection" respectively. Note that the entity selection class can be [renamed separately in the Properties](#selection-name).
 
 :::
 

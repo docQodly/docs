@@ -29,7 +29,7 @@ return ("hello " + param)
 
 :::note
 
-Qodly Studio allows executing methods from the Explorer to test them.
+The Studio allows executing methods from the Explorer to test them.
 
 :::
 

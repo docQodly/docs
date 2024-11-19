@@ -3,7 +3,7 @@ id: overview
 title: Overview
 ---
 
-Development in Qodly relies on the use of **Qodly Studio**, an innovative platform for creating business web applications. Our primary goal with **Qodly Studio** is to provide developers with a seamless, 100% web-based development experience. This platform empowers developers to:
+Development in Qodly relies on the use of **the Studio**, an innovative platform for creating business web applications. Our primary goal with **the Studio** is to provide developers with a seamless, 100% web-based development experience. This platform empowers developers to:
 
 - Design and modify data models that align with your business logic.
 - Effortlessly link data with [ORDA](../orda/data-model.md#the-orda-concept)  dataclasses.
@@ -13,11 +13,11 @@ Development in Qodly relies on the use of **Qodly Studio**, an innovative platfo
 - Write and debug code directly within the browser.
 - Fine-tune privileges and roles as per your requirements.
 
-Ultimately, **Qodly Studio** allows developers to build comprehensive web-based business applications using just a web browser, significantly minimizing the need for extensive coding. Importantly, JavaScript is not a mandatory component in this process.
+Ultimately, **the Studio** allows developers to build comprehensive web-based business applications using just a web browser, significantly minimizing the need for extensive coding. Importantly, JavaScript is not a mandatory component in this process.
 
 ## Requirements
 
-For development purposes, Qodly Studio supports the following web browsers:
+For development purposes, the Studio supports the following web browsers:
 
 - Chrome
 - Edge
@@ -29,9 +29,9 @@ It is recommended to have a screen resolution of 1920x1080 for an optimal experi
 Deployed Qodly applications are accessible on all popular web browsers, with no specific requirements.
 :::
 
-## Accessing Qodly Studio
+## Accessing the Studio
 
-Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in Qodly Studio by either:
+Access to the Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environments](../cloud/getStarted.md#environments-and-services) within the Qodly Console, you can access your application instance in the Studio by either:
 
 - Clicking on the [Studio](../cloud/consoleOverview#accessing-the-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/resourceMonitoring#1-studio-url) in the General tab for the environment.
@@ -39,9 +39,9 @@ Access to Qodly Studio is granted to developers once they complete a series of a
 
 
 
-## Qodly Studio Home Page
+## The Studio Home Page
 
-When you first step into Qodly Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
+When you first step into the Studio, you'll immediately encounter a user-friendly interface. It's divided into three key sections: the `Explorer` ⓵ on the left, a `Header bar`⓶ at the top, and a `Grid container`⓷ in the center.
 
 <img src={require('./img/QodlyStudioOverview.png').default} style={{borderRadius: '6px'}} />
 
@@ -77,7 +77,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
   
 ## Tabs
 
-Qodly Studio displays open items with tabs in the title area above the current editor.
+The Studio displays open items with tabs in the title area above the current editor.
 
 <img src={require('./img/tabs.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
@@ -119,7 +119,7 @@ When closing or reloading a tab, if it contains unsaved changes, an alert window
 
 ### Preview mode
 
-By default in Qodly Studio, clicking a file in the Explorer automatically opens it in a new tab, if not already opened. This can lead to open a large number of tabs. 
+By default in the Studio, clicking a file in the Explorer automatically opens it in a new tab, if not already opened. This can lead to open a large number of tabs. 
 
 If you are browsing multiple files and don't want every opened file to have its own tab, you can enable the **tabs preview mode** using the [**Activate tabs preview mode** selector](settings.md#activate-tabs-preview-mode) of the User Settings. 
 

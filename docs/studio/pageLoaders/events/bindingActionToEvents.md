@@ -212,7 +212,7 @@ The feature for providing feedback is not applicable in the context of navigatio
 
 ### External Links
 
-In addition to navigating to Pages, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#Pages), with a slight variation in the "Target Type" step:
+In addition to navigating to Pages, the Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#Pages), with a slight variation in the "Target Type" step:
 
 
 1. <Column.List align="center" justifyContent="between">
@@ -265,7 +265,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 1. **Select a Function**: Browse the available functions and select an appropriate class function (<i>A class function will only be available if it is **exposed**; otherwise, it will appear as disabled</i>). You can link events to various types of class functions, including datastore class functions, dataclass class functions, entity class functions, entity selection class functions, and singleton class functions. 
 
-2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/QodlySourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
+2. **Pass Parameters**: After selecting a class function, the Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/QodlySourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
 
 3. **Select a qodlysource for the returned result**: In the return parameter section, choose a qodlysource to store the function's returned result. <br/>
@@ -545,7 +545,7 @@ Upon calling a function, it initiates an HTTP request, updating the UI simultane
 Consequently, only the final update from the function will be visible in the UI, showcasing only the last toast.
 :::
 
-The time these **toast notifications** remain visible is typically managed by Qodly Studio's internal logic.
+The time these **toast notifications** remain visible is typically managed by the Studio's internal logic.
 
 :::info
 They will automatically disappear after a preset **5-second** period. Users can also manually dismiss them by clicking on the `x` icon.

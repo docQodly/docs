@@ -4,10 +4,10 @@ title: Coding
 ---
 import Column from '@site/src/components/Column'
 
-Qodly is a groundbreaking hybrid **low-code** application development platform that redefines how you build applications. With Qodly, you'll find yourself needing only a minimal amount of code, and sometimes, no code at all. It's as simple as designing your application, and Qodly Studio takes care of generating all the necessary code on your behalf.
+Qodly is a groundbreaking hybrid **low-code** application development platform that redefines how you build applications. With Qodly, you'll find yourself needing only a minimal amount of code, and sometimes, no code at all. It's as simple as designing your application, and the Studio takes care of generating all the necessary code on your behalf.
 
 
-While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within Qodly Studio, you'll harness the power of [events](pageLoaders/events/bindingActionToEvents.md) in combination with class functions to effectively manage the intricacies of your web application.
+While Qodly empowers you with its low-code capabilities, there are situations where coding expertise becomes essential. Within the Studio, you'll harness the power of [events](pageLoaders/events/bindingActionToEvents.md) in combination with class functions to effectively manage the intricacies of your web application.
 
 
 ## Coding Structures
@@ -57,7 +57,7 @@ You can create a method or class using one of the three methods:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
@@ -180,18 +180,18 @@ Your code modifications are automatically saved at regular intervals. However, i
 
 ### Collaborative Editing Behavior
 
-Methods and class functions in Qodly Studio feature real-time synchronization when multiple users are editing the same class function. These collaborative editing capabilities are accompanied by safeguards to prevent data loss in specific scenarios. Here's how it works:
+Methods and class functions in the Studio feature real-time synchronization when multiple users are editing the same class function. These collaborative editing capabilities are accompanied by safeguards to prevent data loss in specific scenarios. Here's how it works:
 
 
 - **Automatic Synchronization**: Whenever a user edits and saves a method or class function, those changes are instantly synchronized across all open tabs where other users are working on the same class function. This guarantees that every user has access to the most current version of the code.
 
 - **Unsaved Changes and "Outdated" Status**: Consider the scenario where `User A` makes changes to a method or class function but neglects to save them, and then `User B`, who is also working on the same method or class function, makes different changes and saves them. In this scenario, `User A`'s method or class function tab, which contains unsaved changes, will recognize that it now holds outdated content compared to the version saved by `User B`. This recognition is indicated by an `outdated` status.
 
-- **Page Refresh and Data Persistence**: Qodly Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When `User A` initiates a page refresh, the following actions are performed:
+- **Page Refresh and Data Persistence**: the Studio employs client-side data persistence through the browser's local storage to store and retrieve the state information. When `User A` initiates a page refresh, the following actions are performed:
 
-	- **Checking Local Storage**: Qodly Studio checks the local storage for any saved state data associated with the tab that `User A` was working on.
+	- **Checking Local Storage**: the Studio checks the local storage for any saved state data associated with the tab that `User A` was working on.
 
-	- **Retrieving Saved Data**: Upon discovery, Qodly Studio retrieves this stored data, which includes the current content of the method or class function that `User A` was editing.
+	- **Retrieving Saved Data**: Upon discovery, the Studio retrieves this stored data, which includes the current content of the method or class function that `User A` was editing.
 
 	- **Assessing the "Outdated" Status**: Additionally, the application assesses the `outdated` status based on an attribute within the tab state flags section. This attribute serves as an indicator of whether the current state is outdated compared to the version stored on the server.
 
@@ -200,7 +200,7 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ul>
-          <li><strong>Reload Option</strong>: Within the method/class tab of Qodly Studio, you'll find the <a href="#reloading-code">Reload</a> feature. Upon selecting this option, a confirmation message will promptly appear, indicating that your local changes will be lost. Should <code>User A</code> choose to reload the content will trigger an immediate refresh of the code content directly from the server.</li>
+          <li><strong>Reload Option</strong>: Within the method/class tab of the Studio, you'll find the <a href="#reloading-code">Reload</a> feature. Upon selecting this option, a confirmation message will promptly appear, indicating that your local changes will be lost. Should <code>User A</code> choose to reload the content will trigger an immediate refresh of the code content directly from the server.</li>
         </ul>
     </Column.Item>
     <Column.Item width="30%">
@@ -228,7 +228,7 @@ This collaborative editing behavior aligns with common practices in collaborativ
 
 ### LSP
 
-Qodly Studio relies on the Language Server Protocol ([LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol)) to offer advanced coding features like code completion and syntax highlighting. <img src={require('./img/lsp.png').default} style={{borderRadius: '6px', width: '15%'}} />
+The Studio relies on the Language Server Protocol ([LSP technology](https://en.wikipedia.org/wiki/Language_Server_Protocol)) to offer advanced coding features like code completion and syntax highlighting. <img src={require('./img/lsp.png').default} style={{borderRadius: '6px', width: '15%'}} />
 
 :::info
 Reloading is recommended in cases where a connection is not established. Without this connection, while you can still write and save your code, you will miss out on LSP-related features.
@@ -237,7 +237,7 @@ Reloading is recommended in cases where a connection is not established. Without
 
 ### Type-ahead features
 
-The Qodly Studio code editor includes helpful type-ahead and auto-completion features. You can easily incorporate these suggestions into your code using the following methods:
+The Studio code editor includes helpful type-ahead and auto-completion features. You can easily incorporate these suggestions into your code using the following methods:
 
 - The suggestion list automatically appears as you start typing.
 - To insert the selected suggestion, simply press the `Tab` key.
@@ -266,7 +266,7 @@ The palette includes a filtering option to find specific commands quickly.
 
 ### Warnings and errors
 
-Qodly Studio includes a Code Live Checker feature. The syntax, consistency, and structure of the entered code are automatically checked in order to prevent execution errors. For example, the Code Live Checker can detect that a right parenthesis is missing or that you used an unknown dataclass attribute.
+The Studio includes a Code Live Checker feature. The syntax, consistency, and structure of the entered code are automatically checked in order to prevent execution errors. For example, the Code Live Checker can detect that a right parenthesis is missing or that you used an unknown dataclass attribute.
 
 Qodly automatically checks the code syntax to see if it is correct. If you enter text or select a component that is not correct, Qodly underlines the incorrect expression. Two underline colors are used:
 

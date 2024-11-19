@@ -108,7 +108,7 @@ The Properties area displays the properties for the selected element: [datastore
 
 ## Model JSON Representation
 
-In Qodly Studio, the model possesses a JSON representation that is useful for troubleshooting or copying/pasting selected parts.
+In the Studio, the model possesses a JSON representation that is useful for troubleshooting or copying/pasting selected parts.
 
 <Column.List align="center" justifyContent="between">
 <Column.Item width="50%">

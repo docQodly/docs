@@ -7,7 +7,7 @@ title: First steps
 
 Qodly is a global platform for developing, deploying, and running web applications. It consists of three main components:
 
-- **Qodly Studio**: Develop and test your application.
+- **Studio**: Develop and test your application.
 - **Qodly Server**: Backend including 4D database, Web Server, and ORDA.
 - **Cloud Console**: Manage your deployments.
 

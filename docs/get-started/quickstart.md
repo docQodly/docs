@@ -7,7 +7,7 @@ title: Quickstart
 
 Qodly is a global platform for developing, deploying, and running web applications. It consists of three main components:
 
-- **Qodly Studio**: Develop and test your application.
+- **Studio**: Develop and test your application.
 - **Qodly Server**: Backend including a database, a Web Server, and [ORDA](../orda/data-model.md).
 - **Cloud Console**: Manage your deployments.
 
@@ -57,10 +57,10 @@ The application name is automatically generated for sandbox applications.
 :::
 
 
-## Navigate Qodly Studio and Begin the Welcome Tour
+## Navigate the Studio and Begin the Welcome Tour
 
 
-With the development environment ready, it's time to access Qodly Studio and follow the Welcome Tour.
+With the development environment ready, it's time to access the Studio and follow the Welcome Tour.
 
 1. Click on the name of your sandbox application:
 
@@ -71,7 +71,7 @@ With the development environment ready, it's time to access Qodly Studio and fol
    <img src={require('./img/qs5bis.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 
-3. Click **Next** to start the Welcome Tour within Qodly Studio!
+3. Click **Next** to start the Welcome Tour within the Studio!
 
     <img src={require('./img/qs7.png').default} style={{borderRadius: '6px', height: '50%', width: '50%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -79,7 +79,7 @@ With the development environment ready, it's time to access Qodly Studio and fol
 
     :::note
 
-    You can skip or reactivate the Welcome Tour anytime through [Qodly Studio Settings](../studio/settings.md#activate-welcome-tour). 
+    You can skip or reactivate the Welcome Tour anytime through [the Studio Settings](../studio/settings.md#activate-welcome-tour). 
 
     <img src={require('./img/qs8.png').default} style={{borderRadius: '6px', height: '50%', width: '50%'}} />
 

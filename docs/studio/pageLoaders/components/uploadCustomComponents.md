@@ -8,19 +8,19 @@ import Column from '@site/src/components/Column'
 
 ## Overview
 
-Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup#building-the-project).
+The Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup#building-the-project).
 
 
 ## Community's Custom Components
 
-The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for Qodly Studio page**](https://github.com/qodly/custom-components).
+The Qodly developer community is actively expanding, with members continuously crafting innovative custom components. These components are generously shared for free download within the community. If you're interested in contributing your custom components to this collective effort, we invite you to do so on the [**Custom Components for the Studio page**](https://github.com/qodly/custom-components).
 
 ## Uploading Custom Component
 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      Qodly Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload custom components. Hovering over the button displays a tooltip with the text "Upload Component".
+      The Studio provides a dedicated upload <img src={require('./img/customComponent_5.png').default} style={{borderRadius: '6px', width:'4%'}} /> button in the Component bar, allowing users to upload custom components. Hovering over the button displays a tooltip with the text "Upload Component".
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/customComponent_1.png').default} style={{borderRadius: '6px'}} />
@@ -123,7 +123,7 @@ To check relevant details about the error and address the issue, inspect the net
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      Upon successful upload and installation of a custom component, a structured process is executed to ensure integration into Qodly Studio.
+      Upon successful upload and installation of a custom component, a structured process is executed to ensure integration into the Studio.
       <br/><br/>
       This process involves the creation of a dedicated <code>CustomComponents</code> folder within the <code>Shared</code> directory in the Explorer panel, containing relevant metadata and the uploaded custom components.
     </Column.Item>
@@ -164,7 +164,7 @@ Simultaneously, a folder is created with a name corresponding to the unique ID o
 
 - **693.a8434817.js.LICENSE**: Licensing information specific to the JavaScript file "693.a8434817". It includes details about the license under which the code is distributed.
 
-- **components**: This file contains a minified and compressed file that encompasses functionality related to dynamic module loading, shared modules, dynamic script creation and loading, error handling, and references to Webpack chunks. It is crucial for efficient operation and integration of the custom component within Qodly Studio.
+- **components**: This file contains a minified and compressed file that encompasses functionality related to dynamic module loading, shared modules, dynamic script creation and loading, error handling, and references to Webpack chunks. It is crucial for efficient operation and integration of the custom component within the Studio.
 
 - **main.e029b478**: A minified JavaScript file containing code related to the React component "ExampleComponent". It includes modules for a Page editor (@ws-ui/webform-editor) and the React library itself. The code defines and exports components, settings, and other functionality.
 

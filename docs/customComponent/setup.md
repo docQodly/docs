@@ -147,7 +147,7 @@ Below is an overview of the development dependencies listed in the `package.json
 
 ### Running the Development Server
 
-Launch Qodly Studio in local mode with only the **Standalone Page Editor** using the following command:
+Launch the Studio in local mode with only the **Standalone Page Editor** using the following command:
 
 ```bash
 npm run dev
@@ -177,7 +177,7 @@ Used to generate a production-ready build of your entire project, the build proc
 The ID generated is established during the [initialization of a new project](#project-initialization) and remains consistent throughout the project's lifecycle. As a result, each execution of the build ensures that the `qodly_ID.zip` folder contains the same generated ID.
 :::
 
-Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](../studio/pageLoaders/components/uploadCustomComponents.md) in Qodly Studio for installation.
+Locate this compressed folder in your project directory, ready for drag-and-drop onto the [upload feature](../studio/pageLoaders/components/uploadCustomComponents.md) in the Studio for installation.
 
 ## Generating a New Component
 
@@ -196,7 +196,7 @@ A project can contain multiple custom components, as in a custom `Chart` project
 The `generate:component` command internally executes `qodly new component`, which then generates the necessary files and folders for the component within the `components` directory.
 
 :::danger
-Custom components must use unique names to avoid conflicts with Qodly Studio's built-in components. If a custom component shares the same name as a built-in component, the custom component will take precedence when dragged and dropped onto the Page editor.
+Custom components must use unique names to avoid conflicts with the Studio's built-in components. If a custom component shares the same name as a built-in component, the custom component will take precedence when dragged and dropped onto the Page editor.
 :::
 
 The `components` directory serves as the repository for custom components:
