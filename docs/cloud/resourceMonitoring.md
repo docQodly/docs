@@ -17,44 +17,99 @@ The **General Tab** contains core information and key actions, providing an at-a
 
 ### Environment Info
 
+<img src={require('./img/GeneralEnvironmentInfo.png').default} style={{borderRadius: '6px'}} />
+
 #### 1. **Usage**:
 
-The Usage card contains:
-
-   - **Disk Usage**: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.
-   - **Memory Usage**: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      The Usage card contains:
+      <br/><br/>
+      <ul>
+         <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.</li>
+         <br/>
+         <li><strong>Memory Usage</strong>: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.</li>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralEnvironmentInfoUsage.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 #### 2. **Users**:
 
-The Users card indicates the number of users with access to this environment.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      The Users card indicates the number of users with access to this environment.
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralEnvironmentInfoUsers.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 #### 3. **Server Status**:
 
-The Server Status card contains:
-
-   - **Online**: The server is operational and accessible.
-   - **Control Buttons**:
-     - **Stop**: Stops the server, making it unavailable temporarily.
-     - **Restart**: Restarts the server, which can be useful for troubleshooting or applying configurations.
-     - **Refresh**: Updates the server status display, allowing you to check the latest status.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      The Server Status card contains:
+      <br/><br/>
+      <ul>
+         <li><strong>Status</strong>: Whether the server is operational and accessible.</li>
+         <br/>
+         <li><strong>Control Buttons</strong>:</li>
+          <ul>
+            <li><strong>Stop</strong>: Stops the server, making it unavailable temporarily.</li>
+            <br/>
+            <li><strong>Restart</strong>: Restarts the server, which can be useful for troubleshooting or applying configurations.</li>
+            <br/>
+            <li><strong>Refresh</strong>: Updates the server status display, allowing you to check the latest status.</li>
+          </ul>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralEnvironmentInfoServer.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ### Application Access
 
 This section provides links for accessing the application through different URLs, depending on the environment's authentication and access configuration:
 
+<img src={require('./img/GeneralApplicationAccess.png').default} style={{borderRadius: '6px'}} />
+
 #### 1. **Studio URL**: 
 
-Qodly Studio URL directs to the environment directly in Qodly Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      Qodly Studio URL directs to the environment directly in Qodly Studio, where you can develop and configure the application. You can either open this in a new tab or copy the URL.
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralApplicationAccessStudio.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 #### 2. **Authenticated URL**: 
 
-The Authenticated URL directs to a login-protected version of the application, where only users in the application’s user registry have access. This link ensures that only authorized users can access this environment securely. You can either open this in a new tab or copy the URL.
-
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      The Authenticated URL directs to a login-protected version of the application, where only users in the application’s user registry have access. This link ensures that only authorized users can access this environment securely. You can either open this in a new tab or copy the URL.
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralApplicationAccessAuthenticated.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 #### 3. **Public URL (Development Environment Only)**: 
 
-The Authenticated URL provides a publicly accessible URL, allowing anyone to access the application without authentication. This is useful for exposing specific pages to the public or setting up custom login management.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      The Authenticated URL provides a publicly accessible URL, allowing anyone to access the application without authentication. This is useful for exposing specific pages to the public or setting up custom login management.
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralApplicationAccessPublic.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
   - **Activate Public Access**: Click to enable public access. A confirmation dialog will appear to verify your choice.
   
@@ -66,23 +121,51 @@ The Authenticated URL provides a publicly accessible URL, allowing anyone to acc
     By default, the public URL is disabled. You can **Activate public access** to make the environment publicly accessible, suitable for applications that don't require authentication for end users.
     :::
 
-- **Custom Domain: Deployment Environments Only**: Allows you to use a custom domain for the application in deployment environments (such as Staging or Production) to create a professional, branded experience.
+#### 4. **Custom Domain (Deployment Environment Only)**: 
 
-  - **Add Custom Domain**:
-    1. Click the **Add Custom Domain** button, which opens a dialog for setting up your custom domain.
-    2. In the **Set Custom Domain** dialog, enter your domain name.
+Allows you to use a custom domain for the application in deployment environments (such as Staging or Production) to create a professional, branded experience.
 
-  - **Domain Validation**:
-    - Qodly provides instructions to configure your domain provider’s DNS settings for validation:
-      - **Step 1**: Add a CNAME entry in your DNS with the provided values.
-      - **Step 2**: Once validated, add a second CNAME entry to complete the setup.
+<img src={require('./img/GeneralApplicationAccessCustomDomain.png').default} style={{borderRadius: '6px'}} />
 
-  - **Using Your Own SSL Certificate**:
-    - For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter:
-      - **Certificate Body**: Paste the content of your SSL certificate.
-      - **Certificate Chain (optional)**: Provide the certificate chain if required by your SSL provider.
-      - **Private Key**: Input the private key associated with your certificate.
+<br/>
 
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ul>
+         <li> <strong>Add Custom Domain</strong>:</li>
+            <br/>
+            <ul>
+              <li>Click the <strong>Add Custom Domain</strong> button, which opens a dialog for setting up your custom domain.</li>
+              <br/>
+              <li>In the <strong>Set Custom Domain</strong> dialog, enter your domain name.</li>
+            </ul>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/GeneralApplicationAccessCustomDomain2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<br/>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ul>
+         <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.</li>
+            <br/>
+            <ul>
+              <li><strong>Certificate Body</strong>: Paste the content of your SSL certificate.</li>
+              <br/>
+              <li><strong>Certificate Chain (optional)</strong>: Provide the certificate chain if required by your SSL provider.</li>
+              <br/>
+              <li><strong>Private Key</strong>: Input the private key associated with your certificate.</li>
+            </ul>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/GeneralApplicationAccessCustomDomain3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 ### Activity
 
@@ -92,11 +175,22 @@ The **Activity** section logs significant events and actions taken within the en
 - **Server Actions**: Logs actions like server start, stop, or restart.
 - **Updates**: Tracks version updates and configuration changes.
 
-Each activity entry includes:
-- **Description**: Summarizes the action taken (e.g., server start).
-- **Timestamp**: Provides the date and time the action occurred.
-- **User**: Indicates which user performed the action.
-
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      Each activity entry includes:
+      <br/><br/>
+      <ul>
+         <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).</li>
+         <br/>
+         <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.</li>
+         <br/>
+         <li> <strong>User</strong>: Indicates which user performed the action.</li>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/GeneralActivity.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 ## Metrics Tab
 
