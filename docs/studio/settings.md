@@ -65,6 +65,8 @@ Configure settings specific to your web application.
 
 ### Start Page
 
+<!-- this link should not be changed since it is the landing documentation section written in the default Qodly web server page-->
+
 Enables selection of a Page to serve as the application’s start page. This chosen Page will automatically render in the following situations:
 
 - When the **Preview** button is clicked in the Page Editor, the Page opens in a new tab.
