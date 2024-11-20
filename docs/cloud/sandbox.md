@@ -34,21 +34,34 @@ Using the Sandbox environment comes with certain rules and limitations:
 
 To create a new Sandbox, follow these steps:
 
-- **Access the Console**: Open the Console.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+        <ul>
+            <li> <strong>Access the Console</strong>: Open the Console.</li>
+            <br/>
+            <li> <strong>Click on "New Sandbox"</strong>: Select the "New Sandbox" button to initiate the creation process.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+    <img src={require('./img/newSandbox.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-- **Click on "New Sandbox"**: Select the "New Sandbox" button to initiate the creation process.
 
 - **Select a Template**: 
 
     1. Browse through the list of templates to find one that fits your project needs. Templates come with pre-configured code and settings suited for different types of projects.
+    <img src={require('./img/templates.png').default} style={{borderRadius: '6px'}} />
 
     2. **Blank Template**: If you prefer a completely custom setup without any pre-built code, select the Blank Template.
 
     3. **More Info**: Click **More Info** under a template to view additional details, such as images, a description, author information, and the supported language.
+    <img src={require('./img/templateMoreInfo.png').default} style={{borderRadius: '6px'}} />
 
     4. Once you’ve chosen a template, click **Create** to proceed.
 
 Once created, you’ll see an overview of your Sandbox in the cosole homepage.
+
 
 ## Sleep Mode
 
