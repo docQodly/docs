@@ -475,7 +475,6 @@ const sidebars = {
 			items: [
 				'cloud/environmentsOverview',
 				'cloud/resourceMonitoring',
-				'cloud/teamManagement',
 				'cloud/apiKeys',
 				'cloud/dataManagement',
 				'cloud/deployManagement',			
