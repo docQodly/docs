@@ -234,3 +234,166 @@ Adding a user to a specific environment from the **Users Page** is straightforwa
 - The user will also appear in the **Team Tab** of the newly assigned environment.
 :::
 
+
+## Team Tab (Environment-specific)
+
+The Team Tab provides environment-specific user management and is accessible within each environment. This tab is ideal for handling users assigned to a particular environment.
+
+### Add New User to a Specific Environment
+
+
+To add a new user or assign an existing user to the environment you’re managing:
+
+1. Open the **Team Tab** from the selected environment (e.g., Dev, Staging, Production).
+2. Click on the **Add User** button <img src={require('./img/addUser4.png').default} style={{borderRadius: '6px', width: '10%'}} />
+3. In the dialog, select one of the following options:
+
+   <Column.List align="center" justifyContent="between">
+      <Column.Item width="50%">
+         <ul>
+            <li><strong>Existing User</strong>:</li>
+            <br/>
+               <ul>
+                  <li>Choose a user from the dropdown, which lists all users previously added to the Users Page.</li>
+                  <br/>
+                  <li>These users could have been added through the Users Page or other environments’ Team Tabs.</li>
+                  <br/>
+               </ul>
+            <li><strong>New User</strong>:</li>
+            <br/>
+               <ul>
+                  <li>Enter the Email Address of the user you want to add for the first time.</li>
+               </ul>
+         </ul>
+      </Column.Item>
+      <Column.Item width="45%">
+         <img src={require('./img/addUser5.png').default} style={{borderRadius: '6px'}} />
+      </Column.Item>
+   </Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ol start='4'>
+         <li>Fill in the following details:</li>
+         <br/>
+         <ul>
+            <li><strong>First Name</strong> and <strong>Last Name</strong> (optional).</li>
+            <br/>
+            <li>Assign a <strong>Profile</strong> (e.g., Admin, Viewer).</li>
+         </ul>
+      </ol>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/addUser6.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+4. Click **Submit**.
+
+:::tip Outcome:
+Users added through the Team Tab for a specific environment are displayed in the user list of that environment.
+<img src={require('./img/environementUserList.png').default} style={{borderRadius: '6px'}} />
+
+These users will also appear in the Users Page with a tag representing the environment to which they were assigned.
+:::
+
+
+### Edit User Details
+
+Editing a user’s details in the Team Tab is specific to the environment where the user is assigned. Any changes made are applicable only for that particular environment.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ol>
+         <li>Open the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production.</li>
+         <br/>
+         <li>Click the <img src={require('./img/edit.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the user.</li>
+      </ol>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/userList.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ol start='4'>
+         <li>Modify the following fields as needed:</li>
+            <br/>
+            <ul>
+               <li><strong>First Name</strong> and <strong>Last Name</strong>.</li>
+               <br/>
+               <li><strong>Profile</strong> for the selected environment.</li>
+               <br/>
+            </ul>
+         <br/>
+         <li>Click <strong>Update</strong>.</li>
+      </ol>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/editUser1.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::tip Outcome:
+
+The updated details will immediately reflect in:
+
+- The Team Tab for the environment where the edits were made.
+
+- The Users Page, showing the updated information for the corresponding environment.
+:::
+
+:::info
+Changes made in the Team Tab do not affect the user’s details in other environments.
+:::
+
+
+### Remove User from a Specific Environment
+
+The Team Tab allows you to remove a user from a specific environment without affecting their assignments in other environments. Follow these steps for an environment-specific user removal:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ol>
+         <li>Navigate to the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production) and identify the user you want to remove.</li>
+         <br/>
+         <li>Click the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the specific user.</li>
+      </ol>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/userList.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ol start='4'>
+         <li>In the confirmation dialog, confirm the removal to finalize the action.</li>
+      </ol>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/removeUser.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::tip Outcome:
+
+If the User:
+
+- Has Multiple Environments, the user remains listed in the Users Page and is still assigned to other environments.
+
+- Has Only One Environment, removing the user from their only assigned environment results in their complete deletion from the app.
+
+The removal action ensures data consistency across the Users Page and the corresponding Team Tab of the environment.
+:::
+
+
+## Summary of Behavior
+
+| **Action**                  | **Users Page**                            | **Team Tab**                                 |
+|-----------------------------|--------------------------------------------|---------------------------------------------|
+| **Add New Users**           | Globally add and assign to environments.  | Add to the current environment.             |
+| **Edit User Details**       | Edit for specific environments globally.  | Edit for the current environment.           |
+| **Delete Users Entirely**   | Remove from all environments.             | Remove users from the app entirely if the current environment is their only assigned environment. |
+| **Remove from Environment** | Remove from a specific environment only.  | Remove from the current environment only.   |
