@@ -160,3 +160,92 @@ To begin working on your application, you can click the **Open Studio** button l
 :::info
 Qodly Studio is only accessible in the development environment. Other environments, such as staging or production, do not offer access to Qodly Studio and are primarily intended for testing, showcasing, or final user deployment.
 :::
+
+
+## Qodly Account Management
+
+The account management section in Qodly provides users with functionalities to manage their personal account details, view invoices for applications, and securely log out of the platform. 
+
+### Account Dropdown Menu
+
+Located in the top-right corner of the Qodly interface, the **Account Dropdown Menu** provides three options:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ul>
+        <li><strong>My Account</strong>: Directs you to the account details page where you can view and update your account information or change your password.</li>
+        <br/>
+        <li><strong>Invoices</strong>: Redirects you to the invoices page, displaying all invoices for applications you own or manage.</li>
+        <br/>
+        <li><strong>Log Out</strong>: Logs you out of the Qodly platform.</li>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/accountDropdown.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
+### My Account Page
+
+The **My Account Page** displays an overview of the user's account details:
+
+- **Company Name**: The company associated with the account.
+- **Name**: The user’s name.
+- **Email**: The email address used to access the account.
+- **Role**: The user’s assigned role in Qodly.
+- **Country**: The user’s country.
+
+  <img src={require('./img/myAccount.png').default} style={{borderRadius: '6px'}} />
+
+This section provides two main actions:
+
+1. **Update Account Details**: Clicking on **Update Account Details** opens a form where users can update their:
+
+  <Column.List align="center" justifyContent="between">
+      <Column.Item width="50%">
+        <ul>
+          <li>First Name</li>
+          <li>Last Name</li>
+          <li>Company Name</li>
+          <li>Role</li>
+          <li>Country</li>
+        </ul>
+        <br/>
+        After editing, click <strong>Update</strong> to save the changes or <strong>Cancel</strong> to discard them.
+      </Column.Item>
+      <Column.Item width="45%">
+        <img src={require('./img/updateAccount.png').default} style={{borderRadius: '6px', width:'80%'}} />
+      </Column.Item>
+  </Column.List>
+
+2. **Change Password**: Clicking on **Change Password** opens a form requiring:
+
+  <Column.List align="center" justifyContent="between">
+      <Column.Item width="50%">
+        <ul>
+          <li>Old Password</li>
+          <li>New Password</li>
+          <li>Confirmation of the New Password</li>
+        </ul>
+        <br/>
+        Once all fields are filled, click <strong>Update</strong> to apply the changes or <strong>Cancel</strong> to discard them.
+      </Column.Item>
+      <Column.Item width="45%">
+        <img src={require('./img/changePassword.png').default} style={{borderRadius: '6px', width:'80%'}} />
+      </Column.Item>
+  </Column.List>
+
+
+### Invoices Page
+
+The **Invoices Page** provides a comprehensive view of all application invoices, offering detailed financial information and download options.
+
+- Displays all invoices related to your applications in a tabular format. Columns include:
+  - **Date**: The invoice issue date.
+  - **Status**: Payment status (e.g., Paid).
+  - **Invoice Number**: Unique identifier for the invoice.
+  - **Total Amount**: Total cost covered by the invoice.
+  - **Download Invoice**: Allows you to download the invoice as a PDF.
+
+  <img src={require('./img/invoices.png').default} style={{borderRadius: '6px'}} />
