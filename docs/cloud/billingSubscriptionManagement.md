@@ -129,3 +129,87 @@ The **Invoices** section lists past invoices with downloadable options for recei
 
 The **Manage Subscription** <img src={require('./img/billingManageSubscription.png').default} style={{borderRadius: '6px', width:'10%'}} />  button directs you to the [Subscription Page](#subscription-page), where you can manage services and environments, including upgrading or deleting environments.
 
+
+## Subscription Page
+
+The **Subscription Page** is designed for managing environment-specific services and associated costs. It allows you to upgrade, delete, or add environments, providing detailed control over the resources allocated to each environment.
+
+### Environment Overview
+
+The **Environment Overview** section lists all environments with details of their configurations and associated costs.
+
+<img src={require('./img/subscriptionOverview.png').default} style={{borderRadius: '6px'}} />
+
+Clicking on an environment card reveals detailed configurations and associated costs for the environment:
+
+- **Qodly Power**: Displays the computing resources (CPU and memory) assigned to the environment, along with the monthly cost.
+- **Extra Storage**: Shows any additional storage allocated to the environment.
+- **Internet Outbound Data Transfer Pack**: Indicates the bandwidth included for outbound data transfers.
+- **Backup Service**: Displays if the database backup option is enabled.
+
+<img src={require('./img/subscriptionOverview2.png').default} style={{borderRadius: '6px'}} />
+
+
+### Add Environment
+
+The **Add Environment** <img src={require('./img/subscriptionAddEnvironement.png').default} style={{borderRadius: '6px', width:'15%'}} /> button enables the creation of new environments. Users can:
+
+- Add multiple environments in one session.
+
+- Customize each environment with specific computing power, storage, bandwidth, and additional services.
+
+- Review configuration summaries and total costs before finalizing.
+
+- Either submit <img src={require('./img/submit.png').default} style={{borderRadius: '6px', width:'8%'}} /> all configured environments or discard <img src={require('./img/discard.png').default} style={{borderRadius: '6px', width:'8%'}} /> the entire session.
+
+    <img src={require('./img/subscriptionAddEnvironement2.png').default} style={{borderRadius: '6px'}} />
+
+
+:::tip
+The configuration options for each environment in this section are the same as those in the [Step 3: Configure Application Details](./myApps.md#step-3-configure-application-details) section when creating a new app for the first time. Each added environment requires independent configuration, including options for:
+:::
+
+
+### View Environment
+
+The **View Environment** <img src={require('./img/subscriptionOpen.png').default} style={{borderRadius: '6px', width:'4%'}} /> button opens the [selected environment’s overview page](./environmentsOverview.md) for further details and monitoring.
+
+### Upgrading an Environment
+
+The **Upgrade** <img src={require('./img/subscriptionUpgrade.png').default} style={{borderRadius: '6px', width:'4%'}} /> button opens a configuration panel where you can adjust the resources allocated to a specific environment, enhancing its capabilities based on your project needs.
+
+:::tip
+The current configuration settings for the environment are pre-selected by default, making it easy to adjust specific elements as needed.
+:::
+
+The upgrade panel includes the Environment Configuration options, consistent with the settings available in the [Step 3: Configure Application Details section](./myApps.md#environment-configuration) during initial app creation. Changes can be applied by clicking "Save Changes" <img src={require('./img/saveChanges.png').default} style={{borderRadius: '6px', width:'10%'}} /> or discarded by selecting Cancel <img src={require('./img/cancel.png').default} style={{borderRadius: '6px', width:'9%'}} />.
+
+<img src={require('./img/subscriptionUpgradePanel.png').default} style={{borderRadius: '6px'}} />
+
+:::tip
+Billing adjustments are prorated for the remaining duration of the current billing cycle, as displayed in the summary panel to the right.
+:::
+
+:::info
+If the Database Backup Service was enabled during the initial creation of the environment, it remains locked and cannot be deselected in the upgrade configuration.
+:::
+
+### Deleting an Environment
+
+The **Delete** <img src={require('./img/subscriptionDelete.png').default} style={{borderRadius: '6px', width:'4%'}} /> button removes the selected environment (except Development) after confirmation:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="50%">
+      <ul>
+         <li>Available for all environments except Development.</li>
+         <br/>
+         <li>Requires entering the environment name in a confirmation dialog to prevent accidental deletions.</li>
+         <br/>
+         <li>Once deleted, the environment and its associated resources are removed, and the subscription is updated.</li>
+      </ul>
+    </Column.Item>
+    <Column.Item width="45%">
+      <img src={require('./img/subscriptionDelete2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
