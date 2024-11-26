@@ -113,7 +113,7 @@ The updated details will immediately reflect in:
 
 ### Delete User
 
-To delette a user entirely from the swohle app , meaing removig it fromm mall enviroeemets where they are assigned
+To completely delete a user from the application, removing them from all environments where they are assigned, follow the steps below:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
