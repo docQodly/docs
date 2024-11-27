@@ -61,19 +61,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
-			id: 'get-started/security'
+			id: 'get-started/support'
 		},
 		{
 			type: 'doc',
-			id: 'get-started/maintenance'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/advanced'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/templates'
+			id: 'get-started/updates'
 		},
 		{
 			type: 'doc',
@@ -81,7 +73,7 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
-			id: 'get-started/billing'
+			id: 'get-started/subscriptions'
 		},
 		{
 			type: 'doc',

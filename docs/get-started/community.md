@@ -11,7 +11,7 @@ Participate in forums and user groups:
 - [Qodly Community forum](https://community.qodly.com/)
 - [Slack](https://qodly.slack.com/join/shared_invite/zt-20ieeffts-NU57SOXcbakmWgIMnJpStQ#/shared-invite/email)
 - [Facebook](https://www.facebook.com/qodlyby4d)
-- [x](https://x.com/qodlyby4d)
+- [X](https://x.com/qodlyby4d)
 - [Youtube](https://www.youtube.com/channel/UCLNHKvjJQZ_5D1ziskba6jg)
 - [Linkedin](https://www.linkedin.com/showcase/qodly)
 

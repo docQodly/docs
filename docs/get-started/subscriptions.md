@@ -1,6 +1,6 @@
 ---
-id: billing
-title: Billing
+id: subscriptions
+title: Subscriptions
 ---
 
 
