@@ -14,7 +14,7 @@ const FeatureList = [
 		the application building world!
       </>
     ),
-		link: "concepts/quickstart"
+		link: "get-started/quickstart"
   },
   {
     title: 'Develop',
@@ -33,21 +33,21 @@ const FeatureList = [
     description: (
       <>
         Launch and monitor your Qodly applications using a
-        comprehensive console in our cloud infrastructure.
+        full-featured console in our cloud infrastructure.
       </>
     ),
-		link: "cloud/getStarted"
+		link: "cloud/consoleOverview"
   },
   {
-    title: 'Architecture',
-    Svg: require('@site/static/img/q-architecture.svg').default,
+    title: 'REST API',
+    Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Explore the Qodly architecture, technologies,
-		and main concepts.
+        Access your data from other applications 
+        using the highly secured, comprehensive Qodly REST API.
       </>
     ),
-		link: "concepts/platform"
+		link: "api/overview"
   },
   {
     title: 'Custom Components',

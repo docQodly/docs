@@ -57,7 +57,7 @@ You can create a method or class using one of the three methods:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Qodly Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
@@ -237,7 +237,7 @@ Reloading is recommended in cases where a connection is not established. Without
 
 ### Type-ahead features
 
-The Qodly Studio code editor includes helpful type-ahead and auto-completion features. You can easily incorporate these suggestions into your code using the following methods:
+Qodly Studio code editor includes helpful type-ahead and auto-completion features. You can easily incorporate these suggestions into your code using the following methods:
 
 - The suggestion list automatically appears as you start typing.
 - To insert the selected suggestion, simply press the `Tab` key.

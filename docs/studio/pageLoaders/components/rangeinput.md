@@ -346,39 +346,39 @@ To adjust the size of stars, select the component and modify its size.
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
-      <code className="language-css">
+      <code className="language-css longCode-block">
 {`/* Create the empty stars */
 self::before {
-  content: "\\2606 \\2606 \\2606 \\2606 \\2606"; /* Unicode representation of empty star */
-  color: #ccc; 
+    content: "\\2606 \\2606 \\2606 \\2606 \\2606"; /* Unicode representation of empty star */
+    color: #ccc; 
 }
 /* Hide the slider but keep functionality */
-self .fd-slidercontainer{
-  position: absolute !important;
-  opacity: 0;
-  width: 130px;
-  padding: 0;
+self .fd-slidercontainer {
+    position: absolute !important;
+    opacity: 0;
+    width: 130px;
+    padding: 0;
 }
 /* Fill the stars based on the 'aria-valuenow' attribute */
-self:has([aria-valuenow="1"])::before{
-  content: "\\2605 \\2606 \\2606 \\2606 \\2606"; 
-  color: #6d5dfc;
+self:has([aria-valuenow="1"])::before {
+    content: "\\2605 \\2606 \\2606 \\2606 \\2606"; 
+    color: #6d5dfc;
 }
-self:has([aria-valuenow="2"])::before{
-	content: "\\2605 \\2605 \\2606 \\2606 \\2606"; 
-  color: #6d5dfc;
+self:has([aria-valuenow="2"])::before {
+    content: "\\2605 \\2605 \\2606 \\2606 \\2606"; 
+    color: #6d5dfc;
 }
-self:has([aria-valuenow="3"])::before{
-  content: "\\2605 \\2605 \\2605 \\2606 \\2606"; 
-  color: #6d5dfc;
+self:has([aria-valuenow="3"])::before {
+    content: "\\2605 \\2605 \\2605 \\2606 \\2606"; 
+    color: #6d5dfc;
 }
-self:has([aria-valuenow="4"])::before{
-  content: "\\2605 \\2605 \\2605 \\2605 \\2606"; 
-  color: #6d5dfc;
+self:has([aria-valuenow="4"])::before {
+    content: "\\2605 \\2605 \\2605 \\2605 \\2606"; 
+    color: #6d5dfc;
 }
-self:has([aria-valuenow="5"])::before{
-  content: "\\2605 \\2605 \\2605 \\2605 \\2605"; 
-  color: #6d5dfc;
+self:has([aria-valuenow="5"])::before {
+    content: "\\2605 \\2605 \\2605 \\2605 \\2605"; 
+    color: #6d5dfc;
 }`}
       </code>
     </pre>

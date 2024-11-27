@@ -3,7 +3,7 @@ id: settings
 title: Settings
 ---
 
-The Settings panel allows you to customize the Qodly Studio interface for the current user and the current application. 
+The Settings panel allows you to customize Qodly Studio interface for the current user and the current application. 
 
 To open the Settings panel, click on the **Settings** button <img src={require('./img/settings-button.png').default} style={{borderRadius: '6px', width: '10%'}} /> from the Explorer or the toolbar:
  
@@ -48,7 +48,7 @@ Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} st
 
 ### Activate Welcome Tour
 
-Turn on/off the [Welcome tour dialogs](../concepts/quickstart.md#step-3-navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
+Turn on/off the [Welcome tour dialogs](../get-started/quickstart.md#navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
 
 ### Activate tabs preview mode
 
@@ -65,10 +65,12 @@ Configure settings specific to your web application.
 
 ### Start Page
 
+<!-- this link should not be changed since it is the landing documentation section written in the default Qodly web server page-->
+
 Enables selection of a Page to serve as the application’s start page. This chosen Page will automatically render in the following situations:
 
 - When the **Preview** button is clicked in the Page Editor, the Page opens in a new tab.
-- When the **Preview URL** area in the Qodly Cloud dashboard is clicked, the Page is displayed.
+- When the **Authenticated URL** area in the Qodly Cloud console is clicked, the Page is displayed.
 
 ### Default Display Mode
 

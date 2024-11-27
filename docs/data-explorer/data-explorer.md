@@ -39,7 +39,7 @@ To open the Data Explorer web page for a Qodly application:
     <Column.Item width="55%">
         <ol>
           <li> Open your application in Qodly Studio. </li> <br/>
-          <li> Click on the <code>Data</code> button on the Studio home page: </li> <br/>
+          <li> Click on the <code>Data</code> button on Qodly Studio home page: </li> <br/>
           Or, click on the <code>Data</code> button in the header bar:  <img src={require('./img/data-button.png').default} style={{borderRadius: '6px'}} />
         </ol>
     </Column.Item>

@@ -14,7 +14,7 @@ Qodly provides a sophisticated REST server that facilitates direct access to dat
 To effectively use the Qodly REST API, you will need to obtain the API Key and Endpoint URL, which are essential for authenticating and directing your API calls.
 
 :::info
-To fetch these credentials, please refer to the detailed steps in the [API Keys](../cloud/api-key#managing-api-keys) section of this documentation.
+To fetch these credentials, please refer to the detailed steps in the [API Keys](../cloud/apiKeys.md#managing-api-keys) section of this documentation.
 :::
 
 ## Configuring Data Access 

@@ -42,8 +42,46 @@ const sidebars = {
 	GetStarted: [
 		{
 			type: 'doc',
-			id: 'concepts/quickstart',
-			label: "Quickstart"
+			id: 'get-started/quickstart'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/first-app'
+		},{
+			type: 'doc',
+			id: 'get-started/test-debug'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/deployment'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/data-management'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/support'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/updates'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/community'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/subscriptions'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/payments'
+		},
+		{
+			type: 'doc',
+			id: 'get-started/refunds'
 		},
 	],
 	Develop: [
@@ -157,7 +195,10 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Programming Guide',
-			items: ['orda/data-model', 'orda/data', 'orda/queries',
+			items: [	'orda/data-model', 
+						'orda/data',
+						'orda/queries',
+						'orda/sessions',
 			],
 		},
 		{
@@ -268,7 +309,6 @@ const sidebars = {
 						'language/commands/delayProcess',
 						'language/commands/deleteString',
 						'language/commands/ds',
-						'language/commands/equalPictures',
 						'language/commands/exp',
 						'language/commands/false',
 						'language/commands/file',
@@ -412,40 +452,30 @@ const sidebars = {
 	],
 
 	Run: [
+		'cloud/consoleOverview',
 		{
-			type: "doc",
-			id: "cloud/getStarted",
-			label: "Qodly Applications",
+			type: 'category',
+			label: 'Applications',
+			items: [
+				'cloud/sandbox',
+				'cloud/myApps',
+			],
 		},
 		{
-			type: "doc",
-			id: "cloud/application-management",
-			label: "Application Management",
+			type: 'category',
+			label: 'Environments',
+			items: [
+				'cloud/environmentsOverview',
+				'cloud/resourceMonitoring',
+				'cloud/apiKeys',
+				'cloud/dataManagement',
+				'cloud/deployManagement',			
+			],
 		},
-		{
-			type: "doc",
-			id: "cloud/api-key",
-			label: "API Keys",
-		},
-		{
-			type: "doc",
-			id: "cloud/deployment",
-			label: "Release Management and Deployment",
-		},
+		'cloud/billingSubscriptionManagement',
+		'cloud/userAccountManagement',
 	],
 
-	Architecture: [
-		{
-			type: 'doc',
-			id: 'concepts/platform',
-			label: "Platform Overview"
-		},
-		{
-			type: 'doc',
-			id: 'concepts/cloud',
-			label: "Cloud Architecture"
-		},
-	],
 	ReactComponent: [
 		{
 			type: 'doc',
@@ -535,13 +565,13 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
-
-						'notes/v1.0.0-beta.6',
-						'notes/v1.0.0-beta.5',
-						'notes/v1.0.0-beta.4',
-						'notes/v1.0.0-beta.3',
-						'notes/v1.0.0-beta.2',
-						'notes/v1.0.0-beta.1'
+						'notes/1.0.0-beta.6',
+						'notes/1.0.0-beta.5',
+						'notes/1.0.0-beta.4',
+						'notes/1.0.0-beta.3',
+						'notes/1.0.0-beta.2',
+						'notes/1.0.0-beta.1',
+						'notes/1.0.0-beta.0'
 					],
 		},
 	],

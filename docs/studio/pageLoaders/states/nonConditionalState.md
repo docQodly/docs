@@ -244,7 +244,7 @@ To prevent any confusion between the editable and base states, the `Preview` but
 
 
 :::info
-Remember that when previewing in the studio, you are on the WebAdmin port, so no privilege restrictions are applied (even if you have [Conditional states](./conditionalState.md) that reference privileges).
+Remember that when previewing in Qodly Studio, you are on the WebAdmin port, so no privilege restrictions are applied (even if you have [Conditional states](./conditionalState.md) that reference privileges).
 :::
 
 

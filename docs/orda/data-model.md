@@ -3,7 +3,19 @@ id: data-model
 title: Data Model Objects
 ---
 
-## Introduction
+## The ORDA Concept
+
+
+ORDA stands for **Object Relational Data Access**. It is an enhanced technology allowing to access both the model and the data of a database through objects.
+
+Relations are transparently included in the concept, in combination with [lazy loading](#lazy-loading), to remove all the typical hassles of data selection or transfer from the developer. With ORDA, data is accessed through an abstraction layer, the [datastore](#datastore). A datastore is an object that provides an interface to the database model and data through objects and classes. For example, a table is mapped to a [dataclass](#dataclass) object, a field is an [attribute](#attribute) of a dataclass, and records are accessed through [entities](data-model.md#entity) and [entity selections](data-model.md#entity-selection).
+
+A query returns a list of entities called an entity selection, which fulfills the role of a SQL query’s row set. The difference is that each entity "knows" where it belongs in the data model and "understands" its relationship to all other entities. This means that a developer does not need to explain in a query how to relate the various pieces of information, nor in an update how to write modified values back to the relational structure.
+
+Basically, ORDA handles objects. In ORDA, all main concepts, including the datastore itself, are available through objects. The datastore is automatically mapped upon the underlying database structure.
+
+ORDA objects can be handled like standard objects, but they automatically benefit from specific properties and methods. ORDA objects are created and instanciated when necessary (you do not need to create them). However, ORDA data model objects are associated with classes where you can add custom functions and define [calculated attributes](#calculated-attributes-1).
+
 
 ### Database as Objects
 

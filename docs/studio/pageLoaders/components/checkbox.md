@@ -6,7 +6,6 @@ import Column from '@site/src/components/Column'
 
 The **Checkbox** component is a UI element designed for binary selections. It consists of a small box that can be checked (selected) or unchecked (deselected) by the user. 
 
-
 :::info 
 
 The **Checkbox** component contains an embedded **Checkbox Input** and a **Label** element. This is of great importance as configuring the **Checkbox** component may require adjusting properties within the embedded elements. This applies to the visual style, triggers, and actions as they may differ.
@@ -115,152 +114,128 @@ Interacting with user input data is straightforward. When you bind a qodlysource
 Subsequently, you can utilize this input value in various ways, such as within a standard action to initiate a search with matching attribute values.
 
 
-## Customizing Checkbox Styles
+## Customizing CheckBox Styles
 
 The **Checkbox** component offers additional customization options through CSS, providing control over the appearance of checkbox elements.
 
-### Understanding Checkbox CSS Classes
+### Component-Specific Classes
 
-The Checkbox component supports various CSS classes that enable customization of the checkbox container, label, outline, and checkmark area. Below is a list of the supported CSS classes and their corresponding elements.
+The following CSS classes are applied to various elements within the **CheckBox** component, defining their layout, style, and behavior. Each class can be customized to adjust the look and functionality of specific parts of the component.
 
-| **Class Name**   | **Applies To**                 | **Description**                            |
-|------------------|-------------------------------|--------------------------------------------|
-| `.chakra-checkbox`            | The outline of the checkbox component              | Applies styles to the outline of the checkbox component.|
-| `.chakra-checkbox__control`        | The embedded checkmark area            | Customizes the chechmark area within the checkbox element. | 
+| **Class Name**               | **Applies To**                       | **Description**                                                                                                            |
+|------------------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `chakra-checkbox`            | CheckBox wrapper                    | Provides base styling for the CheckBox wrapper, including layout and positioning.                                          |
+| `chakra-checkbox__input`     | Checkbox input                      | Applies default styling for the actual checkbox input element, usually hidden to allow the control to display instead.     |
+| `chakra-checkbox__control`   | Checkbox control indicator          | Styles the visible checkbox control, which represents the checked or unchecked state of the component.                     |
+| `fd-label`                   | Label element                       | Styles the CheckBox label, including font size, color, and positioning relative to the checkbox input.                    |
 
-### Custom styling examples
 
-The following examples demonstrate how to customize the appearance of the Checkbox component.
+### Component-Specific Tags
 
-#### Example 1 - Rounded Silver Outline
+The following HTML tags make up the structure of the **CheckBox** component. Each tag can be styled to adjust its appearance, alignment, and user interaction.
 
-This example customizes the outline of the checkbox component by using a rounded border in silver and a background color in white for contrast.
+| **Tag Name** | **Applies To**              | **Description**                                                                                                            |
+|--------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `<input>`    | Checkbox input field        | The main checkbox where users select or deselect options. Styling the input affects borders, padding, and position, influencing how it appears alongside the label text. |
+
+
+### Example 1 - Overall CheckBox Style
+
+The `self .chakra-checkbox` selector targets the main CheckBox container, allowing customization of size, cursor behavior, and shadow effects.
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`self {
-	padding: 10px;
-	width: 150px;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	font-family: 'Times New Roman', Times, serif;	
-	border-radius: 10px;
-}
+{`/* Main CheckBox container styling */
 self .chakra-checkbox{
-	background-color:white;
-	margin-left: 60px;
-	border-radius: 20px;
-	border-color:silver;
-	border-width: 3px;
-}
-` }
+  width: 2.8rem;
+  height: 2.8rem;
+  cursor: pointer;
+  border-radius: .5rem;
+  box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+}`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/checkbox_chakra.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/checkbox__style1.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 
-#### Example 2 - Shadowed Checkmark Area
 
-In this example, the checkmark area is styled by setting the background color to white, adding rounded corners, and applying a silver border to highlight changes. A shadow is also added for depth.
+### Example 2 - Check Mark Control Style
+
+The `self .chakra-checkbox__control` selector applies to the visual representation of the check mark control, adjusting its font size, weight, and transition effects.
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`self {
-	padding: 10px;
-	width: 150px;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	font-family: 'Times New Roman', Times, serif;	
-	border-radius: 10px;
-}
+{`/* Check mark control styling */
 self .chakra-checkbox__control{
-	background-color:white;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	border-radius: 10px;
-	border-color: silver;
-	margin-left: 70px;
-}
-` }
-      </code>
-    </pre>
-  </Column.Item>
- <Column.Item width="40%">
-    <img
-      src={require('./img/checkbox_chakra_control.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
-  </Column.Item>
-</Column.List>
-
-#### Example 3 - Grey Hovered Embedded Checkmark Area
-
-In this example, the checkmark area is styled with a grey background, rounded corners, and a shadow is added for depth. 
-
-<Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-    <pre>
-      <code className="language-css">
-{`self {
-	padding: 10px;
-	width: 150px;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	font-family: 'Times New Roman', Times, serif;	
-	border-radius: 10px;
-}
-self .chakra-checkbox__control:hover{
-	background-color:grey;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	border-radius: 10px;
+  font-size: 80%;
+  font-weight: 700;
+  color: #9baacf;
+  transition: .3s ease;
+  border: 0;
+  width: 100%;
+  height: 100%;
 }`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/checkbox_chakra_control_hover.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/checkbox__style2.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 
-#### Example 4 - Dark-blue  Checked Embedded Checkmark
 
-In this example, the embedded checked checkmark area is styled with a dark blue background, rounded corners, and a white text color for contrast. 
+### Example 3 - Checked State Style
+
+The `self .chakra-checkbox__control[data-checked]` selector applies styles when the CheckBox is checked, changing the background, shadow, and color.
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
+  <Column.Item width="58%">
     <pre>
       <code className="language-css">
-{`
-self {
-	padding: 10px;
-	width: 150px;
-	box-shadow: 4px 4px 10px rgba(215, 218, 225, 0.9), 4px 4px 10px rgba(221, 221, 232, 0.9), 4px 4px 10px rgba(240, 240, 244, 0.9), 4px 4px 10px rgba(227, 227, 234, 0.9);
-	font-family: 'Times New Roman', Times, serif;	
-	border-radius: 10px;
-}
+{`/* Checked state styling */
 self .chakra-checkbox__control[data-checked]{
-	color:white;
-	background-color:rgb(63, 17, 103);
-	margin: 5px 5px 5px 5px;
-	border-radius: 10px;
+  background: transparent;
+  box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF !important;
+  color: #6d5dfc;
 }`}
       </code>
     </pre>
   </Column.Item>
  <Column.Item width="40%">
     <img
-      src={require('./img/checkbox_chakra_control_checked.png').default}
-      style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}
-    />
+      src={require('./img/checkbox__style3.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
+  </Column.Item>
+</Column.List>
+
+
+### Example 4 - Hover Effect on Checked State
+
+The self `.chakra-checkbox__control[data-checked]:hover` selector applies styles when the checked CheckBox is hovered, creating a visual highlight effect.
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="58%">
+    <pre>
+      <code className="language-css">
+{`/* Checked state styling */
+self .chakra-checkbox__control[data-checked]:hover{
+  color: white;
+  box-shadow: inset .2rem .2rem 1rem #5b0eeb, inset -.2rem -.2rem 1rem #8abdff !important;
+}`}
+      </code>
+    </pre>
+  </Column.Item>
+ <Column.Item width="40%">
+    <img
+      src={require('./img/checkbox__style4.png').default} style={{ borderRadius: '6px', display: 'block', margin: '0 auto' }}/>
   </Column.Item>
 </Column.List>
 

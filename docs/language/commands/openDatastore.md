@@ -29,8 +29,8 @@ Pass in *connectionInfo* an object describing the remote datastore you want to c
 
 |Property| Type|Qodly application|Remote 4D application|
 |---|---|---|---|
-|hostname|Text|[API Endpoint](../../cloud/api-key#api-endpoint) of the Qodly cloud instance|Name or IP address of the remote database + ":" + port number (port number is mandatory)|
-|api-key|Text|[API Key](../../cloud/api-key#api-key) of the Qodly cloud instance|- (ignored)|
+|hostname|Text|[API Endpoint](../../cloud/apiKeys#api-endpoint) of the Qodly cloud instance|Name or IP address of the remote database + ":" + port number (port number is mandatory)|
+|api-key|Text|[API Key](../../cloud/apiKeys#api-key) of the Qodly cloud instance|- (ignored)|
 |idleTimeout|Longint|- (ignored)|Inactivity session timeout (in minutes), after which the session is automatically closed by 4D. If omitted, default value is 60 (1h). The value cannot be < 60 (if a lower value is passed, the timeout is set to 60). For more information, see [Closing sessions](https://developer.4d.com/docs/ORDA/datastores#closing-sessions).|
 |tls|Boolean|True to use secured connection. If omitted, false by default|True to use secured connection(1). If omitted, false by default. Using a secured connection is recommended whenever possible.|
 |type |Text |- (ignored)|must be "4D Server"|

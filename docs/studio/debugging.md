@@ -15,7 +15,7 @@ In the Qodly development environment, you have access to a range of debugging to
 To execute your code line-by-line and evaluate expressions, you must initiate a **debug session** on the server and **attach** it to your browser. Follow these steps:
 
 
-1. Click the Debug button located in the Studio toolbar. <img src={require('./img/debug1.png').default} style={{borderRadius: '6px', width: '10%'}} />
+1. Click the Debug button located in Qodly Studio toolbar. <img src={require('./img/debug1.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
 2. If the debug session starts successfully, a green bullet will appear on the button label. <img src={require('./img/debug2.png').default} style={{borderRadius: '6px', width: '10%'}} />
 
@@ -43,7 +43,7 @@ Verify that the method or function with the breakpoint is saved and not in [draf
 
 If you wish to stop a debug session, follow these steps:
 
-1. Click the **Debug** button in the Studio toolbar while a debug session is active.
+1. Click the **Debug** button in Qodly Studio toolbar while a debug session is active.
 
 2. A warning dialog box will prompt you to confirm whether you want to detach the debugger, effectively closing the debug session attached to your browser. You will have several options:  
 

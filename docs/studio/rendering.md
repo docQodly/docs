@@ -23,7 +23,7 @@ In the case of Qodly Studio, rendering takes a different path compared to conven
 
 - **Rendering Trigger**: Accessing the Page directly in a web browser is not an option. Instead, the Page is "**rendered**" when users initiate the rendering process, which can be done in one of two ways:
 
-    - **Preview in the Studio**: Users have the option to [preview the Page within the Qodly Studio interface](#preview-in-the-studio).
+    - **Preview in Qodly Studio**: Users have the option to [preview the Page within Qodly Studio interface](#preview-in-the-studio).
 
     - **Dedicated Browser Tab**: Alternatively, users can opt to [render the Page in a separate browser tab](#preview-in-a-browser-window).
 
@@ -48,7 +48,7 @@ Crucially, each Page is assigned a **unique URL** on the Qodly Web server. These
 
 ## Data Flow and Server Architecture
 
-The flow of data within the Qodly Studio ecosystem is carefully orchestrated, ensuring a seamless rendering experience:
+The flow of data within Qodly Studio ecosystem is carefully orchestrated, ensuring a seamless rendering experience:
 
 <img src={require('./img/workflow.png').default} style={{borderRadius: '6px'}} />
 
@@ -61,18 +61,18 @@ The flow of data within the Qodly Studio ecosystem is carefully orchestrated, en
 
 ## Page Rendering Options
 
-Rendering a Page in Qodly Studio provides versatile control and accessibility. You can preview it in the Studio or a separate browser window, but It's important to note that:
+Rendering a Page in Qodly Studio provides versatile control and accessibility. You can preview it in Qodly Studio or a separate browser window, but It's important to note that:
 
 :::info
 Database resource access control depends on the chosen rendering method.
 :::
 
 
-### Preview in the Studio
+### Preview in Qodly Studio
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by the Qodly Studio's embedded web server. <br/><br/>
+        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by Qodly Studio's embedded web server. <br/><br/>
         This approach provides a comprehensive view of data classes, functions, and attributes, even if they are not exposed as REST resources.
     </Column.Item>
     <Column.Item width="20%">

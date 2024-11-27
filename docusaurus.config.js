@@ -98,13 +98,13 @@ const config = {
           alt: 'Qodly',
           //src: 'img/qodly-logo-dark.svg',
           //srcDark: 'img/qodly-logo-white.svg',
-          src: 'img/Qodly-beta-D.png',
-          srcDark: 'img/Qodly-beta-W.png',
+          src: 'img/qodly-light-version.svg',
+          srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'concepts/quickstart',
+            docId: 'get-started/quickstart',
             position: 'left',
             label: 'Getting Started',
           },
@@ -112,7 +112,7 @@ const config = {
             type: 'doc',
             docId: 'cloud/getStarted',
             position: 'left',
-            label: 'Dashboard',
+            label: 'console',
           },*/
           {
             type: 'doc',
@@ -122,15 +122,9 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'cloud/getStarted',
+            docId: 'cloud/consoleOverview',
             position: 'left',
             label: 'Run & Manage',
-          },
-          {
-            type: 'doc',
-            docId: 'concepts/platform',
-            position: 'left',
-            label: 'Architecture',
           },
           {
             type: 'doc',
@@ -176,7 +170,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/v1.0.0-beta.6",
+                to: "notes/1.0.0-beta.6",
               },
             ],
           },
