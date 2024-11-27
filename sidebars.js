@@ -565,8 +565,6 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
-
-						'notes/1.0.0',
 						'notes/1.0.0-beta.6',
 						'notes/1.0.0-beta.5',
 						'notes/1.0.0-beta.4',
