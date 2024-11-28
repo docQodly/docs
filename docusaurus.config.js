@@ -33,6 +33,18 @@ const config = {
       mdxCrossCompilerCache: true,
     },
   },
+  markdown: {
+    format: 'detect',
+    mermaid: true,
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    anchors: {
+      maintainCase: false,
+    },
+  },
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
