@@ -1,33 +1,22 @@
 name: deploy
 
-
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
 
 jobs:
-  checks:
+  workflow-build:
+    uses: ./.github/workflows/workflow-build.yml
+
+  gh-release:
+    needs: workflow-build
+    name: 'Deploy website'
     runs-on: ubuntu-latest
-    name: 'Build'
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '18.x'
-      - name: Build
-        run: |
-          if [ -e package-lock.json ]; then
-            npm ci
-          else
-            npm i
-          fi
-          export NODE_OPTIONS="--max-old-space-size=14336"
-          npm run build
-      - name: Release to GitHub Pages
-        if: github.event_name != 'pull_request'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/
