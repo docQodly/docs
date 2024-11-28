@@ -23,6 +23,16 @@ const config = {
   organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
   noIndex: !isProduction,
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+  },
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
