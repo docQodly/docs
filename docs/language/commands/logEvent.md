@@ -17,6 +17,12 @@ title: logEvent
 
 The `logEvent` command <!--REF #_command_.logEvent.Summary-->writes *message* in the diagnostic log file in response to events that occur during the use of your application<!-- END REF-->.
 
+:::info
+
+You can access the *diagnostic log file* in the [**Logs tab of the Console**](../../cloud/resourceMonitoring.md#log-file-type).
+
+:::
+
 Pass in *message* the custom information to be written in the diagnostic log file according to the event. 
 
 You can attribute a level of importance to *message*, via the optional *importance* parameter which helps you to read and understand the log events. There are three levels of importance: Information (default), Warning, and Error. You can use the following constants:
