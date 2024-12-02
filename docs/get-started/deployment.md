@@ -11,7 +11,8 @@ To add a new environment, go to the Subscription page and click the "New Environ
 
 To create a new release, go to the Deploy tab in your development environment and click "Create New Release."
 
-Once your new environment is ready, go to its Deploy tab and [deploy the release](../cloud/releaseManagementDeployment.md#deploying-a-release). Your app will be live in this environment. You can [add your own domain](../cloud/resourceMonitoring.md#application-access) and configure it with your DNS to make your app accessible with your custom domain.
+Once your new environment is ready, go to its Deploy tab and [deploy the release](../cloud/releaseManagementDeployment.md#deploying-a-release). Your app will be live in this environment. You can [add your own domain](../cloud/resourceMonitoring.md#application-access) and configure it with your DNS to make your app accessible with your custom domain. [Data](../cloud/dataManagement.md) and [users](../cloud/userAccountManagement.md) are managed by the environment. 
+
 
 ## Version Control: Manage different versions of your app
 
