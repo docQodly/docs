@@ -192,6 +192,12 @@ Specific QodlyScript keywords can be used in class definitions:
 // code
 ```
 
+:::note
+
+There is no ending keyword for function code. The QodlyScript language automatically detects the end of a function's code by the next `function` keyword or the end of the class file. 
+
+:::
+
 Class functions are specific properties of the class. They are objects of the [4D.Function](../FunctionClass.md) class.
 
 In the class definition file, function declarations use the `function` keyword, and the name of the function. If the function is declared in a [shared class](#shared-classes), you can use the `shared` keyword so that the function could be called without [`use...end` structure](lang-shared.md#useend). For more information, refer to the [Shared functions](#shared-functions) paragraph below.
@@ -405,6 +411,13 @@ function get fullAddress()->result : object
 {shared} {singleton} constructor({parameterName : type, ...})
 // code
 ```
+
+:::note
+
+There is no ending keyword for class constructor function code. The QodlyScript language automatically detects the end of a function's code by the next `function` keyword or the end of the class file. 
+
+:::
+
 
 A class constructor function, which accepts optional [parameters](#parameters), can be used to create and initialize objects of the user class.
 
