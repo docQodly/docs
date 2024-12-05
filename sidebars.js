@@ -498,9 +498,9 @@ const sidebars = {
 					label: '@ws-ui/webform-editor',
 					items: [
 						// @start custom-components@webform-editor
+						'customComponent/api-reference/webform-editor/v0.3.20',
 						'customComponent/api-reference/webform-editor/v0.2.24',
 						'customComponent/api-reference/webform-editor/v0.2.16',
-						'customComponent/api-reference/webform-editor/v0.3.20',
 						// @end custom-components@webform-editor
 					]
 				},

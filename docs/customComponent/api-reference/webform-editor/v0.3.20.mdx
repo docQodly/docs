@@ -19,13 +19,13 @@ A hook that provides state information and actions for managing the studio panel
 ### *Returns*
 
 
-`{StudioPanelReturnType} -  An object containing the type, open state, current state, and actions to manipulate the studio panel.
+`{StudioPanelReturnType}` -  An object containing the type, open state, current state, and actions to manipulate the studio panel.
 :::info
 The `useStudioPanel` function returns an object with properties [`type`](#type), [`isOpen`](#isopen), [`current`](#current-1), and `actions` to manipulate the studio panel state.
 
 The `actions` object includes methods for [updating the state](#setstate), [setting the current type and value](#setcurrent), [closing](#close), [opening](#open), and [opening with a specific type and current value](#openwithcurrent).
 
-:::`
+:::
 
 
 
@@ -43,7 +43,7 @@ A hook that facilitates rendering and event handling for a Craft.js node. It man
 ### *Returns*
 
 
-`{[HTMLElement | null, { connectRenderer, eventsToHandle, emit} ] } -  An object with methods for connecting, handling events, and emitting custom events.
+`{[HTMLElement | null, { connectRenderer, eventsToHandle, emit} ] }` -  An object with methods for connecting, handling events, and emitting custom events.
 :::info
 The `useRenderer` function returns a tuple with two elements:
 
@@ -55,7 +55,7 @@ The `useRenderer` function returns a tuple with two elements:
 - `eventsToHandle`: An object mapping event names to their corresponding handler functions.
 
 - `emit`: A function to emit a custom event with the specified name and payload.
-:::`
+:::
 
 
 
@@ -66,11 +66,11 @@ A hook that provides methods and properties related to the layout mode of a webf
 ### *Returns*
 
 
-`{LayoutReturnType} - An object containing properties and methods related to the layout mode.
+`{LayoutReturnType}` - An object containing properties and methods related to the layout mode.
 
 :::info
 The useLayout function returns an object with properties [`layout`](#layout) and [`isAiryMode`](#isairymode), along with methods `getClassName` and `toggle`.
-:::`
+:::
 
 
 <Tabs>
@@ -139,13 +139,13 @@ A hook that facilitates managing datasources and current elements associated wit
 ### *Returns*
 
 
-`{UseSourcesReturnType} - An object containing datasources, current elements, and methods for manipulating their values.
+`{UseSourcesReturnType}` - An object containing datasources, current elements, and methods for manipulating their values.
 
 :::info
 The `useSources` function returns an object with the following structure:
 - `sources`: An object containing `datasource` and `currentElement`, representing the current values of datasources and current elements.
 - `actions`: An object containing methods for manipulating datasource values, including [`getDatasource`](#actionsgetdatasource), [`setDatasourceValue`](#actionssetdatasourcevalue), [`setCurrentElementValue`](#actionssetcurrentelementvalue), [`fetchDatasourceValue`](#actionsfetchdatasourcevalue), and [`fetchCurrentElementValue`](#actionsfetchcurrentelementvalue).
-:::`
+:::
 
 
 <Tabs>
@@ -209,7 +209,7 @@ A hook that enhances the functionality of a Craft.js node, providing features fo
 ### *Returns*
 
 
-`{UseEnhancedNodeReturnType} - An object containing enhanced node information, connectors, and actions.`
+`{UseEnhancedNodeReturnType}` - An object containing enhanced node information, connectors, and actions.
 
 
 <Tabs>
@@ -441,7 +441,7 @@ Returns an easy to use API to fecth a page(s) of data
 ### *Returns*
 
 
-`{page: IPage; entities: datasources.IEntity[]; setStep: (step: IStep) => void; fetchIndex: (index: number) => void; } - DataLoader return type`
+`{page: IPage; entities: datasources.IEntity[]; setStep: (step: IStep) => void; fetchIndex: (index: number) => void; }` - DataLoader return type
 
 
 <Tabs>
@@ -565,7 +565,7 @@ Gets current entity context from parant Element
 ### *Returns*
 
 
-`{EntityContextType} - Entity information including index, selection, current, iterator and parent`
+`{EntityContextType}` - Entity information including index, selection, current, iterator and parent
 
 
 

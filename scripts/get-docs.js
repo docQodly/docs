@@ -53,10 +53,11 @@ const insertLine = (file, line, options = {}) => {
   }
 
   const lines = content.split("\n");
+  const index = position.line + (anchor === "start" ? 1 : 0);
   const newContent = [
-    ...lines.slice(0, position.line),
+    ...lines.slice(0, index),
     sep.repeat(position.column) + line,
-    ...lines.slice(position.line),
+    ...lines.slice(index),
   ];
 
   writeFileSync(file, newContent.join("\n"), { encoding: "utf-8" });
@@ -80,7 +81,7 @@ Promise.all([
       `'customComponent/api-reference/${name}/v${version}',`,
       {
         tagName: `custom-components@${name}`,
-        anchor: "end",
+        anchor: "start",
         sep: "\t",
       }
     );
