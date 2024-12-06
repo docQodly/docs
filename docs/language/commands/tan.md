@@ -10,8 +10,8 @@ title: tan
 <!-- REF #_command_.tan.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number, in radians, whose tangent is returned|
-|Result|number|<-|Tangent of number|<!-- END REF -->
+|number|number|&#8594;|Number, in radians, whose tangent is returned|
+|Result|number|&#8592;|Tangent of number|<!-- END REF -->
 
 #### Description
 

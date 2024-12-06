@@ -10,8 +10,8 @@ title: formula
 <!-- REF #_command_.formula.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formulaExp|expression|->|formula to be returned as object|
-|Result|4D.Function|<-|Native function encapsulating the formula|
+|formulaExp|expression|&#8594;|formula to be returned as object|
+|Result|4D.Function|&#8592;|Native function encapsulating the formula|
 <!-- END REF -->
 
 

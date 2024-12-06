@@ -10,9 +10,9 @@ title: time
 <!-- REF #_command_.time.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|timeString|string|->|String to return as a time|
-|timeValue|integer|->|Number to return as a time|
-|Result|time|<-|Time specified by *timeString* or *timeValue*|
+|timeString|string|&#8594;|String to return as a time|
+|timeValue|integer|&#8594;|Number to return as a time|
+|Result|time|&#8592;|Time specified by *timeString* or *timeValue*|
 <!-- END REF -->
 
 

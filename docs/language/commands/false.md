@@ -9,7 +9,7 @@ title: "false"
 <!-- REF #_command_.false.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|false|
+|Result|boolean|&#8592;|false|
 <!-- END REF -->
 
 #### Description

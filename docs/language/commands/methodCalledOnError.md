@@ -4,15 +4,15 @@ title: methodCalledOnError
 ---
 
 
-<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( { *scope* : integer } ) : string<!-- END REF -->
+<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( \{ *scope* : integer \} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.methodCalledOnError.Params -->
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|scope|integer|->|Scope of the error method|
-|result|string|<-|Name of method called on error|
+|scope|integer|&#8594;|Scope of the error method|
+|result|string|&#8592;|Name of method called on error|
 <!-- END REF -->
 
 

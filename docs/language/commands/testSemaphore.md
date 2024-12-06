@@ -9,8 +9,8 @@ title: testSemaphore
 <!-- REF #_command_.testSemaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|semaphore|string|->|Semaphore to test|
-|Result|boolean|<-|false: semaphore does not exist, true: semaphore exists|
+|semaphore|string|&#8594;|Semaphore to test|
+|Result|boolean|&#8592;|false: semaphore does not exist, true: semaphore exists|
 <!-- END REF -->
 
 #### Description

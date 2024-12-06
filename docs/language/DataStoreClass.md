@@ -95,7 +95,7 @@ Each dataclass in a datastore is available as a property of the [DataStore objec
 <!-- REF #DataStoreClass.isAdminProtected().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|true if the Data Explorer access is disabled, false if it is enabled (default)|
+|Result|boolean|&#8592;|true if the Data Explorer access is disabled, false if it is enabled (default)|
 <!-- END REF -->
 
 
@@ -123,7 +123,7 @@ By default, the Data Explorer access is granted for `webAdmin` sessions, but it 
 <!-- REF #DataStoreClass.setAdminProtection().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|status|boolean|->|true to disable Data Explorer access to data on the `webAdmin` port, false (default) to grant access|
+|status|boolean|&#8594;|true to disable Data Explorer access to data on the `webAdmin` port, false (default) to grant access|
 <!-- END REF -->
 
 

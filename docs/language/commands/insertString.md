@@ -10,10 +10,10 @@ title: insertString
 <!-- REF #_command_.insertString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|string|->|String in which to insert the other string|
-|what|string|->|String to insert|
-|where|integer|->|Where to insert|
-|Result|string|<-|Resulting string|<!-- END REF -->
+|source|string|&#8594;|String in which to insert the other string|
+|what|string|&#8594;|String to insert|
+|where|integer|&#8594;|Where to insert|
+|Result|string|&#8592;|Resulting string|<!-- END REF -->
 
 #### Description
 

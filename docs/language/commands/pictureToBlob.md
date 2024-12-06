@@ -11,9 +11,9 @@ title: pictureToBlob
 <!-- REF #_command_.pictureToBlob.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|<-|Picture variable|
-|pictureBlob|blob|->|Blob to receive the converted picture|
-|codec|string|->|Picture codec ID|
+|aPicture|picture|&#8592;|Picture variable|
+|pictureBlob|blob|&#8594;|Blob to receive the converted picture|
+|codec|string|&#8594;|Picture codec ID|
 <!-- END REF -->
 
 #### Description

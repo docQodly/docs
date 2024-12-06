@@ -144,7 +144,7 @@ If you want to store value during the session, it is recommended to use the [ses
 <!-- REF #_command_.clearVariable.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|variable|any|->|Variable to clear|<!-- END REF -->
+|variable|any|&#8594;|Variable to clear|<!-- END REF -->
 
 
 #### Description

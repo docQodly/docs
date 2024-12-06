@@ -186,7 +186,7 @@ function getValue -> v : integer
 
 
 
-## Parameter indirection (${N})
+## Parameter indirection ($\{N\})
 
 QodlyScript methods and functions accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression.
 
@@ -380,7 +380,7 @@ With named variables, any parameter can be optional. In the above example, all p
 
 ## Optional parameters
 
-In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string { , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
+In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string \{ , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
 
 ```qs
 firstnames = ds.Teachers.all().extract("firstname") //1 parameter
@@ -404,7 +404,7 @@ class.concate() // Displays " "
 
 :::note
 
-You can also call a method or function with more parameters than declared. They will be available within the called code through the [${N} syntax](#parameter-indirection-n).
+You can also call a method or function with more parameters than declared. They will be available within the called code through the [$\{N\} syntax](#parameter-indirection-n).
 
 :::
 
@@ -528,8 +528,8 @@ When you execute the `CreatePerson` method, person.Age will be 50 everywhere sin
 <!-- REF #_command_.copyParameters.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom|integer|->|Starting index (included)|
-|Result|any|<-|New collection containing parameters actually passed|<!-- END REF -->
+|startFrom|integer|&#8594;|Starting index (included)|
+|Result|any|&#8592;|New collection containing parameters actually passed|<!-- END REF -->
 
 
 #### Description
@@ -599,7 +599,7 @@ htmlList = c.list("u","Alpha","Bravo","Charlie")
 <!-- REF #_command_.countParameters.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Number of parameters actually passed|<!-- END REF -->
+|Result|integer|&#8592;|Number of parameters actually passed|<!-- END REF -->
 
 #### Description
 

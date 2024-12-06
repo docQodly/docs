@@ -10,7 +10,7 @@ title: abortProcessByID
 <!-- REF #_command_.abortProcessByID.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|uniqueID|integer|->|Unique process ID|
+|uniqueID|integer|&#8594;|Unique process ID|
 <!-- END REF -->
 
 

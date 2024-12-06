@@ -10,8 +10,8 @@ title: onErrCall
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|errorMethod|string|->|Parameters used to build the error|
-|scope |integer|->|Scope for the error method|
+|errorMethod|string|&#8594;|Parameters used to build the error|
+|scope |integer|&#8594;|Scope for the error method|
 <!-- END REF -->
 
 

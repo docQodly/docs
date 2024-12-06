@@ -10,8 +10,8 @@ title: squareRoot
 <!-- REF #_command_.squareRoot.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number whose square root is calculated|
-|Result|number|<-|Square root of the number|<!-- END REF -->
+|number|number|&#8594;|Number whose square root is calculated|
+|Result|number|&#8592;|Square root of the number|<!-- END REF -->
 
 #### Description
 

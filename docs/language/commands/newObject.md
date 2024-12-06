@@ -3,15 +3,15 @@ id: newObject
 title: newObject
 ---
 
-<!-- REF #_command_.newObject.Syntax -->**newObject** {( *property* : string , *value* : any {, *...property* : string , *...value* : any} ) } : object<!-- END REF -->
+<!-- REF #_command_.newObject.Syntax -->**newObject** \{( *property* : string , *value* : any \{, *...property* : string , *...value* : any} ) \} : object<!-- END REF -->
 
 
 <!-- REF #_command_.newObject.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|property|string|->|Name of property to create|
-|value|integer, number, string, date, time, boolean, object, collection, picture|->|Value of property|
-|Result|object|<-|New object|
+|property|string|&#8594;|Name of property to create|
+|value|integer, number, string, date, time, boolean, object, collection, picture|&#8594;|Value of property|
+|Result|object|&#8592;|New object|
 <!-- END REF -->
 
 #### Description

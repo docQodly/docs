@@ -10,8 +10,8 @@ title: delayProcess
 <!-- REF #_command_.delayProcess.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|process|integer|->|Process number|
-|duration|number|->|Duration expressed in ticks|
+|process|integer|&#8594;|Process number|
+|duration|number|&#8594;|Duration expressed in ticks|
 <!-- END REF -->
 
 

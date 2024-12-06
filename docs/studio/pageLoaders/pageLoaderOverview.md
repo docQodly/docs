@@ -112,7 +112,7 @@ When the form is error-free, the icon appears as <img alt="Sanity Check OK" src=
 
 When discrepancies arise, the icon's color changes to reflect the error category. By clicking on this icon, you gain access to a comprehensive analysis of the issues, organized into three distinct categories:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
     <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent qodlysource.
 	</Column.Item>
@@ -121,7 +121,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
     <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a qodlysource.
 	</Column.Item>
@@ -130,7 +130,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
     <strong>Informational</strong>: Informational notices are in grey, like when a qodlysource is created but not utilized.
 	</Column.Item>
@@ -785,7 +785,7 @@ The JSON representation of the Page consists of two major elements: `metadata` a
 
 The syntax check identify and rectify syntax errors and other formatting issues within the JSON representation. These errors are not only highlighted but also accompanied by descriptive messages that facilitate pinpointing the exact problem. Below are some common examples of syntax errors that can be detected:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
       <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code>  is absent between key-value pairs in an object or elements in an array.
 	</Column.Item>
@@ -794,7 +794,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
       <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
 	</Column.Item>
@@ -803,7 +803,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
       <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
 	</Column.Item>
@@ -812,7 +812,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
       <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
 	</Column.Item>
@@ -821,7 +821,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
       <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
 	</Column.Item>

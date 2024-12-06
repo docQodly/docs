@@ -68,15 +68,15 @@ HTTPRequest objects provide the following functions and properties:
 ## 4D.HTTPRequest.new()
 
 
-<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : string { , *options* : object } ) : 4D.HTTPRequest<!-- END REF -->
+<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : string \{ , *options* : object \} ) : 4D.HTTPRequest<!-- END REF -->
 
 
 <!-- REF #4D.HTTPRequest.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|url|string|->|URL to which to send the request|
-|options|object|->|Request configuration properties|
-|Result|4D.HTTPRequest|<-|New HTTPRequest object|<!-- END REF -->
+|url|string|&#8594;|URL to which to send the request|
+|options|object|&#8594;|Request configuration properties|
+|Result|4D.HTTPRequest|&#8592;|New HTTPRequest object|<!-- END REF -->
 
 #### Description
 
@@ -234,8 +234,8 @@ The `.headers` property contains <!-- REF #HTTPRequestClass.headers.Summary -->t
 <!-- REF #_command_.httpParseMessage.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|data|string, blob|->|Data to be parsed|
-|Result|Object|<-|Object, each property is a part of the multipart data|<!-- END REF -->
+|data|string, blob|&#8594;|Data to be parsed|
+|Result|Object|&#8592;|Object, each property is a part of the multipart data|<!-- END REF -->
 
 #### Description
 
@@ -373,14 +373,14 @@ The `.url` property contains <!-- REF #HTTPRequestClass.url.Summary -->the URL o
 <!-- REF #HTTPRequestClass.wait().Desc -->
 ## .wait()
 
-<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : number } ) : HTTPRequestClass<!-- END REF -->
+<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( \{ *time* : number \} ) : HTTPRequestClass<!-- END REF -->
 
 
 <!-- REF #HTTPRequestClass.wait().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|time|number|->|Maximum time in seconds to wait for the response|
-|Result|4D.HTTPRequest|<-|HTTPRequest object|<!-- END REF -->
+|time|number|&#8594;|Maximum time in seconds to wait for the response|
+|Result|4D.HTTPRequest|&#8592;|HTTPRequest object|<!-- END REF -->
 
 #### Description
 

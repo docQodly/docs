@@ -41,8 +41,8 @@ Variant is actually not a *data* type but a *variable* type that can contain a v
 <!-- REF #_command_.type.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|var|any|->|Variable to be tested|
-|Result|integer|<-|Data type number|<!-- END REF -->
+|var|any|&#8594;|Variable to be tested|
+|Result|integer|&#8592;|Data type number|<!-- END REF -->
 
 #### Description
 
@@ -84,8 +84,8 @@ You cannot apply the `type` function to scalar expressions such as object proper
 <!-- REF #_command_.valueType.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression whose resulting value to be tested|
-|Result|integer|<-|Data type number|<!-- END REF -->
+|expression|any|&#8594;|Expression whose resulting value to be tested|
+|Result|integer|&#8592;|Data type number|<!-- END REF -->
 
 
 #### Description

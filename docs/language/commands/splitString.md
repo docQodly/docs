@@ -3,16 +3,16 @@ id: splitString
 title: splitString
 ---
 
-<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string {, *options* : integer }) : collection <!-- END REF -->
+<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string \{, *options* : integer \}) : collection <!-- END REF -->
 
 
 <!-- REF #_command_.splitString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|stringToSplit|string|->|String value|
-|separator|string|->|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
-|options|integer|->|Option(s) regarding empty strings and spaces|
-|Result|collection|<-|Collection of substrings|
+|stringToSplit|string|&#8594;|String value|
+|separator|string|&#8594;|String at which stringToSplit splits. If empty string (""), each character of stringToSplit is a substring|
+|options|integer|&#8594;|Option(s) regarding empty strings and spaces|
+|Result|collection|&#8592;|Collection of substrings|
 <!-- END REF -->
 
 #### Description

@@ -11,9 +11,9 @@ title: verifyPasswordHash
 <!-- REF #_command_.verifyPasswordHash.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|password|string|->|The user's password. Only the first 72 characters are used.|
-|hash|object|->|A password hash.	|
-|Result|boolean|<-|Returns TRUE if the password and hash match, otherwise returns FALSE.|
+|password|string|&#8594;|The user's password. Only the first 72 characters are used.|
+|hash|object|&#8594;|A password hash.	|
+|Result|boolean|&#8592;|Returns TRUE if the password and hash match, otherwise returns FALSE.|
 <!-- END REF -->
 
 #### Description

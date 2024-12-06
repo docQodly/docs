@@ -16,8 +16,8 @@ The `$entityset` endpoint enables you to manage and manipulate entity sets in yo
 
 | Syntax | Example | Description |
 |--------|---------|-------------|
-| [**$entityset/{entitySetID}**](#retrieving-an-existing-entity-set) | `/People/$entityset/0ANUMBER` | Retrieves an existing entity set |
-| [**$entityset/{entitySetID}?$operator...&$otherCollection**](#creating-a-new-entity-set-from-existing-ones) | `/Employee/$entityset/0ANUMBER?$logicOperator=AND&$otherCollection=C0ANUMBER` | Creates a new entity set by comparing existing entity sets |
+| [**$entityset/\{entitySetID\}**](#retrieving-an-existing-entity-set) | `/People/$entityset/0ANUMBER` | Retrieves an existing entity set |
+| [**$entityset/\{entitySetID\}?$operator...&$otherCollection**](#creating-a-new-entity-set-from-existing-ones) | `/Employee/$entityset/0ANUMBER?$logicOperator=AND&$otherCollection=C0ANUMBER` | Creates a new entity set by comparing existing entity sets |
 
 
 

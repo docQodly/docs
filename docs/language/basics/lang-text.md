@@ -52,14 +52,14 @@ In the following example, the **Carriage return** character (escape sequence `\r
 |  | ||"abc"  ==  "abd" |False|
 |Inequality |String  !=  String |Boolean |"abc"  !=  "abd" |True|
 |   |||"abc"  !=  "abc" |False|
-|Greater than |String > String |Boolean  |"abd" > "abc" |True
+|Greater than |String &gt; String |Boolean  |"abd" > "abc" |True
 |   |||"abc" > "abc" |False|
-|Less than |String < String |Boolean |"abc" < "abd" |True|
+|Less than |String &lt; String |Boolean |"abc" < "abd" |True|
 |   |||"abc" < "abc" |False|
-|Greater than or equal to |String >=  String |Boolean  |"abd" >=  "abc" |True|
-|   |||"abc" >=  "abd" |False|
-|Less than or equal to |String <= String |Boolean  |"abc" <= "abd" |True|
-|   |||"abd" <= "abc" |False|
+|Greater than or equal to |String &gt;=  String |Boolean  |"abd" &gt;=  "abc" |True|
+|   |||"abc" &gt;=  "abd" |False|
+|Less than or equal to |String &lt;= String |Boolean  |"abc" &lt;= "abd" |True|
+|   |||"abd" &lt;= "abc" |False|
 |Contains keyword |String % String |Boolean  |"Alpha Bravo" % "Bravo" |True|
 |   |||"Alpha Bravo" % "ravo" |False|
 
@@ -147,7 +147,7 @@ Unlike other string comparisons, searching by keywords looks for "words" in "tex
 
 :::note
 
-QodlyScript uses the ICU library for comparing strings (using `<>==  != ` operators) and detecting keywords. For more information about the rules implemented, please refer to the following address: <http://www.unicode.org/reports/tr29/#Word_Boundaries>.
+QodlyScript uses the ICU library for comparing strings (using `<>==  != ` operators) and detecting keywords. For more information about the rules implemented, please refer to the following address: http://www.unicode.org/reports/tr29/#Word_Boundaries.
 
 :::
 

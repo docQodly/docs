@@ -36,7 +36,7 @@ Attribute names are case-sensitive: "firstName" and "firstNAME" are not equal. T
 There are several categories of attributes in Qodly:
 
 - **Scalar/Storage**: Scalar/storage attributes allow you to store information in the datastore class.
-- **Relation**: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N<->N relationship between three datastore classes.
+- **Relation**: A relation attribute is relationship between two datastore classes that can be either N->1 or 1->N. From those two types, you can then create an N&#8592;>N relationship between three datastore classes.
 - **Alias**: An [alias attribute](#alias-attributes) is built upon a relation attribute. Once an N -> 1 Relation Attribute is defined, any of the attributes within the "parent" datastore class can be directly referenced as attributes within the "child" datastore class. The result is what appears to be de-normalized data without the overhead of duplicating information. Alias attributes can reference any available attributes further up the relational tree. An alias attribute may reference either a scalar attribute or a relation attribute. <img src={require('./img/alias-icon.png').default} style={{borderRadius: '6px'}} />
  Indicates an alias attribute.
 - **Calculated**: A [calculated attribute](#calculated-attributes) does not store information; instead, it determines its value based on other values from the same entity or from other entities, attributes or datastore class methods. <img src={require('./img/image2.png').default} style={{borderRadius: '6px', width: '3%'}} /> Indicates a calculated attribute.

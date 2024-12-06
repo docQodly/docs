@@ -11,9 +11,9 @@ title: asserted
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|boolExpression|boolean|->|Boolean expression|
-|msg|string|->|Text of error message|
-|result|boolean|<-|Result of evaluation of boolExpression|
+|boolExpression|boolean|&#8594;|Boolean expression|
+|msg|string|&#8594;|Text of error message|
+|result|boolean|&#8592;|Result of evaluation of boolExpression|
 <!-- END REF -->
 
 

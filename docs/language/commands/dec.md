@@ -10,8 +10,8 @@ title: dec
 <!-- REF #_command_.dec.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number whose decimal portion is returned|
-|Result|number|<-|Decimal part of number|
+|number|number|&#8594;|Number whose decimal portion is returned|
+|Result|number|&#8592;|Decimal part of number|
 <!-- END REF -->
 
 #### Description

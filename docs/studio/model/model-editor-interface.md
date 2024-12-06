@@ -161,7 +161,7 @@ In this JSON structure:
 
 The syntax check feature identifies and corrects syntax errors and formatting issues within the JSON representation. Errors are highlighted and accompanied by descriptive messages that help pinpoint the exact problem. Below are some common examples of syntax errors that can be detected:
 
-- <Column.List align="end" justifyContent="between">
+<Column.List align="end" justifyContent="between">
     <Column.Item width="60%">
       <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code> is absent between key-value pairs in an object or elements in an array.
     </Column.Item>
@@ -169,7 +169,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
       <img src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
   </Column.List>
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
     </Column.Item>
@@ -178,7 +178,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
     </Column.Item>
@@ -187,7 +187,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
     </Column.Item>
@@ -196,7 +196,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
     </Column.Item>

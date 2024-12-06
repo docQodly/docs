@@ -9,7 +9,7 @@ title: highestProcessNumber
 <!-- REF #_command_.highestProcessNumber.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Highest number of open processes (including kernel processes)|
+|Result|integer|&#8592;|Highest number of open processes (including kernel processes)|
 <!-- END REF -->
 
 #### Description

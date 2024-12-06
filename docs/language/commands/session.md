@@ -9,7 +9,7 @@ title: session
 <!-- REF #_command_.session.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Session|<-|Session object|
+|Result|4D.Session|&#8592;|Session object|
 <!-- END REF -->
 
 

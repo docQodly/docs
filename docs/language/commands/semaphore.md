@@ -4,15 +4,15 @@ title: semaphore
 ---
 
 
-<!-- REF #_command_.semaphore.Syntax -->**semaphore** ( *semaphore* : string { , *tickCount* : integer } ) : boolean<!-- END REF -->
+<!-- REF #_command_.semaphore.Syntax -->**semaphore** ( *semaphore* : string \{ , *tickCount* : integer \} ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.semaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|semaphore|string|->|Semaphore to test and set|
-|tickCount|integer|->|Maximum waiting time|
-|Result|boolean|<-|false: semaphore has been successfully set, true: semaphore was already set|
+|semaphore|string|&#8594;|Semaphore to test and set|
+|tickCount|integer|&#8594;|Maximum waiting time|
+|Result|boolean|&#8592;|false: semaphore has been successfully set, true: semaphore was already set|
 <!-- END REF -->
 
 #### Description

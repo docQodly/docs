@@ -11,8 +11,8 @@ title: dayOf
 <!-- REF #_command_.dayOf.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aDate|date|->|Date for which to return the day|
-|Result|integer|<-|Day of the month of *aDate*|
+|aDate|date|&#8594;|Date for which to return the day|
+|Result|integer|&#8592;|Day of the month of *aDate*|
 <!-- END REF -->
 
 

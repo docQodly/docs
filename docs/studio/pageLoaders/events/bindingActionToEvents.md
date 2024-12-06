@@ -85,7 +85,7 @@ Upon binding a standard action to a state, follow these steps:
 1. **Define Action**: Proceed to the Action section to unvail the available actions, which vary depending on the type of the qodlysource:
 
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <strong>Add Action</strong>: Utilized for incorporating modifications from selected states into the base state.
 	</Column.Item>
@@ -95,7 +95,7 @@ Upon binding a standard action to a state, follow these steps:
 </Column.List>
 
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <strong>Delete Action</strong>: This action facilitates the removal of selected states, along with their changes, in relation to the base state.
 	</Column.Item>
@@ -148,7 +148,7 @@ If a state is initially "Non-Conditional" but later transitions to a "Conditiona
 The navigation target can be defined in two ways using the toggle <img src={require('./img/QodlySourceToggle.png').default} style={{borderRadius: '6px', width:'8%'}} />:
 
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong> Qodly Sources</strong>: When the destination Page or external link is generated through server-side business logic. In such cases, provide a qodlysource of type string.
     </Column.Item>
@@ -157,7 +157,7 @@ The navigation target can be defined in two ways using the toggle <img src={requ
     </Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'5%'}} /> <strong>Hardcoded values</strong>: When selecting a Page from the Pages list or providing a direct link as a hardcoded value.
     </Column.Item>
@@ -171,7 +171,7 @@ The navigation target can be defined in two ways using the toggle <img src={requ
 
 To set up a navigation action after linking it with an event, proceed as follows:
 
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <strong>Choose Target Type</strong>: Select the "Page" option.
 	</Column.Item>
@@ -215,7 +215,7 @@ The feature for providing feedback is not applicable in the context of navigatio
 In addition to navigating to Pages, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#Pages), with a slight variation in the "Target Type" step:
 
 
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <strong>Choose Target Type</strong>: Select the "External Link" option and input the URL of the desired external link.
 	</Column.Item>
@@ -224,7 +224,7 @@ In addition to navigating to Pages, Qodly Studio offers a convenient way to dire
 	</Column.Item>
 </Column.List>
 
-2. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <strong>Define Transition Method</strong>: Similar to configuring Page navigation, you can specify how the external link will open. However, for external links, you have two options:
         <br/><br/>
@@ -285,7 +285,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 
 <br/>
 
-4. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
 		<strong>Add Parameter</strong>: If your function accepts a <a href="../../../language/basics/lang-parameters#optional-parameters">variable number of parameters</a>, you can use this button to declare and bind one or more appropriate parameter(s). They will be passed to the function in the defined order when called for the event.
 	</Column.Item>
@@ -295,7 +295,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 </Column.List>
 
 
-5. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
 		<strong>Provide Feedback</strong>: Enable the <code>Provide Feedback</code> checkbox to display backend feedback on the user interface. For more detailed information, refer to the <a href="#providing-feedback">Provide Feedback</a> section.
 	</Column.Item>
@@ -315,7 +315,7 @@ A single class function can be utilized across multiple events, allowing you to 
 
 There are two primary methods for ensuring precise parameter handling:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <img src={require('./img/toggleHardCodedValue.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Hardcoded values</strong>: Provide various types of values directly to the class function as parameters by selecting the type through the value icon <img src={require('./img/hardcodedValueTyoe.png').default} style={{borderRadius: '6px', width:'5%'}} />. Whether it's a string, number, boolean, or any other supported data type, simply choose the desired type from the dropdown list ensuring compatibility with the expected parameter type for precise and accurate results.
     </Column.Item>
@@ -354,7 +354,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 <br />
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="../qodlySources#page-qodly-sources">Local</a> or <a href="../qodlySources#shared-qodly-sources">Shared Qodly Sources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. <br/>
         Make sure the qodlysource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
@@ -474,7 +474,7 @@ exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMess
     </Column.Item>
 </Column.List>
 
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         The type of action:
         <br/><br/>
@@ -489,7 +489,7 @@ exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMess
     </Column.Item>
 </Column.List>
 
-2. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         The name of the dialog to be affected by this interaction.
     </Column.Item>

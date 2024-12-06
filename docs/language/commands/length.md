@@ -9,8 +9,8 @@ title: length
 <!-- REF #_command_.length.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|String for which to return length|
-|Result|integer|<-|Length of string|
+|aString|string|&#8594;|String for which to return length|
+|Result|integer|&#8592;|Length of string|
 <!-- END REF -->
 
 #### Description

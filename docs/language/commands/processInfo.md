@@ -9,8 +9,8 @@ title: processInfo
 <!-- REF #_command_.processInfo.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|processNumber|integer|-> |Process number|
-|Result|object|<-|Information about the process|
+|processNumber|integer|&#8594; |Process number|
+|Result|object|&#8592;|Information about the process|
 <!-- END REF -->
 
 #### Description

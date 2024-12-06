@@ -10,9 +10,9 @@ title: processNumber
 <!-- REF #_command_.processNumber.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|->|Name of process for which to retrieve the process number|
-|id|string|->|ID of process for which to retrieve the process number|
-|Result|integer|<-|Process number|<!-- END REF -->
+|name|string|&#8594;|Name of process for which to retrieve the process number|
+|id|string|&#8594;|ID of process for which to retrieve the process number|
+|Result|integer|&#8592;|Process number|<!-- END REF -->
 
 #### Description
 

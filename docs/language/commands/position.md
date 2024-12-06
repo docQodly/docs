@@ -3,18 +3,18 @@ id: position
 title: position
 ---
 
-<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer \{, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer \{, \*\} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
 
 <!-- REF #_command_.position.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|find|string|->|String to find|
-|aString|string|->|String in which to search|
-|start|integer|->|Position in string where search will start|
-|lengthFound|integer|<-|Length of string found|
-|*||->|If passed: evaluation based on character codes|
-|options|integer|->|Search condition(s)|
-|Result|integer|<-|Position of first occurrence|
+|find|string|&#8594;|String to find|
+|aString|string|&#8594;|String in which to search|
+|start|integer|&#8594;|Position in string where search will start|
+|lengthFound|integer|&#8592;|Length of string found|
+|*||&#8594;|If passed: evaluation based on character codes|
+|options|integer|&#8594;|Search condition(s)|
+|Result|integer|&#8592;|Position of first occurrence|
 <!-- END REF -->
 
 #### Description

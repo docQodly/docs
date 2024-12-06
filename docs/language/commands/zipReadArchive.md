@@ -4,15 +4,15 @@ title: zipReadArchive
 ---
 
 
-<!-- REF #_command_.zipReadArchive.Syntax -->**zipReadArchive** ( *zipFile* : 4D.File { , *password* : string }) : 4D.ZipArchive<!-- END REF -->
+<!-- REF #_command_.zipReadArchive.Syntax -->**zipReadArchive** ( *zipFile* : 4D.File \{ , *password* : string \}) : 4D.ZipArchive<!-- END REF -->
 
 
 <!-- REF #_command_.zipReadArchive.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|zipFile|4D.File|->|Zip archive file|
-|password|string|->|ZIP archive password if any|
-|Result|4D.ZipArchive|<-|Archive object|<!-- END REF -->
+|zipFile|4D.File|&#8594;|Zip archive file|
+|password|string|&#8594;|ZIP archive password if any|
+|Result|4D.ZipArchive|&#8592;|Archive object|<!-- END REF -->
 
 #### Description
 

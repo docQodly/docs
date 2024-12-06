@@ -9,7 +9,7 @@ title: webEvent
 <!-- REF #_command_.webEvent.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-| object
+|Result|object|&#8592;| object
 <!-- END REF -->
 
 #### Description

@@ -10,8 +10,8 @@ title: bool
 <!-- REF #_command_.bool.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the boolean form|
-|Result|boolean|<-|Boolean form of the expression|
+|expression|any|&#8594;|Expression for which to return the boolean form|
+|Result|boolean|&#8592;|Boolean form of the expression|
 <!-- END REF -->
 
 #### Description

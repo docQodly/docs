@@ -9,10 +9,10 @@ title: convertToString
 <!-- REF #_command_.convertToString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aBlob|blob|->|blob containing text expressed in a specific character set|
-|charSetString|string|->|Name of blob character set|
-|charSetInt|integer|->|Number of blob character set|
-|Result|string|<-|Contents of blob expressed in Qodly character set|
+|aBlob|blob|&#8594;|blob containing text expressed in a specific character set|
+|charSetString|string|&#8594;|Name of blob character set|
+|charSetInt|integer|&#8594;|Number of blob character set|
+|Result|string|&#8592;|Contents of blob expressed in Qodly character set|
 <!-- END REF -->
 
 #### Description

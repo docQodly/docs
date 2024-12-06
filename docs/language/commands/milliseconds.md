@@ -10,7 +10,7 @@ title: milliseconds
 <!-- REF #_command_.milliseconds.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Number of milliseconds elasped since the machine was started|
+|Result|integer|&#8592;|Number of milliseconds elasped since the machine was started|
 <!-- END REF -->
 
 

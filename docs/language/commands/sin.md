@@ -10,8 +10,8 @@ title: sin
 <!-- REF #_command_.sin.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number, in radians, whose sine is returned|
-|Result|number|<-|Sine of number|
+|number|number|&#8594;|Number, in radians, whose sine is returned|
+|Result|number|&#8592;|Sine of number|
 <!-- END REF -->
 
 #### Description

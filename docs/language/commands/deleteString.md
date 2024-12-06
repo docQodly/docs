@@ -10,10 +10,10 @@ title: deleteString
 <!-- REF #_command_.deleteString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|string|->|String from which to delete characters|
-|where |integer|->|First character to delete|
-|numChars|integer|->|Number of characters to delete|
-|Result|string|<-|Resulting string|<!-- END REF -->
+|source|string|&#8594;|String from which to delete characters|
+|where |integer|&#8594;|First character to delete|
+|numChars|integer|&#8594;|Number of characters to delete|
+|Result|string|&#8592;|Resulting string|<!-- END REF -->
 
 #### Description
 

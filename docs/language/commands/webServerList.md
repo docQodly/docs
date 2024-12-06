@@ -10,7 +10,7 @@ title: webServerList
 <!-- REF #_command_.webServerList.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|->|Collection of the available Web Server objects|
+|Result|collection|&#8594;|Collection of the available Web Server objects|
 <!-- END REF -->
 
 The `webServerList` command <!-- REF #_command_.webServerList.Summary -->  returns a collection of all Web server objects available in the Qodly application<!-- END REF -->. 

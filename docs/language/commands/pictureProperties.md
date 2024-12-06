@@ -10,12 +10,12 @@ title: pictureProperties
 <!-- REF #_command_.pictureProperties.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture for which to get information|
-|width|number|<-|Width of the picture expressed in pixels|
-|height|reak|<-|Height of the picture expressed in pixels|
-|hOffset|integer|<-|Horizontal offset when displayed on background|
-|vOffset|integer|<-|Vertical offset when displayed on background|
-|mode|integer|<-|Transfer mode when displayed on background|
+|aPicture|picture|&#8594;|Picture for which to get information|
+|width|number|&#8592;|Width of the picture expressed in pixels|
+|height|reak|&#8592;|Height of the picture expressed in pixels|
+|hOffset|integer|&#8592;|Horizontal offset when displayed on background|
+|vOffset|integer|&#8592;|Vertical offset when displayed on background|
+|mode|integer|&#8592;|Transfer mode when displayed on background|
 <!-- END REF -->
 
 #### Description

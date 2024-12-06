@@ -112,15 +112,15 @@ Parameters are received within the method, in the order they are specified in th
 <!-- REF FunctionClass.apply().Desc -->
 ## .apply()
 
-<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : object { , *formulaParams* : collection } ) : any<!-- END REF -->
+<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : object \{ , *formulaParams* : collection \} ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.apply().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|thisObj|object|->|Object to be returned by `this` in the formula|
-|formulaParams |collection|->|Collection of values to be passed as $1...$n when `formula` is executed|
-|Result|any|<-|Value from formula execution|<!-- END REF -->
+|thisObj|object|&#8594;|Object to be returned by `this` in the formula|
+|formulaParams |collection|&#8594;|Collection of values to be passed as $1...$n when `formula` is executed|
+|Result|any|&#8592;|Value from formula execution|<!-- END REF -->
 
 
 #### Description
@@ -167,15 +167,15 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 ## .call()
 
 
-<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : object { , ...*params* : any } ) : any<!-- END REF -->
+<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : object \{ , ...*params* : any \} ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.call().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|thisObj|object|->|object to be returned by `this` in the formula|
-|params |any|->|Value(s) to be passed as $1...$n when formula is executed|
-|Result|any|<-|Value from formula execution|<!-- END REF -->
+|thisObj|object|&#8594;|object to be returned by `this` in the formula|
+|params |any|&#8594;|Value(s) to be passed as $1...$n when formula is executed|
+|Result|any|&#8592;|Value from formula execution|<!-- END REF -->
 
 
 #### Description

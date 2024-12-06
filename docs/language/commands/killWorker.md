@@ -10,7 +10,7 @@ title: killWorker
 <!-- REF #_command_.killWorker.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|process|string &#124; integer |->|Name or number of process to kill (current process if omitted)|<!-- END REF -->
+|process|string &#124; integer |&#8594;|Name or number of process to kill (current process if omitted)|<!-- END REF -->
 
 #### Description
 

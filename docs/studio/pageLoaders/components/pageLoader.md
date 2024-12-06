@@ -31,7 +31,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
 
 <br/>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <strong>Direct Configuration</strong>: Utilize the Properties panel of the Page Loader to directly choose the target Page from a dropdown list.<br/><br/>
     </Column.Item>
@@ -40,7 +40,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
     </Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <strong>Dynamic Binding</strong>: Establish a binding with a <strong>qodlysource of type Text</strong>. By binding the component to this qodlysource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Page Loader. The initial value should correspond to the name of the target Page you intend to display. 
     </Column.Item>

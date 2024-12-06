@@ -238,16 +238,16 @@ This property is **read-only**.
 ## .copyTo()
 
 
-<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : string } { , *overwrite* : integer } ) : 4D.File<!-- END REF -->
+<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} \{ , *overwrite* : integer \} ) : 4D.File<!-- END REF -->
 
 
 <!-- REF #document.copyTo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|destinationFolder | 4D.Folder |->|Destination folder|
-|newName|string|->|Name for the copy|
-|overwrite|integer|->|`kOverwrite` to replace existing elements|
-|Result|4D.File|<-|Copied file|<!-- END REF -->
+|destinationFolder | 4D.Folder |&#8594;|Destination folder|
+|newName|string|&#8594;|Name for the copy|
+|overwrite|integer|&#8594;|`kOverwrite` to replace existing elements|
+|Result|4D.File|&#8592;|Copied file|<!-- END REF -->
 
 #### Description
 
@@ -289,7 +289,7 @@ copy = source.copyTo(folder("/PACKAGE"),kOverwrite)
 <!-- REF #document.getContent().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|Result | 4D.Blob |<-|File content|<!-- END REF -->
+|Result | 4D.Blob |&#8592;|File content|<!-- END REF -->
 
 #### Description
 
@@ -321,16 +321,16 @@ To save a document's contents in a `Blob` attribute:
 ## .getText()
 
 
-<!-- REF #document.getText().Syntax -->**.getText**( { *charSetName* : string { , *breakMode* : integer } } ) : string<br/>**.getText**( { *charSetNum* : integer { , *breakMode* : integer } } ) : string<!-- END REF -->
+<!-- REF #document.getText().Syntax -->**.getText**( \{ *charSetName* : string \{ , *breakMode* : integer \} \} ) : string<br/>**.getText**( \{ *charSetNum* : integer \{ , *breakMode* : integer \} \} ) : string<!-- END REF -->
 
 
 <!-- REF #document.getText().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|charSetName |string |-> |Name of character set|
-|charSetNum |integer |-> |Number of character set|
-|breakMode|integer |-> |Processing mode for line breaks|
-|Result |string  |<- |String from the document|<!-- END REF -->
+|charSetName |string |&#8594; |Name of character set|
+|charSetNum |integer |&#8594; |Number of character set|
+|breakMode|integer |&#8594; |Processing mode for line breaks|
+|Result |string  |&#8592; |String from the document|<!-- END REF -->
 
 #### Description
 

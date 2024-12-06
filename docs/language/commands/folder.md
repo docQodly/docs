@@ -11,8 +11,8 @@ title: folder
 <!-- REF #_command_.folder.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|path|string|->|folder path|
-|Result|4D.Folder|<-|New folder object|
+|path|string|&#8594;|folder path|
+|Result|4D.Folder|&#8592;|New folder object|
 <!-- END REF -->
 
 #### Description

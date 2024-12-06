@@ -10,8 +10,8 @@ title: file
 <!-- REF #_command_.file.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|path|string|->|File path|
-|Result|4D.File|<-|New file object|
+|path|string|&#8594;|File path|
+|Result|4D.File|&#8592;|New file object|
 <!-- END REF -->
 
 #### Description

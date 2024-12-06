@@ -13,7 +13,7 @@ title: getAssertEnabled
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|result|boolean|<-|true = assertions are enabled, false = assertions are disabled|
+|result|boolean|&#8592;|true = assertions are enabled, false = assertions are disabled|
 <!-- END REF -->
 
 

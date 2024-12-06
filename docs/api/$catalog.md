@@ -21,8 +21,8 @@ The `$catalog` endpoint offers several variants to retrieve different levels of 
 |---------------------------------|---------------------------------------------------------------|
 | [**$catalog**](#catalog)                    | Lists [shared singletons](#singletons) (if any) and all dataclasses with basic access URIs. |
 | [**$catalog/$all**](#catalogall)            | Lists [shared singletons](#singletons) (if any) and provides detailed information about all dataclasses and their attributes. |
-| [**$catalog/{{dataClass}}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
-| [**$catalog/{{dataStoreClassFunction}}**](./classFunctionsOverview.md) | Executes a specific datastore class function if available.   |
+| [**$catalog/\{\{dataClass\}\}**](#catalogdataclass)      | Delivers detailed information about a specific dataclass.     |
+| [**$catalog/\{\{dataStoreClassFunction\}\}**](./classFunctionsOverview.md) | Executes a specific datastore class function if available.   |
 
 ## Properties Returned
 
@@ -131,7 +131,7 @@ This endpoint enriches the response with detailed attributes of each dataclass:
 | `dataClasses`        | Array         | Lists all data classes exposed through the API, detailing each class and its associated data and metadata. |  
 
 :::info
-For a detailed breakdown of individual dataclasses and their specific attributes, please refer to the detailed documentation in the [$catalog/{{dataClass}}](#properties-returned-dataclasses-array) section.
+For a detailed breakdown of individual dataclasses and their specific attributes, please refer to the detailed documentation in the [$catalog/\{\{dataClass\}\}](#properties-returned-dataclasses-array) section.
 :::
 
 

@@ -10,8 +10,8 @@ title: cos
 <!-- REF #_command_.cos.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number, in radians, whose cosine is returned|
-|Result|number|<-|Cosine of number|<!-- END REF -->
+|number|number|&#8594;|Number, in radians, whose cosine is returned|
+|Result|number|&#8592;|Cosine of number|<!-- END REF -->
 
 #### Description
 

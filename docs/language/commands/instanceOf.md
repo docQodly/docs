@@ -10,9 +10,9 @@ title: instanceOf
 <!-- REF #_command_.instanceOf.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object whose class is to be tested|
-|class|object|->|Class to test belongship|
-|Result|boolean|<-|True if object belongs to the specified class or a child class, and false otherwise|
+|object|object|&#8594;|Object whose class is to be tested|
+|class|object|&#8594;|Class to test belongship|
+|Result|boolean|&#8592;|True if object belongs to the specified class or a child class, and false otherwise|
 <!-- END REF -->
 
 

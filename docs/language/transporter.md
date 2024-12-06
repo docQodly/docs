@@ -250,7 +250,7 @@ The `.user` property contains <!-- REF #transporter.user.Summary --> the user na
 <!-- REF #transporter.checkConnection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Status of the transporter object connection|<!-- END REF -->
+|Result|object|&#8592;|Status of the transporter object connection|<!-- END REF -->
 
 #### Description
 

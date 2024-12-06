@@ -9,8 +9,8 @@ title: char
 <!-- REF #_command_.char.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|charCode|integer|->|Character code|
-|Result|string|<-|Character represented by the charCode|<!-- END REF -->
+|charCode|integer|&#8594;|Character code|
+|Result|string|&#8592;|Character represented by the charCode|<!-- END REF -->
 
 #### Description
 

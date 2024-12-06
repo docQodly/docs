@@ -10,7 +10,7 @@ title: storage
 <!-- REF #_command_.storage.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Catalog of shared objects and shared collections registered in `storage`|
+|Result|object|&#8592;|Catalog of shared objects and shared collections registered in `storage`|
 <!-- END REF -->
 
 

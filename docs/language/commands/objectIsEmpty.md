@@ -10,8 +10,8 @@ title: objectIsEmpty
 <!-- REF #_command_.objectIsEmpty.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to check|
-|Result|boolean|<-|true if object is empty or undefined, otherwise false|
+|object|object|&#8594;|Object to check|
+|Result|boolean|&#8592;|true if object is empty or undefined, otherwise false|
 <!-- END REF -->
 
 

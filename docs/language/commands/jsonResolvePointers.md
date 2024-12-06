@@ -11,10 +11,10 @@ title: jsonResolvePointers
 <!-- REF #_command_.jsonResolvePointers.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aObject|object|->|Object containing JSON pointers to resolve|
-|||<-|Object with JSON pointers resolved (only if result is an object)|
-|options|object|->|Options for pointer resolution|
-|Result|object|<-|Object containing the result of the processing|
+|aObject|object|&#8594;|Object containing JSON pointers to resolve|
+|||&#8592;|Object with JSON pointers resolved (only if result is an object)|
+|options|object|&#8594;|Options for pointer resolution|
+|Result|object|&#8592;|Object containing the result of the processing|
 <!-- END REF -->
 
 #### Description

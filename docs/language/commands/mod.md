@@ -10,9 +10,9 @@ title: mod
 <!-- REF #_command_.mod.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number1|integer|->|Number to divide|
-|number2|integer|->|Number to divide by|
-|Result|number|<-|Returns the remainder|
+|number1|integer|&#8594;|Number to divide|
+|number2|integer|&#8594;|Number to divide by|
+|Result|number|&#8592;|Returns the remainder|
 <!-- END REF -->
 
 #### Description

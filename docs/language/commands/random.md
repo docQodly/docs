@@ -10,7 +10,7 @@ title: random
 <!-- REF #_command_.random.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Random number|<!-- END REF -->
+|Result|integer|&#8592;|Random number|<!-- END REF -->
 
 #### Description
 

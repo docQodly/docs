@@ -9,8 +9,8 @@ title: objectValues
 <!-- REF #_command_.objectValues.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to return property values|
-|Result|collection|<-|Collection of property values (variant)|
+|object|object|&#8594;|Object to return property values|
+|Result|collection|&#8592;|Collection of property values (variant)|
 <!-- END REF -->
 
 

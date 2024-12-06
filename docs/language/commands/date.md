@@ -10,9 +10,9 @@ title: date
 <!-- REF #_command_.date.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|exprString|string|->|String representing the date to be returned|
-|exprDate|date|->|Date expression|
-|Result|date|<-|Date expression|<!-- END REF -->
+|exprString|string|&#8594;|String representing the date to be returned|
+|exprDate|date|&#8594;|Date expression|
+|Result|date|&#8592;|Date expression|<!-- END REF -->
 
 #### Description
 

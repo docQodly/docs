@@ -10,8 +10,8 @@ title: exp
 <!-- REF #_command_.exp.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number to evaluate|
-|Result|number|<-|Natural log base by the power of number|
+|number|number|&#8594;|Number to evaluate|
+|Result|number|&#8592;|Natural log base by the power of number|
 <!-- END REF -->
 
 #### Description

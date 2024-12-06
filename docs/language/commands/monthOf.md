@@ -10,8 +10,8 @@ title: monthOf
 <!-- REF #_command_.monthOf.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aDate|date|->|Date for which to return the month|
-|Result|integer|<-|Number indicating the month of *aDate*|
+|aDate|date|&#8594;|Date for which to return the month|
+|Result|integer|&#8592;|Number indicating the month of *aDate*|
 <!-- END REF -->
 
 #### Description

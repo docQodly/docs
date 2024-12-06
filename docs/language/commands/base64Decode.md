@@ -4,16 +4,16 @@ title: base64Decode
 ---
 
 
-<!-- REF #_command_.base64Decode.Syntax -->**base64Decode** ( *toEncode* : blob, string , *encoded* : blob, string {, \*} )<!-- END REF -->
+<!-- REF #_command_.base64Decode.Syntax -->**base64Decode** ( *toEncode* : blob, string , *encoded* : blob, string \{, \*\} )<!-- END REF -->
 
 
 <!-- REF #_command_.base64Decode.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|toEncode|blob, string|->|Value to encode|
-|||<-|Encoded value (if encoded parameter omitted)|
-|encoded|blob, string|<-|Encoded value|
-|*||->|Encode in Base64URL format|<!-- END REF -->
+|toEncode|blob, string|&#8594;|Value to encode|
+|||&#8592;|Encoded value (if encoded parameter omitted)|
+|encoded|blob, string|&#8592;|Encoded value|
+|*||&#8594;|Encode in Base64URL format|<!-- END REF -->
 
 #### Description
 

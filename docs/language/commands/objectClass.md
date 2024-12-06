@@ -9,8 +9,8 @@ title: objectClass
 <!-- REF #_command_.objectClass.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object whose class is to be returned|
-|Result|object|<-|Class of object or `null` if not found|<!-- END REF -->
+|object|object|&#8594;|Object whose class is to be returned|
+|Result|object|&#8592;|Class of object or `null` if not found|<!-- END REF -->
 
 
 #### Description

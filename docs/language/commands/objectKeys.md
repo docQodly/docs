@@ -10,8 +10,8 @@ title: objectKeys
 <!-- REF #_command_.objectKeys.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to return property names|
-|Result|collection|<-|Collection of property names (strings)|<!-- END REF -->
+|object|object|&#8594;|Object to return property names|
+|Result|collection|&#8592;|Collection of property names (strings)|<!-- END REF -->
 
 
 #### Description

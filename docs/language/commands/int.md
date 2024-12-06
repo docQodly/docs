@@ -9,8 +9,8 @@ title: int
 <!-- REF #_command_.int.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number whose integer portion is returned|
-|Result|number|<-|Integer portion of number|<!-- END REF -->
+|number|number|&#8594;|Number whose integer portion is returned|
+|Result|number|&#8592;|Integer portion of number|<!-- END REF -->
 
 #### Description
 
