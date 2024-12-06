@@ -3,7 +3,7 @@ id: lowercase
 title: lowercase
 ---
 
-<!-- REF #_command_.lowercase.Syntax -->**lowercase** ( *aString* : string {, \*} ) : string<!-- END REF -->
+<!-- REF #_command_.lowercase.Syntax -->**lowercase** ( *aString* : string \{, \*\} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.lowercase.Params -->

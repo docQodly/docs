@@ -210,7 +210,7 @@ You want to delete a specific file in the project folder:
 
 
 
-<!--REF #FileClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : string } ) : 4D.File<!-- END REF -->
+<!--REF #FileClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} ) : 4D.File<!-- END REF -->
 
 
 <!--REF #FileClass.moveTo().Params -->
@@ -249,7 +249,7 @@ myFile.moveTo(myFolder.folder("Archives"),"Infos_old.txt")
 ## .open()
 
 
-<!--REF #FileClass.open().Syntax -->**.open**( { *mode* : string } ) : 4D.FileHandle<br/>**.open**( { *options* : object } ) : 4D.FileHandle<!-- END REF -->
+<!--REF #FileClass.open().Syntax -->**.open**( \{ *mode* : string \} ) : 4D.FileHandle<br/>**.open**( \{ *options* : object \} ) : 4D.FileHandle<!-- END REF -->
 
 
 <!--REF #FileClass.open().Params -->
@@ -385,7 +385,7 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
 ## .setText()
 
 
-<!--REF #FileClass.setText().Syntax -->**.setText** ( *text* : string {, *charSetName* : string { , *breakMode* : integer } } )<br/>**.setText** ( *text* : string {, *charSetNum* : integer { , *breakMode* : integer } } )<!-- END REF -->
+<!--REF #FileClass.setText().Syntax -->**.setText** ( *text* : string \{, *charSetName* : string \{ , *breakMode* : integer \} } )<br/>**.setText** ( *text* : string \{, *charSetNum* : integer \{ , *breakMode* : integer \} } )<!-- END REF -->
 
 
 

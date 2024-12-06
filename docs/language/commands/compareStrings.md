@@ -4,7 +4,7 @@ title: compareStrings
 ---
 
 
-<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string { , *options* : integer } ) : integer<!-- END REF -->
+<!-- REF #_command_.compareStrings.Syntax -->**compareStrings** ( *aString* : string , *bString* : string \{ , *options* : integer \} ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.compareStrings.Params -->
@@ -24,7 +24,7 @@ In the *aString* parameter, pass a string value.
 
 In the *bString* parameter, pass a string value to be compared to *aString*.
 
-By default, `compareStrings` functions as if the "<" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants:
+By default, `compareStrings` functions as if the "&lt;" (less than) operator is used. This can be modified with the options parameter. You can pass one or a combination of the following constants:
 
 |Constant|Comment|
 |:----|:----|

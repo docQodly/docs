@@ -68,7 +68,7 @@ HTTPRequest objects provide the following functions and properties:
 ## 4D.HTTPRequest.new()
 
 
-<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : string { , *options* : object } ) : 4D.HTTPRequest<!-- END REF -->
+<!-- REF #4D.HTTPRequest.new().Syntax -->**4D.HTTPRequest.new**( *url* : string \{ , *options* : object \} ) : 4D.HTTPRequest<!-- END REF -->
 
 
 <!-- REF #4D.HTTPRequest.new().Params -->
@@ -373,7 +373,7 @@ The `.url` property contains <!-- REF #HTTPRequestClass.url.Summary -->the URL o
 <!-- REF #HTTPRequestClass.wait().Desc -->
 ## .wait()
 
-<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( { *time* : number } ) : HTTPRequestClass<!-- END REF -->
+<!-- REF #HTTPRequestClass.wait().Syntax -->**.wait**( \{ *time* : number \} ) : HTTPRequestClass<!-- END REF -->
 
 
 <!-- REF #HTTPRequestClass.wait().Params -->

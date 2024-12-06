@@ -4,7 +4,7 @@ title: callWorker
 ---
 
 
-<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : string , *formula* : string {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : string {, *param {, ...paramN }* : integer } )<!-- END REF -->
+<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : string , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<!-- END REF -->
 
 
 <!-- REF #_command_.callWorker.Params -->

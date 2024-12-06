@@ -3,7 +3,7 @@ id: objectIsDefined
 title: objectIsDefined
 ---
 
-<!-- REF #_command_.objectIsDefined.Syntax -->**objectIsDefined** ( *object* : object {, *property* : string } ) : boolean<!-- END REF -->
+<!-- REF #_command_.objectIsDefined.Syntax -->**objectIsDefined** ( *object* : object \{, *property* : string \} ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.objectIsDefined.Params -->

@@ -238,7 +238,7 @@ This property is **read-only**.
 ## .copyTo()
 
 
-<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : string } { , *overwrite* : integer } ) : 4D.File<!-- END REF -->
+<!-- REF #document.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} \{ , *overwrite* : integer \} ) : 4D.File<!-- END REF -->
 
 
 <!-- REF #document.copyTo().Params -->
@@ -321,7 +321,7 @@ To save a document's contents in a `Blob` attribute:
 ## .getText()
 
 
-<!-- REF #document.getText().Syntax -->**.getText**( { *charSetName* : string { , *breakMode* : integer } } ) : string<br/>**.getText**( { *charSetNum* : integer { , *breakMode* : integer } } ) : string<!-- END REF -->
+<!-- REF #document.getText().Syntax -->**.getText**( \{ *charSetName* : string \{ , *breakMode* : integer \} \} ) : string<br/>**.getText**( \{ *charSetNum* : integer \{ , *breakMode* : integer \} \} ) : string<!-- END REF -->
 
 
 <!-- REF #document.getText().Params -->

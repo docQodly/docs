@@ -560,7 +560,7 @@ function get coWorkers(event : object)-> result: cs.EmployeeSelection
 #### Syntax
 
 ```qs
-function set <attributeName>(value : type {, event : object})
+function set <attributeName>(value : type \{, event : object})
 // code
 ```
 
@@ -631,7 +631,7 @@ The *event* parameter contains the following properties:
 |dataClassName|string|Dataclass name|
 |kind|string|"query"|
 |value|variant|Value to be handled by the calculated attribute|
-|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li><= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
+|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>&gt;== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li>&lt;= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
 |result|variant|Value to be handled by the calculated attribute. Pass `null` in this property if you want to execute a default query (always sequential for calculated attributes).|
 
 > If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 

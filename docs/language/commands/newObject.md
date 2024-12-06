@@ -3,7 +3,7 @@ id: newObject
 title: newObject
 ---
 
-<!-- REF #_command_.newObject.Syntax -->**newObject** {( *property* : string , *value* : any {, *...property* : string , *...value* : any} ) } : object<!-- END REF -->
+<!-- REF #_command_.newObject.Syntax -->**newObject** \{( *property* : string , *value* : any \{, *...property* : string , *...value* : any} ) \} : object<!-- END REF -->
 
 
 <!-- REF #_command_.newObject.Params -->

@@ -123,7 +123,7 @@ Different operators are available based on the data type:
   |@do|All values containing “do”|
   |Bel@do|All values starting with “Bel” and containing “do”|
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
   </Column.Item>
@@ -132,7 +132,7 @@ Different operators are available based on the data type:
   </Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
     <br/><br/>
@@ -146,7 +146,7 @@ Different operators are available based on the data type:
   </Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     <strong>Numeric operators:</strong> Select operators (default is "=") for numeric, date, and time attributes. You can select another operator from the operator list.
   </Column.Item>

@@ -3,7 +3,7 @@ id: replaceString
 title: replaceString
 ---
 
-<!-- REF #_command_.replaceString.Syntax -->**replaceString** ( *source* : string , *oldString* : string , *newString* : string , *howMany* : integer {, \*}) : string<!-- END REF -->
+<!-- REF #_command_.replaceString.Syntax -->**replaceString** ( *source* : string , *oldString* : string , *newString* : string , *howMany* : integer \{, \*\}) : string<!-- END REF -->
 
 
 <!-- REF #_command_.replaceString.Params -->

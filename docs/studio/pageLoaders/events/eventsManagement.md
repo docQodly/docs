@@ -48,7 +48,7 @@ You can define different actions for the same event.
 
 To facilitate easier management of repetitive event actions across various parts of your application, follow these steps:
 
-1. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <strong>Locate the Event Action</strong>: Navigate to the event action you intend to copy.
     </Column.Item>
@@ -84,7 +84,7 @@ Customize your application by modifying the function calls within event actions 
 
 1. **Select the Event Action**: Identify and select the event action you need to modify.
 
-2. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <strong>Edit the Function Call</strong>: To change the function, click the "Edit Function" button <img src={require('./img/edit.png').default} style={{borderRadius: '6px'}} /> next to the function name. This will open a dialog where you can select a new function.
     </Column.Item>
@@ -94,7 +94,7 @@ Customize your application by modifying the function calls within event actions 
 </Column.List>
 
 
-3. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <strong>Choose the Function</strong>: Use the typeahead dropdown to select the new function you wish to use. Options appear based on your input for easier selection.
     </Column.Item>
@@ -104,7 +104,7 @@ Customize your application by modifying the function calls within event actions 
 </Column.List>
 
 
-4. <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <strong>Confirm the Changes</strong>: Once you select the new function, click "Confirm" to update the event action. The event action will maintain its parameters and return values as closely as possible to the original configuration.
     </Column.Item>
@@ -261,7 +261,7 @@ In event coordination, actions are linked together sequentially. Pay attention t
 
 In the preview section, various capabilities are available when actions are bound to a specific event, depending on the type of action. It's worth mentioning that standard actions have no effect in this context.
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
         <strong>Preview Function Code</strong>: Selecting a function bound to a particular event allows you to preview its content within the preview section.
     </Column.Item>
@@ -272,7 +272,7 @@ In the preview section, various capabilities are available when actions are boun
 
 <br/>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
         <strong>Edit Function Code</strong>: To directly open and edit a function associated with a specific event, simply select the function and click on the function edit icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '7%'}} />.
     </Column.Item>

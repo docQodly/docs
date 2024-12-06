@@ -19,7 +19,7 @@ Suppose you're striving for uniform design elements across your website, ensurin
 - **Element Selection**: Choose the component on the canvas that you wish to transform into a crafted component.
 - **Save as Craft**: In the Tooltip menu, select the ellipsis icon <img src={require('./img/craftedComponent_SaveAsCraft.png').default} style={{borderRadius: '6px', height: '20%', width: '20%'}} /> and click `Save as craft`.
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <li><span style={{fontWeight: 'bold'}}>Name and Icon</span>: Name your crafted component and search for the desired icon in the predefined list using the search bar.</li><br/><br/>
         <li><span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.</li><br/>

@@ -4,7 +4,7 @@ title: num
 ---
 
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string {, *separator* : string } ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string \{, *separator* : string \} ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->

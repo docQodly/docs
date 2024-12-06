@@ -3,7 +3,7 @@ id: uppercase
 title: uppercase
 ---
 
-<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : string {, \*} ) : string<!-- END REF -->
+<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : string \{, \*\} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.uppercase.Params -->

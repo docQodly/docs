@@ -5,7 +5,7 @@ title: base64Encode
 
 
 
-<!-- REF #_command_.base64Encode.Syntax -->**base64Encode** ( *toEncode* : blob, string , *encoded* : blob, string {, \*} )<!-- END REF -->
+<!-- REF #_command_.base64Encode.Syntax -->**base64Encode** ( *toEncode* : blob, string , *encoded* : blob, string \{, \*\} )<!-- END REF -->
 
 
 <!-- REF #_command_.base64Encode.Params -->

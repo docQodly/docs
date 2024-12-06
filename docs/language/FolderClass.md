@@ -154,7 +154,7 @@ aliasFile = myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
 <!-- REF folder.delete().Desc -->
 ## .delete()
 
-<!--REF #FolderClass.delete().Syntax -->**.delete**( { *option* : integer } )<!-- END REF -->
+<!--REF #FolderClass.delete().Syntax -->**.delete**( \{ *option* : integer \} )<!-- END REF -->
 
 
 <!-- REF #FolderClass.delete().Params -->
@@ -219,7 +219,7 @@ When `kDeleteWithContents` is passed:
 ## .moveTo()
 
 
-<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : string } ) : 4D.Folder<!-- END REF -->
+<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} ) : 4D.Folder<!-- END REF -->
 
 
 <!--REF #FolderClass.moveTo().Params -->

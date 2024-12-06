@@ -4,7 +4,7 @@ title: methodCalledOnError
 ---
 
 
-<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( { *scope* : integer } ) : string<!-- END REF -->
+<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( \{ *scope* : integer \} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.methodCalledOnError.Params -->

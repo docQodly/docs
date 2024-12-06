@@ -128,7 +128,7 @@ This function can only be used with entities already saved in the database. It c
 
 
 <!-- REF #EntityClass.diff().Syntax -->
-**.diff**( *entityToCompare* : 4D.Entity { , *attributesToCompare* : collection } ) : collection<!-- END REF -->
+**.diff**( *entityToCompare* : 4D.Entity \{ , *attributesToCompare* : collection \} ) : collection<!-- END REF -->
 
 
 <!-- REF #EntityClass.diff().Params -->
@@ -329,7 +329,7 @@ vCompareResult3 (only differences on e1 touched attributes are returned)
 ## .drop()   
 
 <!-- REF #EntityClass.drop().Syntax -->
-**.drop**( {*mode* : integer} ) : object<!-- END REF -->
+**.drop**( \{*mode* : integer\} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.drop().Params -->
 |Parameter|Type||Description|
@@ -592,7 +592,7 @@ The following generic code duplicates any entity:
 
 
 <!-- REF #EntityClass.getKey().Syntax -->
-**.getKey**( { *mode* : integer } ) : string<br/>**.getKey**( { *mode* : integer } ) : integer<!-- END REF -->
+**.getKey**( \{ *mode* : integer \} ) : string<br/>**.getKey**( \{ *mode* : integer \} ) : integer<!-- END REF -->
 
 <!-- REF #EntityClass.getKey().Params -->
 |Parameter|Type||Description|
@@ -716,7 +716,7 @@ For a new entity (never saved), the function returns 0. To know if an entity has
 
 
 <!-- REF #EntityClass.indexOf().Syntax -->
-**.indexOf**( { *entitySelection* : 4D.EntitySelection } ) : integer<!-- END REF -->
+**.indexOf**( \{ *entitySelection* : 4D.EntitySelection \} ) : integer<!-- END REF -->
 
 <!-- REF #EntityClass.indexOf().Params -->
 |Parameter|Type||Description|
@@ -831,7 +831,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 
 
 <!-- REF #EntityClass.lock().Syntax -->
-**.lock**( { *mode* : integer } ) : object<!-- END REF -->
+**.lock**( \{ *mode* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.lock().Params -->
 |Parameter|Type||Description|
@@ -1067,7 +1067,7 @@ The object returned by `.reload()` contains the following properties:
 ## .save()   
 
 <!-- REF #EntityClass.save().Syntax -->
-**.save**( { *mode* : integer } ) : object<!-- END REF -->
+**.save**( \{ *mode* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.save().Params -->
 |Parameter|Type||Description|
@@ -1127,7 +1127,7 @@ The following values can be returned in the `status` and `statusText` properties
 |`kStatusEntityDoesNotExistAnymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>**Associated statusText**: "Entity does not exist anymore"|
 |`kStatusLocked`|	3|	The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"
 |`kStatusSeriousError`|4|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
-|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<<br/>**Associated statusText**: "Stamp has changed"|
+|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<br/>**Associated statusText**: "Stamp has changed"|
 
 
 #### Example 1  
@@ -1199,7 +1199,7 @@ Updating an entity with `kAutoMerge` option:
 
 
 <!-- REF #EntityClass.toObject().Syntax -->
-**.toObject**() : object<br/>**.toObject**( *filterString* : string { , *options* : integer}  ) : object<br/>**.toObject**( *filterCol* : collection { , *options* : integer } ) : object<!-- END REF -->
+**.toObject**() : object<br/>**.toObject**( *filterString* : string \{ , *options* : integer}  ) : object<br/>**.toObject**( *filterCol* : collection \{ , *options* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.toObject().Params -->
 |Parameter|Type||Description|

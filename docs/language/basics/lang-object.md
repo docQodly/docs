@@ -73,7 +73,7 @@ Examples:
 ```qs
  var o, o2, o3 : object //declaration of object variables
  o = {} // instantiation of an empty object
- o2 = {a: "foo", b: 42, c: {}, d: (toto) ? true : false } // instantiation of an object
+ o2 = {a: "foo", b: 42, c: {}, d: (toto) ? true : false \} // instantiation of an object
     // with properties {"a":"foo","b":42,"c":{},"d":false})
 
     // same properties using variables

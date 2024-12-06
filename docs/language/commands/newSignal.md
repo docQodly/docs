@@ -4,7 +4,7 @@ title: newSignal
 ---
 
 
-<!-- REF #_command_.newSignal.Syntax -->**newSignal** { ( *description* : string ) } : 4D.Signal<!-- END REF -->
+<!-- REF #_command_.newSignal.Syntax -->**newSignal** \{ ( *description* : string ) \} : 4D.Signal<!-- END REF -->
 
 
 <!-- REF #_command_.newSignal.Params -->

@@ -3,7 +3,7 @@ id: splitString
 title: splitString
 ---
 
-<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string {, *options* : integer }) : collection <!-- END REF -->
+<!-- REF #_command_.splitString.Syntax -->**splitString** ( *stringToSplit* : string , *separator* : string \{, *options* : integer \}) : collection <!-- END REF -->
 
 
 <!-- REF #_command_.splitString.Params -->

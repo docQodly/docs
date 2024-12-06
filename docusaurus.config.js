@@ -34,7 +34,7 @@ const config = {
     },
   },
   markdown: {
-    format: 'detect',
+    format: 'mdx',
     mermaid: true,
     mdx1Compat: {
       comments: true,

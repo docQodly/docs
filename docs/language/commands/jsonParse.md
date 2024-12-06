@@ -4,7 +4,7 @@ title: jsonParse
 ---
 
 
-<!-- REF #_command_.jsonParse.Syntax -->**jsonParse** ( *jsonString* : string , *type* : integer {, \*} ) : any<!-- END REF -->
+<!-- REF #_command_.jsonParse.Syntax -->**jsonParse** ( *jsonString* : string , *type* : integer \{, \*\} ) : any<!-- END REF -->
 
 
 <!-- REF #_command_.jsonParse.Params -->

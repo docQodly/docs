@@ -380,7 +380,7 @@ With named variables, any parameter can be optional. In the above example, all p
 
 ## Optional parameters
 
-In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string { , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
+In the QodlyScript documentation, the `{ }` characters (braces) usually indicate optional parameters. For example, `.extract( attributePath : string \{ , option : integer } ) : collection)` means that the *option* parameter may be omitted when calling the command. You can call it in the following ways:
 
 ```qs
 firstnames = ds.Teachers.all().extract("firstname") //1 parameter

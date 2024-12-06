@@ -124,9 +124,9 @@ Contains the <!-- REF #WebServerClass.CORSSettings.Summary -->list of allowed ho
   - 192.168.5.17
   - 192.168.*
   - 192.168.*:8081
-  - <http://192.168.5.17:8081>
-  - <http://*.myDomain.com>
-  - <http://myProject.myDomain.com>
+  - &lt;http://192.168.5.17:8081&gt;
+  - &lt;http://*.myDomain.com&gt;
+  - &lt;http://myProject.myDomain.com&gt;
   - *.myDomain.com
   - myProject.myDomain.com
   - \*

@@ -58,7 +58,7 @@ At runtime, dialogs are displayed at the center of the page.
 
 There are two ways for removing Dialogs:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <strong>Dialogs List</strong>: Click on the delete icon <img src={require('./img/dialogDelete2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the dialog you intend to delete in the dialogs listt.
     </Column.Item>
@@ -68,7 +68,7 @@ There are two ways for removing Dialogs:
 </Column.List>
 
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <strong>Outline section</strong>: As an alternative method, dialogs can also be removed directly from the outline section..
     </Column.Item>
@@ -154,7 +154,7 @@ To exit the dialog's editing mode, click the close button <img src={require('./i
 
 Enhance the Dialog component to align with your application's requirements using the following customization options:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <li> <strong>Overlay (Boolean)</strong>: Activates a screen overlay when set to true.</li>
         <li> <strong>Draggable (Boolean)</strong>: Enables user-driven repositioning. Features a customizable move icon <img src={require('./img/dialogDraggable.png').default} style={{borderRadius: '6px', width: '3%'}} />.</li>

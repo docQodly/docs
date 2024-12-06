@@ -4,7 +4,7 @@ title: string
 ---
 
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number { , *format* : string } ) : string<br/>**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number \{ , *format* : string \} ) : string<br/>**string** ( *expression* : any \{ , *format* : integer \{ , *addTime* : time \}\} ) : string<!-- END REF -->
 
 
 

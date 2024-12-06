@@ -4,7 +4,7 @@ title: mailConvertToMIME
 ---
 
 
-<!-- REF #_command_.mailConvertToMIME.Syntax -->**mailConvertToMIME**( *mail* : object { , *options* : object } ) : string<!-- END REF -->
+<!-- REF #_command_.mailConvertToMIME.Syntax -->**mailConvertToMIME**( *mail* : object \{ , *options* : object \} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.mailConvertToMIME.Params -->

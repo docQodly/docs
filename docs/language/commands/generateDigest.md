@@ -5,7 +5,7 @@ title: generateDigest
 
 
 
-<!-- REF #_command_.generateDigest.Syntax -->**generateDigest** ( *param* : any , *algorithm* : integer {, \*}) : string<!-- END REF -->
+<!-- REF #_command_.generateDigest.Syntax -->**generateDigest** ( *param* : any , *algorithm* : integer \{, \*\}) : string<!-- END REF -->
 
 
 <!-- REF #_command_.generateDigest.Params -->

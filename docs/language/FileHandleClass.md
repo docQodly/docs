@@ -330,7 +330,7 @@ This function assumes that the [`.offset`](#offset) property is a number of char
 ## .readText()
 
 
-<!--REF #FileHandleClass.readText().Syntax -->**.readText**( { *stopChar* : string } ) : string <!-- END REF -->
+<!--REF #FileHandleClass.readText().Syntax -->**.readText**( \{ *stopChar* : string \} ) : string <!-- END REF -->
 
 
 <!--REF #FileHandleClass.readText().Params -->

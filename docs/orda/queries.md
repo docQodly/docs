@@ -23,7 +23,7 @@ The [`Collection class`](../language/CollectionClass.md#query) contains also a [
 
 The `query()` function is available in both the [entity selection class](../language/EntitySelectionClass.md#query) and the [dataclass class](../language/DataClassClass.md#query).  
 
-**.query**( *queryString* : string { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection
 
 |Parameter|Type| &nbsp;&nbsp;&nbsp;&nbsp;|Description|
 |---|---|-----|---|
@@ -87,10 +87,10 @@ For security reasons, formula calls within `query()` methods can be disallowed. 
 	||===, IS|	Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
 	|Not equal to|	!=, #	|Supports the wildcard (@)|
 	||!==, IS NOT|	Considers the @ as a standard character|
-	|Less than|	<|	|
-	|Greater than|	>	||
-	|Less than or equal to|	<=||	
-	|Greater than or equal to|	>=	||
+	|Less than|	&lt;|	|
+	|Greater than|	&gt;	||
+	|Less than or equal to|	&lt;=||	
+	|Greater than or equal to|	&gt;=	||
 	|Included in|	IN	|Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
 	|Not condition applied on a statement|	NOT|	Parenthesis are mandatory when NOT is used before a statement containing several operators|
 	|Contains keyword|	%|	Keywords can be used in attributes of string or picture type|

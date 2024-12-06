@@ -4,7 +4,7 @@ title: newCollection
 ---
 
 
-<!-- REF #_command_.newCollection.Syntax -->**newCollection** {( *...value* : any )} : collection<!-- END REF -->
+<!-- REF #_command_.newCollection.Syntax -->**newCollection** \{( *...value* : any )\} : collection<!-- END REF -->
 
 
 <!-- REF #_command_.newCollection.Params -->

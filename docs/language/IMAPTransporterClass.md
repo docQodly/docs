@@ -670,7 +670,7 @@ status = transporter.expunge()
 ## .getBoxInfo()
 
 
-<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**({ *name* : string }) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**(\{ *name* : string \}) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxInfo().Params -->
@@ -719,7 +719,7 @@ The `boxInfo` object returned contains the following properties:
 ## .getBoxList()
 
 
-<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( { *parameters* : object } ) : collection<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( \{ *parameters* : object \} ) : collection<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxList().Params -->
@@ -823,7 +823,7 @@ See [`getBoxList()` example](#getboxlist).
 ## .getMail()
 
 
-<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer { , *options* : object } ) : object<br/>**.getMail**( *msgID*: string { , *options* : object } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer \{ , *options* : object \} ) : object<br/>**.getMail**( *msgID*: string \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMail().Params -->
@@ -889,7 +889,7 @@ You want to get the message with ID = 1:
 ## .getMails()
 
 
-<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection { , *options* : object } ) : object<br/>**.getMails**( *startMsg* : integer , *endMsg* : integer { , *options* : object } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection \{ , *options* : object \} ) : object<br/>**.getMails**( *startMsg* : integer , *endMsg* : integer \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMails().Params -->
@@ -907,7 +907,7 @@ The `.getMails()` function <!-- REF #IMAPTransporterClass.getMails().Summary -->
 
 **First Syntax:**
 
-***.getMails( ids { , options } ) -> result***
+***.getMails( ids \{ , options \} ) -> result***
 
 The first syntax allows you to retrieve messages based on their IDs.
 
@@ -917,13 +917,13 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 **Second syntax:**
 
- ***.getMails( startMsg , endMsg { , options } ) -> result***
+ ***.getMails( startMsg , endMsg \{ , options \} ) -> result***
 
 The second syntax allows you to retrieve messages based on a sequential range. The values passed represent the position of the messages in the mailbox.
 
-In the *startMsg* parameter, pass an *integer* value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* <= 0), the first message of the mailbox will be used as the beginning of the sequence.
+In the *startMsg* parameter, pass an *integer* value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* &lt;= 0), the first message of the mailbox will be used as the beginning of the sequence.
 
-In the *endMsg* parameter, pass an *integer* value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* <= 0), the last message of the mailbox will be used as the end of the sequence.
+In the *endMsg* parameter, pass an *integer* value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* &lt;= 0), the last message of the mailbox will be used as the end of the sequence.
 
 The optional *options* parameter allows you to define the parts of the messages to be returned.
 
@@ -982,7 +982,7 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
 <!-- REF IMAPTransporterClass.getMIMEAsblob().Desc -->
 ## .getMIMEAsblob()
 
-<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer { , *updateSeen* : boolean } ) : blob<br/>**.getMIMEAsblob**( *msgID* : string { , *updateSeen* : boolean } ) : blob<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer \{ , *updateSeen* : boolean \} ) : blob<br/>**.getMIMEAsblob**( *msgID* : string \{ , *updateSeen* : boolean \} ) : blob<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMIMEAsblob().Params -->
@@ -1156,9 +1156,9 @@ To move all messages in the current mailbox:
 
 The `.numToID()` function <!-- REF #IMAPTransporterClass.numToID().Summary -->converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by *startMsg* and *endMsg*<!-- END REF --> in the currently selected mailbox.
 
-In the *startMsg* parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* <= 0), the first message of the mailbox will be used as the beginning of the sequence.
+In the *startMsg* parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* &lt;= 0), the first message of the mailbox will be used as the beginning of the sequence.
 
-In the *endMsg* parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* <= 0), the last message of the mailbox will be used as the end of the sequence.
+In the *endMsg* parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* &lt;= 0), the last message of the mailbox will be used as the end of the sequence.
 
 #### Result
 
@@ -1482,7 +1482,7 @@ Examples:
 ## .selectBox()
 
 
-<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : string { , *state* : integer } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : string \{ , *state* : integer \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.selectBox().Params -->

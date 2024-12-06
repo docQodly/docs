@@ -4,7 +4,7 @@ title: setAssertEnabled
 ---
 
 
-<!-- REF #_command_.setAssertEnabled.Syntax -->**setAssertEnabled**(assertions : boolean { , /* } )<!-- END REF -->
+<!-- REF #_command_.setAssertEnabled.Syntax -->**setAssertEnabled**(assertions : boolean \{ , /* \} )<!-- END REF -->
 
 
 <!-- REF #_command_.setAssertEnabled.Params -->

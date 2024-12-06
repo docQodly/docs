@@ -72,7 +72,7 @@ To use a template from the selected category, for instance, the datatable catego
 
 While templates provide a solid starting point, customization is essential for aligning your design with your unique vision and project requirements. Even in seemingly ready-to-use templates, like the datatable with the blue header, specific configurations may need adjustment. Here are key elements to customize:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <strong>Qodly Source</strong>: Identify and set the appropriate qodlysource for the component.
 	</Column.Item>
@@ -81,7 +81,7 @@ While templates provide a solid starting point, customization is essential for a
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <strong>Properties Customization</strong>: Customize component properties, such as the column source, to accurately represent the data you want to showcase.
 	</Column.Item>
@@ -90,7 +90,7 @@ While templates provide a solid starting point, customization is essential for a
 	</Column.Item>
 </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <strong>Css class</strong>: Tailor the CSS class code to match your desired styling preferences. 
 	</Column.Item>

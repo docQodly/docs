@@ -219,7 +219,7 @@ info = "The mailbox contains "+string(boxInfo.mailCount)+" messages.")
 
 ## .getMail()
 
-<!-- REF #POP3TransporterClass.getMail().Syntax -->**.getMail**( *msgNumber* : integer { ; *headerOnly* : boolean } ) : object<!-- END REF -->
+<!-- REF #POP3TransporterClass.getMail().Syntax -->**.getMail**( *msgNumber* : integer \{ ; *headerOnly* : boolean \} ) : object<!-- END REF -->
 
 
 <!-- REF #POP3TransporterClass.getMail().Params -->

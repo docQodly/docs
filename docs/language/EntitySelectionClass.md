@@ -521,7 +521,7 @@ We want to find out the total number of employees for a company without counting
 
 
 <!-- REF #EntitySelectionClass.copy().Syntax -->
-**.copy**( { *option* : integer } ) : 4D.EntitySelection<!-- END REF -->
+**.copy**( \{ *option* : integer \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.copy().Params -->
 |Parameter|Type||Description|
@@ -569,7 +569,7 @@ end
 
 
 <!-- REF #EntitySelectionClass.distinct().Syntax -->
-**.distinct**( *attributePath* : string { , *option* : integer } ) : collection<!-- END REF -->
+**.distinct**( *attributePath* : string \{ , *option* : integer \} ) : collection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.distinct().Params -->
 |Parameter|Type||Description|
@@ -693,7 +693,7 @@ paths = ds.Employee.all().distinctPaths("fullData")
 
 
 <!-- REF #EntitySelectionClass.drop().Syntax -->
-**.drop**( { *mode* : integer } ) : 4D.EntitySelection<!-- END REF -->
+**.drop**( \{ *mode* : integer \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.drop().Params -->
 |Parameter|Type||Description|
@@ -753,7 +753,7 @@ Example with the `kStopDroppingOnFirstError` option:
 ## .extract()   
 
 
-<!-- REF #EntitySelectionClass.extract().Syntax -->**.extract**( *attributePath* : string { , *option* : integer } ) : collection<br/>**.extract**( *attributePath* { , *targetPath* } { , *...attributePathN* : string , *targetPathN* : string } ) : collection<!-- END REF -->
+<!-- REF #EntitySelectionClass.extract().Syntax -->**.extract**( *attributePath* : string \{ , *option* : integer \} ) : collection<br/>**.extract**( *attributePath* \{ , *targetPath* } \{ , *...attributePathN* : string , *targetPathN* : string \} ) : collection<!-- END REF -->
 
 
 <!-- REF #EntitySelectionClass.extract().Params -->
@@ -779,7 +779,7 @@ If *attributePath* is invalid, an empty collection is returned.
 
 This function accepts two syntaxes.
 
-**.extract( attributePath : string { , option : integer } ) : collection**
+**.extract( attributePath : string \{ , option : integer } ) : collection**
 
 With this syntax, `.extract()` populates the returned collection with the *attributePath* values of the entity selection.
 
@@ -789,7 +789,7 @@ By default, entities for which *attributePath* is *null* or undefined are ignore
 *	Dataclass attributes with [.kind](DataClassClass.md#attributename) = "relatedEntities" are extracted as a collection of entity selections.
 
 
-**.extract ( attributePath , targetPath { , ...attributePathN , ... targetPathN}) : collection**
+**.extract ( attributePath , targetPath \{ , ...attributePathN , ... targetPathN\}) : collection**
 
 With this syntax, `.extract()` populates the returned collection with the *attributePath* properties. Each element of the returned collection is an object with *targetPath* properties filled with the corresponding *attributePath* properties. Null values are kept (*option* parameter is ignored with this syntax).
 
@@ -1368,7 +1368,7 @@ You can add as many objects in the criteria collection as necessary.
 
 
 <!-- REF #EntitySelectionClass.orderByFormula().Syntax -->
-**.orderByFormula**( *formulaString* : string { , *sortOrder* : integer } { , *settings* : object} ) : 4D.EntitySelection<br/>**.orderByFormula**( *formulaObj* : object { , *sortOrder* : integer } { , *settings* : object} ) : 4D.EntitySelection<!-- END REF -->
+**.orderByFormula**( *formulaString* : string \{ , *sortOrder* : integer \} \{ , *settings* : object\} ) : 4D.EntitySelection<br/>**.orderByFormula**( *formulaObj* : object \{ , *sortOrder* : integer \} \{ , *settings* : object} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.orderByFormula().Params -->
 |Parameter|Type||Description|
@@ -1485,7 +1485,7 @@ In this example, the "marks" object field in the **Students** dataClass contains
 
 
 <!-- REF #EntitySelectionClass.query().Syntax -->
-**.query**( *queryString* : string { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection<!-- END REF -->
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.query().Params -->
 |Parameter|Type||Description|
@@ -1633,7 +1633,7 @@ result2 = invoices.selected(creditSel)
 ## .slice()   
 
 <!-- REF #EntitySelectionClass.slice().Syntax -->
-**.slice**( *startFrom* : integer { , *end* : integer } ) : 4D.EntitySelection<!-- END REF -->
+**.slice**( *startFrom* : integer \{ , *end* : integer \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.slice().Params -->
 |Parameter|Type||Description|
@@ -1731,7 +1731,7 @@ sum = sel.sum("salary")
 
 
 <!-- REF #EntitySelectionClass.toCollection().Syntax -->
-**.toCollection**( { *options* : integer { , *begin* : integer { , *howMany* : integer } } ) : collection<br/>**.toCollection**( *filterString* : string {, *options* : integer { , *begin* : integer { , *howMany* : integer }}} ) : collection<br/>**.toCollection**( *filterCol* : collection {, *options* : integer { , *begin* : integer { , *howMany* : integer }}} ) : collection<!-- END REF -->
+**.toCollection**( \{ *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \} } ) : collection<br/>**.toCollection**( *filterString* : string \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection<br/>**.toCollection**( *filterCol* : collection \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.toCollection().Params -->
 |Parameter|Type||Description|

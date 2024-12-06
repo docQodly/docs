@@ -3,7 +3,7 @@ id: position
 title: position
 ---
 
-<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer {, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer \{, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer \{, \*\} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
 
 <!-- REF #_command_.position.Params -->
 |Parameter|Type||Description|

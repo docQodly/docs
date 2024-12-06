@@ -4,7 +4,7 @@ title: semaphore
 ---
 
 
-<!-- REF #_command_.semaphore.Syntax -->**semaphore** ( *semaphore* : string { , *tickCount* : integer } ) : boolean<!-- END REF -->
+<!-- REF #_command_.semaphore.Syntax -->**semaphore** ( *semaphore* : string \{ , *tickCount* : integer \} ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.semaphore.Params -->

@@ -239,7 +239,7 @@ This property is **read-only**.
 ## .copyTo()
 
 
-<!-- REF #directory.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder { , *newName* : string } { , *overwrite* : integer } ) : 4D.Folder<!-- END REF -->
+<!-- REF #directory.copyTo().Syntax -->**.copyTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} \{ , *overwrite* : integer \} ) : 4D.Folder<!-- END REF -->
 
 
 <!-- REF #directory.copyTo().Params -->
@@ -319,7 +319,7 @@ myPDF = folder("/DATA").file("Pictures/info.pdf")
 ## .files()
 
 
-<!-- REF #directory.files().Syntax -->**.files**( { *options* : integer } ) : collection<!-- END REF -->
+<!-- REF #directory.files().Syntax -->**.files**( \{ *options* : integer \} ) : collection<!-- END REF -->
 
 
 <!-- REF #directory.files().Params -->
@@ -410,7 +410,7 @@ A `folder` object or null if *path* is invalid.
 ## .folders()
 
 
-<!-- REF #directory.folders().Syntax -->**.folders**( { *options* : integer } ) : collection<!-- END REF -->
+<!-- REF #directory.folders().Syntax -->**.folders**( \{ *options* : integer \} ) : collection<!-- END REF -->
 
 
 <!-- REF #directory.folders().Params -->

@@ -5,7 +5,7 @@ title: newSharedCollection
 
 
 
-<!-- REF #_command_.newSharedCollection.Syntax -->**newSharedCollection** {( *...value* : any )} : collection<!-- END REF -->
+<!-- REF #_command_.newSharedCollection.Syntax -->**newSharedCollection** \{( *...value* : any )\} : collection<!-- END REF -->
 
 
 <!-- REF #_command_.newSharedCollection.Params -->

@@ -4,7 +4,7 @@ title: zipReadArchive
 ---
 
 
-<!-- REF #_command_.zipReadArchive.Syntax -->**zipReadArchive** ( *zipFile* : 4D.File { , *password* : string }) : 4D.ZipArchive<!-- END REF -->
+<!-- REF #_command_.zipReadArchive.Syntax -->**zipReadArchive** ( *zipFile* : 4D.File \{ , *password* : string \}) : 4D.ZipArchive<!-- END REF -->
 
 
 <!-- REF #_command_.zipReadArchive.Params -->

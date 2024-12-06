@@ -50,14 +50,14 @@ A null time is specified by ?00:00:00?
 			||||?01:02:03?  ==  ?01:02:04?	|False|
 |Inequality	|Time  !=  Time	|Boolean	|?01:02:03?  !=  ?01:02:04?	|True|
 			||||?01:02:03?  !=  ?01:02:03?	|False|
-|Greater than	|Time > Time	|Boolean	|?01:02:04? > ?01:02:03?	|True|
+|Greater than	|Time &gt; Time	|Boolean	|?01:02:04? > ?01:02:03?	|True|
 	||||		?01:02:03? > ?01:02:03?	|False|
-|Less than	|Time < Time	|Boolean	|?01:02:03? < ?01:02:04?	|True|
+|Less than	|Time &lt; Time	|Boolean	|?01:02:03? < ?01:02:04?	|True|
 		||||	?01:02:03? < ?01:02:03?	|False|
-|Greater than or equal to	|Time >=  Time	|Boolean	|?01:02:03? >= ?01:02:03?	|True|
-			||||?01:02:03? >= ?01:02:04?	|False|
-|Less than or equal to	|Time <= Time	|Boolean	|?01:02:03? <= ?01:02:03?|	True|
-			||||?01:02:04? <= ?01:02:03?	|False|
+|Greater than or equal to	|Time &gt;=  Time	|Boolean	|?01:02:03? &gt;= ?01:02:03?	|True|
+			||||?01:02:03? &gt;= ?01:02:04?	|False|
+|Less than or equal to	|Time &lt;= Time	|Boolean	|?01:02:03? &lt;= ?01:02:03?|	True|
+			||||?01:02:04? &lt;= ?01:02:03?	|False|
 
 ### Example 1 
 

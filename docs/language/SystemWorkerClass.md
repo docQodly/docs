@@ -35,7 +35,7 @@ The `SystemWorker` class is available from the `4D` class store.
 
 
 <!-- REF #4D.SystemWorker.new().Syntax -->
-**4D.SystemWorker.new** ( *commandLine* : Text { ; *options* : Object } ) : 4D.SystemWorker<!-- END REF -->
+**4D.SystemWorker.new** ( *commandLine* : Text \{ ; *options* : Object \} ) : 4D.SystemWorker<!-- END REF -->
 
 
 <!-- REF #4D.SystemWorker.new().Params -->
@@ -329,7 +329,7 @@ This property is **read-only**.
 
 
 <!-- REF #SystemWorkerClass.wait().Syntax -->
-**.wait**( {*timeout* : number} ) : 4D.SystemWorker<!-- END REF -->
+**.wait**( \{*timeout* : number\} ) : 4D.SystemWorker<!-- END REF -->
 
 
 <!-- REF #SystemWorkerClass.wait().Params -->

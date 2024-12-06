@@ -151,7 +151,7 @@ If the signal is already in the signaled state (i.e., the `signaled` property is
 ## .wait()
 
 
-<!-- REF #SignalClass.wait().Syntax -->**.wait**( { *timeout* : number } ) : boolean <!-- END REF -->
+<!-- REF #SignalClass.wait().Syntax -->**.wait**( \{ *timeout* : number \} ) : boolean <!-- END REF -->
 
 
 <!-- REF #SignalClass.wait().Params -->

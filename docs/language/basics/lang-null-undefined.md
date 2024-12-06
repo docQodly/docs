@@ -229,8 +229,8 @@ vNull = (vEmp.parent == null) //true
 |  |undefined `!=` *other values* |Boolean|a.undefinedProp `!=` 42 |true|
 |Greater than |undefined `>` string, date, time, boolean, number |Boolean  |a.undefinedProp `>` "abc" |false|
 |Less than |undefined `<` string, date, time, boolean, number |Boolean  |a.undefinedProp `<` "abc" |false|
-|Greater than or equal to |undefined `>=` string, date, time, boolean, number |Boolean  |a.undefinedProp `>=` "abc" |false|
-|Less than or equal to |undefined `<=` string, date, time, boolean, number |Boolean  |a.undefinedProp `<=` "abc" |false|
+|Greater than or equal to |undefined `&gt;=` string, date, time, boolean, number |Boolean  |a.undefinedProp `&gt;=` "abc" |false|
+|Less than or equal to |undefined `&lt;=` string, date, time, boolean, number |Boolean  |a.undefinedProp `&lt;=` "abc" |false|
 
 *other values* are expressions of any type with a value neither **undefined** nor **null**. 
 

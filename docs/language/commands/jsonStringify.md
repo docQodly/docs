@@ -4,7 +4,7 @@ title: jsonStringify
 ---
 
 
-<!-- REF #_command_.jsonStringify.Syntax -->**jsonStringify** ( *value* : any {, \*} ) : string<!-- END REF -->
+<!-- REF #_command_.jsonStringify.Syntax -->**jsonStringify** ( *value* : any \{, \*\} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.jsonStringify.Params -->
