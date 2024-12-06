@@ -811,7 +811,7 @@ To make it possible to perform such queries, ORDA allows a special syntax: you j
 ```qs
 "relationAttribute.attribute  ==  :1 AND relationAttribute{x}.attribute  ==  :2 [AND relationAttribute{y}.attribute...]"
 ```
-**{x}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
+**\{x\}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
 
 In our example, it would be:
 

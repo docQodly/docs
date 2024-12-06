@@ -186,7 +186,7 @@ function getValue -> v : integer
 
 
 
-## Parameter indirection (${N})
+## Parameter indirection ($\{N\})
 
 QodlyScript methods and functions accept a variable number of parameters. You can address those parameters with a `for...end` loop, the [`countParameters`](#countparameters) command and the **parameter indirection syntax**. Within the method, an indirection address is formatted `${N}`, where `N` is a numeric expression.
 
@@ -404,7 +404,7 @@ class.concate() // Displays " "
 
 :::note
 
-You can also call a method or function with more parameters than declared. They will be available within the called code through the [${N} syntax](#parameter-indirection-n).
+You can also call a method or function with more parameters than declared. They will be available within the called code through the [$\{N\} syntax](#parameter-indirection-n).
 
 :::
 
