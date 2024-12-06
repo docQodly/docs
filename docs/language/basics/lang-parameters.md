@@ -528,8 +528,8 @@ When you execute the `CreatePerson` method, person.Age will be 50 everywhere sin
 <!-- REF #_command_.copyParameters.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom|integer|->|Starting index (included)|
-|Result|any|<-|New collection containing parameters actually passed|<!-- END REF -->
+|startFrom|integer|&#8594;|Starting index (included)|
+|Result|any|&#8592;|New collection containing parameters actually passed|<!-- END REF -->
 
 
 #### Description
@@ -599,7 +599,7 @@ htmlList = c.list("u","Alpha","Bravo","Charlie")
 <!-- REF #_command_.countParameters.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Number of parameters actually passed|<!-- END REF -->
+|Result|integer|&#8592;|Number of parameters actually passed|<!-- END REF -->
 
 #### Description
 

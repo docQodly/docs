@@ -11,8 +11,8 @@ title: assert
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|boolExpression|boolean|->|Boolean expression|
-|msg|string|->|Text of error message|
+|boolExpression|boolean|&#8594;|Boolean expression|
+|msg|string|&#8594;|Text of error message|
 <!-- END REF -->
 
 

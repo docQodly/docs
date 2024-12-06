@@ -10,7 +10,7 @@ title: timestamp
 <!-- REF #_command_.timestamp.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|string|<-|Current time returned using ISO format with milliseconds|
+|Result|string|&#8592;|Current time returned using ISO format with milliseconds|
 <!-- END REF -->
 
 

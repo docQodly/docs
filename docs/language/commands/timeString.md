@@ -9,9 +9,9 @@ title: timeString
 <!-- REF #_command_.timeString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|secondsTime|time|->|Time expressing seconds from midnight|
-|secondsValue|integer|->|Number expressing seconds from midnight|
-|Result|string|<-|Time as a string in 24-hour format|
+|secondsTime|time|&#8594;|Time expressing seconds from midnight|
+|secondsValue|integer|&#8594;|Number expressing seconds from midnight|
+|Result|string|&#8592;|Time as a string in 24-hour format|
 <!-- END REF -->
 
 #### Description

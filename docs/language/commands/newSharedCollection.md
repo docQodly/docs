@@ -11,8 +11,8 @@ title: newSharedCollection
 <!-- REF #_command_.newSharedCollection.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, number, string, date, time, boolean, object (shared), collection (shared)|->|Shared collection's value(s)|
-|Result|collection|<-|New shared collection|
+|value|integer, number, string, date, time, boolean, object (shared), collection (shared)|&#8594;|Shared collection's value(s)|
+|Result|collection|&#8592;|New shared collection|
 <!-- END REF -->
 
 

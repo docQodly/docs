@@ -10,9 +10,9 @@ title: jsonStringify
 <!-- REF #_command_.jsonStringify.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|any|->|Data to convert into JSON string|
-|*||->|Pretty printing|
-|Result|string|<-|String containing serialized JSON string|
+|value|any|&#8594;|Data to convert into JSON string|
+|*||&#8594;|Pretty printing|
+|Result|string|&#8592;|String containing serialized JSON string|
 <!-- END REF -->
 
 #### Description

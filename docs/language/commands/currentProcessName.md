@@ -10,7 +10,7 @@ title: currentProcessName
 <!-- REF #_command_.currentProcessName.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|string|<-|Current process name|<!-- END REF -->
+|Result|string|&#8592;|Current process name|<!-- END REF -->
 
 
 #### Description

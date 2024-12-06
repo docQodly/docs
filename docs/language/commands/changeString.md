@@ -9,10 +9,10 @@ title: changeString
 <!-- REF #_command_.changeString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|string|->|Original string|
-|newChars|string|->|New characters|
-|where|integer|->|Where to start the changes|
-|Result|string|<-|Resulting string|
+|source|string|&#8594;|Original string|
+|newChars|string|&#8594;|New characters|
+|where|integer|&#8594;|Where to start the changes|
+|Result|string|&#8592;|Resulting string|
 <!-- END REF -->
 
 #### Description

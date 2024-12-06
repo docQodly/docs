@@ -11,8 +11,8 @@ title: setAssertEnabled
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|assertions|boolean|->|true = enable assertions, false = disable assertions|
-|*||->|If omitted = command applies to all the processes (existing or created subsequently), if passed = command applies to current process only|
+|assertions|boolean|&#8594;|true = enable assertions, false = disable assertions|
+|*||&#8594;|If omitted = command applies to all the processes (existing or created subsequently), if passed = command applies to current process only|
 <!-- END REF -->
 
 

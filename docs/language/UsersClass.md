@@ -38,7 +38,7 @@ usersInterface = cs.Qodly.Users.new()
 <!-- REF #cs.Qodly.Users.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|cs.Qodly.Users|<-|Users component object|<!-- END REF -->
+|Result|cs.Qodly.Users|&#8592;|Users component object|<!-- END REF -->
 
 #### Description
 
@@ -58,7 +58,7 @@ The `cs.Qodly.Users.new()` function <!-- REF #cs.Qodly.Users.new().Summary -->cr
 <!--REF #UserClass.getCurrentUser().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Object|<-|Current Qodly user information|<!-- END REF -->
+|Result|Object|&#8592;|Current Qodly user information|<!-- END REF -->
 
 
 #### Description
@@ -101,7 +101,7 @@ return user
 <!--REF #Users.getAllUsers().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|collection|<-|Collection of Qodly user objects|<!-- END REF -->
+|Result|collection|&#8592;|Collection of Qodly user objects|<!-- END REF -->
 
 
 #### Description

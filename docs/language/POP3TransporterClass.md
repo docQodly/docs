@@ -38,8 +38,8 @@ POP3 Transporter objects provide the following properties and functions:
 <!-- REF #4D.POP3Transporter.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|server|object|->|Mail server information|
-|Result|4D.POP3Transporter|<-|POP3 transporter object|
+|server|object|&#8594;|Mail server information|
+|Result|4D.POP3Transporter|&#8592;|POP3 transporter object|
 <!-- END REF -->
 
 #### Description
@@ -136,7 +136,7 @@ end
 <!-- REF #POP3TransporterClass.delete().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|->|Number of the message to delete|
+|msgNumber|integer|&#8594;|Number of the message to delete|
 <!-- END REF -->
 
 ##### Description
@@ -182,7 +182,7 @@ end
 <!-- REF #POP3TransporterClass.getBoxInfo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|boxInfo object|
+|Result|object|&#8592;|boxInfo object|
 <!-- END REF -->
 
 ##### Description
@@ -225,9 +225,9 @@ info = "The mailbox contains "+string(boxInfo.mailCount)+" messages.")
 <!-- REF #POP3TransporterClass.getMail().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|->|Number of the message in the list |
-|headerOnly|boolean|->|True to download only the email headers (default is false) |
-|Result|object|<-|[Email object](EmailObjectClass)|
+|msgNumber|integer|&#8594;|Number of the message in the list |
+|headerOnly|boolean|&#8594;|True to download only the email headers (default is false) |
+|Result|object|&#8592;|[Email object](EmailObjectClass)|
 <!-- END REF -->
 
 ##### Description
@@ -286,8 +286,8 @@ sender = transporter.getMail(mailInfo[0].number).from
 <!-- REF #POP3TransporterClass.getMailInfo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|->|Number of the message in the list |
-|Result|object|<-|mailInfo object|
+|msgNumber|integer|&#8594;|Number of the message in the list |
+|Result|object|&#8592;|mailInfo object|
 <!-- END REF -->
 
 ##### Description
@@ -339,7 +339,7 @@ end
 <!-- REF #POP3TransporterClass.getMailInfoList().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Collection of `mailInfo` objects|
+|Result|collection|&#8592;|Collection of `mailInfo` objects|
 <!-- END REF -->
 
 ##### Description
@@ -396,8 +396,8 @@ info = "The mailbox contains "+string(vNum)+" message(s) for "+string(vSize)+" b
 <!-- REF #POP3TransporterClass.getMIMEAsBlob().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|-> |Number of the message in the list|
-|Result|blob|<-|Blob of the MIME string returned from the mail server|
+|msgNumber|integer|&#8594; |Number of the message in the list|
+|Result|blob|&#8592;|Blob of the MIME string returned from the mail server|
 <!-- END REF -->
 
 ##### Description

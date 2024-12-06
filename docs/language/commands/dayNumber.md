@@ -10,8 +10,8 @@ title: dayNumber
 <!-- REF #_command_.dayNumber.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aDate|date|->|Date for which to return the number|
-|Result|integer|<-|Number representing the weekday on which date falls|
+|aDate|date|&#8594;|Date for which to return the number|
+|Result|integer|&#8592;|Number representing the weekday on which date falls|
 <!-- END REF -->
 
 #### Description

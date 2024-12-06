@@ -10,8 +10,8 @@ title: getPictureFileName
 <!-- REF #_command_.getPictureFileName.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture for which to get default name|
-|Result|string|<-|Default name of picture file|
+|aPicture|picture|&#8594;|Picture for which to get default name|
+|Result|string|&#8592;|Default name of picture file|
 <!-- END REF -->
 
 #### Description

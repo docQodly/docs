@@ -10,8 +10,8 @@ title: abs
 <!-- REF #_command_.abs.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number for which to return the absolute value|
-|Result|number|<-|Absolute value of number|
+|number|number|&#8594;|Number for which to return the absolute value|
+|Result|number|&#8592;|Absolute value of number|
 <!-- END REF -->
 
 #### Description

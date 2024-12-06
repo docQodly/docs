@@ -9,11 +9,11 @@ title: objectCopy
 <!-- REF #_command_.objectCopy.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to copy|
-|option |integer|->|kShared: return a shared object|
-|groupWith|object|->|Shared object to be grouped with the resulting object|
-|groupWith|collection|->|Shared collection to be grouped with the resulting object|
-|Result|object|<-|Deep copy of *object*|
+|object|object|&#8594;|Object to copy|
+|option |integer|&#8594;|kShared: return a shared object|
+|groupWith|object|&#8594;|Shared object to be grouped with the resulting object|
+|groupWith|collection|&#8594;|Shared collection to be grouped with the resulting object|
+|Result|object|&#8592;|Deep copy of *object*|
 <!-- END REF -->
 
 #### Description

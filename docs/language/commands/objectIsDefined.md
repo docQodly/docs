@@ -9,9 +9,9 @@ title: objectIsDefined
 <!-- REF #_command_.objectIsDefined.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to work with|
-|property |string|->|If passed = property to check, if omitted = check object|
-|Result|boolean|<-|<li>If *property* omitted: true if *object* is defined, otherwise false.</li><li>If *property* passed: true if *property* is defined, otherwise false.</li>|
+|object|object|&#8594;|Object to work with|
+|property |string|&#8594;|If passed = property to check, if omitted = check object|
+|Result|boolean|&#8592;|<li>If *property* omitted: true if *object* is defined, otherwise false.</li><li>If *property* passed: true if *property* is defined, otherwise false.</li>|
 <!-- END REF -->
 
 

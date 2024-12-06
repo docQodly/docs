@@ -9,9 +9,9 @@ title: round
 <!-- REF #_command_.round.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aRound|number|->|Number to be rounded|
-|places|integer|->|Number of decimal places used for rounding|
-|Result|number|<-|Number rounded to the number of decimal places specified by *places*|<!-- END REF -->
+|aRound|number|&#8594;|Number to be rounded|
+|places|integer|&#8594;|Number of decimal places used for rounding|
+|Result|number|&#8592;|Number rounded to the number of decimal places specified by *places*|<!-- END REF -->
 
 #### Description
 

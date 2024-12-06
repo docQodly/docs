@@ -10,10 +10,10 @@ title: compareStrings
 <!-- REF #_command_.compareStrings.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|String to compare|
-|bString|string|->|String to compare|
-|options|integer|->|Comparison rule(s)|
-|Result|integer|<-|Result of string comparison|
+|aString|string|&#8594;|String to compare|
+|bString|string|&#8594;|String to compare|
+|options|integer|&#8594;|Comparison rule(s)|
+|Result|integer|&#8592;|Result of string comparison|
 <!-- END REF -->
 
 #### Description

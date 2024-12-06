@@ -81,7 +81,7 @@ The `4D.File.new()` function <!-- REF #4D.File.new().Summary -->creates and retu
 <!--REF #FileClass.create().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|boolean|<-|true if the file was created successfully, false otherwise|<!-- END REF -->
+|Result|boolean|&#8592;|true if the file was created successfully, false otherwise|<!-- END REF -->
 
 #### Description
 
@@ -114,9 +114,9 @@ Creation of a preferences file in the project folder:
 <!--REF #FileClass.createAlias().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|destinationFolder|4D.Folder|->|Destination folder for the alias or shortcut|
-|aliasName|string|->|Name of the alias or shortcut|
-|Result|4D.File|<-|Alias or shortcut file reference|<!-- END REF -->
+|destinationFolder|4D.Folder|&#8594;|Destination folder for the alias or shortcut|
+|aliasName|string|&#8594;|Name of the alias or shortcut|
+|Result|4D.File|&#8592;|Alias or shortcut file reference|<!-- END REF -->
 
 #### Description
 
@@ -216,9 +216,9 @@ You want to delete a specific file in the project folder:
 <!--REF #FileClass.moveTo().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|destinationFolder|4D.Folder|->|Destination folder|
-|newName|string|->|Full name for the moved file|
-|Result|4D.File|<-|Moved file|<!-- END REF -->
+|destinationFolder|4D.Folder|&#8594;|Destination folder|
+|newName|string|&#8594;|Full name for the moved file|
+|Result|4D.File|&#8592;|Moved file|<!-- END REF -->
 
 
 #### Description
@@ -255,9 +255,9 @@ myFile.moveTo(myFolder.folder("Archives"),"Infos_old.txt")
 <!--REF #FileClass.open().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|mode|string|->|Opening mode: "read", "write", "append"|
-|options|object|->|Opening options|
-|Result|[4D.FileHandle](FileHandleClass)|<-|New File handle object|<!-- END REF -->
+|mode|string|&#8594;|Opening mode: "read", "write", "append"|
+|options|object|&#8594;|Opening options|
+|Result|[4D.FileHandle](FileHandleClass)|&#8592;|New File handle object|<!-- END REF -->
 
 #### Description
 
@@ -325,8 +325,8 @@ fhandle = f.open("read")
 <!--REF #FileClass.rename().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|newName|string|->|New full name for the file|
-|Result|4D.File|<-|Renamed file|<!-- END REF -->
+|newName|string|&#8594;|New full name for the file|
+|Result|4D.File|&#8592;|Renamed file|<!-- END REF -->
 
 #### Description
 
@@ -361,7 +361,7 @@ You want to rename "ReadMe.txt" in "ReadMe_new.txt":
 <!--REF #FileClass.setContent().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|content|blob|->|New contents for the file|<!-- END REF -->
+|content|blob|&#8594;|New contents for the file|<!-- END REF -->
 
 #### Description
 
@@ -392,10 +392,10 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
 <!--REF #FileClass.setText().Params -->
 |Parameter|Type||Description|
 |---------|----|---|--------|
-|text|string|->|string to store in the file|
-|charSetName|string|->|Name of character set|
-|charSetNum|integer|->|Number of character set|
-|breakMode|integer|->|Processing mode for line breaks|<!-- END REF -->
+|text|string|&#8594;|string to store in the file|
+|charSetName|string|&#8594;|Name of character set|
+|charSetNum|integer|&#8594;|Number of character set|
+|breakMode|integer|&#8594;|Processing mode for line breaks|<!-- END REF -->
 
 
 #### Description

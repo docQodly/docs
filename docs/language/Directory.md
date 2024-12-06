@@ -245,10 +245,10 @@ This property is **read-only**.
 <!-- REF #directory.copyTo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|destinationFolder |4D.Folder |->|Destination folder|
-|newName|string|->|Name for the copy|
-|overwrite|integer|->|`fk overwrite` to replace existing elements|
-|Result|4D.Folder|<-|Copied file or folder|<!-- END REF -->
+|destinationFolder |4D.Folder |&#8594;|Destination folder|
+|newName|string|&#8594;|Name for the copy|
+|overwrite|integer|&#8594;|`fk overwrite` to replace existing elements|
+|Result|4D.Folder|&#8592;|Copied file or folder|<!-- END REF -->
 
 #### Description
 
@@ -291,8 +291,8 @@ copiedImages = userImages.copyTo(folder("/DATA"),kOverwrite)
 <!-- REF #directory.file().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|path|string|->|Relative POSIX file pathname|
-|Result|4D.File|<-|`File` object (null if invalid path)|<!-- END REF -->
+|path|string|&#8594;|Relative POSIX file pathname|
+|Result|4D.File|&#8592;|`File` object (null if invalid path)|<!-- END REF -->
 
 #### Description
 
@@ -325,8 +325,8 @@ myPDF = folder("/DATA").file("Pictures/info.pdf")
 <!-- REF #directory.files().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|options|integer|->|File list options|
-|Result|collection|<-|collection of children file objects|<!-- END REF -->
+|options|integer|&#8594;|File list options|
+|Result|collection|&#8592;|collection of children file objects|<!-- END REF -->
 
 #### Description
 
@@ -382,8 +382,8 @@ You want to get all files that are not invisible in the Resources folder:
 <!-- REF #directory.folder().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|path|string|->|Relative POSIX file pathname|
-|Result|4D.Folder|<-|Created folder object (null if invalid *path*)|<!-- END REF -->
+|path|string|&#8594;|Relative POSIX file pathname|
+|Result|4D.Folder|&#8592;|Created folder object (null if invalid *path*)|<!-- END REF -->
 
 #### Description
 
@@ -416,8 +416,8 @@ A `folder` object or null if *path* is invalid.
 <!-- REF #directory.folders().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|options|integer|->|Folder list options|
-|Result|collection|<-|Collection of children folder objects|<!-- END REF -->
+|options|integer|&#8594;|Folder list options|
+|Result|collection|&#8592;|Collection of children folder objects|<!-- END REF -->
 
 #### Description
 

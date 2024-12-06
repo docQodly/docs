@@ -9,7 +9,7 @@ title: ds
 <!-- REF #_command_.ds.Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result |cs.DataStore|<-|Reference to the datastore|
+|Result |cs.DataStore|&#8592;|Reference to the datastore|
 <!-- END REF -->
 
 

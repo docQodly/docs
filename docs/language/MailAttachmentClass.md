@@ -31,15 +31,15 @@ Attachment objects are created using the [`4D.MailAttachment.new()`](#4dmailatta
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|file|4D.File|->|Attachment file|
-|zipFile|4D.ZipFile|->|Attachment Zipfile|
-|blob|4D.Blob|->|BLOB containing the attachment|
-|path|string|->|Path of the attachment file|
-|name|string|->|Name + extension used by the mail client to designate the attachment|
-|cid|string|->|ID of attachment (HTML messages only), or " " if no cid is required|
-|type|string|->|Value of the content-type header|
-|disposition|string|->|Value of the content-disposition header: "inline" or "attachment".|
-|Result|4D.MailAttachment|<-|Attachment object|<!-- END REF -->
+|file|4D.File|&#8594;|Attachment file|
+|zipFile|4D.ZipFile|&#8594;|Attachment Zipfile|
+|blob|4D.Blob|&#8594;|BLOB containing the attachment|
+|path|string|&#8594;|Path of the attachment file|
+|name|string|&#8594;|Name + extension used by the mail client to designate the attachment|
+|cid|string|&#8594;|ID of attachment (HTML messages only), or " " if no cid is required|
+|type|string|&#8594;|Value of the content-type header|
+|disposition|string|&#8594;|Value of the content-disposition header: "inline" or "attachment".|
+|Result|4D.MailAttachment|&#8592;|Attachment object|<!-- END REF -->
 
 
 #### Description
@@ -164,7 +164,7 @@ The `.disposition` property contains <!-- REF #MailAttachmentClass.disposition.S
 <!-- REF #MailAttachmentClass.getContent().Params -->
 |Parameter|Type||Description|
 |---|--- |:---:|------|
-|Result|4D.Blob|<-|Content of the attachment|<!-- END REF -->
+|Result|4D.Blob|&#8592;|Content of the attachment|<!-- END REF -->
 
 
 #### Description

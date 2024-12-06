@@ -10,7 +10,7 @@ title: setRealComparisonLevel
 <!-- REF #_command_.setRealComparisonLevel.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|epsilon|number|->|Epsilon value for real equality comparisons|<!-- END REF -->
+|epsilon|number|&#8594;|Epsilon value for real equality comparisons|<!-- END REF -->
 
 #### Description
 

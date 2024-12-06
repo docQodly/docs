@@ -10,10 +10,10 @@ title: convertFromString
 <!-- REF #_command_.convertFromString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|string expressed in current character set|
-|charSetString|string|->|Name of character set|
-|charSetInt|integer|->|Number of character set|
-|Result|blob|<-|blob containing converted string|<!-- END REF -->
+|aString|string|&#8594;|string expressed in current character set|
+|charSetString|string|&#8594;|Name of character set|
+|charSetInt|integer|&#8594;|Number of character set|
+|Result|blob|&#8592;|blob containing converted string|<!-- END REF -->
 
 #### Description
 

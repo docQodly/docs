@@ -10,8 +10,8 @@ title: not
 <!-- REF #_command_.not.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aBoolean|boolean|->|Boolean value to negate|
-|Result|boolean|<-|Opposite of aBoolean|
+|aBoolean|boolean|&#8594;|Boolean value to negate|
+|Result|boolean|&#8592;|Opposite of aBoolean|
 <!-- END REF -->
 
 #### Description

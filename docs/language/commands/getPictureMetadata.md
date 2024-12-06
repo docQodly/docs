@@ -11,9 +11,9 @@ title: getPictureMetadata
 <!-- REF #_command_.getPictureMetadata.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture whose metadata you want to get|
-|metaName|string|->|Name or path of block to get|
-|metaContents|variable|<-|Metadata contents|
+|aPicture|picture|&#8594;|Picture whose metadata you want to get|
+|metaName|string|&#8594;|Name or path of block to get|
+|metaContents|variable|&#8592;|Metadata contents|
 <!-- END REF -->
 
 #### Description

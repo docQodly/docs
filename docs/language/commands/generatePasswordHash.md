@@ -10,9 +10,9 @@ title: generatePasswordHash
 <!-- REF #_command_.generatePasswordHash.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|password|string|->|The user's password. Only the first 72 characters are used|
-|options|object|->|An object containing options|
-|Result|string|<-|Returns the hashed password|
+|password|string|&#8594;|The user's password. Only the first 72 characters are used|
+|options|object|&#8594;|An object containing options|
+|Result|string|&#8592;|Returns the hashed password|
 <!-- END REF -->
 
 #### Description

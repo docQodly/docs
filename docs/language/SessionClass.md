@@ -88,7 +88,7 @@ expiration = session.expirationDate //eg "2021-11-05T17:10:42Z"
 <!-- REF #SessionClass.getPrivileges().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Collection of privilege names (strings)|
+|Result|collection|&#8592;|Collection of privilege names (strings)|
 <!-- END REF -->
 
 #### Description
@@ -144,8 +144,8 @@ privileges = Session.getPrivileges()
 <!-- REF #SessionClass.hasPrivilege().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|privilege|string|<-|Name of the privilege to verify|
-|Result|boolean|<-|True if session has *privilege*, false otherwise|<!-- END REF -->
+|privilege|string|&#8592;|Name of the privilege to verify|
+|Result|boolean|&#8592;|True if session has *privilege*, false otherwise|<!-- END REF -->
 
 
 #### Description
@@ -213,7 +213,7 @@ end
 <!-- REF #SessionClass.isGuest().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|True if session is a Guest one, false otherwise|<!-- END REF -->
+|Result|boolean|&#8592;|True if session is a Guest one, false otherwise|<!-- END REF -->
 
 #### Description
 
@@ -243,9 +243,9 @@ end
 <!-- REF #SessionClass.setPrivileges().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|privilege|string|->|Privilege name|
-|privileges|collection|->|Collection of privilege names|
-|settings|Object|->|object with a "privileges" property (string or collection)|<!-- END REF -->
+|privilege|string|&#8594;|Privilege name|
+|privileges|collection|&#8594;|Collection of privilege names|
+|settings|Object|&#8594;|object with a "privileges" property (string or collection)|<!-- END REF -->
 
 #### Description
 

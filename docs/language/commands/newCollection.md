@@ -10,8 +10,8 @@ title: newCollection
 <!-- REF #_command_.newCollection.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, number, string, date, time, boolean, object, collection, picture|->|collection's value(s)|
-|Result|collection|<-|New collection|
+|value|integer, number, string, date, time, boolean, object, collection, picture|&#8594;|collection's value(s)|
+|Result|collection|&#8592;|New collection|
 <!-- END REF -->
 
 

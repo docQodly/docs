@@ -10,7 +10,7 @@ title: currentDate
 <!-- REF #_command_.currentDate.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|date|<-|Current date|
+|Result|date|&#8592;|Current date|
 <!-- END REF -->
 
 #### Description

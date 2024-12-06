@@ -10,7 +10,7 @@ title: currentTime
 <!-- REF #_command_.currentTime.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|time|<-|Current time|
+|Result|time|&#8592;|Current time|
 <!-- END REF -->
 
 #### Description

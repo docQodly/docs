@@ -108,7 +108,7 @@ Filter entities by entering values to find (or to exclude) in the areas above th
 
 Different operators are available based on the data type:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
       <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
   </Column.Item>

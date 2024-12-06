@@ -10,10 +10,10 @@ title: jsonParse
 <!-- REF #_command_.jsonParse.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|jsonString|string|->|JSON string to parse|
-|type|integer|->|Type in which to convert the values|
-|*||->|Adds line position and offset of each property if returned value is an object|
-|Result|any|<-|Values extracted from JSON string|
+|jsonString|string|&#8594;|JSON string to parse|
+|type|integer|&#8594;|Type in which to convert the values|
+|*||&#8594;|Adds line position and offset of each property if returned value is an object|
+|Result|any|&#8592;|Values extracted from JSON string|
 <!-- END REF -->
 
 #### Description

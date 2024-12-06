@@ -9,9 +9,9 @@ title: trunc
 <!-- REF #_command_.trunc.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number to be truncated|
-|places|integer|->|Number of decimal places used for truncating|
-|Result|number|<-|Number with its decimal part truncated to the number of decimal places specified by *places*|<!-- END REF -->
+|number|number|&#8594;|Number to be truncated|
+|places|integer|&#8594;|Number of decimal places used for truncating|
+|Result|number|&#8592;|Number with its decimal part truncated to the number of decimal places specified by *places*|<!-- END REF -->
 
 #### Description
 

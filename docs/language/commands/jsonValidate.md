@@ -11,9 +11,9 @@ title: jsonValidate
 <!-- REF #_command_.jsonValidate.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|vJson|object|->|JSON object to validate|
-|vSchema|object|->|JSON schema used to validate JSON objects|
-|Result|object|<-|Validation status and errors (if any)|
+|vJson|object|&#8594;|JSON object to validate|
+|vSchema|object|&#8594;|JSON schema used to validate JSON objects|
+|Result|object|&#8592;|Validation status and errors (if any)|
 <!-- END REF -->
 
 #### Description

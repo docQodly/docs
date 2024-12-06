@@ -11,8 +11,8 @@ title: pictureSize
 <!-- REF #_command_.pictureSize.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture for which to return the size in bytes|
-|Result|integer|<-|Size in bytes of the picture|
+|aPicture|picture|&#8594;|Picture for which to return the size in bytes|
+|Result|integer|&#8592;|Size in bytes of the picture|
 <!-- END REF -->
 
 #### Description

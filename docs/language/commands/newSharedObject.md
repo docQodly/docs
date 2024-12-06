@@ -9,9 +9,9 @@ title: newSharedObject
 <!-- REF #_command_.newSharedObject.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|property|string|->|Name of property to create|
-|value|integer, number, string, date, time, boolean, object, collection, picture|->|Value of property|
-|Result|object|<-|New shared object|<!-- END REF -->
+|property|string|&#8594;|Name of property to create|
+|value|integer, number, string, date, time, boolean, object, collection, picture|&#8594;|Value of property|
+|Result|object|&#8592;|New shared object|<!-- END REF -->
 
 #### Description
 

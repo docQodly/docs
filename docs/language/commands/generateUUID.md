@@ -10,7 +10,7 @@ title: generateUUID
 <!-- REF #_command_.generateUUID.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|string|<-|New UUID as non-canonical string (32 characters)|
+|Result|string|&#8592;|New UUID as non-canonical string (32 characters)|
 <!-- END REF -->
 
 #### Description

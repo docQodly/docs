@@ -11,9 +11,9 @@ title: throw
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|errorCode|integer|->|Error code|
-|description|string|->|Description of the error|
-|errorObj|object|->|Object containing properties to build the error|
+|errorCode|integer|&#8594;|Error code|
+|description|string|&#8594;|Description of the error|
+|errorObj|object|&#8594;|Object containing properties to build the error|
 <!-- END REF -->
 
 

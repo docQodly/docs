@@ -10,9 +10,9 @@ title: setPictureMetadata
 <!-- REF #_command_.setPictureMetadata.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture whose metadata you want to set|
-|metaName|string|->|Name or path of block to set|
-|metaContents|variable|<-|Metadata contents|
+|aPicture|picture|&#8594;|Picture whose metadata you want to set|
+|metaName|string|&#8594;|Name or path of block to set|
+|metaContents|variable|&#8592;|Metadata contents|
 <!-- END REF -->
 
 #### Description

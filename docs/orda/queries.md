@@ -27,11 +27,11 @@ The `query()` function is available in both the [entity selection class](../lang
 
 |Parameter|Type| &nbsp;&nbsp;&nbsp;&nbsp;|Description|
 |---|---|-----|---|
-|queryString |string |->|Search criteria as string|
-|formula |object | -> |Search criteria as formula object|
-|value|any|->|Value(s) to use for indexed placeholder(s)|
-|querySettings|object| -> |Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
-|Result|4D.EntitySelection| <- |New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
+|queryString |string |&#8594;|Search criteria as string|
+|formula |object | &#8594; |Search criteria as formula object|
+|value|any|&#8594;|Value(s) to use for indexed placeholder(s)|
+|querySettings|object| &#8594; |Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
+|Result|4D.EntitySelection| &#8592; |New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
 
 
 The `.query()` function searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s), for all the entities in the dataclass or the entity selection. 

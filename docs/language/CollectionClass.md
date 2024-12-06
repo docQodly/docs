@@ -81,8 +81,8 @@ The Collection class manages [collection](basics/lang-collection.md) type elemen
 <!-- REF #collection.at().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|index|integer|->|Index of element to return|
-|Result|any |<-|The element at that index|<!-- END REF -->
+|index|integer|&#8594;|Index of element to return|
+|Result|any |&#8592;|The element at that index|<!-- END REF -->
 
 
 #### Description
@@ -123,8 +123,8 @@ element = col.at(10) // undefined
 <!-- REF #collection.average().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|object property path to be used for calculation|
-|Result|number, undefined|<-|Arithmetic mean (average) of collection values|<!-- END REF -->
+|propertyPath|string|&#8594;|object property path to be used for calculation|
+|Result|number, undefined|&#8592;|Arithmetic mean (average) of collection values|<!-- END REF -->
 
 
 
@@ -179,7 +179,7 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 <!-- REF #collection.clear().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Original collection with all elements removed|<!-- END REF -->
+|Result|collection|&#8592;|Original collection with all elements removed|<!-- END REF -->
 
 
 #### Description
@@ -212,9 +212,9 @@ col.clear()
 <!-- REF #collection.combine().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|col2|collection|->|collection to combine|
-|index|integer|->|Position to which insert elements to combine in collection (default = length+1)|
-|Result|collection|<-|Original collection containing combined element(s)|<!-- END REF -->
+|col2|collection|&#8594;|collection to combine|
+|index|integer|&#8594;|Position to which insert elements to combine in collection (default = length+1)|
+|Result|collection|&#8592;|Original collection containing combined element(s)|<!-- END REF -->
 
 
 #### Description
@@ -256,8 +256,8 @@ c.combine(fruits,3) //[1,2,3,"Orange","Banana","Apple","Grape",4,5,6]
 <!-- REF #collection.concat().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|integer, number, string, object, collection, date, time, boolean, picture|->|Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection|
-|Result|collection|<-|New collection with value(s) added to the original collection|<!-- END REF -->
+|value|integer, number, string, object, collection, date, time, boolean, picture|&#8594;|Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection|
+|Result|collection|&#8592;|New collection with value(s) added to the original collection|<!-- END REF -->
 
 
 #### Description
@@ -294,10 +294,10 @@ c2 = c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
 <!-- REF #collection.copy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|option|integer|->|`kShared`: return a shared collection|
-|groupWithCol |collection|->|Shared collection to be grouped with the resulting collection|
-|groupWithObj |object|->|Shared object to be grouped with the resulting collection|
-|Result|collection|<-|Deep copy of the original collection|<!-- END REF -->
+|option|integer|&#8594;|`kShared`: return a shared collection|
+|groupWithCol |collection|&#8594;|Shared collection to be grouped with the resulting collection|
+|groupWithObj |object|&#8594;|Shared object to be grouped with the resulting collection|
+|Result|collection|&#8592;|Deep copy of the original collection|<!-- END REF -->
 
 
 #### Description
@@ -395,8 +395,8 @@ end
 <!-- REF #collection.count().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|object property path to be used for calculation|
-|Result|number|<-|Number of elements in the collection|<!-- END REF -->
+|propertyPath|string|&#8594;|object property path to be used for calculation|
+|Result|number|&#8592;|Number of elements in the collection|<!-- END REF -->
 
 
 #### Description
@@ -436,9 +436,9 @@ If the collection contains objects, you can pass the *propertyPath* parameter. I
 <!-- REF #collection.countValues().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|string, Number, boolean, date, object, collection|->|Value to count|
-|propertyPath|string|->|Object property path to be used for calculation|
-|Result|number|<-|Number of occurrences of the value	|<!-- END REF -->
+|value|string, Number, boolean, date, object, collection|&#8594;|Value to count|
+|propertyPath|string|&#8594;|Object property path to be used for calculation|
+|Result|number|&#8592;|Number of occurrences of the value	|<!-- END REF -->
 
 
 #### Description
@@ -510,9 +510,9 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 <!-- REF #collection.distinct().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|Path of attribute whose distinct values you want to get|
-|options|integer|->|`kDiacritical`, `kCountValues`|
-|Result|collection|<-|New collection with only distinct values|<!-- END REF -->
+|propertyPath|string|&#8594;|Path of attribute whose distinct values you want to get|
+|options|integer|&#8594;|`kDiacritical`, `kCountValues`|
+|Result|collection|&#8592;|New collection with only distinct values|<!-- END REF -->
 
 
 #### Description
@@ -564,9 +564,9 @@ In the *options* parameter, you can pass one or a combination of the following c
 <!-- REF #collection.equal().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|collection2|collection|->|collection to compare|
-|option|integer|->|`kDiacritical`: diacritical evaluation ("A" # "a" for example)
-|Result|boolean|<-|true if collections are identical, false otherwise|<!-- END REF -->
+|collection2|collection|&#8594;|collection to compare|
+|option|integer|&#8594;|`kDiacritical`: diacritical evaluation ("A" # "a" for example)
+|Result|boolean|&#8592;|true if collections are identical, false otherwise|<!-- END REF -->
 
 
 #### Description
@@ -615,11 +615,11 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
 <!-- REF #collection.every().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom|integer|->|Index to start the test at|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|boolean|<-|true if all elements successfully passed the test|<!-- END REF -->
+|startFrom|integer|&#8594;|Index to start the test at|
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|boolean|&#8592;|true if all elements successfully passed the test|<!-- END REF -->
 
 
 #### Description
@@ -701,11 +701,11 @@ b = c.every(f,Is number) //b = false
 <!-- REF #collection.extract().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|Object property path whose values must be extracted to the new collection|
-|targetpath|string|->|Target property path or property name|
+|propertyPath|string|&#8594;|Object property path whose values must be extracted to the new collection|
+|targetpath|string|&#8594;|Target property path or property name|
 
-|option|integer|->|`kKeepNull`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
-|Result|collection|<-|new collection containing extracted values|<!-- END REF -->
+|option|integer|&#8594;|`kKeepNull`: include null properties in the returned collection (ignored by default). Parameter ignored if *targetPath* passed.|
+|Result|collection|&#8592;|new collection containing extracted values|<!-- END REF -->
 
 
 #### Description
@@ -771,10 +771,10 @@ c2 = c.extract("name","City","zc","Zip") //c2: [{Zip:35060},{City:null,Zip:35049
 <!-- REF #collection.fill().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value|number, string, collection, object, date, boolean|->|Filling value|
-|startFrom|integer|->|Start index (included)|
-|end|integer|->|End index (not included)|
-|Result|collection|<-|Original collection with filled values|<!-- END REF -->
+|value|number, string, collection, object, date, boolean|&#8594;|Filling value|
+|startFrom|integer|&#8594;|Start index (included)|
+|end|integer|&#8594;|End index (not included)|
+|Result|collection|&#8592;|Original collection with filled values|<!-- END REF -->
 
 
 #### Description
@@ -820,10 +820,10 @@ In case of inconsistency, the following rules apply:
 <!-- REF #collection.filter().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|collection|<-|new collection containing filtered elements (shallow copy)|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|collection|&#8592;|new collection containing filtered elements (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -900,11 +900,11 @@ You want to filter elements according to their value type:
 <!-- REF #collection.find().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom|integer|->|Index to start the search at|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|any |<-|First value found, or Undefined if not found|<!-- END REF -->
+|startFrom|integer|&#8594;|Index to start the search at|
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|any |&#8592;|First value found, or Undefined if not found|<!-- END REF -->
 
 
 #### Description
@@ -983,11 +983,11 @@ c2 = c.find(formula($1.value.name == $2), "Clanton")  //c2 = {name:Clanton,zc:35
 <!-- REF #collection.findIndex().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom|integer|->|Index to start the search at|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|integer |<-|Index of first value found, or -1 if not found|<!-- END REF -->
+|startFrom|integer|&#8594;|Index to start the search at|
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|integer |&#8592;|Index of first value found, or -1 if not found|<!-- END REF -->
 
 
 #### Description
@@ -1051,7 +1051,7 @@ val3 = c.findIndex(val2+1,formula($1.value.name == $2),"Clanton") //val3:4
 <!-- REF #collection.first().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any|<-|First element of collection|<!-- END REF -->
+|Result|any|&#8592;|First element of collection|<!-- END REF -->
 
 
 #### Description
@@ -1091,8 +1091,8 @@ first = emptyCol.first() // returns undefined
 <!-- REF #collection.flat().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|depth|integer |->|How deep a nested collection structure should be flattened. Default = 1|
-|Result|collection |<-|Flattened collection|<!-- END REF -->
+|depth|integer |&#8594;|How deep a nested collection structure should be flattened. Default = 1|
+|Result|collection |&#8592;|Flattened collection|<!-- END REF -->
 
 
 #### Description
@@ -1137,10 +1137,10 @@ col.flat(MAXLONG)
 <!-- REF #collection.flatMap().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|collection |<-|Collection of transformed values and flattened by a depth of 1|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|collection |&#8592;|Collection of transformed values and flattened by a depth of 1|<!-- END REF -->
 
 #### Description
 
@@ -1224,9 +1224,9 @@ c2 = c.flatMap(f, c.sum())
 <!-- REF #collection.includes().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|toSearch|expression|->|Expression to search in the collection|
-|startFrom|integer|->|Index to start the search at|
-|Result|boolean |<-|true if *toSearch* is found in the collection|<!-- END REF -->
+|toSearch|expression|&#8594;|Expression to search in the collection|
+|startFrom|integer|&#8594;|Index to start the search at|
+|Result|boolean |&#8592;|true if *toSearch* is found in the collection|<!-- END REF -->
 
 
 #### Description
@@ -1286,9 +1286,9 @@ Optionally, you can pass the index of collection from which to start the search 
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|toSearch|expression|->|Expression to search in the collection|
-|startFrom|integer|->|Index to start the search at|
-|Result|integer |<-|Index of the first occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
+|toSearch|expression|&#8594;|Expression to search in the collection|
+|startFrom|integer|&#8594;|Index to start the search at|
+|Result|integer |&#8592;|Index of the first occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
 
 
 #### Description
@@ -1339,9 +1339,9 @@ Optionally, you can pass the index of collection from which to start the search 
 <!-- REF #collection.indices().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|queryString|string|->|Search criteria|
-|value|any|->|Value(s) to compare when using placeholder(s)|
-|Result|collection |<-|Element index(es) matching queryString in the collection|<!-- END REF -->
+|queryString|string|&#8594;|Search criteria|
+|value|any|&#8594;|Value(s) to compare when using placeholder(s)|
+|Result|collection |&#8592;|Element index(es) matching queryString in the collection|<!-- END REF -->
 
 
 #### Description
@@ -1389,9 +1389,9 @@ For a detailed description of the *queryString* and *value* parameters, please r
 <!-- REF #collection.insert().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|index|integer|->|Where to insert the element|
-|element|any|->|Element to insert in the collection|
-|Result|collection |<-|Original collection containing inserted element|<!-- END REF -->
+|index|integer|&#8594;|Where to insert the element|
+|element|any|&#8594;|Element to insert in the collection|
+|Result|collection |&#8592;|Original collection containing inserted element|<!-- END REF -->
 
 
 #### Description
@@ -1435,9 +1435,9 @@ Any type of element accepted by a collection can be inserted, even another colle
 <!-- REF #collection.join().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|delimiter|string|->|Separator to use between elements|
-|option|integer|->|`kIgnoreNullOrEmpty`: ignore null and empty strings in the result|
-|Result|string |<-|String containing all elements of the collection, separated by delimiter|<!-- END REF -->
+|delimiter|string|&#8594;|Separator to use between elements|
+|option|integer|&#8594;|`kIgnoreNullOrEmpty`: ignore null and empty strings in the result|
+|Result|string |&#8592;|String containing all elements of the collection, separated by delimiter|<!-- END REF -->
 
 
 #### Description
@@ -1473,7 +1473,7 @@ By default, null or empty elements of the collection are returned in the resulti
 <!-- REF #collection.last().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any |<-|Last element of collection|<!-- END REF -->
+|Result|any |&#8592;|Last element of collection|<!-- END REF -->
 
 
 #### Description
@@ -1516,9 +1516,9 @@ last = emptyCol.last() // returns Undefined
 <!-- REF #collection.lastIndexOf().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|toSearch|expression|->|The element that is to be searched for within the collection|
-|startFrom|integer|->|Index to start the search at|
-|Result|integer |<-|Index of last occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
+|toSearch|expression|&#8594;|The element that is to be searched for within the collection|
+|startFrom|integer|&#8594;|Index to start the search at|
+|Result|integer |&#8592;|Index of last occurrence of toSearch in the collection, -1 if not found|<!-- END REF -->
 
 
 #### Description
@@ -1601,10 +1601,10 @@ The `.length` property is initialized when the collection is created. Adding or 
 <!-- REF #collection.map().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param|any|->|Parameter(s) to pass to *formula* or *methodName*|
-|Result|collection |<-|collection of transformed values|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param|any|&#8594;|Parameter(s) to pass to *formula* or *methodName*|
+|Result|collection |&#8592;|collection of transformed values|<!-- END REF -->
 
 
 #### Description
@@ -1659,8 +1659,8 @@ c2 = c.map(formula(round(($1.value/$2)*100, 2)), c.sum())
 <!-- REF #collection.max().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|object property path to be used for evaluation|
-|Result|boolean, string, Number, collection, object, date |<-|Maximum value in the collection|<!-- END REF -->
+|propertyPath|string|&#8594;|object property path to be used for evaluation|
+|Result|boolean, string, Number, collection, object, date |&#8592;|Maximum value in the collection|<!-- END REF -->
 
 
 #### Description
@@ -1704,8 +1704,8 @@ If the collection is empty, `.max()` returns `undefined`.
 <!-- REF #collection.min().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath|string|->|object property path to be used for evaluation|
-|Result|boolean, string, Number, collection, object, date |<-|Minimum value in the collection|<!-- END REF -->
+|propertyPath|string|&#8594;|object property path to be used for evaluation|
+|Result|boolean, string, Number, collection, object, date |&#8592;|Minimum value in the collection|<!-- END REF -->
 
 
 #### Description
@@ -1748,9 +1748,9 @@ If the collection is empty, `.min()` returns `undefined`.
 <!-- REF #collection.multiSort().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|Formula object|
-|colsToSort|collection|->|Collection of collections and/or objects with {`collection`:*colToSort*,`order`:`ck ascending` or `ck descending`} properties|
-|Result|collection |<-|Original collection sorted|<!-- END REF -->
+|formula|4D.Function|&#8594;|Formula object|
+|colsToSort|collection|&#8594;|Collection of collections and/or objects with {`collection`:*colToSort*,`order`:`ck ascending` or `ck descending`} properties|
+|Result|collection |&#8592;|Original collection sorted|<!-- END REF -->
 
 
 #### Description
@@ -1875,10 +1875,10 @@ name.multiSort(formula($1.value.firstname < $1.value2.firstname), [address])
 <!-- REF #collection.orderBy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|pathStrings|string|->|Property path(s) on which to order the collection|
-|pathobjects|collection|->|collection of criteria objects|
-|ascOrDesc|integer|->|`kAscending` or `kDescending` (scalar values)|
-|Result|collection |<-|Ordered copy of the collection (shallow copy)|<!-- END REF -->
+|pathStrings|string|&#8594;|Property path(s) on which to order the collection|
+|pathobjects|collection|&#8594;|collection of criteria objects|
+|ascOrDesc|integer|&#8594;|`kAscending` or `kDescending` (scalar values)|
+|Result|collection |&#8592;|Ordered copy of the collection (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -2012,10 +2012,10 @@ Ordering with a property path:
 <!-- REF #collection.orderByMethod().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|extraParam|any|->|Parameter(s) to pass |
-|Result|collection |<-|Sorted copy of the collection (shallow copy)|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|extraParam|any|&#8594;|Parameter(s) to pass |
+|Result|collection |&#8592;|Sorted copy of the collection (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -2112,7 +2112,7 @@ $1.result = (compareStrings($1.value,$1.value2,$2)<0)
 <!-- REF #collection.pop().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any |<-|Last element of collection|<!-- END REF -->
+|Result|any |&#8592;|Last element of collection|<!-- END REF -->
 
 
 #### Description
@@ -2154,8 +2154,8 @@ When applied to an empty collection, `.pop()` returns ***undefined***.
 <!-- REF #collection.push().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|element|any|->|Element(s) to add to the collection|
-|Result|collection |<-|Original collection containing added elements|<!-- END REF -->
+|element|any|&#8594;|Element(s) to add to the collection|
+|Result|collection |&#8592;|Original collection containing added elements|<!-- END REF -->
 
 
 #### Description
@@ -2206,10 +2206,10 @@ You want to sort the resulting collection:
 <!-- REF #collection.query().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|queryString|string|->|Search criteria|
-|value|any|->|Value(s) to compare when using placeholder(s)|
-|querySettings|object|->|Query options: parameters, attributes|
-|Result|collection |<-|Element(s) matching *queryString* in the collection|<!-- END REF -->
+|queryString|string|&#8594;|Search criteria|
+|value|any|&#8594;|Value(s) to compare when using placeholder(s)|
+|querySettings|object|&#8594;|Query options: parameters, attributes|
+|Result|collection |&#8592;|Element(s) matching *queryString* in the collection|<!-- END REF -->
 
 
 #### Description
@@ -2503,11 +2503,11 @@ More examples of queries can be found in the [`dataClass.query()`](DataClassClas
 <!-- REF #collection.reduce().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|initValue |string, Number, object, collection, date, boolean|->|Value to use as the first argument to the first call of *formula* or *methodName*|
-|param |expression|->|Parameter(s) to pass|
-|Result|string, Number, object, collection, date, boolean |<-|Result of the accumulator value|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|initValue |string, Number, object, collection, date, boolean|&#8594;|Value to use as the first argument to the first call of *formula* or *methodName*|
+|param |expression|&#8594;|Parameter(s) to pass|
+|Result|string, Number, object, collection, date, boolean |&#8592;|Result of the accumulator value|<!-- END REF -->
 
 
 #### Description
@@ -2586,11 +2586,11 @@ With the following ***Flatten*** method:
 <!-- REF #collection.reduceRight().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|initValue |string, Number, object, collection, date, boolean|->|Value to use as the first argument to the first call of *formula* or *methodName*|
-|param |expression|->|Parameter(s) to pass|
-|Result|string, Number, object, collection, date, boolean |<-|Result of the accumulator value|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|initValue |string, Number, object, collection, date, boolean|&#8594;|Value to use as the first argument to the first call of *formula* or *methodName*|
+|param |expression|&#8594;|Parameter(s) to pass|
+|Result|string, Number, object, collection, date, boolean |&#8592;|Result of the accumulator value|<!-- END REF -->
 
 
 #### Description
@@ -2672,9 +2672,9 @@ With the following ***Flatten*** method:
 <!-- REF #collection.remove().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|index |integer|->|Element at which to start removal|
-|howMany |integer|->|Number of elements to remove, or 1 element if omitted|
-|Result|collection|<-|Original collection without removed element(s)|<!-- END REF -->
+|index |integer|&#8594;|Element at which to start removal|
+|howMany |integer|&#8594;|Number of elements to remove, or 1 element if omitted|
+|Result|collection|&#8592;|Original collection without removed element(s)|<!-- END REF -->
 
 
 #### Description
@@ -2728,9 +2728,9 @@ If you try to remove an element from an empty collection, the method does nothin
 <!-- REF #collection.resize().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|size |integer|->|New size of the collection|
-|defaultValue |Number, string, object, collection, date, boolean|->|Default value to fill new elements|
-|Result|collection|<-|Resized original collection|<!-- END REF -->
+|size |integer|&#8594;|New size of the collection|
+|defaultValue |Number, string, object, collection, date, boolean|&#8594;|Default value to fill new elements|
+|Result|collection|&#8592;|Resized original collection|<!-- END REF -->
 
 
 #### Description
@@ -2779,7 +2779,7 @@ By default, new elements are filled will **null** values. You can specify the va
 <!-- REF #collection.reverse().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Inverted copy of the collection|<!-- END REF -->
+|Result|collection|&#8592;|Inverted copy of the collection|<!-- END REF -->
 
 
 #### Description
@@ -2813,7 +2813,7 @@ The `.reverse()` function <!-- REF #collection.reverse().Summary -->returns a de
 <!-- REF #collection.shift().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|any|<-|First element of collection|<!-- END REF -->
+|Result|any|&#8592;|First element of collection|<!-- END REF -->
 
 
 #### Description
@@ -2853,9 +2853,9 @@ If the collection is empty, this function does nothing.
 <!-- REF #collection.slice().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom |integer |->|Start index (included)|
-|end |integer |->|End index (not included)|
-|Result|collection|<-|new collection containing sliced elements (shallow copy)|<!-- END REF -->
+|startFrom |integer |&#8594;|Start index (included)|
+|end |integer |&#8594;|End index (not included)|
+|Result|collection|&#8592;|new collection containing sliced elements (shallow copy)|<!-- END REF -->
 
 
 #### Description
@@ -2899,11 +2899,11 @@ The returned collection contains the element specified by *startFrom* and all su
 <!-- REF #collection.some().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|startFrom |integer |->|Index to start the test at|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|param |Mixed |->|Parameter(s) to pass|
-|Result|boolean|<-|true if at least one element successfully passed the test|<!-- END REF -->
+|startFrom |integer |&#8594;|Index to start the test at|
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|param |Mixed |&#8594;|Parameter(s) to pass|
+|Result|boolean|&#8592;|true if at least one element successfully passed the test|<!-- END REF -->
 
 
 #### Description
@@ -2977,10 +2977,10 @@ You want to know if at least one collection value is >0.
 <!-- REF #collection.sort().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formula|4D.Function|->|formula object|
-|methodName|string|->|Name of a method|
-|extraParam |any |->|Parameter(s) for the method|
-|Result|collection|<-|Original collection sorted|<!-- END REF -->
+|formula|4D.Function|&#8594;|formula object|
+|methodName|string|&#8594;|Name of a method|
+|extraParam |any |&#8594;|Parameter(s) for the method|
+|Result|collection|&#8592;|Original collection sorted|<!-- END REF -->
 
 
 #### Description
@@ -3056,8 +3056,8 @@ col3 = col.sort(formula(String($1.value)<String($1.value2))) //alphabetical sort
 <!-- REF #collection.sum().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|propertyPath |string |->|object property path to be used for calculation|
-|Result|number|<-|Sum of collection values|<!-- END REF -->
+|propertyPath |string |&#8594;|object property path to be used for calculation|
+|Result|number|&#8592;|Sum of collection values|<!-- END REF -->
 
 
 #### Description
@@ -3112,8 +3112,8 @@ If the collection contains objects, pass the *propertyPath* parameter to indicat
 <!-- REF #collection.unshift().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|value |string, Number, object, collection, date |->|Value(s) to insert at the beginning of the collection|
-|Result|number|<-|collection containing added element(s)
+|value |string, Number, object, collection, date |&#8594;|Value(s) to insert at the beginning of the collection|
+|Result|number|&#8592;|collection containing added element(s)
 |<!-- END REF -->
 
 

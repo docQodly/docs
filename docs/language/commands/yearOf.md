@@ -9,8 +9,8 @@ title: yearOf
 <!-- REF #_command_.yearOf.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aDate|date|->|Date for which to return the year|
-|Result|integer|<-|Number indicating the year of *aDate*|
+|aDate|date|&#8594;|Date for which to return the year|
+|Result|integer|&#8592;|Number indicating the year of *aDate*|
 <!-- END REF -->
 
 #### Description

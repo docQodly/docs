@@ -89,7 +89,7 @@ Available classes are accessible from their class stores. Two class stores are a
 <!-- REF #_command_.cs.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Class Store containing all user classes of the current project|<!-- END REF -->
+|Result|object|&#8592;|Class Store containing all user classes of the current project|<!-- END REF -->
 
 The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
@@ -110,7 +110,7 @@ instance = cs.myClass.new()
 <!-- REF #_command_.4D.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Class Store containing all built-in 4D classes|<!-- END REF -->
+|Result|object|&#8592;|Class Store containing all built-in 4D classes|<!-- END REF -->
 
 The `4D` command <!-- REF #_command_.4D.Summary -->returns a *Class Store* object containing all available built-in classes in the Qodly application<!-- END REF -->. It provides access to specific classes such as [CryptoKey](../CryptoKeyClass.md).
 
@@ -623,8 +623,8 @@ constructor (side : integer)
 <!-- REF #_command_.super.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|param|any|->|Parameter(s) to pass to the parent constructor|
-|Result|object|<-|Object's parent|<!-- END REF -->
+|param|any|&#8594;|Parameter(s) to pass to the parent constructor|
+|Result|object|&#8592;|Object's parent|<!-- END REF -->
 
 #### Description
 
@@ -730,7 +730,7 @@ info = square.description() //I have 4 sides which are all equal
 <!-- REF #_command_.this.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Current element or object|<!-- END REF -->
+|Result|object|&#8592;|Current element or object|<!-- END REF -->
 
 #### Description
 

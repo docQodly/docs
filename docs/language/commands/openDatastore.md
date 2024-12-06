@@ -9,9 +9,9 @@ title: openDatastore
 <!-- REF #_command_.openDatastore.Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|connectionInfo|object|->|Connection properties used to reach the remote datastore|
-|localID |text|->|Id to assign to the opened datastore on the current Cloud instance (mandatory)|
-|Result |cs.DataStore|<-|Datastore object|<!-- END REF -->
+|connectionInfo|object|&#8594;|Connection properties used to reach the remote datastore|
+|localID |text|&#8594;|Id to assign to the opened datastore on the current Cloud instance (mandatory)|
+|Result |cs.DataStore|&#8592;|Datastore object|<!-- END REF -->
 
 #### Description
 

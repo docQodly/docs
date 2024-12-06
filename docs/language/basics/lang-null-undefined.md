@@ -23,7 +23,7 @@ In the QodlyScript language and for object attribute properties, null values are
 <!-- REF #_command_.null.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|null|<-|Null value|<!-- END REF -->
+|Result|null|&#8592;|Null value|<!-- END REF -->
 
 #### Description
 
@@ -166,8 +166,8 @@ Undefined is not actually a data type. It denotes a variable that has not yet be
 <!-- REF #_command_.undefined.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression whose resulting value to be evaluated|
-|Result|boolean|<-|true = undefined, false = not undefined|<!-- END REF -->
+|expression|any|&#8594;|Expression whose resulting value to be evaluated|
+|Result|boolean|&#8592;|true = undefined, false = not undefined|<!-- END REF -->
 
 
 #### Description

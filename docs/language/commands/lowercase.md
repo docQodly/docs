@@ -9,9 +9,9 @@ title: lowercase
 <!-- REF #_command_.lowercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|String to convert to lowercase|
-|*||->|If passed: keep accents|
-|Result|string|<-|String in lowercase|<!-- END REF -->
+|aString|string|&#8594;|String to convert to lowercase|
+|*||&#8594;|If passed: keep accents|
+|Result|string|&#8592;|String in lowercase|<!-- END REF -->
 
 #### Description
 

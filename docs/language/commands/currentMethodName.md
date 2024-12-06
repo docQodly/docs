@@ -10,7 +10,7 @@ title: currentMethodName
 <!-- REF #_command_.currentMethodName.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|string|<-|Calling method name|<!-- END REF -->
+|Result|string|&#8592;|Calling method name|<!-- END REF -->
 
 #### Description
 

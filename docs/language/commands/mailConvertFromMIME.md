@@ -10,9 +10,9 @@ title: mailConvertFromMIME
 <!-- REF #_command_.mailConvertFromMIME.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mimeblob|blob |->|Email in MIME blob|
-|mimestring| string|->|Email in MIME string|
-|Result|object|<-|Email object|
+|mimeblob|blob |&#8594;|Email in MIME blob|
+|mimestring| string|&#8594;|Email in MIME string|
+|Result|object|&#8592;|Email object|
 <!-- END REF -->
 
 #### Description

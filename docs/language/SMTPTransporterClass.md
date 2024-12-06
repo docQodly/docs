@@ -35,8 +35,8 @@ SMTP Transporter objects provide the following properties and functions:
 <!-- REF #4D.SMTPTransporter.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|server|object|->|Mail server information|
-|Result|4D.SMTPTransporter|<-|SMTP transporter object|
+|server|object|&#8594;|Mail server information|
+|Result|4D.SMTPTransporter|&#8592;|SMTP transporter object|
 <!-- END REF -->
 
 #### Description
@@ -172,8 +172,8 @@ The SMTP connection is automatically closed:
 <!-- REF #SMTPTransporterClass.send().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mail|object|->|[Email](EmailObjectClass#properties) to send|
-|Result|object|<-|SMTP status|
+|mail|object|&#8594;|[Email](EmailObjectClass#properties) to send|
+|Result|object|&#8592;|SMTP status|
 <!-- END REF -->
 
 #### Description
