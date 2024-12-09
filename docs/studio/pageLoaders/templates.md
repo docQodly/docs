@@ -74,7 +74,7 @@ While templates provide a solid starting point, customization is essential for a
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <strong>Qodly Source</strong>: Identify and set the appropriate qodlysource for the component.
+        - <strong>Qodly Source</strong>: Identify and set the appropriate qodlysource for the component.
 	</Column.Item>
 	<Column.Item width="30%">
         <img alt="styles-library" src={require('./img/templates_datatableCustomizeQodlySource.png').default} style={{borderRadius: '6px'}} />
@@ -83,7 +83,7 @@ While templates provide a solid starting point, customization is essential for a
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <strong>Properties Customization</strong>: Customize component properties, such as the column source, to accurately represent the data you want to showcase.
+         - <strong>Properties Customization</strong>: Customize component properties, such as the column source, to accurately represent the data you want to showcase.
 	</Column.Item>
 	<Column.Item width="30%">
         <img alt="styles-library" src={require('./img/templates_datatableCustomizeColumnSource.png').default} style={{borderRadius: '6px'}} />
@@ -92,7 +92,7 @@ While templates provide a solid starting point, customization is essential for a
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-        <strong>Css class</strong>: Tailor the CSS class code to match your desired styling preferences. 
+         - <strong>Css class</strong>: Tailor the CSS class code to match your desired styling preferences. 
 	</Column.Item>
 	<Column.Item width="30%">
         <img alt="styles-library" src={require('./img/templates_datatableCustomizeCss.png').default} style={{borderRadius: '6px'}} />

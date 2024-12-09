@@ -60,7 +60,7 @@ There are two ways for removing Dialogs:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Dialogs List</strong>: Click on the delete icon <img src={require('./img/dialogDelete2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the dialog you intend to delete in the dialogs listt.
+        - <strong>Dialogs List</strong>: Click on the delete icon <img src={require('./img/dialogDelete2.png').default} style={{borderRadius: '6px', width: '5%'}} /> next to the dialog you intend to delete in the dialogs listt.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/dialogDelete1.png').default} style={{borderRadius: '6px'}} />
@@ -70,7 +70,7 @@ There are two ways for removing Dialogs:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Outline section</strong>: As an alternative method, dialogs can also be removed directly from the outline section..
+        - <strong>Outline section</strong>: As an alternative method, dialogs can also be removed directly from the outline section..
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/dialogDelete3.png').default} style={{borderRadius: '6px'}} />

@@ -163,7 +163,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 <Column.List align="end" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code> is absent between key-value pairs in an object or elements in an array.
+      - <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code> is absent between key-value pairs in an object or elements in an array.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
@@ -171,7 +171,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
   </Column.List>
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
+      - <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
@@ -180,7 +180,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
+      - <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
@@ -189,7 +189,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
+      - <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
@@ -198,7 +198,7 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
+      - <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />

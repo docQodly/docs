@@ -21,8 +21,8 @@ Suppose you're striving for uniform design elements across your website, ensurin
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        <li><span style={{fontWeight: 'bold'}}>Name and Icon</span>: Name your crafted component and search for the desired icon in the predefined list using the search bar.</li><br/><br/>
-        <li><span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.</li><br/>
+        - <span style={{fontWeight: 'bold'}}>Name and Icon</span>: Name your crafted component and search for the desired icon in the predefined list using the search bar.<br/><br/>
+        - <span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.<br/>
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/craftedComponent_nameIcon.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />

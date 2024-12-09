@@ -114,7 +114,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent qodlysource.
+    - <strong>Errors</strong>: Errors are displayed in red and occur, for instance, when a component is linked to a non-existent qodlysource.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_error.png').default} style={{borderRadius: '6px'}} />
@@ -123,7 +123,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a qodlysource.
+    - <strong>Warnings</strong>: Warnings are shown in yellow, such as when a component needs to be bound to a qodlysource.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_warning.png').default} style={{borderRadius: '6px'}} />
@@ -132,7 +132,7 @@ When discrepancies arise, the icon's color changes to reflect the error category
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-    <strong>Informational</strong>: Informational notices are in grey, like when a qodlysource is created but not utilized.
+    - <strong>Informational</strong>: Informational notices are in grey, like when a qodlysource is created but not utilized.
 	</Column.Item>
 	<Column.Item width="35%">
         <img src={require('./img/sanityCheck_info.png').default} style={{borderRadius: '6px'}} />
@@ -787,7 +787,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-      <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code>  is absent between key-value pairs in an object or elements in an array.
+      - <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code>  is absent between key-value pairs in an object or elements in an array.
 	</Column.Item>
 	<Column.Item width="30%">
       <img src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
@@ -796,7 +796,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-      <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
+      - <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
 	</Column.Item>
 	<Column.Item width="30%">
       <img src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
@@ -805,7 +805,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-      <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
+      - <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
 	</Column.Item>
 	<Column.Item width="30%">
       <img src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
@@ -814,7 +814,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-      <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
+      - <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
 	</Column.Item>
 	<Column.Item width="30%">
       <img src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
@@ -823,7 +823,7 @@ The syntax check identify and rectify syntax errors and other formatting issues 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
-      <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
+      - <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
 	</Column.Item>
 	<Column.Item width="30%">
       <img src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />

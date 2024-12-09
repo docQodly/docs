@@ -33,7 +33,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Direct Configuration</strong>: Utilize the Properties panel of the Page Loader to directly choose the target Page from a dropdown list.<br/><br/>
+        - <strong>Direct Configuration</strong>: Utilize the Properties panel of the Page Loader to directly choose the target Page from a dropdown list.<br/><br/>
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/pageloader_DirectConfiguration.png').default} style={{borderRadius: '6px'}} />
@@ -42,7 +42,7 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        <strong>Dynamic Binding</strong>: Establish a binding with a <strong>qodlysource of type Text</strong>. By binding the component to this qodlysource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Page Loader. The initial value should correspond to the name of the target Page you intend to display. 
+        - <strong>Dynamic Binding</strong>: Establish a binding with a <strong>qodlysource of type Text</strong>. By binding the component to this qodlysource and assigning it an initial value, you gain the flexibility to dynamically update the contents of the Page Loader. The initial value should correspond to the name of the target Page you intend to display. 
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/pageloader_DynamicBinding.png').default} style={{borderRadius: '6px'}} />

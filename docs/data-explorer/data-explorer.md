@@ -110,7 +110,7 @@ Different operators are available based on the data type:
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
-      <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
+      - <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
   </Column.Item>
   <Column.Item width="35%">
     <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
@@ -125,7 +125,7 @@ Different operators are available based on the data type:
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
-    <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
+    - <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
   </Column.Item>
   <Column.Item width="35%">
     <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
@@ -134,7 +134,7 @@ Different operators are available based on the data type:
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
-    <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
+    - <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
     <br/><br/>
     <ul>
       <li>null: Attribute value not defined.</li> <br/>
@@ -148,7 +148,7 @@ Different operators are available based on the data type:
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
-    <strong>Numeric operators:</strong> Select operators (default is "=") for numeric, date, and time attributes. You can select another operator from the operator list.
+    - <strong>Numeric operators:</strong> Select operators (default is "=") for numeric, date, and time attributes. You can select another operator from the operator list.
   </Column.Item>
   <Column.Item width="35%">
     <img src={require('./img/DEFilter1.png').default} style={{borderRadius: '6px', width: '30%'}} />
