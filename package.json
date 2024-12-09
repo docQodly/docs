@@ -21,11 +21,11 @@
     "api:webform-editor": "npm run get-docs -- @ws-ui/webform-editor"
   },
   "dependencies": {
-    "@4dsas/doc_preprocessing": "1.1.0",
+    "@4dsas/doc_preprocessing": "1.1.7",
     "@cmfcmf/docusaurus-search-local": "1.2.0",
     "@docusaurus/core": "3.6",
-    "@docusaurus/preset-classic": "3.6",
     "@docusaurus/faster": "3.6",
+    "@docusaurus/preset-classic": "3.6",
     "@headlessui/react": "2.2.0",
     "@heroicons/react": "2.2.0",
     "@mdx-js/react": "3.1.0",
@@ -35,11 +35,11 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.4.1",
+    "@docusaurus/module-type-aliases": "3.6",
     "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.23",
-    "tailwindcss": "^3.3.2",
-    "cross-env": "^7.0.3"
+    "tailwindcss": "^3.3.2"
   },
   "overrides": {
     "@cmfcmf/docusaurus-search-local": {
