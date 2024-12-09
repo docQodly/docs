@@ -416,7 +416,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 ### Binding onHttpGet Functions
 
-Functions defined with the [onHttpGet](../../../orda/data-model.md#onhttpget-keyword) keyword and returning an instance of the [4D.OutgoingMessage](../../../language/OutGoingMessageClass.md) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
+Functions defined with the [onHttpGet](../../../orda/data-model.md#onhttpget-keyword) keyword and returning an instance of the [4D.OutgoingMessage](../../../language/OutgoingMessageClass.md) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
 
 :::info Example
 Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.

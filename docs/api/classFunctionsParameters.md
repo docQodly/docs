@@ -216,7 +216,6 @@ If the key or required attributes are missing:
   **Empty Attribute Values**: If attribute values are provided but empty or null, the function will return an error specifying the attributes with empty values.
 
 ```json
-Copier le code
 {
   "__ERROR": [
     {
@@ -342,7 +341,7 @@ If the entity selection or discount is missing or invalid:
 
 ### Returning a document
 
-You want to propose a link to download the user manual for a selected product with several formats available. You write a `getUserManual()` function of the Products dataclass. You return an object of the [`OutgoingMessage` class](../language/OutGoingMessageClass.md). 
+You want to propose a link to download the user manual for a selected product with several formats available. You write a `getUserManual()` function of the Products dataclass. You return an object of the [`OutgoingMessage` class](../language/OutgoingMessageClass.md). 
 
 ```qs
 // Product dataclass
