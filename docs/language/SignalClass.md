@@ -151,14 +151,14 @@ If the signal is already in the signaled state (i.e., the `signaled` property is
 ## .wait()
 
 
-<!-- REF #SignalClass.wait().Syntax -->**.wait**( { *timeout* : number } ) : boolean <!-- END REF -->
+<!-- REF #SignalClass.wait().Syntax -->**.wait**( \{ *timeout* : number \} ) : boolean <!-- END REF -->
 
 
 <!-- REF #SignalClass.wait().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|timeout|number|->|Maximum waiting time for the signal in seconds|
-|Result|boolean|<-|State of the `.signaled` property|<!-- END REF -->
+|timeout|number|&#8594;|Maximum waiting time for the signal in seconds|
+|Result|boolean|&#8592;|State of the `.signaled` property|<!-- END REF -->
 
 
 #### Description

@@ -3,18 +3,18 @@ id: matchRegex
 title: matchRegex
 ---
 
-<!-- REF #_command_.matchRegex.Syntax -->**matchRegex** ( *pattern* : string , *aString* : string ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer {, \*} ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer , *pos_found* : integer , *length_found* : integer {, \*} ) : boolean<!-- END REF -->
+<!-- REF #_command_.matchRegex.Syntax -->**matchRegex** ( *pattern* : string , *aString* : string ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer \{, \*} ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer , *pos_found* : integer , *length_found* : integer \{, \*\} ) : boolean<!-- END REF -->
 
 <!-- REF #_command_.matchRegex.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|pattern|string|->|Regular expression (complete equality when using two parameters only)|
-|aString|string|->|String in which search will be done|
-|start|integer|->|Position in aString where search will start|
-|pos_found|integer |<-|Position of occurrence|
-|length_found|integer |<-|Length of occurrence|
-|*||->|If passed: only searches at position indicated|
-|Result|boolean|<-|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
+|pattern|string|&#8594;|Regular expression (complete equality when using two parameters only)|
+|aString|string|&#8594;|String in which search will be done|
+|start|integer|&#8594;|Position in aString where search will start|
+|pos_found|integer |&#8592;|Position of occurrence|
+|length_found|integer |&#8592;|Length of occurrence|
+|*||&#8594;|If passed: only searches at position indicated|
+|Result|boolean|&#8592;|True = search has found an occurrence; Otherwise, False|<!-- END REF -->
 
 #### Description
 

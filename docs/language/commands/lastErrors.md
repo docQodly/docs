@@ -11,7 +11,7 @@ title: lastErrors
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|result|collection|->|Collection of error objects|
+|result|collection|&#8594;|Collection of error objects|
 <!-- END REF -->
 
 

@@ -45,9 +45,9 @@ The comparator in a filter specifies the type of comparison to be made. The foll
 | =          | Equals to                    |
 | !=         | Not equal to                 |
 | >          | Greater than                 |
-| >=         | Greater than or equal to     |
-| <          | Less than                    |
-| <=         | Less than or equal to        |
+| >;=         | Greater than or equal to     |
+| &lt;       | Less than                    |
+| &lt;=      | Less than or equal to        |
 | begin      | Begins with                  |
 
 

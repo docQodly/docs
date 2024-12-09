@@ -76,7 +76,7 @@ The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and 
 <!--REF #FolderClass.create().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|boolean|<-|true if the folder was created successfully, false otherwise|<!-- END REF -->
+|Result|boolean|&#8592;|true if the folder was created successfully, false otherwise|<!-- END REF -->
 
 
 
@@ -126,9 +126,9 @@ end
 <!--REF #FolderClass.createAlias().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|destinationFolder|4D.Folder|->|Destination folder for the alias or shortcut|
-|aliasName|string|->|Name of the symbolic link|
-|Result|4D.File|<-|Alias or shortcut reference|<!-- END REF -->
+|destinationFolder|4D.Folder|&#8594;|Destination folder for the alias or shortcut|
+|aliasName|string|&#8594;|Name of the symbolic link|
+|Result|4D.File|&#8592;|Alias or shortcut reference|<!-- END REF -->
 
 #### Description
 
@@ -154,13 +154,13 @@ aliasFile = myFolder.createAlias(folder("/PACKAGE"),"Jan2019")
 <!-- REF folder.delete().Desc -->
 ## .delete()
 
-<!--REF #FolderClass.delete().Syntax -->**.delete**( { *option* : integer } )<!-- END REF -->
+<!--REF #FolderClass.delete().Syntax -->**.delete**( \{ *option* : integer \} )<!-- END REF -->
 
 
 <!-- REF #FolderClass.delete().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|option |integer|->|folder deletion option|<!-- END REF -->
+|option |integer|&#8594;|folder deletion option|<!-- END REF -->
 
 #### Description
 
@@ -219,15 +219,15 @@ When `kDeleteWithContents` is passed:
 ## .moveTo()
 
 
-<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder { , *newName* : string } ) : 4D.Folder<!-- END REF -->
+<!--REF #FolderClass.moveTo().Syntax -->**.moveTo**( *destinationFolder* : 4D.Folder \{ , *newName* : string \} ) : 4D.Folder<!-- END REF -->
 
 
 <!--REF #FolderClass.moveTo().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|destinationFolder|4D.Folder|->|Destination folder|
-|newName|string|->|Full name for the moved folder|
-|Result|4D.Folder|<-|Moved folder|<!-- END REF -->
+|destinationFolder|4D.Folder|&#8594;|Destination folder|
+|newName|string|&#8594;|Full name for the moved folder|
+|Result|4D.Folder|&#8592;|Moved folder|<!-- END REF -->
 
 #### Description
 
@@ -270,8 +270,8 @@ You want to move and rename a folder:
 <!--REF #FolderClass.rename().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|newName|string|->|New full name for the folder|
-|Result|4D.Folder|<-|Renamed folder|<!-- END REF -->
+|newName|string|&#8594;|New full name for the folder|
+|Result|4D.Folder|&#8592;|Renamed folder|<!-- END REF -->
 
 #### Description
 

@@ -10,9 +10,9 @@ title: blobToPicture
 <!-- REF #_command_.blobToPicture.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|pictureBlob|blob|->|Blob containing a picture|
-|aPicture|picture|<-|Picture from blob|
-|codec|string|->|Picture codec ID|<!-- END REF -->
+|pictureBlob|blob|&#8594;|Blob containing a picture|
+|aPicture|picture|&#8592;|Picture from blob|
+|codec|string|&#8594;|Picture codec ID|<!-- END REF -->
 
 #### Description
 

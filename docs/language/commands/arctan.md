@@ -10,8 +10,8 @@ title: arctan
 <!-- REF #_command_.arctan.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Tangent for which to calculate the angle|
-|Result|number|<-|Angle in radians|<!-- END REF -->
+|number|number|&#8594;|Tangent for which to calculate the angle|
+|Result|number|&#8592;|Angle in radians|<!-- END REF -->
 
 #### Description
 

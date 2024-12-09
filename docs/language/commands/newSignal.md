@@ -4,14 +4,14 @@ title: newSignal
 ---
 
 
-<!-- REF #_command_.newSignal.Syntax -->**newSignal** { ( *description* : string ) } : 4D.Signal<!-- END REF -->
+<!-- REF #_command_.newSignal.Syntax -->**newSignal** \{ ( *description* : string ) \} : 4D.Signal<!-- END REF -->
 
 
 <!-- REF #_command_.newSignal.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|description|string|->|Description for the signal|
-|Result|4D.Signal|<-|Native object encapsulating the signal|
+|description|string|&#8594;|Description for the signal|
+|Result|4D.Signal|&#8592;|Native object encapsulating the signal|
 <!-- END REF -->
 
 

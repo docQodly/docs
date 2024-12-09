@@ -3,18 +3,18 @@ id: replaceString
 title: replaceString
 ---
 
-<!-- REF #_command_.replaceString.Syntax -->**replaceString** ( *source* : string , *oldString* : string , *newString* : string , *howMany* : integer {, \*}) : string<!-- END REF -->
+<!-- REF #_command_.replaceString.Syntax -->**replaceString** ( *source* : string , *oldString* : string , *newString* : string , *howMany* : integer \{, \*\}) : string<!-- END REF -->
 
 
 <!-- REF #_command_.replaceString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|string|->|Original string|
-|oldString|string|->|Characters to replace|
-|newString|string|->|Replacement string (if empty string, occurrences are deleted)|
-|howMany|integer|->|How many times to replace If omitted, all occurrences are replaced|
-|*||->|If passed: evaluation based on character codes|
-|Result|string|<-|Resulting string|
+|source|string|&#8594;|Original string|
+|oldString|string|&#8594;|Characters to replace|
+|newString|string|&#8594;|Replacement string (if empty string, occurrences are deleted)|
+|howMany|integer|&#8594;|How many times to replace If omitted, all occurrences are replaced|
+|*||&#8594;|If passed: evaluation based on character codes|
+|Result|string|&#8592;|Resulting string|
 <!-- END REF -->
 
 #### Description

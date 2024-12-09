@@ -7,7 +7,8 @@ title: FAQ
 ## General
 
 <details>
-<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is included in the Qodly Platform? </summary>
+<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is included in the Qodly Platform?</summary>
+
 The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor business applications with advanced web interfaces. Qodly is the perfect platform to design and publish powerful back office applications, or sophisticated dashboards, in a record time.
 
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
@@ -31,6 +32,7 @@ Automatic scheduled backups are provided for staging and production environment.
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Where are stored my data?</summary>
+
 Your data are stored on AWS (Amazon Cloud).
 </details>
 
@@ -62,6 +64,7 @@ End users are granted authorization to interact with renderers across all enviro
 
 <details>
 <summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Do I need specific expertise in HTML, CSS, or JavaScript to use Qodly Studio?</summary>
+
 No, Qodly Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies.
 </details>
 
@@ -91,6 +94,7 @@ To resolve this, the `onInit` event should be used to ensure that all necessary 
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is Qodly Server?</summary>
+
 Qodly Server is actually a full stack of integrated servers and development layers and supports all necessary requirements to develop, test, and deploy business web applications.
 
 Qodly Server includes:
@@ -108,6 +112,7 @@ All these elements are included in one single executable running under Linux OS,
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Can I install a local instance of Qodly Server?</summary>
+
 No, Qodly Server is only proposed a a cloud service.
 </details>
 
@@ -127,7 +132,7 @@ No, Qodly Server is only proposed a a cloud service.
 |Number of properties per object attribute|up to 128 billion*|
 |Number of transaction levels|Unlimited|
 
-* depending on the number of index keys
+\* depending on the number of index keys
 
 </details>
 

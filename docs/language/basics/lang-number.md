@@ -44,14 +44,14 @@ Negative numbers are specified with the minus sign (-). For example:
    ||||10  ==  11| false|
 |Inequality |Number  !=  Number |Boolean |10  !=  11 |true|
    ||||10  !=  10 |false|
-|Greater than |Number > Number |Boolean |11 > 10 |true|
-   ||||10 > 11 |false|
-|Less than |Number < Number |Boolean |10 < 11 |true|
-  |||| 11 < 10 |false|
-|Greater than or equal to |Number >=  Number |Boolean |11 >=  10 |true|
-   ||||10 >=  11 |false|
-|Less than or equal to |Number <= Number |Boolean |10 <= 11 |true|
-  |||| 11 <= 10 |false|
+|Greater than |Number >; Number |Boolean |11 >; 10 |true|
+   ||||10 >; 11 |false|
+|Less than |Number &lt; Number |Boolean |10 &lt; 11 |true|
+  |||| 11 &lt; 10 |false|
+|Greater than or equal to |Number >;=  Number |Boolean |11 >;=  10 |true|
+   ||||10 >;=  11 |false|
+|Less than or equal to |Number &lt;= Number |Boolean |10 &lt;= 11 |true|
+  |||| 11 &lt;= 10 |false|
 
 The modulo operator % divides the first number by the second number and returns a whole number remainder. Here are some examples:
 
@@ -101,8 +101,8 @@ An expression that uses a bitwise operator returns an integer value, except for 
 |Bitwise AND|&|integer & integer|integer|
 |Bitwise OR (inclusive)|&#124;|integer &#124; integer|integer|
 |Bitwise OR (exclusive)|^&#124;|integer ^&#124; integer|integer|
-|Left Bit Shift|<<|integer << integer|integer (see note 1)|
-|Right Bit Shift|>>|integer >> integer|integer (see note 1)|
+|Left Bit Shift|&lt;&lt;|integer &lt;&lt; integer|integer (see note 1)|
+|Right Bit Shift|>>|integer >;>; integer|integer (see note 1)|
 |Bit Set|?+|integer ?+ integer|integer (see note 2)|
 |Bit Clear|?-|integer ?- integer|integer (see note 2)|
 |Bit Test|??|integer ?? integer|boolean (see note 2)|
@@ -116,9 +116,9 @@ The following table lists the bitwise operators and their effects:
 
 |Operation|Description|
 |---|---|
-|Bitwise AND|Each resulting bit is the logical AND of the bits in the two operands. Here is the logical AND table:<li>1 & 1 --> 1</li><li>0 & 1 --> 0</li><li>1 & 0 --> 0</li><li>0 & 0 --> 0</li>In other words, the resulting bit is 1 if the two operand bits are 1; otherwise the resulting bit is 0.|
-|Bitwise OR (inclusive)|Each resulting bit is the logical OR of the bits in the two operands.Here is the logical OR table:<li>1 &#124; 1 --> 1</li><li>0 &#124; 1 --> 1</li><li>1 &#124; 0 --> 1</li><li>0 &#124; 0 --> 0</li>In other words, the resulting bit is 1 if at least one of the two operand bits is 1; otherwise the resulting bit is 0.|
-|Bitwise OR (exclusive)|Each resulting bit is the logical XOR of the bits in the two operands.Here is the logical XOR table:<li>1 \^&#124; 1 --> 0</li><li>0 \^&#124; 1 --> 1</li><li>1 \^&#124; 0 --> 1</li><li>0 \^&#124; 0 --> 0</li>In other words, the resulting bit is 1 if only one of the two operand bits is 1; otherwise the resulting bit is 0.|
+|Bitwise AND|Each resulting bit is the logical AND of the bits in the two operands. Here is the logical AND table:<li>1 & 1 &rarr; 1</li><li>0 & 1 &rarr; 0</li><li>1 & 0 &rarr; 0</li><li>0 & 0 &rarr; 0</li>In other words, the resulting bit is 1 if the two operand bits are 1; otherwise the resulting bit is 0.|
+|Bitwise OR (inclusive)|Each resulting bit is the logical OR of the bits in the two operands.Here is the logical OR table:<li>1 &#124; 1 &rarr; 1</li><li>0 &#124; 1 &rarr; 1</li><li>1 &#124; 0 &rarr; 1</li><li>0 &#124; 0 &rarr; 0</li>In other words, the resulting bit is 1 if at least one of the two operand bits is 1; otherwise the resulting bit is 0.|
+|Bitwise OR (exclusive)|Each resulting bit is the logical XOR of the bits in the two operands.Here is the logical XOR table:<li>1 \^&#124; 1 &rarr; 0</li><li>0 \^&#124; 1 &rarr; 1</li><li>1 \^&#124; 0 &rarr; 1</li><li>0 \^&#124; 0 &rarr; 0</li>In other words, the resulting bit is 1 if only one of the two operand bits is 1; otherwise the resulting bit is 0.|
 |Left Bit Shift|The resulting value is set to the first operand value, then the resulting bits are shifted to the left by the number of positions indicated by the second operand. The bits on the left are lost and the new bits on the right are set to 0. **Note:** Taking into account only positive values, shifting to the left by N bits is the same as multiplying by 2^N.|
 |Right Bit Shift|The resulting value is set to the first operand value, then the resulting bits are shifted to the right by the number of position indicated by the second operand. The bits on the right are lost and the new bits on the left are set to 0.**Note:** Taking into account only positive values, shifting to the right by N bits is the same as dividing by 2^N.|
 |Bit Set|The resulting value is set to the first operand value, then the resulting bit, whose number is indicated by the second operand, is set to 1. The other bits are left unchanged.|
@@ -132,8 +132,8 @@ The following table lists the bitwise operators and their effects:
 |Bitwise AND|0x0000FFFF & 0xFF00FF00|0x0000FF00|
 |Bitwise OR (inclusive)|0x0000FFFF &#124; 0xFF00FF00| 0xFF00FFFF
 |Bitwise OR (exclusive)|0x0000FFFF \^&#124; 0xFF00FF00| 0xFF0000FF|
-|Left Bit Shift|0x0000FFFF << 8|0x00FFFF00|
-|Right Bit Shift|0x0000FFFF >> 8|0x000000FF|
+|Left Bit Shift|0x0000FFFF &lt;&lt; 8|0x00FFFF00|
+|Right Bit Shift|0x0000FFFF >;>; 8|0x000000FF|
 |Bit Set|0x00000000 ?+ 16|0x00010000|
 |Bit Clear|0x00010000 ?- 16|0x00000000|
 |Bit Test|0x00010000 ?? 16|True|

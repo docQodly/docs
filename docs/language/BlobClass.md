@@ -23,8 +23,8 @@ The Blob class lets you create and manipulate [blob objects](basics/lang-blob.md
 
 | Parameter | Type            |     | Description  |
 | --------- | --------------- | :-: | ------------ |
-| blob      | Blob or 4D.Blob | ->  | Blob to copy |
-| Result    | 4D.Blob         | <-  | New 4D.Blob  |<!-- END REF -->
+| blob      | Blob or 4D.Blob | &#8594;  | Blob to copy |
+| Result    | 4D.Blob         | &#8592;  | New 4D.Blob  |<!-- END REF -->
 
 #### Description
 
@@ -48,9 +48,9 @@ The `.size` property <!-- REF #Blob.size.Summary -->returns the size of a `4D.Bl
 <!-- REF #Blob.slice().Params -->
 | Parameter | Type ||Description |
 | --------- | ------- | :-: | --- |
-| start| number    | ->  | index of the first byte to include in the new `4D.Blob`.               |
-| end| number    | ->  | index of the first byte that will not be included in the new `4D.Blob` |
-| Result| 4D.Blob | <-  | New `4D.Blob`|<!-- END REF -->
+| start| number    | &#8594;  | index of the first byte to include in the new `4D.Blob`.               |
+| end| number    | &#8594;  | index of the first byte that will not be included in the new `4D.Blob` |
+| Result| 4D.Blob | &#8592;  | New `4D.Blob`|<!-- END REF -->
 
 #### Description
 

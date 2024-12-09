@@ -124,9 +124,9 @@ Contains the <!-- REF #WebServerClass.CORSSettings.Summary -->list of allowed ho
   - 192.168.5.17
   - 192.168.*
   - 192.168.*:8081
-  - <http://192.168.5.17:8081>
-  - <http://*.myDomain.com>
-  - <http://myProject.myDomain.com>
+  - &lt;http://192.168.5.17:8081&gt;
+  - &lt;http://*.myDomain.com&gt;
+  - &lt;http://myProject.myDomain.com&gt;
   - *.myDomain.com
   - myProject.myDomain.com
   - \*
@@ -512,8 +512,8 @@ The <!-- REF #WebServerClass.sessionIPAddressValidation.Summary -->IP address va
 
 |Parameter|Type||Description|
 |---|---|----|---|
-|settings|Object|->|Web server settings to set at startup|  
-|Result|Object|<-|Status of the web server startup|
+|settings|Object|&#8594;|Web server settings to set at startup|  
+|Result|Object|&#8592;|Status of the web server startup|
 
 <!-- END REF -->
 

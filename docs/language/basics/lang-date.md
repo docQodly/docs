@@ -49,11 +49,11 @@ Qodly accepts two-digit years to be entered. A two-digit year is assumed to be i
 		||	||!2023-01-20!  ==  !2023-01-01!	|false|
 |Inequality	|Date  !=  Date	|Boolean	|!2023-01-20!  !=  !2023-01-01!	|true|
 			||||!2023-01-20!  !=  !2023-01-20!	|false|
-|Greater than	|Date > Date	|Boolean	|!2023-01-20! > !2023-01-01!	|true|
+|Greater than	|Date >; Date	|Boolean	|!2023-01-20! > !2023-01-01!	|true|
 			||||!2023-01-20! > !2023-01-20!	|false|
-|Less than	|Date < Date	|Boolean	|!2023-01-01! < !2023-01-20!	|true|
+|Less than	|Date &lt; Date	|Boolean	|!2023-01-01! < !2023-01-20!	|true|
 			||||!2023-01-20! < !2023-01-20!	|false|
-|Greater than or equal to	|Date >=  Date	|Boolean	|!2023-01-20! >= !2023-01-01!	|true|
-			||||!2023-01-01!>= !2023-01-20!	|false|
-|Less than or equal to	|Date <= Date	|Boolean	|!2023-01-01!  <= !2023-01-20!|	true|
-		||||	!2023-01-20!  <= !2023-01-01!|	false|
+|Greater than or equal to	|Date >;=  Date	|Boolean	|!2023-01-20! >;= !2023-01-01!	|true|
+			||||!2023-01-01!>;= !2023-01-20!	|false|
+|Less than or equal to	|Date &lt;= Date	|Boolean	|!2023-01-01!  &lt;= !2023-01-20!|	true|
+		||||	!2023-01-20!  &lt;= !2023-01-01!|	false|

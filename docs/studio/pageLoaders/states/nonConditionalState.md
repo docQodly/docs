@@ -165,9 +165,9 @@ Steps to Reset a Component:
 
 Standard actions in Page states are integral to defining the Page’s behavior in response to user interactions:
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    <strong>Add Action</strong>: Utilized for incorporating modifications from selected states into the base state.
+    - <strong>Add Action</strong>: Utilized for incorporating modifications from selected states into the base state.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/state_standardAction_add.png').default} style={{borderRadius: '6px'}} />
@@ -175,9 +175,9 @@ Standard actions in Page states are integral to defining the Page’s behavior i
 </Column.List>
 
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    <strong>Delete Action</strong>: This action facilitates the removal of selected states, along with their changes, in relation to the base state.
+    - <strong>Delete Action</strong>: This action facilitates the removal of selected states, along with their changes, in relation to the base state.
 	</Column.Item>
 	<Column.Item width="40%">
 		<img src={require('./img/state_standardAction_delete.png').default} style={{borderRadius: '6px'}} />

@@ -9,10 +9,10 @@ title: substring
 <!-- REF #_command_.substring.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|string|->|String from which to get substring|
-|firstChar|integer|->|Position of first character|
-|numChars|integer|->|Number of characters to get|
-|Result|string|<-|Substring of source|
+|source|string|&#8594;|String from which to get substring|
+|firstChar|integer|&#8594;|Position of first character|
+|numChars|integer|&#8594;|Number of characters to get|
+|Result|string|&#8592;|Substring of source|
 <!-- END REF -->
 
 #### Description

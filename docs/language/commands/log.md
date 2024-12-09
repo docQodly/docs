@@ -9,8 +9,8 @@ title: log
 <!-- REF #_command_.log.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|number|number|->|Number for which to return the log|
-|Result|number|<-|Log of number|
+|number|number|&#8594;|Number for which to return the log|
+|Result|number|&#8592;|Log of number|
 <!-- END REF -->
 
 #### Description

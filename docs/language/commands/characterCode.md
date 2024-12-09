@@ -10,8 +10,8 @@ title: characterCode
 <!-- REF #_command_.characterCode.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|character|string|->|Character for which you want to get the code|
-|Result|integer|<-|Character code|<!-- END REF -->
+|character|string|&#8594;|Character for which you want to get the code|
+|Result|integer|&#8592;|Character code|<!-- END REF -->
 
 #### Description
 

@@ -10,7 +10,7 @@ title: getProcessActivity
 <!-- REF #_command_.getProcessActivity.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Snapshot of running processes|<!-- END REF -->
+|Result|object|&#8592;|Snapshot of running processes|<!-- END REF -->
 
 #### Description
 

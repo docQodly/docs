@@ -54,8 +54,8 @@ The `IMAPTransporter` class allows you to retrieve messages from an IMAP email s
 <!-- REF #4D.IMAPTransporter.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|server|object|->|Mail server information|
-|Result|4D.IMAPTransporter|<-|IMAP transporter object|<!-- END REF -->
+|server|object|&#8594;|Mail server information|
+|Result|4D.IMAPTransporter|&#8592;|IMAP transporter object|<!-- END REF -->
 
 #### Description
 
@@ -120,11 +120,11 @@ end
 <!-- REF #IMAPTransporterClass.addFlags().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgIDs|collection|->|Collection of strings: Message unique IDs (string)|
+|msgIDs|collection|&#8594;|Collection of strings: Message unique IDs (string)|
 |msgIDs|string| Unique ID of a message|
 |msgIDs|integer|kIMAPAll: All messages in the selected mailbox|
-|keywords|object|->|Keyword flags to add|
-|Result|object|<-|Status of the addFlags operation|<!-- END REF -->
+|keywords|object|&#8594;|Keyword flags to add|
+|Result|object|&#8592;|Status of the addFlags operation|<!-- END REF -->
 
 #### Description
 
@@ -206,10 +206,10 @@ status = transporter.addFlags(kIMAPAll,flags)
 <!-- REF #IMAPTransporterClass.append().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mailObj|object|->|Email object|
-|destinationBox|string|->|Mailbox to receive Email object|
-|options|object|->|object containing charset info |
-|Result|object|<-|Status of the append operation|<!-- END REF -->
+|mailObj|object|&#8594;|Email object|
+|destinationBox|string|&#8594;|Mailbox to receive Email object|
+|options|object|&#8594;|object containing charset info |
+|Result|object|&#8592;|Status of the append operation|<!-- END REF -->
 
 #### Description
 
@@ -302,10 +302,10 @@ The `.checkConnectionDelay` property contains <!-- REF #IMAPTransporterClass.che
 <!-- REF #IMAPTransporterClass.copy().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgsIDs|collection|->|Collection of message unique IDs (strings)|
-|allMsgs|integer|->|`kIMAPAll`: All messages in the selected mailbox|
-|destinationBox|string|->|Mailbox to receive copied messages|
-|Result|object|<-|Status of the copy operation|<!-- END REF -->
+|msgsIDs|collection|&#8594;|Collection of message unique IDs (strings)|
+|allMsgs|integer|&#8594;|`kIMAPAll`: All messages in the selected mailbox|
+|destinationBox|string|&#8594;|Mailbox to receive copied messages|
+|Result|object|&#8592;|Status of the copy operation|<!-- END REF -->
 
 #### Description
 
@@ -394,8 +394,8 @@ To copy all messages in the current mailbox:
 <!-- REF #IMAPTransporterClass.createBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|->|Name of the new mailbox|
-|Result|object|<-|Status of the mailbox creation operation|<!-- END REF -->
+|name|string|&#8594;|Name of the new mailbox|
+|Result|object|&#8592;|Status of the mailbox creation operation|<!-- END REF -->
 
 #### Description
 
@@ -459,9 +459,9 @@ end
 <!-- REF #IMAPTransporterClass.delete().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgsIDs|collection|->|collection of message unique IDs (strings)|
-|msgsIDs|integer|->|`kIMAPAll`: All messages in the selected mailbox|
-|Result|object|<-|Status of the delete operation|<!-- END REF -->
+|msgsIDs|collection|&#8594;|collection of message unique IDs (strings)|
+|msgsIDs|integer|&#8594;|`kIMAPAll`: All messages in the selected mailbox|
+|Result|object|&#8592;|Status of the delete operation|<!-- END REF -->
 
 #### Description
 
@@ -549,8 +549,8 @@ To delete all messages in the current mailbox:
 <!-- REF #IMAPTransporterClass.deleteBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|->|Name of the mailbox to delete|
-|Result|object|<-|Status of the mailbox deletion operation|<!-- END REF -->
+|name|string|&#8594;|Name of the mailbox to delete|
+|Result|object|&#8592;|Status of the mailbox deletion operation|<!-- END REF -->
 
 
 #### Description
@@ -617,7 +617,7 @@ end
 <!-- REF IMAPTransporterClass.expunge().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Status of the expunge operation |<!-- END REF -->
+|Result|object|&#8592;|Status of the expunge operation |<!-- END REF -->
 
 #### Description
 
@@ -670,14 +670,14 @@ status = transporter.expunge()
 ## .getBoxInfo()
 
 
-<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**({ *name* : string }) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxInfo().Syntax -->**.getBoxInfo**(\{ *name* : string \}) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxInfo().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|->|Name of the mailbox|
-|Result|object|<-|boxInfo object|<!-- END REF -->
+|name|string|&#8594;|Name of the mailbox|
+|Result|object|&#8592;|boxInfo object|<!-- END REF -->
 
 #### Description
 
@@ -719,14 +719,14 @@ The `boxInfo` object returned contains the following properties:
 ## .getBoxList()
 
 
-<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( { *parameters* : object } ) : collection<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getBoxList().Syntax -->**.getBoxList**( \{ *parameters* : object \} ) : collection<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getBoxList().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|parameters|object|->|Parameter object|
-|Result|collection|<-|Collection of mailbox objects|<!-- END REF -->
+|parameters|object|&#8594;|Parameter object|
+|Result|collection|&#8592;|Collection of mailbox objects|<!-- END REF -->
 
 #### Description
 
@@ -795,7 +795,7 @@ If the account does not contain any mailboxes, an empty collection is returned.
 <!-- REF #IMAPTransporterClass.getDelimiter().Params -->
 |Parameter|Type||Description|
 |-----|--- |:---:|------|
-|Result|string|<-|Hierarchy delimiter character|<!-- END REF -->
+|Result|string|&#8592;|Hierarchy delimiter character|<!-- END REF -->
 
 #### Description
 
@@ -823,16 +823,16 @@ See [`getBoxList()` example](#getboxlist).
 ## .getMail()
 
 
-<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer { , *options* : object } ) : object<br/>**.getMail**( *msgID*: string { , *options* : object } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer \{ , *options* : object \} ) : object<br/>**.getMail**( *msgID*: string \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMail().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|->|Sequence number of the message|
-|msgID|string|->|Unique ID of the message|
-|options|object|->|Message handling instructions|
-|Result|object|<-|[Email object](EmailObjectClass#properties)|<!-- END REF -->
+|msgNumber|integer|&#8594;|Sequence number of the message|
+|msgID|string|&#8594;|Unique ID of the message|
+|options|object|&#8594;|Message handling instructions|
+|Result|object|&#8592;|[Email object](EmailObjectClass#properties)|<!-- END REF -->
 
 #### Description
 
@@ -889,17 +889,17 @@ You want to get the message with ID = 1:
 ## .getMails()
 
 
-<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection { , *options* : object } ) : object<br/>**.getMails**( *startMsg* : integer , *endMsg* : integer { , *options* : object } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection \{ , *options* : object \} ) : object<br/>**.getMails**( *startMsg* : integer , *endMsg* : integer \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMails().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|ids |collection|->|Collection of message ID|
-|startMsg|integer|->|Sequence number of the first message|
-|endMsg |integer|->|Sequence number of the last message|
-|options|object|->|Message handling instructions|
-|Result|object|<-|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
+|ids |collection|&#8594;|Collection of message ID|
+|startMsg|integer|&#8594;|Sequence number of the first message|
+|endMsg |integer|&#8594;|Sequence number of the last message|
+|options|object|&#8594;|Message handling instructions|
+|Result|object|&#8592;|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
 
 #### Description
 
@@ -907,7 +907,7 @@ The `.getMails()` function <!-- REF #IMAPTransporterClass.getMails().Summary -->
 
 **First Syntax:**
 
-***.getMails( ids { , options } ) -> result***
+***.getMails( ids \{ , options \} ) -> result***
 
 The first syntax allows you to retrieve messages based on their IDs.
 
@@ -917,13 +917,13 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 **Second syntax:**
 
- ***.getMails( startMsg , endMsg { , options } ) -> result***
+ ***.getMails( startMsg , endMsg \{ , options \} ) -> result***
 
 The second syntax allows you to retrieve messages based on a sequential range. The values passed represent the position of the messages in the mailbox.
 
-In the *startMsg* parameter, pass an *integer* value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* <= 0), the first message of the mailbox will be used as the beginning of the sequence.
+In the *startMsg* parameter, pass an *integer* value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* &lt;= 0), the first message of the mailbox will be used as the beginning of the sequence.
 
-In the *endMsg* parameter, pass an *integer* value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* <= 0), the last message of the mailbox will be used as the end of the sequence.
+In the *endMsg* parameter, pass an *integer* value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* &lt;= 0), the last message of the mailbox will be used as the end of the sequence.
 
 The optional *options* parameter allows you to define the parts of the messages to be returned.
 
@@ -982,16 +982,16 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
 <!-- REF IMAPTransporterClass.getMIMEAsblob().Desc -->
 ## .getMIMEAsblob()
 
-<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer { , *updateSeen* : boolean } ) : blob<br/>**.getMIMEAsblob**( *msgID* : string { , *updateSeen* : boolean } ) : blob<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer \{ , *updateSeen* : boolean \} ) : blob<br/>**.getMIMEAsblob**( *msgID* : string \{ , *updateSeen* : boolean \} ) : blob<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMIMEAsblob().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgNumber|integer|-> |Sequence number of the message|
-|msgID|string|-> |Unique ID of the message|
-|updateSeen|boolean|->|If true, the message is marked "seen" in the mailbox. If False the message is left untouched.|
-|Result|BLOB|<-|blob of the MIME string returned from the mail server|<!-- END REF -->
+|msgNumber|integer|&#8594; |Sequence number of the message|
+|msgID|string|&#8594; |Unique ID of the message|
+|updateSeen|boolean|&#8594;|If true, the message is marked "seen" in the mailbox. If False the message is left untouched.|
+|Result|BLOB|&#8592;|blob of the MIME string returned from the mail server|<!-- END REF -->
 
 #### Description
 
@@ -1055,10 +1055,10 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 <!-- REF #IMAPTransporterClass.move().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgsIDs|collection|->|collection of message unique IDs (strings)|
-|allMsgs|integer|->|`kIMAPAll`: All messages in the selected mailbox|
-|destinationBox|string|->|Mailbox to receive moved messages|
-|Result|object|<-|Status of the move operation|<!-- END REF -->
+|msgsIDs|collection|&#8594;|collection of message unique IDs (strings)|
+|allMsgs|integer|&#8594;|`kIMAPAll`: All messages in the selected mailbox|
+|destinationBox|string|&#8594;|Mailbox to receive moved messages|
+|Result|object|&#8592;|Status of the move operation|<!-- END REF -->
 
 #### Description
 
@@ -1148,17 +1148,17 @@ To move all messages in the current mailbox:
 <!-- REF #IMAPTransporterClass.numToID().Params -->
 |Parameter|Type||Description|
 |-----|--- |:---:|------|
-|startMsg|integer|-> |Sequence number of the first message|
-|endMsg|integer|->|Sequence number of the last message|
-|Result|collection|<-|collection of unique IDs|<!-- END REF -->
+|startMsg|integer|&#8594; |Sequence number of the first message|
+|endMsg|integer|&#8594;|Sequence number of the last message|
+|Result|collection|&#8592;|collection of unique IDs|<!-- END REF -->
 
 #### Description
 
 The `.numToID()` function <!-- REF #IMAPTransporterClass.numToID().Summary -->converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by *startMsg* and *endMsg*<!-- END REF --> in the currently selected mailbox.
 
-In the *startMsg* parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* <= 0), the first message of the mailbox will be used as the beginning of the sequence.
+In the *startMsg* parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (*startMsg* &lt;= 0), the first message of the mailbox will be used as the beginning of the sequence.
 
-In the *endMsg* parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* <= 0), the last message of the mailbox will be used as the end of the sequence.
+In the *endMsg* parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (*endMsg* &lt;= 0), the last message of the mailbox will be used as the end of the sequence.
 
 #### Result
 
@@ -1201,11 +1201,11 @@ The function returns a collection of strings (unique IDs).
 <!-- REF #IMAPTransporterClass.removeFlags().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msgIDs|collection|->|Collection of strings: Message unique IDs (string)|
+|msgIDs|collection|&#8594;|Collection of strings: Message unique IDs (string)|
 |msgIDs|string| Unique ID of a message|
 |msgIDs|integer|kIMAPAll: All messages in the selected mailbox|
-|keywords|object|->|Keyword flags to remove|
-|Result|object|<-|Status of the removeFlags operation|<!-- END REF -->
+|keywords|object|&#8594;|Keyword flags to remove|
+|Result|object|&#8592;|Status of the removeFlags operation|<!-- END REF -->
 
 #### Description
 
@@ -1285,9 +1285,9 @@ status = transporter.removeFlags(kIMAPAll,flags)
 <!-- REF #IMAPTransporterClass.renameBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|currentName|string|->|Name of the current mailbox|
-|newName|string|->|New mailbox name|
-|Result|object|<-|Status of the renaming operation|<!-- END REF -->
+|currentName|string|&#8594;|Name of the current mailbox|
+|newName|string|&#8594;|New mailbox name|
+|Result|object|&#8592;|Status of the renaming operation|<!-- END REF -->
 
 #### Description
 
@@ -1350,8 +1350,8 @@ end
 <!-- REF #IMAPTransporterClass.searchMails().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|searchCriteria|string|-> |Search criteria|
-|Result|collection|<-|collection of message numbers|<!-- END REF -->
+|searchCriteria|string|&#8594; |Search criteria|
+|Result|collection|&#8592;|collection of message numbers|<!-- END REF -->
 
 #### Description
 
@@ -1482,15 +1482,15 @@ Examples:
 ## .selectBox()
 
 
-<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : string { , *state* : integer } ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.selectBox().Syntax -->**.selectBox**( *name* : string \{ , *state* : integer \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.selectBox().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|-> |Name of the mailbox|
-|state|integer|->|Mailbox access status|
-|Result|object|<-|boxInfo object|<!-- END REF -->
+|name|string|&#8594; |Name of the mailbox|
+|state|integer|&#8594;|Mailbox access status|
+|Result|object|&#8592;|boxInfo object|<!-- END REF -->
 
 #### Description
 
@@ -1555,8 +1555,8 @@ If `permanentFlags` string includes the special flag \*, it means that the serve
 <!-- REF #IMAPTransporterClass.subscribe().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|-> |Name of the mailbox|
-|Result|object|<-|Status of the subscribe operation|<!-- END REF -->
+|name|string|&#8594; |Name of the mailbox|
+|Result|object|&#8592;|Status of the subscribe operation|<!-- END REF -->
 
 #### Description
 
@@ -1616,8 +1616,8 @@ end
 <!-- REF #IMAPTransporterClass.unsubscribe().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|name|string|-> |Name of the mailbox|
-|Result|object|<-|Status of the unsubscribe operation|<!-- END REF -->
+|name|string|&#8594; |Name of the mailbox|
+|Result|object|&#8592;|Status of the unsubscribe operation|<!-- END REF -->
 
 #### Description
 

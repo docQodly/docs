@@ -9,11 +9,11 @@ title: addToDate
 <!-- REF #_command_.addToDate.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aDate|date|->|Date to which to add days, months, and years|
-|years|integer|->|Number of years to add to the date|
-|months|integer|->|Number of months to add to the date|
-|days|integer|->|Number of days to add to the date|
-|Result|date|<-|Resulting date|
+|aDate|date|&#8594;|Date to which to add days, months, and years|
+|years|integer|&#8594;|Number of years to add to the date|
+|months|integer|&#8594;|Number of months to add to the date|
+|days|integer|&#8594;|Number of days to add to the date|
+|Result|date|&#8592;|Resulting date|
 <!-- END REF -->
 
 #### Description

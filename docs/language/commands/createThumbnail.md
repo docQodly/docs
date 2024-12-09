@@ -10,12 +10,12 @@ title: createThumbnail
 <!-- REF #_command_.createThumbnail.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|source|picture|->|Picture variable to convert as a thumbnail|
-|dest|picture|<-|Resulting thumbnail|
-|width|integer|->|Thumbnail width in pixels, Default value = 48|
-|height|integer|->|Thumbnail height in pixels, Default value = 48|
-|mode|integer|->|Thumbnail creation mode Default value = Scaled to fit prop centered (6)|
-|depth|integer|->|Obsolete, do not use|
+|source|picture|&#8594;|Picture variable to convert as a thumbnail|
+|dest|picture|&#8592;|Resulting thumbnail|
+|width|integer|&#8594;|Thumbnail width in pixels, Default value = 48|
+|height|integer|&#8594;|Thumbnail height in pixels, Default value = 48|
+|mode|integer|&#8594;|Thumbnail creation mode Default value = Scaled to fit prop centered (6)|
+|depth|integer|&#8594;|Obsolete, do not use|
 <!-- END REF -->
 
 #### Description

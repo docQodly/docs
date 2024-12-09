@@ -34,7 +34,7 @@ For example, `WebFormObject.myImage` refers to the image component with `myImage
 <!-- REF #WebFormItemClass.addCSSClass().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to add to the component|
+|className|string|&#8594;|Name of the CSS class to add to the component|
 <!-- END REF -->
 
 #### Description
@@ -52,7 +52,7 @@ The **.addCSSClass** function <!-- REF #WebFormItemClass.addCSSClass().Summary -
 <!-- REF #WebFormItemClass.removeCSSClass().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|className|string|->|Name of the CSS class to remove from the component|
+|className|string|&#8594;|Name of the CSS class to remove from the component|
 <!-- END REF -->
 
 #### Description

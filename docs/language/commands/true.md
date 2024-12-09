@@ -10,7 +10,7 @@ title: "true"
 <!-- REF #_command_.true.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|true|
+|Result|boolean|&#8592;|true|
 <!-- END REF -->
 
 #### Description

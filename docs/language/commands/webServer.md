@@ -11,7 +11,7 @@ title: webServer
 
 |Parameter|Type||Description|
 |---|---|----|---|
-|Result|4D.WebServer|<-|Web server object|
+|Result|4D.WebServer|&#8592;|Web server object|
 <!-- END REF -->
 
 The `webServer` command <!-- REF #_command_.webServer.Summary -->returns a Web server object<!-- END REF -->.

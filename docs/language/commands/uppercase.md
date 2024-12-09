@@ -3,15 +3,15 @@ id: uppercase
 title: uppercase
 ---
 
-<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : string {, \*} ) : string<!-- END REF -->
+<!-- REF #_command_.uppercase.Syntax -->**uppercase** ( *aString* : string \{, \*\} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.uppercase.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aString|string|->|String to convert to uppercase|
-|*||->|If passed: keep accents|
-|Result|string|<-|String in uppercase|<!-- END REF -->
+|aString|string|&#8594;|String to convert to uppercase|
+|*||&#8594;|If passed: keep accents|
+|Result|string|&#8592;|String in uppercase|<!-- END REF -->
 
 #### Description
 

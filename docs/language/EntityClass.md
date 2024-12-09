@@ -92,7 +92,7 @@ The attribute value type depends on the attribute [kind](DataClassClass.md#attri
 <!-- REF #EntityClass.clone().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Entity|<-|New entity referencing the record|
+|Result|4D.Entity|&#8592;|New entity referencing the record|
 <!-- END REF -->
 
 
@@ -128,15 +128,15 @@ This function can only be used with entities already saved in the database. It c
 
 
 <!-- REF #EntityClass.diff().Syntax -->
-**.diff**( *entityToCompare* : 4D.Entity { , *attributesToCompare* : collection } ) : collection<!-- END REF -->
+**.diff**( *entityToCompare* : 4D.Entity \{ , *attributesToCompare* : collection \} ) : collection<!-- END REF -->
 
 
 <!-- REF #EntityClass.diff().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|entityToCompare|4D.Entity|->|Entity to be compared with the original entity|	
-|attributesToCompare|collection|->	|Name of attributes to be compared	|
-|Result|collection|<-|Differences between the entities|
+|entityToCompare|4D.Entity|&#8594;|Entity to be compared with the original entity|	
+|attributesToCompare|collection|&#8594;	|Name of attributes to be compared	|
+|Result|collection|&#8592;|Differences between the entities|
 <!-- END REF -->
 
 
@@ -329,13 +329,13 @@ vCompareResult3 (only differences on e1 touched attributes are returned)
 ## .drop()   
 
 <!-- REF #EntityClass.drop().Syntax -->
-**.drop**( {*mode* : integer} ) : object<!-- END REF -->
+**.drop**( \{*mode* : integer\} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.drop().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`kForceDropIfStampChanged`: Forces the drop even if the stamp has changed|
-|Result|object|<-|Result of drop operation|
+|mode|integer|&#8594;|`kForceDropIfStampChanged`: Forces the drop even if the stamp has changed|
+|Result|object|&#8592;|Result of drop operation|
 <!-- END REF -->
 
 #### Description
@@ -438,7 +438,7 @@ Example with `kForceDropIfStampChanged` option:
 <!-- REF #EntityClass.first().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Entity|<-|Reference to first entity of an entity selection (null if not found)|
+|Result|4D.Entity|&#8592;|Reference to first entity of an entity selection (null if not found)|
 <!-- END REF -->
 
 #### Description
@@ -470,7 +470,7 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 <!-- REF #EntityClass.fromObject().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|filler|object|->|object from which to fill the entity|
+|filler|object|&#8594;|object from which to fill the entity|
 <!-- END REF -->
 
 #### Description
@@ -556,7 +556,7 @@ You could also use a related entity given as an object:
 <!-- REF #EntityClass.getDataClass().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.DataClass|<-|DataClass object to which the entity belongs|
+|Result|4D.DataClass|&#8592;|DataClass object to which the entity belongs|
 <!-- END REF -->
 
 #### Description
@@ -592,14 +592,14 @@ The following generic code duplicates any entity:
 
 
 <!-- REF #EntityClass.getKey().Syntax -->
-**.getKey**( { *mode* : integer } ) : string<br/>**.getKey**( { *mode* : integer } ) : integer<!-- END REF -->
+**.getKey**( \{ *mode* : integer \} ) : string<br/>**.getKey**( \{ *mode* : integer \} ) : integer<!-- END REF -->
 
 <!-- REF #EntityClass.getKey().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`kKeyAsString`: primary key is returned as a string, no matter the primary key type|
-|Result|string|<-|Value of the string primary key of the entity|
-|Result|integer|<-|Value of the numeric primary key of the entity|
+|mode|integer|&#8594;|`kKeyAsString`: primary key is returned as a string, no matter the primary key type|
+|Result|string|&#8592;|Value of the string primary key of the entity|
+|Result|integer|&#8592;|Value of the numeric primary key of the entity|
 
 <!-- END REF -->
 
@@ -635,7 +635,7 @@ Primary keys can be numbers (integer) or strings. You can "force" the returned p
 <!-- REF #EntityClass.getSelection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.EntitySelection|<-|Entity selection to which the entity belongs (null if not found)|
+|Result|4D.EntitySelection|&#8592;|Entity selection to which the entity belongs (null if not found)|
 <!-- END REF -->
 
 #### Description
@@ -674,7 +674,7 @@ If the entity does not belong to an entity selection, the function returns null.
 <!-- REF #EntityClass.getStamp().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|integer|<-|Stamp of the entity (0 if entity has just been created)|
+|Result|integer|&#8592;|Stamp of the entity (0 if entity has just been created)|
 <!-- END REF -->
 
 #### Description
@@ -716,13 +716,13 @@ For a new entity (never saved), the function returns 0. To know if an entity has
 
 
 <!-- REF #EntityClass.indexOf().Syntax -->
-**.indexOf**( { *entitySelection* : 4D.EntitySelection } ) : integer<!-- END REF -->
+**.indexOf**( \{ *entitySelection* : 4D.EntitySelection \} ) : integer<!-- END REF -->
 
 <!-- REF #EntityClass.indexOf().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|entitySelection|4D.EntitySelection|->|Position of the entity is given according to this entity selection|
-|Result|integer|<-|Position of the entity in an entity selection|
+|entitySelection|4D.EntitySelection|&#8594;|Position of the entity is given according to this entity selection|
+|Result|integer|&#8592;|Position of the entity in an entity selection|
 <!-- END REF -->
 
 #### Description
@@ -766,7 +766,7 @@ The resulting value is included between 0 and the length of the entity selection
 <!-- REF #EntityClass.isNew().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|True if entity has just been created and not yet saved. Otherwise, false.|
+|Result|boolean|&#8592;|True if entity has just been created and not yet saved. Otherwise, false.|
 <!-- END REF -->
 
 #### Description
@@ -801,7 +801,7 @@ The `.isNew()` function <!-- REF #EntityClass.isNew().Summary --> returns true i
 <!-- REF #EntityClass.last().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Entity|<-|Reference to last entity of an entity selection (null if not found)|
+|Result|4D.Entity|&#8592;|Reference to last entity of an entity selection (null if not found)|
 <!-- END REF -->
 
 #### Description
@@ -831,13 +831,13 @@ If the entity does not belong to any existing entity selection (i.e. [.getSelect
 
 
 <!-- REF #EntityClass.lock().Syntax -->
-**.lock**( { *mode* : integer } ) : object<!-- END REF -->
+**.lock**( \{ *mode* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.lock().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`kReloadIfStampChanged`: Reload before locking if stamp changed|
-|Result|object|<-|Result of lock operation|
+|mode|integer|&#8594;|`kReloadIfStampChanged`: Reload before locking if stamp changed|
+|Result|object|&#8592;|Result of lock operation|
 <!-- END REF -->
 
 #### Description
@@ -944,7 +944,7 @@ Example with `kReloadIfStampChanged` option:
 <!-- REF #EntityClass.next().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Entity|<-|Reference to next entity in the entity selection (Null if not found)|
+|Result|4D.Entity|&#8592;|Reference to next entity in the entity selection (Null if not found)|
 <!-- END REF -->
 
 #### Description
@@ -979,7 +979,7 @@ If there is no valid next entity in the entity selection (i.e. you are on the la
 <!-- REF #EntityClass.previous().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.Entity|<-|Reference to previous entity in the entity selection (null if not found)|
+|Result|4D.Entity|&#8592;|Reference to previous entity in the entity selection (null if not found)|
 <!-- END REF -->
 
 #### Description
@@ -1014,7 +1014,7 @@ If there is no valid previous entity in the entity selection (i.e. you are on th
 <!-- REF #EntityClass.reload().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Status object|
+|Result|object|&#8592;|Status object|
 <!-- END REF -->
 
 #### Description
@@ -1067,13 +1067,13 @@ The object returned by `.reload()` contains the following properties:
 ## .save()   
 
 <!-- REF #EntityClass.save().Syntax -->
-**.save**( { *mode* : integer } ) : object<!-- END REF -->
+**.save**( \{ *mode* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.save().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mode|integer|->|`kAutoMerge`: Enables the automatic merge mode|
-|Result|object|<-|Result of save operation|
+|mode|integer|&#8594;|`kAutoMerge`: Enables the automatic merge mode|
+|Result|object|&#8592;|Result of save operation|
 <!-- END REF -->
 
 #### Description
@@ -1127,7 +1127,7 @@ The following values can be returned in the `status` and `statusText` properties
 |`kStatusEntityDoesNotExistAnymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>**Associated statusText**: "Entity does not exist anymore"|
 |`kStatusLocked`|	3|	The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"
 |`kStatusSeriousError`|4|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
-|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<<br/>**Associated statusText**: "Stamp has changed"|
+|`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<br/>**Associated statusText**: "Stamp has changed"|
 
 
 #### Example 1  
@@ -1199,15 +1199,15 @@ Updating an entity with `kAutoMerge` option:
 
 
 <!-- REF #EntityClass.toObject().Syntax -->
-**.toObject**() : object<br/>**.toObject**( *filterString* : string { , *options* : integer}  ) : object<br/>**.toObject**( *filterCol* : collection { , *options* : integer } ) : object<!-- END REF -->
+**.toObject**() : object<br/>**.toObject**( *filterString* : string \{ , *options* : integer}  ) : object<br/>**.toObject**( *filterCol* : collection \{ , *options* : integer \} ) : object<!-- END REF -->
 
 <!-- REF #EntityClass.toObject().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|filterString |string	|->|Attribute(s) to extract (comma-separated string)|	
-|filterCol |collection	|->|collection of attribute(s) to extract|	
-|options|integer|->|`kWithPrimaryKey`: adds the \_KEY property;<br/>`kWithStamp`: adds the \_STAMP property|
-|Result|object|<-|object built from the entity|
+|filterString |string	|&#8594;|Attribute(s) to extract (comma-separated string)|	
+|filterCol |collection	|&#8594;|collection of attribute(s) to extract|	
+|options|integer|&#8594;|`kWithPrimaryKey`: adds the \_KEY property;<br/>`kWithStamp`: adds the \_STAMP property|
+|Result|object|&#8592;|object built from the entity|
 <!-- END REF -->
 
 #### Description
@@ -1484,7 +1484,7 @@ Returns:
 <!-- REF #EntityClass.touched().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|boolean|<-|True if at least one entity attribute has been modified and not yet saved, else false|
+|Result|boolean|&#8592;|True if at least one entity attribute has been modified and not yet saved, else false|
 <!-- END REF -->
 
 #### Description
@@ -1521,7 +1521,7 @@ In this example, we check to see if it is necessary to save the entity:
 <!-- REF #EntityClass.touchedAttributes().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Names of touched attributes, or empty collection|
+|Result|collection|&#8592;|Names of touched attributes, or empty collection|
 <!-- END REF -->
 
 #### Description
@@ -1590,7 +1590,7 @@ In this case:
 <!-- REF #EntityClass.unlock().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|object|<-|Status object|
+|Result|object|&#8592;|Status object|
 <!-- END REF -->
 
 #### Description

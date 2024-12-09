@@ -10,8 +10,8 @@ title: objectRemove
 <!-- REF #_command_.objectRemove.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to edit|
-|property |string|->|Name of property to remove|
+|object|object|&#8594;|Object to edit|
+|property |string|&#8594;|Name of property to remove|
 <!-- END REF -->
 
 

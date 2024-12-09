@@ -34,7 +34,7 @@ A [DataClass](../orda/data-model.md#dataclass) provides an object interface to a
 <!-- REF #DataClassClass.all().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.EntitySelection|<-|References on all entities related to the Dataclass|
+|Result|4D.EntitySelection|&#8592;|References on all entities related to the Dataclass|
 <!-- END REF -->
 
 
@@ -148,8 +148,8 @@ var firstnameAtt,employerAtt,employeesAtt : object
 <!-- REF #DataClassClass.fromCollection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|objectCol |collection|->|collection of objects to be mapped with entities|
-|Result|4D.EntitySelection|<-|Entity selection filled from the collection|
+|objectCol |collection|&#8594;|collection of objects to be mapped with entities|
+|Result|4D.EntitySelection|&#8592;|Entity selection filled from the collection|
 <!-- END REF -->
 
 
@@ -330,8 +330,8 @@ In this example, the first entity will be created and saved but the second will 
 <!-- REF #DataClassClass.get().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|primaryKey |integer OR string|->|Primary key value of the entity to retrieve|
-|Result|4D.Entity|<-|Entity matching the designated primary key|
+|primaryKey |integer OR string|&#8594;|Primary key value of the entity to retrieve|
+|Result|4D.Entity|&#8592;|Entity matching the designated primary key|
 <!-- END REF -->
 
 #### Description
@@ -367,7 +367,7 @@ Lazy loading is applied, which means that related data is loaded from disk only 
 <!-- REF #DataClassClass.getCount().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|result|integer|<-|Number of entities in the dataclass|
+|result|integer|&#8592;|Number of entities in the dataclass|
 <!-- END REF -->
 
 #### Description
@@ -396,7 +396,7 @@ number = ds.Persons.getCount()
 <!-- REF #DataClassClass.getDataStore().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|cs.DataStore|<-|Datastore of the dataclass|
+|Result|cs.DataStore|&#8592;|Datastore of the dataclass|
 <!-- END REF -->
 
 
@@ -441,7 +441,7 @@ The `SearchDuplicate` project method searches for duplicated values in any datac
 <!-- REF #DataClassClass.getInfo().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|object|<-|Information on the dataclass|
+|Result|object|&#8592;|Information on the dataclass|
 <!-- END REF -->
 
 
@@ -509,7 +509,7 @@ The `.getInfo()` function <!-- REF #DataClassClass.getInfo().Summary -->returns 
 <!-- REF #DataClassClass.new().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|4D.Entity|<-|New entity matching the Dataclass|
+|Result|4D.Entity|&#8592;|New entity matching the Dataclass|
 <!-- END REF -->
 
 
@@ -543,13 +543,13 @@ this example creates a new entity in the "Log" Dataclass and records information
 
 
 <!-- REF #DataClassClass.newSelection().Syntax -->
-**.newSelection**( { *keepOrder* : integer } ) : 4D.EntitySelection <!-- END REF -->
+**.newSelection**( \{ *keepOrder* : integer \} ) : 4D.EntitySelection <!-- END REF -->
 
 <!-- REF #DataClassClass.newSelection().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|keepOrder |integer |-> |`kKeepOrdered`: creates an ordered entity selection,<br/>`kNonOrdered`: creates an unordered entity selection (default if omitted) |
-|Result|4D.EntitySelection|<-|New blank entity selection related to the dataclass|
+|keepOrder |integer |&#8594; |`kKeepOrdered`: creates an ordered entity selection,<br/>`kNonOrdered`: creates an unordered entity selection (default if omitted) |
+|Result|4D.EntitySelection|&#8592;|New blank entity selection related to the dataclass|
 <!-- END REF -->
 
 
@@ -580,16 +580,16 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ## .query()
 
 <!-- REF #DataClassClass.query().Syntax -->
-**.query**( *queryString* : string { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection<!-- END REF -->
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #DataClassClass.query().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|queryString |string |-> |Search criteria as string|
-|formula |object |-> |Search criteria as formula object|
-|value|any|->|Value(s) to use for indexed placeholder(s)|
-|querySettings|object|->|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
-|Result|4D.EntitySelection|<-|New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
+|queryString |string |&#8594; |Search criteria as string|
+|formula |object |&#8594; |Search criteria as formula object|
+|value|any|&#8594;|Value(s) to use for indexed placeholder(s)|
+|querySettings|object|&#8594;|Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
+|Result|4D.EntitySelection|&#8592;|New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
 <!-- END REF -->
 
 
@@ -636,10 +636,10 @@ where:
 	|| === , IS|	Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
 	|Not equal to|	 != , #	|Supports the wildcard (@)|
 	|| !== , IS NOT|	Considers the @ as a standard character|
-	|Less than|	<|	|
-	|Greater than|	>	||
-	|Less than or equal to|	  <= ||
-	|Greater than or equal to|	>= 	||
+	|Less than|	&lt;|	|
+	|Greater than|	>;	||
+	|Less than or equal to|	  &lt;= ||
+	|Greater than or equal to|	>;= 	||
 	|Included in|	IN	|Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
 	|Not condition applied on a statement|	NOT|	Parenthesis are mandatory when NOT is used before a statement containing several operators|
 	|Contains keyword|	%|	Keywords can be used in attributes of string or picture type|
@@ -811,7 +811,7 @@ To make it possible to perform such queries, ORDA allows a special syntax: you j
 ```qs
 "relationAttribute.attribute  ==  :1 AND relationAttribute{x}.attribute  ==  :2 [AND relationAttribute{y}.attribute...]"
 ```
-**{x}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
+**\{x\}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
 
 In our example, it would be:
 

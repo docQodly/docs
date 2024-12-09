@@ -10,7 +10,7 @@ title: webForm
 <!-- REF #_command_.webForm.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|4D.WebForm|<-|New `WebForm` proxy object
+|Result|4D.WebForm|&#8592;|New `WebForm` proxy object
 <!-- END REF -->
 
 #### Description

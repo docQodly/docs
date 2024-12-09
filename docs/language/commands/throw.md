@@ -4,16 +4,16 @@ title: throw
 ---
 
 
-<!-- REF #_command_.throw.Syntax -->**throw**( *errorCode* : integer {, *description* : string } )<br/>**throw**( *errorObj* : object )<br/>**throw**()<!-- END REF -->
+<!-- REF #_command_.throw.Syntax -->**throw**( *errorCode* : integer \{, *description* : string \} )<br/>**throw**( *errorObj* : object )<br/>**throw**()<!-- END REF -->
 
 
 <!-- REF #_command_.throw.Params -->
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|errorCode|integer|->|Error code|
-|description|string|->|Description of the error|
-|errorObj|object|->|Object containing properties to build the error|
+|errorCode|integer|&#8594;|Error code|
+|description|string|&#8594;|Description of the error|
+|errorObj|object|&#8594;|Object containing properties to build the error|
 <!-- END REF -->
 
 
@@ -47,7 +47,7 @@ throw(errorObj)
 |---|---|---|
 |componentSignature|string|Four latin letters signature to uniquely identify the source of the error. If the *componentSignature* is not provided, the command uses "host" for the host database, and "C001", "C002"... for the components.
 |errCode|number|Error code. If the *errCode* is not provided, the command uses -1.|
-|message| string|Description of the error. The *message* may contain placeholders that will be replaced by custom properties added to the *errorObj* object. Each placeholder must be specified using braces `{}` enclosing the name of the property to be used. If the *message* is not provided or is an empty string, the command will look for a description in the current application xliff files with a resname built as follows: ERR_{componentSignature}_{errCode}".
+|message| string|Description of the error. The *message* may contain placeholders that will be replaced by custom properties added to the *errorObj* object. Each placeholder must be specified using braces `{}` enclosing the name of the property to be used. If the *message* is not provided or is an empty string, the command will look for a description in the current application xliff files with a resname built as follows: ERR_\{componentSignature\}_\{errCode\}".
 |deferred| boolean|True if the error should be deferred when the current method returns. Default value is false.|
 
 When you use this syntax, the *errorObj* object is returned in [`lastErrors`](lastErrors.md).

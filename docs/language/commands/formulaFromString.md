@@ -11,8 +11,8 @@ title: formulaFromString
 <!-- REF #_command_.formulaFromString.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|formulaString|string|->|string formula to be returned as object|
-|Result|4D.Function|<-|Native object encapsulating the formula|
+|formulaString|string|&#8594;|string formula to be returned as object|
+|Result|4D.Function|&#8592;|Native object encapsulating the formula|
 <!-- END REF -->
 
 

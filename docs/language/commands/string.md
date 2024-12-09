@@ -4,7 +4,7 @@ title: string
 ---
 
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number { , *format* : string } ) : string<br/>**string** ( *expression* : any { , *format* : integer { , *addTime* : time }} ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number \{ , *format* : string \} ) : string<br/>**string** ( *expression* : any \{ , *format* : integer \{ , *addTime* : time \}\} ) : string<!-- END REF -->
 
 
 
@@ -12,10 +12,10 @@ title: string
 <!-- REF #_command_.string.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression for which to return the string form (can be number, date, time, string, boolean, undefined, or null)|
-|format|string, integer|->|Format to use|
-|addTime|time|->|Time to add on if expression is a date|
-|Result|string|<-|String form of the expression|
+|expression|any|&#8594;|Expression for which to return the string form (can be number, date, time, string, boolean, undefined, or null)|
+|format|string, integer|&#8594;|Format to use|
+|addTime|time|&#8594;|Time to add on if expression is a date|
+|Result|string|&#8592;|String form of the expression|
 <!-- END REF -->
 
 #### Description

@@ -101,14 +101,14 @@ This property is **read-only**.
 <!-- REF ClassClass.new().Desc -->
 ## .new()
 
-<!-- REF #ClassClass.new().Syntax -->**.new**( { *...param* : any } ) : 4D.Class<!-- END REF -->
+<!-- REF #ClassClass.new().Syntax -->**.new**( \{ *...param* : any \} ) : 4D.Class<!-- END REF -->
 
 
 <!-- REF #ClassClass.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|param|any|->|Parameter(s) to pass to the constructor function|
-|Result|4D.Class|<-|New object of the class|<!-- END REF -->
+|param|any|&#8594;|Parameter(s) to pass to the constructor function|
+|Result|4D.Class|&#8592;|New object of the class|<!-- END REF -->
 
 
 #### Description

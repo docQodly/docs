@@ -4,15 +4,15 @@ title: callWorker
 ---
 
 
-<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : string , *formula* : string {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function {, *param {, ...paramN }* : integer } )<br/>**callWorker** ( *process* : integer , *formula* : string {, *param {, ...paramN }* : integer } )<!-- END REF -->
+<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : string , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<!-- END REF -->
 
 
 <!-- REF #_command_.callWorker.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|process|string &#124; integer |->|Name or number of worker process|
-|formula|4D.Function &#124; string |->|Formula object or Name of project method|
-|param|any|->|Parameter(s) passed to *formula*/*methodName*|<!-- END REF -->
+|process|string &#124; integer |&#8594;|Name or number of worker process|
+|formula|4D.Function &#124; string |&#8594;|Formula object or Name of project method|
+|param|any|&#8594;|Parameter(s) passed to *formula*/*methodName*|<!-- END REF -->
 
 #### Description
 

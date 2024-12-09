@@ -11,9 +11,9 @@ title: jsonValidate
 <!-- REF #_command_.jsonValidate.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|vJson|object|->|JSON object to validate|
-|vSchema|object|->|JSON schema used to validate JSON objects|
-|Result|object|<-|Validation status and errors (if any)|
+|vJson|object|&#8594;|JSON object to validate|
+|vSchema|object|&#8594;|JSON schema used to validate JSON objects|
+|Result|object|&#8592;|Validation status and errors (if any)|
 <!-- END REF -->
 
 #### Description
@@ -63,28 +63,28 @@ The following errors may be returned  :
 |Code|JSON Keyword|Message|
 |:----|:----|:----|
 |2|multipleOf|Error while validating against 'multipleOf' key.|
-|3|maximum|The value provided should not be greater than specified in the schema ("{s1}").|
-|4|exclusiveMaximum|The value provided should be less than specified in the schema ("{s1}").|
-|5|minimum|The value provided should not be less than specified in the schema ("{s1}").|
-|6|exclusiveMinimum|The value provided should be greater than specified in the schema ("{s1}").|
+|3|maximum|The value provided should not be greater than specified in the schema ("\{s1\}").|
+|4|exclusiveMaximum|The value provided should be less than specified in the schema ("\{s1\}").|
+|5|minimum|The value provided should not be less than specified in the schema ("\{s1\}").|
+|6|exclusiveMinimum|The value provided should be greater than specified in the schema ("\{s1\}").|
 |7|maxLength|The string is longer than specified in the schema.|
 |8|minLength|The string is shorter than specified in the schema.|
-|9|pattern|The string "{s1}" does not match the pattern in the schema:{s2}.|
+|9|pattern|The string "\{s1\}" does not match the pattern in the schema:\{s2\}.|
 |10|additionalItems|Error while validating an array. JSON contains more elements than specified in the schema.|
 |11|maxItems|The array contains more items than specified in the schema.|
 |12|minItems|The array contains less items than specified in the schema.|
-|13|uniqueItems|Error while validating an array. Elements are not unique. Another instance of "{s1}" is already in the array.|
+|13|uniqueItems|Error while validating an array. Elements are not unique. Another instance of "\{s1\}" is already in the array.|
 |14|maxProperties|The number of properties is greater than specified in the schema.|
 |15|minProperties|The number of properties is less than specified in the schema.|
-|16|required|The required property "{s1}" is missing.|
-|17|additionalProperties|No additional properties allowed by the schema. The property(ies) {s1} should be removed.|
-|18|dependencies|The property "{s1}" requires the property "{s2}".|
-|19|enum|Error while validating against 'enum' key. "{s1}" does not match any enum element in the schema.|
-|20|type|Incorrect type. Expected type is: {s1}|
+|16|required|The required property "\{s1\}" is missing.|
+|17|additionalProperties|No additional properties allowed by the schema. The property(ies) \{s1\} should be removed.|
+|18|dependencies|The property "\{s1\}" requires the property "\{s2\}".|
+|19|enum|Error while validating against 'enum' key. "\{s1\}" does not match any enum element in the schema.|
+|20|type|Incorrect type. Expected type is: \{s1\}|
 |21|oneOf|The JSON matches more than one value.|
 |22|oneOf|The JSON does not match any value.|
 |23|not|The JSON is valid against the value of 'not'.|
-|24|format|The string does not match ("{s1}")|
+|24|format|The string does not match ("\{s1\}")|
 
 
 #### Example

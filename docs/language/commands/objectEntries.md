@@ -10,8 +10,8 @@ title: objectEntries
 <!-- REF #_command_.objectEntries.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|object|object|->|Object to return contents|
-|Result|collection|<-|Collection of objects with key / value properties|
+|object|object|&#8594;|Object to return contents|
+|Result|collection|&#8592;|Collection of objects with key / value properties|
 <!-- END REF -->
 
 

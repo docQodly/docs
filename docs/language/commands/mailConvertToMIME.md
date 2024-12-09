@@ -4,15 +4,15 @@ title: mailConvertToMIME
 ---
 
 
-<!-- REF #_command_.mailConvertToMIME.Syntax -->**mailConvertToMIME**( *mail* : object { , *options* : object } ) : string<!-- END REF -->
+<!-- REF #_command_.mailConvertToMIME.Syntax -->**mailConvertToMIME**( *mail* : object \{ , *options* : object \} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.mailConvertToMIME.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|mail|object|->|Email object|
-|options|object|->|Charset and encoding mail options|
-|Result|string|<-|Email object converted to MIME|
+|mail|object|&#8594;|Email object|
+|options|object|&#8594;|Charset and encoding mail options|
+|Result|string|&#8592;|Email object converted to MIME|
 <!-- END REF -->
 
 #### Description

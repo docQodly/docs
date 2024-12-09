@@ -175,7 +175,7 @@ Each condition within the schema is represented by an interactive card, providin
 
 | Name         | Icon | Description | Available Operators                                   |
 |--------------|------|-------------|-------------------------------------------------------|
-| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified qodlysource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
+| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified qodlysource. | `=`, `!=`, `>`, `>;=`, `<`, `&lt;=`, `in`, `not in`, `regex` |
 
 :::info Comparators vary depending on the qodlysource type:
 
@@ -193,9 +193,9 @@ Each condition within the schema is represented by an interactive card, providin
 | **Number**            | `=`          | Checks if the number is exactly equal to the specified value.                                                        |
 |                      | `!=`         | Checks if the number is not equal to the specified value.                                                            |
 |                      | `>`          | Checks if the number is greater than the specified value.                                                            |
-|                      | `>=`         | Checks if the number is greater than or equal to the specified value.                                                |
+|                      | `>;=`         | Checks if the number is greater than or equal to the specified value.                                                |
 |                      | `<`          | Checks if the number is less than the specified value.                                                               |
-|                      | `<=`         | Checks if the number is less than or equal to the specified value.                                                   |
+|                      | `&lt;=`         | Checks if the number is less than or equal to the specified value.                                                   |
 |                      | `between`    | Checks if the number falls within a specified range of two values.                                                   |
 |                      | `is null`    | Checks if the number is `null`, meaning it has no value.                                                             |
 |                      | `not null`   | Checks if the number is not `null`, meaning it has a defined value.                                                  |

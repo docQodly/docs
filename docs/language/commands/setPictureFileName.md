@@ -11,8 +11,8 @@ title: setPictureFileName
 <!-- REF #_command_.setPictureFileName.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|->|Picture for which to set default name|
-|fileName|string|<-|Default picture name|
+|aPicture|picture|&#8594;|Picture for which to set default name|
+|fileName|string|&#8592;|Default picture name|
 <!-- END REF -->
 
 #### Description

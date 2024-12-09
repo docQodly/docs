@@ -11,10 +11,10 @@ title: convertPicture
 <!-- REF #_command_.convertPicture.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|aPicture|picture|<-|Picture to be converted|
-|||->|Converted picture|
-|codec|string|->|Picture Codec ID|
-|compression|number|->|Quality of compression|<!-- END REF -->
+|aPicture|picture|&#8592;|Picture to be converted|
+|||&#8594;|Converted picture|
+|codec|string|&#8594;|Picture Codec ID|
+|compression|number|&#8594;|Quality of compression|<!-- END REF -->
 
 #### Description
 

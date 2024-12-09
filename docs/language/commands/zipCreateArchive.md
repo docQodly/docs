@@ -4,18 +4,18 @@ title: zipCreateArchive
 ---
 
 
-<!-- REF #_command_.zipCreateArchive.Syntax -->**zipCreateArchive** ( *fileToZip* : 4D.File , *destinationFile* : 4D.File ) : object<br/>**zipCreateArchive** ( *folderToZip* : 4D.Folder , *destinationFile* : 4D.File { , *options* : integer }) : object<br/>**zipCreateArchive** ( *zipStructure* : object , *destinationFile* : 4D.File ) : object<!-- END REF -->
+<!-- REF #_command_.zipCreateArchive.Syntax -->**zipCreateArchive** ( *fileToZip* : 4D.File , *destinationFile* : 4D.File ) : object<br/>**zipCreateArchive** ( *folderToZip* : 4D.Folder , *destinationFile* : 4D.File \{ , *options* : integer \}) : object<br/>**zipCreateArchive** ( *zipStructure* : object , *destinationFile* : 4D.File ) : object<!-- END REF -->
 
 
 <!-- REF #_command_.zipCreateArchive.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|fileToZip|4D.File|->|File or folder object to compress|
-|folderToZip|4D.Folder|->|File or folder object to compress|
-|zipStructure|object|->|File or folder object to compress|
-|destinationFile|4D.File|->|Destination file for the archive|
-|options|integer|->|*folderToZip* option: `ZIP Without enclosing folder`|
-|Result|object|<-|Status object|
+|fileToZip|4D.File|&#8594;|File or folder object to compress|
+|folderToZip|4D.Folder|&#8594;|File or folder object to compress|
+|zipStructure|object|&#8594;|File or folder object to compress|
+|destinationFile|4D.File|&#8594;|Destination file for the archive|
+|options|integer|&#8594;|*folderToZip* option: `ZIP Without enclosing folder`|
+|Result|object|&#8592;|Status object|
 <!-- END REF -->
 
 #### Description

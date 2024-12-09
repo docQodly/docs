@@ -10,7 +10,7 @@ title: clearSemaphore
 <!-- REF #_command_.clearSemaphore.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|semaphore|string|->|Semaphore to clear|
+|semaphore|string|&#8594;|Semaphore to clear|
 <!-- END REF -->
 
 #### Description

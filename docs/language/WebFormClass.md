@@ -61,7 +61,7 @@ While `myForm` may not display typical object properties when examined in the de
 <!-- REF #WebFormClass.disableState().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|state|string|->|Name of state to disable from the Page|
+|state|string|&#8594;|Name of state to disable from the Page|
 <!-- END REF -->
 
 #### Description
@@ -87,7 +87,7 @@ For more information on Page states, please refer to the [States](../studio/page
 <!-- REF #WebFormClass.enableState().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|state|string|->|Name of state to enable on the Page|
+|state|string|&#8594;|Name of state to enable on the Page|
 <!-- END REF -->
 
 #### Description
@@ -113,7 +113,7 @@ For more information on Page states, please refer to the [States](../studio/page
 <!-- REF #WebFormClass.setError().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Error message to display in the Page|
+|msg|string|&#8594;|Error message to display in the Page|
 <!-- END REF -->
 
 #### Description
@@ -151,7 +151,7 @@ If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents
 <!-- REF #WebFormClass.setMessage().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Information message to display in the Page|
+|msg|string|&#8594;|Information message to display in the Page|
 <!-- END REF -->
 
 #### Description
@@ -184,7 +184,7 @@ If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents
 <!-- REF #WebFormClass.setWarning().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|msg|string|->|Warning message to display in the Page|
+|msg|string|&#8594;|Warning message to display in the Page|
 <!-- END REF -->
 
 #### Description

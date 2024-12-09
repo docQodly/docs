@@ -23,7 +23,7 @@ In the QodlyScript language and for object attribute properties, null values are
 <!-- REF #_command_.null.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|null|<-|Null value|<!-- END REF -->
+|Result|null|&#8592;|Null value|<!-- END REF -->
 
 #### Description
 
@@ -166,8 +166,8 @@ Undefined is not actually a data type. It denotes a variable that has not yet be
 <!-- REF #_command_.undefined.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Expression whose resulting value to be evaluated|
-|Result|boolean|<-|true = undefined, false = not undefined|<!-- END REF -->
+|expression|any|&#8594;|Expression whose resulting value to be evaluated|
+|Result|boolean|&#8592;|true = undefined, false = not undefined|<!-- END REF -->
 
 
 #### Description
@@ -229,8 +229,8 @@ vNull = (vEmp.parent == null) //true
 |  |undefined `!=` *other values* |Boolean|a.undefinedProp `!=` 42 |true|
 |Greater than |undefined `>` string, date, time, boolean, number |Boolean  |a.undefinedProp `>` "abc" |false|
 |Less than |undefined `<` string, date, time, boolean, number |Boolean  |a.undefinedProp `<` "abc" |false|
-|Greater than or equal to |undefined `>=` string, date, time, boolean, number |Boolean  |a.undefinedProp `>=` "abc" |false|
-|Less than or equal to |undefined `<=` string, date, time, boolean, number |Boolean  |a.undefinedProp `<=` "abc" |false|
+|Greater than or equal to |undefined `>;=` string, date, time, boolean, number |Boolean  |a.undefinedProp `>;=` "abc" |false|
+|Less than or equal to |undefined `&lt;=` string, date, time, boolean, number |Boolean  |a.undefinedProp `&lt;=` "abc" |false|
 
 *other values* are expressions of any type with a value neither **undefined** nor **null**. 
 

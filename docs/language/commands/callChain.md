@@ -9,7 +9,7 @@ title: callChain
 <!-- REF #_command_.callChain.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|Result|collection|<-|Collection of objects describing the call chain within a process|
+|Result|collection|&#8592;|Collection of objects describing the call chain within a process|
 <!-- END REF -->
 
 

@@ -23,15 +23,15 @@ The [`Collection class`](../language/CollectionClass.md#query) contains also a [
 
 The `query()` function is available in both the [entity selection class](../language/EntitySelectionClass.md#query) and the [dataclass class](../language/DataClassClass.md#query).  
 
-**.query**( *queryString* : string { , *...value* : any } { , *querySettings* : object } ) : 4D.EntitySelection <br/>**.query**( *formula* : object { , *querySettings* : object } ) : 4D.EntitySelection
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection
 
 |Parameter|Type| &nbsp;&nbsp;&nbsp;&nbsp;|Description|
 |---|---|-----|---|
-|queryString |string |->|Search criteria as string|
-|formula |object | -> |Search criteria as formula object|
-|value|any|->|Value(s) to use for indexed placeholder(s)|
-|querySettings|object| -> |Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
-|Result|4D.EntitySelection| <- |New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
+|queryString |string |&#8594;|Search criteria as string|
+|formula |object | &#8594; |Search criteria as formula object|
+|value|any|&#8594;|Value(s) to use for indexed placeholder(s)|
+|querySettings|object| &#8594; |Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan|
+|Result|4D.EntitySelection| &#8592; |New entity selection made up of entities from dataclass meeting the search criteria specified in *queryString* or *formula*|
 
 
 The `.query()` function searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s), for all the entities in the dataclass or the entity selection. 
@@ -87,10 +87,10 @@ For security reasons, formula calls within `query()` methods can be disallowed. 
 	||===, IS|	Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
 	|Not equal to|	!=, #	|Supports the wildcard (@)|
 	||!==, IS NOT|	Considers the @ as a standard character|
-	|Less than|	<|	|
-	|Greater than|	>	||
-	|Less than or equal to|	<=||	
-	|Greater than or equal to|	>=	||
+	|Less than|	&lt;|	|
+	|Greater than|	>;	||
+	|Less than or equal to|	&lt;=||	
+	|Greater than or equal to|	>;=	||
 	|Included in|	IN	|Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
 	|Not condition applied on a statement|	NOT|	Parenthesis are mandatory when NOT is used before a statement containing several operators|
 	|Contains keyword|	%|	Keywords can be used in attributes of string or picture type|
@@ -317,7 +317,7 @@ To make it possible to perform such queries, ORDA allows a special syntax: you j
 ```qs
 "relationAttribute.attribute == :1 AND relationAttribute{x}.attribute == :2 [AND relationAttribute{y}.attribute...]"
 ```
-**{x}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
+**\{x\}** tells ORDA to create another reference for the relation attribute. It will then perform all the necessary bitmap operations internally. Note that **x** can be any number **except 0**: {1}, or {2}, or {1540}... ORDA only needs a unique reference in the query for each class index.
 
 In our example, it would be:
 

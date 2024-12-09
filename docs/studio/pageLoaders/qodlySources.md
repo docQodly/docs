@@ -177,18 +177,18 @@ For Entity Selection or Entity types, make sure to also configure additional set
 
 ### Standalone Entity vs Entity from ES
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Entities from Entity Selection Qodly Source</strong>: These entities originate from an entity selection qodlysource, particularly advantageous in situations necessitating navigation and bulk actions.
+        - <strong>Entities from Entity Selection Qodly Source</strong>: These entities originate from an entity selection qodlysource, particularly advantageous in situations necessitating navigation and bulk actions.
 	</Column.Item>
 	<Column.Item width="40%">
 	        <img src={require('./img/EntitiesFromEntitySelection.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 <br/>
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-        <strong>Independently Created Standalone Entities</strong>: These entities have no affiliation with entity selections. They exist in isolation and are well-suited for the management of individual entities that do not require inclusion in larger selections. Standalone entities are typically managed on a one-to-one basis.
+        - <strong>Independently Created Standalone Entities</strong>: These entities have no affiliation with entity selections. They exist in isolation and are well-suited for the management of individual entities that do not require inclusion in larger selections. Standalone entities are typically managed on a one-to-one basis.
 	</Column.Item>
 	<Column.Item width="40%">
 	        <img src={require('./img/standaloneEntities.png').default} style={{borderRadius: '6px'}} />

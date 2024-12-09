@@ -35,15 +35,15 @@ The `SystemWorker` class is available from the `4D` class store.
 
 
 <!-- REF #4D.SystemWorker.new().Syntax -->
-**4D.SystemWorker.new** ( *commandLine* : Text { ; *options* : Object } ) : 4D.SystemWorker<!-- END REF -->
+**4D.SystemWorker.new** ( *commandLine* : Text \{ ; *options* : Object \} ) : 4D.SystemWorker<!-- END REF -->
 
 
 <!-- REF #4D.SystemWorker.new().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|commandLine|Text|->|Command line to execute|
-|options|Object|->|Worker parameters|
-|result|4D.SystemWorker|<-|New asynchronous System worker or null if process not started|  
+|commandLine|Text|&#8594;|Command line to execute|
+|options|Object|&#8594;|Worker parameters|
+|result|4D.SystemWorker|&#8592;|New asynchronous System worker or null if process not started|  
 <!-- END REF -->
 
 #### Description
@@ -235,8 +235,8 @@ This property is **read-only**.
 <!-- REF #SystemWorkerClass.postMessage().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|message|Text|->|Text to write on the input stream (stdin) of the external process|
-|messageBLOB|Blob|->|Bytes write on the input stream|<!-- END REF -->
+|message|Text|&#8594;|Text to write on the input stream (stdin) of the external process|
+|messageBLOB|Blob|&#8594;|Bytes write on the input stream|<!-- END REF -->
 
 #### Description
 
@@ -329,14 +329,14 @@ This property is **read-only**.
 
 
 <!-- REF #SystemWorkerClass.wait().Syntax -->
-**.wait**( {*timeout* : number} ) : 4D.SystemWorker<!-- END REF -->
+**.wait**( \{*timeout* : number\} ) : 4D.SystemWorker<!-- END REF -->
 
 
 <!-- REF #SystemWorkerClass.wait().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|timeout|number|->|Waiting time (in seconds)|
-|Result|4D.SystemWorker|<-|SystemWorker object|<!-- END REF -->
+|timeout|number|&#8594;|Waiting time (in seconds)|
+|Result|4D.SystemWorker|&#8592;|SystemWorker object|<!-- END REF -->
 
 #### Description
 

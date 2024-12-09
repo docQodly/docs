@@ -4,15 +4,15 @@ title: num
 ---
 
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string {, *separator* : string } ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string \{, *separator* : string \} ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|expression|any|->|Character for which you want to get the code|
-|separator|string|->|Decimal separator|
-|Result|number|<-|Numeric form of the expression parameter|
+|expression|any|&#8594;|Character for which you want to get the code|
+|separator|string|&#8594;|Decimal separator|
+|Result|number|&#8592;|Numeric form of the expression parameter|
 <!-- END REF -->
 
 #### Description

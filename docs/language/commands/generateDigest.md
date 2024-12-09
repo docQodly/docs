@@ -5,16 +5,16 @@ title: generateDigest
 
 
 
-<!-- REF #_command_.generateDigest.Syntax -->**generateDigest** ( *param* : any , *algorithm* : integer {, \*}) : string<!-- END REF -->
+<!-- REF #_command_.generateDigest.Syntax -->**generateDigest** ( *param* : any , *algorithm* : integer \{, \*\}) : string<!-- END REF -->
 
 
 <!-- REF #_command_.generateDigest.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|param|any|->|blob or string for which to get digest key|
-|algorithm|integer|->|Algorithm used to return key: 0 = kMD5Digest, 1 = kSHA1Digest, 3 = kSHA256Digest, 4 = kSHA512Digest|
-|*||->|Encode digest in Base64URL|
-|Result|string|<-|Value of digest key|<!-- END REF -->
+|param|any|&#8594;|blob or string for which to get digest key|
+|algorithm|integer|&#8594;|Algorithm used to return key: 0 = kMD5Digest, 1 = kSHA1Digest, 3 = kSHA256Digest, 4 = kSHA512Digest|
+|*||&#8594;|Encode digest in Base64URL|
+|Result|string|&#8592;|Value of digest key|<!-- END REF -->
 
 #### Description
 

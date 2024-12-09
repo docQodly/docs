@@ -180,7 +180,7 @@ This property is **read-only**.
 <!--REF #FileHandleClass.getSize().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|number|<-|Size of the document in bytes|<!-- END REF -->
+|Result|number|&#8592;|Size of the document in bytes|<!-- END REF -->
 
 #### Description
 
@@ -269,8 +269,8 @@ vString = vFileHandle.readText()
 <!--REF #FileHandleClass.readBlob().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*bytes*|number|->|Number of bytes to be read|
-|Result|[4D.Blob](BlobClass)|<-|Bytes read from the file|<!-- END REF -->
+|*bytes*|number|&#8594;|Number of bytes to be read|
+|Result|[4D.Blob](BlobClass)|&#8592;|Bytes read from the file|<!-- END REF -->
 
 
 
@@ -299,7 +299,7 @@ When this function is executed, the current position ([.offset](#offset)) is upd
 <!--REF #FileHandleClass.readLine().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|string|<-|Line of text|<!-- END REF -->
+|Result|string|&#8592;|Line of text|<!-- END REF -->
 
 
 
@@ -330,14 +330,14 @@ This function assumes that the [`.offset`](#offset) property is a number of char
 ## .readText()
 
 
-<!--REF #FileHandleClass.readText().Syntax -->**.readText**( { *stopChar* : string } ) : string <!-- END REF -->
+<!--REF #FileHandleClass.readText().Syntax -->**.readText**( \{ *stopChar* : string \} ) : string <!-- END REF -->
 
 
 <!--REF #FileHandleClass.readText().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*stopChar*|string|->|Character(s) at which to stop reading|
-|Result|string|<-|string from the file|<!-- END REF -->
+|*stopChar*|string|&#8594;|Character(s) at which to stop reading|
+|Result|string|&#8592;|string from the file|<!-- END REF -->
 
 
 #### Description
@@ -375,7 +375,7 @@ If the *stopChar* parameter is passed and not found, `.readText()` returns an em
 <!--REF #FileHandleClass.setSize().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|size|number|->|New size of the document in bytes|<!-- END REF -->
+|size|number|&#8594;|New size of the document in bytes|<!-- END REF -->
 
 
 #### Description
@@ -401,7 +401,7 @@ If the *size* value is less than the current document size, the document content
 <!--REF #FileHandleClass.writeBlob().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*blob*|[4D.Blob](BlobClass)|->|Blob to write in the file|<!-- END REF -->
+|*blob*|[4D.Blob](BlobClass)|&#8594;|Blob to write in the file|<!-- END REF -->
 
 
 
@@ -429,7 +429,7 @@ When this function is executed, the current position ([.offset](#offset)) is upd
 <!--REF #FileHandleClass.writeLine().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*lineOfText*|string|->|string to write|<!-- END REF -->
+|*lineOfText*|string|&#8594;|string to write|<!-- END REF -->
 
 
 #### Description
@@ -455,7 +455,7 @@ When this function is executed, the current position ([.offset](#offset)) is upd
 <!--REF #FileHandleClass.writeText().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|*textToWrite*|string|->|string to write|<!-- END REF -->
+|*textToWrite*|string|&#8594;|string to write|<!-- END REF -->
 
 
 #### Description

@@ -9,8 +9,8 @@ title: processState
 <!-- REF #_command_.processState.Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|process|integer|->|Process number|
-|Result|integer|<-|State of the process|<!-- END REF -->
+|process|integer|&#8594;|Process number|
+|Result|integer|&#8592;|State of the process|<!-- END REF -->
 
 #### Description
 

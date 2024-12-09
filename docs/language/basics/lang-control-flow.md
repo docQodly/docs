@@ -700,7 +700,7 @@ end
 
 
 
-## return {expression}
+## return \{expression\}
 
 The `return` statement can be called from anywhere. When a `return` statement is used in a function or method, the execution of the function or method is stopped. The remaining code is not executed and the control is returned to the caller.
 
