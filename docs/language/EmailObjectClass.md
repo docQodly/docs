@@ -55,8 +55,8 @@ All properties that contain email addresses ([`from`](#from), [`cc`](#cc), [`bcc
 #### String
 
 - single email: "somebody@domain.com"
-- single display name+email: "Somebody &lt;somebody@domain.com&gt;"
-- several emails: "Somebody &lt;somebody@domain.com&gt;,me@home.org"
+- single display name+email: "Somebody &lt;somebody@domain.com>;"
+- several emails: "Somebody &lt;somebody@domain.com>;,me@home.org"
 
 #### object
 

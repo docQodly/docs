@@ -88,9 +88,9 @@ For security reasons, formula calls within `query()` methods can be disallowed. 
 	|Not equal to|	!=, #	|Supports the wildcard (@)|
 	||!==, IS NOT|	Considers the @ as a standard character|
 	|Less than|	&lt;|	|
-	|Greater than|	&gt;	||
+	|Greater than|	>;	||
 	|Less than or equal to|	&lt;=||	
-	|Greater than or equal to|	&gt;=	||
+	|Greater than or equal to|	>;=	||
 	|Included in|	IN	|Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
 	|Not condition applied on a statement|	NOT|	Parenthesis are mandatory when NOT is used before a statement containing several operators|
 	|Contains keyword|	%|	Keywords can be used in attributes of string or picture type|

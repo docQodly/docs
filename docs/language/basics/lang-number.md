@@ -44,12 +44,12 @@ Negative numbers are specified with the minus sign (-). For example:
    ||||10  ==  11| false|
 |Inequality |Number  !=  Number |Boolean |10  !=  11 |true|
    ||||10  !=  10 |false|
-|Greater than |Number &gt; Number |Boolean |11 &gt; 10 |true|
-   ||||10 &gt; 11 |false|
+|Greater than |Number >; Number |Boolean |11 >; 10 |true|
+   ||||10 >; 11 |false|
 |Less than |Number &lt; Number |Boolean |10 &lt; 11 |true|
   |||| 11 &lt; 10 |false|
-|Greater than or equal to |Number &gt;=  Number |Boolean |11 &gt;=  10 |true|
-   ||||10 &gt;=  11 |false|
+|Greater than or equal to |Number >;=  Number |Boolean |11 >;=  10 |true|
+   ||||10 >;=  11 |false|
 |Less than or equal to |Number &lt;= Number |Boolean |10 &lt;= 11 |true|
   |||| 11 &lt;= 10 |false|
 
@@ -102,7 +102,7 @@ An expression that uses a bitwise operator returns an integer value, except for 
 |Bitwise OR (inclusive)|&#124;|integer &#124; integer|integer|
 |Bitwise OR (exclusive)|^&#124;|integer ^&#124; integer|integer|
 |Left Bit Shift|&lt;&lt;|integer &lt;&lt; integer|integer (see note 1)|
-|Right Bit Shift|>>|integer &gt;&gt; integer|integer (see note 1)|
+|Right Bit Shift|>>|integer >;>; integer|integer (see note 1)|
 |Bit Set|?+|integer ?+ integer|integer (see note 2)|
 |Bit Clear|?-|integer ?- integer|integer (see note 2)|
 |Bit Test|??|integer ?? integer|boolean (see note 2)|
@@ -133,7 +133,7 @@ The following table lists the bitwise operators and their effects:
 |Bitwise OR (inclusive)|0x0000FFFF &#124; 0xFF00FF00| 0xFF00FFFF
 |Bitwise OR (exclusive)|0x0000FFFF \^&#124; 0xFF00FF00| 0xFF0000FF|
 |Left Bit Shift|0x0000FFFF &lt;&lt; 8|0x00FFFF00|
-|Right Bit Shift|0x0000FFFF &gt;&gt; 8|0x000000FF|
+|Right Bit Shift|0x0000FFFF >;>; 8|0x000000FF|
 |Bit Set|0x00000000 ?+ 16|0x00010000|
 |Bit Clear|0x00010000 ?- 16|0x00000000|
 |Bit Test|0x00010000 ?? 16|True|

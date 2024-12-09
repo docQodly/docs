@@ -2246,7 +2246,7 @@ where:
  |Less than| &lt;| |
  |Greater than| > ||
  |Less than or equal to| &lt;=||
- |Greater than or equal to| &gt;= ||
+ |Greater than or equal to| >;= ||
  |Included in| IN |Gets data equal to at least one of the values in a collection or in a set of values, supports the wildcard (@)|
 
 * **value**: the value to compare to the current value of the property of each element in the collection. It can be any constant value expression matching the element's data type property or a [**placeholder**](#using-placeholders).

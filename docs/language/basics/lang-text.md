@@ -52,12 +52,12 @@ In the following example, the **Carriage return** character (escape sequence `\r
 |  | ||"abc"  ==  "abd" |False|
 |Inequality |String  !=  String |Boolean |"abc"  !=  "abd" |True|
 |   |||"abc"  !=  "abc" |False|
-|Greater than |String &gt; String |Boolean  |"abd" > "abc" |True
+|Greater than |String >; String |Boolean  |"abd" > "abc" |True
 |   |||"abc" > "abc" |False|
 |Less than |String &lt; String |Boolean |"abc" < "abd" |True|
 |   |||"abc" < "abc" |False|
-|Greater than or equal to |String &gt;=  String |Boolean  |"abd" &gt;=  "abc" |True|
-|   |||"abc" &gt;=  "abd" |False|
+|Greater than or equal to |String >;=  String |Boolean  |"abd" >;=  "abc" |True|
+|   |||"abc" >;=  "abd" |False|
 |Less than or equal to |String &lt;= String |Boolean  |"abc" &lt;= "abd" |True|
 |   |||"abd" &lt;= "abc" |False|
 |Contains keyword |String % String |Boolean  |"Alpha Bravo" % "Bravo" |True|
