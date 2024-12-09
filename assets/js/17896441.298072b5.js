@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkqodly=self.webpackChunkqodly||[]).push([["7048"],{96680:function(e,n,t){t.d(n,{Z:function(){return c}}),t(67294);var u=t(11425),s=t(87057),a=t(74673);let c={...u.Z,Tabs:s.Z,TabItem:a.Z}}}]);
