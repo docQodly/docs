@@ -3,13 +3,13 @@ id: logEvent
 title: logEvent
 ---
 
-<!--REF #_command_.logEvent.Syntax-->**logEvent** ( *message* {; *importance*} )<!-- END REF-->
+<!--REF #_command_.logEvent.Syntax-->**logEvent** ( *message* \{; *importance*\} )<!-- END REF-->
 
 <!--REF #_command_.logEvent.Params-->
 | Parameter | Type |  | Description |
 | --- | --- | --- | --- |
-| message | Text | ->  | Contents of the message |
-| importance | Integer | ->  | Message’s importance level |<!-- END REF-->
+| message | Text | &#8594; | Contents of the message |
+| importance | Integer | &#8594;  | Message’s importance level |<!-- END REF-->
 
 
 
