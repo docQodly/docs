@@ -334,6 +334,7 @@ const sidebars = {
 						'language/commands/lastErrors',
 						'language/commands/length',
 						'language/commands/log',
+						'language/commands/logEvent',
 						'language/commands/lowercase',
 						'language/commands/mailConvertFromMIME',
 						'language/commands/mailConvertToMIME',
