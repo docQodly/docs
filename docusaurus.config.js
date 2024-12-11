@@ -83,6 +83,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           // editUrl: isProduction ? `${ghUrl}/edit/main`: undefined,
           editUrl: `${ghUrl}/edit/main`,
+          includeCurrentVersion: isProduction ? false : true, // false for prod only
         },
         blog: {
           //  showReadingTime: true,
@@ -166,6 +167,12 @@ const config = {
             docId: "faq/faq",
             label: "FAQ",
           },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+            dropdownActiveClassDisabled: false,
+          },  
           /*
             {to: '/blog', label: 'Blog', position: 'left'},
             {
