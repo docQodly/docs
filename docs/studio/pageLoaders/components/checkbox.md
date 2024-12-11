@@ -58,6 +58,29 @@ Enhance the **Checkbox** component to align with your application's requirements
         </Column.Item>
     </Column.List>
 
+
+- **Checkbox Type selection**: Choose between three checkbox configurations to determine the available states and default values for the checkbox:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+            <ul>
+                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.</li><br/>
+                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.</li><br/>
+                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. </li><br/>
+            </ul>
+        </Column.Item>
+        <Column.Item width="31%">
+            <img src={require('./img/checkbox_TypeSelection.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    | **Type**                |  **States**    | **Default Value**      | **State Transition Order**              |
+    |-------------------------|------------------------------------|---------------------------|------------------|
+    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked <br/> - Unchecked            |
+    | **Three-State Checkbox**| - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate <br/> - Checked <br/> - Unchecked <br/> - Indeterminate |
+    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) <br/> - Checked <br/> - Unchecked|
+
+
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
         <ul>
