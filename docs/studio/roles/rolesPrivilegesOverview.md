@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Configuring Roles & Privilege
+title: Configuring Roles & Privileges
 ---
 import Column from '@site/src/components/Column'
 
@@ -63,11 +63,9 @@ To add a role:
 1. Open the `Explorer` Panel.
 2. Navigate to the `Roles and Privileges` section.
 3. Click on the `Roles` tab to access role management.
-4. To create a new role, click on the `Add new role` card.
+4. To create a new role, click on the `+` button next to Roles. <img src={require('./img/addRole.png').default} style={{borderRadius: '6px', width:'30%'}} />
 
-<img src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
 
 :::note Example
 In a back-office travel agency solution, you might create roles such as:
@@ -117,7 +115,7 @@ To assign one or multiple privileges to a role:
 
 1. Navigate to the `Roles` tab within the `Roles and Privileges` section.
 2. Select the desired role (e.g., `Sales Manager`).
-3. Locate the privileges side section on the far right.
+3. Locate the privileges section on the top.
 4. In this section, you'll find a comprehensive list of available privileges.
 5. To assign a privilege, click the `+` icon.
 6. To remove a privilege, simply click the `-` icon.

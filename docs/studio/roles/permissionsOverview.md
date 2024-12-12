@@ -10,6 +10,8 @@ In managing access control within your application, understanding the hierarchy 
 
 ## Permissions
 
+The permissions grid provides a comprehensive interface for managing access control.
+
 ### Permission Types
 
 Permissions define essential actions on resources, covering tasks such as creation, reading, updating, deletion, description, execution (for functions), and promotion (also for functions).
@@ -24,11 +26,60 @@ Permissions define essential actions on resources, covering tasks such as creati
 | Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
 | Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
-### How to Assign Permissions
+### Search Functionality
+
+The search bar <img src={require('./img/searchPermissions.png').default} style={{borderRadius: '6px', width:'30%'}} /> allows users to quickly locate permissions by typing keywords. The search dynamically narrows the list of displayed permissions based on the input.
+
+
+### Filter Functionality
+
+The filter menu <img src={require('./img/FilterPermissions.png').default} style={{borderRadius: '6px', width:'3%'}} /> enables users to narrow down permissions based on specific categories. 
+
+<Column.List align="center">
+    <Column.Item width="20%">
+        Available filters include:
+        <ul>
+            <li>Datastore</li>
+            <li>Dataclass</li>
+            <li>Singleton</li>
+            <li>Functions</li>
+            <li>Attribute</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="15%">
+        <img src={require('./img/FilterMenuPermissions.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+Users can check the desired filter options to display only the relevant permissions.
+
+
+### Create a Permission
+
+To create a new permission in the current privilege:
+
+- Click on the `+ Create a permission` bar <img src={require('./img/CreatePermissions.png').default} style={{borderRadius: '6px', width:'30%'}} />.
+
+- A dropdown menu will display a list of available assets (e.g., Datastore, Functions, Singletons, Attributes).
+    <img src={require('./img/CreatePermissionsMenu.png').default} style={{borderRadius: '6px', width:'20%'}} />
+
+- Select the desired asset to create and configure its permissions.
+
+
+### Assign Permissions
 
 Permissions for specific resources—such as Datastore, DataClass, and Attribute—are easily set by checking the corresponding boxes in the permissions grid. Each permission (such as Read, Create, Update, Delete, Describe, Execute, and Promote) can be granted by selecting the checkbox under the relevant column for each resource.
 
 <img src={require('./img/Permissions.png').default} style={{borderRadius: '6px'}} />
+
+
+### Reset Permissions
+
+The reset functionality allows users to clear all permissions for the current privilege. This action removes all configurations, providing a clean slate:
+
+- Click the Reset button <img src={require('./img/ResetPermissions.png').default} style={{borderRadius: '6px', width:'10%'}} />.
+
+- A confirmation dialog will appear, asking the user to confirm or cancel the action <img src={require('./img/ResetPermissionsDialog.png').default} style={{borderRadius: '6px', width:'30%'}} />.
 
 
 ## Inheritance
