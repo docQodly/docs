@@ -15,6 +15,41 @@ Roles are essential in defining distinct user profiles within Qodly. Each role c
 
 Roles can be structured hierarchically, allowing for an organized and layered access control system. In Qodly, higher-level roles can inherit the **privileges** of lower-level roles, creating an efficient method of managing user access. This hierarchy enhances the granularity of access management and facilitates a streamlined approach.
 
+### Detailed Permission Review for Roles
+
+When a role is selected in the `Roles & Privileges` editor, a detailed permission review is displayed to provide insight into the final permissions resolution for that specific role. This feature helps developers fine-tune privileges more effectively by showing the impact of privilege configurations.
+
+<img src={require('./img/showRolePermissions.png').default} style={{borderRadius: '6px'}} />
+
+
+- Comprehensive Permission Listing: Lists all application code assets, including: Dataclasses, Attributes, Functions, Singletons and Singleton functions.
+
+- Organized and Alphabetical Grouping: Listed assets are grouped and sorted alphabetically as follows:
+
+	- Datastore (ds)
+	- Functions within the Datastore
+	- Attributes (within dataclasses)
+	- Functions (within dataclasses)
+	- Singletons
+	- Attributes (within singletons)
+	- Functions (within singletons)
+
+- Permission Columns: For each asset, the following columns display resolved permissions: Read, Create, Update, Delete, Describe and Execute.
+
+:::tip Permission Indicators
+A grey tick indicates that the permission is granted. If the access is granted through promoted privileges, an info indicator is provided.
+An empty checkbox indicates that the permission is not granted.
+:::
+
+
+:::info Impact of Privilege Changes
+Displaying permissions explicitly helps identify the consequences of modifications in privileges, such as:
+
+- Adding permissions to a privilege included in a role.
+- Removing permissions from a privilege that is not included in any role.
+- Promoting a function execution in a privilege will apply the promotion universally, regardless of roles.
+:::
+
 
 ### Adding Roles  
 
