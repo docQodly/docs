@@ -27,18 +27,23 @@ When a role is selected in the `Roles & Privileges` editor, a detailed permissio
 - Organized and Alphabetical Grouping: Listed assets are grouped and sorted alphabetically as follows:
 
 	- Datastore (ds)
-	- Functions within the Datastore
-	- Attributes (within dataclasses)
-	- Functions (within dataclasses)
+	- Datastore Functions 
+	- Dataclasses
+	- Attributes
+	- Dataclass Functions
+	- Entity Functions
+	- Entity Selection Functions
 	- Singletons
-	- Attributes (within singletons)
-	- Functions (within singletons)
+	- Singleton Functions
 
 - Permission Columns: For each asset, the following columns display resolved permissions: Read, Create, Update, Delete, Describe and Execute.
 
 :::tip Permission Indicators
-A grey tick indicates that the permission is granted. If the access is granted through promoted privileges, an info indicator is provided.
-An empty checkbox indicates that the permission is not granted.
+A grey tick <img src={require('./img/PermissionIndicators1.png').default} style={{borderRadius: '6px', width:'3%'}} /> indicates that the permission is granted. 
+
+If the access is granted through promoted privileges, an info indicator <img src={require('./img/PermissionIndicators3.png').default} style={{borderRadius: '6px', width:'5%'}} /> is provided.
+
+An empty checkbox <img src={require('./img/PermissionIndicators2.png').default} style={{borderRadius: '6px', width:'3%'}} /> indicates that the permission is not granted.
 :::
 
 
