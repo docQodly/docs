@@ -102,3 +102,53 @@ HTTP Request Handlers are ideal when:
 :::
 
 
+## Execution Flow
+
+When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTPHandlers.json file. The execution flow follows these steps:
+
+- The URL of the request is matched against the pattern or regexPattern of each handler.
+
+- The HTTP method (verb) of the request is checked against the verbs property of the handler.
+
+- Only the first matching handler is executed, even if subsequent handlers also match the request.
+
+:::tip Example of First Match Execution
+
+Given the following configuration:
+
+```json
+[
+    {
+        "class": "ProductHandler",
+        "method": "getProductDetails",
+        "regexPattern": "/products/[0-9]+",
+        "verbs": "GET"
+    },
+    {
+        "class": "ProductHandler",
+        "method": "listProducts",
+        "pattern": "products",
+        "verbs": "GET"
+    }
+]
+```
+
+A request to GET `/products/123` will match both handlers:
+
+- The first handler matches because the URL `/products/123` satisfies the regular expression `/products/[0-9]+`.
+
+- The second handler matches because `/products` is a prefix of the URL.
+
+
+However, only the first handler (getProductDetails) is executed, as it appears first in the configuration.
+
+:::
+
+
+## Matching Rules 
+
+
+
+
+## Handling Errors
+
