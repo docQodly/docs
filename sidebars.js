@@ -92,16 +92,6 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Model',
-			items: ['studio/model/model-editor-interface',
-				'studio/model/datastore-classes',
-				'studio/model/attributes',
-				'studio/model/functions',
-				'studio/model/import',
-			],
-		},
-		{
-			type: 'category',
 			label: 'Pages',
 			items: ['studio/pageLoaders/pageLoaderOverview',
 				{
@@ -156,16 +146,6 @@ const sidebars = {
 			],
 		},
 		{
-			type: 'doc',
-			id: 'studio/settings',
-			label: "Settings"
-		},
-		{
-			type: 'doc',
-			id: 'data-explorer/data-explorer',
-			label: "Data Explorer"
-		},
-		{
 			type: 'category',
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
@@ -191,6 +171,31 @@ const sidebars = {
 				},
 				'studio/roles/includingPrivileges',
 			],
+		},
+		{
+			type: 'category',
+			label: 'Model',
+			items: ['studio/model/model-editor-interface',
+				'studio/model/datastore-classes',
+				'studio/model/attributes',
+				'studio/model/functions',
+				'studio/model/import',
+			],
+		},
+		{
+			type: 'doc',
+			id: 'studio/httpHandlers',
+			label: "HTTP Handlers"
+		},
+		{
+			type: 'doc',
+			id: 'studio/settings',
+			label: "Settings"
+		},
+		{
+			type: 'doc',
+			id: 'data-explorer/data-explorer',
+			label: "Data Explorer"
 		},
 		{
 			type: 'category',
