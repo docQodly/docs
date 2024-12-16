@@ -102,6 +102,54 @@ HTTP Request Handlers are ideal when:
 :::
 
 
+## Matching Rules 
+
+Handlers can define URL patterns in two ways:
+
+- **Prefix (pattern)**: Matches any URL that starts with the specified prefix.
+
+    :::info Example
+        A handler with "pattern": "products" matches /products, /products/list, and /products/123.
+    :::
+
+- **Regular Expression (regexPattern)**: Matches URLs that satisfy the specified regular expression.
+
+    :::info Example
+        A handler with "regexPattern": "/products/[0-9]+" matches /products/123 and /products/456, but not /products/list.
+    :::
+
+
+:::tip Matching Scenarios
+
+Given the following configuration:
+
+```json
+[
+    {
+        "class": "OrderHandler",
+        "method": "getOrder",
+        "regexPattern": "/orders/[0-9]+",
+        "verbs": "GET"
+    },
+    {
+        "class": "OrderHandler",
+        "method": "listOrders",
+        "pattern": "orders",
+        "verbs": "GET"
+    }
+]
+```
+
+- `GET /orders/123`: Matches the first handler (getOrder) because `/orders/123` satisfies the regular expression `/orders/[0-9]+`.
+
+- `GET /orders`: Matches the second handler (listOrders) because `/orders` is a prefix of the URL.
+
+- `POST /orders/123`: Does not match any handler because neither handler supports the POST method.
+
+:::
+
+
+
 ## Execution Flow
 
 When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTPHandlers.json file. The execution flow follows these steps:
@@ -143,12 +191,3 @@ A request to GET `/products/123` will match both handlers:
 However, only the first handler (getProductDetails) is executed, as it appears first in the configuration.
 
 :::
-
-
-## Matching Rules 
-
-
-
-
-## Handling Errors
-
