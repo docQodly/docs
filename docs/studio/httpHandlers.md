@@ -210,3 +210,27 @@ If the verbs property is omitted, the handler applies to all HTTP methods.
 
 This handler matches all methods (GET, POST, PUT, etc.) for any URL.
 :::
+
+
+## Handling Errors
+
+If no handler matches a request, the system automatically returns a 404 error. This behavior ensures that unexpected or unsupported requests do not disrupt the application.
+
+To handle unmatched requests explicitly, you can define a fallback handler. Fallback handlers can be used to return custom error messages, redirect requests, or log unexpected behavior.
+
+```json
+{
+    "class": "ErrorHandler",
+    "method": "handleNotFound",
+    "regexPattern": "/.+",
+    "verbs": "*"
+}
+```
+
+This handler catches all requests that are not matched by earlier handlers. It can be used to:
+
+- Return a custom 404 page.
+
+- Log details about unmatched requests.
+
+- Redirect users to a default page.
