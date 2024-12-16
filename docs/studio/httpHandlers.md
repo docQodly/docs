@@ -191,3 +191,22 @@ A request to GET `/products/123` will match both handlers:
 However, only the first handler (getProductDetails) is executed, as it appears first in the configuration.
 
 :::
+
+
+## HTTP Methods (Verbs)
+
+Handlers can limit the HTTP methods they respond to using the verbs property. Supported methods include GET, POST, PUT, DELETE, and others. Specifying verbs ensures that only requests with matching methods trigger the handler.
+
+:::info Default Behavior
+If the verbs property is omitted, the handler applies to all HTTP methods.
+
+```json
+{
+    "class": "GeneralHandler",
+    "method": "catchAll",
+    "pattern": "*"
+}
+```
+
+This handler matches all methods (GET, POST, PUT, etc.) for any URL.
+:::
