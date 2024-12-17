@@ -82,7 +82,17 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl: isProduction ? `${ghUrl}/edit/main`: undefined,
-          editUrl: `${ghUrl}/edit/main`,
+          //editUrl: `${ghUrl}/edit/main`,
+          editUrl: function edit(info) {
+            // const lang = info.locale;
+            // const version = info.version;
+            // const permalink = info.permalink;
+
+            const title = `Comment on ${info.docPath} (${info.version})`;
+            const body = `Please enter your comment:`;
+            return `https://github.com/qodly/docs/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
+          },
+          
           includeCurrentVersion: isProduction ? false : true, // false for prod only
         },
         blog: {
