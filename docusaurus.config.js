@@ -89,7 +89,14 @@ const config = {
             // const permalink = info.permalink;
 
             const title = `Comment on ${info.docPath} (${info.version})`;
-            const body = `Please enter your comment:`;
+            const body = `Share any feedback about this page — report issues, suggest improvements, or tell us what’s helpful.
+
+If it’s an issue:
+- What’s the issue? (e.g., typo, incorrect information, unclear explanation)
+- Where is it? (e.g., section name, specific paragraph, or line)
+
+Thank you for helping us improve! 🚀
+              `;
             return `https://github.com/qodly/docs/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
           },
           
