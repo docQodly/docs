@@ -66,193 +66,141 @@ Note here that only a password hash is stored in the database.
 
 1. Create two Qodly Pages: the first one called "login", the second one called "welcome". 
 
-A screenshot of a computer
+<img src={require('./img/login-pages.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Description automatically generated 
+2. Drag and drop the "Login" template on the login page (select the "Login" template and drop the template preview to the login page canvas).
 
-On the login page, drag and drop the template “Login” 
+<img src={require('./img/login-template.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-A screenshot of a computer
+3. On the welcome page: 
+- add a Text component and write a welcome message
+- add a DataTable component, create a datasource "items" of type Entity selection and bind it to the DataTable.
 
-Description automatically generated 
+<img src={require('./img/login-template.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+ 
+If you [preview](../../studio/rendering.md#preview-in-qodly-studio) this welcome page, you obtain the list of items already existing in the database: 
 
-On the welcome page: 
+<img src={require('./img/login-welcome-preview.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-add a Text component and write a welcome message 
+4. Before continuing to the next section, setup your Start page to be the **login** page in your Qodly application settings: 
 
-add a datatable listing items 
+<img src={require('./img/login-settings.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-A screenshot of a computer
 
-Description automatically generated 
+## Roles and privileges 
+
+Guest users are not authenticated. Thus, they should not access any data of the application (neither "users", nor "items"). 
+
+To secure your datastore, create a new privilege called "none" and a grant it all permission actions on the **ds** resource (do not forget to save):
+
+<img src={require('./img/login-none.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+You will never give this privilege to any user, meaning that at this moment, nobody can reach any data of your application. Now if you render again your *welcome* page, items are no longer visible: 
+
+<img src={require('./img/login-welcome-preview-empty.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+:::warning Important 
+
+When you preview a Page inside Qodly studio, you are a WebAdmin. Privileges have no consequence for you, basically you have all privileges. 
+
+<img src={require('./img/login-preview-studio.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+When you preview a Page in a new tab (or using the **Preview** button), then privileges matter. If you do so as a developer, from Qodly Studio, you usually have the Admin role. 
+
+<img src={require('./img/login-preview-tab.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} /> <img src={require('./img/login-preview-button.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+This role can be assigned in the [Team section](../../cloud/userAccountManagement.md#team-tab-environment-specific) of your application console: 
+
+<img src={require('./img/login-admin.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
+
+:::
 
  
 
-If you preview this welcome page, you obtain the list of items existing in database: 
+Now let's create a new privilege called "ItemAccess", and grant it the **Read** permission action on the item Dataclass: 
 
-A screenshot of a phone
+<img src={require('./img/login-itemAccess.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Description automatically generated 
+Now switch to the **Roles** tab and create a role called "PublicAuth". Add the "ItemAccess" privilege to the "PublicAuth" role and also to the already existing "Admin" role. Later in this section, we will write a `login()` function that will give this role to your public users after a successful login. 
 
-Before continuing to the next section, setup your Start page to be the login page, in your Qodly application settings: 
+<img src={require('./img/login-role.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-A screenshot of a computer
+Now any users having one of these roles will have access to items in database. 
 
-Description automatically generated 
+To check the "Admin" role, preview your *welcome* page [in a new tab](../../studio/rendering.md#preview-page-in-a-new-tab). In the *welcome* page running under the "Admin" role, items are visible: 
 
-Roles and privileges 
+<img src={require('./img/login-welcome-preview.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Guest users are not authenticated. So they should not access any data of the application. Neither users, nor items. 
 
-To secure your datastore, create a new privilege called “none” and grant it all permissions: 
+## Enable public access 
 
-A screenshot of a computer
-
-Description automatically generated 
-
-You will never give this privilege to any user. Meaning that now nobody can reach any data of your application. 
-
-Now if you render again your welcome page, items are not visible any longer: 
-
-A screenshot of a phone
-
-Description automatically generated 
-
-Important note 
-
- 
-
-when you preview a Page inside Qodly studio, you are a WebAdmin. Privileges have no consequence for you, you have all privileges. 
-
-A screenshot of a video game
-
-Description automatically generated 
-
-when you preview a Page in a new tab (or using the Preview button), then privileges matter. If you do so as a developer, from Qodly Studio, you usually have the Admin role. 
-
-A screenshot of a video game
-
-Description automatically generated A grey and white sign with white text
-
-Description automatically generated 
-
-This role can be assigned in the Team section of your application console: 
-
-A screenshot of a computer
-
-Description automatically generated 
-
- 
-
-Let’s now create a new privilege called “ItemAccess”, and grant a Read permission on the item Dataclass: 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-Now let’s switch to the role tab and create a role called PublicAuth. Later in this tutorial, we will code a login() function that will give this role to your public users after a successful login. 
-
-Add the “ItemAccess” privilege to the “PublicAuth” role but also to the already existing “Admin” role. 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-Now all users having one of these roles will have access to items in database. 
-
-To check the “Admin” role, just preview your “welcome” page in a new tab. The “welcome” page runs with your “Admin” role, and items are visible: 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-Enable public access 
-
-Important note: 
-
- 
+:::warning
 
 Unless you know what you are doing, it is obviously not recommended to activate Public access before having configured roles and privileges according to your needs. 
 
- 
+:::
 
-Now that your data is secured, you can safely enable public. 
+Now that your data is secured, you can safely enable public access. 
 
-Go in your application console, in the General tab and activate Public access: 
+Open the **General** tab of your application console and select **Activate public access**: 
 
-A screenshot of a computer
+<img src={require('./img/login-public-access.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Description automatically generatedYou now obtain a public URL: 
+Click **Confirm**, you obtain a public URL: 
 
-A white rectangular object with black lines
+<img src={require('./img/login-url.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Description automatically generated 
 
-If you click on it, the default page opens. But this time, no Qodly authentication dialog is required. You directly arrive in your Qodly app as a guest, the Start page is displayed (ie the “login” page): 
+If you click on it, the default page opens. This time, no Qodly authentication dialog is required. You directly arrive in your Qodly app as a guest, the **Start** page is displayed (i.e. the *login* page): 
 
-A screenshot of a computer
+<img src={require('./img/login-access.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-Description automatically generated 
+:::note
 
-Being guest, if you try to open the welcome page, it is displayed but your data is secured. Indeed guests cannot access items in the database: 
+You might have to restart the server to get the start page for the first time after its assignment. 
 
-A white background with black text
+:::
 
-Description automatically generated 
+Being guest, if you try to open the *welcome page*, it is displayed but your data is secured. As stated before, in this example guests cannot access items in the database: 
 
-Implement the login mechanism 
+<img src={require('./img/login-access-empty.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-The challenge now is to make the login form work. The idea here is to check if credentials are correct, assign a role to the session, and bring the user to the welcome page. 
 
-First thing to do is to implement a login function. For the sake of this tutorial, we will do so in the datastore class, but it may be relevant to store such function in another class. 
+## Implement the login mechanism 
 
-extends DataStoreImplementation 
+The challenge now is to make the login form work. The principle here is to check if credentials are correct, assign a role to the session, and bring the user to the *welcome* page. 
 
- 
+First thing to do is to implement a login function. For this, we create a `CheckUser` singleton class. 
+
+```qs
+//CheckUser Class
+shared singleton constructor()
 
 exposed function login (login: string, password: string) 
-
     var user : cs.userEntity 
-
     var privileges : object 
 
-     
-
     user = ds.user.query("login == :1", login).first() 
-
- 
-
-    switch  
-
+    switch
         : (user == null) 
-
             throw(9, "Could not signin, please check email and password") 
-
         : (user && not(verifyPasswordHash(password, user.hashpwd))) 
-
             throw(9, "Could not signin, please check email and password") 
-
         else  
-
             session.setPrivileges({roles: "PublicAuth"}) 
-
             webForm.setMessage("Login successfull") 
-
     end 
-
+```
  
 
-Now open your login page in Qodly Studio and then: 
+Now open your *login* page in Qodly Studio and, in the **This page** Qodly Sources area: 
 
-Create a Qodly source of type string called “login” 
+1. Create a Qodly source of type string called "login".
+2. Create a Qodly source of type string called "password". 
 
-Create a Qodly source of type string called “password” 
+<img src={require('./img/login-local-sources.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-A screenshot of a computer
-
-Description automatically generated 
-
-Adjust the login form to remove unnecessary components, and bind login and password text inputs to their corresponding Qodly source: 
+Adjust the *login* form to remove unnecessary components, and bind "login" and "password" text inputs to their corresponding Qodly source: 
 
 A screenshot of a login screen
 
