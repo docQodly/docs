@@ -204,6 +204,7 @@ const sidebars = {
 						'orda/data',
 						'orda/queries',
 						'orda/sessions',
+						'language/guides/login',
 			],
 		},
 		{
