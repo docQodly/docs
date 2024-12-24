@@ -359,9 +359,14 @@ Each condition within the schema is represented by an interactive card, providin
 |--------------|------|-------------|---------------------------|
 | Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex`, `has at least one privilege`, `has no privilege` |
 
-:::info Additional Operators
-- **Has at least one privilege**: Evaluates if the user possesses at least one privilege.
-- **Has no privilege**: Evaluates if the user possesses no privilege assigned at all.
+:::info Privilege Evaluation Options
+- **Has at least one privilege**: Determines if the user has any privilege assigned. This is useful for:
+
+	- Differentiating authenticated users (with any privilege) from unauthenticated users (guests) 
+	- Granting general access based on privilege presence.
+	- Restrict access to features or areas requiring any level of privilege.
+
+- **Has no privilege**: Evaluates if the user has no privileges assigned at all
 :::
 
 :::tip Handling Privilege Changes with Conditional States
