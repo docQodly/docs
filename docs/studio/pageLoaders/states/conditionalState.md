@@ -357,7 +357,12 @@ Each condition within the schema is represented by an interactive card, providin
 
 | Name         | Icon | Description | Available Operators       |
 |--------------|------|-------------|---------------------------|
-| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex` |
+| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex`, `has at least one privilege`, `has no privilege` |
+
+:::info Additional Operators
+- **Has at least one privilege**: Evaluates if the user possesses at least one privilege.
+- **Has no privilege**: Evaluates if the user possesses no privilege assigned at all.
+:::
 
 :::tip Handling Privilege Changes with Conditional States
 
