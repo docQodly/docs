@@ -308,6 +308,18 @@ Each condition within the schema is represented by an interactive card, providin
 </TabItem>
 </Tabs>
 
+:::tip Dropdown Behavior
+The current state dropdown shows all available states when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid states can be selected
+:::
+
+:::tip Handling Deleted States
+- If a state is deleted, it is automatically removed from the dropdown menu.
+- If the deleted state is currently selected, it is cleared from the field to prevent invalid selections.
+:::
+
+:::tip Handling Renamed States
+If a state is renamed, the dropdown menu is updated to reflect the new name.
+:::
 
 ### Parent State Condition
 
@@ -352,6 +364,18 @@ Each condition within the schema is represented by an interactive card, providin
 </TabItem>
 </Tabs>
 
+:::tip Dropdown Behavior
+The parent state dropdown shows all available states when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid states can be selected
+:::
+
+:::tip Handling Deleted States
+- If a state is deleted, it is automatically removed from the dropdown menu.
+- If the deleted state is currently selected, it is cleared from the field to prevent invalid selections.
+:::
+
+:::tip Handling Renamed States
+If a state is renamed, the dropdown menu is updated to reflect the new name.
+:::
 
 ### Privilege Condition
 
@@ -412,6 +436,18 @@ A conditional state on a privilege evaluates whether the privileges have changed
 </TabItem>
 </Tabs>
 
+:::tip Dropdown Behavior
+The privilege dropdown shows all available privileges when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid privileges can be selected.
+:::
+
+:::tip Handling Deleted Privileges
+- If a privilege is deleted, it is automatically removed from the dropdown menu.
+- If the deleted privilege is currently selected, its name remains displayed in the field, and an error message is shown below the field and in the sanity check: "The [Privilege Name] privilege does not exist."
+:::
+
+:::tip Handling Renamed Privileges
+If a privilege is renamed, the border of the privilege field turns red, and a sanity check error is raised with the message: "Incorrect value of the privilege state condition."
+:::
 
 ### Saved Condition
 
@@ -560,7 +596,6 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 		<img alt="explorer" src={require('./img/removeCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
-
 
 ## Conditional State Lifecycle
 
