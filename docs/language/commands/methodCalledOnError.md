@@ -4,15 +4,15 @@ title: methodCalledOnError
 ---
 
 
-<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( { *scope* : integer } ) : string<!-- END REF -->
+<!-- REF #_command_.methodCalledOnError.Syntax -->**methodCalledOnError**( \{ *scope* : integer \} ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.methodCalledOnError.Params -->
 
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
-|scope|integer|->|Scope of the error method|
-|result|string|<-|Name of method called on error|
+|scope|integer|&#8594;|Scope of the error method|
+|result|string|&#8592;|Name of method called on error|
 <!-- END REF -->
 
 
@@ -24,9 +24,9 @@ In the *scope* parameter, pass the execution context for which you want to get t
 
 |Constant|Value|Description|
 |---|----|---|
-|ek errors from components|2|Errors that occurred in components|
-|ek global|1 |Errors that occurred in the global execution context of the project |
-|ek local|0|Errors that occurred in the local execution context (default if *scope* parameter is omitted)|
+|kErrorsFromComponents|2|Errors that occurred in components|
+|kGlobal|1 |Errors that occurred in the global execution context of the project |
+|kLocal|0|Errors that occurred in the local execution context (default if *scope* parameter is omitted)|
 
 If no method has been installed for the *scope*, an empty string ("") is returned.
 
