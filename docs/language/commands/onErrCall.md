@@ -23,9 +23,9 @@ The *scope* of the command designates the execution context from where an error 
 
 |Constant|Value|Description|
 |---|----|---|
-|ek errors from components|2|Only errors generated from the components installed in the application will call *errorMethod*. Note that, if an error-handling method is defined in a component, it is called in case of error in the component, and the `ek errors from components` error handler set in the host application is not called.|
-|ek global|1 |All errors that occurred in the application, whatever the process (except components), will call *errorMethod*. Note that, if a `ek local error handler` is also defined for a process, the `ek global error handler` is not called. This principle allows you to define a generic error-handling method that will catch all errors, while local error-handling methods can be set for some specific processes. |
-|ek local|0|(default if *scope* parameter is omitted) Only errors that occurred in the current process will call *errorMethod*. You can have one error-handling method per process at a time, but you can have different error-handling methods for several processes.|
+|kErrorsFromComponents|2|Only errors generated from the components installed in the application will call *errorMethod*. Note that, if an error-handling method is defined in a component, it is called in case of error in the component, and the `kErrorsFromComponents` error handler set in the host application is not called.|
+|kGlobal|1 |All errors that occurred in the application, whatever the process (except components), will call *errorMethod*. Note that, if a `kLocal` is also defined for a process, the `kGlobal` is not called. This principle allows you to define a generic error-handling method that will catch all errors, while local error-handling methods can be set for some specific processes. |
+|kLocal|0|(default if *scope* parameter is omitted) Only errors that occurred in the current process will call *errorMethod*. You can have one error-handling method per process at a time, but you can have different error-handling methods for several processes.|
 
 To stop the trapping of errors, call `onErrCall` again with the desired *scope* parameter (if any) and pass an empty string in *errorMethod*.
 
@@ -43,7 +43,7 @@ You want to install a global error handler:
 
 ```qs
 
-onErrCall("myGlobalErrorHandler",ek global)
+onErrCall("myGlobalErrorHandler",kGlobal)
 
 ```
 
