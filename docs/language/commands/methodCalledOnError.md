@@ -24,9 +24,9 @@ In the *scope* parameter, pass the execution context for which you want to get t
 
 |Constant|Value|Description|
 |---|----|---|
-|ek errors from components|2|Errors that occurred in components|
-|ek global|1 |Errors that occurred in the global execution context of the project |
-|ek local|0|Errors that occurred in the local execution context (default if *scope* parameter is omitted)|
+|kErrorsFromComponents|2|Errors that occurred in components|
+|kGlobal|1 |Errors that occurred in the global execution context of the project |
+|kLocal|0|Errors that occurred in the local execution context (default if *scope* parameter is omitted)|
 
 If no method has been installed for the *scope*, an empty string ("") is returned.
 

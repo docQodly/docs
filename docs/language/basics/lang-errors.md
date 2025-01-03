@@ -25,31 +25,31 @@ Other "unpredictable" errors include write error, network failure, or in general
 
 ## Installing an error-handling method
 
-In Quodly, all errors can be caught and handled by specific methods, named **error-handling** (or **error-catching**) methods.
+In Qodly, all errors can be caught and handled by specific methods, named **error-handling** (or **error-catching**) methods.
 
 Once installed, error handlers are automatically called in case of error in the Qodly application. A different error handler can be called depending on the execution context (see below).  
 
 To *install* an error-handling method, you just need to call the [`onErrCall`](../commands/onErrCall.md) command with the method name and (optionnally) scope as parameters. For example:
 
 ```qs
-onErrCall("IO_Errors",ek local) //Installs a local error-handling method
+onErrCall("IO_Errors",kLocal) //Installs a local error-handling method
 ```
 
 To stop catching errors for an execution context and give back hand, call `onErrCall` with an empty string:
 
 ```qs
-onErrCall("",ek local) //gives back control for the local process
+onErrCall("",kLocal) //gives back control for the local process
 ```
 
 The  [`methodCalledOnError`](../commands/methodCalledOnError.md) command allows you to know the name of the method installed by `onErrCall` for the current process. It is particularly useful in the context of generic code because it enables you to temporarily change and then restore the error-catching method:
 
 ```qs
  var methCurrent : string
- methCurrent = methodCalledOnError(ek local)
- onErrCall("NewMethod",ek local)
+ methCurrent = methodCalledOnError(kLocal)
+ onErrCall("NewMethod",kLocal)
   ...//Processing with specific error handling
   //Reinstallation of previous method
- onErrCall(methCurrent,ek local)
+ onErrCall(methCurrent,kLocal)
 
 ```
 
@@ -63,8 +63,8 @@ An error-handling method can be set for different execution contexts:
 Examples:
 
 ```qs
-onErrCall("IO_Errors",ek local) //Installs a local error-handling method
-onErrCall("globalHandler",ek global) //Installs a global error-handling method
+onErrCall("IO_Errors",kLocal) //Installs a local error-handling method
+onErrCall("globalHandler",kGlobal) //Installs a global error-handling method
 ```
 
 You can install a global error handler that will serve as "fallback" and specific local error handlers for certain processes.
