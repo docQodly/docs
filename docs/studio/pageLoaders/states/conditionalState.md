@@ -364,18 +364,6 @@ If a state is renamed, the dropdown menu is updated to reflect the new name.
 </TabItem>
 </Tabs>
 
-:::tip Dropdown Behavior
-The parent state dropdown shows all available states when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid states can be selected
-:::
-
-:::tip Handling Deleted States
-- If a state is deleted, it is automatically removed from the dropdown menu.
-- If the deleted state is currently selected, it is cleared from the field to prevent invalid selections.
-:::
-
-:::tip Handling Renamed States
-If a state is renamed, the dropdown menu is updated to reflect the new name.
-:::
 
 ### Privilege Condition
 
