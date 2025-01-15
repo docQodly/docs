@@ -5,57 +5,59 @@ title: Users
 
 
 
-The Users class allows you to get information about users of your Qodly application. It can be used, for example, to display the name of the currently connected user.
+## Overview
+
+The Users class is a **shared singleton**, meaning a single instance is globally available and does not require manual instantiation. 
+
+It provides streamlined access to user information within a Qodly application, including the currently authenticated user and all connected users.
+
+:::tip
+The Users class is a **shared singleton**, which means it can be accessed directly without creating a new instance using the `.me` property of the Users class.
+:::
 
 
-
-### Instantiation
-
-To use the Users class functions, you must instantiate a Qodly users interface object using the [`cs.Qodly.Users.new()`](#csqodlyusersnew) constructor. For example:
-
-```qs
-	//instantiate the Users interface
-var usersInterface : cs.Qodly.Users
-usersInterface = cs.Qodly.Users.new()
-```
-
-
-
-### Functions and properties
+## Functions and properties
 
 ||
 |---|
-|[<!-- INCLUDE #cs.Qodly.Users.new().Syntax -->](#csqodlyusersnew)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #cs.Qodly.Users.new().Summary -->|
-|[<!-- INCLUDE #Users.getCurrentUser().Syntax -->](#getcurrentuser)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.getCurrentUser().Summary -->|
-|[<!-- INCLUDE #Users.getAllUsers().Syntax -->](#getallusers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.getAllUsers().Summary -->|
+|[<!-- INCLUDE #Users.me().Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.me().Summary -->|
+|[<!-- INCLUDE #Users.currentUser().Syntax -->](#currentuser)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.currentUser().Summary -->|
+|[<!-- INCLUDE #Users.allUsers().Syntax -->](#allusers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.allUsers().Summary -->|
 
 
-## cs.Qodly.Users.new()
+## .me
 
-<!-- REF #cs.Qodly.Users.new().Syntax -->**cs.Qodly.Users.new**() : cs.Qodly.Users<!-- END REF -->
+The `.me` property of the Users singleton is a reference to the current instance of the Users class. 
+
+It must be used when calling functions like [currentUser()](#currentuser) or [`allUsers()`](#allusers).
+
+:::tip Why .me is Required:
+If you attempt to call:
+
+```qs
+var user : object
+user = cs.Qodly.Users.currentUser()
+```
+
+You will encounter an error: `function call error (is not a function)`.
+
+The correct way to access the current user is:
+
+```qs
+var user : object
+user = cs.Qodly.Users.me.currentUser()
+```
+
+The `.me` ensures the function is being called from the current active instance of the Users singleton.
+:::
 
 
-<!-- REF #cs.Qodly.Users.new().Params -->
-|Parameter|Type||Description|
-|---------|--- |:---:|------|
-|Result|cs.Qodly.Users|&#8592;|Users component object|<!-- END REF -->
+## .currentUser()
 
-#### Description
-
-The `cs.Qodly.Users.new()` function <!-- REF #cs.Qodly.Users.new().Summary -->creates and returns a new object of the `cs.Qodly.Users` type<!-- END REF -->. The returned object will then be used to call user information functions.
+<!--REF #Users.currentUser().Syntax -->**.currentUser**() : Object<!-- END REF -->
 
 
-
-
-
-
-
-## .getCurrentUser()
-
-<!--REF #Users.getCurrentUser().Syntax -->**.getCurrentUser**() : Object<!-- END REF -->
-
-
-<!--REF #UserClass.getCurrentUser().Params -->
+<!--REF #UserClass.currentUser().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|Object|&#8592;|Current Qodly user information|<!-- END REF -->
@@ -63,42 +65,45 @@ The `cs.Qodly.Users.new()` function <!-- REF #cs.Qodly.Users.new().Summary -->cr
 
 #### Description
 
-The `.getCurrentUser()` function <!-- REF #Users.getCurrentUser().Summary -->returns an object containing all information on the current Qodly user<!-- END REF -->.
+The `.currentUser()` function <!-- REF #Users.currentUser().Summary -->returns an object containing all information on the current Qodly user.r<!-- END REF -->. 
 
-#### Qodly user object
+:::tip Behavior
 
-The function returns a Qodly user object that contains the following properties:
+- If a user is authenticated, it returns a User object containing detailed user information.
+
+- If no user is authenticated, it returns null.
+
+- The returned User object includes properties such as email, role, firstname, and lastname.
+:::
+
+#### User object
+
+The User object returned by the function above contains the following properties:
 
 |Property|Type|Description|
 |---|---|---|
-|email|String|Email of the user used to create their account|
-|role|String|Role defined in the roles and privileges of the application|
-|firstname|String|First name of the user|
-|lastname|String|Last name of the user|
+|email|String|The user's email used for account creation.The user's email used for account creation.|
+|role|String|The user's role within the application `Roles & Privileges`.|
+|firstname|String|The user's first name.|
+|lastname|String|The user's last name.|
 
 
 #### Example
 
-To implement a `getCurrentUser()` function in a custom class:
+To implement a `currentUser()` function in a custom class:
 
 ```qs
-exposed function getCurrentUser() : object
-
-    var user : object
-    var usersInterface : cs.Qodly.Users
-
-usersInterface = cs.Qodly.Users.new()
-user = usersInterface.getCurrentUser()
-return user
+var currentUser : object
+currentUser = cs.Qodly.Users.me.currentUser()
 ```
 
 
-## .getAllUsers()
+## .allUsers()
 
-<!--REF #Users.getAllUsers().Syntax -->**.getAllUsers**() : Collection<!-- END REF -->
+<!--REF #Users.allUsers().Syntax -->**.allUsers**() : Collection<!-- END REF -->
 
 
-<!--REF #Users.getAllUsers().Params -->
+<!--REF #Users.allUsers().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|collection|&#8592;|Collection of Qodly user objects|<!-- END REF -->
@@ -106,27 +111,28 @@ return user
 
 #### Description
 
-The `.getAllUsers()` function <!-- REF #Users.getAllUsers().Summary -->returns a collection of all Qodly users (objects) currently connected to the application<!-- END REF -->.
-
+The `.allUsers()` function <!-- REF #Users.allUsers().Summary -->returns a collection of all users (objects) within the Qodly application.<!-- END REF -->.
 
 **Returned value**
 
-The function returns a collection of [Qodly user objects](#qodly-user-object).
+The function returns a collection of [User objects](#user-object).
 
 
 #### Example
 
-To implement a `getAllUsers()` function in a custom class:
+To implement a `allUsers()` function in a custom class:
 
 
 ```qs
-exposed function getAllUsers() : collection
-   
-    var users : collection
-    var usersInterface : cs.Qodly.Users 
-
-usersInterface = cs.Qodly.Users.new()
-users = usersInterface.getAllUsers()
-
-return users
+var users : collection
+users = cs.Qodly.Users.me.allUsers()
 ```
+
+
+## Backward Compatibility
+
+Existing instantiation using cs.Qodly.Users.new() remains functional for backward compatibility but is no longer recommended.
+
+:::tip
+The recommended way is to use the shared singleton directly with [.me](#me).
+:::
