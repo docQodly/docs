@@ -57,15 +57,22 @@ To use a template from the selected category, for instance, the datatable catego
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ol>
-            <li> <strong>Choose a Template</strong>: Select the one that suits your requirements, such as the datatable with the blue header.</li>
+            <li> <strong>Select a Category</strong>: Click on the desired category (e.g., Datatables, Travel, or Business). This will open a panel displaying all the templates available within that category.</li>
             <br/>
-            <li> <strong>Drag and Drop onto the Canvas</strong>: Use a simple drag-and-drop action to place it onto the canvas. </li>
+            <li> <strong>Choose a Template</strong>: Browse the templates shown in the panel. Each template includes a preview image and a brief description.</li>
+            <br/>
+            <li> <strong>Drag the Template (Not the Category!)</strong>: Click and drag a specific template (not the category icon) from the panel directly onto the canvas. </li>
         </ol>
 	</Column.Item>
 	<Column.Item width="40%">
         <img alt="styles-library" src={require('./img/templates_datatabbleBlueheader.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
+
+:::tip
+✅ Drag the template itself from the right-side panel.
+❌ Do not try to drag the category icon on the left side.
+:::
 
 ## Customizing Templates
 
