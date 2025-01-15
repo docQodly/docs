@@ -27,7 +27,18 @@ The Users class is a **shared singleton**, which means it can be accessed direct
 
 ## .me
 
-The `.me` property of the Users singleton is a reference to the current instance of the Users class. 
+<!--REF #Users.currentUser().Syntax -->**.me**() : Users Singleton Object<!-- END REF -->
+
+
+<!--REF #UserClass.me().Params -->
+|Parameter|Type||Description|
+|---|---|---|---|
+|Result|Users Singleton Object|&#8592;|The Users Singleton Object containing system properties and the current user details.|<!-- END REF -->
+
+
+#### Description
+
+The `.me` property <!-- REF #Users.currentUser().Summary -->returns the current instance of the Users singleton.<!-- END REF -->  It provides direct access to the currently authenticated user and the available system properties.
 
 It must be used when calling functions like [currentUser()](#currentuser) or [`allUsers()`](#allusers).
 
@@ -60,12 +71,12 @@ The `.me` ensures the function is being called from the current active instance 
 <!--REF #UserClass.currentUser().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Object|&#8592;|Current Qodly user information|<!-- END REF -->
+|Result|Object|&#8592;|Current Qodly user information.|<!-- END REF -->
 
 
 #### Description
 
-The `.currentUser()` function <!-- REF #Users.currentUser().Summary -->returns an object containing all information on the current Qodly user.r<!-- END REF -->. 
+The `.currentUser()` function <!-- REF #Users.currentUser().Summary -->returns an object containing all information on the current Qodly user.<!-- END REF -->. 
 
 :::tip Behavior
 
