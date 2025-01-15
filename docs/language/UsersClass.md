@@ -27,10 +27,10 @@ The Users class is a **shared singleton**, which means it can be accessed direct
 
 ## .me
 
-<!--REF #Users.currentUser().Syntax -->**.me**() : Users Singleton Object<!-- END REF -->
+<!--REF #Users.me.Syntax -->**.me** : Users Singleton Object<!-- END REF -->
 
 
-<!--REF #UserClass.me().Params -->
+<!--REF #Users.me.Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|Users Singleton Object|&#8592;|The Users Singleton Object containing system properties and the current user details.|<!-- END REF -->
@@ -38,7 +38,7 @@ The Users class is a **shared singleton**, which means it can be accessed direct
 
 #### Description
 
-The `.me` property <!-- REF #Users.currentUser().Summary -->returns the current instance of the Users singleton.<!-- END REF -->  It provides direct access to the currently authenticated user and the available system properties.
+The `.me` property <!-- REF #Users.me.Summary -->returns the current instance of the Users singleton.<!-- END REF -->  It provides direct access to the currently authenticated user and the available system properties.
 
 It must be used when calling functions like [currentUser()](#currentuser) or [`allUsers()`](#allusers).
 
@@ -68,7 +68,7 @@ The `.me` ensures the function is being called from the current active instance 
 <!--REF #Users.currentUser().Syntax -->**.currentUser**() : Object<!-- END REF -->
 
 
-<!--REF #UserClass.currentUser().Params -->
+<!--REF #Users.currentUser().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
 |Result|Object|&#8592;|Current Qodly user information.|<!-- END REF -->
