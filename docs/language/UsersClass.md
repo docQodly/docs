@@ -20,7 +20,7 @@ The Users class is a **shared singleton**, which means it can be accessed direct
 
 ||
 |---|
-|[<!-- INCLUDE #Users.me().Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.me().Summary -->|
+|[<!-- INCLUDE #Users.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.me.Summary -->|
 |[<!-- INCLUDE #Users.currentUser().Syntax -->](#currentuser)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.currentUser().Summary -->|
 |[<!-- INCLUDE #Users.allUsers().Syntax -->](#allusers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Users.allUsers().Summary -->|
 
