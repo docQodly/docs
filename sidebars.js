@@ -431,6 +431,7 @@ const sidebars = {
 						'language/DataClassClass',
 						'language/DataStoreClass',
 						'language/EmailObjectClass',
+						'language/EndpointsClass',
 						'language/EntityClass',
 						'language/EntitySelectionClass',
 						'language/FileClass',
