@@ -7,7 +7,7 @@ title: Users
 
 ## Overview
 
-The Users class is a **shared singleton**, meaning a single instance is globally available and does not require manual instantiation. 
+The **Users** class is a **shared singleton**, meaning a single instance is globally available and does not require manual instantiation. 
 
 It provides streamlined access to user information within a Qodly application, including the currently authenticated user and all connected users.
 

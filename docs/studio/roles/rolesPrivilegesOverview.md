@@ -155,12 +155,9 @@ Here's how you can retrieve and store user data for session-wide access:
 
 ```qs
 exposed Function loadSessionUserInfo()
-	var userCS : cs.Qodly.Users
-	
-	userCS = cs.Qodly.Users.new()
 
 	use(session.storage)
-		session.storage.currentUser = userCS.getCurrentUser()
+		session.storage.currentUser = cs.Qodly.Users.me.currentUser()
 	end
 
 ```
