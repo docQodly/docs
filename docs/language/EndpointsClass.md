@@ -19,7 +19,7 @@ The Endpoints class is a **shared singleton**, which means it can be accessed di
 
 ||
 |---|
-|[<!-- INCLUDE #Endpoints.me().Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.me().Summary -->|
+|[<!-- INCLUDE #Endpoints.me().Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.me.Summary -->|
 |[<!-- INCLUDE #Endpoints.authenticatedEndpoint().Syntax -->](#authenticatedendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.authenticatedEndpoint().Summary -->|
 |[<!-- INCLUDE #Endpoints.customDomainAuthenticatedEndpoint().Syntax -->](#customdomainauthenticatedendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.customDomainAuthenticatedEndpoint().Summary -->|
 |[<!-- INCLUDE #Endpoints.publicEndpoint().Syntax -->](#publicendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.publicEndpoint().Summary -->|
