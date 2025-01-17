@@ -61,7 +61,7 @@ To use a template from the selected category, for instance, the datatable catego
             <br/>
             <li> <strong>Choose a Template</strong>: Browse the templates shown in the panel. Each template includes a preview image and a brief description.</li>
             <br/>
-            <li> <strong>Drag the Template (Not the Category!)</strong>: Click and drag a specific template (not the category icon) from the panel directly onto the canvas. </li>
+            <li> <strong>Drag the Template (Not the Category!)</strong>: Click and drag a specific template from the panel directly onto the canvas. </li>
         </ol>
 	</Column.Item>
 	<Column.Item width="40%">
@@ -69,9 +69,8 @@ To use a template from the selected category, for instance, the datatable catego
 	</Column.Item>
 </Column.List>
 
-:::tip
-✅ Drag the template itself from the right-side panel.
-❌ Do not try to drag the category icon on the left side.
+:::warning
+Make sure to drag the template itself from the right-side panel and not the category icon on the left side.
 :::
 
 ## Customizing Templates
