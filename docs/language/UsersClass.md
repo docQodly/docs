@@ -138,12 +138,3 @@ To implement a `allUsers()` function in a custom class:
 var users : collection
 users = cs.Qodly.Users.me.allUsers()
 ```
-
-
-## Backward Compatibility
-
-Existing instantiation using cs.Qodly.Users.new() remains functional for backward compatibility but is no longer recommended.
-
-:::tip
-The recommended way is to use the shared singleton directly with [.me](#me).
-:::
