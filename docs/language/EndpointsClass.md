@@ -6,35 +6,112 @@ title: Endpoints
 
 ## Overview
 
-The **Endpoints** class is a shared singleton, meaning a single global instance is available throughout the application. It provides access to both public and authenticated endpoints for the system, including custom domain endpoints.
-
-The class simplifies the retrieval of various endpoint types required for secure and public access management.
-The Endpoints class simplifies the retrieval of various endpoint types required for secure and public access management across different environments such as development (dev).
+The **Endpoints** class provides access to both public and authenticated system endpoints, including custom domain endpoints. It simplifies retrieving the necessary endpoint types for secure and public access management across different environments, such as development.
 
 :::tip
-The Endpoints class is a **shared singleton**, which means it can be accessed directly without creating a new instance using the `.me` property of the Endpoints class.
+The **Endpoints** class is a **shared singleton**, meaning a single instance is globally available without needing manual creation. You can access it directly via the [.me](#me) property without instantiating a new instance.
 :::
+
 
 ## Functions and properties
 
 ||
 |---|
-|[<!-- INCLUDE #Endpoints.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.me.Summary -->|
 |[<!-- INCLUDE #Endpoints.authenticatedEndpoint().Syntax -->](#authenticatedendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.authenticatedEndpoint().Summary -->|
 |[<!-- INCLUDE #Endpoints.customDomainAuthenticatedEndpoint().Syntax -->](#customdomainauthenticatedendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.customDomainAuthenticatedEndpoint().Summary -->|
-|[<!-- INCLUDE #Endpoints.publicEndpoint().Syntax -->](#publicendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.publicEndpoint().Summary -->|
 |[<!-- INCLUDE #Endpoints.customDomainPublicEndpoint().Syntax -->](#customdomainpublicendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.customDomainPublicEndpoint().Summary -->|
+|[<!-- INCLUDE #Endpoints.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.me.Summary -->|
+|[<!-- INCLUDE #Endpoints.publicEndpoint().Syntax -->](#publicendpoint)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #Endpoints.publicEndpoint().Summary -->|
+
+
+
+
+## .authenticatedEndpoint()
+
+<!--REF #Endpoints.authenticatedEndpoint().Syntax -->**.authenticatedEndpoint**() : String<!-- END REF -->
+
+
+<!--REF #Endpoints.authenticatedEndpoint().Params -->
+|Parameter|Type||Description|
+|---|---|---|---|
+|Result|String|&#8592;|Authenticated endpoint URL for the current environment.|<!-- END REF -->
+
+
+#### Description
+
+The `.authenticatedEndpoint()` function <!-- REF #Endpoints.authenticatedEndpoint().Summary -->returns the authenticated API endpoint URL specific to the current Qodly environment.<!-- END REF -->
+
+#### Example
+
+To implement a method that retrieves the authenticated endpoint in a custom class:
+
+```qs
+var authEndpoint : string
+authEndpoint = cs.Qodly.Endpoints.me.authenticatedEndpoint()
+```
+
+
+
+## .customDomainAuthenticatedEndpoint()
+
+<!--REF #Endpoints.customDomainAuthenticatedEndpoint().Syntax -->**.customDomainAuthenticatedEndpoint**() : String<!-- END REF -->
+
+
+<!--REF #Endpoints.customDomainAuthenticatedEndpoint().Params -->
+|Parameter|Type||Description|
+|---|---|---|---|
+|Result|String|&#8592;|Authenticated endpoint URL for a custom domain or null.|<!-- END REF -->
+
+
+#### Description
+
+The `.customDomainAuthenticatedEndpoint()` function <!-- REF #Endpoints.customDomainAuthenticatedEndpoint().Summary -->returns the authenticated API endpoint URL for a custom domain if it has been configured.<!-- END REF -->
+
+#### Example
+
+To implement a method that retrieves the custom domain authenticated endpoint in a custom class:
+
+```qs
+var customAuthEndpoint : string
+customAuthEndpoint = cs.Qodly.Endpoints.me.customDomainAuthenticatedEndpoint()
+```
+
+
+## .customDomainPublicEndpoint()
+
+<!--REF #Endpoints.customDomainPublicEndpoint().Syntax -->**.customDomainPublicEndpoint**() : String<!-- END REF -->
+
+
+<!--REF #Endpoints.customDomainPublicEndpoint().Params -->
+|Parameter|Type||Description|
+|---|---|---|---|
+|Result|String|&#8592;|Public endpoint URL for a custom domain or null.|<!-- END REF -->
+
+
+#### Description
+
+The `.customDomainPublicEndpoint()` function <!-- REF #Endpoints.customDomainPublicEndpoint().Summary -->returns the public endpoint URL for a custom domain if it has been configured in the Qodly application.<!-- END REF -->
+
+#### Example
+
+To implement a method that retrieves the custom domain public endpoint in a custom class:
+
+```qs
+var customPublicEndpoint : string
+customPublicEndpoint = cs.Qodly.Endpoints.me.customDomainPublicEndpoint()
+```
+
 
 
 ## .me
 
-<!--REF #Endpoints.me.Syntax -->**.me** : Endpoints Singleton Object<!-- END REF -->
+<!--REF #Endpoints.me.Syntax -->**.me** : cs.Qodly.Endpoints<!-- END REF -->
 
 
 <!--REF #Endpoints.me.Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|Endpoints Singleton Object|&#8592;|The Endpoints Singleton Object containing system endpoints.|<!-- END REF -->
+|Result|cs.Qodly.Endpoints|&#8592;|The Endpoints Singleton Object containing system endpoints.|<!-- END REF -->
 
 
 #### Description
@@ -65,57 +142,6 @@ The `.me` ensures the function is being called from the current active instance 
 
 
 
-## .authenticatedEndpoint()
-
-<!--REF #Endpoints.authenticatedEndpoint().Syntax -->**.authenticatedEndpoint**() : String<!-- END REF -->
-
-
-<!--REF #Endpoints.authenticatedEndpoint().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|Result|String|&#8592;|Authenticated endpoint URL for the current environment.|<!-- END REF -->
-
-
-#### Description
-
-The `.authenticatedEndpoint()` function <!-- REF #Endpoints.authenticatedEndpoint().Summary -->returns the authenticated API endpoint URL specific to the current Qodly environment.<!-- END REF -->
-
-#### Example
-
-To implement a method that retrieves the authenticated endpoint in a custom class:
-
-```qs
-var authEndpoint : String
-authEndpoint = cs.Qodly.Endpoints.me.authenticatedEndpoint()
-```
-
-
-
-## .customDomainAuthenticatedEndpoint()
-
-<!--REF #Endpoints.customDomainAuthenticatedEndpoint().Syntax -->**.customDomainAuthenticatedEndpoint**() : String<!-- END REF -->
-
-
-<!--REF #Endpoints.customDomainAuthenticatedEndpoint().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|Result|String|&#8592;|Authenticated endpoint URL for a custom domain or null..|<!-- END REF -->
-
-
-#### Description
-
-The `.customDomainAuthenticatedEndpoint()` function <!-- REF #Endpoints.customDomainAuthenticatedEndpoint().Summary -->returns the authenticated API endpoint URL for a custom domain if it has been configured.<!-- END REF -->
-
-#### Example
-
-To implement a method that retrieves the custom domain authenticated endpoint in a custom class:
-
-```qs
-var customAuthEndpoint : String
-customAuthEndpoint = cs.Qodly.Endpoints.me.customDomainAuthenticatedEndpoint()
-```
-
-
 ## .publicEndpoint()
 
 <!--REF #Endpoints.publicEndpoint().Syntax -->**.publicEndpoint**() : String<!-- END REF -->
@@ -136,32 +162,6 @@ The `.publicEndpoint()` function <!-- REF #Endpoints.publicEndpoint().Summary --
 To implement a method that retrieves the custom domain authenticated endpoint in a custom class:
 
 ```qs
-var publicEndpoint : String
+var publicEndpoint : string
 publicEndpoint = cs.Qodly.Endpoints.me.publicEndpoint()
-```
-
-
-
-## .customDomainPublicEndpoint()
-
-<!--REF #Endpoints.customDomainPublicEndpoint().Syntax -->**.customDomainPublicEndpoint**() : String<!-- END REF -->
-
-
-<!--REF #Endpoints.customDomainPublicEndpoint().Params -->
-|Parameter|Type||Description|
-|---|---|---|---|
-|Result|String|&#8592;|Public endpoint URL for a custom domain or null.|<!-- END REF -->
-
-
-#### Description
-
-The `.customDomainPublicEndpoint()` function <!-- REF #Endpoints.customDomainPublicEndpoint().Summary -->returns the public endpoint URL for a custom domain if it has been configured in the Qodly application.<!-- END REF -->
-
-#### Example
-
-To implement a method that retrieves the custom domain public endpoint in a custom class:
-
-```qs
-var customPublicEndpoint : String
-customPublicEndpoint = cs.Qodly.Endpoints.me.customDomainPublicEndpoint()
 ```
