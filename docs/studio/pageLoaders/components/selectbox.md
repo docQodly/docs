@@ -262,6 +262,11 @@ In this example each choice within the select box is customized with rounded cor
 	<pre>
 		<code className="language-css">
 			{`
+self.fd-selectbox {
+border-radius: 10px;
+background-color: #E0E0E0; 
+box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
+}
 self .fd-selectbox__container > div:hover{
 border-radius: 5px;
 box-shadow:  -4px 4px 10px rgba(185, 168, 208, 0.949), -2px 2px 10px rgba(179, 132, 188, 0.3);
@@ -285,6 +290,11 @@ In this example, the virtual list of the Select Box is customized by applying a 
 	<pre>
 		<code className="language-css">
 			{`
+self.fd-selectbox {
+border-radius: 10px;
+background-color: #E0E0E0; 
+box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
+}
 self .FdVirtualList {
 	background-color: rgb(206, 174, 224);
 	color: rgb(25, 34, 128);
