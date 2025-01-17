@@ -22,7 +22,6 @@ Permissions define essential actions on resources, covering tasks such as creati
 | Read | Read Attributes in any Dataclass. | Read attributes in the chosen Dataclass. | Read the content of the chosen Attribute. | n/a |
 | Update | Update Attributes in any Dataclass. | Update attributes in the chosen Dataclass. | Update the content of the chosen Attribute. | n/a |
 | Delete | Delete data throughout the Model. | Delete data in the chosen Dataclass. | Delete a non-null value for the chosen Attribute. | n/a |
-| Describe | Provides metadata access throughout the Model. | Provides metadata access for the chosen Dataclass. | Provides metadata access for the selected Attribute. | Provides metadata access for the chosen Dataclass function. |
 | Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
 | Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
@@ -68,7 +67,7 @@ To create a new permission in the current privilege:
 
 ### Assign Permissions
 
-Permissions for specific resources—such as Datastore, DataClass, and Attribute—are easily set by checking the corresponding boxes in the permissions grid. Each permission (such as Read, Create, Update, Delete, Describe, Execute, and Promote) can be granted by selecting the checkbox under the relevant column for each resource.
+Permissions for specific resources—such as Datastore, DataClass, and Attribute—are easily set by checking the corresponding boxes in the permissions grid. Each permission (such as Read, Create, Update, Delete, Execute, and Promote) can be granted by selecting the checkbox under the relevant column for each resource.
 
 <img src={require('./img/Permissions.png').default} style={{borderRadius: '6px'}} />
 
@@ -124,7 +123,7 @@ If you don't set specific permissions at a lower level, the resource will inheri
 
 - **Enabled**: Displays all permissions defined for resources, including those inherited from other privileges.
 
-- **Disabled**: Hides inherited permissions defined for resources. If a resource's permissions are entirely inherited and no explicit permissions are defined in the current privilege, the entire resource row will be hidden. If an explicit permission exists (e.g., Describe) for a resource, only the inherited permissions (e.g., Create) are unchecked while the resource row remains visible.
+- **Disabled**: Hides inherited permissions defined for resources. If a resource's permissions are entirely inherited and no explicit permissions are defined in the current privilege, the entire resource row will be hidden. If an explicit permission exists (e.g., Execute) for a resource, only the inherited permissions (e.g., Create) are unchecked while the resource row remains visible.
 
 ## Overrides
 

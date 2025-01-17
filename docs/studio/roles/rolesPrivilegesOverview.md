@@ -36,7 +36,7 @@ When a role is selected in the `Roles & Privileges` editor, a detailed permissio
 	- Singletons
 	- Singleton Functions
 
-- Permission Columns: For each asset, the following columns display resolved permissions: Read, Create, Update, Delete, Describe and Execute.
+- Permission Columns: For each asset, the following columns display resolved permissions: Read, Create, Update, Delete and Execute.
 
 :::tip Permission Indicators
 A grey tick <img src={require('./img/PermissionIndicators1.png').default} style={{borderRadius: '6px', width:'3%'}} /> indicates that the permission is granted. 
