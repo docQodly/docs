@@ -197,29 +197,29 @@ The **Select Box** component offers additional customization options through CSS
 
 ### Understanding Select Box CSS Classes
 
-The Select Box component supports various CSS classes, enabling customization of the select box wrapper, container, menu wrapper, and virtual list. Below is a detailed list of the supported CSS classes and their corresponding elements.
+The Select Box component supports various CSS classes, enabling customization of the select box, container, menu, and virtual list. Below is a detailed list of the supported CSS classes and their corresponding elements.
 
 #### Select Box Classes
 
 | **Class Name**   | **Applies To**                 | **Description**                            |
 |------------------|-------------------------------|--------------------------------------------|
-| `.fd-selectbox__wrapper`        | The select box header              | Styles the default view of the select box, displaying the selected option when the select box is closed.       |
+| `.fd-selectbox`        | The select box header            | Styles the default view of the select box, displaying the selected option when the select box is closed.       |
 | `.fd-selectbox__container`   |    The choices inside the select box          |  Applies styles to all available choices inside the select box.          |
 | `.fd-selectbox__container > div:hover`   | Components within choices    | Styles individual components inside each choice when hovered. |
 | `.FdVirtualList`   | The select box options list    | Applies styles to the list of choices in the select box. |
-| `.fd-selectbox__menu_wrapper`   | The select box menu    | Styles the entire select box menu, including the search area. |
+| `.fd-selectbox__menu`   | The select box menu    | Styles the entire select box menu, including the search area. |
 
 ### Custom styling examples
 The following examples demonstrate how to customize the Select Box component's appearance.
 
-#### Example 1: Select Box Wrapper
-This example styles the Select Box header, using a silver background color, rounded corners, and shadow effects to create a sense of depth.
+#### Example 1: Select Box Header
+This example styles the Select Box default view (Header), using a silver background color, rounded corners, and shadow effects to create a sense of depth.
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
 	<pre>
         <code className="language-css">{`
-self .fd-selectbox__wrapper {
+self.fd-selectbox {
 border-radius: 10px;
 background-color: #E0E0E0; 
 box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
@@ -286,8 +286,8 @@ In this example, the virtual list of the Select Box is customized by applying a 
 		<code className="language-css">
 			{`
 self .FdVirtualList {
-	background-color: rgb(87, 17, 127);
-	color: rgb(141, 147, 217);
+	background-color: rgb(206, 174, 224);
+	color: rgb(25, 34, 128);
 	font-family: "Gill Sans", sans-serif;
 }`}
 		</code>
@@ -298,7 +298,7 @@ self .FdVirtualList {
 	</Column.Item>
 </Column.List>
 
-#### Example 5: Select Box menu wrapper
+#### Example 5: Select Box menu
 This example customizes the Select Box menu by applying a light gray background, a cursive font for the text, and a soft shadow for added depth.
 
 <Column.List align="center" justifyContent="between">
@@ -306,7 +306,7 @@ This example customizes the Select Box menu by applying a light gray background,
 	<pre>
 		<code className="language-css">
 			{`
-self .fd-selectbox__menu_wrapper {
+self.fd-selectbox__menu {
 	color:rgb(152, 92, 8);
 	background-color: #E0E0E0; 
 	font-family: cursive;
@@ -319,6 +319,10 @@ self .fd-selectbox__menu_wrapper {
 			<img src={require('./img/selectbox_menu_wrapper.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
 	</Column.Item>
 </Column.List>
+
+:::tip 
+For smooth application of CSS Classes, both `.fd-selectbox` and `.fd-selectbox__menu` should be attached to `self` **without an extra space** unlike other classNames.
+:::
 
 ## Showcase
 
