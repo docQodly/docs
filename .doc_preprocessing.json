@@ -8,7 +8,9 @@
         "watch":true,
         "output":"./docsPostProcessed/"
     },
-
+    "build_versioned_docs": {
+        "path":"./versioned_docs/*/"
+    },
     "build_syntax": {
         "path":"./docs/language/",
         "syntax_output":"./syntax/en.lproj/syntax_4qs_EN.json",

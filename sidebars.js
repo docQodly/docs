@@ -92,16 +92,6 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Model',
-			items: ['studio/model/model-editor-interface',
-				'studio/model/datastore-classes',
-				'studio/model/attributes',
-				'studio/model/functions',
-				'studio/model/import',
-			],
-		},
-		{
-			type: 'category',
 			label: 'Pages',
 			items: ['studio/pageLoaders/pageLoaderOverview',
 				{
@@ -156,16 +146,6 @@ const sidebars = {
 			],
 		},
 		{
-			type: 'doc',
-			id: 'studio/settings',
-			label: "Settings"
-		},
-		{
-			type: 'doc',
-			id: 'data-explorer/data-explorer',
-			label: "Data Explorer"
-		},
-		{
 			type: 'category',
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
@@ -194,11 +174,37 @@ const sidebars = {
 		},
 		{
 			type: 'category',
+			label: 'Model',
+			items: ['studio/model/model-editor-interface',
+				'studio/model/datastore-classes',
+				'studio/model/attributes',
+				'studio/model/functions',
+				'studio/model/import',
+			],
+		},
+		{
+			type: 'doc',
+			id: 'studio/httpHandlers',
+			label: "HTTP Handlers"
+		},
+		{
+			type: 'doc',
+			id: 'studio/settings',
+			label: "Settings"
+		},
+		{
+			type: 'doc',
+			id: 'data-explorer/data-explorer',
+			label: "Data Explorer"
+		},
+		{
+			type: 'category',
 			label: 'Programming Guide',
 			items: [	'orda/data-model', 
 						'orda/data',
 						'orda/queries',
 						'orda/sessions',
+						'language/guides/login',
 			],
 		},
 		{
@@ -334,6 +340,7 @@ const sidebars = {
 						'language/commands/lastErrors',
 						'language/commands/length',
 						'language/commands/log',
+						'language/commands/logEvent',
 						'language/commands/lowercase',
 						'language/commands/mailConvertFromMIME',
 						'language/commands/mailConvertToMIME',
@@ -424,6 +431,7 @@ const sidebars = {
 						'language/DataClassClass',
 						'language/DataStoreClass',
 						'language/EmailObjectClass',
+						'language/EndpointsClass',
 						'language/EntityClass',
 						'language/EntitySelectionClass',
 						'language/FileClass',
@@ -437,7 +445,7 @@ const sidebars = {
 						'language/POP3TransporterClass',
 						'language/SessionClass',
 						'language/SignalClass',
-       				    'language/SMTPTransporterClass',
+    			        'language/SMTPTransporterClass',
 						'language/SystemWorkerClass',
 						'language/UsersClass',
 						'language/WebFormClass',
@@ -566,6 +574,8 @@ const sidebars = {
 			label: 'Qodly Releases',
 			collapsed: false,
 			items: [
+						'notes/1.1.0',
+						'notes/1.0.0',
 						'notes/1.0.0-beta.6',
 						'notes/1.0.0-beta.5',
 						'notes/1.0.0-beta.4',

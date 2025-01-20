@@ -7,7 +7,8 @@ title: FAQ
 ## General
 
 <details>
-<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is included in the Qodly Platform? </summary>
+<summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is included in the Qodly Platform?</summary>
+
 The Qodly platform is a fully integrated environment where you can develop, test, deploy, and monitor business applications with advanced web interfaces. Qodly is the perfect platform to design and publish powerful back office applications, or sophisticated dashboards, in a record time.
 
 The Qodly plaform is made of a **Studio**, a **Server**, and a **Cloud platform**, all working together flawlessly to provide you with an end-to-end software platform that can build web business apps in no time.
@@ -62,6 +63,7 @@ End users are granted authorization to interact with renderers across all enviro
 
 <details>
 <summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Do I need specific expertise in HTML, CSS, or JavaScript to use Qodly Studio?</summary>
+
 No, Qodly Studio offers an experience of intuitive and visual web development that does not require any expertise of web technologies.
 </details>
 
@@ -108,6 +110,7 @@ All these elements are included in one single executable running under Linux OS,
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Can I install a local instance of Qodly Server?</summary>
+
 No, Qodly Server is only proposed a a cloud service.
 </details>
 
@@ -127,7 +130,7 @@ No, Qodly Server is only proposed a a cloud service.
 |Number of properties per object attribute|up to 128 billion*|
 |Number of transaction levels|Unlimited|
 
-* depending on the number of index keys
+\* depending on the number of index keys
 
 </details>
 

@@ -110,6 +110,26 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <img src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
+                :::tip
+                        <Column.List align="center" justifyContent="between">
+                                <Column.Item width="50%">
+                                        For Text Input components of type password, when the "Reveal Password" toggle is enabled:
+                                </Column.Item>
+                                <Column.Item width="45%">
+                                        <img src={require('./img/inputType_passwordTooltip.png').default} style={{borderRadius: '6px'}} />
+                                </Column.Item>
+                        </Column.List>
+                        <Column.List align="center" justifyContent="between">
+                                <Column.Item width="50%">
+                                        The eye icon and tooltip functionality are displayed by default.
+                                </Column.Item>
+                                <Column.Item width="45%">
+                                        <img src={require('./img/inputType_passwordTooltip2.png').default} style={{borderRadius: '6px'}} />
+                                        <img src={require('./img/inputType_passwordTooltip3.png').default} style={{borderRadius: '6px'}} />
+                                </Column.Item>
+                        </Column.List>
+                        However, when the "Reveal Password" toggle is disabled, the password remains hidden, and the tooltip functionality is not available.
+                :::
                 <Column.List align="center" justifyContent="between">
                         <Column.Item width="60%">
                                 <li><strong>date</strong>: Limits input to date values with a date picker.</li>

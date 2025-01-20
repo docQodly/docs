@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Configuring Roles & Privilege
+title: Configuring Roles & Privileges
 ---
 import Column from '@site/src/components/Column'
 
@@ -15,6 +15,46 @@ Roles are essential in defining distinct user profiles within Qodly. Each role c
 
 Roles can be structured hierarchically, allowing for an organized and layered access control system. In Qodly, higher-level roles can inherit the **privileges** of lower-level roles, creating an efficient method of managing user access. This hierarchy enhances the granularity of access management and facilitates a streamlined approach.
 
+### Detailed Permission Review for Roles
+
+When a role is selected in the `Roles & Privileges` editor, a detailed permission review is displayed to provide insight into the final permissions resolution for that specific role. This feature helps developers fine-tune privileges more effectively by showing the impact of privilege configurations.
+
+<img src={require('./img/showRolePermissions.png').default} style={{borderRadius: '6px'}} />
+
+
+- Comprehensive Permission Listing: Lists all application code assets, including: Dataclasses, Attributes, Functions, Singletons and Singleton functions.
+
+- Organized and Alphabetical Grouping: Listed assets are grouped and sorted alphabetically as follows:
+
+	- Datastore (ds)
+	- Datastore Functions 
+	- Dataclasses
+	- Attributes
+	- Dataclass Functions
+	- Entity Functions
+	- Entity Selection Functions
+	- Singletons
+	- Singleton Functions
+
+- Permission Columns: For each asset, the following columns display resolved permissions: Read, Create, Update, Delete and Execute.
+
+:::tip Permission Indicators
+A grey tick <img src={require('./img/PermissionIndicators1.png').default} style={{borderRadius: '6px', width:'3%'}} /> indicates that the permission is granted. 
+
+If the access is granted through promoted privileges, an info indicator <img src={require('./img/PermissionIndicators3.png').default} style={{borderRadius: '6px', width:'5%'}} /> is provided.
+
+An empty checkbox <img src={require('./img/PermissionIndicators2.png').default} style={{borderRadius: '6px', width:'3%'}} /> indicates that the permission is not granted.
+:::
+
+
+:::info Impact of Privilege Changes
+Displaying permissions explicitly helps identify the consequences of modifications in privileges, such as:
+
+- Adding permissions to a privilege included in a role.
+- Removing permissions from a privilege that is not included in any role.
+- Promoting a function execution in a privilege will apply the promotion universally, regardless of roles.
+:::
+
 
 ### Adding Roles  
 
@@ -23,11 +63,9 @@ To add a role:
 1. Open the `Explorer` Panel.
 2. Navigate to the `Roles and Privileges` section.
 3. Click on the `Roles` tab to access role management.
-4. To create a new role, click on the `Add new role` card.
+4. To create a new role, click on the `+` button next to Roles. <img src={require('./img/addRole.png').default} style={{borderRadius: '6px', width:'30%'}} />
 
-<img src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
 
 :::note Example
 In a back-office travel agency solution, you might create roles such as:
@@ -77,7 +115,7 @@ To assign one or multiple privileges to a role:
 
 1. Navigate to the `Roles` tab within the `Roles and Privileges` section.
 2. Select the desired role (e.g., `Sales Manager`).
-3. Locate the privileges side section on the far right.
+3. Locate the privileges section on the top.
 4. In this section, you'll find a comprehensive list of available privileges.
 5. To assign a privilege, click the `+` icon.
 6. To remove a privilege, simply click the `-` icon.
@@ -117,12 +155,9 @@ Here's how you can retrieve and store user data for session-wide access:
 
 ```qs
 exposed Function loadSessionUserInfo()
-	var userCS : cs.Qodly.Users
-	
-	userCS = cs.Qodly.Users.new()
 
 	use(session.storage)
-		session.storage.currentUser = userCS.getCurrentUser()
+		session.storage.currentUser = cs.Qodly.Users.me.currentUser()
 	end
 
 ```

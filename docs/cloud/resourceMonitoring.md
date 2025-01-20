@@ -237,7 +237,13 @@ This section provides a drop-down menu where you can select the type of logs to 
 
   - **qodlySTDOUTLog**: Contains standard output logs from the application, capturing routine system and application messages.
 
-  - **4DDiagnosticLogServer**: Includes diagnostic data related to server performance and behavior, useful for more technical troubleshooting and server analysis.
+  - **4DDiagnosticLogServer**: Includes diagnostic data related to server performance and behavior, useful for more technical troubleshooting and server analysis. 
+
+:::note
+
+You can write custom information in the diagnostic log file thanks to the [`logEvent()`](../language/commands/logEvent.md) command. 
+
+:::
 
 Once you select a log type, click Refresh to update the log data based on the selected type and date range.
 

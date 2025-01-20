@@ -83,13 +83,6 @@ After the function concludes, the temporary elevation from the `Promote` permiss
 Refer to the use case of the [`Promote`](#promote-permission-use-case) permission for detailed configuration information.
 :::
 
-### Describe Permission
-
-Describe permissions provide metadata access for the selected function <img src={require('./img/describeFunction.png').default} style={{borderRadius: '6px', width:'5%'}} />.
-
-:::tip
-Refer to the use case of the [`Describe`](#describe-permission-use-case) permission for detailed configuration information.
-:::
 
 ## Strategies 
 
@@ -173,55 +166,4 @@ This configuration explicitly specifies that when the `analyzePricing` function 
 
 :::tip
 Add the `Execute` permission in the privilege associated with the role that needs to directly perform the function. Meanwhile, the `Promote` permission is configured in the privilege that grants broader control over the resources involved in the function, providing a temporary elevation of privileges during the function's execution.
-:::
-
-
-## Describe Permission Use Case
-
-The `Describe` permission gives a privilege the ability to gather metadata about the structure and attributes of Dataclasses.
-
-### Scenario Overview
-
-In this scenario, the `Describe` permission is restricted to privilege `A` for the metadata of the `Pricing` Dataclass:
-
-<img src={require('./img/describePermissionUseCase1.png').default} style={{borderRadius: '6px'}} />
-
-This limitation means that only privilege `A` is allowed to read the metadata associated with the `Pricing` Dataclass, covering Dataclass functions, Entity functions, and Entity Selection functions.
-
-### Consequence of Limited Permission
-
-Despite privilege `B` having the necessary permissions to execute the function, and the function being promoted, an error is triggered:
-
-<img src={require('./img/describePermissionUseCase2.png').default} style={{borderRadius: '6px'}} />
-
-This error results from the absence of the `Describe` permission for the `Pricing` Dataclass within privilege `B`:
-
-<img src={require('./img/describePermissionUseCase3.png').default} style={{borderRadius: '6px'}} />
-
-This prevents it from retrieving crucial metadata, including the Dataclass name. Consequently, it fails to recognize the existence of the `Pricing` Dataclass and, by extension, the associated function during execution.
-
-### Solutions
-
-#### Solution 1: Granting Describe Permission
-
-To address this issue, grant privilege `B` the necessary `Describe` permission for the `Pricing` Dataclass. This permission allows privilege `B` to access metadata, including the Dataclass name and its functions, enabling the successful execution of functions within the `Pricing` Dataclass.
-
-#### Solution 2: Higher Permission Level
-
-If `Describe` permission is configured for total confidentiality, and privilege `B` shouldn't have access to it, then all functions must have a higher permission level than the restricted resource - the `Pricing` Dataclass.
-
-To overcome these limitations, place the function in the **DataStore** function and update the function appointed to privilege `B`, displaying `ds.analyzePricing` instead of `Pricing.analyzePricing`:
-
-<img src={require('./img/describePermissionUseCase4.png').default} style={{borderRadius: '6px'}} />
-
-:::info
-The **DataStore** has a higher permission level than any individual **Dataclass**.
-:::
-
-Likewise, if you aim to restrict the `Describe` permission for the `Price` Attribute in the `Pricing` Dataclass, place the function either in the `Pricing` Dataclass function or the **DataStore** function:
-
-<img src={require('./img/describePermissionUseCase5.png').default} style={{borderRadius: '6px'}} />
-
-:::info
-The **Dataclass** has a higher permission level than its **Properties**.
 :::

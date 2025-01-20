@@ -57,6 +57,23 @@ Enhance the **DataTable** component to align with your application's requirement
 	</Column.Item>
 </Column.List>
 
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+        <ul>
+            <li><strong>Sorting Behavior</strong>: Control the scrolling behavior of the DataTable after sorting columns. This feature improves navigation and focus in large tables by offering two options:</li>
+            <br/>
+            <ul>
+                <li><strong>Scroll to Selection (default)</strong>: After sorting, the table keeps the selected element in focus and ensures it remains in view.</li><br/>
+                <li><strong>Scroll to Top</strong>: After sorting, the table scrolls to the top while retaining the selected element in the table.</li>
+            </ul>
+        </ul>
+  </Column.Item>
+  <Column.Item width="35%">
+    <img src={require('./img/dataTable_SortingBehavior.png').default} style={{borderRadius: '6px'}} />
+  </Column.Item>
+</Column.List>
+
 - **Columns Area**: The columns area is where developers can manage the columns within the DataTable. It provides options for adding, moving, or removing columns to customize the structure of the table.
 
     - **Adding Columns**: To add a new column, click on the `+` icon. This action triggers the appearance of a new column configuration area located at the bottom of the column list. This area allows you to define properties for the new column:

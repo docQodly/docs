@@ -23,6 +23,28 @@ const config = {
   organizationName: 'docQodly', // Usually your GitHub org/user name.
   projectName: 'qodly', // Usually your repo name.
   noIndex: !isProduction,
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+  },
+  markdown: {
+    format: 'mdx',
+    mermaid: true,
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    anchors: {
+      maintainCase: false,
+    },
+  },
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -60,7 +82,25 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl: isProduction ? `${ghUrl}/edit/main`: undefined,
-          editUrl: `${ghUrl}/edit/main`,
+          //editUrl: `${ghUrl}/edit/main`,
+          editUrl: function edit(info) {
+            // const lang = info.locale;
+            // const version = info.version;
+            // const permalink = info.permalink;
+
+            const title = `Comment on ${info.docPath} (${info.version})`;
+            const body = `Share any feedback about this page — report issues, suggest improvements, or tell us what’s helpful.
+
+If it’s an issue:
+- What’s the issue? (e.g., typo, incorrect information, unclear explanation)
+- Where is it? (e.g., section name, specific paragraph, or line)
+
+Thank you for helping us improve! 🚀
+              `;
+            return `https://github.com/qodly/docs/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
+          },
+          
+          includeCurrentVersion: isProduction ? false : true, // false for prod only
         },
         blog: {
           //  showReadingTime: true,
@@ -144,6 +184,12 @@ const config = {
             docId: "faq/faq",
             label: "FAQ",
           },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+            dropdownActiveClassDisabled: false,
+          },  
           /*
             {to: '/blog', label: 'Blog', position: 'left'},
             {
@@ -170,7 +216,7 @@ const config = {
               },
               {
                 label: "Release Notes",
-                to: "notes/1.0.0-beta.6",
+                to: "notes/1.0.0",
               },
             ],
           },

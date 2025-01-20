@@ -175,7 +175,7 @@ Each condition within the schema is represented by an interactive card, providin
 
 | Name         | Icon | Description | Available Operators                                   |
 |--------------|------|-------------|-------------------------------------------------------|
-| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified qodlysource. | `=`, `!=`, `>`, `>=`, `<`, `<=`, `in`, `not in`, `regex` |
+| Qodly Source | <img src={require('./img/typeQodlySource.png').default} style={{borderRadius: '6px', width: '60%'}} /> | Evaluates data from a specified qodlysource. | `=`, `!=`, `>`, `>;=`, `<`, `&lt;=`, `in`, `not in`, `regex` |
 
 :::info Comparators vary depending on the qodlysource type:
 
@@ -193,9 +193,9 @@ Each condition within the schema is represented by an interactive card, providin
 | **Number**            | `=`          | Checks if the number is exactly equal to the specified value.                                                        |
 |                      | `!=`         | Checks if the number is not equal to the specified value.                                                            |
 |                      | `>`          | Checks if the number is greater than the specified value.                                                            |
-|                      | `>=`         | Checks if the number is greater than or equal to the specified value.                                                |
+|                      | `>;=`         | Checks if the number is greater than or equal to the specified value.                                                |
 |                      | `<`          | Checks if the number is less than the specified value.                                                               |
-|                      | `<=`         | Checks if the number is less than or equal to the specified value.                                                   |
+|                      | `&lt;=`         | Checks if the number is less than or equal to the specified value.                                                   |
 |                      | `between`    | Checks if the number falls within a specified range of two values.                                                   |
 |                      | `is null`    | Checks if the number is `null`, meaning it has no value.                                                             |
 |                      | `not null`   | Checks if the number is not `null`, meaning it has a defined value.                                                  |
@@ -308,6 +308,18 @@ Each condition within the schema is represented by an interactive card, providin
 </TabItem>
 </Tabs>
 
+:::tip Dropdown Behavior
+The current state dropdown shows all available states when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid states can be selected
+:::
+
+:::tip Handling Deleted States
+- If a state is deleted, it is automatically removed from the dropdown menu.
+- If the deleted state is currently selected, it is cleared from the field to prevent invalid selections.
+:::
+
+:::tip Handling Renamed States
+If a state is renamed, the dropdown menu is updated to reflect the new name.
+:::
 
 ### Parent State Condition
 
@@ -353,11 +365,22 @@ Each condition within the schema is represented by an interactive card, providin
 </Tabs>
 
 
+
 ### Privilege Condition
 
 | Name         | Icon | Description | Available Operators       |
 |--------------|------|-------------|---------------------------|
-| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex` |
+| Privilege    | <img src={require('./img/typePrivilege.png').default} style={{borderRadius: '6px', width: '70%'}} /> | Evaluates the user's privilege level, typically used to control access to specific features or actions based on the user’s permissions. | `=`, `!=`, `regex`, `has at least one privilege`, `has no privilege` |
+
+:::info Privilege Evaluation Options
+- **Has at least one privilege**: Determines if the user has any privilege assigned. This is useful for:
+
+	- Differentiating authenticated users (with any privilege) from unauthenticated users (guests) 
+	- Granting general access based on privilege presence.
+	- Restrict access to features or areas requiring any level of privilege.
+
+- **Has no privilege**: Evaluates if the user has no privileges assigned at all
+:::
 
 :::tip Handling Privilege Changes with Conditional States
 
@@ -402,6 +425,18 @@ A conditional state on a privilege evaluates whether the privileges have changed
 </TabItem>
 </Tabs>
 
+:::tip Dropdown Behavior
+The privilege dropdown shows all available privileges when the operator is set to anything other than regex. Typing into the dropdown is disabled to ensure only valid privileges can be selected.
+:::
+
+:::tip Handling Deleted Privileges
+- If a privilege is deleted, it is automatically removed from the dropdown menu.
+- If the deleted privilege is currently selected, its name remains displayed in the field, and an error message is shown below the field and in the sanity check: "The [Privilege Name] privilege does not exist."
+:::
+
+:::tip Handling Renamed Privileges
+If a privilege is renamed, the border of the privilege field turns red, and a sanity check error is raised with the message: "Incorrect value of the privilege state condition."
+:::
 
 ### Saved Condition
 
@@ -550,7 +585,6 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 		<img alt="explorer" src={require('./img/removeCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
-
 
 ## Conditional State Lifecycle
 

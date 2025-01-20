@@ -58,6 +58,29 @@ Enhance the **Checkbox** component to align with your application's requirements
         </Column.Item>
     </Column.List>
 
+
+- **Checkbox Type selection**: Choose between three checkbox configurations to determine the available states and default values for the checkbox:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+            <ul>
+                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.</li><br/>
+                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.</li><br/>
+                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. </li><br/>
+            </ul>
+        </Column.Item>
+        <Column.Item width="31%">
+            <img src={require('./img/checkbox_TypeSelection.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+    | **Type**                |  **States**    | **Default Value**      | **State Transition Order**              |
+    |-------------------------|------------------------------------|---------------------------|------------------|
+    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked <br/> - Unchecked            |
+    | **Three-State Checkbox**| - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate <br/> - Checked <br/> - Unchecked <br/> - Indeterminate |
+    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) <br/> - Checked <br/> - Unchecked|
+
+
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
         <ul>
@@ -126,7 +149,6 @@ The following CSS classes are applied to various elements within the **CheckBox*
 |------------------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | `chakra-checkbox`            | CheckBox wrapper                    | Provides base styling for the CheckBox wrapper, including layout and positioning.                                          |
 | `chakra-checkbox__input`     | Checkbox input                      | Applies default styling for the actual checkbox input element, usually hidden to allow the control to display instead.     |
-| `chakra-checkbox__control`   | Checkbox control indicator          | Styles the visible checkbox control, which represents the checked or unchecked state of the component.                     |
 | `fd-label`                   | Label element                       | Styles the CheckBox label, including font size, color, and positioning relative to the checkbox input.                    |
 
 
@@ -149,11 +171,11 @@ The `self .chakra-checkbox` selector targets the main CheckBox container, allowi
       <code className="language-css">
 {`/* Main CheckBox container styling */
 self .chakra-checkbox{
-  width: 2.8rem;
-  height: 2.8rem;
-  cursor: pointer;
-  border-radius: .5rem;
-  box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: .3rem .3rem .6rem #c8d0e7, -.2rem -.2rem .5rem #FFFFFF;
 }`}
       </code>
     </pre>
@@ -167,21 +189,21 @@ self .chakra-checkbox{
 
 ### Example 2 - Check Mark Control Style
 
-The `self .chakra-checkbox__control` selector applies to the visual representation of the check mark control, adjusting its font size, weight, and transition effects.
+The `self .chakra-checkbox span` selector applies to the visual representation of the check mark control, adjusting its font size, weight, and transition effects.
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
 {`/* Check mark control styling */
-self .chakra-checkbox__control{
-  font-size: 80%;
-  font-weight: 700;
-  color: #9baacf;
-  transition: .3s ease;
-  border: 0;
-  width: 100%;
-  height: 100%;
+self .chakra-checkbox span{
+    font-size: 80%;
+    font-weight: 700;
+    color: #9baacf;
+    transition: .3s ease;
+    border: 0;
+    width: 100%;
+    height: 100%;
 }`}
       </code>
     </pre>
@@ -195,17 +217,17 @@ self .chakra-checkbox__control{
 
 ### Example 3 - Checked State Style
 
-The `self .chakra-checkbox__control[data-checked]` selector applies styles when the CheckBox is checked, changing the background, shadow, and color.
+The `self .chakra-checkbox span[data-checked]` selector applies styles when the CheckBox is checked, changing the background, shadow, and color.
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
 {`/* Checked state styling */
-self .chakra-checkbox__control[data-checked]{
-  background: transparent;
-  box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF !important;
-  color: #6d5dfc;
+self .chakra-checkbox span[data-checked]{
+    background: transparent;
+    box-shadow: inset .2rem .2rem .5rem #c8d0e7, inset -.2rem -.2rem .5rem #FFFFFF !important;
+    color: #6d5dfc;
 }`}
       </code>
     </pre>
@@ -219,16 +241,17 @@ self .chakra-checkbox__control[data-checked]{
 
 ### Example 4 - Hover Effect on Checked State
 
-The self `.chakra-checkbox__control[data-checked]:hover` selector applies styles when the checked CheckBox is hovered, creating a visual highlight effect.
+The self `.chakra-checkbox span[data-checked]:hover` selector applies styles when the checked CheckBox is hovered, creating a visual highlight effect.
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="58%">
     <pre>
       <code className="language-css">
 {`/* Checked state styling */
-self .chakra-checkbox__control[data-checked]:hover{
-  color: white;
-  box-shadow: inset .2rem .2rem 1rem #5b0eeb, inset -.2rem -.2rem 1rem #8abdff !important;
+self .chakra-checkbox span[data-checked]:hover{
+    color: white;
+    background-color: #6d5dfc;
+    box-shadow: inset .2rem .2rem 1rem #5b0eeb, inset -.2rem -.2rem 1rem #8abdff !important;
 }`}
       </code>
     </pre>

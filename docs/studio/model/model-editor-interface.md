@@ -77,29 +77,68 @@ The Miniature Overview Area allows you to view an overview of your model at a sm
 
 ## Outline
 
-On the left side of the model editor, the **Outline** lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level) in your model:
+The Outline panel in the model editor provides a structured view of all datastore classes, datastore functions, and singletons. This panel is designed to facilitate navigation and management of the model's components.
+
+### Search Functionality
+
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    The Outline includes a search bar that allows filtering of datastore classes, attributes, and functions by entering keywords. 
+    <br/>
+    This functionality is particularly useful for large and complex models.
+  </Column.Item>
+  <Column.Item width="30%">
+    <img src={require('./img/search.png').default} style={{borderRadius: '6px'}} />
+  </Column.Item>
+</Column.List>
 
 
-<img src={require('./img/outline.png').default} style={{borderRadius: '6px'}} />
+### Datastore Classes and Attributes
 
-You can use the **Search** area to dynamically reduce the list of displayed datastore classes and datastore functions by entering characters.
+<Column.List align="center" justifyContent="between">
+  <Column.Item width="60%">
+    Datastore classes represent the entities in the model and are listed in the Outline. Attributes of each class can be expanded to display their details, including data types such as text, date, and image. Attributes are visually distinct with icons indicating their respective data types.
+  </Column.Item>
+  <Column.Item width="30%">
+    <img src={require('./img/attributeExpand.png').default} style={{borderRadius: '6px'}} />
+  </Column.Item>
+</Column.List>
 
+<br/>
 
-<img src={require('./img/search.png').default} style={{borderRadius: '6px'}} />
+Datastore classes can also be added directly from the Outline by clicking the Add Dataclass button: <img src={require('./img/outline_addDataclass.png').default} style={{borderRadius: '6px', width: '25%'}} />
 
-You can expand a dataclass name to display its attributes:
+Each datastore class in the Outline offers the following actions: <img src={require('./img/outline_optionsDataclass.png').default} style={{borderRadius: '6px', width: '25%'}} />
 
-<img src={require('./img/attributeExpand.png').default} style={{borderRadius: '6px'}} />
+- <img src={require('./img/fitview-icon.png').default} style={{borderRadius: '6px'}} /> Fit to View: Displays a fitted view of the selected datastore class in the workspace.
 
-You can select the datastore class in the workspace by clicking on it in the list. From this area, you can execute any of the following actions for a specific datastore class:
+- <img src={require('./img/importfromcvs-icon.png').default} style={{borderRadius: '6px'}} /> Import from CSV: Allows importing data from a CSV file into the datastore class. Refer to the [data import documentation](./import.md) for more details.
 
-- ![alt-text](img/fitview-icon.png) Fit to view: Shows a fitted view of the selected datastore class in your workspace area.
-- ![alt-text](img/importfromcvs-icon.png) Import from CSV: Allows you to [import data](import.md) from a CSV file into this dataclass.
-- ![alt-text](img/deletedatastoreclass-icon.png) Remove: Deletes the dataclass from the project.
+- <img src={require('./img/deletedatastoreclass-icon.png').default} style={{borderRadius: '6px'}} /> Remove: Deletes the datastore class from the project. Note that removing a datastore class does not delete its associated functions.
 
 :::info
 Removing a dataclass from the model does not remove its associated functions.
 :::
+
+### Datastore Functions
+
+The Datastore Functions section lists all functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level. These functions can be managed directly from the Outline panel.
+
+Functions can be opened and edited by clicking on the edit icon next to the function name <img src={require('./img/outline_editDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />. New functions can be added by clicking the Add Function button <img src={require('./img/outline_addDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />.
+
+
+### Singletons
+
+Singletons represent unique instances within the model. These instances are listed in the Outline with associated functions, providing a centralized location for their management.
+
+:::tip
+Only singleton classes with at least one exposed function are visible. New singletons can also be added to the model.
+:::
+
+New singletons can also be added directly from the Outline by clicking the `+` button next to the Singleton section header <img src={require('./img/outline_addSingleton.png').default} style={{borderRadius: '6px', width: '25%'}} />.
+
+Singletons can be expanded to reveal their associated functions. These functions can be edited by clicking on the edit icon <img src={require('./img/outline_editSingletonFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />, and new functions can be added by clicking on the Add Function button <img src={require('./img/outline_addSingletonFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />.
+
 
 ## Properties Area
 
@@ -161,44 +200,44 @@ In this JSON structure:
 
 The syntax check feature identifies and corrects syntax errors and formatting issues within the JSON representation. Errors are highlighted and accompanied by descriptive messages that help pinpoint the exact problem. Below are some common examples of syntax errors that can be detected:
 
-- <Column.List align="end" justifyContent="between">
+<Column.List align="end" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code> is absent between key-value pairs in an object or elements in an array.
+      - <strong>Expected comma</strong>: This error typically occurs when a comma <code>,</code> is absent between key-value pairs in an object or elements in an array.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_comma.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
   </Column.List>
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
+      - <strong>Expected closing brace</strong>: This error occurs when the parser anticipates a closing curly brace <code>}</code> to conclude an object but does not find it.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_brace.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
+      - <strong>Value expected</strong>: This error arises when an object key is succeeded by a colon, but the corresponding value is missing, indicating an incomplete JSON representation.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_value.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
+      - <strong>Colon expected</strong>: This error suggests that a colon <code>:</code> is required to separate the key and value in an object, but it is missing from the code.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_colon.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
   </Column.List>
 
-- <Column.List align="center" justifyContent="between">
+<Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-      <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
+      - <strong>Unexpected end of string json</strong>: This error is triggered when the parser encounters the end of a string without coming across a closing double quote <code>"</code>, indicating an unfinished string value or when the opening double quote is missing at the beginning of the string.
     </Column.Item>
     <Column.Item width="30%">
       <img src={require('./img/syntaxCheck_string.png').default} style={{borderRadius: '6px'}} />
