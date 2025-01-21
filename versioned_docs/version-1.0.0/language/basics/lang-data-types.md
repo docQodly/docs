@@ -34,7 +34,6 @@ Variant is actually not a *data* type but a *variable* type that can contain a v
 
 You can evaluate a data type using [`type`](../commands/type.md) and [`valueType`](../commands/valueType.md) commands.   
 
-
 ## Converting data types
 
 QodlyScript contains operators and commands to convert between data types, where such conversions are meaningful. QodlyScript enforces data type checking. For example, you cannot write: "abc"+0.5+!12/25/96!-?00:30:45?. This will generate syntax errors.
