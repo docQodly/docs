@@ -210,18 +210,24 @@ PEM definition of an encryption key to load. If the key is a private key, the RS
 <!-- REF CryptoKey.sign().Desc -->
 ## .sign()
 
+<details><summary>History</summary>
 
-<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : string) : string<!-- END REF -->
+|Release|Changes|
+|---|---|
+|1.1.0|Support of message as Blob|
+</details>
+
+<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : object) : string<br/>.**sign** (*message* : blob , *options* : object) : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.sign().Params -->
 |Parameter|Type||Description|
 |---|----|---|---|
-|message|string|&#8594;|Message string to sign|  
+|message|string OR blob|&#8594;|Message to sign|  
 |options|object|&#8594;|Signing options|
 |Result|string|&#8592;|Signature in Base64 or Base64URL representation, depending on "encoding" option|<!-- END REF -->
 
-The `.sign()` function <!-- REF #CryptoKey.sign().Summary -->signs the utf8 representation of a *message* string<!-- END REF --> using the `CryptoKey` object keys and provided *options*. It returns its signature in base64 or base64URL format, depending on the value of the `options.encoding` attribute you passed.
+The `.sign()` function <!-- REF #CryptoKey.sign().Summary -->signs the utf8 representation of a *message* string or Blob<!-- END REF --> using the `CryptoKey` object keys and provided *options*. It returns its signature in base64 or base64URL format, depending on the value of the `options.encoding` attribute you passed.
 
 The `CryptoKey` must contain a valid **private** key.
 
@@ -236,7 +242,7 @@ The `CryptoKey` must contain a valid **private** key.
 
 #### *Result*
 
-The utf8 representation of the *message* string.
+The utf8 representation of the *message*.
 <!-- END REF -->
 
 <!-- REF CryptoKey.size -->
@@ -271,13 +277,20 @@ Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "
 
 
 <!-- REF #CryptoKey.verify().Syntax -->
-**.verify**( *message* : string , *signature* : string , *options* : object) : object<!-- END REF -->
+**.verify**( *message* : string , *signature* : string , *options* : object) : object<br/>**.verify**( *message* : blob , *signature* : string , *options* : object) : object<!-- END REF -->
+
+<details><summary>History</summary>
+
+|Release|Changes|
+|---|---|
+|1.1.0|Support of message as Blob|
+</details>
 
 
 <!-- REF #CryptoKey.verify().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|message|string|&#8594;|Message string that was used to produce the signature|  
+|message|string OR blob|&#8594;|Message that was used to produce the signature|  
 |signature|string|&#8594;|Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value|
 |options|object|&#8594;|Signing options|
 |Result|object|&#8592;|Status of the verification|<!-- END REF -->
