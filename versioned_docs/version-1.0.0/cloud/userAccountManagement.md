@@ -7,6 +7,15 @@ import Column from '@site/src/components/Column'
 
 ## Overview
 
+The **User management page** allows you to add and configure the **Qodly directory**, i.e. users that connect to your Qodly application through an **authenticated access** ([**Authenticated URL**](./resourceMonitoring.md#application-access) or [**Endpoint URL**](apiKeys.md)). In running applications, Qodly directory users are authenticated and managed using [Amazon Cognito](https://aws.amazon.com/fr/cognito/). 
+
+Users connecting through the **public access** must be managed by your code. 
+
+For an overview of user access in Qodly applications, please refer to the [**Access**](../get-started/access.md) page. 
+
+
+## Interfaces
+
 Qodly provides a robust user management system with two distinct interfaces: 
 
 
