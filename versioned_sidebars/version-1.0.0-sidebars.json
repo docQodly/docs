@@ -17,8 +17,8 @@
       "id": "get-started/deployment"
     },
     {
-			type: "doc",
-			id: "get-started/access"
+			"type": "doc",
+			"id": "get-started/access"
 		},
     {
       "type": "doc",
