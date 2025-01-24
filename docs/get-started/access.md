@@ -7,9 +7,9 @@ Users can connect to Qodly applications through two distinct access modes: **aut
 
 ## Authenticated access
 
-For the authenticated access, the user must be registered in the **Qodly directory** (relying on [Amazon Cognito](https://aws.amazon.com/fr/cognito/) for authentication and storage). You add users to the Qodly directory using the [**Users management page**](../cloud/userAccountManagement.md) of the Console. In this page, the user is assigned a specific [role](../studio/roles/rolesPrivilegesOverview.md) (profile) and allowed to access one or more [enviromnents](../cloud/environmentsOverview.md) (including the Development environment). The *user session* gets automatically their defined role at authentication step. 
+For the authenticated access, the user must be registered in the **Qodly directory** (relying on [Amazon Cognito](https://aws.amazon.com/fr/cognito/) for authentication and storage). You add users to the Qodly directory using the [**Users management page**](../cloud/userAccountManagement.md) of the Console. In this page, the user is assigned a specific [role](../studio/roles/rolesPrivilegesOverview.md) (profile) and allowed to access one or more [enviromnents](../cloud/environmentsOverview.md) (including the Development environment).
 
-The user connects to the application via the [**Authenticated URL**](../cloud/resourceMonitoring.md#application-access) (screen mode) or the [**Endpoint URL**](../cloud/apiKeys.md) (API mode) of the allowed environment. The user session gets automatically their defined
+The user connects to the application via the [**Authenticated URL**](../cloud/resourceMonitoring.md#application-access) (screen mode) or the [**Endpoint URL**](../cloud/apiKeys.md) (API mode) of the allowed environment. 
 
 The *user session* gets automatically their defined [role](../studio/roles/rolesPrivilegesOverview.md) according to the **Profile** [associated to the user in the console](../cloud/userAccountManagement.md#add-new-user).
 
