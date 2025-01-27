@@ -57,6 +57,10 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'get-started/access'
+		},
+		{
+			type: 'doc',
 			id: 'get-started/data-management'
 		},
 		{
@@ -203,7 +207,7 @@ const sidebars = {
 			items: [	'orda/data-model', 
 						'orda/data',
 						'orda/queries',
-						'orda/sessions',
+						'language/guides/sessions',
 						'language/guides/login',
 			],
 		},
