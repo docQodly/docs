@@ -211,7 +211,7 @@ PEM definition of an encryption key to load. If the key is a private key, the RS
 ## .sign()
 
 
-<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : string) : string<!-- END REF -->
+<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : object) : string<!-- END REF -->
 
 
 <!-- REF #CryptoKey.sign().Params -->
