@@ -7,7 +7,7 @@ title: Developer Support Policy
 
 ## Bug Reports
 
-To submit a bug, visit [support.qodly.com](support.qodly.com) and open a ticket. Our Support and engineering teams will handle it, and you can track the progress.
+To submit a bug, visit [support.qodly.com](https://support.qodly.com) and open a ticket. Our Support and engineering teams will handle it, and you can track the progress.
 
 ## Support Hours
 
