@@ -66,25 +66,6 @@ The modulo operator % divides the first number by the second number and returns 
 
 :::
 
-### Precedence
-
-The order in which an expression is evaluated is called precedence. Qodly has a strict left-to-right precedence, in which algebraic order is not observed. For example:
-
-```qs
- 3+4*5
-```
-
-returns 35, because the expression is evaluated as 3 + 4, yielding 7, which is then multiplied by 5, with the final result of 35.
-
-To override the left-to-right precedence, you MUST use parentheses. For example:
-
-```qs
- 3+(4*5)
-```
-
-returns 23 because the expression (4 * 5) is evaluated first, because of the parentheses. The result is 20, which is then added to 3 for the final result of 23.
-
-Parentheses can be nested inside other sets of parentheses. Be sure that each left parenthesis has a matching right parenthesis to ensure proper evaluation of expressions. Lack of, or incorrect use of parentheses can cause unexpected results or invalid expressions. Furthermore, if you intend to compile your applications, you must have matching parentheses—the compiler detects a missing parenthesis as a syntax error.
 
 ## Bitwise operators
 

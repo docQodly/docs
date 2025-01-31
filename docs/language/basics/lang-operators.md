@@ -133,6 +133,9 @@ The **&&** and **||** operators are **short circuit operators**. A short circuit
 
 The difference with the single [**&** and **|** boolean operators](lang-boolean.md#logical-operators) is that the short-circuit operators **&&** and **||** do not return a boolean value. They evaluate expressions as [truthy or falsy](#truthy-and-falsy), then return one of the expressions.
 
+The `&&` and `||` operators have the same [precedence](#operator-precedence) as the logical operators `&` and `|`, and are evaluated left to right. This means that `a || b && c` is evaluated as `(a || b) && c`.
+
+
 ### Short-circuit AND operator (&&)
 
 The rule is as follows: 
@@ -233,11 +236,6 @@ var name: string
 name = person.maidenName || person.name
 ```
 
-### Precedence
-
-The `&&` and `||` operators have the same precedence as the logical operators `&` and `|`, and are evaluated left to right.
-
-This means that `a || b && c` is evaluated as `(a || b) && c`.
 
 
 ## Ternary operator
@@ -320,3 +318,61 @@ Regarding values representing collections, objects, or strings, "empty" values a
 ```qs
 phone = emp.phone || "n/a"
 ```
+
+## Operator precedence
+
+Operator precedence determines the order in which operators are evaluated. For example:
+
+```qs
+3+4*5 // 3+20 -> 23
+4 * 3 ^ 2 // 4 * 9 -> 36
+```
+
+To override the standard precedence, you can use parentheses (grouping). For example:
+
+```qs
+(3+4)*5 // 7*5 ->35
+(4 * 3) ^ 2 // 12 ^2 -> 144
+```
+
+The following table lists operators in order from highest precedence to lowest precedence. Operators with the highest precedence are evaluated first. Associativity determines the order in which operators with the same precedence are evaluated.
+
+| Operator                       | Precedence | Associativity  | Type                |
+|---------------------------------|------------|----------------|---------------------|
+| `( … )` (grouping)                 | 15         | not applicable | unary               |
+| `… . …` (property access)            | 14         | left-to-right  | binary              |
+| `… [ … ]` (property access) | 14         | not applicable | binary              |
+| `… ( … )` (call)                   | 14         | not applicable | variadic            |
+| `^`                               | 13         | right-to-left  | binary              |
+| `\`                               | 12         | left-to-right  | binary              |
+| `/`                               | 12         | left-to-right  | binary              |
+| `*\|`                              | 12         | left-to-right  | binary              |
+| `*+`                              | 12         | left-to-right  | binary              |
+| `*`                               | 12         | left-to-right  | binary              |
+| `%`                               | 12         | left-to-right  | binary              |
+| `-`                               | 11         | left-to-right  | binary              |
+| `+`                               | 11         | left-to-right  | binary              |
+| `??`                              | 10         | left-to-right  | binary              |
+| `?-`                              | 10         | left-to-right  | binary              |
+| `?+`                              | 10         | left-to-right  | binary              |
+| `<<`                        | 10         | left-to-right  | binary              |
+| `>>`                       | 10         | left-to-right  | binary              |
+| `<=`                           | 9          | left-to-right  | binary              |
+| `<`                            | 9          | left-to-right  | binary              |
+| `>=`                           | 9          | left-to-right  | binary              |
+| `>`                            | 9          | left-to-right  | binary              |
+| `==`                              | 8          | left-to-right  | binary              |
+| `!=`                              | 8          | left-to-right  | binary              |
+| `&`                           | 7          | left-to-right  | binary              |
+| `^\|`                             | 6          | left-to-right  | binary              |
+| `\|`                               | 5          | left-to-right  | binary              |
+| `&&`                      | 4          | left-to-right  | binary              |
+| `\|\|`                              | 3          | left-to-right  | binary              |
+| `?:`                              | 2          | right-to-left  | ternary             |
+| `=`                               | 1          | not applicable | assignment          |
+| `/=`                              | 1          | not applicable | compound assignment |
+| `-=`                              | 1          | not applicable | compound assignment |
+| `+=`                              | 1          | not applicable | compound assignment |
+| `*=`                              | 1          | not applicable | compound assignment |
+
+
