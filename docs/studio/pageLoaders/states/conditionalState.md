@@ -444,6 +444,24 @@ If a privilege is renamed, the border of the privilege field turns red, and a sa
 |--------------|------|-------------|---------------------|
 | Saved Condition | <img src={require('./img/typeSavedCondition.png').default} style={{borderRadius: '6px', width: '70%'}} /> | References a pre-defined condition stored in the `Saved Conditions` area, allowing for reuse across different states. | N/A |
 
+:::tip Validation Rule for Qodly Source Selection
+To maintain data consistency and prevent misconfigurations, only **shared Qodly sources** are allowed in Saved Conditions. If a **local Qodly source** is selected, a validation rule is enforced:
+
+- A sanity check error is triggered. <img src={require('./img/savedConditionValidationRule1.png').default} style={{borderRadius: '6px', width: '40%'}} />
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="40%">
+    - The error message "The 'X' must be a valid shared Qodly Source" is displayed below the field.
+	<br/>
+	- The field's border is highlighted in red to visually indicate the validation issue.
+	</Column.Item>
+	<Column.Item width="60%">
+		<img src={require('./img/savedConditionValidationRule2.png').default} style={{borderRadius: '6px', width: '60%'}} />
+	</Column.Item>
+</Column.List>
+
+:::
+
 #### Example
 
 <Tabs groupId="condition-types">
