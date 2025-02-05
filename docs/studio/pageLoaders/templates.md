@@ -21,7 +21,7 @@ Navigate to the Components section and locate the Templates tab to explore the a
         <ol>
             <li> <strong>Navigate to the Components Section</strong>: Find the Templates tab within the Components section.</li>
             <br/>
-            <li> <strong>Select a Category</strong>: Once in the Templates tab, browse through the available categories. Choose the category that aligns with your project's requirements. For example, you might opt for the <code>Business Trip</code> category <img alt="styles-library" src={require('./img/templates_category.png').default} style={{borderRadius: '6px', width: '8%'}} />. </li>
+            <li> <strong>Select a Category</strong>: Once in the Templates tab, browse through the available categories. Choose the category that aligns with your project's requirements. For example, you might opt for the <code>Team management</code> category <img alt="styles-library" src={require('./img/templates_category.png').default} style={{borderRadius: '6px', width: '8%'}} />. </li>
         </ol>
 	</Column.Item>
 	<Column.Item width="25%">
@@ -30,8 +30,7 @@ Navigate to the Components section and locate the Templates tab to explore the a
 </Column.List>
 
 :::info
-- Quickly find categories by name using the search box <img alt="styles-library" src={require('./img/templates_search.png').default} style={{borderRadius: '6px', width: '3%'}} />. 
-- Customize the display format by toggling between grid <img alt="styles-library" src={require('./img/templates_grid.png').default} style={{borderRadius: '6px', width: '3%'}} /> and list <img alt="styles-library" src={require('./img/templates_list.png').default} style={{borderRadius: '6px', width: '3%'}} /> views with the respective buttons.
+Quickly find categories by name using the search box <img alt="styles-library" src={require('./img/templates_search.png').default} style={{borderRadius: '6px', width: '3%'}} />. 
 :::
 
 <Column.List align="center" justifyContent="between">
@@ -68,10 +67,6 @@ To use a template from the selected category, for instance, the datatable catego
         <img alt="styles-library" src={require('./img/templates_datatabbleBlueheader.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
-
-:::warning
-Make sure to drag the template itself from the right-side panel and not the category icon on the left side.
-:::
 
 ## Customizing Templates
 
