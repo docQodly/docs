@@ -154,6 +154,7 @@ const sidebars = {
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
 				'studio/debugging',
+				'studio/qodlyEventsSingletonClass',
 			],
 		},
 		{
@@ -449,6 +450,7 @@ const sidebars = {
 						'language/MailAttachmentClass',
 						'language/OutgoingMessageClass',
 						'language/POP3TransporterClass',
+						'language/QodlyEvents',
 						'language/SessionClass',
 						'language/SignalClass',
     			        'language/SMTPTransporterClass',
