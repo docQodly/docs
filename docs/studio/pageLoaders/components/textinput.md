@@ -110,7 +110,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <img src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
-                :::tip
+                :::tip Reveal Password Toggle
                         <Column.List align="center" justifyContent="between">
                                 <Column.Item width="50%">
                                         For Text Input components of type password, when the "Reveal Password" toggle is enabled:
@@ -129,6 +129,16 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 </Column.Item>
                         </Column.List>
                         However, when the "Reveal Password" toggle is disabled, the password remains hidden, and the tooltip functionality is not available.
+                :::
+                :::tip Direction Option for the Reveal Password Icon
+                        <Column.List align="center" justifyContent="between">
+                                <Column.Item width="70%">
+                                        You can adjust the placement of the reveal password icon within the text input field. Choose between left or right positioning based on your design preferences or functional needs.
+                                </Column.Item>
+                                <Column.Item width="30%">
+                                        <img src={require('./img/inputType_passwordIconPosition.png').default} style={{borderRadius: '6px'}} />
+                                </Column.Item>
+                        </Column.List>
                 :::
                 <Column.List align="center" justifyContent="between">
                         <Column.Item width="60%">
