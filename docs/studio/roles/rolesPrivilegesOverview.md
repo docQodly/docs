@@ -114,11 +114,11 @@ The contextual panel of privileges provides a clear visual representation of pri
 
 When a privilege is selected from the list of privileges, the contextual panel updates to reflect the selection:
 
-- Standalone Privileges: If a privilege does not include another privilege (e.g., manageTags) and is not included by another privilege, it is displayed alone in the contextual panel.
+- **Standalone Privileges**: If a [privilege does not include another privilege](./includingPrivileges) (e.g., manageTags) and is not included by another privilege, it is displayed alone in the contextual panel.
 	<img src={require('./img/PrivilegesContextualPanel.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
 
-- Inherited Privileges: If a privilege includes another privilege (e.g., manageAuthors, which includes manageArticles) or is included by another privilege, the contextual panel will display a link between privileges.
+- **Include Privileges**: If a [privilege includes another privilege](./includingPrivileges) (e.g., manageAuthors, which includes manageArticles) or is included by another privilege, the contextual panel will display a link between privileges.
 	<img src={require('./img/PrivilegesContextualPanel2.png').default} style={{borderRadius: '6px', width: '50%'}} />
 
 
