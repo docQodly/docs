@@ -199,8 +199,9 @@ See <a href="componentsBasics#data-formatting">Formats</a> for a description of 
 
 <br/>
 
+<!-- "read only" removed when "disabled" was added
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
-
+-->
 
 ## Data Integration
 
