@@ -107,6 +107,28 @@ In a back-office travel agency solution, you might create privileges such as:
 |ManageContent        | Access and manage the travel agency's online content.|
 :::
 
+
+### Privileges Contextual Panel 
+
+The contextual panel of privileges provides a clear visual representation of privilege relationships, making it easier to navigate and manage permissions efficiently.
+
+When a privilege is selected from the list of privileges, the contextual panel updates to reflect the selection:
+
+- Standalone Privileges: If a privilege does not include another privilege (e.g., manageTags) and is not included by another privilege, it is displayed alone in the contextual panel.
+	<img src={require('./img/PrivilegesContextualPanel.png').default} style={{borderRadius: '6px', width: '50%'}} />
+
+
+- Inherited Privileges: If a privilege includes another privilege (e.g., manageAuthors, which includes manageArticles) or is included by another privilege, the contextual panel will display a link between privileges.
+	<img src={require('./img/PrivilegesContextualPanel2.png').default} style={{borderRadius: '6px', width: '50%'}} />
+
+
+In the contextual panel, the currently selected privilege is highlighted with a purple background and is the one whose permissions table is currently displayed.
+
+:::tip
+You can click on another privilege within the contextual panel to switch to that privilege, making it the newly selected one.
+:::
+
+
 ## Interplay Between Roles and Privileges
 
 Achieving the optimal synchronization of roles and privileges ensures seamless task execution for users while maintaining robust data security. 
