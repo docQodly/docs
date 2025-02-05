@@ -148,6 +148,31 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <img src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
+                :::tip Week Start Customization in Date Picker
+                        **Week Starts** <img src={require('./img/inputType_dateWeekStarts.png').default} style={{borderRadius: '6px', width: '35%'}} /> defines which day should be considered the start of the week in the date picker. You can select a starting day such as Monday, Sunday, or any other day depending on your region or application needs.
+                :::
+                :::tip Intervals for Date Input
+                        The Intervals feature allows users to control date selection by either linking a datasource or manually defining intervals:
+                        <ul>
+                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /></li> <br/>
+                                | **Interval Type**  | **Description** | **Available Options** |
+                                |--------------------|----------------|----------------------|
+                                | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today <br/> - **From**: calendar picker to select a start date |
+                                | **Until**         | Restricts date selection up to a specific date. | - **Today checkbox**: sets the end date as today <br/> - **To**: calendar picker to select an end date |
+                                | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date <br/> - **To**: end date <br/> - **Repeat**: Weekly, Monthly, Yearly |
+                                | **Days**          | Limits selection to specific days of the week, such as Monday, Tuesday, Wednesday. | - **Days selection dropdown**: allows choosing specific days of the week: Monday, Tuesday, etc. |
+
+                                <li>Alternatively, you can bind an external datasource (structured as a collection of objects with corresponding properties) to dynamically fetch intervals. <img src={require('./img/inputType_dateIntervals1.png').default} style={{borderRadius: '6px', width: '30%'}} /></li> <br/>
+                                | **Interval Type**  | **Equivalent JSON Format** |
+                                |--------------------|--------------------------|
+                                | **Starting from**  | `[{ "include": true, "type": "startingfrom", "params": { "from": "2025-02-08" } }]` |
+                                | **Until**         | `[{ "include": true, "type": "untilto", "params": { "to": "2025-02-08" } }]` |
+                                | **Range**         | `[{ "include": true, "type": "range", "params": { "from": "2025-02-08", "to": "2025-02-28", "repeat": "monthly" } }]` |
+                                | **Days**          | `[ { "include": true, "type": "days", "params": { "days": [ { "label": "Monday", "value": "monday" } ] } } ]` |
+                        </ul>
+                        <br/>
+                        Once an interval datasource is added, manual interval addition is disabled. To re-enable manual intervals, remove the datasource first. 
+                :::
                 <Column.List align="center" justifyContent="between">
                         <Column.Item width="60%">
                                 <li><strong>time</strong>: Limits input to time values with a widget for selection, allowing scrolling or clicking to choose values</li>
