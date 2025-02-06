@@ -6,7 +6,7 @@ title: QodlyEvents
 
 ## Overview
 
-The **QodlyEvents** class provides a structured approach to handling application lifecycle events in a Qodly Server (Cloud) environment. It enables developers to execute specific logic during application startup and shutdown.
+The **QodlyEvents** class provides a structured approach to handling application lifecycle events in a Qodly Server environment. It enables developers to execute specific logic during application startup and shutdown.
 
 :::tip
 The **QodlyEvents** class is a **shared singleton**, meaning a single instance is globally available without needing manual creation. You can access it directly via the [.me](#me) property without instantiating a new instance.
@@ -23,62 +23,50 @@ The **QodlyEvents** class is a **shared singleton**, meaning a single instance i
 
 ## .onStartup()
 
-<!--REF #QodlyEvents.onStartup().Syntax -->**.onStartup**() : void<!-- END REF -->
+<!--REF #QodlyEvents.onStartup().Syntax -->**.onStartup**( \{ *...param* : any \} ) : void<!-- END REF -->
 
 <!--REF #QodlyEvents.onStartup().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|void|&#8592;|__|<!-- END REF -->
+|param|any|&#8594;|Parameter(s) to pass to the function|<!-- END REF -->
 
 #### Description
 
-The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->executes once when the server starts.<!-- END REF --> This function is best used to:
+The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->triggers the onStartup() function logic defined in the QodlyEvents class interface.<!-- END REF -->  The .onStartup() function executes automatically when the server starts by calling cs.QodlyEvents.me.onStartup(). 
 
-- Initialize shared variables for the session.
-- Load preferences or settings from a previous session.
-- Prevent database opening if conditions are not met (e.g., missing resources).
-- Execute any other setup logic required on startup.
-
-:::info
-The `.onStartup()` function is executed automatically before any remote connections can occur.
-:::
+Additionally, developers can manually execute .onStartup() when needed, such as:
+- Explicitly triggering the startup logic from another function.
+- Running initialization logic without restarting the server.
 
 #### Example
 
 ```qs
-shared function onStartup()
-	logEvent("Application startup completed successfully.", 0)
+cs.QodlyEvents.me.onStartup({ config: "default" })
 ```
 
 
 ## .onStop()
 
-<!--REF #QodlyEvents.onStop().Syntax -->**.onStop**() : void<!-- END REF -->
+<!--REF #QodlyEvents.onStop().Syntax -->**.onStop**( \{ *...param* : any \} ) : void<!-- END REF -->
 
 <!--REF #QodlyEvents.onStop().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|Result|void|&#8592;|__|<!-- END REF -->
+|param|any|&#8594;|Parameter(s) to pass to the function|<!-- END REF -->
 
 #### Description
 
-The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->executes once when the server stops.<!-- END REF --> This function is best used to:
+The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->triggers the onStop() function logic defined in the QodlyEvents class interface.<!-- END REF --> The .onStop() function executes automatically when the server shuts down by calling cs.QodlyEvents.me.onStop(). 
 
-- Save settings for the next startup session.
-- Perform any necessary cleanup operations.
-- Log shutdown events.
+Additionally, developers can manually execute .onStop() when needed, such as:
+- Explicitly triggering the shutdown logic before stopping the server.
+- Running cleanup operations without actually stopping the server.
 
-:::info
-When the server stops, Qodly performs these actions:
-- If no `.onStop()` function exists, all running processes are aborted.
-- If an `.onStop()` function exists, it runs within a new local process, allowing controlled termination of other processes.
-:::
 
 #### Example
 
 ```qs
-shared function onStop()
-	logEvent("Application is shutting down.", 0)
+cs.QodlyEvents.me.onStop({ saveState: true })
 ```
 
 
