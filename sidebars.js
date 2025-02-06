@@ -154,7 +154,7 @@ const sidebars = {
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
 				'studio/debugging',
-				'studio/qodlyEventsSingletonClass',
+				'studio/qodlyEventsClass',
 			],
 		},
 		{
