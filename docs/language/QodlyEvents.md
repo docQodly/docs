@@ -32,7 +32,7 @@ The **QodlyEvents** class is a **shared singleton**, meaning a single instance i
 
 #### Description
 
-The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->triggers the onStartup() function logic defined in the QodlyEvents class interface.<!-- END REF -->  The .onStartup() function executes automatically when the server starts by calling cs.QodlyEvents.me.onStartup(). 
+The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->triggers the [onStartup() function](../studio/qodlyEventsClassInterface#accessing-qodlyevents) logic defined in the QodlyEvents class interface.<!-- END REF -->  The .onStartup() function executes automatically when the server starts by calling cs.QodlyEvents.me.onStartup(). 
 
 Additionally, developers can manually execute .onStartup() when needed, such as:
 - Explicitly triggering the startup logic from another function.
@@ -56,7 +56,7 @@ cs.QodlyEvents.me.onStartup({ config: "default" })
 
 #### Description
 
-The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->triggers the onStop() function logic defined in the QodlyEvents class interface.<!-- END REF --> The .onStop() function executes automatically when the server shuts down by calling cs.QodlyEvents.me.onStop(). 
+The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->triggers the [onStop()](../studio/qodlyEventsClassInterface#accessing-qodlyevents) function logic defined in the QodlyEvents class interface.<!-- END REF --> The .onStop() function executes automatically when the server shuts down by calling cs.QodlyEvents.me.onStop(). 
 
 Additionally, developers can manually execute .onStop() when needed, such as:
 - Explicitly triggering the shutdown logic before stopping the server.

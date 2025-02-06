@@ -89,10 +89,12 @@ The QodlyEvents class has several key properties:
 
 ## QodlyEvents (Interface) vs cs.QodlyEvents (Singleton)
 
-| Feature | QodlyEvents Class (Interface - Visible in Explorer) | `cs.QodlyEvents` Singleton (Runtime Instance) |
-|---------|---------------------------------------------------|--------------------------------------------------|
-| **Purpose** | Defines the logic for startup and shutdown events | Executes the defined startup and shutdown logic |
-| **Visibility** | Appears in the **Classes folder** in the Explorer | Not visible in Explorer but accessible in code |
-| **Customization** | Developers modify `onStartup()` and `onStop()` inside this class | Developers can manually invoke `.onStartup()` and `.onStop()` in their code |
-| **Execution** | The `onStartup()` and `onStop()` logic runs **automatically** when the server starts or stops | The system automatically calls `cs.QodlyEvents.me.onStartup()` and `cs.QodlyEvents.me.onStop()` to execute the logic from the interface |
-| **Manual Invocation** | Cannot be manually triggered | Developers can explicitly call `cs.QodlyEvents.me.onStartup()` or `cs.QodlyEvents.me.onStop()` if needed |
+| **Aspect** | **QodlyEvents Class (Interface - Defined Logic)** | **`cs.QodlyEvents` Singleton (Executor)** |
+|------------|-------------------------------------------------|-------------------------------------------|
+| **Where it Exists** | Visible inside the **Classes folder** in the Explorer | Exists as a system-managed singleton instance |
+| **What it Does** | Stores the logic for `onStartup()` and `onStop()` | Executes the logic by calling `onStartup()` and `onStop()` |
+| **Execution** | `onStartup()` and `onStop()` functions hold logic that executes when triggered | Calls `onStartup()` and `onStop()` automatically at lifecycle events or when manually invoked |
+
+:::tip
+The interface holds the logic, while the singleton executes it automatically or when explicitly called by a developer.
+:::
