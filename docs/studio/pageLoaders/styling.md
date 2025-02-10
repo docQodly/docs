@@ -55,11 +55,11 @@ Below is a comprehensive table that consolidates all styling options from the pr
 |                         | Display | Controls the display behavior of the element. | - **Block**: The element takes up the full width of its parent <br/> - **Flex**: Enables flexible box layout <br/> - **Inline**: The element takes up only as much width as necessary <br/> - **Inline-Block**: Similar to inline but allows width and height properties <br/> - **None**: The element is removed from the document flow |
 |                         | Z-Index | Controls the stack order of elements. | - **Num**: A numerical value where higher numbers place elements above lower numbers <br/> - **Auto**: The browser determines the stacking order based on document structure <br/> - **Inherit**: Inherits the z-index from the parent element |
 |                         | **Flex Settings (If Display is Flex)** | | |
-|                         | Direction | Defines the direction of flexbox items. | Row, Row Reverse, Column, Column Reverse |
-|                         | Gap | Defines spacing between flex items. | Customizable |
-|                         | Justify | Aligns flex items along the main axis. | Start, Center, End, Space-between, Space-around |
-|                         | Align | Aligns flex items along the cross axis. | Start, Center, End, Stretch |
-|                         | Wrap | Defines whether flex items should wrap to the next line. | No Wrap, Wrap |
+|                         | Direction | Defines the direction of flexbox items. | - **Row**: Items are placed in a horizontal row (default) <br/>- **Row Reverse**: Items are placed in a horizontal row but in reverse order <br/>- **Column**: Items are stacked vertically <br/>- **Column Reverse**: Items are stacked vertically but in reverse order |
+|                         | Gap | Defines spacing between flex items. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Justify | Aligns flex items along the main axis. | - **Start**: Items align at the start of the flex container <br/>- **Center**: Items align in the center <br/>- **End**: Items align at the end <br/>- **Space-between**: Items are evenly distributed with space between them <br/>- **Space-around**: Items are evenly distributed with space around them |
+|                         | Align | Aligns flex items along the cross axis. | - **Start**: Items align at the start of the cross axis <br/>- **Center**: Items align in the center <br/>- **End**: Items align at the end <br/>- **Stretch**: Items stretch to fill the container <br/>- **Baseline**: Items align along their text baseline |
+|                         | Wrap | Defines whether flex items should wrap to the next line. | - **No Wrap**: All flex items stay on one line <br/>- **Wrap**: Items wrap onto multiple lines |
 | **Font**                | Family | Defines the font type used for text. | Various font options like Poppins, Open Sans, Sans-serif |
 |                         | Weight | Specifies the thickness of text. | Ranges from 100 (Thin) to 900 (Black) |
 |                         | Size | Sets the size. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
@@ -70,7 +70,6 @@ Below is a comprehensive table that consolidates all styling options from the pr
 |                         | Color | Defines the border color. | Any RGB/HEX value (Typed manually or selected from the color panel) |
 |                         | Style | Determines the border design. | None, Solid, Dashed, Dotted |
 | **Border Radius**       | Size | Controls the rounding of the element’s corners. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
-
 
 :::info Unit Type Definitions
 - **PX**: Fixed width in pixels 
