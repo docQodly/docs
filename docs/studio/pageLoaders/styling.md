@@ -25,6 +25,67 @@ The Styles Library provides three distinct types of CSS classes:
 	</Column.Item>
 </Column.List>
 
+## Properties Panel Styling Options
+
+Below is a comprehensive table that consolidates all styling options from the properties panel.
+
+| Category                 | Property      | Definition | Types |
+|--------------------------|--------------|------------|----------------------|
+| **CSS**                 | Class | Specifies the CSS class applied to an element. | User-defined class names (Typed manually or selected from a list) |
+| **Color**               | Text Color | Defines the color of the text. | Any RGB/HEX value (Can be manually entered or selected from a color panel) |
+|                         | Background | Specifies the element’s background color. | Any RGB/HEX value (Typed manually or selected from a color panel) |
+|                         | Box Shadow | Adds shadow effects to the element’s box. | Configurable properties:<br/>- **Angle**: Sets the direction of the shadow (0-360°) <br/>- **Distance**: Determines how far the shadow moves (PX) <br/>- **Blur**: Controls the sharpness of the shadow (PX) <br/>- **Size**: Adjusts the spread of the shadow (PX) <br/>- **Color**: Defines the shadow color (RGB/HEX) |
+|                         | Text Shadow | Adds shadow effects to the text. | Configurable properties:<br/>- **Angle**: Sets the direction of the shadow (0-360°) <br/>- **Distance**: Determines how far the shadow moves (PX) <br/>- **Blur**: Controls the sharpness of the shadow (PX) <br/>- **Color**: Defines the shadow color (RGB/HEX) |
+| **Background**          | Image | Sets a background image. | URL input|
+|                         | Position | Defines how the image is positioned within the element. | - **Percentage-based**: Specifies the position as a percentage of the element’s width/height (e.g., 0%, 50%) <br/>- **Center**: Centers the image horizontally and vertically |
+|                         | Attachment | Determines if the background image scrolls with the page. | - **Scroll**: The background moves when scrolling <br/>- **Fixed**: The background remains fixed in place while content scrolls <br/>- **Local**: The background scrolls only within the element it is applied to <br/>- **Initial**: Resets to the default browser-defined behavior <br/>- **Inherit**: Inherits the attachment setting from the parent element |
+|                         | Size | Defines how the background image is scaled. | - **Cover**: Resizes the image to fully cover the container, potentially cropping parts of it <br/>- **Contain**: Resizes the image to fit within the container without cropping <br/>- **PX**: Allows manual pixel-based scaling <br/>- **%**: Scales the image relative to the container size |
+|                         | Repeat | Defines how the background image repeats. | - **No-repeat**: Displays the image once without repetition <br/>- **Repeat**: Tiles the image both horizontally and vertically <br/>- **Repeat-x**: Repeats the image only horizontally <br/>- **Repeat-y**: Repeats the image only vertically <br/>- **Space**: Tiles the image with even spacing between repetitions <br/>- **Round**: Stretches the image slightly to ensure full coverage |
+| **Dimensions**          | Width | Specifies the width of the element. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Height | Specifies the height of the element. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Min Width | Sets the minimum width. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Min Height | Sets the minimum height. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Max Width | Sets the maximum width. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Max Height | Sets the maximum height. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+| **Layout**              | Margin | Defines the space outside the element. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Padding | Defines the space inside the element, between content and border. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+| **Appearance**          | Position | Defines how the element is positioned in the document flow. | - **Static**: Default positioning in normal document flow <br/>- **Relative**: Positioned relative to its original position <br/>- **Absolute**: Positioned relative to the nearest positioned ancestor <br/>- **Fixed**: Positioned relative to the viewport and doesn’t move when scrolling <br/>- **Sticky**: Switches between relative and fixed based on scroll position |
+|                         | Cursor | Specifies the cursor appearance when hovering over the element. | Various cursor options including Auto, Pointer, Not Allowed, Move, Text, Vertical Text, Progress, Help, Context Menu, Cell, Alias |
+|                         | Overflow | Determines what happens when content overflows the element’s box. | - **Auto**: Scrollbars appear when necessary <br/> - **Hidden**: Content is clipped if it overflows <br/> - **Scroll**: Scrollbars are always present <br/> - **Visible**: Content overflows without restrictions |
+|                         | Display | Controls the display behavior of the element. | - **Block**: The element takes up the full width of its parent <br/> - **Flex**: Enables flexible box layout <br/> - **Inline**: The element takes up only as much width as necessary <br/> - **Inline-Block**: Similar to inline but allows width and height properties <br/> - **None**: The element is removed from the document flow |
+|                         | Z-Index | Controls the stack order of elements. | - **Num**: A numerical value where higher numbers place elements above lower numbers <br/> - **Auto**: The browser determines the stacking order based on document structure <br/> - **Inherit**: Inherits the z-index from the parent element |
+|                         | **Flex Settings (If Display is Flex)** | | |
+|                         | Direction | Defines the direction of flexbox items. | Row, Row Reverse, Column, Column Reverse |
+|                         | Gap | Defines spacing between flex items. | Customizable |
+|                         | Justify | Aligns flex items along the main axis. | Start, Center, End, Space-between, Space-around |
+|                         | Align | Aligns flex items along the cross axis. | Start, Center, End, Stretch |
+|                         | Wrap | Defines whether flex items should wrap to the next line. | No Wrap, Wrap |
+| **Font**                | Family | Defines the font type used for text. | Various font options like Poppins, Open Sans, Sans-serif |
+|                         | Weight | Specifies the thickness of text. | Ranges from 100 (Thin) to 900 (Black) |
+|                         | Size | Sets the size. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Align | Aligns text horizontally. |  - **Start**: Aligns text to the left <br/> - **Center**: Centers text horizontally <br/> - **End**: Aligns text to the right <br/> - **Justify**: Spreads text evenly across the width |
+|                         | Style | Applies text styles. | - **Italic**: Slants the text to the right <br/> - **Underline**: Draws a line beneath the text <br/> - **Strikethrough**: Draws a line through the middle of the text |
+|                         | Transform | Modifies the text case. |  - **None**: No transformation is applied <br/> - **Uppercase**: Converts all text to uppercase letters <br/> - **Lowercase**: Converts all text to lowercase letters <br/> - **Capitalize**: Capitalizes the first letter of each word |
+| **Borders**             | Width | Specifies the thickness of the border. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+|                         | Color | Defines the border color. | Any RGB/HEX value (Typed manually or selected from the color panel) |
+|                         | Style | Determines the border design. | None, Solid, Dashed, Dotted |
+| **Border Radius**       | Size | Controls the rounding of the element’s corners. | Customizable using PX, EM, REM, VW, VH, PT, %, AUTO, NONE, UNSET, INHERIT |
+
+
+:::info Unit Type Definitions
+- **PX**: Fixed width in pixels 
+- **EM/REM**: Relative to the font size 
+- **VW/VH**: Relative to viewport width/height 
+- **PT**: Measured in points (used in print media) 
+- **%**: Relative to the parent element 
+- **AUTO**: Adjusts width based on content 
+- **NONE**: No width restriction 
+- **UNSET**: Removes any previously applied width 
+- **INHERIT**: Inherits width from the parent element 
+- **FIT-CONTENT**: Shrinks or expands to fit content
+:::
+
+
 ## CSS Classes Management
 
 ### Adding a CSS Class
@@ -332,7 +393,6 @@ To prevent such issues, it's important to use unique class names, particularly i
 :::
 
 This issue is also prevalent in more complex Page arrangements, such as dialogs within Page loaders, where CSS cascading can lead to similarly unexpected styling challenges.
-
 
 
 <!--

@@ -362,22 +362,8 @@ Server Side allows you to control the component's behavior, such as [hiding](../
 Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. 
 
 :::info
-Every style property is visible for all components, even though specific properties, like text alignment under the Font category for the icon component, will not impact the appearance of the component.
+For further details, refer to the [Properties Panel Styling Options](./styling#properties-panel-styling-options) section.
 :::
-
-Explore below for specific options:
-
-| Section       | Description |
-|-----------------|-------------|
-| CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the [Styles Library](styling.md) for additional details. |
-| Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
-| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events/bindingActionToEvents#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
-| Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
-| Layout          | Gain control over component alignment using margins and paddings.                             |
-| Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|
-| Font            | Tailor font type, size, alignment, and style achieving desired textual visual style.                                         |
-| Borders         | Define borders using attributes like thickness, color, and style to visually distinguish the component.                                   |
-| Border radius   | Adjust component corner curvature for various shapes and styles. |
 
 :::info
 <Column.List align="center" justifyContent="between">
