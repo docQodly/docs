@@ -349,4 +349,4 @@ The **Select Box** component can respond to various events, enabling dynamic use
 |---|---|
 |On Click| Calls for an action when the user clicks on the component. |
 |On Select| Calls for an action when an item within the component is selected. |
-
+|On Clear| Calls for an action when the selected item is cleared. |
