@@ -53,28 +53,100 @@ HTTP Request Handlers are ideal when:
 :::
 
 
-## Setting Up HTTP Request Handlers
 
-1. **Open HTTP Handlers**: In Qodly Studio, locate the HTTP Handlers menu item in the Explorer.
+## Accessing HTTP Handlers
 
-    - If the menu item is greyed out <img src={require('./img/HTTPHandlersGreyed.png').default} style={{borderRadius: '6px', width:'15%'}} />, click it to create the HTTPHandlers.json file.
+HTTP Handlers can be accessed and managed in Qodly Studio via the HTTP Handlers menu in the Explorer:
 
-    - Once created, the file will open for editing <img src={require('./img/HTTPHandlersCreated.png').default} style={{borderRadius: '6px', width:'15%'}} />.
+    1. Locate the HTTP Handlers menu in the Explorer.
 
-2. **Define Your Handlers**: Each handler in the `HTTP Handlers` file must include:
+    2. If the menu item is greyed out <img src={require('./img/HTTPHandlersGreyed.png').default} style={{borderRadius: '6px', width:'15%'}} />, click it to create the HTTPHandlers.json file.
 
-    - Class: The class containing the business logic.
+    3. Once created, the file will open for editing <img src={require('./img/HTTPHandlersCreated.png').default} style={{borderRadius: '6px', width:'15%'}} />.
 
-    - Method: The specific method that processes the request.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="35%">
+        By default, the HTTP Handlers UI is displayed instead of the code editor, allowing handlers to be managed via an intuitive graphical interface.
+    </Column.Item>
+    <Column.Item width="60%">
+        <img src={require('./img/HTTPHandlersUIInterface.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
-    - Pattern: A URL prefix to listen for.
 
-    - RegexPattern (optional): A regular expression for more precise URL matching.
+:::tip Switching Between UI and Code Edito
 
-    - Verbs: HTTP methods that trigger the handler (e.g., GET, POST). If omitted, the handler listens for all methods.
+Handlers can be modified using either the UI or the JSON editor.
+
+- To switch to the code editor view, clicking the code editor icon <img src={require('./img/codeEditorView.png').default} style={{borderRadius: '6px', width:'5%'}} /> is required.
+
+- To return to the HTTP Handler UI, clicking the UI icon <img src={require('./img/httpHandlerView.png').default} style={{borderRadius: '6px', width:'5%'}} /> is necessary.
+
+- Changes made in one view are automatically synchronized with the other.
+
+:::
 
 
-:::tip Example Configuration
+If no handlers are configured, a message appears stating: `There are no HTTP Handlers configured yet. Click on the ➕ to add a new one.`.
+
+
+## Configuring HTTP Handlers 
+
+### Add HTTP Handlers
+
+HTTP Handlers can be added through both the UI and the code editor.
+
+#### Using the HTTP Handler UI:
+
+1. Clicking the <img src={require('./img/add.png').default} style={{borderRadius: '6px', width:'3%'}} />  button opens a form for inputting handler details.
+
+2. The form requires specifying the following details:
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="45%">
+            <ul>
+                <li> Class: Selecting an existing class from the dropdown list or manually entering a class name. </li> <br/>
+                <li> Method: Choosing an available method from the selected class or entering a method manually. </li> <br/>
+                <li> Pattern: Defining the URL pattern. </li> <br/>
+                <li> As Regex: Enabling this if using a regular expression for URL matching. </li> <br/>
+                <li> Verbs: Selecting supported HTTP methods (GET, POST, PUT, DELETE). </li> <br/>
+            </ul>
+        </Column.Item>
+        <Column.Item width="50%">
+            <img src={require('./img/addHandlersForm.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+3. Clicking Save applies the configuration.
+
+:::danger Handling Class and Method Errors
+
+When manually entering a class name or method that does not exist, the system provides visual feedback to prevent misconfiguration.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="45%">
+        <ul>
+            <li>If the specified class or method does not exist, a <code>Nothing found</code> message appears, and the input field turns red.</li><br/>
+            <li>Unrecognized entries are automatically removed when pressing Enter.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="50%">
+        <img src={require('./img/UnrecognizedHTTPHandlers2.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+:::
+
+:::info Adding an Unsupported HTTP verb
+
+Only the four HTTP methods (GET, POST, PUT, DELETE) are supported. If an invalid method is typed and Enter is pressed, it will not be added.
+
+In contrast, supported methods (GET, POST, PUT, DELETE) will have a dark grey background <img src={require('./img/validVerb.png').default} style={{borderRadius: '6px', width:'8%'}} /> to indicate they are valid.
+
+:::
+
+#### Using the Code Editor:
+
+Handlers can also be configured manually in the code editor, like: 
 
 ```json
 [
@@ -85,12 +157,6 @@ HTTP Request Handlers are ideal when:
         "verbs": "GET"
     },
     {
-        "class": "CustomerHandler",
-        "method": "updateCustomer",
-        "pattern": "customers/update",
-        "verbs": "POST"
-    },
-    {
         "class": "AuthHandler",
         "method": "login",
         "regexPattern": "/auth/login",
@@ -99,24 +165,79 @@ HTTP Request Handlers are ideal when:
 ]
 ```
 
+
+:::danger Error Handling When Switching Views
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="45%">
+        If a class or method that does not exist is added directly through the code editor, there is no immediate validation or error handling. However, when switching to the UI view, the system detects invalid entries and highlights them in red. An error message appears below the affected fields, stating: `The singleton "Class or Method name" doesn't exist.`
+    </Column.Item>
+    <Column.Item width="50%">
+        <img src={require('./img/UnrecognizedHTTPHandlers.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 :::
 
-## Handler definition
+:::info Adding an Unsupported HTTP verb
 
-### Matching Rules 
+The code editor does not enforce immediate validation when an invalid HTTP method is added. If an unsupported HTTP method is entered in the JSON file, it will be saved without an error. However, when switching to the UI view the invalid method will be highlighted with a dark red background <img src={require('./img/invalidVerb.png').default} style={{borderRadius: '6px', width:'8%'}} />, indicating that it is not a valid option.
+
+:::
+
+### Edit HTTP Handlers
+
+Editing allows modifications to the class, method, URL pattern, or HTTP methods:
+
+- Use the UI to expand <img src={require('./img/expandHandler.png').default} style={{borderRadius: '6px', width:'3%'}} /> a handler and adjust its settings.
+
+- Or, edit the JSON file directly for manual changes from the code editor.
+
+### Delete HTTP Handlers
+
+Removing unnecessary handlers keeps request processing efficient:
+
+- Click the trash icon <img src={require('./img/delete.png').default} style={{borderRadius: '6px', width:'3%'}} /> in the UI to delete a handler, then confirm the action.
+
+- Alternatively, delete the handler entry from the code editor.
+
+
+### Duplicate Handlers 
+
+Duplicating handlers allows for quick replication:
+
+- Click the duplicate icon <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', width:'3%'}} /> in the UI.
+
+- Copy and paste JSON objects for manual duplication.
+
+
+### Reorder Handlers
+
+Execution order can be adjusted:
+
+- Drag and drop handlers in the UI <img src={require('./img/dragDrop.png').default} style={{borderRadius: '6px', width:'3%'}} />.
+
+- Manually rearrange JSON objects in the file.
+
+
+### Expand/Collapse HTTP Handlers
+
+For better organization, handlers in the UI can be expanded <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'3%'}} /> or collapsed <img src={require('./img/collapse.png').default} style={{borderRadius: '6px', width:'3%'}} /> to show or hide details.
+
+
+## Matching Rules 
 
 Handlers can define URL patterns in two ways:
 
 - **Prefix (pattern)**: Matches any URL that starts with the specified prefix.
 
     :::info Example
-        A handler with "pattern": "products" matches /products, /products/list, and /products/123.
-    :::
+        A handler with "pattern": `products` matches /products, /products/list, and /products/123.
+    :::s
 
 - **Regular Expression (regexPattern)**: Matches URLs that satisfy the specified regular expression.
 
     :::info Example
-        A handler with "regexPattern": "/products/[0-9]+" matches /products/123 and /products/456, but not /products/list.
+        A handler with "regexPattern": `/products/[0-9]+` matches /products/123 and /products/456, but not /products/list.
     :::
 
 
@@ -150,10 +271,9 @@ Given the following configuration:
 :::
 
 
+## Order of Execution
 
-### Execution Flow
-
-When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTP request handle definition file (**HTTPHandlers.json**). The execution flow follows these steps:
+When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTPHandlers.json file or the UI. The execution flow follows these steps:
 
 - The URL of the request is matched against the pattern or regexPattern of each handler.
 
@@ -165,22 +285,32 @@ When an HTTP request is received, the system evaluates each handler in the order
 
 Given the following configuration:
 
-```json
-[
-    {
-        "class": "ProductHandler",
-        "method": "getProductDetails",
-        "regexPattern": "/products/[0-9]+",
-        "verbs": "GET"
-    },
-    {
-        "class": "ProductHandler",
-        "method": "listProducts",
-        "pattern": "products",
-        "verbs": "GET"
-    }
-]
-```
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="52%">
+        <img src={require('./img/HTTPHandlersOrderExecution.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+    <Column.Item width="44%">
+        ```json
+        [
+            {
+                "class": "ProductHandler",
+                "method": "getProductDetails",
+                "verbs": "GET",
+                "id": "2jSeKR6tDs4KTKXrH3vVzR",
+                "regexPattern": "/products/[0-9]+"
+            },
+            {
+                "class": "ProductHandler",
+                "method": "listProducts",
+                "verbs": "GET",
+                "id": "uJScfkSR6rkhoJSpfEiG6U",
+                "pattern": "products"
+            }
+        ]
+        ```
+    </Column.Item>
+</Column.List>
+
 
 A request to GET `/products/123` will match both handlers:
 
@@ -189,31 +319,11 @@ A request to GET `/products/123` will match both handlers:
 - The second handler matches because `/products` is a prefix of the URL.
 
 
-However, only the first handler (getProductDetails) is executed, as it appears first in the configuration.
+However, only the first handler `getProductDetails` is executed, as it appears first in the configuration.
 
 :::
 
-
-### HTTP Methods (Verbs)
-
-Handlers can limit the HTTP methods they respond to using the verbs property. Supported methods include GET, POST, PUT, DELETE, and others. Specifying verbs ensures that only requests with matching methods trigger the handler.
-
-:::info Default Behavior
-If the verbs property is omitted, the handler applies to all HTTP methods.
-
-```json
-{
-    "class": "GeneralHandler",
-    "method": "catchAll",
-    "pattern": "*"
-}
-```
-
-This handler matches all methods (GET, POST, PUT, etc.) for any URL.
-:::
-
-
-### Handling Errors
+## Handling Errors
 
 If no handler matches a request, the system automatically returns a 404 error. This behavior ensures that unexpected or unsupported requests do not disrupt the application.
 
@@ -231,8 +341,11 @@ To handle unmatched requests explicitly, you can define a fallback handler. Fall
 This handler catches all requests that are not matched by earlier handlers. It can be used to:
 
 - Return a custom 404 page.
+
 - Log details about unmatched requests.
+
 - Redirect users to a default page.
+
 
 ## Request handler code
 
