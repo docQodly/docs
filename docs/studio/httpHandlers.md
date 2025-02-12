@@ -347,14 +347,13 @@ This handler catches all requests that are not matched by earlier handlers. It c
 - Redirect users to a default page.
 
 
-## Request handler code
+## Request Handler Code
 
-
-### Function configuration
+### Function Configuration
 
 The HTTP Request handler code must be implemented in a function of a [**Shared**](../language/basics/lang-classes.md#shared-singleton) [**singleton class**](../language/basics/lang-classes.md#singleton-classes). 
 
-If the singleton is missing or not shared, an error "Cannot find singleton" is returned by the server. If the class or the function defined as handler is not found, an error "Cannot find singleton function" is returned by the server.
+If the singleton is missing or not shared, an error `Cannot find singleton` is returned by the server. If the class or the function defined as handler is not found, an error `Cannot find singleton function` is returned by the server.
 
 Request handler functions are not necessarily shared, unless some request handler properties are updated by the functions. In this case, you need to declare its functions with the [`shared` keyword](../language/basics/lang-classes.md#shared-functions).
 
@@ -365,28 +364,24 @@ It is **not recommended** to expose request handler functions to external REST c
 :::
 
 
-### Input: an instance of the 4D.IncomingMessage class
+### Input: 4D.IncomingMessage Class Instance
 
-When a request has been intercepted by the handler, it is received on the server as an instance of the [4D.IncomingMessage class](../language/IncomingMessageClass.md). 
+When a request is intercepted by the handler, it is received on the server as an instance of the [4D.IncomingMessage class](../language/IncomingMessageClass.md). 
 
-All necessary information about the request are available in this object, including the request url, verb, headers, and, if any, parameters (put in the URL) and body. 
+This object provides all necessary request information, including the request URL, verb, headers, URL parameters, and request body. The request handler can use this information to trigger the appropriate business logic.
  
-Then, the request handler can use this information to trigger appropriate business logic.
+### Output: 4D.OutgoingMessage Class Instance
 
-### Output: an instance of the 4D.OutgoingMessage class
-
-The request handler can return an object instance of the [4D.OutGoingMessage class](../language/OutgoingMessageClass.md), i.e. some full web content ready for a browser to handle, such as a file content.
+The request handler can return an object instance of the [4D.OutGoingMessage class](../language/OutgoingMessageClass.md), which represents web content ready for a browser to handle, such as a file content or a structured response.
 
 
 ### Example
 
+The [4D.IncomingMessage class](../language/IncomingMessageClass.md) provides functions to retrieve [headers](../language/IncomingMessageClass.md#headers) and the [body](../language/IncomingMessageClass.md#gettext) of the request.
 
-The [4D.IncomingMessage class](../language/IncomingMessageClass.md) provides functions to get the [headers](../language/IncomingMessageClass.md#headers) and the [body](../language/IncomingMessageClass.md#gettext) of the request.
+Below is an example of an HTTP handler that processes a file upload.
 
-Here is a simple example to upload a file on the server.
-
-The http request handler configuration:
-
+:::info HTTP Request Handler Configuration:
 ```json
 [
     {
@@ -397,12 +392,20 @@ The http request handler configuration:
     }
 ]
 ```
+:::
 
-The called URL is: `/putFile?fileName=testFile`
+The request URL: `/putFile?fileName=testFile`
 
-The binary content of the file is put in the body of the request and a POST verb is used. The file name is given as parameter (*fileName*) in the URL. It is received in the [`urlQuery`](../language/IncomingMessageClass.md#urlquery) object in the request.
+    - The binary content of the file is sent in the request body.
+
+    - The POST verb is used.
+
+    - The filename is included as a query parameter (*fileName*).
+
+    - The filename is extracted using the [`urlQuery`](../language/IncomingMessageClass.md#urlquery) object.
 
 
+:::info Implementation of the UploadFile Class:
 ```qs
     //UploadFile class
 
@@ -442,3 +445,4 @@ function uploadFile(request : 4D.IncomingMessage) : 4D.OutgoingMessage
     return response
 
 ```
+:::
