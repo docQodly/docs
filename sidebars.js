@@ -447,6 +447,7 @@ const sidebars = {
 						'language/FunctionClass',
 						'language/HTTPRequestClass',
 						'language/IMAPTransporterClass',
+						'language/IncomingMessageClass',
 						'language/MailAttachmentClass',
 						'language/OutgoingMessageClass',
 						'language/POP3TransporterClass',

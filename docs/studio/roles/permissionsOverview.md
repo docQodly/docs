@@ -22,7 +22,7 @@ Permissions define essential actions on resources, covering tasks such as creati
 | Read | Read Attributes in any Dataclass. | Read attributes in the chosen Dataclass. | Read the content of the chosen Attribute. | n/a |
 | Update | Update Attributes in any Dataclass. | Update attributes in the chosen Dataclass. | Update the content of the chosen Attribute. | n/a |
 | Delete | Delete data throughout the Model. | Delete data in the chosen Dataclass. | Delete a non-null value for the chosen Attribute. | n/a |
-| Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, and Entities. | Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
+| Execute | Execute all functions throughout the Model, including DataStore, Dataclasses, Entity selections, Entities, as well as Singleton functions| Execute any function on the chosen dataclass (Dataclass functions, entity functions, and entity selection functions). | n/a | Execute the selected function. |
 | Promote    | n/a | n/a | n/a | Temporarily adds a specific privilege to the session during function execution, primarily for secure privilege escalation. |
 
 ### Search Functionality
@@ -108,7 +108,7 @@ When all resources are available, the Clear button is disabled.  <img src={requi
 
 The permissions hierarchy is structured as follows:
 
-1. **Datastore Level**: This is the broadest level of permissions. Permissions set at the datastore level apply to all resources within the datastore unless specifically overridden at a lower level.
+1. **Datastore Level**: This is the broadest level of permissions. Permissions set at the datastore level apply to all resources within the datastore unless specifically overridden at a lower level. The *execute* permission action defined at the datastore level applies to all functions of the project, including all exposed singleton functions.
 
 2. **DataClass Level**: Permissions set at the DataClass level apply to all attributes and functions within that DataClass. These permissions can override or supplement those set at the datastore level for that specific DataClass.
 

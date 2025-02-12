@@ -101,8 +101,9 @@ HTTP Request Handlers are ideal when:
 
 :::
 
+## Handler definition
 
-## Matching Rules 
+### Matching Rules 
 
 Handlers can define URL patterns in two ways:
 
@@ -150,9 +151,9 @@ Given the following configuration:
 
 
 
-## Execution Flow
+### Execution Flow
 
-When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTPHandlers.json file. The execution flow follows these steps:
+When an HTTP request is received, the system evaluates each handler in the order they appear in the HTTP request handle definition file (**HTTPHandlers.json**). The execution flow follows these steps:
 
 - The URL of the request is matched against the pattern or regexPattern of each handler.
 
@@ -193,7 +194,7 @@ However, only the first handler (getProductDetails) is executed, as it appears f
 :::
 
 
-## HTTP Methods (Verbs)
+### HTTP Methods (Verbs)
 
 Handlers can limit the HTTP methods they respond to using the verbs property. Supported methods include GET, POST, PUT, DELETE, and others. Specifying verbs ensures that only requests with matching methods trigger the handler.
 
@@ -212,7 +213,7 @@ This handler matches all methods (GET, POST, PUT, etc.) for any URL.
 :::
 
 
-## Handling Errors
+### Handling Errors
 
 If no handler matches a request, the system automatically returns a 404 error. This behavior ensures that unexpected or unsupported requests do not disrupt the application.
 
@@ -230,7 +231,101 @@ To handle unmatched requests explicitly, you can define a fallback handler. Fall
 This handler catches all requests that are not matched by earlier handlers. It can be used to:
 
 - Return a custom 404 page.
-
 - Log details about unmatched requests.
-
 - Redirect users to a default page.
+
+## Request handler code
+
+
+### Function configuration
+
+The HTTP Request handler code must be implemented in a function of a [**Shared**](../language/basics/lang-classes.md#shared-singleton) [**singleton class**](../language/basics/lang-classes.md#singleton-classes). 
+
+If the singleton is missing or not shared, an error "Cannot find singleton" is returned by the server. If the class or the function defined as handler is not found, an error "Cannot find singleton function" is returned by the server.
+
+Request handler functions are not necessarily shared, unless some request handler properties are updated by the functions. In this case, you need to declare its functions with the [`shared` keyword](../language/basics/lang-classes.md#shared-functions).
+
+:::note
+
+It is **not recommended** to expose request handler functions to external REST calls using [`exposed`](../orda/data-model.md#exposed-vs-non-exposed-functions) or [`onHttpGet`](../orda/data-model.md#onhttpget-keyword) keywords.
+
+:::
+
+
+### Input: an instance of the 4D.IncomingMessage class
+
+When a request has been intercepted by the handler, it is received on the server as an instance of the [4D.IncomingMessage class](../language/IncomingMessageClass.md). 
+
+All necessary information about the request are available in this object, including the request url, verb, headers, and, if any, parameters (put in the URL) and body. 
+ 
+Then, the request handler can use this information to trigger appropriate business logic.
+
+### Output: an instance of the 4D.OutgoingMessage class
+
+The request handler can return an object instance of the [4D.OutGoingMessage class](../language/OutgoingMessageClass.md), i.e. some full web content ready for a browser to handle, such as a file content.
+
+
+### Example
+
+
+The [4D.IncomingMessage class](../language/IncomingMessageClass.md) provides functions to get the [headers](../language/IncomingMessageClass.md#headers) and the [body](../language/IncomingMessageClass.md#gettext) of the request.
+
+Here is a simple example to upload a file on the server.
+
+The http request handler configuration:
+
+```json
+[
+    {
+        "class": "UploadFile",
+        "method": "uploadFile",
+        "regexPattern": "/putFile",
+        "verbs": "POST"
+    }
+]
+```
+
+The called URL is: `/putFile?fileName=testFile`
+
+The binary content of the file is put in the body of the request and a POST verb is used. The file name is given as parameter (*fileName*) in the URL. It is received in the [`urlQuery`](../language/IncomingMessageClass.md#urlquery) object in the request.
+
+
+```qs
+    //UploadFile class
+
+shared singleton constructor()
+    
+    
+function uploadFile(request : 4D.IncomingMessage) : 4D.OutgoingMessage
+    
+    var response = 4D.OutgoingMessage.new()
+    
+    var body = "Not supported file"
+    var fileName, fileType : string
+    var file : 4D.File
+    var picture : picture
+    var created : boolean
+    
+    fileName = request.urlQuery.fileName
+    fileType = request.getHeader("Content-Type")
+    
+    switch 
+        : (fileType == "application/pdf")
+            file = file("/PACKAGE/Files/"+fileName+".pdf")
+            created = file.create()
+            file.setContent(request.getBlob())
+            body = "Upload OK - File size: "+string(file.size)
+            
+        : (fileType == "image/jpeg")
+            file = file("/PACKAGE/Files/"+fileName+".jpg")
+            picture =  request.getPicture()
+            body = "Upload OK - Image size: "+string(file.size)
+            
+    end 
+    
+    response.setBody(body)
+    response.setHeader("Content-Type", "text/plain")
+    
+    return response
+
+```
