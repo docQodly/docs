@@ -389,4 +389,11 @@ The `wait()` function <!-- REF #HTTPRequestClass.wait().Summary -->waits for the
 If a *time* parameter is passed, the function will wait at most the defined number of seconds.
 
 If the response from the server has already arrived, the function returns immediately.
+
+:::note 
+
+During the `.wait()` execution, callback functions are executed, whether they originate from other instances of the same class, or instances of any classes supporting the same callback mechanism (`HTTPRequest`, `TCPConnection`, `SystemWorker`). You can exit from a `.wait()` by calling [`shutdown()`](#shutdown) or `terminate()` (depending on the API) from a callback.
+
+:::
+
 <!-- END REF -->

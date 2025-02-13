@@ -287,6 +287,28 @@ Based upon the code above, the comparison table is:
 |   |||o1 != o2 |true|
 
 
+## Resources
+
+Objects use *resources* such a documents, entity locks, and of course, memory. These resources are retained as long as objects need them. Usually, you do not have to worry about them, Qodly automatically releases all resources attached to an object when it detects that the object itself is no longer referenced by any variable or other object. 
+
+For instance, when there is no more references to an entity on which you have set a lock with [`entity.lock()`](../EntityClass.md#lock), Qodly will free the memory but also automatically release the associated lock, a call to [`entity.unlock()`](../EntityClass.md#unlock) is useless.
+
+If you want to release immediately all resources occupied by an object without having to wait that Qodly does it automatically (at the end of the function execution for example), you just have to **nullify all its references**. For example:
+
+```qs
+
+var f : 4D.File
+var fhandle : 4D.FileHandle
+
+f = file("/SOURCES/ReadMe.txt")
+fhandle = f.open("read")
+     ... // do something with fhandle
+fhandle = null  // free resources occupied by fhandle
+     ... // continue execution with more free memory
+
+```
+
+
 ## Examples
 
 - Writing and reading objects:

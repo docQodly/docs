@@ -456,6 +456,8 @@ const sidebars = {
 						'language/SignalClass',
     			        'language/SMTPTransporterClass',
 						'language/SystemWorkerClass',
+						'language/TCPConnectionClass',
+						'language/TCPEventClass',
 						'language/UsersClass',
 						'language/WebFormClass',
 						'language/WebFormItemClass',
