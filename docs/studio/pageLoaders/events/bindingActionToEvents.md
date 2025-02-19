@@ -49,6 +49,8 @@ After binding a standard action to a qodlysource with an event, follow these ste
     |                  | Copy                  | ![Copy](./img/standardAction_copy.png)                                                                      | Copy the entity to a target entity qodlysource                                                                                  |
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Put `null` in the qodlysource. If the qodlysource is the selected element of a component (Matrix, Select box, Datatable), clearing the qodlysource also unselects the selected element        |
     |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the qodlysource to its initial value                                                                                       |
+    | Iterator ($This) | Copy   | ![Copy](./img/standardAction_copy.png)                                               | Copy the entity to a target entity qodlysource                                                                        |
+    |                  | Drop                  | ![Drop](./img/standardAction_drop.png)                                                                      | Delete the entity on the server                                                                                                |
 
 
 
