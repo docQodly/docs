@@ -216,7 +216,7 @@ Thank you for helping us improve! 🚀
               },
               {
                 label: "Release Notes",
-                to: "notes/1.1.0",
+                to: "notes/1.0.0",
               },
             ],
           },
