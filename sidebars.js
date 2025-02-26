@@ -45,47 +45,36 @@ const sidebars = {
 			id: 'get-started/quickstart'
 		},
 		{
-			type: 'doc',
-			id: 'get-started/first-app'
-		},{
-			type: 'doc',
-			id: 'get-started/test-debug'
+			type: 'category',
+			label: 'Qodly Overview',
+			items: ['get-started/first-app',
+				'get-started/test-debug',
+				'get-started/deployment',
+				'get-started/access',
+				'get-started/data-management',
+				'get-started/support',
+				'get-started/updates',
+				'get-started/community',
+				'get-started/subscriptions',
+				'get-started/payments',
+				'get-started/refunds',
+			],
 		},
 		{
-			type: 'doc',
-			id: 'get-started/deployment'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/access'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/data-management'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/support'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/updates'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/community'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/subscriptions'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/payments'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/refunds'
+			type: 'category',
+			label: 'Release Notes',
+			collapsed: false,
+			items: [
+						'notes/1.1.0',
+						'notes/1.0.0',
+						'notes/1.0.0-beta.6',
+						'notes/1.0.0-beta.5',
+						'notes/1.0.0-beta.4',
+						'notes/1.0.0-beta.3',
+						'notes/1.0.0-beta.2',
+						'notes/1.0.0-beta.1',
+						'notes/1.0.0-beta.0'
+					],
 		},
 	],
 	Develop: [
@@ -577,24 +566,6 @@ const sidebars = {
 				'api/classFunctionsParameters',
 				'api/classfunctionsFunctionCalls'
 			],
-		},
-	],
-	ReleaseNotes: [
-		{
-			type: 'category',
-			label: 'Qodly Releases',
-			collapsed: false,
-			items: [
-						'notes/1.1.0',
-						'notes/1.0.0',
-						'notes/1.0.0-beta.6',
-						'notes/1.0.0-beta.5',
-						'notes/1.0.0-beta.4',
-						'notes/1.0.0-beta.3',
-						'notes/1.0.0-beta.2',
-						'notes/1.0.0-beta.1',
-						'notes/1.0.0-beta.0'
-					],
 		},
 	],
 };

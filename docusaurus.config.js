@@ -214,10 +214,10 @@ Thank you for helping us improve! 🚀
                 label: "Get Support",
                 to: "https://support.4d.com/",
               },
-              {
-                label: "Release Notes",
-                to: "notes/1.0.0",
-              },
+              //{
+                //label: "Release Notes",
+                //to: "notes/1.0.0",
+              //},
             ],
           },
           {
