@@ -26,9 +26,16 @@ Typical user events include `On Click`, `On DblClick`, `On MouseEnter`, `On Keyu
 
 ### Qodly Source events
 
-Besides events triggered by end-user actions, events can also be automated to respond when qodlysources undergo changes. The primary event for qodlysources is the `On Change` event.
+Besides events triggered by end-user actions, events can also be automated to respond when qodlysources undergo changes. Qodly Sources support two distinct events: the `On Change` event and the `On Init` event.
 
-When the `On Change` event is linked to a qodlysource, it will trigger in the following scenarios:
+
+#### On Init
+
+The `On Init` event is triggered when the Qodly Source is instantiated by the renderer. It provides an opportunity to set up an initial value for the Qodly Source. Actions or function calls bound to the `On Init` event should focus solely on initializing that specific Qodly Source.
+
+#### On Change
+
+When the `On Change` event is linked to a Qodly Source, it will trigger in the following scenarios:
 
 |Trigger|Description|
 |---|---|
