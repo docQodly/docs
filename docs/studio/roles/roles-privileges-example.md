@@ -96,15 +96,19 @@ Only the *Doctor* role can view the patient's confidential data (gathered in a *
 
 ## Configuring public access 
 
-By default in new Qodly applications, the public access is **disabled**. The public access is the access granted for public users  (like **X**) without any role. However, by default, public users have the [*Guest* privilege](./datastorePermissions.md#introducing-the-guest-privilege). 
+By default in new Qodly applications, the public access is **disabled**. The public access is the access granted for public users (like **X**) without any role.
 
 1. [Activate the Public access explicitely](../../cloud/resourceMonitoring.md#3-public-url-development-environment-only) in the console. 
+
+
 2. Allow the *guest* privilege to read the appointments. 
 
 <img src={require('./img/example-guest.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
-A a consequence, the *guest* privilege is always present in any role for Qodly app registered users. 
+## The final picture
 
-Here is a complete overview of the roles and privileges:
+By default, **all users, including public users** have the [*Guest* privilege](./datastorePermissions.md#introducing-the-guest-privilege). By simply allowing the *guest* privilege to read appointments, we allow all users, registered and not registered, to read the appointments. 
+
+Here is a complete overview of the roles and privileges for our HealthCare application:
 
 <img src={require('./img/example-full.png').default} style={{borderRadius: '6px', width:'70%'}} />
