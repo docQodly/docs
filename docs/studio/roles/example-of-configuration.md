@@ -1,15 +1,15 @@
 ---
-id: roles-privileges-example
-title: Example
+id: example-of-configuration
+title: Example of configuration
 ---
 import Column from '@site/src/components/Column'
 
 This section shows a detailed example of roles and privileges configuration for a HealthCare application handling patients and appointments, including sensible data. 
 
-It includes the support of both **public** and **authenticated** [application accesses](../../cloud/resourceMonitoring.md#application-access) through their respective endpoints. 
+It includes the support of both **public** and **authenticated** [application accesses](../../cloud/resourceMonitoring.md#application-access). 
 
 
-## Presentation of the application
+## Application overview
 
 Here are the main characteristics of the HealthCare application.
 
@@ -64,13 +64,13 @@ We want to configure the following accesses:
 
 By default in new Qodly applications, **no permissions** are set up, which means that all data are available for any Qodly app registered user (Reminder: public endpoint is disabled by default).​ Thus, the initial configuration is:
 
-<img src={require('./img/example-startup.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-startup.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 The first step in activating safety is to **protect all data** by default. Accesses will then be opened for each resource.  
 
 1. Create a **None** privilege with a granted **Read** action on the Datastore​. By the inheritance principles, the **whole datastore** is then protected. 
 
-<img src={require('./img/example-none.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-none.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 2. Do never assign this privilege to any role, so that the whole datastore will always remain protected by default​. 
 
@@ -81,7 +81,7 @@ The first step in activating safety is to **protect all data** by default. Acces
 1. Create the *viewPatient* privilege with a granted **Read** action on the `Patients` dataclass.​ 
 2. Assign it to the *Doctor* and *Secretary* roles.​
 
-<img src={require('./img/example-viewpatient.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-viewpatient.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 However, this privilege will give access to all patient data to the *Secretary* role, including by default any confidential. You still need to restrict access to this level of information.  
 
@@ -92,7 +92,7 @@ Only the *Doctor* role can view the patient's confidential data (gathered in a *
 1. Create the *viewSecretInfo* privilege with a granted **Read** action on the `Patients.confidentialInfo` attribute.​ 
 2. Assign it to the *Doctor* role (this will exclude all other roles). ​
 
-<img src={require('./img/example-viewsecretinfo.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-viewsecretinfo.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 ## Configuring public access 
 
@@ -103,7 +103,7 @@ By default in new Qodly applications, the public access is **disabled**. The pub
 
 2. Allow the *guest* privilege to read the appointments. 
 
-<img src={require('./img/example-guest.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-guest.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 ## The final picture
 
@@ -111,4 +111,4 @@ By default, **all users, including public users** have the [*Guest* privilege](.
 
 Here is a complete overview of the roles and privileges for our HealthCare application:
 
-<img src={require('./img/example-full.png').default} style={{borderRadius: '6px', width:'70%'}} />
+<img src={require('./img/example-full.png').default} style={{borderRadius: '6px', width:'80%'}} />

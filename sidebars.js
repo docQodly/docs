@@ -164,7 +164,7 @@ const sidebars = {
 					]
 				},
 				'studio/roles/includingPrivileges',
-				'studio/roles/roles-privileges-example',
+				'studio/roles/example-of-configuration',
 			],
 		},
 		{
