@@ -1,6 +1,6 @@
 ---
 id: example-of-configuration
-title: Example of configuration
+title: Example
 ---
 import Column from '@site/src/components/Column'
 
@@ -68,31 +68,56 @@ By default in new Qodly applications, **no permissions** are set up, which means
 
 The first step in activating safety is to **protect all data** by default. Accesses will then be opened for each resource.  
 
-1. Create a **None** privilege with a granted **Read** action on the Datastore​. By the inheritance principles, the **whole datastore** is then protected. 
+1. Create a **None** privilege with a granted **Read** action on the Datastore​. 
+
+<img src={require('./img/example-config1.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
+By the inheritance principles, the **whole datastore** is then protected. 
 
 <img src={require('./img/example-none.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
-2. Do never assign this privilege to any role, so that the whole datastore will always remain protected by default​. 
+2. Do **never** assign this privilege to any role, so that the whole datastore will always remain protected by default​. 
 
 ### Creating the viewPatient privilege
 
 *Doctor* and *Secretary* roles can read patient's data. 
 
 1. Create the *viewPatient* privilege with a granted **Read** action on the `Patients` dataclass.​ 
-2. Assign it to the *Doctor* and *Secretary* roles.​
+
+<img src={require('./img/example-config2.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
+2. Assign it to the *Doctor* and *Secretary* roles (see [roles](#roles) below).​
+
 
 <img src={require('./img/example-viewpatient.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
 However, this privilege will give access to all patient data to the *Secretary* role, including by default any confidential. You still need to restrict access to this level of information.  
 
-### Creating the viewSecretInfo privilege
+### Creating the viewConfidentialInfo privilege
 
 Only the *Doctor* role can view the patient's confidential data (gathered in a *confidentialInfo* attribute). 
 
-1. Create the *viewSecretInfo* privilege with a granted **Read** action on the `Patients.confidentialInfo` attribute.​ 
-2. Assign it to the *Doctor* role (this will exclude all other roles). ​
+1. Create the *viewConfidentialInfo* privilege with a granted **Read** action on the `Patients.confidentialInfo` attribute.​ 
+
+<img src={require('./img/example-config4.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
+2. Assign it to the *Doctor* role (see [roles](#roles) below). This will exclude all other roles). ​
 
 <img src={require('./img/example-viewsecretinfo.png').default} style={{borderRadius: '6px', width:'80%'}} />
+
+### Roles
+
+Here are the role definitions.
+
+- Secretary:
+
+<img src={require('./img/example-config3.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
+- Doctor:
+
+<img src={require('./img/example-config-doctor.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
+
 
 ## Configuring public access 
 
@@ -103,12 +128,17 @@ By default in new Qodly applications, the public access is **disabled**. The pub
 
 2. Allow the *guest* privilege to read the appointments. 
 
+<img src={require('./img/example-config5.png').default} style={{borderRadius: '6px', width:'100%'}} />
+
 <img src={require('./img/example-guest.png').default} style={{borderRadius: '6px', width:'80%'}} />
 
-## The final picture
 
-By default, **all users, including public users** have the [*Guest* privilege](./datastorePermissions.md#introducing-the-guest-privilege). By simply allowing the *guest* privilege to read appointments, we allow all users, registered and not registered, to read the appointments. 
+By default, **all users, including public users** have the [*guest* privilege](./datastorePermissions.md#introducing-the-guest-privilege). By simply allowing the *guest* privilege to read appointments, we allow all users, registered and not registered, to read the appointments. 
+
+## The final picture
 
 Here is a complete overview of the roles and privileges for our HealthCare application:
 
 <img src={require('./img/example-full.png').default} style={{borderRadius: '6px', width:'80%'}} />
+
+
