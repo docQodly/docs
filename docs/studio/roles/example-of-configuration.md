@@ -107,13 +107,13 @@ Only the *Doctor* role can view the patient's confidential data (gathered in a *
 
 ### Roles
 
-Here are the role definitions.
+Here are the corresponding role definitions.
 
-- Secretary:
+#### Secretary
 
 <img src={require('./img/example-config3.png').default} style={{borderRadius: '6px', width:'100%'}} />
 
-- Doctor:
+#### Doctor
 
 <img src={require('./img/example-config-doctor.png').default} style={{borderRadius: '6px', width:'100%'}} />
 
