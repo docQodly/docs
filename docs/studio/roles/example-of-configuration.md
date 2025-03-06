@@ -1,10 +1,10 @@
 ---
 id: example-of-configuration
-title: Example
+title: Example of configuration 
 ---
 import Column from '@site/src/components/Column'
 
-This section shows a detailed example of roles and privileges configuration for a HealthCare application handling patients and appointments, including sensible data. 
+This section is a tutorial that will show you how to configure roles and privileges for a HealthCare application handling patients and appointments, including confidential data. 
 
 It includes the support of both **public** and **authenticated** [application accesses](../../cloud/resourceMonitoring.md#application-access). 
 

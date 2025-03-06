@@ -148,7 +148,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Roles & Privileges',
+			label: 'Roles And Privileges',
 			items: [
 				'studio/roles/overview',
 				{

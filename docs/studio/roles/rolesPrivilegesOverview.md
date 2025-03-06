@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Configuring Roles & Privileges
+title: Configuring Roles and Privileges
 ---
 import Column from '@site/src/components/Column'
 
