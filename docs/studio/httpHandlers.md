@@ -232,7 +232,7 @@ Handlers can define URL patterns in two ways:
 
     :::info Example
         A handler with "pattern": `products` matches /products, /products/list, and /products/123.
-    :::s
+    :::
 
 - **Regular Expression (regexPattern)**: Matches URLs that satisfy the specified regular expression.
 

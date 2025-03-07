@@ -144,7 +144,9 @@
             "studio/roles/modelEditorApproach"
           ]
         },
-        "studio/roles/includingPrivileges"
+        "studio/roles/includingPrivileges",
+        "studio/roles/example-of-configuration"
+
       ]
     },
     {
