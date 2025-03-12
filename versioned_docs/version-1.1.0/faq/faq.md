@@ -32,7 +32,9 @@ Automatic scheduled backups are provided for staging and production environment.
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Where are stored my data?</summary>
+
 Your data are stored on AWS (Amazon Cloud).
+
 </details>
 
 
@@ -93,6 +95,7 @@ To resolve this, the `onInit` event should be used to ensure that all necessary 
 
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> What is Qodly Server?</summary>
+
 Qodly Server is actually a full stack of integrated servers and development layers and supports all necessary requirements to develop, test, and deploy business web applications.
 
 Qodly Server includes:
