@@ -170,13 +170,7 @@ Thank you for helping us improve! 🚀
             type: 'doc',
             docId: 'api/overview',
             position: 'left',
-            label: 'REST API',
-          },
-          {
-            type: "doc",
-            docId: "customComponent/overview",
-            position: "left",
-            label: "Custom Components",
+            label: 'Integrations',
           },
           {
             type: "doc",
