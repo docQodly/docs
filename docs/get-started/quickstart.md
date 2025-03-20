@@ -8,7 +8,7 @@ title: Quickstart
 Qodly is a global platform for developing, deploying, and running web applications. It consists of three main components:
 
 - **Studio**: Develop and test your application.
-- **Qodly Server**: Backend including a database, a Web Server, and [ORDA](../guideCenter/programmingGuide/data-model.md).
+- **Qodly Server**: Backend including a database, a Web Server, and [ORDA](../orda/data-model.md).
 - **Cloud Console**: Manage your deployments.
 
 Everything you need is included in your subscription. You can create your application from start to finish without installing anything. You can also extend your widgets by building or installing custom components in Qodly Studio.

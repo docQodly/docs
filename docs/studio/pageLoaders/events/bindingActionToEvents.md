@@ -24,7 +24,7 @@ After binding a standard action to a qodlysource with an event, follow these ste
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                      | Erase the content within the qodlysource                                                                                       |
     |                  | Reset                 | ![Reset](./img/standardAction_reset.png)                                                                      | Resets the qodlysource to its initial value                                                                                       |
     | Entity Selection | Order By              | ![Order By](./img/standardAction_orderBy.png)                                                                | Specify one or more attributes to sort and select direction                                                                    |
-    |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../../guideCenter/programmingGuide/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with qodlysources or data as-is  |
+    |                  | Query                 | ![Query](./img/standardAction_query.png)                                                                    | The query is provided as a string and supports the same syntax as an [ORDA query](../../../orda/queries.md), except for formula (`eval`) and the `settings` object. Placeholders can be used with qodlysources or data as-is  |
     |                  | Reload                | ![Reload](./img/standardAction_reload.png)                                                                  | Reload the entire entity selection from the server                                                                             |
     |                  | All                   | ![All](./img/standardAction_all.png)                                                                        | Load all entities of the same dataclass                                                                                        |
     |                  | Clear                 | ![Clear](./img/standardAction_clear.png)                                                                    | Remove any content and create a new, empty selection of the same dataclass                                                    |
@@ -61,7 +61,7 @@ After binding a standard action to a qodlysource with an event, follow these ste
 <br />
 
 :::note About Create entity action
-Keep in mind that the **Create** action only creates a new, blank entity in memory. If you want to save this entity in the datastore, you need to execute the **Save** action. New entity attributes are filled with null values. If you want to create, initialize, and save a new entity, you might consider using a [QodlyScript function](../../../guideCenter/programmingGuide/data.md#creating-an-entity). 
+Keep in mind that the **Create** action only creates a new, blank entity in memory. If you want to save this entity in the datastore, you need to execute the **Save** action. New entity attributes are filled with null values. If you want to create, initialize, and save a new entity, you might consider using a [QodlyScript function](../../../orda/data.md#creating-an-entity). 
 :::
 
 <br />
@@ -418,7 +418,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 ### Binding onHttpGet Functions
 
-Functions defined with the [onHttpGet](../../../guideCenter/programmingGuide/data-model.md#onhttpget-keyword) keyword and returning an instance of the [4D.OutgoingMessage](../../../language/OutgoingMessageClass.md) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
+Functions defined with the [onHttpGet](../../../orda/data-model.md#onhttpget-keyword) keyword and returning an instance of the [4D.OutgoingMessage](../../../language/OutgoingMessageClass.md) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
 
 :::info Example
 Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.

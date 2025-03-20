@@ -185,7 +185,7 @@ You cannot filter on picture or object attributes.
 
 
 :::tip
-Use [documented query expressions](../guideCenter/programmingGuide/queries.md), with limitations:
+Use [documented query expressions](../orda/queries.md), with limitations:
 
 - No `eval()` formulas for security.
 
@@ -203,7 +203,7 @@ For example:
 Quantity > 4 AND Purchaser.Name= "Harry"
 ```
 
-Display both [`queryPlan` and `queryPath`](../guideCenter/programmingGuide/queries.md#about-queryplan-and-querypath) details by clicking the expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'30%'}} /> button:
+Display both [`queryPlan` and `queryPath`](../orda/queries.md#about-queryplan-and-querypath) details by clicking the expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'30%'}} /> button:
 
 <img src={require('./img/dataExplorer12.png').default} style={{borderRadius: '6px'}} />
 

@@ -175,12 +175,6 @@ Thank you for helping us improve! 🚀
           {
             type: "doc",
             position: "left",
-            docId: "guideCenter/programmingGuide/data-model",
-            label: "Guide Center",
-          },  
-          {
-            type: "doc",
-            position: "left",
             docId: "faq/faq",
             label: "FAQ",
           },

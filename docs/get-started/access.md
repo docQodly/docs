@@ -18,4 +18,4 @@ For the public access, the user connects to the application through the **Public
 
 The user only has [Guest privilege](../studio/roles/datastorePermissions.md#introducing-the-guest-privilege) by default ([`Session.isGuest`](../language/SessionClass.md#isguest) returns true). 
 
-It's up to the Qodly developer to [authenticate the user](../guideCenter/programmingGuide/login.md) and grant them a privilege or role using the [Session class API](../language/SessionClass.md). For example, you can get the list of privileges associated to the session using the [`getPrivileges()`](../language/SessionClass.md#getprivileges) function, or store user information in the session's [`storage`](../language/SessionClass.md#storage) property. 
+It's up to the Qodly developer to [authenticate the user](../language/guides/login.md) and grant them a privilege or role using the [Session class API](../language/SessionClass.md). For example, you can get the list of privileges associated to the session using the [`getPrivileges()`](../language/SessionClass.md#getprivileges) function, or store user information in the session's [`storage`](../language/SessionClass.md#storage) property. 

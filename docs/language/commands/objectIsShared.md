@@ -24,6 +24,6 @@ For more information, see [Shared objects and collections](../basics/lang-shared
 
 :::note
 
-The command returns `true` if you pass a [shareable entity selection](../../guideCenter/programmingGuide/data.md#shareable-or-alterable-entity-selections)
+The command returns `true` if you pass a [shareable entity selection](../../orda/data.md#shareable-or-alterable-entity-selections)
 
 :::

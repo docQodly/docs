@@ -6,7 +6,7 @@ title: Overview
 Development in Qodly relies on the use of **Qodly Studio**, an innovative platform for creating business web applications. Our primary goal with **Qodly Studio** is to provide developers with a seamless, 100% web-based development experience. This platform empowers developers to:
 
 - Design and modify data models that align with your business logic.
-- Effortlessly link data with [ORDA](../guideCenter/programmingGuide/data-model.md#the-orda-concept)  dataclasses.
+- Effortlessly link data with [ORDA](../orda/data-model.md#the-orda-concept)  dataclasses.
 - Visually craft Pages by simply dragging and dropping components onto a canvas.
 - Instantly preview web pages.
 - Execute QodlyScript code directly within web events or qodlysource events.

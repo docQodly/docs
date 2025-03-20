@@ -261,9 +261,9 @@ Similarly, calculated attributes can be included in **sorts**. When a calculated
 
 ### Create a calculated attribute
 
-You create a calculated attribute by defining a [`get` function](../../guideCenter/programmingGuide/data-model.md#function-get-attributename) in the [**entity class**](#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
+You create a calculated attribute by defining a [`get` function](../../orda/data-model.md#function-get-attributename) in the [**entity class**](#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
 
-Three other calculated attribute functions ([`set`](../../guideCenter/programmingGuide/data-model.md#function-set-attributename), [`query`](../../guideCenter/programmingGuide/data-model.md#function-query-attributename), and [`orderBy`](../../guideCenter/programmingGuide/data-model.md#function-orderby-attributename)) can also be defined in the entity class. They are optional.
+Three other calculated attribute functions ([`set`](../../orda/data-model.md#function-set-attributename), [`query`](../../orda/data-model.md#function-query-attributename), and [`orderBy`](../../orda/data-model.md#function-orderby-attributename)) can also be defined in the entity class. They are optional.
 
 Within calculated attribute functions, `this` designates the entity. Calculated attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../../language/EntityClass.md) or [entity selection class](../../language/EntitySelectionClass.md) functions.
 

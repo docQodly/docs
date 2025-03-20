@@ -17,7 +17,7 @@ Variables, attributes or expressions of the object type can contain various type
 	- picture(2)
 	- collection
 
-(1) ORDA objects such as [entities](../../guideCenter/programmingGuide/data-model.md#entity) or [entity selections](../../guideCenter/programmingGuide/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**.
+(1) ORDA objects such as [entities](../../orda/data-model.md#entity) or [entity selections](../../orda/data-model.md#entity-selection) cannot be stored in **attributes of the object type**; however, they are fully supported in **object variables**.
 
 (2) When exposed as text in the debugger or exported to JSON, picture object properties print "[object Picture]".
 

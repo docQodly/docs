@@ -185,7 +185,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../guideCenter/programmingGuide/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -196,7 +196,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../guideCenter/programmingGuide/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -207,7 +207,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../guideCenter/programmingGuide/data-model#entity-class">entity class functions</a> and <a href="../../../guideCenter/programmingGuide/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
+            <li>Exposed <a href="../../../orda/data-model#entity-class">entity class functions</a> and <a href="../../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
