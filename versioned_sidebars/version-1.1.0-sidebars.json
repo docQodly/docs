@@ -158,17 +158,6 @@
     },
     {
       "type": "category",
-      "label": "Programming Guide",
-      "items": [
-        "orda/data-model",
-        "orda/data",
-        "orda/queries",
-        "language/guides/sessions",
-        "language/guides/login"
-      ]
-    },
-    {
-      "type": "category",
       "label": "QodlyScript Reference",
       "link": {
         "type": "generated-index",
@@ -537,5 +526,18 @@
         "api/classfunctionsFunctionCalls"
       ]
     }
+  ],
+  "Guides": [
+    {
+			"type": "category",
+			"label": "Programming Guide",
+			"items": [	
+            "orda/data-model", 
+						"orda/data",
+						"orda/queries",
+						"language/guides/sessions",
+						"language/guides/login"
+			]
+		}
   ]
 }
