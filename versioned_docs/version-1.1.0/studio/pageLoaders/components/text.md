@@ -20,51 +20,47 @@ The **Text** component is capable of fulfilling various text display needs:
 Enhance the **Text** component to align with your application's requirements using the following customization options:
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ul>
-<li><strong>Style Buttons</strong>: Apply various text styles such as Bold, Italic, Underline, and Strikethrough to the selected portion of text. </li>
-</ul>
-</Column.Item>
-<Column.Item width="35%">
-<img src={require('./img/text_StyleButtons.png').default} style={{borderRadius: '6px'}} />
-</Column.Item>
+    <Column.Item width="60%">
+        <ul>
+            <li><strong>Style Buttons</strong>: Apply various text styles such as Bold, Italic, Underline, and Strikethrough to the selected portion of text. </li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/text_StyleButtons.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ul>
-<li><strong>Toggle Qodly Source</strong>: Bind the Text component's content to a qodlysource, making the text content dynamic and data-driven. By inserting a placeholder in the text on the canvas and specifying the qodlysource path (using keywords like <code>package.description</code> or <code>$This</code> in iterative components), you can dynamically populate the text content. </li>
-</ul>
-</Column.Item>
-<Column.Item width="35%">
-<img src={require('./img/text_ToggleqodlySource.png').default} style={{borderRadius: '6px'}} />
-</Column.Item>
+    <Column.Item width="60%">
+        <ul>
+            <li><strong>Toggle Qodly Source</strong>: Bind the Text component's content to a qodlysource, making the text content dynamic and data-driven. By inserting a placeholder in the text on the canvas and specifying the qodlysource path (using keywords like <code>package.description</code> or <code>$This</code> in iterative components), you can dynamically populate the text content. </li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/text_ToggleqodlySource.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ul>
-<li><strong>Format Support</strong>: Depending on the chosen qodlysource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li>
-</ul>
-</Column.Item>
-<Column.Item width="35%">
-<img src={require('./img/text_FormatSupport.png').default} style={{borderRadius: '6px'}} />
-</Column.Item>
+    <Column.Item width="60%">
+        <ul>
+            <li><strong>Format Support</strong>: Depending on the chosen qodlysource, the Text component may offer format options to ensure the displayed data is presented in the desired manner like date formats. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/text_FormatSupport.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
-<Column.Item width="60%">
-
-<ul>
-<li><strong>Toggle Link</strong>: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from qodlysources. </li>
-</ul>
-</Column.Item>
-<Column.Item width="35%">
-<img src={require('./img/text_ToggleLink.png').default} style={{borderRadius: '6px'}} />
-</Column.Item>
+    <Column.Item width="60%">
+        <ul>
+            <li><strong>Toggle Link</strong>: Insert hyperlinks within the text content, binding them to specific text labels. You can choose whether the link opens in the same browser tab or a new tab. The link itself can be either a static URL or a dynamic value derived from qodlysources. </li>
+        </ul>
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/text_ToggleLink.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
 </Column.List>
 
 :::tip
@@ -94,44 +90,49 @@ When dragging multiple text nodes into a single **Text** component, the `display
 The example below demonstrates how to implement a `display-flex` layout on the text component. The `.q-row` class sets up a flexible row layout with specific direction, gap, justification, alignment, wrapping, and content distribution. Additionally, the `.q-text`, `.q-datasource`, and `.q-whitespace` classes adjust typography, padding, and inter-element spacing without altering the default color settings.
 
 
-<img src={require('./img/text_Display_Flex.png').default} style={{borderRadius: '6px', display: 'block', margin: '0 auto'}} />
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="60%">
+        ```css
+        self {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            color: silver;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
 
-```css
-    self {
-        display: block;
-        width: 50%;
-        margin: 0 auto;
-        color: silver;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-    }
+        self .q-row {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            align-content: center;
+        }
 
-    self .q-row {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        align-content: center;
-    }
+        self .q-text {
+            font-size: 2rem;
+            line-height: 2;
+        }
 
-    self .q-text {
-        font-size: 2rem;
-        line-height: 2;
-    }
+        self .q-datasource {
+            padding: 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
 
-    self .q-datasource {
-        padding: 1rem;
-        border-radius: 4px;
-        font-weight: bold;
-    }
-
-    self .q-whitespace {
-        display: inline-block;
-        width: 4rem;
-    }
-```
+        self .q-whitespace {
+            display: inline-block;
+            width: 4rem;
+        }
+        ```
+    </Column.Item>
+    <Column.Item width="35%">
+        <img src={require('./img/text_Display_Flex.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 
 ## Data Integration
