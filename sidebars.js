@@ -194,16 +194,6 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Programming Guide',
-			items: [	'orda/data-model', 
-						'orda/data',
-						'orda/queries',
-						'language/guides/sessions',
-						'language/guides/login',
-			],
-		},
-		{
-			type: 'category',
 			label: 'QodlyScript Reference',
 			link: {
 				type: 'generated-index',
@@ -460,7 +450,6 @@ const sidebars = {
 			],
 		},
 	],
-
 	Run: [
 		'cloud/consoleOverview',
 		{
@@ -485,7 +474,6 @@ const sidebars = {
 		'cloud/billingSubscriptionManagement',
 		'cloud/userAccountManagement',
 	],
-
 	ReactComponent: [
 		{
 			type: 'doc',
@@ -568,6 +556,18 @@ const sidebars = {
 				'api/classfunctionsFunctionCalls'
 			],
 		},
+	],
+	Guides: [
+		{
+			type: 'category',
+			label: 'Programming Guide',
+			items: [	'orda/data-model', 
+						'orda/data',
+						'orda/queries',
+						'language/guides/sessions',
+						'language/guides/login',
+			],
+		}
 	],
 };
 

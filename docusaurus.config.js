@@ -181,6 +181,12 @@ Thank you for helping us improve! 🚀
           {
             type: "doc",
             position: "left",
+            docId: "orda/data-model",
+            label: "Guides",
+          }, 
+          {
+            type: "doc",
+            position: "left",
             docId: "faq/faq",
             label: "FAQ",
           },
