@@ -485,93 +485,87 @@ const sidebars = {
 		'cloud/billingSubscriptionManagement',
 		'cloud/userAccountManagement',
 	],
-	Integrations: [
+
+	ReactComponent: [
 		{
-			type: 'category',
-			label: 'REST API',
-			items: [
-				{
-					type: 'doc',
-					id: 'api/overview',
-					label: "Overview"
-				},
-				{
-					type: 'category',
-					label: 'Server Information API',
-					items: [
-						'api/$catalog',
-						'api/$info'
-					],
-				},
-				{
-					type: 'category',
-					label: 'DataClass Operations API',
-					items: [
-						'api/dataclassEndpoints',
-						'api/dataclassManipulation',
-						'api/$asArray',
-						'api/$atomic$atOnce',
-						'api/$attributes',
-						'api/$binary',
-						'api/$clean',
-						'api/$compute',
-						'api/$distinct',
-						'api/$entityset',
-						'api/$expand',
-						'api/$filter',
-						'api/$format',
-						'api/$imageformat',
-						'api/$lock',
-						'api/$method',
-						'api/$orderby',
-						'api/$queryplan',
-						'api/$querypath',
-						'api/$savedfilter',
-						'api/$savedorderby',
-						'api/$singleton',
-						'api/$skip',
-						'api/$timeout',
-						'api/$top$limit',
-						'api/$version',
-					],
-				},
-				{
-					type: 'category',
-					label: 'Class Functions API',
-					items: [
-						'api/classFunctionsOverview',
-						'api/classFunctionsParameters',
-						'api/classfunctionsFunctionCalls'
-					],
-				},
-			],
+			type: 'doc',
+			id: 'customComponent/overview',
 		},
 		{
 			type: 'doc',
-			id: 'qodlyLookerStudio/qodlyLookerStudioConnector',
-			label: "Qodly Looker Studio Connector"
+			id: 'customComponent/setup',
+		},
+		{
+			type: 'doc',
+			id: 'customComponent/structure',
+		},
+		{
+			type: "category",
+			label: "API Reference",
+			items: [
+				{
+					type: 'category',
+					label: '@ws-ui/webform-editor',
+					items: [
+						'customComponent/api-reference/webform-editor/v0.2.24',
+						'customComponent/api-reference/webform-editor/v0.2.16',
+					]
+				},
+			],
+		},
+	],
+	API: [
+		{
+			type: 'doc',
+			id: 'api/overview',
 		},
 		{
 			type: 'category',
-			label: 'Custom Components',
+			label: 'Server Information API',
 			items: [
-				'customComponent/overview',
-				'customComponent/setup',
-				'customComponent/structure',
-				{
-					type: "category",
-					label: "API Reference",
-					items: [
-						{
-							type: 'category',
-							label: '@ws-ui/webform-editor',
-							items: [
-								'customComponent/api-reference/webform-editor/v0.2.24',
-								'customComponent/api-reference/webform-editor/v0.2.16',
-							]
-						},
-					],
-				},		
+				'api/$catalog',
+				'api/$info'
+			],
+		},
+		{
+			type: 'category',
+			label: 'DataClass Operations API',
+			items: [
+				'api/dataclassEndpoints',
+				'api/dataclassManipulation',
+				'api/$asArray',
+				'api/$atomic$atOnce',
+				'api/$attributes',
+				'api/$binary',
+				'api/$clean',
+				'api/$compute',
+				'api/$distinct',
+				'api/$entityset',
+				'api/$expand',
+				'api/$filter',
+				'api/$format',
+				'api/$imageformat',
+				'api/$lock',
+				'api/$method',
+				'api/$orderby',
+				'api/$queryplan',
+				'api/$querypath',
+				'api/$savedfilter',
+				'api/$savedorderby',
+				'api/$singleton',
+				'api/$skip',
+				'api/$timeout',
+				'api/$top$limit',
+				'api/$version',
+			],
+		},
+		{
+			type: 'category',
+			label: 'Class Functions API',
+			items: [
+				'api/classFunctionsOverview',
+				'api/classFunctionsParameters',
+				'api/classfunctionsFunctionCalls'
 			],
 		},
 	],
