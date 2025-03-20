@@ -24,7 +24,7 @@ singleton = cs.VehicleFactory.me.buildVehicle("truck")
 
 :::note
 
-Keep in mind that only functions with the [`exposed` keyword](../orda/data-model.md#exposed-vs-non-exposed-functions) can be directly called from REST requests.
+Keep in mind that only functions with the [`exposed` keyword](../guideCenter/programmingGuide/data-model.md#exposed-vs-non-exposed-functions) can be directly called from REST requests.
 
 :::
 

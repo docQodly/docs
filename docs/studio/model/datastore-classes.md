@@ -52,7 +52,7 @@ To rename a datastore class:
 
 :::info
 
-When you rename a datastore class, Qodly Studio automatically renames the associated [Data Model classes](../../orda/data-model.md). For instance, renaming "Emp" to "Employee" will result in "Emp", "EmpEntity", and "EmpSelection" being renamed to "Employee", "EmployeeEntity", and "EmployeeSelection" respectively. Note that the entity selection class can be [renamed separately in the Properties](#selection-name).
+When you rename a datastore class, Qodly Studio automatically renames the associated [Data Model classes](../../guideCenter/programmingGuide/data-model.md). For instance, renaming "Emp" to "Employee" will result in "Emp", "EmpEntity", and "EmpSelection" being renamed to "Employee", "EmployeeEntity", and "EmployeeSelection" respectively. Note that the entity selection class can be [renamed separately in the Properties](#selection-name).
 
 :::
 
@@ -76,12 +76,12 @@ To change the primary key, select an attribute from the Primary Key drop-down me
 
 ### Class Name
 
-The name of the datastore class, which allows you to [rename the datastore class](#renaming-a-datastore-class) and its [associated model classes](../../orda/data-model.md).
+The name of the datastore class, which allows you to [rename the datastore class](#renaming-a-datastore-class) and its [associated model classes](../../guideCenter/programmingGuide/data-model.md).
 
 
 ### Selection Name
 
-The name of the entity selection for the datastore class, used for the [entity selection class](../../orda/data-model.md) and related entity selections in relational attributes.
+The name of the entity selection for the datastore class, used for the [entity selection class](../../guideCenter/programmingGuide/data-model.md) and related entity selections in relational attributes.
 
 :::info
 You can modify the default name of the entity selection , but it will be overriden if you change the Datastore class name afterwards.

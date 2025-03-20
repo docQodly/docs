@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### Data Model classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
+Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../guideCenter/programmingGuide/data-model.md#creating-data-model-classes).
 
 
 
@@ -93,7 +93,7 @@ Available classes are accessible from their class stores. Two class stores are a
 
 The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
-It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
+It returns all user classes defined in the opened project, as well as [Data Model classes](../../guideCenter/programmingGuide/data-model.md#creating-data-model-classes).
 
 #### Example
 
@@ -174,10 +174,10 @@ Specific QodlyScript keywords can be used in class definitions:
 
 :::info
 
-[ORDA data model classes](../../orda/data-model.md) support additional keywords:
+[ORDA data model classes](../../guideCenter/programmingGuide/data-model.md) support additional keywords:
 
-- [`exposed`](../../orda/data-model.md#exposed-vs-non-exposed-functions) to allow external access to the function,
-- [`function query <attributeName>`](../../orda/data-model.md#function-query-attributename) and [`function orderBy <attributeName>`](../../orda/data-model.md#function-orderby-attributename) to define additional database functions for calculated attributes.
+- [`exposed`](../../guideCenter/programmingGuide/data-model.md#exposed-vs-non-exposed-functions) to allow external access to the function,
+- [`function query <attributeName>`](../../guideCenter/programmingGuide/data-model.md#function-query-attributename) and [`function orderBy <attributeName>`](../../guideCenter/programmingGuide/data-model.md#function-orderby-attributename) to define additional database functions for calculated attributes.
 
 :::
 
@@ -355,7 +355,7 @@ Assigning *undefined* to an object property clears its value while preserving it
 
 :::info
 
-In addition to `function get` and `function set`, [ORDA classes](../../orda/data-model.md) also support the [`function query`](../../orda/data-model.md#function-query-attributename) and [`function orderBy`](../../orda/data-model.md#function-orderby-attributename) computed properties (named **calculated attributes**).
+In addition to `function get` and `function set`, [ORDA classes](../../guideCenter/programmingGuide/data-model.md) also support the [`function query`](../../guideCenter/programmingGuide/data-model.md#function-query-attributename) and [`function orderBy`](../../guideCenter/programmingGuide/data-model.md#function-orderby-attributename) computed properties (named **calculated attributes**).
 
 :::
 
@@ -578,7 +578,7 @@ The `extends` keyword is used in class declaration to create a user class which 
 
 Class extension must respect the following rules:
 
-- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../../orda/data-model.md) which are extended by default for user classes).
+- A user class cannot extend a built-in class (except 4D.Object and [ORDA classes](../../guideCenter/programmingGuide/data-model.md) which are extended by default for user classes).
 - A user class cannot extend a user class from another project.
 - A user class cannot extend itself.
 - It is not possible to extend classes in a circular way (i.e. "a" extends "b" that extends "a").
@@ -822,7 +822,7 @@ The [`.isShared`](../ClassClass.md#isshared) property of Class objects allows to
 :::info
 
 - A class [inheriting](#extends-classname) from a non-shared class cannot be defined as shared.
-- Shared classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+- Shared classes are not supported by [ORDA-based classes](../../guideCenter/programmingGuide/data-model.md).
 
 :::
 
@@ -886,7 +886,7 @@ Singletons are useful to define values that need to be available from anywhere i
 
 :::info
 
-Singleton classes are not supported by [ORDA-based classes](../../orda/data-model.md).
+Singleton classes are not supported by [ORDA-based classes](../../guideCenter/programmingGuide/data-model.md).
 
 :::
 
@@ -903,7 +903,7 @@ You declare singleton classes by adding appropriate keyword(s) before the [`Clas
 :::note
 
 - Session singletons are automatically shared singletons (there's no need to use the `shared` keyword in the class constructor). 
-- Singleton shared functions support [`onHttpGet` keyword](../../orda/data-model.md#onhttpget-keyword).
+- Singleton shared functions support [`onHttpGet` keyword](../../guideCenter/programmingGuide/data-model.md#onhttpget-keyword).
 
 :::
 
@@ -919,7 +919,7 @@ The [`.isSessionSingleton`](../ClassClass.md#issessionsingleton) property of Cla
 
 :::info
 
-Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
+Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../guideCenter/programmingGuide/data-model.md#dataclass).  
 
 :::
 

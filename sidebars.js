@@ -194,16 +194,6 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Programming Guide',
-			items: [	'orda/data-model', 
-						'orda/data',
-						'orda/queries',
-						'language/guides/sessions',
-						'language/guides/login',
-			],
-		},
-		{
-			type: 'category',
 			label: 'QodlyScript Reference',
 			link: {
 				type: 'generated-index',
@@ -574,6 +564,18 @@ const sidebars = {
 				},		
 			],
 		},
+	],
+	GuideCenter: [
+		{
+			type: 'category',
+			label: 'Programming Guide',
+			items: [	'guideCenter/programmingGuide/data-model', 
+						'guideCenter/programmingGuide/data',
+						'guideCenter/programmingGuide/queries',
+						'guideCenter/programmingGuide/sessions',
+						'guideCenter/programmingGuide/login',
+			],
+		}
 	],
 };
 

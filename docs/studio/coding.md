@@ -27,10 +27,10 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 
 #### ORDA Classes
 
-[ORDA Classes](../orda/data-model.md) are used to configure the data model and implement business logic. ORDA classes are automatically available (empty by default) in the [Explorer](overview.md#qodly-studio-home-page):
+[ORDA Classes](../guideCenter/programmingGuide/data-model.md) are used to configure the data model and implement business logic. ORDA classes are automatically available (empty by default) in the [Explorer](overview.md#qodly-studio-home-page):
 
-- The [DataStore class](../orda/data-model.md#datastore) is always displayed in first position.
-- Dataclass names are listed along with icons that you can expand/collapse. When expanded, a dataclass gives access to its related [DataClass class](../orda/data-model.md#dataclass-class), [Entity class](../orda/data-model.md#entity-class), and [Entity selection class](../orda/data-model.md#entity-class).
+- The [DataStore class](../guideCenter/programmingGuide/data-model.md#datastore) is always displayed in first position.
+- Dataclass names are listed along with icons that you can expand/collapse. When expanded, a dataclass gives access to its related [DataClass class](../guideCenter/programmingGuide/data-model.md#dataclass-class), [Entity class](../guideCenter/programmingGuide/data-model.md#entity-class), and [Entity selection class](../guideCenter/programmingGuide/data-model.md#entity-class).
 
 Non-created element names appear in light grey. To create an ORDA class, just click on the element: its name is then displayed in white. When you delete an ORDA class, the code is removed and the element name gets back to a light grey color.
 

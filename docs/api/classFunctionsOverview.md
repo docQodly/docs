@@ -24,12 +24,12 @@ exposed function getTest() : string
 :::
 
 :::info
-For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../orda/data-model#exposed-vs-non-exposed-functions).
+For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../guideCenter/programmingGuide/data-model#exposed-vs-non-exposed-functions).
 :::
 
 ### `onHttpGet` Functions
 
-Functions allowed to be called from HTTP `GET` requests must also be specifically declared with the [`onHttpGet` keyword](../orda/data-model.md#onhttpget-keyword). For example:
+Functions allowed to be called from HTTP `GET` requests must also be specifically declared with the [`onHttpGet` keyword](../guideCenter/programmingGuide/data-model.md#onhttpget-keyword). For example:
 
 ```qs
 //allowing GET requests
@@ -78,10 +78,10 @@ The ORDA REST API provides several endpoints to call class functions:
 
 |Class function|Syntax|
 |---|----|
-|[Datastore Class](../orda/data-model#datastore)|`/rest/$catalog/DataStoreClassFunction`|
-|[Dataclass Class](../orda/data-model#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
-|[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
-|[Entity Class](../orda/data-model#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
+|[Datastore Class](../guideCenter/programmingGuide/data-model#datastore)|`/rest/$catalog/DataStoreClassFunction`|
+|[Dataclass Class](../guideCenter/programmingGuide/data-model#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
+|[EntitySelection Class](../guideCenter/programmingGuide/data-model#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
+|[Entity Class](../guideCenter/programmingGuide/data-model#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
 |[Singleton class](../language/basics/lang-classes.md#singleton-classes)|`/rest/$singleton/SingletonClass/SingletonClassFunction` (see [$singleton page]($singleton.md))|
 
 

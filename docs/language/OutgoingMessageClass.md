@@ -6,7 +6,7 @@ title: OutgoingMessage
 
 The `4D.OutgoingMessage` class allows you to build messages to be returned by your application functions in response to [REST requests](../api/overview.md). If the response is of type `4D.OutgoingMessage`, the REST server does not return an object but the object instance of the `OutgoingMessage` class.
 
-Typically, this class can be used in functions declared with the [`onHttpGet`](../orda/data-model.md#onhttpget-keyword) keyword and designed to handle HTTP GET requests. Such requests are used, for example, to implement features such as download file, generate and download picture as well as receiving any content-type via a browser. 
+Typically, this class can be used in functions declared with the [`onHttpGet`](../guideCenter/programmingGuide/data-model.md#onhttpget-keyword) keyword and designed to handle HTTP GET requests. Such requests are used, for example, to implement features such as download file, generate and download picture as well as receiving any content-type via a browser. 
 
 An instance of this class is built on the Qodly server and can be sent to the browser by the [REST Server](../api/overview.md) only. This class allows to use other technologies than HTTP (e.g. mobile).
 
@@ -14,7 +14,7 @@ An instance of this class is built on the Qodly server and can be sent to the br
 
 ### Example
 
-In this example, a `getFile()` function is implemented in the [Datastore class](../orda/data-model.md#dataclass-class) and [can be called](../orda/data-model.md#onhttpget-keyword) by a REST request. The purpose is to return a **testFile.pdf** file as a response to the request:
+In this example, a `getFile()` function is implemented in the [Datastore class](../guideCenter/programmingGuide/data-model.md#dataclass-class) and [can be called](../guideCenter/programmingGuide/data-model.md#onhttpget-keyword) by a REST request. The purpose is to return a **testFile.pdf** file as a response to the request:
 
 ```qs
 extends DataStoreImplementation
