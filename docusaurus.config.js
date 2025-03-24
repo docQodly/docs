@@ -170,14 +170,14 @@ Thank you for helping us improve! 🚀
             type: 'doc',
             docId: 'api/overview',
             position: 'left',
-            label: 'REST API',
+            label: 'Integrations',
           },
           {
             type: "doc",
-            docId: "customComponent/overview",
             position: "left",
-            label: "Custom Components",
-          },
+            docId: "orda/data-model",
+            label: "Guides",
+          }, 
           {
             type: "doc",
             position: "left",
@@ -214,10 +214,10 @@ Thank you for helping us improve! 🚀
                 label: "Get Support",
                 to: "https://support.4d.com/",
               },
-              {
-                label: "Release Notes",
-                to: "notes/1.0.0",
-              },
+              //{
+                //label: "Release Notes",
+                //to: "notes/1.0.0",
+              //},
             ],
           },
           {

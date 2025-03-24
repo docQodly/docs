@@ -142,6 +142,7 @@ To check the "Admin" role, preview your *welcome* page [in a new tab](../../stud
 
 ## Enable public access 
 
+
 :::warning
 
 Unless you know what you are doing, it is obviously not recommended to activate Public access before having configured roles and privileges according to your needs. 
@@ -179,6 +180,12 @@ Being guest, if you try to open the *welcome page*, it is displayed but your dat
 The challenge now is to make the login form work. The principle here is to check if credentials are correct, assign a role to the session, and bring the user to the *welcome* page. 
 
 First thing to do is to implement a login function. For this, we create a `CheckUser` singleton class. 
+
+:::warning Known issue
+
+Using a singleton for the login function does not work as expected in Qodly 1.0.0. As a turnaround, you can use a [DataStore class function](../../orda/data-model.md#datastoreimplementation-class). The issue will be fixed in the next release.
+
+:::
 
 ```qs
 //CheckUser Class

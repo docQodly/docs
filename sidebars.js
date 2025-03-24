@@ -45,47 +45,37 @@ const sidebars = {
 			id: 'get-started/quickstart'
 		},
 		{
-			type: 'doc',
-			id: 'get-started/first-app'
-		},{
-			type: 'doc',
-			id: 'get-started/test-debug'
+			type: 'category',
+			label: 'Qodly Overview',
+			items: ['get-started/first-app',
+				'get-started/test-debug',
+				'get-started/deployment',
+				'get-started/access',
+				'get-started/data-management',
+				'get-started/support',
+				'get-started/updates',
+				'get-started/community',
+				'get-started/subscriptions',
+				'get-started/payments',
+				'get-started/refunds',
+			],
 		},
 		{
-			type: 'doc',
-			id: 'get-started/deployment'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/access'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/data-management'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/support'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/updates'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/community'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/subscriptions'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/payments'
-		},
-		{
-			type: 'doc',
-			id: 'get-started/refunds'
+			type: 'category',
+			label: 'Release Notes',
+			collapsed: false,
+			items: [
+						'notes/1.2.0',
+						'notes/1.1.0',
+						'notes/1.0.0',
+						'notes/1.0.0-beta.6',
+						'notes/1.0.0-beta.5',
+						'notes/1.0.0-beta.4',
+						'notes/1.0.0-beta.3',
+						'notes/1.0.0-beta.2',
+						'notes/1.0.0-beta.1',
+						'notes/1.0.0-beta.0'
+					],
 		},
 	],
 	Develop: [
@@ -104,23 +94,23 @@ const sidebars = {
 					items: [
 						'studio/pageLoaders/components/componentsBasics',
 						'studio/pageLoaders/components/uploadCustomComponents',
-						'studio/pageLoaders/components/stylebox',
-						'studio/pageLoaders/components/dialog',
-						'studio/pageLoaders/components/selectbox',
-						'studio/pageLoaders/components/tabs',
-						'studio/pageLoaders/components/pageLoader',
-						'studio/pageLoaders/components/matrix',
-						'studio/pageLoaders/components/datatable',
-						'studio/pageLoaders/components/text',
 						'studio/pageLoaders/components/button',
-						'studio/pageLoaders/components/textinput',
-						'studio/pageLoaders/components/image',
+						'studio/pageLoaders/components/checkbox',
+						'studio/pageLoaders/components/datatable',
+						'studio/pageLoaders/components/dialog',
 						'studio/pageLoaders/components/fileupload',
+						'studio/pageLoaders/components/icon',
+						'studio/pageLoaders/components/image',
+						'studio/pageLoaders/components/matrix',
+						'studio/pageLoaders/components/pageLoader',
 						'studio/pageLoaders/components/radio',
 						'studio/pageLoaders/components/rangeinput',
+						'studio/pageLoaders/components/selectbox',
 						'studio/pageLoaders/components/selectinput',
-						'studio/pageLoaders/components/icon',
-						'studio/pageLoaders/components/checkbox',
+						'studio/pageLoaders/components/stylebox',
+						'studio/pageLoaders/components/tabs',
+						'studio/pageLoaders/components/text',
+						'studio/pageLoaders/components/textinput',
 					],
 				},
 				'studio/pageLoaders/craftedComponents',
@@ -154,11 +144,12 @@ const sidebars = {
 			label: 'Coding and Debugging',
 			items: ['studio/coding',
 				'studio/debugging',
+				'studio/qodlyEventsClass',
 			],
 		},
 		{
 			type: 'category',
-			label: 'Roles & Privileges',
+			label: 'Roles And Privileges',
 			items: [
 				'studio/roles/overview',
 				{
@@ -174,6 +165,7 @@ const sidebars = {
 					]
 				},
 				'studio/roles/includingPrivileges',
+				'studio/roles/example-of-configuration',
 			],
 		},
 		{
@@ -200,16 +192,6 @@ const sidebars = {
 			type: 'doc',
 			id: 'data-explorer/data-explorer',
 			label: "Data Explorer"
-		},
-		{
-			type: 'category',
-			label: 'Programming Guide',
-			items: [	'orda/data-model', 
-						'orda/data',
-						'orda/queries',
-						'language/guides/sessions',
-						'language/guides/login',
-			],
 		},
 		{
 			type: 'category',
@@ -446,13 +428,17 @@ const sidebars = {
 						'language/FunctionClass',
 						'language/HTTPRequestClass',
 						'language/IMAPTransporterClass',
+						'language/IncomingMessageClass',
 						'language/MailAttachmentClass',
 						'language/OutgoingMessageClass',
 						'language/POP3TransporterClass',
+						'language/QodlyEvents',
 						'language/SessionClass',
 						'language/SignalClass',
     			        'language/SMTPTransporterClass',
 						'language/SystemWorkerClass',
+						'language/TCPConnectionClass',
+						'language/TCPEventClass',
 						'language/UsersClass',
 						'language/WebFormClass',
 						'language/WebFormItemClass',
@@ -465,7 +451,6 @@ const sidebars = {
 			],
 		},
 	],
-
 	Run: [
 		'cloud/consoleOverview',
 		{
@@ -490,107 +475,111 @@ const sidebars = {
 		'cloud/billingSubscriptionManagement',
 		'cloud/userAccountManagement',
 	],
-
-	ReactComponent: [
+	Integrations: [
 		{
-			type: 'doc',
-			id: 'customComponent/overview',
-		},
-		{
-			type: 'doc',
-			id: 'customComponent/setup',
-		},
-		{
-			type: 'doc',
-			id: 'customComponent/structure',
-		},
-		{
-			type: "category",
-			label: "API Reference",
-			items: [
+			type: 'category',
+			label: 'REST API',
+			items: [	
+				{
+					type: 'doc',
+					id: 'api/overview',
+				},
 				{
 					type: 'category',
-					label: '@ws-ui/webform-editor',
+					label: 'Server Information API',
 					items: [
-						'customComponent/api-reference/webform-editor/v0.2.24',
-						'customComponent/api-reference/webform-editor/v0.2.16',
-					]
+						'api/$catalog',
+						'api/$info'
+					],
+				},
+				{
+					type: 'category',
+					label: 'DataClass Operations API',
+					items: [
+						'api/dataclassEndpoints',
+						'api/dataclassManipulation',
+						'api/$asArray',
+						'api/$atomic$atOnce',
+						'api/$attributes',
+						'api/$binary',
+						'api/$clean',
+						'api/$compute',
+						'api/$distinct',
+						'api/$entityset',
+						'api/$expand',
+						'api/$filter',
+						'api/$format',
+						'api/$imageformat',
+						'api/$lock',
+						'api/$method',
+						'api/$orderby',
+						'api/$queryplan',
+						'api/$querypath',
+						'api/$savedfilter',
+						'api/$savedorderby',
+						'api/$singleton',
+						'api/$skip',
+						'api/$timeout',
+						'api/$top$limit',
+						'api/$version',
+					],
+				},
+				{
+					type: 'category',
+					label: 'Class Functions API',
+					items: [
+						'api/classFunctionsOverview',
+						'api/classFunctionsParameters',
+						'api/classfunctionsFunctionCalls'
+					],
 				},
 			],
 		},
-	],
-	API: [
-		{
-			type: 'doc',
-			id: 'api/overview',
-		},
+		'qodlyLookerStudio/qodlyLookerStudioConnector',
 		{
 			type: 'category',
-			label: 'Server Information API',
-			items: [
-				'api/$catalog',
-				'api/$info'
-			],
-		},
-		{
-			type: 'category',
-			label: 'DataClass Operations API',
-			items: [
-				'api/dataclassEndpoints',
-				'api/dataclassManipulation',
-				'api/$asArray',
-				'api/$atomic$atOnce',
-				'api/$attributes',
-				'api/$binary',
-				'api/$clean',
-				'api/$compute',
-				'api/$distinct',
-				'api/$entityset',
-				'api/$expand',
-				'api/$filter',
-				'api/$format',
-				'api/$imageformat',
-				'api/$lock',
-				'api/$method',
-				'api/$orderby',
-				'api/$queryplan',
-				'api/$querypath',
-				'api/$savedfilter',
-				'api/$savedorderby',
-				'api/$singleton',
-				'api/$skip',
-				'api/$timeout',
-				'api/$top$limit',
-				'api/$version',
-			],
-		},
-		{
-			type: 'category',
-			label: 'Class Functions API',
-			items: [
-				'api/classFunctionsOverview',
-				'api/classFunctionsParameters',
-				'api/classfunctionsFunctionCalls'
-			],
-		},
-	],
-	ReleaseNotes: [
-		{
-			type: 'category',
-			label: 'Qodly Releases',
-			collapsed: false,
-			items: [
-						'notes/1.1.0',
-						'notes/1.0.0',
-						'notes/1.0.0-beta.6',
-						'notes/1.0.0-beta.5',
-						'notes/1.0.0-beta.4',
-						'notes/1.0.0-beta.3',
-						'notes/1.0.0-beta.2',
-						'notes/1.0.0-beta.1',
-						'notes/1.0.0-beta.0'
+			label: 'Custom Components',
+			items: [	
+				{
+					type: 'doc',
+					id: 'customComponent/overview',
+				},
+				{
+					type: 'doc',
+					id: 'customComponent/setup',
+				},
+				{
+					type: 'doc',
+					id: 'customComponent/structure',
+				},
+				{
+					type: "category",
+					label: "API Reference",
+					items: [
+						{
+							type: 'category',
+							label: '@ws-ui/webform-editor',
+							items: [
+								'customComponent/api-reference/webform-editor/v0.2.24',
+								'customComponent/api-reference/webform-editor/v0.2.16',
+							]
+						},
 					],
-		},
+				},
+			],
+		}
+	],
+	Guides: [
+		{
+			type: 'category',
+			label: 'Programming Guide',
+			items: [	'orda/data-model', 
+						'orda/data',
+						'orda/queries',
+						'language/guides/sessions',
+						'language/guides/login',
+			],
+		}
 	],
 };
 
