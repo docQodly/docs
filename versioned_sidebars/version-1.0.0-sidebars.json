@@ -36,6 +36,7 @@
 					]
 		}
 	],
+
   "Develop": [
     {
       "type": "doc",
@@ -146,7 +147,6 @@
         },
         "studio/roles/includingPrivileges",
         "studio/roles/example-of-configuration"
-
       ]
     },
     {

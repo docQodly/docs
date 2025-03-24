@@ -142,7 +142,8 @@ To check the "Admin" role, preview your *welcome* page [in a new tab](../../stud
 
 ## Enable public access 
 
-:::danger Warning
+
+:::warning
 
 Unless you know what you are doing, it is obviously not recommended to activate Public access before having configured roles and privileges according to your needs. 
 

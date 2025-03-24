@@ -17,5 +17,6 @@ When the user connects to the application through the **Public access** (the pub
 
 The user only has [Guest privilege](../../studio/roles/datastorePermissions.md#introducing-the-guest-privilege) by default ([`Session.isGuest`](../SessionClass.md#isguest) returns true).  
 
+
 See [this tutorial](./login.md) for an example of custom user authentication for public access. 
 
