@@ -1,6 +1,8 @@
 ---
 id: login
 title: Creating a login page for public access
+slug: /guides/creating-a-login-page-for-public-access
+
 ---
 
 This section is a tutorial that will show you how to implement a simple login page for a Qodly app with [public access enabled](../../cloud/resourceMonitoring.md#application-access), i.e. for users NOT using the [authenticated url](../../cloud/resourceMonitoring.md#2-authenticated-url). 

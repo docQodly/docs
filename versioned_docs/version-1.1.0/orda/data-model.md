@@ -1,6 +1,7 @@
 ---
 id: data-model
 title: Data Model Objects
+slug: /guides/data-model-objects
 ---
 
 ## The ORDA Concept

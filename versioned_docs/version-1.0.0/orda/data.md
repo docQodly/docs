@@ -1,6 +1,7 @@
 ---
 id: data
 title: CRUD Operations
+slug: /guides/crud-operations
 ---
 
 In ORDA, you access data through [entities](data-model#entity) and [entity selections](data-model#entity-selection) objects. These objects allow you to execute CRUD (*Create, Read, Update, Delete*) basic operations on data, along with [queries](queries.md) and sorts.
