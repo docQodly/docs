@@ -10,8 +10,7 @@ const FeatureList = [
     Svg: require('@site/static/img/q-get-started.svg').default,
     description: (
       <>
-        Connect to the Qodly console and enter
-		the application building world!
+        Connect to the Qodly console and enter the application building world!
       </>
     ),
 		link: "get-started/quickstart"
@@ -21,8 +20,7 @@ const FeatureList = [
     Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Create and design business apps in an intuitive and
-        integrated environment, using a simple browser.
+        Create and design business apps in an intuitive and integrated environment, using a simple browser.
       </>
     ),
 	link: "studio/overview"
@@ -32,33 +30,21 @@ const FeatureList = [
     Svg: require('@site/static/img/q-dep-run-mng.svg').default,
     description: (
       <>
-        Launch and monitor your Qodly applications using a
-        full-featured console in our cloud infrastructure.
+        Launch and monitor your Qodly applications using a full-featured console in our cloud infrastructure.
       </>
     ),
 		link: "cloud/consoleOverview"
   },
   {
-    title: 'REST API',
+    title: 'Integrations',
     Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Access your data from other applications 
-        using the highly secured, comprehensive Qodly REST API.
+        Connect your Qodly apps to external services, embed custom solutions, and unlock new possibilities for your workflows!
       </>
     ),
 		link: "api/overview"
-  },
-  {
-    title: 'Custom Components',
-    Svg: require('@site/static/img/q-dev.svg').default,
-    description: (
-      <>
-        Empower your app with Qodly's custom components, designed for unique needs and specialized features.
-      </>
-    ),
-		link: "customComponent/overview"
-  },
+  }
 ];
 
 function Feature({Svg, title, description, link}) {
