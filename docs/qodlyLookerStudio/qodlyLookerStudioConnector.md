@@ -187,3 +187,4 @@ Once your Qodly Looker Studio Connector is connected, you need to configure key 
     - Explanation: This setting allows you to retrieve related fields from the Customer entity. Since customer is a relation in the Order table, you need to explicitly include attributes like customer.firstName, customer.lastName, and customer.email. Also, include country and city to analyze customer distribution geographically.
 
 Click "Add" to apply the settings and fetch the data.
+
