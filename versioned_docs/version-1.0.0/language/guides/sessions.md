@@ -1,6 +1,7 @@
 ---
 id: sessions
 title: User sessions
+slug: /guides/user-sessions
 ---
 
 When a user connects to a Qodly application, a *user session* is automatically opened on the Qodly server to manage their access with regards to their privileges. A [session](../SessionClass.md) cookie is generated.

@@ -1,6 +1,7 @@
 ---
 id: queries
 title: Queries
+slug: /guides/queries
 ---
 
 Querying data is the most common database operation. You will always need to search, filter, and sort your data in qodlysources using different criteria.
