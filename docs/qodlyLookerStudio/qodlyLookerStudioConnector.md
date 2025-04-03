@@ -196,7 +196,7 @@ Now that the Qodly Looker Studio Connector is properly configured, you can creat
 
 In your Looker Studio report:
 
-1. Click the Add a chart button from the toolbar.
+1. Click the Add a chart button <img src={require('./img/lookerAddChartButton.png').default} style={{borderRadius: '6px', width: '15%'}} /> from the toolbar.
 2. Choose your preferred chart type (e.g., Area Chart, Geo Chart, Time Series Chart, Bar Chart).
 3. Click or drag the chosen chart onto your report canvas.
 
@@ -204,9 +204,16 @@ In your Looker Studio report:
 
 With your chart selected, use the Setup panel on the right side to configure your data:
 
-1. Data Source: Select your configured Qodly data source.
-2. Dimension: Choose a categorical or date-based field (e.g., date, country, city).
-3. Metric: Select the numeric measure to visualize (e.g., amount, orderCount).
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Data Source: Select your configured Qodly data source. <br/> <br/>
+        2. Dimension: Choose a categorical or date-based field (e.g., date, country, city).  <br/> <br/>
+        3. Metric: Select the numeric measure to visualize (e.g., amount, orderCount).
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerConfigureChartData.png').default} style={{borderRadius: '6px', width: '55%'}} />
+    </Column.Item>
+</Column.List>
 
 You may add optional filters or comparison dates to further refine your visualization.
 
@@ -214,10 +221,18 @@ You may add optional filters or comparison dates to further refine your visualiz
 
 Enhance readability and visual appeal:
 
-1. Select your chart and click the Style tab in the right panel.
-2. Adjust color schemes, font styles, line thicknesses, and background colors.
-3. For maps, configure color gradients to effectively highlight differences in data values.
-4. Enable or disable legends, axis labels, and tooltips as needed to simplify interpretation.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Select your chart and click the Style tab in the right panel.
+        2. Adjust color schemes, font styles, line thicknesses, and background colors.
+        3. For maps, configure color gradients to effectively highlight differences in data values.
+        4. Enable or disable legends, axis labels, and tooltips as needed to simplify interpretation.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerCustomizeChartAppearance.png').default} style={{borderRadius: '6px', width: '55%'}} />
+    </Column.Item>
+</Column.List>
+
 
 :::info Additional Charting Resources
 For detailed guidance and advanced configuration options for different types of charts, refer to the official Looker Studio documentation [Chart references](https://cloud.google.com/looker/docs/studio/area-chart-reference).
@@ -247,30 +262,57 @@ After successful installation, refresh your Qodly Studio page. The new IFrame co
 
 In Looker Studio, open your desired report:
 
-1. Click Share, then select Embed URL.
-2. Ensure "embed URL" is checked, then copy the provided link.
+1. Click Share <img src={require('./img/lookerShareReport.png').default} style={{borderRadius: '6px', width: '10%'}} />, then select Embed report <img src={require('./img/lookerEmbedURLReport.png').default} style={{borderRadius: '6px', width: '15%'}} />.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        2. Ensure "embed URL" is checked, then copy the provided link.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerEmbedURLLink.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
 #### Step 3: Embed the Report into Qodly
 
 Return to your Qodly app page in Qodly Studio.
 
-1. Create a new Qodly source of type String.
-2. Set the copied Looker Studio Embed URL as the default value for this source.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Create a new Qodly source of type String. <br/> <br/>
+        2. Set the copied Looker Studio Embed URL as the default value for this source.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerEmbedURLQodlySource.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 3. Drag the newly installed IFrame component onto your canvas.
 4. Assign the Qodly source (containing the embed URL) to the IFrame component.
 5. Adjust the iframe dimensions to 600x450 pixels (or as needed).
 
 #### Step 4: Configure Sandbox Settings
 
-The sandbox attribute applies certain security restrictions to the content embedded within the iframe. Here are some sandbox attribute values that need to be added:
+The IFrame custom component uses sandbox attributes to apply security restrictions to embedded content. To ensure your embedded Looker Studio report displays correctly, you must include appropriate sandbox attributes. Without these attributes, your report might not render or function properly.
 
-- allow-storage-access-by-user-activation: Experimental—enables embedded pages to request access to cookies via the Storage Access API.
-- allow-scripts: Permits embedded pages to execute JavaScript (but not pop-up windows).
-- allow-same-origin: If omitted, the embedded page is treated as from a unique origin, restricting certain browser functionalities.
-- allow-popups: Allows pop-up windows (e.g., via window.open()).
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        - allow-storage-access-by-user-activation: Experimental—enables embedded pages to request access to cookies via the Storage Access API. <br/> <br/>
+        - allow-scripts: Permits embedded pages to execute JavaScript (but not pop-up windows). <br/> <br/>
+        - allow-same-origin: If omitted, the embedded page is treated as from a unique origin, restricting certain browser functionalities. <br/> <br/>
+        - allow-popups: Allows pop-up windows (e.g., via window.open()).
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/IFrameComponentSandboxSettings.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
 
+
+### Conclusion
+
+Ensure you regularly review permissions and access settings for your embedded reports, especially if sensitive business information is displayed. Keeping your embedded content secure and up-to-date helps maintain overall application integrity and performance.
 
 Now you're ready to see your report directly embedded within your Qodly application.
+
+<img src={require('./img/lookerReportEmbeddedinQodly.png').default} style={{borderRadius: '6px'}} />
 
 <!--
 
