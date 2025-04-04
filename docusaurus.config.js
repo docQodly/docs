@@ -9,8 +9,8 @@ const isProduction = process.env.GITHUB_REPOSITORY_OWNER === 'qodly';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Qodly Developer Center',
-  tagline: 'Welcome to the Qodly Documentation',
+  title: 'Qodly Documentation',
+  tagline: 'Learn. Build. Ship. Everything you need for Qodly.',
   url: isProduction ? "https://developer.qodly.com" : "https://docqodly.github.io",
   baseUrl: "/docs/",
   onBrokenLinks: 'warn',
@@ -133,7 +133,8 @@ Thank you for helping us improve! 🚀
       //   },
       // },
       metadata: [
-        {name: 'keywords', content: 'qodly documentation, qodly docs, documentation qodly, doc qodly'},
+        {name: 'keywords', content: 'qodly documentation, qodly doc, documentation qodly, doc qodly'},
+        {name: 'description', content: 'Official documentation for Qodly developers. Learn how to use Qodly Studio, Qodlyscript, and more with detailed guides and tutorials.'},
       ],
       navbar: {
         title: 'Docs', //Docs
