@@ -342,6 +342,7 @@ Ready to get started? Connect your Qodly application account to Google Looker St
 
 Technical questions? Check out our documentation for more information.
 
+-->
 
 ## Google API Disclosure
 
