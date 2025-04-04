@@ -169,12 +169,15 @@ Once your Qodly Looker Studio Connector is connected, you need to configure key 
 3. **Pagination Top**:
 
     - Default Value: 10000
-    - Explanation: Defines the number of records retrieved per API request. A higher value (e.g., 10000) reduces API calls but may impact performance if your dataset is very large. If you experience slow performance, you can lower this value (e.g., 5000 or 2000).
+    - Explanation: Sets the number of records fetched per API request. A higher value means fewer API calls but can slow down performance if you're dealing with a lot of data. 
+    
 
 4. **Cache TTL (Time-To-Live)**:
 
     - Default Value: 900 (in seconds)
-    - Explanation: This setting controls how frequently Looker Studio refreshes the data. 900 seconds (15 minutes) is a balanced setting to ensure fresh data without excessive API requests. If your data updates frequently, you may want to reduce it (e.g., 300 seconds). If your data is static or doesn’t change often, increase it (e.g., 3600 for 1-hour caching).
+    - Explanation: This setting controls how long the connector reuses previous query results before sending the same query to Qodly again. It's part of the connector’s internal cache (not Looker Studio’s cache) and helps reduce unnecessary requests to Qodly.
+        - Use a lower value (e.g., 300) if your data changes frequently.
+        - Use a higher value (e.g., 3600) if your data is more static — this can improve performance and reduce load.
 
 5. **Custom Query Filter (Optional)**:
 
@@ -186,8 +189,19 @@ Once your Qodly Looker Studio Connector is connected, you need to configure key 
     - Example Value: customer.firstName, customer.lastName, customer.email, country, city, amount
     - Explanation: This setting allows you to retrieve related fields from the Customer entity. Since customer is a relation in the Order table, you need to explicitly include attributes like customer.firstName, customer.lastName, and customer.email. Also, include country and city to analyze customer distribution geographically.
 
-Click "Add" to apply the settings and fetch the data.
 
+:::info
+All Looker Studio partner connectors have a **6-minute timeout per query**. If fetching data takes longer than that, the query will fail. Tuning Pagination Top, applying filters, and reducing data volume help ensure queries stay within that limit.
+
+To avoid this:
+- Lower the Pagination Top to reduce the load per request (e.g., try 5,000 or 2,000).
+- Add filters in Looker Studio to limit how much data is being fetched.
+- Narrow the date range if possible.
+
+These adjustments can help keep data retrieval efficient and within the allowed time limit.
+:::
+
+Click "Add" to apply the settings and fetch the data.
 
 ### Creating Reports in Looker Studio
 
@@ -309,43 +323,14 @@ The IFrame custom component uses sandbox attributes to apply security restrictio
 
 ### Conclusion
 
-Ensure you regularly review permissions and access settings for your embedded reports, especially if sensitive business information is displayed. Keeping your embedded content secure and up-to-date helps maintain overall application integrity and performance.
-
 Now you're ready to see your report directly embedded within your Qodly application.
 
 <img src={require('./img/lookerReportEmbeddedinQodly.png').default} style={{borderRadius: '6px'}} />
 
-<!--
-
-## Create custom reports using your Qodly app data
-
-Google Looker Studio is a free reporting tool. Qodly built-in Rest API together with Qodly by 4D certified Looker Studio partner connector will allow you to choose which dataclasses and attributes display in Google Looker Studio.
-You'll be able to build custom data visualizations based on your Qodly Application data alongside your other connected data sources.
-
-
-Easily share your custom reports with other stakeholders or clients, and share custom metrics that make an impact. Get real-time data into a power data visualization tool.
-
-
-## Certified connector
-
-Use our certified connector with the Google Looker Studio API to:
-
-- Create custom, visual reporting for your Qodly application data or your own custom metrics.
-- View multiple Qodly Dataclasses content in a single report, from a single Qodly app or from multiple Qodly apps.
-- Pair your Qodly data with other third-party sources.
-- Choose exactly which data you'd like to display in Google Looker Studio.
-- On top of you dataclass model, define additional attributes to retrieve data from related Dataclasses.
-- Create elaborated reports based on ORDA calculated attributed and aliases.
-- Share the most pertinent reports with your customers.
-
-Ready to get started? Connect your Qodly application account to Google Looker Studio today via the [Google Looker Studio Community Connector’s Gallery](https://datastudio.google.com/datasources/create?connectorId=AKfycbx8kWt2YF52GY8bXaQZxotaAp0Bx1ZqlhAf-Tpcrf19YCSsJh2yXKQDBomHzTpn3lcwHQ&authuser=0).
-
-Technical questions? Check out our documentation for more information.
-
--->
-
 
 ## Google API Disclosure
+
+Ensure you regularly review permissions and access settings for your embedded reports, especially if sensitive business information is displayed. Keeping your embedded content secure and up-to-date helps maintain overall application integrity and performance.
 
 Qodly Looker Studio connector adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes) while using and transferring information received from Google APIs to other applications, including Google’s Limited Use requirements. You can revoke Qodly Looker Studio connector right to access your data at any point from your Google account control panel (https://security.google.com/settings/security/permissions).
 
