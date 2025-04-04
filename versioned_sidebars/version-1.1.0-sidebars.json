@@ -358,8 +358,6 @@
             "language/commands/verifyPasswordHash",
             "language/commands/webEvent",
             "language/commands/webForm",
-            "language/commands/webServer",
-            "language/commands/webServerList",
             "language/commands/yearOf",
             "language/commands/zipCreateArchive",
             "language/commands/zipReadArchive"
@@ -411,7 +409,6 @@
             "language/UsersClass",
             "language/WebFormClass",
             "language/WebFormItemClass",
-            "language/WebServerClass",
             "language/ZipArchiveClass",
             "language/ZipFileClass",
             "language/ZipFolderClass"

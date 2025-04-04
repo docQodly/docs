@@ -124,8 +124,6 @@ title: Commands
 |[<!-- INCLUDE #_command_.verifyPasswordHash.Syntax -->](verifyPasswordHash.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.verifyPasswordHash.Summary -->|
 |[<!-- INCLUDE #_command_.webEvent.Syntax -->](webEvent.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.webEvent.Summary -->|
 |[<!-- INCLUDE #_command_.webForm.Syntax -->](webForm.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.webForm.Summary -->|
-|[<!-- INCLUDE #_command_.webServer.Syntax -->](webServer.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.webServer.Summary -->|
-|[<!-- INCLUDE #_command_.webServerList.Syntax -->](webServerList.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.webServerList.Summary -->|
 |[<!-- INCLUDE #_command_.yearOf.Syntax -->](yearOf.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.yearOf.Summary -->|
 |[<!-- INCLUDE #_command_.zipCreateArchive.Syntax -->](zipCreateArchive.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.zipCreateArchive.Summary -->|
 |[<!-- INCLUDE #_command_.zipReadArchive.Syntax -->](zipReadArchive.md)<br/>&nbsp;&nbsp;<!-- INCLUDE #_command_.zipReadArchive.Summary -->|
