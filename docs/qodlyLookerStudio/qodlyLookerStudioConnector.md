@@ -344,6 +344,7 @@ Technical questions? Check out our documentation for more information.
 
 -->
 
+
 ## Google API Disclosure
 
 Qodly Looker Studio connector adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes) while using and transferring information received from Google APIs to other applications, including Google’s Limited Use requirements. You can revoke Qodly Looker Studio connector right to access your data at any point from your Google account control panel (https://security.google.com/settings/security/permissions).
