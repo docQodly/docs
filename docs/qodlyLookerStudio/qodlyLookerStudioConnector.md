@@ -188,6 +188,7 @@ Once your Qodly Looker Studio Connector is connected, you need to configure key 
 
 Click "Add" to apply the settings and fetch the data.
 
+
 ### Creating Reports in Looker Studio
 
 Now that the Qodly Looker Studio Connector is properly configured, you can create insightful reports using Looker Studio’s built-in visualization tools. Follow the steps below to add charts, configure data, add descriptive titles, and style your visualizations clearly and effectively.
@@ -347,4 +348,3 @@ Technical questions? Check out our documentation for more information.
 Qodly Looker Studio connector adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes) while using and transferring information received from Google APIs to other applications, including Google’s Limited Use requirements. You can revoke Qodly Looker Studio connector right to access your data at any point from your Google account control panel (https://security.google.com/settings/security/permissions).
 
 
--->
