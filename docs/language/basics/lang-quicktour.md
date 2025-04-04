@@ -1,7 +1,10 @@
 ---
 id: lang-quicktour
 title: A Quick Tour
+keywords: [qodlyscript, qodlyscript tour]
 ---
+
+# A Quick Tour
 
 Since the QodlyScript language is highly related to web development, printing the traditional "Hello, world!" message on screen only requires a Page to be displayed and the following line:
 
