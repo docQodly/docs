@@ -31,9 +31,9 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Qodly Documentation"
-      description="Documentation for Qodly developers including Qodly Studio, Qodlyscript, Qodly console."
-      keywords="qodly docs, qodly documentation, docs qodly, documentation qodly, qodly developer center, qodlyscript">
+      title={siteConfig.title}
+      description={siteConfig.themeConfig.metadata.description}
+      keywords={siteConfig.themeConfig.metadata.keywords}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
