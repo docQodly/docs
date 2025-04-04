@@ -188,3 +188,163 @@ Once your Qodly Looker Studio Connector is connected, you need to configure key 
 
 Click "Add" to apply the settings and fetch the data.
 
+
+### Creating Reports in Looker Studio
+
+Now that the Qodly Looker Studio Connector is properly configured, you can create insightful reports using Looker Studio’s built-in visualization tools. Follow the steps below to add charts, configure data, add descriptive titles, and style your visualizations clearly and effectively.
+
+#### Step 1: Add a Chart
+
+In your Looker Studio report:
+
+1. Click the Add a chart button <img src={require('./img/lookerAddChartButton.png').default} style={{borderRadius: '6px', width: '15%'}} /> from the toolbar.
+2. Choose your preferred chart type (e.g., Area Chart, Geo Chart, Time Series Chart, Bar Chart).
+3. Click or drag the chosen chart onto your report canvas.
+
+#### Step 2: Configure Your Chart Data
+
+With your chart selected, use the Setup panel on the right side to configure your data:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Data Source: Select your configured Qodly data source. <br/> <br/>
+        2. Dimension: Choose a categorical or date-based field (e.g., date, country, city).  <br/> <br/>
+        3. Metric: Select the numeric measure to visualize (e.g., amount, orderCount).
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerConfigureChartData.png').default} style={{borderRadius: '6px', width: '55%'}} />
+    </Column.Item>
+</Column.List>
+
+You may add optional filters or comparison dates to further refine your visualization.
+
+#### Step 3: Customize Chart Appearance
+
+Enhance readability and visual appeal:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Select your chart and click the Style tab in the right panel.
+        2. Adjust color schemes, font styles, line thicknesses, and background colors.
+        3. For maps, configure color gradients to effectively highlight differences in data values.
+        4. Enable or disable legends, axis labels, and tooltips as needed to simplify interpretation.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerCustomizeChartAppearance.png').default} style={{borderRadius: '6px', width: '55%'}} />
+    </Column.Item>
+</Column.List>
+
+
+:::info Additional Charting Resources
+For detailed guidance and advanced configuration options for different types of charts, refer to the official Looker Studio documentation [Chart references](https://cloud.google.com/looker/docs/studio/area-chart-reference).
+:::
+
+### Embedding Looker Studio Reports in Qodly
+
+To embed Looker Studio reports directly into your Qodly application, you'll need to use the IFrame custom component. An iframe represents a nested browsing context, allowing another HTML page to be displayed seamlessly within your Qodly app page.
+
+#### Step 1: Install the IFrame Custom Component
+
+You can obtain the IFrame custom component directly from the [Custom Components list for Qodly Studio](https://github.com/qodly/custom-components?tab=readme-ov-file) in GitHub:
+
+1. Navigate to the [IFrame custom component repository](https://github.com/TihounaNasrallah/qodly-iframe).
+2. Download the [latest release](https://github.com/TihounaNasrallah/qodly-iframe/releases/tag/0.1.2) (qodly_IFrame_version.zip) from the Releases page.
+
+Once downloaded, follow these steps:
+
+1. Open Qodly Studio.
+2. Locate and click the dedicated [Upload button](../studio/pageLoaders/components/uploadCustomComponents#uploading-custom-component) in the Component bar.
+3. Upload the downloaded qodly_IFrame_version.zip file.
+4. [Install the custom component](../studio/pageLoaders/components/uploadCustomComponents#installing-custom-component) when prompted.
+
+After successful installation, refresh your Qodly Studio page. The new IFrame component will now appear in your components bar, ready for drag-and-drop onto your canvas.
+
+#### Step 2: Get the Looker Studio Embed URL
+
+In Looker Studio, open your desired report:
+
+1. Click Share <img src={require('./img/lookerShareReport.png').default} style={{borderRadius: '6px', width: '10%'}} />, then select Embed report <img src={require('./img/lookerEmbedURLReport.png').default} style={{borderRadius: '6px', width: '15%'}} />.
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        2. Ensure "embed URL" is checked, then copy the provided link.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerEmbedURLLink.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+#### Step 3: Embed the Report into Qodly
+
+Return to your Qodly app page in Qodly Studio.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        1. Create a new Qodly source of type String. <br/> <br/>
+        2. Set the copied Looker Studio Embed URL as the default value for this source.
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/lookerEmbedURLQodlySource.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+3. Drag the newly installed IFrame component onto your canvas.
+4. Assign the Qodly source (containing the embed URL) to the IFrame component.
+5. Adjust the iframe dimensions to 600x450 pixels (or as needed).
+
+#### Step 4: Configure Sandbox Settings
+
+The IFrame custom component uses sandbox attributes to apply security restrictions to embedded content. To ensure your embedded Looker Studio report displays correctly, you must include appropriate sandbox attributes. Without these attributes, your report might not render or function properly.
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        - allow-storage-access-by-user-activation: Experimental—enables embedded pages to request access to cookies via the Storage Access API. <br/> <br/>
+        - allow-scripts: Permits embedded pages to execute JavaScript (but not pop-up windows). <br/> <br/>
+        - allow-same-origin: If omitted, the embedded page is treated as from a unique origin, restricting certain browser functionalities. <br/> <br/>
+        - allow-popups: Allows pop-up windows (e.g., via window.open()).
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/IFrameComponentSandboxSettings.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+
+### Conclusion
+
+Ensure you regularly review permissions and access settings for your embedded reports, especially if sensitive business information is displayed. Keeping your embedded content secure and up-to-date helps maintain overall application integrity and performance.
+
+Now you're ready to see your report directly embedded within your Qodly application.
+
+<img src={require('./img/lookerReportEmbeddedinQodly.png').default} style={{borderRadius: '6px'}} />
+
+<!--
+
+## Create custom reports using your Qodly app data
+
+Google Looker Studio is a free reporting tool. Qodly built-in Rest API together with Qodly by 4D certified Looker Studio partner connector will allow you to choose which dataclasses and attributes display in Google Looker Studio.
+You'll be able to build custom data visualizations based on your Qodly Application data alongside your other connected data sources.
+
+
+Easily share your custom reports with other stakeholders or clients, and share custom metrics that make an impact. Get real-time data into a power data visualization tool.
+
+
+## Certified connector
+
+Use our certified connector with the Google Looker Studio API to:
+
+- Create custom, visual reporting for your Qodly application data or your own custom metrics.
+- View multiple Qodly Dataclasses content in a single report, from a single Qodly app or from multiple Qodly apps.
+- Pair your Qodly data with other third-party sources.
+- Choose exactly which data you'd like to display in Google Looker Studio.
+- On top of you dataclass model, define additional attributes to retrieve data from related Dataclasses.
+- Create elaborated reports based on ORDA calculated attributed and aliases.
+- Share the most pertinent reports with your customers.
+
+Ready to get started? Connect your Qodly application account to Google Looker Studio today via the [Google Looker Studio Community Connector’s Gallery](https://datastudio.google.com/datasources/create?connectorId=AKfycbx8kWt2YF52GY8bXaQZxotaAp0Bx1ZqlhAf-Tpcrf19YCSsJh2yXKQDBomHzTpn3lcwHQ&authuser=0).
+
+Technical questions? Check out our documentation for more information.
+
+
+## Google API Disclosure
+
+Qodly Looker Studio connector adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes) while using and transferring information received from Google APIs to other applications, including Google’s Limited Use requirements. You can revoke Qodly Looker Studio connector right to access your data at any point from your Google account control panel (https://security.google.com/settings/security/permissions).
+
+

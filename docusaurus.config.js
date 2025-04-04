@@ -132,6 +132,9 @@ Thank you for helping us improve! 🚀
       //     hideable: true,
       //   },
       // },
+      metadata: [
+        {name: 'keywords', content: 'qodly documentation, qodly docs, documentation qodly, doc qodly'},
+      ],
       navbar: {
         title: 'Docs', //Docs
         logo: {
