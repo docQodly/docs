@@ -77,7 +77,7 @@ The Miniature Overview Area allows you to view an overview of your model at a sm
 
 ## Outline
 
-On the left side of the model editor, the **Outline** lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level) in your model:
+On the left side of the model editor, the **Outline** lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model.md#datastore) class level) in your model:
 
 
 <img src={require('./img/outline.png').default} style={{borderRadius: '6px'}} />

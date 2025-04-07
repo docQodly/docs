@@ -122,7 +122,7 @@ Removing a dataclass from the model does not remove its associated functions.
 
 ### Datastore Functions
 
-The Datastore Functions section lists all functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level. These functions can be managed directly from the Outline panel.
+The Datastore Functions section lists all functions defined at the [cs.DataStore](../../orda/data-model.md#datastore) class level. These functions can be managed directly from the Outline panel.
 
 Functions can be opened and edited by clicking on the edit icon next to the function name <img src={require('./img/outline_editDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />. New functions can be added by clicking the Add Function button <img src={require('./img/outline_addDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />.
 
