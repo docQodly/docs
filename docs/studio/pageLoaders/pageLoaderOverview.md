@@ -43,8 +43,8 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
-13. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
+12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding.md#classes), [model](../model/model-editor-interface.md), etc. 
+13. [**Tooltip**](components/componentsBasics.md#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs
 
@@ -362,7 +362,7 @@ Server Side allows you to control the component's behavior, such as [hiding](../
 Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. 
 
 :::info
-For further details, refer to the [Properties Panel Styling Options](./styling#properties-panel-styling-options) section.
+For further details, refer to the [Properties Panel Styling Options](./styling.md#properties-panel-styling-options) section.
 :::
 
 :::info

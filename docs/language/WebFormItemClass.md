@@ -8,7 +8,7 @@ The `4D.WebFormItem` class allows you to handle the behavior of your webform com
 
 `4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass) object returned by the [`webForm`](commands/webForm) command. 
 
-When you call the [`webForm`](./commands/webForm) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/pageLoaders/pageLoaderOverview#server-side) in your webform.
+When you call the [`webForm`](./commands/webForm) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/pageLoaders/pageLoaderOverview.md#server-side) in your webform.
 
 For example, `WebFormObject.myImage` refers to the image component with `myImage` as server reference.
 

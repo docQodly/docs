@@ -66,7 +66,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 	</Column.Item>
 </Column.List>
 
-- Both **Local** and **Shared** CSS class codes can be modified in the [Contextual panel](../pageLoaders/pageLoaderOverview#contextual-panel) at the interface's bottom.
+- Both **Local** and **Shared** CSS class codes can be modified in the [Contextual panel](../pageLoaders/pageLoaderOverview.md#contextual-panel) at the interface's bottom.
 
   <img alt="styles-library" src={require('./img/editCSSClassCode.png').default} style={{borderRadius: '6px'}} />
 

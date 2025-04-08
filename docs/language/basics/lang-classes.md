@@ -65,7 +65,7 @@ When naming classes, you should keep in mind the following rules:
 - Class names are case sensitive.
 - Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
 
-A user class in Qodly is defined by a specific [method file (.4qs)](../../studio/coding#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
+A user class in Qodly is defined by a specific [method file (.4qs)](../../studio/coding.md#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
 
 ```
 Project folder
@@ -738,7 +738,7 @@ The `this` command <!-- REF #_command_.this.Summary -->returns a reference to th
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-When executing a formula object created by the [`formula`](../FunctionClass#formula-objects) or [`formulaFromString`](../commands/formulaFromString) commands, `this` returns a reference to the object currently processed by the formula. For example:
+When executing a formula object created by the [`formula`](../FunctionClass.md#formula-objects) or [`formulaFromString`](../commands/formulaFromString) commands, `this` returns a reference to the object currently processed by the formula. For example:
 
 ```qs
 o = newObject("prop",42,"f",formula(this.prop))

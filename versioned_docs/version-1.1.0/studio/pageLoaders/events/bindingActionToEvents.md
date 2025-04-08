@@ -128,7 +128,7 @@ The `Base` state and `Conditional` states, however, are not included among these
 :::
 
 :::tip
-The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../../language/WebFormClass#enablestate) is called several times with different states).
+The states are enabled in the given order of the standard action (same if [`WebForm.enableState`](../../../language/WebFormClass.md#enablestate) is called several times with different states).
 :::
 
 :::warning

@@ -43,8 +43,8 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
-13. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
+12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding.md#classes), [model](../model/model-editor-interface.md), etc. 
+13. [**Tooltip**](components/componentsBasics.md#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs
 
@@ -371,7 +371,7 @@ Explore below for specific options:
 |-----------------|-------------|
 | CSS             | The CSS class contains styles influencing visual attributes, affecting the component's appearance and positioning. Refer to the [Styles Library](styling.md) for additional details. |
 | Color scheme    | Customize the component's color palette including background colors, text colors, and box shadows.         |
-| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events/bindingActionToEvents#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
+| Background      | Assign a background image to the component with options like position, size, attachment, and repeat settings. If you use a picture stored in the [**Shared**](events/bindingActionToEvents.md#shared-folder) folder, you can drag and drop the file on the property area to enter its path automatically (e.g., `/$shared/visuals/background.png`).                                   |
 | Dimensions      | Define component dimensions: width, height, and other size properties for seamless integration into the webpage layout.                                                         |
 | Layout          | Gain control over component alignment using margins and paddings.                             |
 | Appearance      | The appearance attribute covers position (e.g., relative, absolute), overflow behavior, and display styles (e.g., block, flex), shaping component presentation and interaction.|

@@ -64,7 +64,7 @@ Each Customer can have multiple Orders, and an Order is not necessarily placed i
 
 #### Step 1: Generate API Credentials in Qodly
 
-To allow Looker Studio to access your Qodly data, you need an [API endpoint](../cloud/apiKeys#api-endpoint) and [API key](../cloud/apiKeys#api-key). These credentials act as authentication tokens that ensure secure access to your data.
+To allow Looker Studio to access your Qodly data, you need an [API endpoint](../cloud/apiKeys.md#api-endpoint) and [API key](../cloud/apiKeys.md#api-key). These credentials act as authentication tokens that ensure secure access to your data.
 
 1. **Access the Qodly Console**:
 
@@ -267,9 +267,9 @@ You can obtain the IFrame custom component directly from the [Custom Components 
 Once downloaded, follow these steps:
 
 1. Open Qodly Studio.
-2. Locate and click the dedicated [Upload button](../studio/pageLoaders/components/uploadCustomComponents#uploading-custom-component) in the Component bar.
+2. Locate and click the dedicated [Upload button](../studio/pageLoaders/components/uploadCustomComponents.md#uploading-custom-component) in the Component bar.
 3. Upload the downloaded qodly_IFrame_version.zip file.
-4. [Install the custom component](../studio/pageLoaders/components/uploadCustomComponents#installing-custom-component) when prompted.
+4. [Install the custom component](../studio/pageLoaders/components/uploadCustomComponents.md#installing-custom-component) when prompted.
 
 After successful installation, refresh your Qodly Studio page. The new IFrame component will now appear in your components bar, ready for drag-and-drop onto your canvas.
 

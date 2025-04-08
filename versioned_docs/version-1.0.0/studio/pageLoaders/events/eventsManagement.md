@@ -11,7 +11,7 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](../pageLoaderOverview#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](../qodlySources#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](../qodlySources#from-this-page) area.
+1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](../pageLoaderOverview.md#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](../qodlySources.md#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](../qodlySources.md#from-this-page) area.
 
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or qodlysource.
 

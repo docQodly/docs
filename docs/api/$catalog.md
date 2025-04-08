@@ -71,7 +71,7 @@ Each dataclass listed by the `$catalog` endpoint returns the following propertie
 
 
 :::tip
-Only the exposed dataclasses are shown in this list for your project's datastore. For more information, please refer to [Configuring Data Access](./overview#configuring-data-access) section.
+Only the exposed dataclasses are shown in this list for your project's datastore. For more information, please refer to [Configuring Data Access](./overview.md#configuring-data-access) section.
 :::
 
 ### Sample Usage Example in Postman

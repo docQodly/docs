@@ -33,8 +33,8 @@ Deployed Qodly applications are accessible on all popular web browsers, with no 
 
 Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environment](../cloud/environmentsOverview.md) within the Qodly Console, you can access your application instance in Qodly Studio by either:
 
-- Clicking on the [Studio](../cloud/consoleOverview#accessing-the-studio) button on the Overview page.
-- Clicking on the [Studio URL](../cloud/resourceMonitoring#1-studio-url) in the General tab for the environment.
+- Clicking on the [Studio](../cloud/consoleOverview.md#accessing-the-studio) button on the Overview page.
+- Clicking on the [Studio URL](../cloud/resourceMonitoring.md#1-studio-url) in the General tab for the environment.
 
 
 
@@ -47,9 +47,9 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
 1. **Explorer**: is where you'll find an overview of your project's essential elements:
 
-    - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview#overview): Serve as containers, enveloping various components within your application. 
-    - ![qodlyOverview](./img/overview_methods&Func.png) [Methods](./coding#methods): Function as distinct blocks of code that fulfill specific roles within your application. While they can be invoked from class functions or other methods, components can't directly interact with them.
-    - ![qodlyOverview](./img/overview_methods&Func.png) [Classes](./coding#classes): Serve as the cornerstone for organizing your code around objects, granting components the capability to directly interact with them.
+    - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#overview): Serve as containers, enveloping various components within your application. 
+    - ![qodlyOverview](./img/overview_methods&Func.png) [Methods](./coding.md#methods): Function as distinct blocks of code that fulfill specific roles within your application. While they can be invoked from class functions or other methods, components can't directly interact with them.
+    - ![qodlyOverview](./img/overview_methods&Func.png) [Classes](./coding.md#classes): Serve as the cornerstone for organizing your code around objects, granting components the capability to directly interact with them.
     - ![qodlyOverview](./img/overview_shared.png) Shared: Use this folder to store any contents (local images, downloadable files...) you might need within your app. The contents of this folder can be accessed from Qodyy pages using the [`/$shared` link](pageLoaders/events/bindingActionToEvents.md#shared-folder) or from the QodlyScript language using the [`/SOURCES/Shared`](../language/basics/lang-pathnames.md#filesystem-pathnames) file path.
     - ![qodlyOverview](./img/overview_debugger.png) [Debugger](./debugging.md): Provides a suite of debugging tools that address different types of errors during the development phase.
     - ![qodlyOverview](./img/overview_roles.png) [Roles And Privileges](./roles/rolesPrivilegesOverview.md): Plays a pivotal role in enforcing data access restrictions within your application, ensuring that the right users access the right data.
@@ -58,18 +58,18 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
 2. **Header bar**: provides quick access to several project-related options:
 
-    - ![qodlyOverview](./img/overview_debug.png) [Debug](./debugging#starting-a-debug-session): Initiate a debug session on the server, attaching it to your browser, and enable debugging for your app.
+    - ![qodlyOverview](./img/overview_debug.png) [Debug](./debugging.md#starting-a-debug-session): Initiate a debug session on the server, attaching it to your browser, and enable debugging for your app.
     - ![qodlyOverview](./img/overview_saveAll.png) Save All: Save all changes made across all open windows within your app.
     - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the Data Explorer, facilitating data-related operations.
-    - ![qodlyOverview](./img/overview_preview.png) [Preview](./rendering#preview-the-entire-site): Allows you to assess your application's appearance and functionality with ease.
+    - ![qodlyOverview](./img/overview_preview.png) [Preview](./rendering.md#preview-the-entire-site): Allows you to assess your application's appearance and functionality with ease.
     - ![qodlyOverview](./img/overview_settings.png) [Settings](./settings.md): Present a range of options for configuring application-specific settings, tailoring the environment to your app's needs.
 
 3. **Grid container**: houses a collection of swift shortcuts for a range of actions:
 
     - **Create New**: Offers convenient quick links for:
-        - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview#creating-a-Page): Speedily initiate the creation of a new Page.
-        - ![qodlyOverview](./img/overview_class.png) [Classes](./coding#creating): Generate a new Class.
-        - ![qodlyOverview](./img/overview_method.png) [Methods](./coding#creating): Generate a new Method.
+        - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#creating-a-Page): Speedily initiate the creation of a new Page.
+        - ![qodlyOverview](./img/overview_class.png) [Classes](./coding.md#creating): Generate a new Class.
+        - ![qodlyOverview](./img/overview_method.png) [Methods](./coding.md#creating): Generate a new Method.
         - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
     - **Recent Files**: Displays the most recently accessed files, allowing you to quickly revisit your recent work.
     - **What's New**: Keeps you updated with the latest news and announcements from the Qodly team.
@@ -105,7 +105,7 @@ The following actions are available:
 -  **Close all**: closes all the opened tabs.
 -  **Close saved**: closes all the tabs that contain saved contents. Tabs with unsaved contents are not closed. 
 -  **Close tabs to the right/to the left**: closes all opened tabs located at the right side or the left side of the current tab.
--  **Switch to Text Editor** (only available with Page and model tabs): displays the [current Page](./pageLoaders/pageLoaderOverview#page-json-representation) or [model](model/model-editor-interface#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to Page Editor**/**Switch to Model Editor**. 
+-  **Switch to Text Editor** (only available with Page and model tabs): displays the [current Page](./pageLoaders/pageLoaderOverview.md#page-json-representation) or [model](model/model-editor-interface.md#model-json-representation) as JSON text. When called from the text editor, the menu command toggles to **Switch to Page Editor**/**Switch to Model Editor**. 
 
 ### Unsaved contents
 
