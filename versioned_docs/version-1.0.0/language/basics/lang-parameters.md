@@ -387,7 +387,7 @@ firstnames = ds.Teachers.all().extract("firstname") //1 parameter
 addresses = ds.Teachers.all().extract("address",ck keep null) //2 parameters
 ```
 
-QodlyScript methods and functions also accept such optional parameters. You can declare any number of parameters. If you call a method or function with less parameters than declared, missing parameters are processed as default values in the called code, [according to their type](lang-data-types#overview). For example:
+QodlyScript methods and functions also accept such optional parameters. You can declare any number of parameters. If you call a method or function with less parameters than declared, missing parameters are processed as default values in the called code, [according to their type](lang-data-types.md#overview). For example:
 
 ```qs
 // "concate" function of myClass

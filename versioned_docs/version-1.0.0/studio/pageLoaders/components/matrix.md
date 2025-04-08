@@ -159,7 +159,7 @@ The Matrix component supports a range of CSS classes, enabling customization of 
 | **Class Name**   | **Applies To**                 | **Description**                            |
 |------------------|-------------------------------|--------------------------------------------|
 | `.FdVirtualGrid`        | The entire matrix              | Styles the entire matrix area.       |
-| `.innerScrollContainer`   | All the default styleboxes in the matrix              | Targets all the [default styleboxes](stylebox#enhancing-content-presentation) incorporated in the matrix.           |
+| `.innerScrollContainer`   | All the default styleboxes in the matrix              | Targets all the [default styleboxes](stylebox.md#enhancing-content-presentation) incorporated in the matrix.           |
 | `.innerScrollContainer > div.selected`   | The selected stylebox     | Applies styles to the currently selected stylebox. |
 | `.innerScrollContainer > div:hover`   | The hovered stylebox     | Applies styles to the currently hovered stylebox. |
 | `.fd-stylebox > div` | The internal elements of styleboxes | Targets the internal components of the styleboxes that form the main Matrix. |

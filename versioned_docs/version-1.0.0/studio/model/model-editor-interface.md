@@ -207,6 +207,6 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 :::warning
 
-Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes#renaming-a-datastore-class).
+Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes.md#renaming-a-datastore-class).
 
 :::

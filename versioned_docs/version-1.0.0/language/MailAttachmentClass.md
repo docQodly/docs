@@ -44,7 +44,7 @@ Attachment objects are created using the [`4D.MailAttachment.new()`](#4dmailatta
 
 #### Description
 
-The `4D.MailAttachment.new` function <!-- REF #4D.MailAttachment.new().Summary -->allows you to create an attachment object that you can add to an [Email object](EmailObjectClass#properties)<!-- END REF -->.
+The `4D.MailAttachment.new` function <!-- REF #4D.MailAttachment.new().Summary -->allows you to create an attachment object that you can add to an [Email object](EmailObjectClass.md#properties)<!-- END REF -->.
 
 To define the attachment, you can use:
 

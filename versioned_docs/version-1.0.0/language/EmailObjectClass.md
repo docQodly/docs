@@ -113,7 +113,7 @@ The [`stringBody`](#stringbody) and [`htmlBody`](#htmlbody) properties are only 
 
 The `.attachments` property contains a <!-- REF #EmailobjectClass.attachments.Summary -->collection of `4D.MailAttachment` object(s)<!-- END REF -->.
 
-Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentClass#4dmailattachmentnew) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
+Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentClass.md#4dmailattachmentnew) command. Attachment objects have specific [properties and functions](MailAttachmentClass.md).
 
 ## .bcc
 

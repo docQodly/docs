@@ -4,7 +4,7 @@ title: CRUD Operations
 slug: /guides/crud-operations
 ---
 
-In ORDA, you access data through [entities](data-model#entity) and [entity selections](data-model#entity-selection) objects. These objects allow you to execute CRUD (*Create, Read, Update, Delete*) basic operations on data, along with [queries](queries.md) and sorts.
+In ORDA, you access data through [entities](data-model.md#entity) and [entity selections](data-model.md#entity-selection) objects. These objects allow you to execute CRUD (*Create, Read, Update, Delete*) basic operations on data, along with [queries](queries.md) and sorts.
 
 
 ## Creating an entity  
@@ -229,7 +229,7 @@ You can assign or modify the value of a "one" related entity attribute from the 
 
 ## Creating an entity selection  
 
-You can create an object of type [entity selection](data-model#entity-selection) as follows:
+You can create an object of type [entity selection](data-model.md#entity-selection) as follows:
 
 *	Querying the entities [in a dataclass](../language/DataClassClass.md#query) or in an [existing entity selection](../language/EntitySelectionClass.md#query);
 *	Using the [`.all()`](../language/DataClassClass.md#all) dataclass function to select all the entities in a dataclass;
