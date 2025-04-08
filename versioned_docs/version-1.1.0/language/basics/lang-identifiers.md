@@ -65,7 +65,7 @@ If you use **string notation** within square brackets, property names can contai
 
 :::
 
-See also [ECMA Script standard](https://www.ecma-international.org/ecma-262/5.1/#sec-7.6).
+See also [ECMA Script standard](https://www.ecma-international.org/ecma-262/5.1#sec-7.6).
 
 ## Parameters
 
