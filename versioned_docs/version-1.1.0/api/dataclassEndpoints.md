@@ -153,7 +153,7 @@ The response structure for the `/rest/{{dataClass}}[2]` endpoint looks something
 ```
 
 
-### rest/dataClass:attribute(value)
+### rest/dataClass\:attribute(value)
 
 #### Purpose
 
