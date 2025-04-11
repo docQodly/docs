@@ -353,14 +353,14 @@ Here's a glimpse of how the **DataTable** component will look and behave in acti
 <img src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 :::info
-Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](../styling.md#customizing-datatable-styles).
+Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](#customizing-datatable-styles).
 :::
 
 ## Triggers and Events
 
 The **DataTable** component can respond to various events, enabling dynamic user experiences. 
 
-Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
+Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/commands/webEvent.md) when called in an event function triggered by a **DataTable** component.
 
 Events that can trigger actions within the component include:
 

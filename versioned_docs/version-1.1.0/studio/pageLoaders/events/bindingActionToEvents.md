@@ -214,7 +214,7 @@ The feature for providing feedback is not applicable in the context of navigatio
 
 ### External Links
 
-In addition to navigating to Pages, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#Pages), with a slight variation in the "Target Type" step:
+In addition to navigating to Pages, Qodly Studio offers a convenient way to direct users to external links. The process follows the same steps as outlined for [associating navigation actions with events for Pages](#pages), with a slight variation in the "Target Type" step:
 
 
 <Column.List align="center" justifyContent="between">

@@ -33,7 +33,7 @@ Deployed Qodly applications are accessible on all popular web browsers, with no 
 
 Access to Qodly Studio is granted to developers once they complete a series of authentication steps to enter the Qodly Cloud Management Console. From the Development or Staging [environment](../cloud/environmentsOverview.md) within the Qodly Console, you can access your application instance in Qodly Studio by either:
 
-- Clicking on the [Studio](../cloud/consoleOverview.md#accessing-the-studio) button on the Overview page.
+- Clicking on the [Studio](../cloud/consoleOverview.md#accessing-qodly-studio) button on the Overview page.
 - Clicking on the [Studio URL](../cloud/resourceMonitoring.md#1-studio-url) in the General tab for the environment.
 
 
@@ -47,7 +47,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 
 1. **Explorer**: is where you'll find an overview of your project's essential elements:
 
-    - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#overview): Serve as containers, enveloping various components within your application. 
+    - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#page-editor-overview): Serve as containers, enveloping various components within your application. 
     - ![qodlyOverview](./img/overview_methods&Func.png) [Methods](./coding.md#methods): Function as distinct blocks of code that fulfill specific roles within your application. While they can be invoked from class functions or other methods, components can't directly interact with them.
     - ![qodlyOverview](./img/overview_methods&Func.png) [Classes](./coding.md#classes): Serve as the cornerstone for organizing your code around objects, granting components the capability to directly interact with them.
     - ![qodlyOverview](./img/overview_shared.png) Shared: Use this folder to store any contents (local images, downloadable files...) you might need within your app. The contents of this folder can be accessed from Qodyy pages using the [`/$shared` link](pageLoaders/events/bindingActionToEvents.md#shared-folder) or from the QodlyScript language using the [`/SOURCES/Shared`](../language/basics/lang-pathnames.md#filesystem-pathnames) file path.
@@ -67,7 +67,7 @@ When you first step into Qodly Studio, you'll immediately encounter a user-frien
 3. **Grid container**: houses a collection of swift shortcuts for a range of actions:
 
     - **Create New**: Offers convenient quick links for:
-        - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#creating-a-Page): Speedily initiate the creation of a new Page.
+        - ![qodlyOverview](./img/overview_Pages.png) [Pages](./pageLoaders/pageLoaderOverview.md#creating-a-page): Speedily initiate the creation of a new Page.
         - ![qodlyOverview](./img/overview_class.png) [Classes](./coding.md#creating): Generate a new Class.
         - ![qodlyOverview](./img/overview_method.png) [Methods](./coding.md#creating): Generate a new Method.
         - ![qodlyOverview](./img/overview_data.png) [Data](../data-explorer/data-explorer.md): Provide access to the [Data Explorer](../data-explorer/data-explorer.md), facilitating data-related operations.
@@ -113,7 +113,7 @@ When the contents of a tab has been modified locally but has not been saved, a c
 
 <img src={require('./img/tabs-unsaved.png').default} style={{borderRadius: '6px', width:'20%'}} />
 
-When closing or reloading a tab, if it contains unsaved changes, an alert window is displayed, allowing you to ignore the changes and close the tab (**Confirm**) or cancel the closure and let you click the [**Save all**](#homepage) button to save the changes. 
+When closing or reloading a tab, if it contains unsaved changes, an alert window is displayed, allowing you to ignore the changes and close the tab (**Confirm**) or cancel the closure and let you click the [**Save all**](./coding.md#saving) button to save the changes. 
 
 <img src={require('./img/tabs-close.png').default} style={{borderRadius: '6px', width:'50%'}} />
 

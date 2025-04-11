@@ -23,7 +23,7 @@ In the case of Qodly Studio, rendering takes a different path compared to conven
 
 - **Rendering Trigger**: Accessing the Page directly in a web browser is not an option. Instead, the Page is "**rendered**" when users initiate the rendering process, which can be done in one of two ways:
 
-    - **Preview in Qodly Studio**: Users have the option to [preview the Page within Qodly Studio interface](#preview-in-the-studio).
+    - **Preview in Qodly Studio**: Users have the option to [preview the Page within Qodly Studio interface](#preview-in-qodly-studio).
 
     - **Dedicated Browser Tab**: Alternatively, users can opt to [render the Page in a separate browser tab](#preview-in-a-browser-window).
 

@@ -25,7 +25,7 @@ The model view includes permissions, allowing you to assign access rights at any
 You can access your current project's model in the **Model Editor** by clicking on the <img src={require('./img/model-icon.png').default} style={{borderRadius: '6px'}} /> in your project's sidebar.
 
 :::note
-You can also open your model as a [JSON file](#json-view).
+You can also open your model as a [JSON file](#model-json-representation).
 :::
 
 ### Default State
