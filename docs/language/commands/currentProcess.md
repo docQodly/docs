@@ -20,6 +20,6 @@ title: currentProcess
 
 #### See also
 
-[`currentProcessName`](currentProcessName.md)<br/>
-[`processNumber`](processNumber.md)<br/>
+[`currentProcessName`](currentProcessName.md)&nbsp; 
+[`processNumber`](processNumber.md)&nbsp; 
 [`processState`](processState.md)

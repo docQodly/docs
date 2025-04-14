@@ -61,7 +61,7 @@ Enhance the Tabs component to align with your application's requirements using t
         </Column.Item>
     </Column.List>
 
-    <br/>
+    &nbsp; 
 
     - **Direct Canvas Addition**: Directly add new tabs onto the canvas using the <code>+</code> icon.
 

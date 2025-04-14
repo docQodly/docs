@@ -37,6 +37,6 @@ If *where* is greater than the length of *source*, then *what* is appended to *s
 
 #### See also
 
-[`changeString`](changeString.md)<br/>
-[`deleteString`](deleteString.md)<br/>
+[`changeString`](changeString.md)&nbsp; 
+[`deleteString`](deleteString.md)&nbsp; 
 [`replaceString`](replaceString.md)

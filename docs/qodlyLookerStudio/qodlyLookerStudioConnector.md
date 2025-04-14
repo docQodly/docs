@@ -221,8 +221,8 @@ With your chart selected, use the Setup panel on the right side to configure you
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        1. Data Source: Select your configured Qodly data source. <br/> <br/>
-        2. Dimension: Choose a categorical or date-based field (e.g., date, country, city).  <br/> <br/>
+        1. Data Source: Select your configured Qodly data source. &nbsp;  &nbsp; 
+        2. Dimension: Choose a categorical or date-based field (e.g., date, country, city).  &nbsp;  &nbsp; 
         3. Metric: Select the numeric measure to visualize (e.g., amount, orderCount).
     </Column.Item>
     <Column.Item width="40%">
@@ -293,7 +293,7 @@ Return to your Qodly app page in Qodly Studio.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        1. Create a new Qodly source of type String. <br/> <br/>
+        1. Create a new Qodly source of type String. &nbsp;  &nbsp; 
         2. Set the copied Looker Studio Embed URL as the default value for this source.
     </Column.Item>
     <Column.Item width="40%">
@@ -310,9 +310,9 @@ The IFrame custom component uses sandbox attributes to apply security restrictio
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
-        - allow-storage-access-by-user-activation: Experimental—enables embedded pages to request access to cookies via the Storage Access API. <br/> <br/>
-        - allow-scripts: Permits embedded pages to execute JavaScript (but not pop-up windows). <br/> <br/>
-        - allow-same-origin: If omitted, the embedded page is treated as from a unique origin, restricting certain browser functionalities. <br/> <br/>
+        - allow-storage-access-by-user-activation: Experimental—enables embedded pages to request access to cookies via the Storage Access API. &nbsp;  &nbsp; 
+        - allow-scripts: Permits embedded pages to execute JavaScript (but not pop-up windows). &nbsp;  &nbsp; 
+        - allow-same-origin: If omitted, the embedded page is treated as from a unique origin, restricting certain browser functionalities. &nbsp;  &nbsp; 
         - allow-popups: Allows pop-up windows (e.g., via window.open()).
     </Column.Item>
     <Column.Item width="40%">

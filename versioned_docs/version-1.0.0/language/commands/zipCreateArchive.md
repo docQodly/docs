@@ -4,7 +4,7 @@ title: zipCreateArchive
 ---
 
 
-<!-- REF #_command_.zipCreateArchive.Syntax -->**zipCreateArchive** ( *fileToZip* : 4D.File , *destinationFile* : 4D.File ) : object<br/>**zipCreateArchive** ( *folderToZip* : 4D.Folder , *destinationFile* : 4D.File \{ , *options* : integer \}) : object<br/>**zipCreateArchive** ( *zipStructure* : object , *destinationFile* : 4D.File ) : object<!-- END REF -->
+<!-- REF #_command_.zipCreateArchive.Syntax -->**zipCreateArchive** ( *fileToZip* : 4D.File , *destinationFile* : 4D.File ) : object&nbsp; **zipCreateArchive** ( *folderToZip* : 4D.Folder , *destinationFile* : 4D.File \{ , *options* : integer \}) : object&nbsp; **zipCreateArchive** ( *zipStructure* : object , *destinationFile* : 4D.File ) : object<!-- END REF -->
 
 
 <!-- REF #_command_.zipCreateArchive.Params -->

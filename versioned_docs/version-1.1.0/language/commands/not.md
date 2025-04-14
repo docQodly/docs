@@ -31,5 +31,5 @@ This example first assigns **true** to a variable, then changes the variable val
 
 #### See also
 
-[`false`](false.md)<br/>
+[`false`](false.md)&nbsp; 
 [`true`](true.md)

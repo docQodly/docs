@@ -288,7 +288,7 @@ c2 = c.concat(6,7,8) //[1,2,3,4,5,6,7,8]
 <!-- REF collection.copy().Desc -->
 ## .copy()
 
-<!-- REF #collection.copy().Syntax -->**.copy**() : collection<br/>**.copy**( *option* : integer ) : collection<br/>**.copy**( *option* : integer , *groupWithCol* : collection ) : collection<br/>**.copy**( *option* : integer , *groupWithObj* : object ) : collection<!-- END REF -->
+<!-- REF #collection.copy().Syntax -->**.copy**() : collection&nbsp; **.copy**( *option* : integer ) : collection&nbsp; **.copy**( *option* : integer , *groupWithCol* : collection ) : collection&nbsp; **.copy**( *option* : integer , *groupWithObj* : object ) : collection<!-- END REF -->
 
 
 <!-- REF #collection.copy().Params -->
@@ -504,7 +504,7 @@ The optional *propertyPath* parameter allows you to count values inside a collec
 <!-- REF collection.distinct().Desc -->
 ## .distinct()
 
-<!-- REF #collection.distinct().Syntax -->**.distinct**( \{*options* : integer} ) : collection<br/>**.distinct**( *propertyPath* : string \{, *options* : integer \} ) : collection<!-- END REF -->
+<!-- REF #collection.distinct().Syntax -->**.distinct**( \{*options* : integer} ) : collection&nbsp; **.distinct**( *propertyPath* : string \{, *options* : integer \} ) : collection<!-- END REF -->
 
 
 <!-- REF #collection.distinct().Params -->
@@ -609,7 +609,7 @@ By default, a non-diacritical evaluation is performed. If you want the evaluatio
 ## .every()
 
 
-<!-- REF #collection.every().Syntax -->**.every**( \{ *startFrom* : integer , \} *formula* : 4D.Function \{ ,*...param* : any \} ) : boolean<br/>**.every**( \{ *startFrom* : integer , \} *methodName* : string \{ ,*...param* : any \} ) : boolean<!-- END REF -->
+<!-- REF #collection.every().Syntax -->**.every**( \{ *startFrom* : integer , \} *formula* : 4D.Function \{ ,*...param* : any \} ) : boolean&nbsp; **.every**( \{ *startFrom* : integer , \} *methodName* : string \{ ,*...param* : any \} ) : boolean<!-- END REF -->
 
 
 <!-- REF #collection.every().Params -->
@@ -695,7 +695,7 @@ b = c.every(f,Is number) //b = false
 <!-- REF collection.extract().Desc -->
 ## .extract()
 
-<!-- REF #collection.extract().Syntax -->**.extract**( *propertyPath* : string \{ , *option* : integer \} ) : collection<br/>**.extract**( *propertyPath* : string ,  *targetPath* : string  \{ ,...*propertyPathN* : string ,... *targetPathN* : string \} ) : collection<!-- END REF -->
+<!-- REF #collection.extract().Syntax -->**.extract**( *propertyPath* : string \{ , *option* : integer \} ) : collection&nbsp; **.extract**( *propertyPath* : string ,  *targetPath* : string  \{ ,...*propertyPathN* : string ,... *targetPathN* : string \} ) : collection<!-- END REF -->
 
 
 <!-- REF #collection.extract().Params -->
@@ -764,7 +764,7 @@ c2 = c.extract("name","City","zc","Zip") //c2: [{Zip:35060},{City:null,Zip:35049
 <!-- REF collection.fill().Desc -->
 ## .fill()
 
-<!-- REF #collection.fill().Syntax -->**.fill**( *value* : any ) : collection<br/>**.fill**( *value* : any ,  *startFrom*  : integer \{ , *end* : integer \} ) : collection<!-- END REF -->
+<!-- REF #collection.fill().Syntax -->**.fill**( *value* : any ) : collection&nbsp; **.fill**( *value* : any ,  *startFrom*  : integer \{ , *end* : integer \} ) : collection<!-- END REF -->
 
 
 
@@ -814,7 +814,7 @@ In case of inconsistency, the following rules apply:
 <!-- REF collection.filter().Desc -->
 ## .filter()
 
-<!-- REF #collection.filter().Syntax -->**.filter**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection<br/>**.filter**( *methodName* : string \{ , *...param* : any \} ) : collection<!-- END REF -->
+<!-- REF #collection.filter().Syntax -->**.filter**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection&nbsp; **.filter**( *methodName* : string \{ , *...param* : any \} ) : collection<!-- END REF -->
 
 
 <!-- REF #collection.filter().Params -->
@@ -894,7 +894,7 @@ You want to filter elements according to their value type:
 ## .find()
 
 
-<!-- REF #collection.find().Syntax -->**.find**( \{ *startFrom* : integer , \}  *formula* : 4D.Function \{ , *...param* : any \} ) : any<br/>**.find**( \{ *startFrom* : integer , \}  *methodName* : string \{ , *...param* : any \} ) : any<!-- END REF -->
+<!-- REF #collection.find().Syntax -->**.find**( \{ *startFrom* : integer , \}  *formula* : 4D.Function \{ , *...param* : any \} ) : any&nbsp; **.find**( \{ *startFrom* : integer , \}  *methodName* : string \{ , *...param* : any \} ) : any<!-- END REF -->
 
 
 <!-- REF #collection.find().Params -->
@@ -977,7 +977,7 @@ c2 = c.find(formula($1.value.name == $2), "Clanton")  //c2 = {name:Clanton,zc:35
 ## .findIndex()
 
 
-<!-- REF #collection.findIndex().Syntax -->**.findIndex**( \{ *startFrom* : integer , \}  *formula* : 4D.Function \{ , *...param* : any \} ) : integer<br/>**.findIndex**( \{ *startFrom* : integer , \}  *methodName* : string \{ , *...param* : any \} ) : integer<!-- END REF -->
+<!-- REF #collection.findIndex().Syntax -->**.findIndex**( \{ *startFrom* : integer , \}  *formula* : 4D.Function \{ , *...param* : any \} ) : integer&nbsp; **.findIndex**( \{ *startFrom* : integer , \}  *methodName* : string \{ , *...param* : any \} ) : integer<!-- END REF -->
 
 
 <!-- REF #collection.findIndex().Params -->
@@ -1132,7 +1132,7 @@ col.flat(MAXLONG)
 <!-- REF collection.flatMap().Desc -->
 ## .flatMap()
 
-<!-- REF #collection.flatMap().Syntax -->**.flatMap**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection<br/>**.flatMap**( *methodName* : string \{ , *...param* : any \} ) : collection <!-- END REF -->
+<!-- REF #collection.flatMap().Syntax -->**.flatMap**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection&nbsp; **.flatMap**( *methodName* : string \{ , *...param* : any \} ) : collection <!-- END REF -->
 
 <!-- REF #collection.flatMap().Params -->
 |Parameter|Type||Description|
@@ -1595,7 +1595,7 @@ The `.length` property is initialized when the collection is created. Adding or 
 ## .map()
 
 
-<!-- REF #collection.map().Syntax -->**.map**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection<br/>**.map**( *methodName* : string \{ , *...param* : any \} ) : collection <!-- END REF -->
+<!-- REF #collection.map().Syntax -->**.map**( *formula* : 4D.Function \{ , *...param* : any \} ) : collection&nbsp; **.map**( *methodName* : string \{ , *...param* : any \} ) : collection <!-- END REF -->
 
 
 <!-- REF #collection.map().Params -->
@@ -1742,7 +1742,7 @@ If the collection is empty, `.min()` returns `undefined`.
 <!-- REF collection.multiSort().Desc -->
 ## .multiSort()
 
-<!-- REF #collection.multiSort().Syntax -->**.multiSort**() : collection<br/>**.multiSort**( *colsToSort* : collection ) : collection<br/>**.multiSort**( *formula* : 4D.Function , *colsToSort* : collection ) : collection<!-- END REF -->
+<!-- REF #collection.multiSort().Syntax -->**.multiSort**() : collection&nbsp; **.multiSort**( *colsToSort* : collection ) : collection&nbsp; **.multiSort**( *formula* : 4D.Function , *colsToSort* : collection ) : collection<!-- END REF -->
 
 
 <!-- REF #collection.multiSort().Params -->
@@ -1869,7 +1869,7 @@ name.multiSort(formula($1.value.firstname < $1.value2.firstname), [address])
 ## .orderBy()
 
 
-<!-- REF #collection.orderBy().Syntax -->**.orderBy**() : collection<br/>**.orderBy**( *pathStrings* : string ) : collection<br/>**.orderBy**( *pathobjects* : collection ) : collection<br/>**.orderBy**( *ascOrDesc* : integer ) : collection <!-- END REF -->
+<!-- REF #collection.orderBy().Syntax -->**.orderBy**() : collection&nbsp; **.orderBy**( *pathStrings* : string ) : collection&nbsp; **.orderBy**( *pathobjects* : collection ) : collection&nbsp; **.orderBy**( *ascOrDesc* : integer ) : collection <!-- END REF -->
 
 
 <!-- REF #collection.orderBy().Params -->
@@ -2005,7 +2005,7 @@ Ordering with a property path:
 ## .orderByMethod()
 
 
-<!-- REF #collection.orderByMethod().Syntax -->**.orderByMethod**( *formula* : 4D.Function \{ , ...*extraParam* : expression \} ) : collection<br/>**.orderByMethod**( *methodName* : string \{ , ...*extraParam* : expression \} ) : collection<!-- END REF -->
+<!-- REF #collection.orderByMethod().Syntax -->**.orderByMethod**( *formula* : 4D.Function \{ , ...*extraParam* : expression \} ) : collection&nbsp; **.orderByMethod**( *methodName* : string \{ , ...*extraParam* : expression \} ) : collection<!-- END REF -->
 
 
 
@@ -2200,7 +2200,7 @@ You want to sort the resulting collection:
 <!-- REF collection.query().Desc -->
 ## .query()
 
-<!-- REF #collection.query().Syntax -->**.query**( *queryString* : string , *...value* : any ) : collection<br/>**.query**( *queryString* : string , *querySettings* : object ) : collection <!-- END REF -->
+<!-- REF #collection.query().Syntax -->**.query**( *queryString* : string , *...value* : any ) : collection&nbsp; **.query**( *queryString* : string , *querySettings* : object ) : collection <!-- END REF -->
 
 
 <!-- REF #collection.query().Params -->
@@ -2497,7 +2497,7 @@ More examples of queries can be found in the [`dataClass.query()`](DataClassClas
 ## .reduce()
 
 
-<!-- REF #collection.reduce().Syntax -->**.reduce**( *formula* : 4D.Function \{ , *initValue* : any \{ , *...param* : expression \}} ) : any<br/>**.reduce**( *methodName* : string \{ , *initValue* : any \{ , *...param* : expression \}\} ) : any <!-- END REF -->
+<!-- REF #collection.reduce().Syntax -->**.reduce**( *formula* : 4D.Function \{ , *initValue* : any \{ , *...param* : expression \}} ) : any&nbsp; **.reduce**( *methodName* : string \{ , *initValue* : any \{ , *...param* : expression \}\} ) : any <!-- END REF -->
 
 
 <!-- REF #collection.reduce().Params -->
@@ -2580,7 +2580,7 @@ With the following ***Flatten*** method:
 <!-- REF collection.reduceRight().Desc -->
 ## .reduceRight()
 
-<!-- REF #collection.reduceRight().Syntax -->**.reduceRight**( *formula* : 4D.Function \{ , *initValue* : any \{ , *...param* : expression \}} ) : any<br/>**.reduceRight**( *methodName* : string \{ , *initValue* : any \{ , *...param* : expression \}\} ) : any <!-- END REF -->
+<!-- REF #collection.reduceRight().Syntax -->**.reduceRight**( *formula* : 4D.Function \{ , *initValue* : any \{ , *...param* : expression \}} ) : any&nbsp; **.reduceRight**( *methodName* : string \{ , *initValue* : any \{ , *...param* : expression \}\} ) : any <!-- END REF -->
 
 
 <!-- REF #collection.reduceRight().Params -->
@@ -2893,7 +2893,7 @@ The returned collection contains the element specified by *startFrom* and all su
 ## .some()
 
 
-<!-- REF #collection.some().Syntax -->**.some**( \{ *startFrom* : integer , \} *formula* : 4D.Function \{ , *...param* : any \} ) : boolean<br/>**.some**( \{ *startFrom* : integer , \} *methodName* : string \{ , *...param* : any \} ) : boolean<!-- END REF -->
+<!-- REF #collection.some().Syntax -->**.some**( \{ *startFrom* : integer , \} *formula* : 4D.Function \{ , *...param* : any \} ) : boolean&nbsp; **.some**( \{ *startFrom* : integer , \} *methodName* : string \{ , *...param* : any \} ) : boolean<!-- END REF -->
 
 
 <!-- REF #collection.some().Params -->
@@ -2971,7 +2971,7 @@ You want to know if at least one collection value is >0.
 ## .sort()
 
 
-<!-- REF #collection.sort().Syntax -->**.sort**() : collection<br/>**.sort**( *formula* : 4D.Function \{ , *...extraParam* : any \} ) : collection<br/>**.sort**( *methodName* : string \{ , *...extraParam* : any \} ) : collection <!-- END REF -->
+<!-- REF #collection.sort().Syntax -->**.sort**() : collection&nbsp; **.sort**( *formula* : 4D.Function \{ , *...extraParam* : any \} ) : collection&nbsp; **.sort**( *methodName* : string \{ , *...extraParam* : any \} ) : collection <!-- END REF -->
 
 
 <!-- REF #collection.sort().Params -->

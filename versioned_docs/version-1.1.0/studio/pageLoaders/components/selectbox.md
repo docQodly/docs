@@ -13,7 +13,7 @@ Categorized as part of iterative components, the **Select Box** facilitates user
 
 :::
 
-<br/>
+&nbsp; 
 
 The **Select Box** component is notable for its capacity to present complex options as a dropdown list using embedded components, distinguishing it from the [**Select Input**](./selectinput.md) component that offers less versatile option displays.
  
@@ -58,7 +58,7 @@ Enhance the Select Box component to align with your application's requirements u
 The select box can display a maximum of 15 items.
 :::
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">

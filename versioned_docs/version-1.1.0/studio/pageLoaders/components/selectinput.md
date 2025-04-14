@@ -12,7 +12,7 @@ The **Select Input** component contains an embedded **Select** and a **Label** e
 
 :::
 
-<br/>
+&nbsp; 
 
 The **Select Input** component is notable for its options that are easily configured directly within the properties panel. Unlike the [**Select Box**](./selectbox.md) component, it doesn't rely on a Qodly Source for options. Furthermore, while the **Select Input** component doesn't support embedding components within the list for customized displays alongside other elements, it efficiently serves its purpose.
 
@@ -120,7 +120,7 @@ Retrieving user choices is straightforward. By binding a Qodly Source to the **S
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-                For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. <br/> <br/>
+                For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. &nbsp;  &nbsp; 
                 Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">

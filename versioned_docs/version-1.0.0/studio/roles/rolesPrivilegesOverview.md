@@ -27,7 +27,7 @@ To add a role:
 
 <img src={require('./img/addRole.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::note Example
 In a back-office travel agency solution, you might create roles such as:
@@ -57,7 +57,7 @@ To add a privilege:
 
 <img src={require('./img/addPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::note Example
 In a back-office travel agency solution, you might create privileges such as:
@@ -84,7 +84,7 @@ To assign one or multiple privileges to a role:
 
 <img src={require('./img/InterplayBetweenRoles_and_Privileges.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::note Example
 For instance, a `Sales Manager` role might possess privileges like `ManageBookings` and `ViewReports`, granting them the ability to analyze booking trends and monitor revenue for informed decision-making. Similarly, a `Content Manager` role could receive the privilege `ManageContent`.
@@ -144,7 +144,7 @@ In Qodly Studio, roles and privileges have a JSON representation that can be use
 	</Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 This allows you to view, copy, or edit the JSON representation.
 

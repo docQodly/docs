@@ -35,7 +35,7 @@ To set up secure access, generate API keys and retrieve the relevant endpoint.
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 The initial API key management screen shows the environment’s API endpoint and provides an interface for creating new keys.
 
@@ -57,7 +57,7 @@ The initial API key management screen shows the environment’s API endpoint and
 | Property           | Description                                                                                                            |
 |--------------------|------------------------------------------------------------------------------------------------------------------------|
 | **Description**    | A brief identifier for the key to help recognize its purpose. |
-| **API Type** | Choose between two types:<br/><br/>1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.<br/><br/>2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
+| **API Type** | Choose between two types:&nbsp; &nbsp; 1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.&nbsp; &nbsp; 2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
 | **Role**           | Assigns access level based on [application-defined roles](../studio/roles/rolesPrivilegesOverview.md). Default is Admin. |
 | **Expiration Date** | Sets a validity period up to one year for security purposes. |
 | **Allowed Hosts**  | Restrict the API key’s use to specific IPs by adding IP addresses under this setting. |

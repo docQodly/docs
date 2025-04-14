@@ -151,9 +151,9 @@ This section displays all pending invitations for transferring app ownership. Fo
 <Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
       If the recipient chooses to decline:
-      <br/><br/>
+      &nbsp; &nbsp; 
       <ul>
-         <li> They are shown a Decline Payment page, allowing them to reject the invitation.</li> &nbsp;<br/>
+         <li> They are shown a Decline Payment page, allowing them to reject the invitation.</li> &nbsp;&nbsp; 
          <li> Upon declining, the app is permanently deleted, and both parties are notified.</li>
       </ul>
     </Column.Item>

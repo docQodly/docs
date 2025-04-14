@@ -21,8 +21,8 @@ Suppose you're striving for uniform design elements across your website, ensurin
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        - <span style={{fontWeight: 'bold'}}>Name and Icon</span>: Name your crafted component and search for the desired icon in the predefined list using the search bar.<br/><br/>
-        - <span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.<br/>
+        - <span style={{fontWeight: 'bold'}}>Name and Icon</span>: Name your crafted component and search for the desired icon in the predefined list using the search bar.&nbsp; &nbsp; 
+        - <span style={{fontWeight: 'bold'}}>Add</span>: Click the <code>Add</code> button to complete the process.&nbsp; 
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/craftedComponent_nameIcon.png').default} style={{borderRadius: '6px', height: '70%', width: '70%'}} />
@@ -80,7 +80,7 @@ With **Page qodlysources**, caution is needed. **Page qodlysources** linked to t
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="35%">
-        The event configuration of a crafted component remains intact upon placement onto the canvas. If the crafted component holds specific event configurations from its original Page, these configurations persist when you position the crafted component on a new canvas. <br/><br/><br/>
+        The event configuration of a crafted component remains intact upon placement onto the canvas. If the crafted component holds specific event configurations from its original Page, these configurations persist when you position the crafted component on a new canvas. &nbsp; &nbsp; &nbsp; 
         However, it's important to note that while the event configuration is preserved, adjustments might be necessary to ensure alignment with the context of the new Page. 
     </Column.Item>
     <Column.Item width="55%">

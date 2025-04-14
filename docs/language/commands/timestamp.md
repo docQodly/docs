@@ -48,6 +48,6 @@ Result:
 
 #### See also
 
-[`milliseconds`](milliseconds.md)<br/>
-[`string`](string.md)<br/>
+[`milliseconds`](milliseconds.md)&nbsp; 
+[`string`](string.md)&nbsp; 
 [`time`](time.md)

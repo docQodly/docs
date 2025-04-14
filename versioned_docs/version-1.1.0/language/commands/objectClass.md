@@ -43,5 +43,5 @@ Then, in a method, you can write:
 
 #### See also
 
-[objectEntries](objectEntries.md)<br/>
+[objectEntries](objectEntries.md)&nbsp; 
 [objectValues](objectValues.md)

@@ -29,11 +29,11 @@ The **Page Loader** component offers a multitude of applications, enhancing the 
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
-        - <strong>Direct Configuration</strong>: Utilize the Properties panel of the Page Loader to directly choose the target Page from a dropdown list.<br/><br/>
+        - <strong>Direct Configuration</strong>: Utilize the Properties panel of the Page Loader to directly choose the target Page from a dropdown list.&nbsp; &nbsp; 
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/pageloader_DirectConfiguration.png').default} style={{borderRadius: '6px'}} />

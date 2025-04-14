@@ -4,7 +4,7 @@ title: killWorker
 ---
 
 
-<!-- REF #_command_.killWorker.Syntax -->**killWorker**()<br/>**killWorker**( *process* : string )<br/>**killWorker**( *process* : integer )<!-- END REF -->
+<!-- REF #_command_.killWorker.Syntax -->**killWorker**()&nbsp; **killWorker**( *process* : string )&nbsp; **killWorker**( *process* : integer )<!-- END REF -->
 
 
 <!-- REF #_command_.killWorker.Params -->
@@ -52,5 +52,5 @@ end
 
 #### See also
 
-[`callWorker`](callWorker.md)<br/>
+[`callWorker`](callWorker.md)&nbsp; 
 [`Signal` class](../SignalClass.md)

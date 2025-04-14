@@ -21,8 +21,8 @@ Qodly provides a robust user management system with two distinct interfaces:
 
 | Interface  | Purpose             | Key Features       | Access                 |
 |-----------------|-------------------|---------------------------|------------------------------------------|
-| Users Page  | Centralized app-wide user management.               | - Add new users or assign existing users to environments.<br/> - Edit user details (name, email, profile).<br/> - Remove users entirely or from specific environments.         | App owners and development users only.   |
-| Team Tab  | Environment-specific user management.               | - Add new or existing users to the current environment.<br/> - Edit user details for the specific environment.<br/> - Remove users from the environment (with global removal). | App owners and development users only.   |
+| Users Page  | Centralized app-wide user management.               | - Add new users or assign existing users to environments.&nbsp;  - Edit user details (name, email, profile).&nbsp;  - Remove users entirely or from specific environments.         | App owners and development users only.   |
+| Team Tab  | Environment-specific user management.               | - Add new or existing users to the current environment.&nbsp;  - Edit user details for the specific environment.&nbsp;  - Remove users from the environment (with global removal). | App owners and development users only.   |
 
 :::info
 Users added to environments other than the Development environment:
@@ -93,11 +93,11 @@ Editing a user's details in the Users Page is environment-specific, meaning you 
          <li>Modify the following fields as needed:</li> &nbsp;
             <ul>
                <li><strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               <br/>
+               &nbsp; 
                <li><strong>Profile</strong> for the selected environment.</li>
-               <br/>
+               &nbsp; 
             </ul>
-         <br/>
+         &nbsp; 
          <li>Click <strong>Update</strong>.</li>
       </ol>
     </Column.Item>
@@ -209,15 +209,15 @@ Adding a user to a specific environment from the **Users Page** is straightforwa
          <li>Fill in the details in the <strong>Add User to Environment</strong> dialog: </li> &nbsp;
             <ul>
                <li>The <strong>Email Address</strong> field will auto-populate with the selected user's email.</li>
-               <br/>
+               &nbsp; 
                <li>Optionally, update the <strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               <br/>
+               &nbsp; 
                <li>Select the desired <strong>Environment</strong> (e.g., Staging, Production) from the dropdown. The Environment dropdown menu will only display the environments that the user is not yet assigned to. Environments where the user is already added will not appear in the dropdown.</li>
-               <br/>
+               &nbsp; 
                <li>Assign a <strong>Profile</strong> for the selected environment (e.g., Admin, Viewer). </li>
-               <br/>
+               &nbsp; 
             </ul>
-         <br/>
+         &nbsp; 
          <li>Click <strong>Submit</strong> to confirm and finalize the action.</li>
       </ol>
     </Column.Item>
@@ -252,9 +252,9 @@ To add a new user or assign an existing user to the environment you’re managin
             <li><strong>Existing User</strong>:</li> &nbsp;
                <ul>
                   <li>Choose a user from the dropdown, which lists all users previously added to the Users Page.</li>
-                  <br/>
+                  &nbsp; 
                   <li>These users could have been added through the Users Page or other environments’ Team Tabs.</li>
-                  <br/>
+                  &nbsp; 
                </ul>
             <li><strong>New User</strong>:</li> &nbsp;
                <ul>
@@ -314,11 +314,11 @@ Editing a user’s details in the Team Tab is specific to the environment where 
          <li>Modify the following fields as needed:</li> &nbsp;
             <ul>
                <li><strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               <br/>
+               &nbsp; 
                <li><strong>Profile</strong> for the selected environment.</li>
-               <br/>
+               &nbsp; 
             </ul>
-         <br/>
+         &nbsp; 
          <li>Click <strong>Update</strong>.</li>
       </ol>
     </Column.Item>

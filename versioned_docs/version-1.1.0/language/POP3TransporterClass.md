@@ -11,22 +11,22 @@ POP3 Transporter objects provide the following properties and functions:
 
 ||
 |---|
-|[<!-- INCLUDE #4D.POP3Transporter.new().Syntax -->](#4dpop3transporternew)<br/><!-- INCLUDE #4D.POP3Transporter.new().Summary -->|
-|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|
-|[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode)<br/><!-- INCLUDE #transporter.authenticationMode.Summary -->|
-|[<!-- INCLUDE #transporter.checkConnection().Syntax -->](#checkconnection)<br/><!-- INCLUDE #transporter.checkConnection().Summary -->|
-|[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout)<br/><!-- INCLUDE #transporter.connectionTimeOut.Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.delete().Syntax -->](#delete)<br/><!-- INCLUDE #POP3TransporterClass.delete().Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.getBoxInfo().Syntax -->](#getboxinfo)<br/><!-- INCLUDE #POP3TransporterClass.getBoxInfo().Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.getMail().Syntax -->](#getmail)<br/><!-- INCLUDE #POP3TransporterClass.getMail().Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.getMailInfo().Syntax -->](#getmailinfo)<br/><!-- INCLUDE #POP3TransporterClass.getMailInfo().Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.getMailInfoList().Syntax -->](#getmailinfolist)<br/><!-- INCLUDE #POP3TransporterClass.getMailInfoList().Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.getMIMEAsBlob().Syntax -->](#getmimeasblob)<br/><!-- INCLUDE #POP3TransporterClass.getMIMEAsBlob().Summary -->|
-|[<!-- INCLUDE #transporter.host.Syntax -->](#host)<br/><!-- INCLUDE #transporter.host.Summary -->|
-|[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile)<br/><!-- INCLUDE #transporter.logFile.Summary -->|
-|[<!-- INCLUDE #transporter.port.Syntax -->](#port)<br/><!-- INCLUDE #transporter.port.Summary -->|
-|[<!-- INCLUDE #POP3TransporterClass.undeleteAll().Syntax -->](#undeleteall)<br/><!-- INCLUDE #POP3TransporterClass.undeleteAll().Summary -->|
-|[<!-- INCLUDE #transporter.user.Syntax -->](#user)<br/><!-- INCLUDE #transporter.user.Summary -->|
+|[<!-- INCLUDE #4D.POP3Transporter.new().Syntax -->](#4dpop3transporternew)&nbsp; <!-- INCLUDE #4D.POP3Transporter.new().Summary -->|
+|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp; <!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|
+|[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode)&nbsp; <!-- INCLUDE #transporter.authenticationMode.Summary -->|
+|[<!-- INCLUDE #transporter.checkConnection().Syntax -->](#checkconnection)&nbsp; <!-- INCLUDE #transporter.checkConnection().Summary -->|
+|[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout)&nbsp; <!-- INCLUDE #transporter.connectionTimeOut.Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.delete().Syntax -->](#delete)&nbsp; <!-- INCLUDE #POP3TransporterClass.delete().Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.getBoxInfo().Syntax -->](#getboxinfo)&nbsp; <!-- INCLUDE #POP3TransporterClass.getBoxInfo().Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.getMail().Syntax -->](#getmail)&nbsp; <!-- INCLUDE #POP3TransporterClass.getMail().Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.getMailInfo().Syntax -->](#getmailinfo)&nbsp; <!-- INCLUDE #POP3TransporterClass.getMailInfo().Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.getMailInfoList().Syntax -->](#getmailinfolist)&nbsp; <!-- INCLUDE #POP3TransporterClass.getMailInfoList().Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.getMIMEAsBlob().Syntax -->](#getmimeasblob)&nbsp; <!-- INCLUDE #POP3TransporterClass.getMIMEAsBlob().Summary -->|
+|[<!-- INCLUDE #transporter.host.Syntax -->](#host)&nbsp; <!-- INCLUDE #transporter.host.Summary -->|
+|[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile)&nbsp; <!-- INCLUDE #transporter.logFile.Summary -->|
+|[<!-- INCLUDE #transporter.port.Syntax -->](#port)&nbsp; <!-- INCLUDE #transporter.port.Summary -->|
+|[<!-- INCLUDE #POP3TransporterClass.undeleteAll().Syntax -->](#undeleteall)&nbsp; <!-- INCLUDE #POP3TransporterClass.undeleteAll().Summary -->|
+|[<!-- INCLUDE #transporter.user.Syntax -->](#user)&nbsp; <!-- INCLUDE #transporter.user.Summary -->|
 
 
 
@@ -50,15 +50,15 @@ In the *server* parameter, pass an object containing the following properties:
 
 |*server*|Default value (if omitted)|
 |---|---|
-|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|false|
-|.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). |none|
-|[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode)<br/><!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
-|[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout)<br/><!-- INCLUDE #transporter.connectionTimeOut.Summary -->|30|
-|[<!-- INCLUDE #transporter.host.Syntax -->](#host)<br/><!-- INCLUDE #transporter.host.Summary -->|*mandatory*
-|[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile)<br/><!-- INCLUDE #transporter.logFile.Summary -->|none|
-|**.password** : string<br/>User password for authentication on the server. |none|
-|[<!-- INCLUDE #transporter.port.Syntax -->](#port)<br/><!-- INCLUDE #transporter.port.Summary -->|995|
-|[<!-- INCLUDE #transporter.user.Syntax -->](#user)<br/><!-- INCLUDE #transporter.user.Summary -->|none|
+|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp; <!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|false|
+|.**accessTokenOAuth2**: string&nbsp; .**accessTokenOAuth2**: object&nbsp; string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). |none|
+|[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode)&nbsp; <!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
+|[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout)&nbsp; <!-- INCLUDE #transporter.connectionTimeOut.Summary -->|30|
+|[<!-- INCLUDE #transporter.host.Syntax -->](#host)&nbsp; <!-- INCLUDE #transporter.host.Summary -->|*mandatory*
+|[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile)&nbsp; <!-- INCLUDE #transporter.logFile.Summary -->|none|
+|**.password** : string&nbsp; User password for authentication on the server. |none|
+|[<!-- INCLUDE #transporter.port.Syntax -->](#port)&nbsp; <!-- INCLUDE #transporter.port.Summary -->|995|
+|[<!-- INCLUDE #transporter.user.Syntax -->](#user)&nbsp; <!-- INCLUDE #transporter.user.Summary -->|none|
 
 #### Result
 

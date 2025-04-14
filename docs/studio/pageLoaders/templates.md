@@ -37,7 +37,7 @@ Quickly find categories by name using the search box <img alt="styles-library" s
         <ol start="3">
             <li> <strong>Explore Templates</strong>: Upon selection, a panel opens, presenting various templates.</li> &nbsp;
             Each template is accompanied by a <code>Preview Image</code> to visualize the template's content and a <code>Title and Description</code> to understand the template's purpose and functionality.
-            <br/><br/>
+            &nbsp; &nbsp; 
             <img alt="styles-library" src={require('./img/templates_description.png').default} style={{borderRadius: '6px'}} />
         </ol>
 	</Column.Item>

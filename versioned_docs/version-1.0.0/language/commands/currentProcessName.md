@@ -31,6 +31,6 @@ callWorker(1,"myMessage",currentProcessName,"Start:"+string(vMax))
 
 #### See also
 
-[`currentProcess`](currentProcess.md)<br/>
-[`processNumber`](processNumber.md)<br/>
+[`currentProcess`](currentProcess.md)&nbsp; 
+[`processNumber`](processNumber.md)&nbsp; 
 [`processState`](processState.md)

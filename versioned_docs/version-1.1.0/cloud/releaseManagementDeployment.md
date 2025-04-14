@@ -38,7 +38,7 @@ To deploy a release, simply click on the deployment icon <img src={require('./im
 
 <img src={require('./img/releaseCouldBeDeleted1.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::info
 When deploying to the **staging** environment, Qodly creates a link between the releases in the **development** and **staging** environments. This connection ensures that the release in **staging** corresponds to the one in **development**. The same linkage occurs when deploying to **production**, supporting a seamless deployment process.
@@ -51,7 +51,7 @@ Once a release is deployed <img src={require('./img/deployed.png').default} styl
 
 <img src={require('./img/releaseCantBeDeleted1.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::info
 This design choice helps prevent accidental removal of releases, which could cause disruptions or inconsistencies in the deployment process.

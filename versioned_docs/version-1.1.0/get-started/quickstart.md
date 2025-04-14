@@ -40,7 +40,7 @@ Creating your Sandbox is the first step for your journey in Qodly.
 
 1. Choose a Template to create your sandbox application. Two options are available:
     - **Create a sandbox from scratch**: Select the **Blank app** template to begin with an empty sandbox application.
-    - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.<br/><br/>
+    - **Create a sandbox from a sample**: Start with a sample application containing code and data for reference.&nbsp; &nbsp; 
 
     <img src={require('./img/qs4.png').default} style={{borderRadius: '6px', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -75,7 +75,7 @@ With the development environment ready, it's time to access Qodly Studio and fol
 
     <img src={require('./img/qs7.png').default} style={{borderRadius: '6px', height: '50%', width: '50%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-    <br/><br/>
+    &nbsp; &nbsp; 
 
     :::note
 
@@ -85,7 +85,7 @@ With the development environment ready, it's time to access Qodly Studio and fol
 
     :::
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 
 

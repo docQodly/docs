@@ -58,5 +58,5 @@ The `*` parameter is ignored if the returned value is not of the object *type*.
 
 #### See also
 
-[`jsonStringify`](jsonStringify.md)<br/>
+[`jsonStringify`](jsonStringify.md)&nbsp; 
 [`jsonValidate`](jsonValidate.md)

@@ -46,7 +46,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 :::info
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    An alternative method to establish a new CSS class is through the properties panel, within the Style category. You can input your desired name, for example "newCssClass", into the CSS field. <br/>
+    An alternative method to establish a new CSS class is through the properties panel, within the Style category. You can input your desired name, for example "newCssClass", into the CSS field. &nbsp; 
     If this name doesn't correspond to any existing CSS classes, you will be prompted with the option to create a new one.
 	</Column.Item>
 	<Column.Item width="40%">
@@ -70,7 +70,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 
   <img alt="styles-library" src={require('./img/editCSSClassCode.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::info
 The changes will affect all the components utilizing this CSS class.
@@ -205,7 +205,7 @@ self [data-cy="cypress_slider"]{
 ```
 </div>
 
-<br/>
+&nbsp; 
 
 :::info
 The size of the stars is determined by the value specified in the `Font` category.

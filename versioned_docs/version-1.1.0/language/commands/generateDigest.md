@@ -64,6 +64,6 @@ These examples illustrate how to retrieve the digest key of a string:
 
 #### See also
 
-[`base64Decode`](base64Decode.md)<br/>
-[`base64Encode`](base64Encode.md)<br/>
+[`base64Decode`](base64Decode.md)&nbsp; 
+[`base64Encode`](base64Encode.md)&nbsp; 
 [`generatePasswordHash`](generatePasswordHash.md)

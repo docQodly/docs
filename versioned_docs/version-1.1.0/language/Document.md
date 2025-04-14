@@ -176,7 +176,7 @@ This property is **read-only**.
 ## .original
 
 
-<!-- REF #document.original.Syntax -->**.original** : 4D.File<br/>**.original** : 4D.Folder<!-- END REF -->
+<!-- REF #document.original.Syntax -->**.original** : 4D.File&nbsp; **.original** : 4D.Folder<!-- END REF -->
 
 #### Description
 
@@ -321,7 +321,7 @@ To save a document's contents in a `Blob` attribute:
 ## .getText()
 
 
-<!-- REF #document.getText().Syntax -->**.getText**( \{ *charSetName* : string \{ , *breakMode* : integer \} \} ) : string<br/>**.getText**( \{ *charSetNum* : integer \{ , *breakMode* : integer \} \} ) : string<!-- END REF -->
+<!-- REF #document.getText().Syntax -->**.getText**( \{ *charSetName* : string \{ , *breakMode* : integer \} \} ) : string&nbsp; **.getText**( \{ *charSetNum* : integer \{ , *breakMode* : integer \} \} ) : string<!-- END REF -->
 
 
 <!-- REF #document.getText().Params -->

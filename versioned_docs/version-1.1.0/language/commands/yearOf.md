@@ -32,5 +32,5 @@ The `yearOf` command <!-- REF #_command_.yearOf.Summary -->returns the year of *
 
 #### See also
 
-[`dayOf`](dayOf.md)<br/>
+[`dayOf`](dayOf.md)&nbsp; 
 [`monthOf`](monthOf.md)

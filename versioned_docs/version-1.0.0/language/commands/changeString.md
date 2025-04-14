@@ -34,6 +34,6 @@ vtResult = changeString("November","Dec",1) //vtResult gets "December"
 
 #### See also
 
-[`deleteString`](deleteString.md)<br/>
-[`insertString`](insertString.md)<br/>
+[`deleteString`](deleteString.md)&nbsp; 
+[`insertString`](insertString.md)&nbsp; 
 [`replaceString`](replaceString.md)

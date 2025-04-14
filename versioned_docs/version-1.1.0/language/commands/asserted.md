@@ -4,7 +4,7 @@ title: asserted
 ---
 
 
-<!-- REF #_command_.asserted.Syntax -->**asserted**( *boolExpression* : boolean ) : boolean<br/>**asserted**( *boolExpression* : boolean, *msg* : string ) : boolean<!-- END REF -->
+<!-- REF #_command_.asserted.Syntax -->**asserted**( *boolExpression* : boolean ) : boolean&nbsp; **asserted**( *boolExpression* : boolean, *msg* : string ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.asserted.Params -->
@@ -41,5 +41,5 @@ Insertion of an assertion in the evaluation of an expression:
 
 #### See also
 
-[`assert`](assert.md)<br/>[`.onErrCall()`](onErrCall.md)<br/>
+[`assert`](assert.md)&nbsp; [`.onErrCall()`](onErrCall.md)&nbsp; 
 [`setAssertEnabled`](setAssertEnabled.md)

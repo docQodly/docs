@@ -4,7 +4,7 @@ title: time
 ---
 
 
-<!-- REF #_command_.time.Syntax -->**time** ( *timeString* : string ) : time<br/>**time** ( *timeValue* : integer ) : time<!-- END REF -->
+<!-- REF #_command_.time.Syntax -->**time** ( *timeString* : string ) : time&nbsp; **time** ( *timeValue* : integer ) : time<!-- END REF -->
 
 
 <!-- REF #_command_.time.Params -->
@@ -45,7 +45,7 @@ You can express any numerical value as a time:
 
 #### See also
 
-[`bool`](bool.md)<br/>
-[`string`](string.md)<br/>
-[`timeString`](timeString.md)<br/>
+[`bool`](bool.md)&nbsp; 
+[`string`](string.md)&nbsp; 
+[`timeString`](timeString.md)&nbsp; 
 [`timestamp`](timestamp.md)

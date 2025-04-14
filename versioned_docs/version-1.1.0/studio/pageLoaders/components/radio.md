@@ -56,7 +56,7 @@ Enhance the **Radio** component to align with your application's requirements us
         </Column.Item>
     </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -127,7 +127,7 @@ Retrieving user choices is straightforward. By binding a qodlysource to the **Ra
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-        For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. <br/> <br/> <br/>
+        For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. &nbsp;  &nbsp;  &nbsp; 
         Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">

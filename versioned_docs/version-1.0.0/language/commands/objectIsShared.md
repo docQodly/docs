@@ -4,7 +4,7 @@ title: objectIsShared
 ---
 
 
-<!-- REF #_command_.objectIsShared.Syntax -->**objectIsShared** ( *object* : object ) : boolean<br/>**objectIsShared** ( *collection* : collection ) : boolean<!-- END REF -->
+<!-- REF #_command_.objectIsShared.Syntax -->**objectIsShared** ( *object* : object ) : boolean&nbsp; **objectIsShared** ( *collection* : collection ) : boolean<!-- END REF -->
 
 
 <!-- REF #_command_.objectIsShared.Params -->

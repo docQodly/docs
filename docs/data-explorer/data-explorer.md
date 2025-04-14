@@ -48,7 +48,7 @@ To open the Data Explorer web page for a Qodly application:
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 The Data Explorer window will open in a new tab, displaying the available data in your application.
 
@@ -113,7 +113,7 @@ Different operators are available based on the data type:
       - <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+    <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} />&nbsp; 
   </Column.Item>
 </Column.List>
 
@@ -128,21 +128,21 @@ Different operators are available based on the data type:
     - <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
+    <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} />&nbsp; 
   </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     - <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
-    <br/><br/>
+    &nbsp; &nbsp; 
     <ul>
       <li>null: Attribute value not defined.</li> &nbsp;
       <li>not null: Attribute value defined (true or false).</li>
     </ul>
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
+    <img src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} />&nbsp; 
   </Column.Item>
 </Column.List>
 

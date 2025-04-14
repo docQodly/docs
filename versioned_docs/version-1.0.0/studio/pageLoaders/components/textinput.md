@@ -137,12 +137,12 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
         </ul>
 </ul>
 
-<br/>
+&nbsp; 
 
-- **Input Format**: Specify the desired format for the entered data. <br/>
+- **Input Format**: Specify the desired format for the entered data. &nbsp; 
 See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.
 
-<br/>
+&nbsp; 
 
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
 

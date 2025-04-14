@@ -71,5 +71,5 @@ The following example tests for carriage returns and tabs:
 
 #### See also
 
-[`char`](char.md)<br/>
+[`char`](char.md)&nbsp; 
 [`Character Reference Symbols`](../basics/lang-text.md#character-reference-symbols)

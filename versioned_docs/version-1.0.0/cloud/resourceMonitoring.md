@@ -24,7 +24,7 @@ The **General Tab** contains core information and key actions, providing an at-a
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       The Usage card contains:
-      <br/><br/>
+      &nbsp; &nbsp; 
       <ul>
          <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.</li> &nbsp;
          <li><strong>Memory Usage</strong>: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.</li>
@@ -51,7 +51,7 @@ The **General Tab** contains core information and key actions, providing an at-a
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       The Server Status card contains:
-      <br/><br/>
+      &nbsp; &nbsp; 
       <ul>
          <li><strong>Status</strong>: Whether the server is operational and accessible.</li> &nbsp;
          <li><strong>Control Buttons</strong>:</li>
@@ -123,7 +123,7 @@ Allows you to use a custom domain for the application in deployment environments
 
 <img src={require('./img/GeneralApplicationAccessCustomDomain.png').default} style={{borderRadius: '6px'}} />
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -131,7 +131,7 @@ Allows you to use a custom domain for the application in deployment environments
          <li> <strong>Add Custom Domain</strong>:</li> &nbsp;
             <ul>
               <li>Click the <strong>Add Custom Domain</strong> button, which opens a dialog for setting up your custom domain.</li>
-              <br/>
+              &nbsp; 
               <li>In the <strong>Set Custom Domain</strong> dialog, enter your domain name.</li>
             </ul>
       </ul>
@@ -141,7 +141,7 @@ Allows you to use a custom domain for the application in deployment environments
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
@@ -149,9 +149,9 @@ Allows you to use a custom domain for the application in deployment environments
          <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.</li> &nbsp;
             <ul>
               <li><strong>Certificate Body</strong>: Paste the content of your SSL certificate.</li>
-              <br/>
+              &nbsp; 
               <li><strong>Certificate Chain (optional)</strong>: Provide the certificate chain if required by your SSL provider.</li>
-              <br/>
+              &nbsp; 
               <li><strong>Private Key</strong>: Input the private key associated with your certificate.</li>
             </ul>
       </ul>
@@ -172,7 +172,7 @@ The **Activity** section logs significant events and actions taken within the en
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       Each activity entry includes:
-      <br/><br/>
+      &nbsp; &nbsp; 
       <ul>
          <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).</li> &nbsp;
          <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.</li> &nbsp;

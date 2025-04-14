@@ -96,12 +96,12 @@ The **Invoices** section lists past invoices with downloadable options for recei
 
 <img src={require('./img/billingInvoices.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         Clicking the <strong>Download Invoice</strong> <img src={require('./img/billingDownloadInvoice.png').default} style={{borderRadius: '6px', width:'20%'}} /> button redirects you to a detailed invoice page where you can:
-        <br/><br/>
+        &nbsp; &nbsp; 
         <ul>
             <li><strong>Download Invoice</strong>: Get a PDF copy of the invoice for record-keeping.</li> &nbsp;
             <li><strong>Download Receipt</strong>: Obtain a receipt for accounting or reimbursement purposes.</li>

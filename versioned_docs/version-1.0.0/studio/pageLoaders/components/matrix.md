@@ -127,10 +127,10 @@ To implement this functionality, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
 		<ol start="1">
-        	<li>Integrate the Matrix component into the interface.</li> &nbsp;<br/>
-			<li>Select a Qodly Source like <code>Rooms</code> for the Matrix.</li> &nbsp;<br/>
-			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> &nbsp;<br/>
-            <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> &nbsp;<br/>
+        	<li>Integrate the Matrix component into the interface.</li> &nbsp;&nbsp; 
+			<li>Select a Qodly Source like <code>Rooms</code> for the Matrix.</li> &nbsp;&nbsp; 
+			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> &nbsp;&nbsp; 
+            <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> &nbsp;&nbsp; 
             <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element qodlysource as a parameter to the function.</li> 
 		</ol>
 	</Column.Item>

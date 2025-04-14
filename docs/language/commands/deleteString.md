@@ -41,6 +41,6 @@ If *where* plus *numChars* is equal to or greater than the length of *source*, t
 
 #### See also
 
-[`changeString`](changeString.md)<br/>
-[`insertString`](insertString.md)<br/>
+[`changeString`](changeString.md)&nbsp; 
+[`insertString`](insertString.md)&nbsp; 
 [`replaceString`](replaceString.md)

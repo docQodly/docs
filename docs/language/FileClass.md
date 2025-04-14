@@ -249,7 +249,7 @@ myFile.moveTo(myFolder.folder("Archives"),"Infos_old.txt")
 ## .open()
 
 
-<!--REF #FileClass.open().Syntax -->**.open**( \{ *mode* : string \} ) : 4D.FileHandle<br/>**.open**( \{ *options* : object \} ) : 4D.FileHandle<!-- END REF -->
+<!--REF #FileClass.open().Syntax -->**.open**( \{ *mode* : string \} ) : 4D.FileHandle&nbsp; **.open**( \{ *options* : object \} ) : 4D.FileHandle<!-- END REF -->
 
 
 <!--REF #FileClass.open().Params -->
@@ -385,7 +385,7 @@ The `.setContent()` function <!-- REF #FileClass.setContent().Summary -->rewrite
 ## .setText()
 
 
-<!--REF #FileClass.setText().Syntax -->**.setText** ( *text* : string \{, *charSetName* : string \{ , *breakMode* : integer \} } )<br/>**.setText** ( *text* : string \{, *charSetNum* : integer \{ , *breakMode* : integer \} } )<!-- END REF -->
+<!--REF #FileClass.setText().Syntax -->**.setText** ( *text* : string \{, *charSetName* : string \{ , *breakMode* : integer \} } )&nbsp; **.setText** ( *text* : string \{, *charSetNum* : integer \{ , *breakMode* : integer \} } )<!-- END REF -->
 
 
 

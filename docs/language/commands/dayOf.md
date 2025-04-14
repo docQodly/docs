@@ -41,6 +41,6 @@ The following example illustrates the use of `dayOf`. The results are assigned t
 
 #### See also
 
-[`dayNumber`](dayNumber.md)<br/>
-[`monthOf`](monthOf.md)<br/>
+[`dayNumber`](dayNumber.md)&nbsp; 
+[`monthOf`](monthOf.md)&nbsp; 
 [`yearOf`](yearOf.md)

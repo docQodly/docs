@@ -115,7 +115,7 @@ When you preview a Page inside Qodly studio, you are a WebAdmin. Privileges have
 When you preview a Page in a new tab (or using the **Preview** button), then privileges matter. If you do so as a developer, from Qodly Studio, you usually have the Admin role. 
 
 <img src={require('./img/login-preview-tab.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
-<br/>
+&nbsp; 
 <img src={require('./img/login-preview-button.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
 This role can be assigned in the [Team section](../../cloud/userAccountManagement.md#team-tab-environment-specific) of your application console: 

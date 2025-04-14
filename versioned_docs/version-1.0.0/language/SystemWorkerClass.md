@@ -229,7 +229,7 @@ This property is **read-only**.
 ## .postMessage()
 
 <!-- REF #SystemWorkerClass.postMessage().Syntax -->
-**.postMessage**( *message* : string )<br/>**.postMessage**( *messageBLOB* : blob )<!-- END REF -->
+**.postMessage**( *message* : string )&nbsp; **.postMessage**( *messageBLOB* : blob )<!-- END REF -->
 
 
 <!-- REF #SystemWorkerClass.postMessage().Params -->
@@ -252,7 +252,7 @@ You can use the `.dataType` property of the [options object](#options-object) to
 ## .response
 
 <!-- REF #SystemWorkerClass.response.Syntax -->
-**.response** : string<br/>**.response** : blob<!-- END REF -->
+**.response** : string&nbsp; **.response** : blob<!-- END REF -->
 
 #### Description
 

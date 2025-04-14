@@ -76,9 +76,9 @@ Enhance the **Checkbox** component to align with your application's requirements
 
     | **Type**                |  **States**    | **Default Value**      | **State Transition Order**              |
     |-------------------------|------------------------------------|---------------------------|------------------|
-    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked <br/> - Unchecked            |
-    | **Three-State Checkbox**| - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate <br/> - Checked <br/> - Unchecked <br/> - Indeterminate |
-    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) <br/> - Checked <br/> - Unchecked|
+    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked &nbsp;  - Unchecked            |
+    | **Three-State Checkbox**| - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected. &nbsp;  - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate &nbsp;  - Checked &nbsp;  - Unchecked &nbsp;  - Indeterminate |
+    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected. &nbsp;  - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) &nbsp;  - Checked &nbsp;  - Unchecked|
 
 
 <Column.List align="center" justifyContent="between">

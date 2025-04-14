@@ -27,7 +27,7 @@ The Qodly developer community is actively expanding, with members continuously c
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 Clicking the button opens a popup with two upload methods:
 
@@ -72,7 +72,7 @@ Attempting to drop a file in a format other than ".zip" leaves the popup unaffec
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       Upon clicking the "Install Component" button, a progress icon <img src={require('./img/customComponent_9.png').default} style={{borderRadius: '6px', width:'4%'}} /> is displayed, indicating that the selected component is undergoing the upload process.
-      <br/><br/>
+      &nbsp; &nbsp; 
       Clicking the "Cancel" button closes the upload interface, ensuring that no component is uploaded.
     </Column.Item>
     <Column.Item width="35%">
@@ -123,7 +123,7 @@ To check relevant details about the error and address the issue, inspect the net
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
       Upon successful upload and installation of a custom component, a structured process is executed to ensure integration into Qodly Studio.
-      <br/><br/>
+      &nbsp; &nbsp; 
       This process involves the creation of a dedicated <code>CustomComponents</code> folder within the <code>Shared</code> directory in the Explorer panel, containing relevant metadata and the uploaded custom components.
     </Column.Item>
     <Column.Item width="35%">

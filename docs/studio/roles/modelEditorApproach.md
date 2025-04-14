@@ -40,7 +40,7 @@ In the **Model Editor**, link privileges to permissions for Datastore, DataClass
     </Column.Item>
     <Column.Item width="30%">
         <img src={require('./img/purpleTagged&icon.png').default} style={{borderRadius: '6px'}} />
-        <br/><br/>
+        &nbsp; &nbsp; 
         <img src={require('./img/privilegeRequired.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>

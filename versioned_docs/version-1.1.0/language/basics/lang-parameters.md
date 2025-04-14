@@ -523,7 +523,7 @@ When you execute the `CreatePerson` method, person.Age will be 50 everywhere sin
 
 ## copyParameters
 
-<!-- REF #_command_.copyParameters.Syntax -->**copyParameters**() : collection<br/>**copyParameters** ( *startFrom* : integer ) : collection<!-- END REF -->
+<!-- REF #_command_.copyParameters.Syntax -->**copyParameters**() : collection&nbsp; **copyParameters** ( *startFrom* : integer ) : collection<!-- END REF -->
 
 <!-- REF #_command_.copyParameters.Params -->
 |Parameter|Type||Description|

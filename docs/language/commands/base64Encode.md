@@ -38,5 +38,5 @@ By default if the * parameter is omitted, the command uses a Base64 encoding. If
 
 #### See also
 
-[`base64Decode`](base64Decode.md)<br/>
+[`base64Decode`](base64Decode.md)&nbsp; 
 [`generateDigest`](generateDigest.md)

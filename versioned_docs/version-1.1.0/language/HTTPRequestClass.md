@@ -228,7 +228,7 @@ The `.headers` property contains <!-- REF #HTTPRequestClass.headers.Summary -->t
 ## httpParseMessage
 
 
-<!-- REF #_command_.httpParseMessage.Syntax -->**httpParseMessage**( *data* : string ) : object<br/>**httpParseMessage**( *data* : blob ) : object<!-- END REF -->
+<!-- REF #_command_.httpParseMessage.Syntax -->**httpParseMessage**( *data* : string ) : object&nbsp; **httpParseMessage**( *data* : blob ) : object<!-- END REF -->
 
 
 <!-- REF #_command_.httpParseMessage.Params -->

@@ -3,7 +3,7 @@ id: onErrCall
 title: onErrCall
 ---
 
-<!-- REF #_command_.onErrCall.Syntax -->**onErrCall**( *errorMethod* : string )<br/>**onErrCall**( *errorMethod* : string , *scope* : integer )<!-- END REF -->
+<!-- REF #_command_.onErrCall.Syntax -->**onErrCall**( *errorMethod* : string )&nbsp; **onErrCall**( *errorMethod* : string , *scope* : integer )<!-- END REF -->
 
 
 <!-- REF #_command_.onErrCall.Params -->

@@ -27,5 +27,5 @@ The following example sets the variable *vbOptions* to false:
 
 #### See also
 
-[`not`](not.md)<br/>
+[`not`](not.md)&nbsp; 
 [`true`](true.md)

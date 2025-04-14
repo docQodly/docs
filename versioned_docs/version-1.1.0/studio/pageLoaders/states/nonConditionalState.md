@@ -30,7 +30,7 @@ import Column from '@site/src/components/Column'
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     Upon creation, the new state becomes visible in the states section and automatically opens in the canvas, ready for modifications.
-    <br/><br/>
+    &nbsp; &nbsp; 
     The selected state is highlighted with a checked box <img src={require('./img/state_create4.png').default} style={{borderRadius: '6px', width:'5%'}} /> in the states list.
 	</Column.Item>
 	<Column.Item width="40%">
@@ -199,7 +199,7 @@ When a new state is applied or removed as a user interacts with an input field, 
 </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 :::info
 The `Base` state and `Conditional` states, however, are not included among these selectable options. Only Non-Conditional states are included.

@@ -16,7 +16,7 @@ The Blob class lets you create and manipulate [blob objects](basics/lang-blob.md
 ## 4D.Blob.new()
 
 
-<!-- REF #4D.Blob.new().Syntax -->**4D.Blob.new**() : 4D.Blob<br/>**4D.Blob.new**( *blobScal* : Blob ) : 4D.Blob<br/>**4D.Blob.new**( *blobObj* : 4D.Blob ) : 4D.Blob<!-- END REF -->
+<!-- REF #4D.Blob.new().Syntax -->**4D.Blob.new**() : 4D.Blob&nbsp; **4D.Blob.new**( *blobScal* : Blob ) : 4D.Blob&nbsp; **4D.Blob.new**( *blobObj* : 4D.Blob ) : 4D.Blob<!-- END REF -->
 
 
 <!-- REF #4D.Blob.new().Params -->
@@ -42,7 +42,7 @@ The `.size` property <!-- REF #Blob.size.Summary -->returns the size of a `4D.Bl
 
 ## .slice()
 
-<!-- REF #Blob.slice().Syntax -->**.slice**() : 4D.Blob<br/>**.slice**( *start* : number ) : 4D.Blob<br/>**.slice**( *start* : number; *end* : number ) : 4D.Blob<!-- END REF -->
+<!-- REF #Blob.slice().Syntax -->**.slice**() : 4D.Blob&nbsp; **.slice**( *start* : number ) : 4D.Blob&nbsp; **.slice**( *start* : number; *end* : number ) : 4D.Blob<!-- END REF -->
 
 
 <!-- REF #Blob.slice().Params -->

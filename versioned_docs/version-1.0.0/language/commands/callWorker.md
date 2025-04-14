@@ -4,7 +4,7 @@ title: callWorker
 ---
 
 
-<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : string , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )<br/>**callWorker** ( *process* : integer , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<!-- END REF -->
+<!-- REF #_command_.callWorker.Syntax -->**callWorker**( *process* : string , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )&nbsp; **callWorker** ( *process* : string , *formula* : string \{, *param \{, ...paramN \}* : integer \} )&nbsp; **callWorker** ( *process* : integer , *formula* : 4D.Function \{, *param \{, ...paramN \}* : integer \} )&nbsp; **callWorker** ( *process* : integer , *formula* : string \{, *param \{, ...paramN \}* : integer \} )<!-- END REF -->
 
 
 <!-- REF #_command_.callWorker.Params -->
@@ -67,5 +67,5 @@ The code of `workerMethod` is:
 
 #### See also
 
-[`killWorker`](killWorker.md)<br/>
+[`killWorker`](killWorker.md)&nbsp; 
 [`Signal` class](../SignalClass.md)

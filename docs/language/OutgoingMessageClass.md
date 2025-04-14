@@ -36,12 +36,12 @@ exposed onHTTPGet function getFile() : 4D.OutgoingMessage
 
 ||
 |---|
-|[<!-- INCLUDE #OutgoingMessageClass.body.Syntax -->](#body)<br/><!-- INCLUDE #OutgoingMessageClass.body.Summary -->|
-|[<!-- INCLUDE #OutgoingMessageClass.headers.Syntax -->](#headers)<br/><!-- INCLUDE #OutgoingMessageClass.headers.Summary -->|
-|[<!-- INCLUDE #OutgoingMessageClass.setBody().Syntax -->](#setbody)<br/><!-- INCLUDE #OutgoingMessageClass.setBody().Summary -->|
-|[<!-- INCLUDE #OutgoingMessageClass.setHeader().Syntax -->](#setheader)<br/><!-- INCLUDE #OutgoingMessageClass.setHeader().Summary -->|
-|[<!-- INCLUDE #OutgoingMessageClass.setStatus().Syntax -->](#setstatus)<br/><!-- INCLUDE #OutgoingMessageClass.setStatus().Summary -->|
-|[<!-- INCLUDE #OutgoingMessageClass.status.Syntax -->](#status)<br/><!-- INCLUDE #OutgoingMessageClass.status.Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.body.Syntax -->](#body)&nbsp; <!-- INCLUDE #OutgoingMessageClass.body.Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.headers.Syntax -->](#headers)&nbsp; <!-- INCLUDE #OutgoingMessageClass.headers.Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.setBody().Syntax -->](#setbody)&nbsp; <!-- INCLUDE #OutgoingMessageClass.setBody().Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.setHeader().Syntax -->](#setheader)&nbsp; <!-- INCLUDE #OutgoingMessageClass.setHeader().Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.setStatus().Syntax -->](#setstatus)&nbsp; <!-- INCLUDE #OutgoingMessageClass.setStatus().Summary -->|
+|[<!-- INCLUDE #OutgoingMessageClass.status.Syntax -->](#status)&nbsp; <!-- INCLUDE #OutgoingMessageClass.status.Summary -->|
 
 :::note
 

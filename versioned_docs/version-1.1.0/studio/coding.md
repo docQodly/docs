@@ -57,19 +57,19 @@ You can create a method or class using one of the three methods:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.</li> &nbsp;<br/><br/><br/><br/>
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li> &nbsp;<br/><br/><br/>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.</li> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li> &nbsp;&nbsp; &nbsp; &nbsp; 
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px'}} /> <br/>
-        <img src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} /> <br/>
+        <img src={require('./img/createFromHomePage.png').default} style={{borderRadius: '6px'}} /> &nbsp; 
+        <img src={require('./img/coding_Creating.png').default} style={{borderRadius: '6px'}} /> &nbsp; 
         <img src={require('./img/+New.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
@@ -99,7 +99,7 @@ To rename a method or class, you can either:
     <Column.Item width="65%">
         <ul>
 			<li>Click on the icon at the right side of the item in the Explorer.</li>
-			<br/>
+			&nbsp; 
 			<li>Or, in the <a href="./overview#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
 		</ul>
     </Column.Item>
@@ -116,7 +116,7 @@ Deleting a method or class is straightforward:
     <Column.Item width="65%">
       <ol>
         <li>In the Explorer, open the options menu for the item you wish to delete.</li>
-        <br/>
+        &nbsp; 
         <li>Select <code>Delete</code>.</li>
 		  </ol>
     </Column.Item>
@@ -141,7 +141,7 @@ Deleting a method or class is straightforward:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-      To work on a method or class, you can open it in a <a href="./overview#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. <br/> <br/>
+      To work on a method or class, you can open it in a <a href="./overview#tabs">tab</a> by double-clicking its name in the <strong>Explorer</strong>. Only one instance of a method or class code can be open in the same code editor window. &nbsp;  &nbsp; 
 		To close a tab, either click the <code>x</code> button or use the tab's pop-up menu
     </Column.Item>
     <Column.Item width="30%">
@@ -151,7 +151,7 @@ Deleting a method or class is straightforward:
 
 ### Executing Methods
 
-For testing purposes, a method can be executed from the Explorer <img src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} /> <br/>
+For testing purposes, a method can be executed from the Explorer <img src={require('./img/coding_execute.png').default} style={{borderRadius: '6px', width: '20%'}} /> &nbsp; 
 Or directly from the toolbar <img src={require('./img/coding_execute2.png').default} style={{borderRadius: '6px', width: '25%'}} />
 
 :::info
@@ -170,7 +170,7 @@ Your code modifications are automatically saved at regular intervals. However, i
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-        If you're working on a class function or method, and it gets edited elsewhere, the tab displays <code>(outdated)</code>.  <br/> <br/>
+        If you're working on a class function or method, and it gets edited elsewhere, the tab displays <code>(outdated)</code>.  &nbsp;  &nbsp; 
 		    To fetch the latest version, right-click the tab and choose <code>Reload</code>. This action initiates an immediate refresh of the code content directly from the server, ensuring that you are always working with the latest code, even if you haven't made any local edits.
     </Column.Item>
     <Column.Item width="30%">
@@ -270,11 +270,11 @@ Qodly Studio includes a Code Live Checker feature. The syntax, consistency, and 
 
 Qodly automatically checks the code syntax to see if it is correct. If you enter text or select a component that is not correct, Qodly underlines the incorrect expression. Two underline colors are used:
 
-- Yellow underlines are **warnings**<br/>
-![warning](img/warning.png)<br/>
+- Yellow underlines are **warnings**&nbsp; 
+![warning](img/warning.png)&nbsp; 
 Warnings are intended to draw your attention to statements that might lead to execution errors. They are not considered as coding errors.
-- Red underlines are **errors** <br/>
-![error](img/error.png)<br/>
+- Red underlines are **errors** &nbsp; 
+![error](img/error.png)&nbsp; 
 Errors are anomalies that prevent the code from being executed correctly. It includes syntax errors, declaration errors, etc. They must be fixed, otherwise the code will not run correctly.
 
 Whatever the incorrect expression, you can move the mouse over the line to display a help tip providing the cause of the warning/error:

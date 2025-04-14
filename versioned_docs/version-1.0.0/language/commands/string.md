@@ -4,7 +4,7 @@ title: string
 ---
 
 
-<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number \{ , *format* : string \} ) : string<br/>**string** ( *expression* : any \{ , *format* : integer \{ , *addTime* : time \}\} ) : string<!-- END REF -->
+<!-- REF #_command_.string.Syntax -->**string** ( *expression* : number \{ , *format* : string \} ) : string&nbsp; **string** ( *expression* : any \{ , *format* : integer \{ , *addTime* : time \}\} ) : string<!-- END REF -->
 
 
 
@@ -220,8 +220,8 @@ In this case, the *format* parameter, if passed, is ignored.
 
 #### See also
 
-[`bool`](bool)<br/>
-[`date`](date)<br/>
-[`num`](num)<br/>
-[`timeString`](timeString.md)<br/>
+[`bool`](bool)&nbsp; 
+[`date`](date)&nbsp; 
+[`num`](num)&nbsp; 
+[`timeString`](timeString.md)&nbsp; 
 [`timestamp`](timestamp.md)

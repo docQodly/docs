@@ -12,7 +12,7 @@ Session objects are returned by the [`Session`](commands/session.md) command. Th
 |---|
 |[<!-- INCLUDE #SessionClass.clearPrivileges().Syntax -->](#clearprivileges)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.clearPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.expirationDate.Syntax -->](#expirationdate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.expirationDate.Summary -->|
-|[<!-- INCLUDE #SessionClass.getPrivileges().Syntax -->](#getprivileges)<br/><!-- INCLUDE #SessionClass.getPrivileges().Summary -->|
+|[<!-- INCLUDE #SessionClass.getPrivileges().Syntax -->](#getprivileges)&nbsp; <!-- INCLUDE #SessionClass.getPrivileges().Summary -->|
 |[<!-- INCLUDE #SessionClass.hasPrivilege().Syntax -->](#hasprivilege)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.hasPrivilege().Summary -->|
 |[<!-- INCLUDE #SessionClass.idleTimeout.Syntax -->](#idletimeout)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.idleTimeout.Summary -->|
 |[<!-- INCLUDE #SessionClass.isGuest().Syntax -->](#isguest)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SessionClass.isGuest().Summary -->|
@@ -237,7 +237,7 @@ end
 ## .setPrivileges()
 
 
-<!-- REF #SessionClass.setPrivileges().Syntax -->**.setPrivileges**( *privilege* : string )<br/>**.setPrivileges**( *privileges* : collection )<br/>**.setPrivileges**( *settings* : object )<!-- END REF -->
+<!-- REF #SessionClass.setPrivileges().Syntax -->**.setPrivileges**( *privilege* : string )&nbsp; **.setPrivileges**( *privileges* : collection )&nbsp; **.setPrivileges**( *settings* : object )<!-- END REF -->
 
 
 <!-- REF #SessionClass.setPrivileges().Params -->

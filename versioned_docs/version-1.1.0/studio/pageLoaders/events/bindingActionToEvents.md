@@ -121,7 +121,7 @@ When a new state is applied or removed as a user interacts with an input field, 
 </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 :::info
 The `Base` state and `Conditional` states, however, are not included among these selectable options. Only Non-Conditional states are included.
@@ -229,7 +229,7 @@ In addition to navigating to Pages, Qodly Studio offers a convenient way to dire
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         2. <strong>Define Transition Method</strong>: Similar to configuring Page navigation, you can specify how the external link will open. However, for external links, you have two options:
-        <br/><br/>
+        &nbsp; &nbsp; 
         <ul>
             <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li> &nbsp;
             <li><strong>Current Tab</strong>: Replace the ongoing browser tab with the chosen external link.</li>
@@ -269,7 +269,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
 2. **Pass Parameters**: After selecting a class function, Qodly Studio automatically parses it, extracting its declared prototype. This allows you to visualize and configure its parameter(s) and return value. You can enhance the functionality of class functions by configuring parameters in two ways using the toggle <img src={require('./img/QodlySourceToggle.png').default} style={{borderRadius: '6px', width:'5%'}} /> to define how the [function parameter(s)](#parameter-handling) should be filled, including the option to have [variadic parameters](#variadic-parameters).
 
 
-3. **Select a qodlysource for the returned result**: In the return parameter section, choose a qodlysource to store the function's returned result. <br/>
+3. **Select a qodlysource for the returned result**: In the return parameter section, choose a qodlysource to store the function's returned result. &nbsp; 
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
@@ -279,12 +279,12 @@ When the path points to a file, it doesn't open it in a new tab but instead init
         </Column.Item>
         <Column.Item width="40%">
             <img src={require('./img/returnValue_named.png').default} style={{borderRadius: '6px'}} />
-            <br/><br/><br/>
+            &nbsp; &nbsp; &nbsp; 
             <img src={require('./img/returnValue_result.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
@@ -357,7 +357,7 @@ There are two primary methods for ensuring precise parameter handling:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
-        - <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="../qodlySources#page-qodly-sources">Local</a> or <a href="../qodlySources#shared-qodly-sources">Shared Qodly Sources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. <br/>
+        - <img src={require('./img/toggleQodlySource.png').default} style={{borderRadius: '66px', width:'10%'}} /> <strong>Qodly Sources</strong>: Pass <a href="../qodlySources#page-qodly-sources">Local</a> or <a href="../qodlySources#shared-qodly-sources">Shared Qodly Sources</a> as parameters to the class function. The scope of the qodlysource is indicated by a name tag. If the tag reads <code>Page</code>, it signifies a local qodlysource visible only within the current Page. On the other hand, if there is a tag with a specific name <code>shared</code>, it implies that you have passed a shared qodlysource belonging to a namespace. &nbsp; 
         Make sure the qodlysource value is of the same type as expected for the parameter by the function, otherwise an error will be returned.
     </Column.Item>
     <Column.Item width="47%">
@@ -388,7 +388,7 @@ There are two primary methods for ensuring precise parameter handling:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         However, when parameters are added to the event, they all adopt the specified type (e.g., integer) for the variadic parameters.
-        <br/><br/>
+        &nbsp; &nbsp; 
         <a href="./eventsManagement#reload-event-function-prototype">Reloading the Event Function Prototype</a> after changing one of the parameter types resets them to match the updated information.
     </Column.Item>
     <Column.Item width="45%">
@@ -476,7 +476,7 @@ exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMess
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         1. The type of action:
-        <br/><br/>
+        &nbsp; &nbsp; 
         <ul>
             <li><strong>Open</strong>: This action causes the dialog to be displayed.</li> &nbsp;
             <li><strong>Close</strong>: This action leads to the closing of the dialog.</li>
@@ -533,7 +533,7 @@ Three tiers of feedback are accessible and will be displayed as colored **toasts
 
 - **Error Messages**: Issues error messages when invoked, either directly through the [`setError()`](../../../language/WebFormClass.md#seterror) function or by specifying them in the `On Failure` field within the event section associated with a standard action.
 
-<br/>
+&nbsp; 
 
 :::info
 Displaying multiple toasts through a single function is not supported.

@@ -81,7 +81,7 @@ Within the Page Editor, the **Qodly Sources** section conveniently organizes ava
                 <li>Dataclasses from your application. Here, you can designate entities or entity selections from your Datastore, which will be handled by the server as qodlysources.</li> &nbsp;
                 <li>Functions defined at the datastore level and within each dataclass.</li>
             </ul>
-            <br/>
+            &nbsp; 
             <li><strong>This Page</strong>: qodlysource exclusive to the current Page.</li> &nbsp;
             <li><strong>Namespaces</strong>: Shared qodlysources organized by namespaces. You can create a namespace by clicking the <code>+</code> icon or when defining a shared qodlysource.</li>
         </ul>        
@@ -100,13 +100,13 @@ To create Page or Shared qodlysources directly from the Catalog, follow these st
 	<Column.Item width="50%">
                 <ul>
                         <li>In the Qodly Sources section, choose <strong>Catalog</strong> > <strong>Data Classes</strong>.</li>
-                        <br/>
+                        &nbsp; 
                         <li>Click the <code>+</code> icon next to a defined Dataclass.</li>
-                        <br/>
+                        &nbsp; 
                         <li>Enter the name of the qodlysource. </li>
-                        <br/>
+                        &nbsp; 
                         <li>Select the qodlysource type, either through <code>Entity selection</code> or <code>Entity</code>, to establish an ORDA qodlysource. Afterward, proceed to configure its settings, including initial values, page size, and depth.</li>
-                        <br/>
+                        &nbsp; 
                         <li>To create a shared qodlysource, specify a <code>Namespace</code>, for a Page (non-shared) qodlysource, leave the field empty.</li>
                 </ul>        
 	</Column.Item>
@@ -127,9 +127,9 @@ To create Page qodlysources, follow these steps:
 	<Column.Item width="50%">
                 <ul>
                         <li>Click the <code>+</code> icon in the header of the <strong>This Page</strong> section.</li>
-                        <br/>
+                        &nbsp; 
                         <li>Enter the name of the qodlysource. </li>
-                        <br/>
+                        &nbsp; 
                         <li>Choose the qodlysource type and configure its initial value according to the selected type.</li>
                 </ul>        
 	</Column.Item>
@@ -138,7 +138,7 @@ To create Page qodlysources, follow these steps:
 	</Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 :::info
 For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA qodlysource.
@@ -152,11 +152,11 @@ To create Shared Qodly Sources, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
                 <ul>
-                        <li>Click the <code>+</code> icon next to a defined <strong>Namespace</strong>. <br/><br/>
+                        <li>Click the <code>+</code> icon next to a defined <strong>Namespace</strong>. &nbsp; &nbsp; 
                         If you haven't created a Namespace yet or want to create an additional one, click the <code>+</code> icon in the header of the <strong>Namespaces</strong> section to establish one before proceeding to create a shared qodlysource within it.</li>
-                        <br/>
+                        &nbsp; 
                         <li>Enter the name of the qodlysource. </li>
-                        <br/>
+                        &nbsp; 
                         <li>Choose the qodlysource type and configure its initial value according to the selected type.</li>
                 </ul>        
 	</Column.Item>
@@ -165,7 +165,7 @@ To create Shared Qodly Sources, follow these steps:
 	</Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 :::info
 For Entity Selection or Entity types, make sure to also configure additional settings such as Dataclass, page size, or depth for the ORDA qodlysource.
@@ -181,7 +181,7 @@ For Entity Selection or Entity types, make sure to also configure additional set
 	        <img src={require('./img/EntitiesFromEntitySelection.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
-<br/>
+&nbsp; 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         - <strong>Independently Created Standalone Entities</strong>: These entities have no affiliation with entity selections. They exist in isolation and are well-suited for the management of individual entities that do not require inclusion in larger selections. Standalone entities are typically managed on a one-to-one basis.
@@ -242,7 +242,7 @@ Please note that when renaming a shared qodlysource, only opened Pages can have 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         The <strong>Inspect</strong> option allows you to see where your qodlysources are used within your Pages.
-        <br/><br/>
+        &nbsp; &nbsp; 
         Toggle the option by clicking the icon, then hover over a qodlysource to highlight its location in your Page.
 	</Column.Item>
 	<Column.Item width="40%">

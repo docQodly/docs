@@ -46,7 +46,7 @@ After establishing a privilege like `Restricted`, you assign permissions to the 
 
 <img src={require('./img/restrictedPrivilege.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::info
 By applying all permissions to the `ds` resource within the Restricted privilege and not assigning it to any role, you prevent malicious access attempts. This safeguard transforms the application into a secure vault.
@@ -89,7 +89,7 @@ By making this change, the `Guest` privilege now allows users to access a wealth
 <img src={require('./img/packages.png').default} style={{borderRadius: '6px'}} />
 
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 :::danger 
 Not all data should be accessible to users. Sensitive user data, confidential reports, and other private information must remain restricted.
@@ -104,7 +104,7 @@ Permissions of the `Guest` privilege are automatically inherited across various 
 
 <img src={require('./img/inheritedPermissions.png').default} style={{borderRadius: '6px'}} />
 
-<br/><br/>
+&nbsp; &nbsp; 
 
 The <img src={require('./img/inherit.png').default} style={{borderRadius: '6px', width:'2%'}} /> icon indicates that the permission is inherited, granting access to the resource. However, when you remove this privilege, the inherited permissions also vanish from the privilege that was receiving them.
 

@@ -47,7 +47,7 @@ result = bool(o.otherTest)  //false
 
 #### See also
 
-[`date`](date.md)<br/>
-[`num`](num.md)<br/>
-[`string`](string.md)<br/>
+[`date`](date.md)&nbsp; 
+[`num`](num.md)&nbsp; 
+[`string`](string.md)&nbsp; 
 [`time`](time.md)

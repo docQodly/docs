@@ -508,14 +508,14 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="70%">
 		To better reflect a condition's role within the Page, the <code>Rename condition</code> option enables users to change its default name.
-		<br/><br/>
+		&nbsp; &nbsp; 
 		Alternatively, users can click on the <img alt="explorer" src={require('./img/state_edit.png').default} style={{borderRadius: '6px', width:'4%'}} /> button next to the condition's name to initiate renaming
-		<br/><br/><br/>
+		&nbsp; &nbsp; &nbsp; 
 		Upon initiating renaming, the condition name switches to an editable input field. 
 	</Column.Item>
 	<Column.Item width="25%">
 		<img src={require('./img/renameCondition.png').default} style={{borderRadius: '6px'}} />
-		<br/>
+		&nbsp; 
 		<img alt="explorer" src={require('./img/renameCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -526,12 +526,12 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="70%">
 		Using the <code>Save condition</code> option, conditions or groups of conditions can be stored as saved conditions accessible in the <code>Saved States</code> area. 
-		<br/><br/><br/>
+		&nbsp; &nbsp; &nbsp; 
 		Upon saving, a prompt will appear requesting a name for the saved condition.
 	</Column.Item>
 	<Column.Item width="25%">
 		<img src={require('./img/saveCondition.png').default} style={{borderRadius: '6px'}} />
-		<br/>
+		&nbsp; 
 		<img alt="explorer" src={require('./img/saveCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>
@@ -541,12 +541,12 @@ The <code>Duplicate condition</code> option allows users to create an exact copy
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="70%">
 		The <code>Remove condition</code> option is available for users needing to clear out unused or unwanted conditions from the schema. This tool helps declutter the configuration space by removing selected conditions or groups of conditions.
-		<br/><br/><br/>
+		&nbsp; &nbsp; &nbsp; 
 		Upon initiating deletion, a confirmation popup will appear, requiring user confirmation to proceed.
 	</Column.Item>
 	<Column.Item width="25%">
 		<img src={require('./img/removeCondition.png').default} style={{borderRadius: '6px'}} />
-		<br/>
+		&nbsp; 
 		<img alt="explorer" src={require('./img/removeCondition2.png').default} style={{borderRadius: '6px'}} />
 	</Column.Item>
 </Column.List>

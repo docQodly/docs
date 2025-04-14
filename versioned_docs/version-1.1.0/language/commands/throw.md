@@ -4,7 +4,7 @@ title: throw
 ---
 
 
-<!-- REF #_command_.throw.Syntax -->**throw**( *errorCode* : integer \{, *description* : string \} )<br/>**throw**( *errorObj* : object )<br/>**throw**()<!-- END REF -->
+<!-- REF #_command_.throw.Syntax -->**throw**( *errorCode* : integer \{, *description* : string \} )&nbsp; **throw**( *errorObj* : object )&nbsp; **throw**()<!-- END REF -->
 
 
 <!-- REF #_command_.throw.Params -->

@@ -17,7 +17,7 @@ To initiate a dialog, navigate to the edited Page header panel and select the `D
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         Initially, it will indicate <code>There are no configured Dialogs yet</code>. However, once dialogs are created, they will be listed under this section.
-        <br/><br/>
+        &nbsp; &nbsp; 
         To create a new dialog, click on the <code>New dialog</code> button within this panel. 
     </Column.Item>
     <Column.Item width="35%">
@@ -35,7 +35,7 @@ To initiate a dialog, navigate to the edited Page header panel and select the `D
     </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 After naming and confirming with the <code>create</code> button, the new dialog will appear both in the dialog's list and within the outline view. 
 

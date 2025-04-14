@@ -210,7 +210,7 @@ PEM definition of an encryption key to load. If the key is a private key, the RS
 <!-- REF CryptoKey.sign().Desc -->
 ## .sign()
 
-<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : object) : string<br/>.**sign** (*message* : blob , *options* : object) : string<!-- END REF -->
+<!-- REF #CryptoKey.sign().Syntax -->.**sign** (*message* : string , *options* : object) : string&nbsp; .**sign** (*message* : blob , *options* : object) : string<!-- END REF -->
 
 <details>
 <summary>History</summary>
@@ -278,7 +278,7 @@ Contains the <!-- REF #CryptoKey.type.Summary -->name of the key type - "RSA", "
 
 
 <!-- REF #CryptoKey.verify().Syntax -->
-**.verify**( *message* : string , *signature* : string , *options* : object) : object<br/>**.verify**( *message* : blob , *signature* : string , *options* : object) : object<!-- END REF -->
+**.verify**( *message* : string , *signature* : string , *options* : object) : object&nbsp; **.verify**( *message* : blob , *signature* : string , *options* : object) : object<!-- END REF -->
 
 <details>
 <summary>History</summary>

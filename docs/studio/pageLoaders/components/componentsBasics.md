@@ -4,7 +4,7 @@ title: Components basics
 ---
 import Column from '@site/src/components/Column'
 
-<br/>
+&nbsp; 
 
 Components are the fundamental building blocks that constitute your application's user interface. These modular elements allow you to construct rich and dynamic interfaces by combining various functionalities and visual elements. 
 
@@ -15,13 +15,13 @@ Components are the fundamental building blocks that constitute your application'
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         Components are located in the <strong>Components</strong> tab on the left side panel. Components are systematically organized into distinct categories, simplifying the search and selection process:
-        <br/><br/>
+        &nbsp; &nbsp; 
         <li><strong>Containers</strong>: Components that encapsulate other components and manage their placement.</li>
-        <br/><br/>
+        &nbsp; &nbsp; 
         <li><strong>Simple</strong>: Components that display scalar or native data, images, and facilitate user actions</li>
-        <br/><br/>
+        &nbsp; &nbsp; 
         <li><strong>List</strong>: Components that iterate over qodlysources and manage user interactions with this data.</li>
-        <br/><br/>
+        &nbsp; &nbsp; 
         <li><strong>Custom Components</strong>: These are external React components that have been imported into Qodly by the user.</li>
     </Column.Item>
     <Column.Item width="30%">
@@ -121,7 +121,7 @@ Formatting options may vary based on the specific data type of the attribute and
         </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
@@ -133,7 +133,7 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>#,##0</strong>: Adds thousands separators to the number.</li> 
                                 <li><strong>#,##0.00</strong>: Adds thousands separators and displays two decimal places.</li> 
                         </ul>
-                        <br/>
+                        &nbsp; 
                         Refer to the <a href="https://support.microsoft.com/en-us/office/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5">Review guidelines</a> for customizing <code>number formats</code>.
                 </ul>
         </Column.Item>
@@ -142,7 +142,7 @@ Formatting options may vary based on the specific data type of the attribute and
         </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
@@ -155,7 +155,7 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>ISO date GMT</strong>: Displays the date in ISO 8601 format with GMT time zone.</li> 
                                 <li><strong>UTC String</strong>: Displays the date in a UTC format.</li>
                         </ul>
-                        <br/>
+                        &nbsp; 
                         Qodly supports a wide range of customized date formats. For a comprehensive list of available patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page.
                 </ul>
         </Column.Item>
@@ -164,7 +164,7 @@ Formatting options may vary based on the specific data type of the attribute and
         </Column.Item>
 </Column.List>
 
-<br/>
+&nbsp; 
 
 
 <Column.List align="center" justifyContent="between">
@@ -180,8 +180,8 @@ Formatting options may vary based on the specific data type of the attribute and
                                 <li><strong>Strict Distance with Suffix</strong>: in 15 hours</li>
                         </ul>
                         <i><b>Note:</b> Examples with duration 52 830 000 ms.</i>  
-                        <br/>  
-                        <br/>                        
+                        &nbsp;   
+                        &nbsp;                         
                  Qodly supports a wide range of customized time formats. For a comprehensive list of available time patterns, refer to the <b><a href="../date-time-formats">Date and Time Formats</a></b> page. 
                  </ul>
         </Column.Item>
