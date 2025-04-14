@@ -42,7 +42,7 @@ The `.cancelTransaction()` function <!-- REF #DataStoreClass.cancelTransaction()
 
 The `.cancelTransaction()` function cancels any changes made to the data during the transaction.
 
-You can nest several transactions (sub-transactions). If the main transaction is cancelled, all of its sub-transactions are also cancelled, even if they were validated individually using the [`.validateTransaction()`](#validatetransactions) function.
+You can nest several transactions (sub-transactions). If the main transaction is cancelled, all of its sub-transactions are also cancelled, even if they were validated individually using the [`.validateTransaction()`](#validatetransaction) function.
 
 
 #### Example
