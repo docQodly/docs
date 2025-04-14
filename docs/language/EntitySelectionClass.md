@@ -427,9 +427,7 @@ sel2 = sel.clean()
   //sel2.length == 3
 ```
 
-#### See also
 
-[`.refresh()`](#refresh)
 
 <!-- END REF -->
 

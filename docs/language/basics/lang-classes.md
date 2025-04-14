@@ -41,7 +41,7 @@ hello = person.sayHello() //"Hello John Doe"
 
 ### User classes
 
-To create a new user class in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
+To [create a new user class](../../studio/coding.md#creating) in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
 
 ![class](img/class3.png)
 
@@ -51,10 +51,9 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 ![class](img/class2.png)
 
 
-### Data Model classes
+### DataStore classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
-
+Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../studio/model/model-editor-interface.md#datastore-classes-and-attributes).
 
 
 ### Class definition
@@ -93,7 +92,7 @@ Available classes are accessible from their class stores. Two class stores are a
 
 The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
-It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
+It returns all user classes defined in the opened project, as well as [Data Model classes](../../studio/coding.md#classes).
 
 #### Example
 
