@@ -58,7 +58,7 @@ Enhance the **File Upload** component to align with your application's requireme
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li><strong>Size Limit</strong>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. </li> <br/>
+            <li><strong>Size Limit</strong>: Define the maximum file size users are allowed to upload. Choose from units such as KB, MB, and GB. </li> &nbsp;
 			If a user attempts to upload a file exceeding the specified size, an error message is displayed in the browser.
         </ul>
 	</Column.Item>

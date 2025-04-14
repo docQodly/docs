@@ -918,7 +918,7 @@ The [`.isSessionSingleton`](../ClassClass.md#issessionsingleton) property of Cla
 
 :::info
 
-Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
+Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#datastore-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
 
 :::
 

@@ -147,8 +147,8 @@ Steps to Reset a Component:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <ol>
-        <li><strong>Locate the Component</strong>: Find the component in the Page outline.</li><br/>
-        <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li><br/>
+        <li><strong>Locate the Component</strong>: Find the component in the Page outline.</li> &nbsp;
+        <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li> &nbsp;
         <li><strong>Confirm Reset</strong>: When prompted, confirm the action to ensure changes are reverted.</li>
     </ol>
 	</Column.Item>

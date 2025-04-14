@@ -105,11 +105,11 @@ HTTP Handlers can be added through both the UI and the code editor.
     <Column.List align="center" justifyContent="between">
         <Column.Item width="45%">
             <ul>
-                <li> Class: Selecting an existing class from the dropdown list or manually entering a class name. </li> <br/>
-                <li> Method: Choosing an available method from the selected class or entering a method manually. </li> <br/>
-                <li> Pattern: Defining the URL pattern. </li> <br/>
-                <li> As Regex: Enabling this if using a regular expression for URL matching. </li> <br/>
-                <li> Verbs: Selecting supported HTTP methods (GET, POST, PUT, DELETE). </li> <br/>
+                <li> Class: Selecting an existing class from the dropdown list or manually entering a class name. </li> &nbsp;
+                <li> Method: Choosing an available method from the selected class or entering a method manually. </li> &nbsp;
+                <li> Pattern: Defining the URL pattern. </li> &nbsp;
+                <li> As Regex: Enabling this if using a regular expression for URL matching. </li> &nbsp;
+                <li> Verbs: Selecting supported HTTP methods (GET, POST, PUT, DELETE). </li> &nbsp;
             </ul>
         </Column.Item>
         <Column.Item width="50%">
@@ -126,7 +126,7 @@ When manually entering a class name or method that does not exist, the system pr
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
         <ul>
-            <li>If the specified class or method does not exist, a <code>Nothing found</code> message appears, and the input field turns red.</li><br/>
+            <li>If the specified class or method does not exist, a <code>Nothing found</code> message appears, and the input field turns red.</li> &nbsp;
             <li>Unrecognized entries are automatically removed when pressing Enter.</li>
         </ul>
     </Column.Item>

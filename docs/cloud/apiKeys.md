@@ -93,9 +93,9 @@ In the API management section, each key includes options to:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ul>
-            <li><strong>Show API Key</strong>: This button <img src={require('./img/api-show.png').default} style={{borderRadius: '6px', width: '7%'}} /> reveals the API key in the interface and includes a copy button <img src={require('./img/api-copy.png').default} style={{borderRadius: '6px', width: '6%'}} />, enabling easy duplication of the API key for use in configuring your application or services.</li><br/>
-            <li><strong>Delete API Key</strong>: Positioned next to the API key, this button <img src={require('./img/api-delete.png').default} style={{borderRadius: '6px', width: '7%'}} /> removes the key upon confirmation, safeguarding against unintended deletions.</li><br/>
-            <li><strong>Edit API Key</strong>: Also adjacent to the API display, the edit button <img src={require('./img/api-edit.png').default} style={{borderRadius: '6px', width: '7%'}} /> opens a configuration dialog for modifying the API key's details.</li><br/>
+            <li><strong>Show API Key</strong>: This button <img src={require('./img/api-show.png').default} style={{borderRadius: '6px', width: '7%'}} /> reveals the API key in the interface and includes a copy button <img src={require('./img/api-copy.png').default} style={{borderRadius: '6px', width: '6%'}} />, enabling easy duplication of the API key for use in configuring your application or services.</li> &nbsp;
+            <li><strong>Delete API Key</strong>: Positioned next to the API key, this button <img src={require('./img/api-delete.png').default} style={{borderRadius: '6px', width: '7%'}} /> removes the key upon confirmation, safeguarding against unintended deletions.</li> &nbsp;
+            <li><strong>Edit API Key</strong>: Also adjacent to the API display, the edit button <img src={require('./img/api-edit.png').default} style={{borderRadius: '6px', width: '7%'}} /> opens a configuration dialog for modifying the API key's details.</li> &nbsp;
         </ul>
     </Column.Item>
     <Column.Item width="40%">

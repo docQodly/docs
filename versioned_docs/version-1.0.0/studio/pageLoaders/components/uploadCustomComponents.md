@@ -34,8 +34,7 @@ Clicking the button opens a popup with two upload methods:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li> Users can drag and drop a component file onto the designated area within the popup.</li>
-            <br/>
+            <li> Users can drag and drop a component file onto the designated area within the popup.</li> &nbsp;
             <li> Alternatively, users have the option to select a component file from their computer using a file explorer.</li>
         </ul>
     </Column.Item>

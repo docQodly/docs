@@ -26,8 +26,7 @@ The **General Tab** contains core information and key actions, providing an at-a
       The Usage card contains:
       <br/><br/>
       <ul>
-         <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.</li>
-         <br/>
+         <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.</li> &nbsp;
          <li><strong>Memory Usage</strong>: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.</li>
       </ul>
     </Column.Item>
@@ -54,14 +53,11 @@ The **General Tab** contains core information and key actions, providing an at-a
       The Server Status card contains:
       <br/><br/>
       <ul>
-         <li><strong>Status</strong>: Whether the server is operational and accessible.</li>
-         <br/>
+         <li><strong>Status</strong>: Whether the server is operational and accessible.</li> &nbsp;
          <li><strong>Control Buttons</strong>:</li>
           <ul>
-            <li><strong>Stop</strong>: Stops the server, making it unavailable temporarily.</li>
-            <br/>
-            <li><strong>Restart</strong>: Restarts the server, which can be useful for troubleshooting or applying configurations.</li>
-            <br/>
+            <li><strong>Stop</strong>: Stops the server, making it unavailable temporarily.</li> &nbsp;
+            <li><strong>Restart</strong>: Restarts the server, which can be useful for troubleshooting or applying configurations.</li> &nbsp;
             <li><strong>Refresh</strong>: Updates the server status display, allowing you to check the latest status.</li>
           </ul>
       </ul>
@@ -132,8 +128,7 @@ Allows you to use a custom domain for the application in deployment environments
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li> <strong>Add Custom Domain</strong>:</li>
-            <br/>
+         <li> <strong>Add Custom Domain</strong>:</li> &nbsp;
             <ul>
               <li>Click the <strong>Add Custom Domain</strong> button, which opens a dialog for setting up your custom domain.</li>
               <br/>
@@ -151,8 +146,7 @@ Allows you to use a custom domain for the application in deployment environments
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.</li>
-            <br/>
+         <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.</li> &nbsp;
             <ul>
               <li><strong>Certificate Body</strong>: Paste the content of your SSL certificate.</li>
               <br/>
@@ -180,10 +174,8 @@ The **Activity** section logs significant events and actions taken within the en
       Each activity entry includes:
       <br/><br/>
       <ul>
-         <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).</li>
-         <br/>
-         <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.</li>
-         <br/>
+         <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).</li> &nbsp;
+         <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.</li> &nbsp;
          <li> <strong>User</strong>: Indicates which user performed the action.</li>
       </ul>
     </Column.Item>

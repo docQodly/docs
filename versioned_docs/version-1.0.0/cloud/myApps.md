@@ -19,8 +19,7 @@ To create an app in the Console, follow the steps below, using the provided scre
 <Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
         <ol>
-            <li> Go to the <strong>My Apps</strong> section in the Console.</li>
-            <br/>
+            <li> Go to the <strong>My Apps</strong> section in the Console.</li> &nbsp;
             <li> Click the <strong>New App</strong> button on the right side of the page or in the sidebar to begin the application creation process.</li>
         </ol>
     </Column.Item>
@@ -86,8 +85,7 @@ The next section allows you to configure resources for each environment associat
 <Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
         <ol start="2">
-            <li> For each new environment, provide a <strong>Name</strong> and a <strong>Description</strong>.</li>
-            <br/>
+            <li> For each new environment, provide a <strong>Name</strong> and a <strong>Description</strong>.</li> &nbsp;
             <li> Customize the configuration separately for each environment, allowing you to tailor resources to specific development stages.</li>
         </ol>
     </Column.Item>
@@ -155,8 +153,7 @@ This section displays all pending invitations for transferring app ownership. Fo
       If the recipient chooses to decline:
       <br/><br/>
       <ul>
-         <li> They are shown a Decline Payment page, allowing them to reject the invitation.</li>
-         <br/><br/>
+         <li> They are shown a Decline Payment page, allowing them to reject the invitation.</li> &nbsp;<br/>
          <li> Upon declining, the app is permanently deleted, and both parties are notified.</li>
       </ul>
     </Column.Item>

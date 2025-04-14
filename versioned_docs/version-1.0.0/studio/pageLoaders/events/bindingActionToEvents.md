@@ -69,7 +69,7 @@ Keep in mind that the **Create** action only creates a new, blank entity in memo
     <Column.List align="center" justifyContent="between">
         <Column.Item width="50%">
             <ul>
-                <li>Provide simple UI feedback on a <code>Save</code>, <code>Reload</code>, or <code>Drop</code> standard action on an entity.</li><br/>
+                <li>Provide simple UI feedback on a <code>Save</code>, <code>Reload</code>, or <code>Drop</code> standard action on an entity.</li> &nbsp;
                 <li>Provide simple UI feedback on a <code>Reload</code>, <code>Order by</code>, or <code>Query</code> standard action on an EntitySelection.</li>
             </ul>
         </Column.Item>
@@ -229,8 +229,7 @@ In addition to navigating to Pages, Qodly Studio offers a convenient way to dire
         2. <strong>Define Transition Method</strong>: Similar to configuring Page navigation, you can specify how the external link will open. However, for external links, you have two options:
         <br/><br/>
         <ul>
-            <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li>
-            <br/>
+            <li><strong>New Tab</strong>: Induce the opening of a new browser tab.</li> &nbsp;
             <li><strong>Current Tab</strong>: Replace the ongoing browser tab with the chosen external link.</li>
         </ul>
     </Column.Item>
@@ -272,7 +271,7 @@ When the path points to a file, it doesn't open it in a new tab but instead init
     <Column.List align="center" justifyContent="between">
         <Column.Item width="55%">
             <ul>
-                <li>If your class function defines a specific variable for the result, its name will be displayed in the label within the return parameter section. </li> <br/>
+                <li>If your class function defines a specific variable for the result, its name will be displayed in the label within the return parameter section. </li> &nbsp;
                 <li>However, if your class function does not specify a result name, the default label <code>result</code> will be used in the return parameter section.</li>
             </ul>
         </Column.Item>
@@ -447,10 +446,8 @@ exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMess
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li><strong>New Browser Tab</strong>: Opens the response in a new browser tab, allowing users to view or download content like PDFs independently.</li>
-            <br/>
-            <li><strong>Current Browser Tab</strong>: Loads the content in the current tab, replacing the existing page content.</li>
-            <br/>
+            <li><strong>New Browser Tab</strong>: Opens the response in a new browser tab, allowing users to view or download content like PDFs independently.</li> &nbsp;
+            <li><strong>Current Browser Tab</strong>: Loads the content in the current tab, replacing the existing page content.</li> &nbsp;
             <li><strong>Nowhere</strong>: Ignores the response, preventing the browser from displaying any content, even if the function returns a 4D.OutgoingMessage instance. This option is useful for backend processing where a visible response is not required.</li>
         </ul>
     </Column.Item>
@@ -479,8 +476,7 @@ exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMess
         1. The type of action:
         <br/><br/>
         <ul>
-            <li><strong>Open</strong>: This action causes the dialog to be displayed.</li>
-            <br/>
+            <li><strong>Open</strong>: This action causes the dialog to be displayed.</li> &nbsp;
             <li><strong>Close</strong>: This action leads to the closing of the dialog.</li>
         </ul>
     </Column.Item>

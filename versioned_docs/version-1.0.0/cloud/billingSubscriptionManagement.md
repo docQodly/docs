@@ -20,10 +20,8 @@ The **Next Invoice** section displays the amount and date of your next scheduled
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
       <ul>
-         <li><strong>Amount</strong>: The total cost of the upcoming invoice.</li>
-         <br/>
-         <li><strong>Billing Date</strong>: The scheduled date for the next payment.</li>
-         <br/>
+         <li><strong>Amount</strong>: The total cost of the upcoming invoice.</li> &nbsp;
+         <li><strong>Billing Date</strong>: The scheduled date for the next payment.</li> &nbsp;
          <li><strong>View Details</strong>: Opens a breakdown of the invoice, showing the following details:</li>
       </ul>
     </Column.Item>
@@ -36,12 +34,9 @@ The **Next Invoice** section displays the amount and date of your next scheduled
     <Column.Item width="100%">
     <ul>
         <ul>
-            <li><strong>Description</strong>: Items included in the subscription, such as: Qodly Power (computing resources), Storage extensions, and the Internet outbound data transfer packs.</li>
-            <br/>
-            <li><strong>Quantity</strong>: Amount of each resource being billed.</li>
-            <br/>
-            <li><strong>Unit Price</strong>: The price per unit of each resource.</li>
-            <br/>
+            <li><strong>Description</strong>: Items included in the subscription, such as: Qodly Power (computing resources), Storage extensions, and the Internet outbound data transfer packs.</li> &nbsp;
+            <li><strong>Quantity</strong>: Amount of each resource being billed.</li> &nbsp;
+            <li><strong>Unit Price</strong>: The price per unit of each resource.</li> &nbsp;
             <li><strong>Total</strong>: The cost for each resource and the total sum of all charges.</li>
         </ul>
     </ul>
@@ -57,12 +52,9 @@ This section provides the status and cycle of your subscription, along with the 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li><strong>Status</strong>: Indicates whether the subscription is active or inactive.</li>
-         <br/>
-         <li><strong>Start Date</strong>: The date your subscription began.</li>
-         <br/>
-         <li><strong>Billing Cycle Start/End</strong>: Defines the current subscription cycle's start and end dates.</li>
-         <br/>
+         <li><strong>Status</strong>: Indicates whether the subscription is active or inactive.</li> &nbsp;
+         <li><strong>Start Date</strong>: The date your subscription began.</li> &nbsp;
+         <li><strong>Billing Cycle Start/End</strong>: Defines the current subscription cycle's start and end dates.</li> &nbsp;
          <li><strong>Payment Method</strong>: Displays the card currently linked to your subscription.</li>
       </ul>
     </Column.Item>
@@ -79,12 +71,9 @@ Clicking the <strong>Change Payment Method</strong> card <img src={require('./im
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
       <ul>
-         <li><strong>Email</strong>: The associated email address.</li>
-         <br/>
-         <li><strong>Card Number</strong>: The new payment card details.</li>
-         <br/>
-         <li><strong>Expiration Date</strong> and <strong>Security Code (CVC)</strong>.</li>
-         <br/>
+         <li><strong>Email</strong>: The associated email address.</li> &nbsp;
+         <li><strong>Card Number</strong>: The new payment card details.</li> &nbsp;
+         <li><strong>Expiration Date</strong> and <strong>Security Code (CVC)</strong>.</li> &nbsp;
          <li><strong>Country</strong>: The billing country for the card.</li>
       </ul>
     </Column.Item>
@@ -114,8 +103,7 @@ The **Invoices** section lists past invoices with downloadable options for recei
         Clicking the <strong>Download Invoice</strong> <img src={require('./img/billingDownloadInvoice.png').default} style={{borderRadius: '6px', width:'20%'}} /> button redirects you to a detailed invoice page where you can:
         <br/><br/>
         <ul>
-            <li><strong>Download Invoice</strong>: Get a PDF copy of the invoice for record-keeping.</li>
-            <br/>
+            <li><strong>Download Invoice</strong>: Get a PDF copy of the invoice for record-keeping.</li> &nbsp;
             <li><strong>Download Receipt</strong>: Obtain a receipt for accounting or reimbursement purposes.</li>
         </ul>
     </Column.Item>
@@ -201,10 +189,8 @@ The **Delete** <img src={require('./img/subscriptionDelete.png').default} style=
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li>Available for all environments except Development.</li>
-         <br/>
-         <li>Requires entering the environment name in a confirmation dialog to prevent accidental deletions.</li>
-         <br/>
+         <li>Available for all environments except Development.</li> &nbsp;
+         <li>Requires entering the environment name in a confirmation dialog to prevent accidental deletions.</li> &nbsp;
          <li>Once deleted, the environment and its associated resources are removed, and the subscription is updated.</li>
       </ul>
     </Column.Item>

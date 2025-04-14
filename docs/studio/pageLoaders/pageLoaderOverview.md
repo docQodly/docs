@@ -11,8 +11,8 @@ In Qodly, a project's groundwork starts with a Page, which acts as the primary c
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li><br/><br/><br/><br/><br/>
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li><br/><br/><br/><br/>
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li> &nbsp;<br/><br/><br/><br/>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li> &nbsp;<br/><br/><br/>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
 	</Column.Item>

@@ -19,8 +19,7 @@ Navigate to the Components section and locate the Templates tab to explore the a
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> <strong>Navigate to the Components Section</strong>: Find the Templates tab within the Components section.</li>
-            <br/>
+            <li> <strong>Navigate to the Components Section</strong>: Find the Templates tab within the Components section.</li> &nbsp;
             <li> <strong>Select a Category</strong>: Once in the Templates tab, browse through the available categories. Choose the category that aligns with your project's requirements. For example, you might opt for the <code>Team management</code> category <img alt="styles-library" src={require('./img/templates_category.png').default} style={{borderRadius: '6px', width: '8%'}} />. </li>
         </ol>
 	</Column.Item>
@@ -36,8 +35,7 @@ Quickly find categories by name using the search box <img alt="styles-library" s
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ol start="3">
-            <li> <strong>Explore Templates</strong>: Upon selection, a panel opens, presenting various templates.</li>
-            <br/>
+            <li> <strong>Explore Templates</strong>: Upon selection, a panel opens, presenting various templates.</li> &nbsp;
             Each template is accompanied by a <code>Preview Image</code> to visualize the template's content and a <code>Title and Description</code> to understand the template's purpose and functionality.
             <br/><br/>
             <img alt="styles-library" src={require('./img/templates_description.png').default} style={{borderRadius: '6px'}} />
@@ -56,10 +54,8 @@ To use a template from the selected category, for instance, the datatable catego
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ol>
-            <li> <strong>Select a Category</strong>: Click on the desired category (e.g., Datatables, Travel, or Business). This will open a panel displaying all the templates available within that category.</li>
-            <br/>
-            <li> <strong>Choose a Template</strong>: Browse the templates shown in the panel. Each template includes a preview image and a brief description.</li>
-            <br/>
+            <li> <strong>Select a Category</strong>: Click on the desired category (e.g., Datatables, Travel, or Business). This will open a panel displaying all the templates available within that category.</li> &nbsp;
+            <li> <strong>Choose a Template</strong>: Browse the templates shown in the panel. Each template includes a preview image and a brief description.</li> &nbsp;
             <li> <strong>Drag the Template (Not the Category!)</strong>: Click and drag a specific template from the panel directly onto the canvas. </li>
         </ol>
 	</Column.Item>
