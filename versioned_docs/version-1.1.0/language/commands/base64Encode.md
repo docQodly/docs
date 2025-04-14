@@ -20,7 +20,7 @@ title: base64Encode
 
 The `base64Encode` command <!-- REF #_command_.base64Encode.Summary --> encodes the string or blob value passed in the *toEncode* parameter in Base64 or Base64URL format<!-- END REF -->.
 
-Base64 encoding modifies 8-bit coded data so that they do not keep more than 7 useful bits. This encoding is required, for example, for handling blobs using xml. Base64URL is an alernative encoding with a specific processing for URLs and filenames (see [rfc4648](#https://tools.ietf.org/html/rfc4648#section-5)).
+Base64 encoding modifies 8-bit coded data so that they do not keep more than 7 useful bits. This encoding is required, for example, for handling blobs using xml. Base64URL is an alernative encoding with a specific processing for URLs and filenames (see [rfc4648](https://tools.ietf.org/html/rfc4648#section-5)).
 
 Pass in *toEncode* a string or blob value to encode.
 

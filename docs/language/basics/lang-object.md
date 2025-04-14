@@ -202,7 +202,7 @@ For more information, please refer to the [`null`](lang-null-undefined.md#null) 
 
 Evaluating an object property can sometimes produce an **undefined** value. Typically when trying to read or assign undefined expressions, the QodlyScript will generate errors. This does not happen in the following cases:
 
-- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](lang-variables.md#clearvariable) with them:
+- Reading a property of an undefined object or value returns `undefined`; assigning an undefined value to variables has the same effect as calling [`clearVariable`](lang-variables.md./lang-variables.md#clearvariable) with them:
 
 ```qs
      var o : object

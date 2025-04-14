@@ -52,7 +52,7 @@ ID|integer|Process unique ID
 visible|boolean|true if visible, false otherwise
 systemID|string|ID for the user process, Qodly process or spare process
 type|integer|Running process type. <li>kHTTPLogFlusher (-58)</li><li>kMainProcess (-39)</li><li>kClientManagerProcess (-31)</li><li>kCompilerProcess (-29)</li><li>kMonitorProcess (-26)</li><li>kInternalTimerProcess (-25)</li><li>kLogFileProcess (-20)</li><li>kBackup process (-19)</li><li>kInternalProcess (-18)</li><li>kOnExitProcess (-16)</li><li>kWebServerProcess (-13)</li><li>kOtherProcess (-10)</li><li>kEventManager (-8)</li><li>kIndexingProcess (-5)</li><li>kCacheManager (-4)</li><li>kWebProcessWithNoContext (-3)</li><li>kDesignProcess (-2)</li><li>kNone (0)</li><li>kWorkerProcess (5)</li>
-|state|integer|Current status (see [`processState`](#processstate) constant list)|
+|state|integer|Current status (see [`processState`](../commands/processState.md) constant list)|
 |cpuUsage|number|Percentage of time devoted to this process (between 0 and 1)|
 |cpuTime|number|Running time (seconds)|
 |preemptive|boolean|always true|

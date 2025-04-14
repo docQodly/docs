@@ -35,9 +35,9 @@ This function allows you to assign or compare the **null** value to the followin
 |:----|:----|
 |object property values|Comparing Null to an object property returns true if the property value is null, and false otherwise. To simplify code, comparing Null also returns true if the property does not exist in the object (i.e. is [`undefined`](#undefined)), see example 4.
 |collection elements|When a collection is expanded by adding non-adjacent elements, any intermediary elements get automatically the `null` value.|
-|object variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
-|collection variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
-|picture variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](#clearvariable) command.|
+|object variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](./lang-variables.md./lang-variables.md#clearvariable) command.|
+|collection variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](./lang-variables.md#clearvariable) command.|
+|picture variables|Assigning the null value to such a variable type clears its contents. In this case, it has the same effect as calling the [`clearVariable`](./lang-variables.md#clearvariable) command.|
 |variant variables| |
 
 
