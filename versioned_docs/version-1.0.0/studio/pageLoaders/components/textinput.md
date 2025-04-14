@@ -67,7 +67,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.</li> &nbsp;
+                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.<br/></li>
                 <li><strong>Input Type</strong>: Select the appropriate input type to match the nature of the expected data. Available types include:</li>
         </ul>
 	</Column.Item>
@@ -137,12 +137,12 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
         </ul>
 </ul>
 
-&nbsp; 
+<br/>
 
-- **Input Format**: Specify the desired format for the entered data. &nbsp; 
+- **Input Format**: Specify the desired format for the entered data. <br/>
 See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.
 
-&nbsp; 
+<br/>
 
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />
 

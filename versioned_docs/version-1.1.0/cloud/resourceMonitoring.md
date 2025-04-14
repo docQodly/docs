@@ -24,9 +24,9 @@ The **General Tab** contains core information and key actions, providing an at-a
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       The Usage card contains:
-      &nbsp; &nbsp; 
+      <br/><br/>
       <ul>
-         <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.</li> &nbsp;
+         <li><strong>Disk Usage</strong>: Shows the percentage of disk storage currently used by the environment, useful for tracking storage limits and understanding data volume.<br/></li>
          <li><strong>Memory Usage</strong>: Displays the memory consumption percentage, allowing you to monitor memory use and scale resources as needed.</li>
       </ul>
     </Column.Item>
@@ -51,13 +51,13 @@ The **General Tab** contains core information and key actions, providing an at-a
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       The Server Status card contains:
-      &nbsp; &nbsp; 
+      <br/><br/>
       <ul>
-         <li><strong>Status</strong>: Whether the server is operational and accessible.</li> &nbsp;
+         <li><strong>Status</strong>: Whether the server is operational and accessible.<br/></li>
          <li><strong>Control Buttons</strong>:</li>
           <ul>
-            <li><strong>Stop</strong>: Stops the server, making it unavailable temporarily.</li> &nbsp;
-            <li><strong>Restart</strong>: Restarts the server, which can be useful for troubleshooting or applying configurations.</li> &nbsp;
+            <li><strong>Stop</strong>: Stops the server, making it unavailable temporarily.<br/></li>
+            <li><strong>Restart</strong>: Restarts the server, which can be useful for troubleshooting or applying configurations.<br/></li>
             <li><strong>Refresh</strong>: Updates the server status display, allowing you to check the latest status.</li>
           </ul>
       </ul>
@@ -123,15 +123,15 @@ Allows you to use a custom domain for the application in deployment environments
 
 <img src={require('./img/GeneralApplicationAccessCustomDomain.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; 
+<br/>
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li> <strong>Add Custom Domain</strong>:</li> &nbsp;
+         <li> <strong>Add Custom Domain</strong>:<br/></li>
             <ul>
               <li>Click the <strong>Add Custom Domain</strong> button, which opens a dialog for setting up your custom domain.</li>
-              &nbsp; 
+              <br/>
               <li>In the <strong>Set Custom Domain</strong> dialog, enter your domain name.</li>
             </ul>
       </ul>
@@ -141,17 +141,17 @@ Allows you to use a custom domain for the application in deployment environments
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.</li> &nbsp;
+         <li> <strong>Using Your Own SSL Certificate</strong>: For enhanced security, you can add a custom SSL certificate by selecting "I want to use my own certificate file," which opens fields to enter.<br/></li>
             <ul>
               <li><strong>Certificate Body</strong>: Paste the content of your SSL certificate.</li>
-              &nbsp; 
+              <br/>
               <li><strong>Certificate Chain (optional)</strong>: Provide the certificate chain if required by your SSL provider.</li>
-              &nbsp; 
+              <br/>
               <li><strong>Private Key</strong>: Input the private key associated with your certificate.</li>
             </ul>
       </ul>
@@ -172,10 +172,10 @@ The **Activity** section logs significant events and actions taken within the en
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       Each activity entry includes:
-      &nbsp; &nbsp; 
+      <br/><br/>
       <ul>
-         <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).</li> &nbsp;
-         <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.</li> &nbsp;
+         <li> <strong>Description</strong>: Summarizes the action taken (e.g., server start).<br/></li>
+         <li> <strong>Timestamp</strong>: Provides the date and time the action occurred.<br/></li>
          <li> <strong>User</strong>: Indicates which user performed the action.</li>
       </ul>
     </Column.Item>

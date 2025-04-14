@@ -4,7 +4,7 @@ title: assert
 ---
 
 
-<!-- REF #_command_.assert.Syntax -->**assert**( *boolExpression* : boolean )&nbsp; **assert**( *boolExpression* : boolean, *msg* : string )<!-- END REF -->
+<!-- REF #_command_.assert.Syntax -->**assert**( *boolExpression* : boolean )<br/>**assert**( *boolExpression* : boolean, *msg* : string )<!-- END REF -->
 
 
 <!-- REF #_command_.assert.Params -->
@@ -63,5 +63,5 @@ An assertion can allow parameters passed to a project method to be tested in ord
 
 #### See also
 
-[`asserted`](asserted.md)&nbsp; [`.onErrCall()`](onErrCall.md)&nbsp; 
+[`asserted`](asserted.md)<br/>[`.onErrCall()`](onErrCall.md)<br/>
 [`setAssertEnabled`](setAssertEnabled.md)

@@ -3,7 +3,7 @@ id: objectCopy
 title: objectCopy
 ---
 
-<!-- REF #_command_.objectCopy.Syntax -->**objectCopy** ( *object* : object ) : object&nbsp; **objectCopy** ( *object* : object , *option* : integer ) : object&nbsp; **objectCopy** ( *object* : object , *option* : integer , *groupWith* : object ) : object&nbsp; **objectCopy** ( *object* : object , *option* : integer , *groupWith* : collection ) : object<!-- END REF -->
+<!-- REF #_command_.objectCopy.Syntax -->**objectCopy** ( *object* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : object ) : object<br/>**objectCopy** ( *object* : object , *option* : integer , *groupWith* : collection ) : object<!-- END REF -->
 
 
 <!-- REF #_command_.objectCopy.Params -->

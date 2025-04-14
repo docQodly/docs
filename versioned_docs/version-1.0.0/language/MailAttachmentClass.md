@@ -24,7 +24,7 @@ Attachment objects are created using the [`4D.MailAttachment.new()`](#4dmailatta
 
 ## 4D.MailAttachment.new()
 
-<!-- REF #4D.MailAttachment.new().Syntax -->**4D.MailAttachment.new**( *file* : 4D.File \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* : string \} \} \} \} ) : 4D.MailAttachment&nbsp; **4D.MailAttachment.new**( *zipFile* : 4D.ZipFile \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment&nbsp; **4D.MailAttachment.new**( *blob* : 4D.Blob \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment&nbsp; **4D.MailAttachment.new**( *path* : string \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment<!-- END REF -->
+<!-- REF #4D.MailAttachment.new().Syntax -->**4D.MailAttachment.new**( *file* : 4D.File \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* : string \} \} \} \} ) : 4D.MailAttachment<br/>**4D.MailAttachment.new**( *zipFile* : 4D.ZipFile \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment<br/>**4D.MailAttachment.new**( *blob* : 4D.Blob \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment<br/>**4D.MailAttachment.new**( *path* : string \{ , *name* : string \{, *cid* : string\{ , *type* : string \{ , *disposition* :string \} \} \} \} ) : 4D.MailAttachment<!-- END REF -->
 
 
 <!-- REF #4D.MailAttachment.new().Params -->

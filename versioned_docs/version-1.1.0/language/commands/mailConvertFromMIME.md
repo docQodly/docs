@@ -4,7 +4,7 @@ title: mailConvertFromMIME
 ---
 
 
-<!-- REF #_command_.mailConvertFromMIME.Syntax -->**mailConvertFromMIME**( *mimeblob* : blob ) : object&nbsp; **mailConvertFromMIME**( *mimestring* : string ) : object<!-- END REF -->
+<!-- REF #_command_.mailConvertFromMIME.Syntax -->**mailConvertFromMIME**( *mimeblob* : blob ) : object<br/>**mailConvertFromMIME**( *mimestring* : string ) : object<!-- END REF -->
 
 
 <!-- REF #_command_.mailConvertFromMIME.Params -->

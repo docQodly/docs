@@ -112,6 +112,6 @@ end if
 
 #### See also
 
-[`How to create a JSON schema`](http://json-schema.org/)&nbsp; 
-[`jsonParse`](jsonParse)&nbsp; 
+[`How to create a JSON schema`](http://json-schema.org/)<br/>
+[`jsonParse`](jsonParse)<br/>
 [`JSON schema validation keywords on json-schema.org`](http://json-schema.org/latest/json-schema-validation.html)

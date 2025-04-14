@@ -22,5 +22,5 @@ As a rule, all semaphores that have been created should be cleared. If semaphore
 
 #### See also
 
-[`semaphore`](semaphore.md)&nbsp; 
+[`semaphore`](semaphore.md)<br/>
 [`Signal` class](../SignalClass.md)

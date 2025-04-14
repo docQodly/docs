@@ -28,5 +28,5 @@ By default, assertions are enabled but they may have been disabled using the [`s
 
 #### See also
 
-[`.assert`](assert.md)&nbsp; 
+[`.assert`](assert.md)<br/>
 [`setAssertEnabled`](setAssertEnabled.md)

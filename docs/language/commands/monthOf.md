@@ -50,5 +50,5 @@ To compare the value returned by this function, Qodly provides the following pre
 
 #### See also
 
-[`dayOf`](dayOf.md)&nbsp; 
+[`dayOf`](dayOf.md)<br/>
 [`yearOf`](yearOf.md)

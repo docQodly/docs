@@ -38,8 +38,8 @@ To open the Data Explorer web page for a Qodly application:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ol>
-          <li> Open your application in Qodly Studio. </li> &nbsp;
-          <li> Click on the <code>Data</code> button on Qodly Studio home page: </li> &nbsp;
+          <li> Open your application in Qodly Studio. <br/></li>
+          <li> Click on the <code>Data</code> button on Qodly Studio home page: <br/></li>
           Or, click on the <code>Data</code> button in the header bar:  <img src={require('./img/data-button.png').default} style={{borderRadius: '6px'}} />
         </ol>
     </Column.Item>
@@ -48,7 +48,7 @@ To open the Data Explorer web page for a Qodly application:
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 The Data Explorer window will open in a new tab, displaying the available data in your application.
 
@@ -113,7 +113,7 @@ Different operators are available based on the data type:
       - <strong>Text:</strong> Text filters are case-insensitive and of the "starts with" type. Wildcard character (@) can be used for more specific queries:
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} />&nbsp; 
+    <img src={require('./img/dataExplorer6.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
   </Column.Item>
 </Column.List>
 
@@ -128,21 +128,21 @@ Different operators are available based on the data type:
     - <strong>Dates:</strong> Use the datepicker widget for date attributes (Click on the date area to display the widget).
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} />&nbsp; 
+    <img src={require('./img/DEFilter2.png').default} style={{borderRadius: '6px', width: '60%'}} /><br/>
   </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     - <strong>Booleans:</strong> Boolean attributes can be filtered on true, false, null, or not null.
-    &nbsp; &nbsp; 
+    <br/><br/>
     <ul>
-      <li>null: Attribute value not defined.</li> &nbsp;
+      <li>null: Attribute value not defined.<br/></li>
       <li>not null: Attribute value defined (true or false).</li>
     </ul>
   </Column.Item>
   <Column.Item width="35%">
-    <img src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} />&nbsp; 
+    <img src={require('./img/DEFilter3.png').default} style={{borderRadius: '6px', width: '30%'}} /><br/>
   </Column.Item>
 </Column.List>
 

@@ -37,7 +37,7 @@ To create a new Sandbox, follow these steps:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li> <strong>Access the Console</strong>: Open the Console.</li> &nbsp;
+            <li> <strong>Access the Console</strong>: Open the Console.<br/></li>
             <li> <strong>Click on "New Sandbox"</strong>: Select the "New Sandbox" button to initiate the creation process.</li>
         </ul>
     </Column.Item>

@@ -30,7 +30,7 @@ import Column from '@site/src/components/Column'
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     Upon creation, the new state becomes visible in the states section and automatically opens in the canvas, ready for modifications.
-    &nbsp; &nbsp; 
+    <br/><br/>
     The selected state is highlighted with a checked box <img src={require('./img/state_create4.png').default} style={{borderRadius: '6px', width:'5%'}} /> in the states list.
 	</Column.Item>
 	<Column.Item width="40%">
@@ -147,8 +147,8 @@ Steps to Reset a Component:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <ol>
-        <li><strong>Locate the Component</strong>: Find the component in the Page outline.</li> &nbsp;
-        <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.</li> &nbsp;
+        <li><strong>Locate the Component</strong>: Find the component in the Page outline.<br/></li>
+        <li><strong>Click the Reset Button</strong>: This button appears as a circular arrow icon next to the component.<br/></li>
         <li><strong>Confirm Reset</strong>: When prompted, confirm the action to ensure changes are reverted.</li>
     </ol>
 	</Column.Item>
@@ -199,7 +199,7 @@ When a new state is applied or removed as a user interacts with an input field, 
 </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 :::info
 The `Base` state and `Conditional` states, however, are not included among these selectable options. Only Non-Conditional states are included.

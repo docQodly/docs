@@ -76,5 +76,5 @@ Multiple passes of the same password will result in different hashed strings. Th
 
 #### See also
 
-[`generateDigest`](generateDigest.md)&nbsp; 
+[`generateDigest`](generateDigest.md)<br/>
 [`verifyPasswordHash`](verifyPasswordHash.md)

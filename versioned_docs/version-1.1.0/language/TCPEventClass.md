@@ -15,8 +15,8 @@ The following properties are available:
 
 ||
 |---|
-|[<!-- INCLUDE #4D.TCPEvent.data.Syntax -->](#data)&nbsp; <!-- INCLUDE #4D.TCPEvent.data.Summary -->|
-|[<!-- INCLUDE #4D.TCPEvent.type.Syntax -->](#type)&nbsp; <!-- INCLUDE #4D.TCPEvent.type.Summary -->|
+|[<!-- INCLUDE #4D.TCPEvent.data.Syntax -->](#data)<br/><!-- INCLUDE #4D.TCPEvent.data.Summary -->|
+|[<!-- INCLUDE #4D.TCPEvent.type.Syntax -->](#type)<br/><!-- INCLUDE #4D.TCPEvent.type.Summary -->|
 
 <!-- REF #4D.TCPEvent.type.Desc -->
 

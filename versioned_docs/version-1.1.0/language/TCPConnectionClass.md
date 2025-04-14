@@ -93,12 +93,12 @@ TCPConnection objects provide the following properties and functions:
 
 ||
 |---|
-|[<!-- INCLUDE ##4D.TCPConnection.closed.Syntax -->](#closed)&nbsp; <!-- INCLUDE ##4D.TCPConnection.closed.Summary -->|
-|[<!-- INCLUDE #4D.TCPConnection.errors.Syntax -->](#errors)&nbsp; <!-- INCLUDE #4D.TCPConnection.errors.Summary -->|
-|[<!-- INCLUDE #4D.TCPConnection.noDelay.Syntax -->](#nodelay)&nbsp; <!-- INCLUDE #4D.TCPConnection.noDelay.Summary -->|
-|[<!-- INCLUDE #4D.TCPConnection.send().Syntax -->](#send)&nbsp; <!-- INCLUDE #4D.TCPConnection.send().Summary -->|
-|[<!-- INCLUDE #4D.TCPConnection.shutdown().Syntax -->](#shutdown)&nbsp; <!-- INCLUDE #4D.TCPConnection.shutdown().Summary -->|
-|[<!-- INCLUDE #4D.TCPConnection.wait().Syntax -->](#wait)&nbsp; <!-- INCLUDE #4D.TCPConnection.wait().Summary -->|
+|[<!-- INCLUDE ##4D.TCPConnection.closed.Syntax -->](#closed)<br/><!-- INCLUDE ##4D.TCPConnection.closed.Summary -->|
+|[<!-- INCLUDE #4D.TCPConnection.errors.Syntax -->](#errors)<br/><!-- INCLUDE #4D.TCPConnection.errors.Summary -->|
+|[<!-- INCLUDE #4D.TCPConnection.noDelay.Syntax -->](#nodelay)<br/><!-- INCLUDE #4D.TCPConnection.noDelay.Summary -->|
+|[<!-- INCLUDE #4D.TCPConnection.send().Syntax -->](#send)<br/><!-- INCLUDE #4D.TCPConnection.send().Summary -->|
+|[<!-- INCLUDE #4D.TCPConnection.shutdown().Syntax -->](#shutdown)<br/><!-- INCLUDE #4D.TCPConnection.shutdown().Summary -->|
+|[<!-- INCLUDE #4D.TCPConnection.wait().Syntax -->](#wait)<br/><!-- INCLUDE #4D.TCPConnection.wait().Summary -->|
 
 
 <!-- REF #4D.TCPConnection.new().Desc -->
@@ -244,7 +244,7 @@ The `shutdown()` function <!-- REF #4D.TCPConnection.shutdown().Summary -->close
 <!-- REF #4D.TCPConnection.wait().Desc -->
 ## .wait()
 
-<!-- REF #4D.TCPConnection.wait().Syntax -->**.wait**()&nbsp; **.wait**( *timeout* : Real )<!-- END REF -->
+<!-- REF #4D.TCPConnection.wait().Syntax -->**.wait**()<br/>**.wait**( *timeout* : Real )<!-- END REF -->
 
 <!-- REF #4D.TCPConnection..wait().options -->
 |Parameter|Type||Description|

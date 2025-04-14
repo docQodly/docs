@@ -30,8 +30,8 @@ For every environment, you can access your files on the server using the **Secur
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
         <ol>
-            <li><strong>Click the Access files button</strong>: Navigate to the specific environment you want to manage and click the Access files button.</li> &nbsp;
-            <li><strong>Open your FTP Client</strong>: Use your preferred FTP client (e.g., Filezilla). This client will allow you to manage and transfer files securely.</li> &nbsp;
+            <li><strong>Click the Access files button</strong>: Navigate to the specific environment you want to manage and click the Access files button.<br/></li>
+            <li><strong>Open your FTP Client</strong>: Use your preferred FTP client (e.g., Filezilla). This client will allow you to manage and transfer files securely.<br/></li>
         </ol>
 	</Column.Item>
 	<Column.Item width="55%">

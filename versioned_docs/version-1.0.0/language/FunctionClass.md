@@ -112,7 +112,7 @@ Parameters are received within the method, in the order they are specified in th
 <!-- REF FunctionClass.apply().Desc -->
 ## .apply()
 
-<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any&nbsp; **.apply**( *thisObj* : object \{ , *formulaParams* : collection \} ) : any<!-- END REF -->
+<!-- REF #FunctionClass.apply().Syntax -->**.apply**() : any<br/>**.apply**( *thisObj* : object \{ , *formulaParams* : collection \} ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.apply().Params -->
@@ -167,7 +167,7 @@ Note that `.apply()` is similar to [`.call()`](#call) except that parameters are
 ## .call()
 
 
-<!-- REF #FunctionClass.call().Syntax -->**.call**() : any&nbsp; **.call**( *thisObj* : object \{ , ...*params* : any \} ) : any<!-- END REF -->
+<!-- REF #FunctionClass.call().Syntax -->**.call**() : any<br/>**.call**( *thisObj* : object \{ , ...*params* : any \} ) : any<!-- END REF -->
 
 
 <!-- REF #FunctionClass.call().Params -->

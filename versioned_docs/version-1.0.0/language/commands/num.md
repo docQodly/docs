@@ -4,7 +4,7 @@ title: num
 ---
 
 
-<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string \{, *separator* : string \} ) : number &nbsp; **num** ( *expression* : number ) : number &nbsp; **num** ( *expression* : boolean ) : number <!-- END REF -->
+<!-- REF #_command_.num.Syntax -->**num** ( *expression* : string \{, *separator* : string \} ) : number <br/>**num** ( *expression* : number ) : number <br/>**num** ( *expression* : boolean ) : number <!-- END REF -->
 
 
 <!-- REF #_command_.num.Params -->
@@ -75,5 +75,5 @@ This example compares the results obtained depending on the separator:
 
 #### See also
 
-[`bool`](bool.md)&nbsp; 
+[`bool`](bool.md)<br/>
 [`string`](string.md)

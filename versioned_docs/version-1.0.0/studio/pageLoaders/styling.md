@@ -34,7 +34,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ul>
-          <li>For a <strong>local CSS class</strong>: Leave the "Create as Shared" option unchecked. </li> &nbsp;
+          <li>For a <strong>local CSS class</strong>: Leave the "Create as Shared" option unchecked. <br/></li>
           <li>For a <strong>shared CSS class</strong>: Check the "Create as Shared" option.</li>
         </ul>
 	</Column.Item>
@@ -46,7 +46,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 :::info
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
-    An alternative method to establish a new CSS class is through the properties panel, within the Style category. You can input your desired name, for example "newCssClass", into the CSS field. &nbsp; 
+    An alternative method to establish a new CSS class is through the properties panel, within the Style category. You can input your desired name, for example "newCssClass", into the CSS field. <br/>
     If this name doesn't correspond to any existing CSS classes, you will be prompted with the option to create a new one.
 	</Column.Item>
 	<Column.Item width="40%">
@@ -70,7 +70,7 @@ To add a CSS class, click the <img alt="styles-library" src={require('./img/addC
 
   <img alt="styles-library" src={require('./img/editCSSClassCode.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 :::info
 The changes will affect all the components utilizing this CSS class.
@@ -205,7 +205,7 @@ self [data-cy="cypress_slider"]{
 ```
 </div>
 
-&nbsp; 
+<br/>
 
 :::info
 The size of the stars is determined by the value specified in the `Font` category.

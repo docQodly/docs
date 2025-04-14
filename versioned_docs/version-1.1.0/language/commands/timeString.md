@@ -3,7 +3,7 @@ id: timeString
 title: timeString
 ---
 
-<!-- REF #_command_.timeString.Syntax -->**timeString** ( *secondsTime* : time ) : string&nbsp; **timeString** ( *secondsValue* : integer ) : string<!-- END REF -->
+<!-- REF #_command_.timeString.Syntax -->**timeString** ( *secondsTime* : time ) : string<br/>**timeString** ( *secondsValue* : integer ) : string<!-- END REF -->
 
 
 <!-- REF #_command_.timeString.Params -->
@@ -39,5 +39,5 @@ In the following example we assign the folowing string “46800 seconds is 13:00
 
 #### See also
 
-[`string`](string.md)&nbsp; 
+[`string`](string.md)<br/>
 [`time`](time.md)

@@ -11,14 +11,14 @@ In Qodly, a project's groundwork starts with a Page, which acts as the primary c
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li> &nbsp;&nbsp; &nbsp; &nbsp; 
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.<br/><br/></li><br/><br/><br/>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. <br/><br/></li><br/><br/>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
 	</Column.Item>
 	<Column.Item width="35%">
-        <img src={require('./img/homepageNewPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> &nbsp; 
-        <img src={require('./img/plusPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> &nbsp; 
+        <img src={require('./img/homepageNewPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
+        <img src={require('./img/plusPage.png').default} style={{borderRadius: '6px', width: '70%'}} /> <br/>
         <img src={require('./img/+New.png').default} style={{borderRadius: '6px', width: '50%'}} />
 	</Column.Item>
 </Column.List>
@@ -84,7 +84,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 	</Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 ### Dialogs
 
@@ -350,7 +350,7 @@ The Data Access properties encompass distinct options and fields tailored to eac
     </Column.Item>
   </Column.List>
 
-&nbsp; 
+<br/>
 
 :::info 
 Server Side allows you to control the component's behavior, such as [hiding](../../language/WebFormItemClass.md#hide), [showing](../../language/WebFormItemClass.md#show), [adding CSS classes](../../language/WebFormItemClass.md#addcssclass), or [removing CSS classes](../../language/WebFormItemClass.md#removecssclass) from it.
@@ -394,7 +394,7 @@ Explore below for specific options:
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
-        In Qodly Studio, every Page possesses a unique JSON representation. &nbsp; &nbsp; 
+        In Qodly Studio, every Page possesses a unique JSON representation. <br/><br/>
         This representation can be accessed through a text editor by selecting the Page in the <code>Explorer</code> and choosing <code>Open With</code> a <code>Text Editor</code>.
 	</Column.Item>
 	<Column.Item width="45%">
@@ -710,7 +710,7 @@ The JSON representation of the Page consists of two major elements: `metadata` a
 1. **metadata**: Contains metadata related to the Page.
 <ul>
     <li><code>v</code> : Version of the Page.</li> 
-    &nbsp; 
+    <br/>
     <li><code>qodlysources</code> : An array of local qodlysources scoped to the Page, with the following sub-attributes:</li>
     <ul>
         <li><code>id</code> : Identifier for each qodlysource.</li>
@@ -719,7 +719,7 @@ The JSON representation of the Page consists of two major elements: `metadata` a
         <li><code>dataType</code> : Represents the data type of the qodlysource.</li>
         <li><code>initialValue</code> : Indicates the initial value of the qodlysource name.</li>
     </ul> 
-    &nbsp; 
+    <br/>
     <li><code>styles</code> : An array of local css classes scoped to the Page. It includes the following sub-attributes:</li>
     <ul>
         <li><code>name</code> : Name of the css class.</li>
@@ -733,22 +733,22 @@ The JSON representation of the Page consists of two major elements: `metadata` a
 2. **components**: Represents the individual components used in the Page. Each component shares these common attributes:
 
     - `type`: 
-        - `resolvedName`: Specifies the component's type.&nbsp; &nbsp; 
-    - `isCanvas`: Indicates if the component functions as a canvas.&nbsp; &nbsp; 
+        - `resolvedName`: Specifies the component's type.<br/><br/>
+    - `isCanvas`: Indicates if the component functions as a canvas.<br/><br/>
     - `props`:
         - `classNames`: An array of CSS classes applied to the component, whether they are local, shared, or theme-specific.
         - `events`: An array of events associated with the component.
         - `style`: Defines CSS styling properties for the component.
-        - `serverSideRef`: Refers to a server-side resource.&nbsp; &nbsp; 
-    - `displayName`: Represents the name of the component.&nbsp; &nbsp; 
+        - `serverSideRef`: Refers to a server-side resource.<br/><br/>
+    - `displayName`: Represents the name of the component.<br/><br/>
     - `custom`:
-        - `displayName`: The name of a custom component, particularly when it's a component used from existing templates.&nbsp; &nbsp; 
+        - `displayName`: The name of a custom component, particularly when it's a component used from existing templates.<br/><br/>
     - `parent`: Identifies the parent component.
     - `hidden`: Indicates if the component is hidden.
     - `nodes`: An array of child components nested within the current component.
     - `linkedNodes`: An object of component elements linked to this particular component.
 
-    &nbsp; &nbsp; 
+    <br/><br/>
 
     :::info
     Each specific component may have additional attributes under the `props` section, such as airyMode for the `ROOT` component, or other component-specific details.

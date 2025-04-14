@@ -49,7 +49,7 @@ Enhance the **Checkbox** component to align with your application's requirements
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.</li> &nbsp;
+                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.<br/></li>
                 <li><strong>Switch Variant</strong>: Choose this for a switch-like appearance.</li>
             </ul>
         </Column.Item>
@@ -64,9 +64,9 @@ Enhance the **Checkbox** component to align with your application's requirements
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.</li> &nbsp;
-                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.</li> &nbsp;
-                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. </li> &nbsp;
+                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.<br/></li>
+                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.<br/></li>
+                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. <br/></li>
             </ul>
         </Column.Item>
         <Column.Item width="31%">
@@ -76,9 +76,9 @@ Enhance the **Checkbox** component to align with your application's requirements
 
     | **Type**                |  **States**    | **Default Value**      | **State Transition Order**              |
     |-------------------------|------------------------------------|---------------------------|------------------|
-    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked &nbsp;  - Unchecked            |
-    | **Three-State Checkbox**| - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected. &nbsp;  - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate &nbsp;  - Checked &nbsp;  - Unchecked &nbsp;  - Indeterminate |
-    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. &nbsp;  - Unchecked (`false`): Option is rejected. &nbsp;  - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) &nbsp;  - Checked &nbsp;  - Unchecked|
+    | **Two-State Checkbox**  | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected.            | `false` (unchecked)       | - Checked <br/> - Unchecked            |
+    | **Three-State Checkbox**| - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): No action has been taken or optional.        | `null` (indeterminate)    | - Indeterminate <br/> - Checked <br/> - Unchecked <br/> - Indeterminate |
+    | **Initial Indeterminate Checkbox** | - Checked (`true`): Option is selected. <br/> - Unchecked (`false`): Option is rejected. <br/> - Indeterminate (`null`): Only before first user action. | `null` (indeterminate)    | - Indeterminate (before first action only) <br/> - Checked <br/> - Unchecked|
 
 
 <Column.List align="center" justifyContent="between">

@@ -34,13 +34,13 @@ In the **Model Editor**, link privileges to permissions for Datastore, DataClass
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ul>
-            <li>If a privilege is both purple-tagged and accompanied by the <img src={require('./img/includedTag.png').default} style={{borderRadius: '6px', width:'5%'}} /> icon, it indicates the <a href="includingPrivileges">inclusion of an extra privilege</a>.</li> &nbsp;
+            <li>If a privilege is both purple-tagged and accompanied by the <img src={require('./img/includedTag.png').default} style={{borderRadius: '6px', width:'5%'}} /> icon, it indicates the <a href="includingPrivileges">inclusion of an extra privilege</a>.<br/></li>
             Obtaining permission for that resource requires having one of the additional privileges.
         </ul>
     </Column.Item>
     <Column.Item width="30%">
         <img src={require('./img/purpleTagged&icon.png').default} style={{borderRadius: '6px'}} />
-        &nbsp; &nbsp; 
+        <br/><br/>
         <img src={require('./img/privilegeRequired.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>

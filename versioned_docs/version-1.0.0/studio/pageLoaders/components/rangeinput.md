@@ -49,7 +49,7 @@ Enhance the **Range Input** component to align with your application's requireme
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Vertical Orientation (Default)</strong>: By default, the Range Input component is oriented vertically. This means that Slider container is stacked from top to bottom.</li> &nbsp;
+                <li><strong>Vertical Orientation (Default)</strong>: By default, the Range Input component is oriented vertically. This means that Slider container is stacked from top to bottom.<br/></li>
                 <li><strong>Horizontal Orientation</strong>: When the Range Input component is configured with a horizontal orientation, Slider container is arranged from left to right.</li>
             </ul>
         </Column.Item>
@@ -82,10 +82,10 @@ Within the **Range Input** component, an embedded **Slider Container** allows fo
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li><strong>Min Value</strong>: Set the minimum value that users can select within the range.</li> &nbsp;
-            <li><strong>Max Value</strong>: Define the maximum value that users can select within the range.</li> &nbsp;
-            <li><strong>Step</strong>: Determine the increment value when users interact with the component.</li> &nbsp;
-           <li><strong>ReadOnly</strong>: Select this option if you want to use the slider as a visual representation of a value set elsewhere in the application, and that the user cannot change by clicking on the slider. </li> &nbsp;
+            <li><strong>Min Value</strong>: Set the minimum value that users can select within the range.<br/></li>
+            <li><strong>Max Value</strong>: Define the maximum value that users can select within the range.<br/></li>
+            <li><strong>Step</strong>: Determine the increment value when users interact with the component.<br/></li>
+           <li><strong>ReadOnly</strong>: Select this option if you want to use the slider as a visual representation of a value set elsewhere in the application, and that the user cannot change by clicking on the slider. <br/></li>
         </ul>
     </Column.Item>
     <Column.Item width="35%">

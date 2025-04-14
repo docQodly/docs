@@ -65,14 +65,14 @@ In the *server* parameter, pass an object containing the following properties:
 
 |*server*|Default value (if omitted)|
 |---|---|
-|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)&nbsp; <!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
-|.**accessTokenOAuth2**: string&nbsp; .**accessTokenOAuth2**: object&nbsp; string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
+|[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|False|
+|.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode) - <!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
 |[<!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Syntax -->](#checkconnectiondelay) - <!-- INCLUDE #IMAPTransporterClass.checkConnectionDelay.Summary -->|300|
 |[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout) - <!-- INCLUDE #transporter.connectionTimeOut.Summary -->|30|
 |[<!-- INCLUDE #transporter.host.Syntax -->](#host) - <!-- INCLUDE #transporter.host.Summary -->|*mandatory*
 |[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile) - <!-- INCLUDE #transporter.logFile.Summary -->|none|
-|.**password** : string&nbsp; User password for authentication on the server. Not returned in the `IMAP transporter` object.|none|
+|.**password** : string<br/>User password for authentication on the server. Not returned in the `IMAP transporter` object.|none|
 |[<!-- INCLUDE #transporter.port.Syntax -->](#port) - <!-- INCLUDE #transporter.port.Summary -->|993|
 |[<!-- INCLUDE #transporter.user.Syntax -->](#user) - <!-- INCLUDE #transporter.user.Summary -->|none|
 
@@ -114,7 +114,7 @@ end
 ## .addFlags()
 
 
-<!-- REF #IMAPTransporterClass.addFlags().Syntax -->**.addFlags**( *msgIDs* : collection , *keywords* :  object ) : object&nbsp; **.addFlags**( *msgIDs* : string , *keywords* :  object ) : object&nbsp; **.addFlags**( *msgIDs* : integer  , *keywords* :  object ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.addFlags().Syntax -->**.addFlags**( *msgIDs* : collection , *keywords* :  object ) : object<br/>**.addFlags**( *msgIDs* : string , *keywords* :  object ) : object<br/>**.addFlags**( *msgIDs* : integer  , *keywords* :  object ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.addFlags().Params -->
@@ -296,7 +296,7 @@ The `.checkConnectionDelay` property contains <!-- REF #IMAPTransporterClass.che
 ## .copy()
 
 
-<!-- REF #IMAPTransporterClass.copy().Syntax -->**.copy**( *msgsIDs* : collection , *destinationBox* : string ) : object&nbsp; **.copy**( *allMsgs* : integer , *destinationBox* : string ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.copy().Syntax -->**.copy**( *msgsIDs* : collection , *destinationBox* : string ) : object<br/>**.copy**( *allMsgs* : integer , *destinationBox* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.copy().Params -->
@@ -453,7 +453,7 @@ end
 <!-- REF IMAPTransporterClass.delete().Desc -->
 ## .delete()
 
-<!-- REF #IMAPTransporterClass.delete().Syntax -->**.delete**( *msgsIDs* : collection ) : object&nbsp; **.delete**( *msgsIDs* : integer ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.delete().Syntax -->**.delete**( *msgsIDs* : collection ) : object<br/>**.delete**( *msgsIDs* : integer ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.delete().Params -->
@@ -823,7 +823,7 @@ See [`getBoxList()` example](#getboxlist).
 ## .getMail()
 
 
-<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer \{ , *options* : object \} ) : object&nbsp; **.getMail**( *msgID*: string \{ , *options* : object \} ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMail().Syntax -->**.getMail**( *msgNumber*: integer \{ , *options* : object \} ) : object<br/>**.getMail**( *msgID*: string \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMail().Params -->
@@ -889,7 +889,7 @@ You want to get the message with ID = 1:
 ## .getMails()
 
 
-<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection \{ , *options* : object \} ) : object&nbsp; **.getMails**( *startMsg* : integer , *endMsg* : integer \{ , *options* : object \} ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMails().Syntax -->**.getMails**( *ids* : collection \{ , *options* : object \} ) : object<br/>**.getMails**( *startMsg* : integer , *endMsg* : integer \{ , *options* : object \} ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMails().Params -->
@@ -899,7 +899,7 @@ You want to get the message with ID = 1:
 |startMsg|integer|&#8594;|Sequence number of the first message|
 |endMsg |integer|&#8594;|Sequence number of the last message|
 |options|object|&#8594;|Message handling instructions|
-|Result|object|&#8592;|Object containing:&nbsp; <ul><li>a collection of [Email objects](EmailObjectClass.md#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
+|Result|object|&#8592;|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass.md#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
 
 #### Description
 
@@ -944,7 +944,7 @@ The optional *options* parameter allows you to define the parts of the messages 
 |Property | Type | Description |
 |---|---|---|
 |list  |collection |collection of [`Email` objects](EmailObjectClass.md#properties). If no Email objects are found, an empty collection is returned.|
-|notFound |collection| collection of:&nbsp; <ul><li>first syntax - previously passed message IDs that do not exist</li><li>second syntax - sequence numbers of messages between startMsg and endMsg that do not exist</li></ul>An empty collection is returned if all messages are found.|
+|notFound |collection| collection of:<br/><ul><li>first syntax - previously passed message IDs that do not exist</li><li>second syntax - sequence numbers of messages between startMsg and endMsg that do not exist</li></ul>An empty collection is returned if all messages are found.|
 
 #### Example
 
@@ -982,7 +982,7 @@ You want to retrieve the 20 most recent emails without changing their "seen" sta
 <!-- REF IMAPTransporterClass.getMIMEAsblob().Desc -->
 ## .getMIMEAsblob()
 
-<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer \{ , *updateSeen* : boolean \} ) : blob&nbsp; **.getMIMEAsblob**( *msgID* : string \{ , *updateSeen* : boolean \} ) : blob<!-- END REF -->
+<!-- REF #IMAPTransporterClass.getMIMEAsblob().Syntax -->**.getMIMEAsblob**( *msgNumber* : integer \{ , *updateSeen* : boolean \} ) : blob<br/>**.getMIMEAsblob**( *msgID* : string \{ , *updateSeen* : boolean \} ) : blob<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.getMIMEAsblob().Params -->
@@ -1049,7 +1049,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 ## .move()
 
 
-<!-- REF #IMAPTransporterClass.move().Syntax -->**.move**( *msgsIDs* : collection , *destinationBox* : string ) : object&nbsp; **.move**( *allMsgs* : integer , *destinationBox* : string ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.move().Syntax -->**.move**( *msgsIDs* : collection , *destinationBox* : string ) : object<br/>**.move**( *allMsgs* : integer , *destinationBox* : string ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.move().Params -->
@@ -1195,7 +1195,7 @@ The function returns a collection of strings (unique IDs).
 ## .removeFlags()
 
 
-<!-- REF #IMAPTransporterClass.removeFlags().Syntax -->**.removeFlags**( *msgIDs* : collection , *keywords* :  object ) : object&nbsp; **.removeFlags**( *msgIDs* : string , *keywords* :  object ) : object&nbsp; **.removeFlags**( *msgIDs* : integer , *keywords* :  object ) : object<!-- END REF -->
+<!-- REF #IMAPTransporterClass.removeFlags().Syntax -->**.removeFlags**( *msgIDs* : collection , *keywords* :  object ) : object<br/>**.removeFlags**( *msgIDs* : string , *keywords* :  object ) : object<br/>**.removeFlags**( *msgIDs* : integer , *keywords* :  object ) : object<!-- END REF -->
 
 
 <!-- REF #IMAPTransporterClass.removeFlags().Params -->

@@ -13,7 +13,7 @@ Categorized as part of iterative components, the **Select Box** facilitates user
 
 :::
 
-&nbsp; 
+<br/>
 
 The **Select Box** component is notable for its capacity to present complex options as a dropdown list using embedded components, distinguishing it from the [**Select Input**](./selectinput.md) component that offers less versatile option displays.
  
@@ -58,7 +58,7 @@ Enhance the Select Box component to align with your application's requirements u
 The select box can display a maximum of 15 items.
 :::
 
-&nbsp; 
+<br/>
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -98,7 +98,7 @@ To associate data with the **Select Box** component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Select Box component.</li> &nbsp;
+            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Select Box component.<br/></li>
 			<li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Select Box. For instance, you can select an entity selection, such as the <code>Destination</code> dataclass.</li>
         </ol>
 	</Column.Item>
@@ -126,7 +126,7 @@ To associate data iterated over a Qodly Source, you can follow these additional 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
         <ol>
-            <li value="4"><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.</li> &nbsp;
+            <li value="4"><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.<br/></li>
 			<li value="5"><strong>Choose the Attribute</strong>: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could be attributes like the name of the destination, the country, or any other relevant information.</li>
         </ol>
 	</Column.Item>

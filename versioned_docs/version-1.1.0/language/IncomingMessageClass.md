@@ -77,16 +77,16 @@ There are 2 url parts - Url parts are: start - example
 
 ||
 |---|
-|[<!-- INCLUDE #IncomingMessageClass.getBlob().Syntax -->](#getblob)&nbsp; <!-- INCLUDE #IncomingMessageClass.getBlob().Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.getHeader().Syntax -->](#getheader)&nbsp; <!-- INCLUDE #IncomingMessageClass.getHeader().Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.getJSON().Syntax -->](#getjson)&nbsp; <!-- INCLUDE #IncomingMessageClass.getJSON().Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.getPicture().Syntax -->](#getpicture)&nbsp; <!-- INCLUDE #IncomingMessageClass.getPicture().Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.getText().Syntax -->](#gettext)&nbsp; <!-- INCLUDE #IncomingMessageClass.getText().Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.headers.Syntax -->](#headers)&nbsp; <!-- INCLUDE #IncomingMessageClass.headers.Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.url.Syntax -->](#url)&nbsp; <!-- INCLUDE #IncomingMessageClass.url.Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.urlPath.Syntax -->](#urlpath)&nbsp; <!-- INCLUDE #IncomingMessageClass.urlPath.Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.urlQuery.Syntax -->](#urlquery)&nbsp; <!-- INCLUDE #IncomingMessageClass.urlQuery.Summary -->|
-|[<!-- INCLUDE #IncomingMessageClass.verb.Syntax -->](#verb)&nbsp; <!-- INCLUDE #IncomingMessageClass.verb.Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.getBlob().Syntax -->](#getblob)<br/><!-- INCLUDE #IncomingMessageClass.getBlob().Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.getHeader().Syntax -->](#getheader)<br/><!-- INCLUDE #IncomingMessageClass.getHeader().Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.getJSON().Syntax -->](#getjson)<br/><!-- INCLUDE #IncomingMessageClass.getJSON().Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.getPicture().Syntax -->](#getpicture)<br/><!-- INCLUDE #IncomingMessageClass.getPicture().Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.getText().Syntax -->](#gettext)<br/><!-- INCLUDE #IncomingMessageClass.getText().Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.headers.Syntax -->](#headers)<br/><!-- INCLUDE #IncomingMessageClass.headers.Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.url.Syntax -->](#url)<br/><!-- INCLUDE #IncomingMessageClass.url.Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.urlPath.Syntax -->](#urlpath)<br/><!-- INCLUDE #IncomingMessageClass.urlPath.Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.urlQuery.Syntax -->](#urlquery)<br/><!-- INCLUDE #IncomingMessageClass.urlQuery.Summary -->|
+|[<!-- INCLUDE #IncomingMessageClass.verb.Syntax -->](#verb)<br/><!-- INCLUDE #IncomingMessageClass.verb.Summary -->|
 
 :::note
 

@@ -36,7 +36,7 @@ To address this issue, refine the attribute permissions to restrict access to se
 
 <img src={require('./img/overriddingDataclass.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 By setting attribute permissions in the `ManageFinancials` privilege, you allow users with the `ManageReports` privilege to access the Reporting dataclass while restricting access to confidential attributes like `netProfitMargin` and `totalExpenses`.
 

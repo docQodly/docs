@@ -50,5 +50,5 @@ The following example extracts the hours, minutes, and seconds from the current 
 
 #### See also
 
-[`milliseconds`](milliseconds.md)&nbsp; 
+[`milliseconds`](milliseconds.md)<br/>
 [`string`](string.md)

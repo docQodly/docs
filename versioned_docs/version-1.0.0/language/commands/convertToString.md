@@ -4,7 +4,7 @@ title: convertToString
 ---
 
 
-<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSetString* : string ) : string&nbsp; **convertToString** ( *aBlob* : blob , *charSetInt* : integer ) : string<!-- END REF -->
+<!-- REF #_command_.convertToString.Syntax -->**convertToString** ( *aBlob* : blob , *charSetString* : string ) : string<br/>**convertToString** ( *aBlob* : blob , *charSetInt* : integer ) : string<!-- END REF -->
 
 <!-- REF #_command_.convertToString.Params -->
 |Parameter|Type||Description|

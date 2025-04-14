@@ -4,7 +4,7 @@ title: processNumber
 ---
 
 
-<!-- REF #_command_.processNumber.Syntax -->**processNumber** ( *name* : string ) : integer&nbsp; **processNumber** ( *id* : string ) : integer<!-- END REF -->
+<!-- REF #_command_.processNumber.Syntax -->**processNumber** ( *name* : string ) : integer<br/>**processNumber** ( *id* : string ) : integer<!-- END REF -->
 
 
 <!-- REF #_command_.processNumber.Params -->

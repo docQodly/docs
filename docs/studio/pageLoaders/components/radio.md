@@ -47,7 +47,7 @@ Enhance the **Radio** component to align with your application's requirements us
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Single Selection</strong>: Users can choose only one option at a time, ensuring that their selections are distinct and non-overlapping.</li> &nbsp;
+                <li><strong>Single Selection</strong>: Users can choose only one option at a time, ensuring that their selections are distinct and non-overlapping.<br/></li>
                 <li><strong>Multiple Selection</strong>: Users can choose multiple options that are relevant to their needs.</li>
             </ul>
         </Column.Item>
@@ -56,7 +56,7 @@ Enhance the **Radio** component to align with your application's requirements us
         </Column.Item>
     </Column.List>
 
-&nbsp; 
+<br/>
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
@@ -75,7 +75,7 @@ Enhance the **Radio** component to align with your application's requirements us
         <Column.List align="center" justifyContent="between">
             <Column.Item width="60%">
                 <ul>
-                    <li><strong>Label</strong>: A descriptive text label for each option.</li> &nbsp;
+                    <li><strong>Label</strong>: A descriptive text label for each option.<br/></li>
                     <li><strong>Value</strong>: A distinct value to each option, enabling effective data handling based on the selections made by users.</li>
                 </ul>
             </Column.Item>
@@ -127,7 +127,7 @@ Retrieving user choices is straightforward. By binding a qodlysource to the **Ra
 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="45%">
-        For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. &nbsp;  &nbsp;  &nbsp; 
+        For example, when users make a single choice from a set of options, binding a qodlysource captures the selected option. <br/> <br/> <br/>
         Consequently, you can utilize this option value in various ways, such as within a standard action to initiate a search with matching attribute values.
 	</Column.Item>
 	<Column.Item width="50%">

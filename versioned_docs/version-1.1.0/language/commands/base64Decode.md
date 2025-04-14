@@ -53,5 +53,5 @@ This example lets you transfer a picture via a blob:
 
 #### See also
 
-[`base64Encode`](base64Encode.md)&nbsp; 
+[`base64Encode`](base64Encode.md)<br/>
 [`generateDigest`](generateDigest.md)

@@ -21,8 +21,8 @@ Qodly provides a robust user management system with two distinct interfaces:
 
 | Interface  | Purpose             | Key Features       | Access                 |
 |-----------------|-------------------|---------------------------|------------------------------------------|
-| Users Page  | Centralized app-wide user management.               | - Add new users or assign existing users to environments.&nbsp;  - Edit user details (name, email, profile).&nbsp;  - Remove users entirely or from specific environments.         | App owners and development users only.   |
-| Team Tab  | Environment-specific user management.               | - Add new or existing users to the current environment.&nbsp;  - Edit user details for the specific environment.&nbsp;  - Remove users from the environment (with global removal). | App owners and development users only.   |
+| Users Page  | Centralized app-wide user management.               | - Add new users or assign existing users to environments.<br/> - Edit user details (name, email, profile).<br/> - Remove users entirely or from specific environments.         | App owners and development users only.   |
+| Team Tab  | Environment-specific user management.               | - Add new or existing users to the current environment.<br/> - Edit user details for the specific environment.<br/> - Remove users from the environment (with global removal). | App owners and development users only.   |
 
 :::info
 Users added to environments other than the Development environment:
@@ -48,9 +48,9 @@ If you need to add a new user and assign them to multiple environments:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ul>
-         <li><strong>First Name</strong> and <strong>Last Name</strong> (optional).</li> &nbsp;
-         <li><strong>Email Address</strong> (mandatory).</li> &nbsp;
-         <li>Select an <strong>Environment</strong> to associate the user with.</li> &nbsp;
+         <li><strong>First Name</strong> and <strong>Last Name</strong> (optional).<br/></li>
+         <li><strong>Email Address</strong> (mandatory).<br/></li>
+         <li>Select an <strong>Environment</strong> to associate the user with.<br/></li>
          <li>Assign a <strong>Profile</strong> (e.g., Admin, Viewer).</li>
       </ul>
     </Column.Item>
@@ -77,8 +77,8 @@ Editing a user's details in the Users Page is environment-specific, meaning you 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Navigate to the <strong>Users Page</strong> and identify the user whose details you want to edit.</li> &nbsp;
-         <li>Expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width: '8%'}} /> the user card to reveal their assigned environments.</li> &nbsp;
+         <li>Navigate to the <strong>Users Page</strong> and identify the user whose details you want to edit.<br/></li>
+         <li>Expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width: '8%'}} /> the user card to reveal their assigned environments.<br/></li>
          <li>Click the <img src={require('./img/edit.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the specific environment where the user is assigned.</li>
       </ol>
     </Column.Item>
@@ -90,14 +90,14 @@ Editing a user's details in the Users Page is environment-specific, meaning you 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol start='4'>
-         <li>Modify the following fields as needed:</li> &nbsp;
+         <li>Modify the following fields as needed:<br/></li>
             <ul>
                <li><strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               &nbsp; 
+               <br/>
                <li><strong>Profile</strong> for the selected environment.</li>
-               &nbsp; 
+               <br/>
             </ul>
-         &nbsp; 
+         <br/>
          <li>Click <strong>Update</strong>.</li>
       </ol>
     </Column.Item>
@@ -121,7 +121,7 @@ To completely delete a user from the application, removing them from all environ
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to delete.</li> &nbsp;
+         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to delete.<br/></li>
          <li>Click the <strong>Delete User</strong> <img src={require('./img/deleteUser.png').default} style={{borderRadius: '6px', width: '22%'}} /> button located on the user card.</li>
       </ol>
     </Column.Item>
@@ -155,8 +155,8 @@ Removing a user from a specific environment can be done through the Users Page, 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to remove.</li> &nbsp;
-         <li>Expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width: '8%'}} /> the user card to view all the environments they are assigned to.</li> &nbsp;
+         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to remove.<br/></li>
+         <li>Expand <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width: '8%'}} /> the user card to view all the environments they are assigned to.<br/></li>
          <li>Click the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the specific environment where the user is assigned.</li>
       </ol>
     </Column.Item>
@@ -194,7 +194,7 @@ Adding a user to a specific environment from the **Users Page** is straightforwa
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to assign to another environment.</li> &nbsp;
+         <li>Navigate to the <strong>Users Page</strong> and identify the user you want to assign to another environment.<br/></li>
          <li>Click the <strong>+ Environment</strong> <img src={require('./img/+Environment.png').default} style={{borderRadius: '6px', width: '22%'}} /> button located on the user card.</li>
       </ol>
     </Column.Item>
@@ -206,18 +206,18 @@ Adding a user to a specific environment from the **Users Page** is straightforwa
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol start='3'>
-         <li>Fill in the details in the <strong>Add User to Environment</strong> dialog: </li> &nbsp;
+         <li>Fill in the details in the <strong>Add User to Environment</strong> dialog: <br/></li>
             <ul>
                <li>The <strong>Email Address</strong> field will auto-populate with the selected user's email.</li>
-               &nbsp; 
+               <br/>
                <li>Optionally, update the <strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               &nbsp; 
+               <br/>
                <li>Select the desired <strong>Environment</strong> (e.g., Staging, Production) from the dropdown. The Environment dropdown menu will only display the environments that the user is not yet assigned to. Environments where the user is already added will not appear in the dropdown.</li>
-               &nbsp; 
+               <br/>
                <li>Assign a <strong>Profile</strong> for the selected environment (e.g., Admin, Viewer). </li>
-               &nbsp; 
+               <br/>
             </ul>
-         &nbsp; 
+         <br/>
          <li>Click <strong>Submit</strong> to confirm and finalize the action.</li>
       </ol>
     </Column.Item>
@@ -249,14 +249,14 @@ To add a new user or assign an existing user to the environment you’re managin
    <Column.List align="center" justifyContent="between">
       <Column.Item width="50%">
          <ul>
-            <li><strong>Existing User</strong>:</li> &nbsp;
+            <li><strong>Existing User</strong>:<br/></li>
                <ul>
                   <li>Choose a user from the dropdown, which lists all users previously added to the Users Page.</li>
-                  &nbsp; 
+                  <br/>
                   <li>These users could have been added through the Users Page or other environments’ Team Tabs.</li>
-                  &nbsp; 
+                  <br/>
                </ul>
-            <li><strong>New User</strong>:</li> &nbsp;
+            <li><strong>New User</strong>:<br/></li>
                <ul>
                   <li>Enter the Email Address of the user you want to add for the first time.</li>
                </ul>
@@ -270,9 +270,9 @@ To add a new user or assign an existing user to the environment you’re managin
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol start='4'>
-         <li>Fill in the following details:</li> &nbsp;
+         <li>Fill in the following details:<br/></li>
          <ul>
-            <li><strong>First Name</strong> and <strong>Last Name</strong> (optional).</li> &nbsp;
+            <li><strong>First Name</strong> and <strong>Last Name</strong> (optional).<br/></li>
             <li>Assign a <strong>Profile</strong> (e.g., Admin, Viewer).</li>
          </ul>
       </ol>
@@ -299,7 +299,7 @@ Editing a user’s details in the Team Tab is specific to the environment where 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Open the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production.</li> &nbsp;
+         <li>Open the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production.<br/></li>
          <li>Click the <img src={require('./img/edit.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the user.</li>
       </ol>
     </Column.Item>
@@ -311,14 +311,14 @@ Editing a user’s details in the Team Tab is specific to the environment where 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol start='4'>
-         <li>Modify the following fields as needed:</li> &nbsp;
+         <li>Modify the following fields as needed:<br/></li>
             <ul>
                <li><strong>First Name</strong> and <strong>Last Name</strong>.</li>
-               &nbsp; 
+               <br/>
                <li><strong>Profile</strong> for the selected environment.</li>
-               &nbsp; 
+               <br/>
             </ul>
-         &nbsp; 
+         <br/>
          <li>Click <strong>Update</strong>.</li>
       </ol>
     </Column.Item>
@@ -348,7 +348,7 @@ The Team Tab allows you to remove a user from a specific environment without aff
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       <ol>
-         <li>Navigate to the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production) and identify the user you want to remove.</li> &nbsp;
+         <li>Navigate to the <strong>Team Tab</strong> from the selected environment (e.g., Dev, Staging, Production) and identify the user you want to remove.<br/></li>
          <li>Click the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', width: '8%'}} /> button next to the specific user.</li>
       </ol>
     </Column.Item>

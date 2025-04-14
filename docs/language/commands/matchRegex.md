@@ -3,7 +3,7 @@ id: matchRegex
 title: matchRegex
 ---
 
-<!-- REF #_command_.matchRegex.Syntax -->**matchRegex** ( *pattern* : string , *aString* : string ) : boolean &nbsp; **matchRegex** ( *pattern* : string , *aString* : string , *start* : integer \{, \*} ) : boolean &nbsp; **matchRegex** ( *pattern* : string , *aString* : string , *start* : integer , *pos_found* : integer , *length_found* : integer \{, \*\} ) : boolean<!-- END REF -->
+<!-- REF #_command_.matchRegex.Syntax -->**matchRegex** ( *pattern* : string , *aString* : string ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer \{, \*} ) : boolean <br/>**matchRegex** ( *pattern* : string , *aString* : string , *start* : integer , *pos_found* : integer , *length_found* : integer \{, \*\} ) : boolean<!-- END REF -->
 
 <!-- REF #_command_.matchRegex.Params -->
 |Parameter|Type||Description|

@@ -4,7 +4,7 @@ title: date
 ---
 
 
-<!-- REF #_command_.date.Syntax -->**date** ( *exprString* : string ) : date&nbsp; **date** ( *exprDate* : date ) : date<!-- END REF -->
+<!-- REF #_command_.date.Syntax -->**date** ( *exprString* : string ) : date<br/>**date** ( *exprDate* : date ) : date<!-- END REF -->
 
 
 <!-- REF #_command_.date.Params -->
@@ -85,5 +85,5 @@ You want to get a date from an object attribute, whatever the current attribute 
 
 #### See also
 
-[`bool`](bool.md)&nbsp; 
+[`bool`](bool.md)<br/>
 [`string`](string.md)

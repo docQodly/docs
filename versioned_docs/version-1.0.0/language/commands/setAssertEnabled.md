@@ -39,5 +39,5 @@ Disabling assertions:
 
 #### See also
 
-[`.assert`](assert.md)&nbsp; 
+[`.assert`](assert.md)<br/>
 [`getAssertEnabled`](getAssertEnabled.md)

@@ -5,7 +5,7 @@ title: convertPicture
 
 
 
-<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , *codec* : string )&nbsp; **convertPicture** ( *aPicture* : picture , *codec* : string , *compression* : number )<!-- END REF -->
+<!-- REF #_command_.convertPicture.Syntax -->**convertPicture** ( *aPicture* : picture , *codec* : string )<br/>**convertPicture** ( *aPicture* : picture , *codec* : string , *compression* : number )<!-- END REF -->
 
 
 <!-- REF #_command_.convertPicture.Params -->

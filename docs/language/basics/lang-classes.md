@@ -616,7 +616,7 @@ constructor (side : integer)
 
 ### `super`
 
-<!-- REF #_command_.super.Syntax -->**super** : object&nbsp; **super**( *param...paramN* : any )<!-- END REF -->
+<!-- REF #_command_.super.Syntax -->**super** : object<br/>**super**( *param...paramN* : any )<!-- END REF -->
 
 
 <!-- REF #_command_.super.Params -->

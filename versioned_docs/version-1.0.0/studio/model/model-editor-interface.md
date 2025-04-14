@@ -142,7 +142,7 @@ In this JSON structure:
         <li><code>attributes</code> : An array containing detailed definitions of each attribute of the data class.</li>
         <li><code>extraProperties</code> : Additional properties specific to this data class, such as position and panel color for visualization purposes.</li>
     </ul> 
-    &nbsp; 
+    <br/>
     <li><strong>attributes</strong>: Within the <strong>attributes</strong> array, each attribute definition includes:</li>
     <ul>
         <li><code>name</code> : The name of the attribute.</li>

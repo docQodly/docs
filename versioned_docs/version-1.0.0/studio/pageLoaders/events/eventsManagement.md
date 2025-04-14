@@ -270,7 +270,7 @@ In the preview section, various capabilities are available when actions are boun
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="40%">
@@ -281,7 +281,7 @@ In the preview section, various capabilities are available when actions are boun
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 - **Open Linked Page**: When dealing with a navigation action bound to a specific event, selecting it allows you to access and open the Page associated with that event, using the same icon <img src={require('./img/preview_edit.png').default} style={{borderRadius: '6px', width: '3%'}} />.
     <img src={require('./img/preview_OpenLinkedPage.png').default} style={{borderRadius: '6px'}} />

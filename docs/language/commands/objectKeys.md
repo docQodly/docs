@@ -40,5 +40,5 @@ col = objectKeys(person)
 
 #### See also
 
-[objectEntries](objectEntries.md)&nbsp; 
+[objectEntries](objectEntries.md)<br/>
 [objectValues](objectValues.md)

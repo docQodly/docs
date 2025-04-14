@@ -35,7 +35,7 @@ To set up secure access, generate API keys and retrieve the relevant endpoint.
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 The initial API key management screen shows the environment’s API endpoint and provides an interface for creating new keys.
 
@@ -57,7 +57,7 @@ The initial API key management screen shows the environment’s API endpoint and
 | Property           | Description                                                                                                            |
 |--------------------|------------------------------------------------------------------------------------------------------------------------|
 | **Description**    | A brief identifier for the key to help recognize its purpose. |
-| **API Type** | Choose between two types:&nbsp; &nbsp; 1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.&nbsp; &nbsp; 2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
+| **API Type** | Choose between two types:<br/><br/>1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.<br/><br/>2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
 | **Role**           | Assigns access level based on [application-defined roles](../studio/roles/rolesPrivilegesOverview.md). Default is Admin. |
 | **Expiration Date** | Sets a validity period up to one year for security purposes. |
 | **Allowed Hosts**  | Restrict the API key’s use to specific IPs by adding IP addresses under this setting. |
@@ -93,9 +93,9 @@ In the API management section, each key includes options to:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ul>
-            <li><strong>Show API Key</strong>: This button <img src={require('./img/api-show.png').default} style={{borderRadius: '6px', width: '7%'}} /> reveals the API key in the interface and includes a copy button <img src={require('./img/api-copy.png').default} style={{borderRadius: '6px', width: '6%'}} />, enabling easy duplication of the API key for use in configuring your application or services.</li> &nbsp;
-            <li><strong>Delete API Key</strong>: Positioned next to the API key, this button <img src={require('./img/api-delete.png').default} style={{borderRadius: '6px', width: '7%'}} /> removes the key upon confirmation, safeguarding against unintended deletions.</li> &nbsp;
-            <li><strong>Edit API Key</strong>: Also adjacent to the API display, the edit button <img src={require('./img/api-edit.png').default} style={{borderRadius: '6px', width: '7%'}} /> opens a configuration dialog for modifying the API key's details.</li> &nbsp;
+            <li><strong>Show API Key</strong>: This button <img src={require('./img/api-show.png').default} style={{borderRadius: '6px', width: '7%'}} /> reveals the API key in the interface and includes a copy button <img src={require('./img/api-copy.png').default} style={{borderRadius: '6px', width: '6%'}} />, enabling easy duplication of the API key for use in configuring your application or services.<br/></li>
+            <li><strong>Delete API Key</strong>: Positioned next to the API key, this button <img src={require('./img/api-delete.png').default} style={{borderRadius: '6px', width: '7%'}} /> removes the key upon confirmation, safeguarding against unintended deletions.<br/></li>
+            <li><strong>Edit API Key</strong>: Also adjacent to the API display, the edit button <img src={require('./img/api-edit.png').default} style={{borderRadius: '6px', width: '7%'}} /> opens a configuration dialog for modifying the API key's details.<br/></li>
         </ul>
     </Column.Item>
     <Column.Item width="40%">

@@ -324,7 +324,7 @@ In this example, the first entity will be created and saved but the second will 
 ## .get()   
 
 <!-- REF #DataClassClass.get().Syntax -->
-**.get**( *primaryKey* : integer ) : 4D.Entity&nbsp; **.get**( *primaryKey* : string ) : 4D.Entity<!-- END REF -->
+**.get**( *primaryKey* : integer ) : 4D.Entity<br/>**.get**( *primaryKey* : string ) : 4D.Entity<!-- END REF -->
 
 
 <!-- REF #DataClassClass.get().Params -->
@@ -548,7 +548,7 @@ this example creates a new entity in the "Log" Dataclass and records information
 <!-- REF #DataClassClass.newSelection().Params -->
 |Parameter|Type||Description|
 |---|---|---|---|
-|keepOrder |integer |&#8594; |`kKeepOrdered`: creates an ordered entity selection,&nbsp; `kNonOrdered`: creates an unordered entity selection (default if omitted) |
+|keepOrder |integer |&#8594; |`kKeepOrdered`: creates an ordered entity selection,<br/>`kNonOrdered`: creates an unordered entity selection (default if omitted) |
 |Result|4D.EntitySelection|&#8592;|New blank entity selection related to the dataclass|
 <!-- END REF -->
 
@@ -580,7 +580,7 @@ When created, the entity selection does not contain any entities (`mySelection.l
 ## .query()
 
 <!-- REF #DataClassClass.query().Syntax -->
-**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection &nbsp; **.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #DataClassClass.query().Params -->
 |Parameter|Type||Description|
@@ -690,7 +690,7 @@ Two types of placeholders can be used: **indexed placeholders** and **named plac
 |-	|Indexed placeholders|	Named placeholders|
 |---|---|---|
 |Definition	|Parameters are inserted as :paramIndex (for example :1, :2...) in *queryString* and their corresponding values are provided by the sequence of value parameter(s). You can use up to 128 value parameters|	Parameters are inserted as :paramName (for example :myparam) and their values are provided in the attributes and/or parameters objects in the *querySettings* parameter|
-|Example|`r = class.query(":1 = :2","city","Chicago")`| `o.attributes = {att:"city"}`&nbsp; ` o.parameters = {name:"Chicago"}`&nbsp; ` r = class.query(":att = :name",o)`|
+|Example|`r = class.query(":1 = :2","city","Chicago")`| `o.attributes = {att:"city"}`<br/>` o.parameters = {name:"Chicago"}`<br/>` r = class.query(":att = :name",o)`|
 
 You can mix all argument kinds in *queryString*. A *queryString* can contain, for *attributePath*, *formula* and *value* parameters:
 

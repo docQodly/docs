@@ -67,7 +67,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.</li> &nbsp;
+                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.<br/></li>
                 <li><strong>Input Type</strong>: Select the appropriate input type to match the nature of the expected data. Available types include:</li>
         </ul>
 	</Column.Item>
@@ -154,16 +154,16 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                 :::tip Intervals for Date Input
                         The Intervals feature allows users to control date selection by either linking a datasource or manually defining intervals:
                         <ul>
-                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /></li> &nbsp;
+                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /><br/></li>
                                 | **Interval Type**  | **Description** | **Available Options** |
                                 |--------------------|----------------|----------------------|
-                                | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today &nbsp;  - **From**: calendar picker to select a start date |
-                                | **Until**         | Restricts date selection up to a specific date. | - **Today checkbox**: sets the end date as today &nbsp;  - **To**: calendar picker to select an end date |
-                                | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date &nbsp;  - **To**: end date &nbsp;  - **Repeat**: Weekly, Monthly, Yearly |
+                                | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today <br/> - **From**: calendar picker to select a start date |
+                                | **Until**         | Restricts date selection up to a specific date. | - **Today checkbox**: sets the end date as today <br/> - **To**: calendar picker to select an end date |
+                                | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date <br/> - **To**: end date <br/> - **Repeat**: Weekly, Monthly, Yearly |
                                 | **Days**          | Limits selection to specific days of the week, such as Monday, Tuesday, Wednesday. | - **Days selection dropdown**: allows choosing specific days of the week: Monday, Tuesday, etc. |
-                                &nbsp; 
+                                <br/>
                                 <li>Alternatively, you can bind an external datasource (structured as a collection of objects with specific properties defining the filtering rules) to dynamically fetch intervals. <img src={require('./img/inputType_dateIntervals1.png').default} style={{borderRadius: '6px', width: '30%'}} /></li> 
-                                &nbsp; 
+                                <br/>
                                 #### **Interval Datasource Schema**  
 
                                 | **Property** | **Type** | **Description** |
@@ -171,16 +171,16 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 | `include` | `Boolean` | Defines whether the interval should include (`true`) or exclude (`false`) dates. |
                                 | `type` | `String` | Specifies the interval type. Possible values: **startingFrom, until, range, days**. |
                                 | `params` | `Object` | Contains details about the interval, such as specific dates or recurring patterns. |
-                                &nbsp; 
+                                <br/>
                                 #### **`params` Object Properties**  
                                 | **Interval Type** | **Parameters** | **Example JSON Format** |
                                 |------------------|--------------|--------------------------|
-                                | **Starting From** | - `from` (`String`): Start date. &nbsp; &nbsp;  - `today` (`Boolean`): Uses today's date if `true`. | ``` [{ "include": true, "type": "startingFrom", "params": { "from": "2025-02-08" } }] ``` &nbsp; &nbsp;  ``` [{ "include": true, "type": "startingFrom", "params": { "today": true } }] ``` |
-                                | **Until** | - `to` (`String`): End date. &nbsp; &nbsp;  - `today` (`Boolean`): Uses today’s date if `true`. | ``` [{ "include": true, "type": "until", "params": { "to": "2025-02-08" } }] ``` &nbsp; &nbsp;  ``` [{ "include": true, "type": "until", "params": { "today": true } }] ``` |
-                                | **Range** | - `from` (`String`): Start date. &nbsp; &nbsp;  - `to` (`String`): End date. &nbsp; &nbsp;  - `repeat` (`String`): Optional (`weekly, monthly, yearly`). | ``` [{ "include": true, "type": "range", "params": { "from": "2025-02-08", "to": "2025-02-28", "repeat": "monthly" } }] ``` &nbsp; &nbsp;  ``` [{ "include": true, "type": "range", "params": { "from": "2025-02-08", "to": "2025-02-28" } }] ``` |
+                                | **Starting From** | - `from` (`String`): Start date. <br/><br/> - `today` (`Boolean`): Uses today's date if `true`. | ``` [{ "include": true, "type": "startingFrom", "params": { "from": "2025-02-08" } }] ``` <br/><br/> ``` [{ "include": true, "type": "startingFrom", "params": { "today": true } }] ``` |
+                                | **Until** | - `to` (`String`): End date. <br/><br/> - `today` (`Boolean`): Uses today’s date if `true`. | ``` [{ "include": true, "type": "until", "params": { "to": "2025-02-08" } }] ``` <br/><br/> ``` [{ "include": true, "type": "until", "params": { "today": true } }] ``` |
+                                | **Range** | - `from` (`String`): Start date. <br/><br/> - `to` (`String`): End date. <br/><br/> - `repeat` (`String`): Optional (`weekly, monthly, yearly`). | ``` [{ "include": true, "type": "range", "params": { "from": "2025-02-08", "to": "2025-02-28", "repeat": "monthly" } }] ``` <br/><br/> ``` [{ "include": true, "type": "range", "params": { "from": "2025-02-08", "to": "2025-02-28" } }] ``` |
                                 | **Days** | - `days` (`Array`): Defines allowed weekdays. | ``` [{ "include": true, "type": "days", "params": { "days": [ { "label": "Monday", "value": "monday" } ] } }] ``` |
                         </ul>
-                        &nbsp; 
+                        <br/>
                         Once an interval datasource is added, manual interval addition is disabled. To re-enable manual intervals, remove the datasource first. 
                 :::
                 <Column.List align="center" justifyContent="between">
@@ -202,12 +202,12 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
         </ul>
 </ul>
 
-&nbsp; 
+<br/>
 
-- **Input Format**: Specify the desired format for the entered data. &nbsp; 
+- **Input Format**: Specify the desired format for the entered data. <br/>
 See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.
 
-&nbsp; 
+<br/>
 
 <!-- "read only" removed when "disabled" was added
 - **Read-Only Option**: Toggle the readOnly property to prevent users from editing the input content. This is useful when displaying pre-filled or calculated data that should not be modified. <img src={require('./img/textInput_readonly.png').default} style={{borderRadius: '6px', width: '15%'}} />

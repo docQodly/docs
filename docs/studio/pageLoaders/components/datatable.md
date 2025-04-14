@@ -61,9 +61,9 @@ Enhance the **DataTable** component to align with your application's requirement
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
         <ul>
-            <li><strong>Sorting Behavior</strong>: Control the scrolling behavior of the DataTable after sorting columns. This feature improves navigation and focus in large tables by offering two options:</li> &nbsp;
+            <li><strong>Sorting Behavior</strong>: Control the scrolling behavior of the DataTable after sorting columns. This feature improves navigation and focus in large tables by offering two options:<br/></li>
             <ul>
-                <li><strong>Scroll to Selection (default)</strong>: After sorting, the table keeps the selected element in focus and ensures it remains in view.</li> &nbsp;
+                <li><strong>Scroll to Selection (default)</strong>: After sorting, the table keeps the selected element in focus and ensures it remains in view.<br/></li>
                 <li><strong>Scroll to Top</strong>: After sorting, the table scrolls to the top while retaining the selected element in the table.</li>
             </ul>
         </ul>
@@ -79,10 +79,10 @@ Enhance the **DataTable** component to align with your application's requirement
         <Column.List align="center" justifyContent="between">
                 <Column.Item width="60%">
                         <ul>
-                                <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.</li> &nbsp;
-                                <li><strong>Source</strong>: The source attribute specifies the qodlysource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's qodlysource. This determines the content to be displayed in the column cells.</li> &nbsp;
-                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li> &nbsp;
-                                <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).</li> &nbsp;
+                                <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.<br/></li>
+                                <li><strong>Source</strong>: The source attribute specifies the qodlysource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's qodlysource. This determines the content to be displayed in the column cells.<br/></li>
+                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.<br/></li>
+                                <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).<br/></li>
                                 <li><strong>Sorting</strong>: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.</li>
                         </ul>
                 </Column.Item>
@@ -111,7 +111,7 @@ To associate data with the **DataTable** component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
                 <ol>
-                        <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.</li> &nbsp;
+                        <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.<br/></li>
                         <li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
                 </ol>
 	</Column.Item>

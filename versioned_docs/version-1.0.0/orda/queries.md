@@ -24,7 +24,7 @@ The [`Collection class`](../language/CollectionClass.md#query) contains also a [
 
 The `query()` function is available in both the [entity selection class](../language/EntitySelectionClass.md#query) and the [dataclass class](../language/DataClassClass.md#query).  
 
-**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection &nbsp; **.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection
 
 |Parameter|Type| &nbsp;&nbsp;&nbsp;&nbsp;|Description|
 |---|---|-----|---|
@@ -142,7 +142,7 @@ Two types of placeholders can be used: **indexed placeholders** and **named plac
 |-	|Indexed placeholders|	Named placeholders|
 |---|---|---|
 |Definition	|Parameters are inserted as :paramIndex (for example :1, :2...) in *queryString* and their corresponding values are provided by the sequence of value parameter(s). You can use up to 128 value parameters|	Parameters are inserted as :paramName (for example :myparam) and their values are provided in the attributes and/or parameters objects in the *querySettings* parameter|
-|Example|`r=class.query(":1=:2","city","Chicago")`| `o.attributes={att:"city"}`&nbsp; ` o.parameters={name:"Chicago"}`&nbsp; ` r=class.query(":att=:name",o)`|
+|Example|`r=class.query(":1=:2","city","Chicago")`| `o.attributes={att:"city"}`<br/>` o.parameters={name:"Chicago"}`<br/>` r=class.query(":att=:name",o)`|
  
 You can mix all argument kinds in *queryString*. A *queryString* can contain, for *attributePath*, *formula* and *value* parameters:
 

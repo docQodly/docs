@@ -69,7 +69,7 @@ After the function concludes, the temporary elevation from the `Promote` permiss
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         A function can be promoted from multiple privileges. In such cases, there's no hierarchy determining priority.
-        &nbsp;  
+        <br/> 
         Instead, the session experiencing temporary privilege elevation during function execution, will have access to all resource permissions set in each of the promoting privileges.
     </Column.Item>
     <Column.Item width="30%">
@@ -77,7 +77,7 @@ After the function concludes, the temporary elevation from the `Promote` permiss
     </Column.Item>
 </Column.List>
 
-&nbsp;  
+<br/> 
 
 :::tip
 Refer to the use case of the [`Promote`](#promote-permission-use-case) permission for detailed configuration information.
@@ -92,7 +92,7 @@ To control function execution, the **DataStore** level is configured exclusively
 
 <img src={require('./img/functionPermission_maxRestriction.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 :::info
 
@@ -111,7 +111,7 @@ However, to accommodate scenarios where the `Agent` role needs to execute functi
 
 <img src={require('./img/functionPermission_maxRestriction3.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 :::info 
 In this context, the `bookRoom` privilege overrides function permissions set at the **DataStore** level (`Restricted`).
@@ -149,7 +149,7 @@ Therefore, It becomes essential to include `Promote` permission for the `analyze
 
 <img src={require('./img/functionPermission_maxRestriction7.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 :::info
 <Column.List align="center" justifyContent="between">

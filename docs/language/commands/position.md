@@ -3,7 +3,7 @@ id: position
 title: position
 ---
 
-<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer \{, \*} ) : integer &nbsp; **position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer \{, \*\} ) : integer &nbsp; **position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
+<!-- REF #_command_.position.Syntax -->**position** ( *find* : string , *aString* : string , *start* : integer \{, \*} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound * : integer \{, \*\} ) : integer <br/>**position** ( *find* : string , *aString* : string , *start* : integer , *lengthFound* : integer , *options* : integer ) : integer<!-- END REF -->
 
 <!-- REF #_command_.position.Params -->
 |Parameter|Type||Description|
@@ -118,5 +118,5 @@ In the following example, you want to find all instances of a string and replace
 
 #### See also
 
-[`compareStrings`](compareStrings.md)&nbsp; 
+[`compareStrings`](compareStrings.md)<br/>
 [`substring`](substring.md)

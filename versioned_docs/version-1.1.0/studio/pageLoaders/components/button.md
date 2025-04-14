@@ -35,7 +35,7 @@ Enhance the **Button** component to align with your application's requirements u
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="65%">
         <ul>
-            <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.</li> &nbsp;
+            <li><strong>Label</strong>: Personalize the label to offer clear instructions or guidance.<br/></li>
             <li><strong>Icon Position</strong>: Choose the position of the icon in relation to the label, allowing options for top, bottom, left, right, or even hidden for a seamless integration into your design.</li>
         </ul>
 	</Column.Item>

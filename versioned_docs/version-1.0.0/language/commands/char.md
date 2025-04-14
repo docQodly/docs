@@ -34,5 +34,5 @@ myText  = "hello" + char(kCarriageReturn) + "world"
 
 #### See also
 
-[`characterCode`](characterCode.md)&nbsp; 
+[`characterCode`](characterCode.md)<br/>
 [`Character Reference Symbols`](../basics/lang-text.md#character-reference-symbols)

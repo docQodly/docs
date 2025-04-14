@@ -89,7 +89,7 @@ The top section of the Overview page displays key metrics and the status of your
   <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
       An Edit Alert button is available in this section, allowing you to configure threshold alerts for outbound data usage. This feature ensures that you are notified before reaching critical levels of bandwidth consumption.
-      &nbsp; &nbsp; 
+      <br/><br/>
       Steps to Configure an Alert:
       <ul>
         <li> Click Edit alert next to the outbound data section.</li>
@@ -137,12 +137,12 @@ Below the instance information, the **Activity** section logs recent actions and
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
     Each entry in the Activity history includes:
-    &nbsp;     &nbsp; 
+    <br/>    <br/>
     <ul>
         <li> <strong>Event Description</strong>: Details the action taken, such as updating the version or starting the server.</li>
-        &nbsp; 
+        <br/>
         <li> <strong>User</strong>: Shows which user initiated the action.</li>
-        &nbsp; 
+        <br/>
         <li> <strong>Timestamp</strong>: Displays the date and time when the event occurred.</li>
     </ul>
 	</Column.Item>
@@ -174,9 +174,9 @@ Located in the top-right corner of the Qodly interface, the **Account Dropdown M
     <Column.Item width="50%">
       <ul>
         <li><strong>My Account</strong>: Directs you to the account details page where you can view and update your account information or change your password.</li>
-        &nbsp; 
+        <br/>
         <li><strong>Invoices</strong>: Redirects you to the invoices page, displaying all invoices for applications you own or manage.</li>
-        &nbsp; 
+        <br/>
         <li><strong>Log Out</strong>: Logs you out of the Qodly platform.</li>
       </ul>
     </Column.Item>
@@ -211,7 +211,7 @@ This section provides two main actions:
           <li>Role</li>
           <li>Country</li>
         </ul>
-        &nbsp; 
+        <br/>
         After editing, click <strong>Update</strong> to save the changes or <strong>Cancel</strong> to discard them.
       </Column.Item>
       <Column.Item width="45%">
@@ -228,7 +228,7 @@ This section provides two main actions:
           <li>New Password</li>
           <li>Confirmation of the New Password</li>
         </ul>
-        &nbsp; 
+        <br/>
         Once all fields are filled, click <strong>Update</strong> to apply the changes or <strong>Cancel</strong> to discard them.
       </Column.Item>
       <Column.Item width="45%">

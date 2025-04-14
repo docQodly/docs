@@ -137,7 +137,7 @@ emp2 = employees.at(-3) //starting from the end, 3rd entity
 
 
 <!-- REF EntitySelectionClass.attributeName.Syntax -->
-***.attributeName*** : collection&nbsp; ***.attributeName*** : 4D.EntitySelection<!-- END REF -->
+***.attributeName*** : collection<br/>***.attributeName*** : 4D.EntitySelection<!-- END REF -->
 
 
 #### Description
@@ -281,7 +281,7 @@ Calls to the function can be chained:
 ## .and()
 
 <!-- REF #EntitySelectionClass.and().Syntax -->
-**.and**( *entity* : 4D.Entity ) : 4D.EntitySelection&nbsp; **.and**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
+**.and**( *entity* : 4D.Entity ) : 4D.EntitySelection<br/>**.and**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
 
 
 <!-- REF #EntitySelectionClass.and().Params -->
@@ -751,7 +751,7 @@ Example with the `kStopDroppingOnFirstError` option:
 ## .extract()   
 
 
-<!-- REF #EntitySelectionClass.extract().Syntax -->**.extract**( *attributePath* : string \{ , *option* : integer \} ) : collection&nbsp; **.extract**( *attributePath* \{ , *targetPath* } \{ , *...attributePathN* : string , *targetPathN* : string \} ) : collection<!-- END REF -->
+<!-- REF #EntitySelectionClass.extract().Syntax -->**.extract**( *attributePath* : string \{ , *option* : integer \} ) : collection<br/>**.extract**( *attributePath* \{ , *targetPath* } \{ , *...attributePathN* : string , *targetPathN* : string \} ) : collection<!-- END REF -->
 
 
 <!-- REF #EntitySelectionClass.extract().Params -->
@@ -1181,7 +1181,7 @@ In this example, we want to find the lowest salary among all the female employee
 
 
 <!-- REF #EntitySelectionClass.minus().Syntax -->
-**.minus**( *entity* : 4D.Entity ) : 4D.EntitySelection&nbsp; **.minus**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
+**.minus**( *entity* : 4D.Entity ) : 4D.EntitySelection<br/>**.minus**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.minus().Params -->
 |Parameter|Type||Description|
@@ -1242,7 +1242,7 @@ We want to have a selection of female employees named "Jones" who live in New Yo
 ## .or()   
 
 <!-- REF #EntitySelectionClass.or().Syntax -->
-**.or**( *entity* : 4D.Entity ) : 4D.EntitySelection&nbsp; **.or**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
+**.or**( *entity* : 4D.Entity ) : 4D.EntitySelection<br/>**.or**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.or().Params -->
 |Parameter|Type||Description|
@@ -1296,7 +1296,7 @@ If the original entity selection and the parameter are not related to the same d
 ## .orderBy()   
 
 <!-- REF #EntitySelectionClass.orderBy().Syntax -->
-**.orderBy**( *pathString* : string ) : 4D.EntitySelection&nbsp; **.orderBy**( *pathObjects* : collection ) : 4D.EntitySelection<!-- END REF -->
+**.orderBy**( *pathString* : string ) : 4D.EntitySelection<br/>**.orderBy**( *pathObjects* : collection ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.orderBy().Params -->
 |Parameter|Type||Description|
@@ -1366,7 +1366,7 @@ You can add as many objects in the criteria collection as necessary.
 
 
 <!-- REF #EntitySelectionClass.orderByFormula().Syntax -->
-**.orderByFormula**( *formulaString* : string \{ , *sortOrder* : integer \} \{ , *settings* : object\} ) : 4D.EntitySelection&nbsp; **.orderByFormula**( *formulaObj* : object \{ , *sortOrder* : integer \} \{ , *settings* : object} ) : 4D.EntitySelection<!-- END REF -->
+**.orderByFormula**( *formulaString* : string \{ , *sortOrder* : integer \} \{ , *settings* : object\} ) : 4D.EntitySelection<br/>**.orderByFormula**( *formulaObj* : object \{ , *sortOrder* : integer \} \{ , *settings* : object} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.orderByFormula().Params -->
 |Parameter|Type||Description|
@@ -1483,7 +1483,7 @@ In this example, the "marks" object field in the **Students** dataClass contains
 
 
 <!-- REF #EntitySelectionClass.query().Syntax -->
-**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection &nbsp; **.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
+**.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.query().Params -->
 |Parameter|Type||Description|
@@ -1729,14 +1729,14 @@ sum = sel.sum("salary")
 
 
 <!-- REF #EntitySelectionClass.toCollection().Syntax -->
-**.toCollection**( \{ *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \} } ) : collection&nbsp; **.toCollection**( *filterString* : string \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection&nbsp; **.toCollection**( *filterCol* : collection \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection<!-- END REF -->
+**.toCollection**( \{ *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \} } ) : collection<br/>**.toCollection**( *filterString* : string \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection<br/>**.toCollection**( *filterCol* : collection \{, *options* : integer \{ , *begin* : integer \{ , *howMany* : integer \}}} ) : collection<!-- END REF -->
 
 <!-- REF #EntitySelectionClass.toCollection().Params -->
 |Parameter|Type||Description|
 |---------|--- |:---:|------|
 |filterString |string|&#8594;|string with entity attribute path(s) to extract|
 |filterCol |collection|&#8594;|collection of entity attribute path(s) to extract|
-|options|integer|&#8594;|`kWithPrimaryKey`: adds the primary key&nbsp; `kWithStamp`: adds the stamp|
+|options|integer|&#8594;|`kWithPrimaryKey`: adds the primary key<br/>`kWithStamp`: adds the stamp|
 |begin|integer|	&#8594;|Designates the starting index|
 |howMany|integer|&#8594;|Number of entities to extract|
 |Result|collection|&#8592;|collection of objects containing attributes and values of entity selection|

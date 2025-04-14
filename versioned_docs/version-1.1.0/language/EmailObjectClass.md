@@ -117,7 +117,7 @@ Attachment objects are defined through the [`mailNewAttachment`](MailAttachmentC
 
 ## .bcc
 
-<!-- REF #EmailobjectClass.bcc.Syntax -->**.bcc** : string&nbsp; **.bcc** : object&nbsp; **.bcc** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.bcc.Syntax -->**.bcc** : string<br/>**.bcc** : object<br/>**.bcc** : collection<!-- END REF -->
 
 #### Description
 
@@ -162,7 +162,7 @@ The `.bodyValues` object contains the following properties:
 
 ## .cc
 
-<!-- REF #EmailobjectClass.cc.Syntax -->**.cc** : string&nbsp; **.cc** : object&nbsp; **.cc** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.cc.Syntax -->**.cc** : string<br/>**.cc** : object<br/>**.cc** : collection<!-- END REF -->
 
 #### Description
 
@@ -182,7 +182,7 @@ For specific formatting requirements, please consult the [RFC#5322](https://tool
 
 ## .from
 
-<!-- REF #EmailobjectClass.from.Syntax -->**.from** : string&nbsp; **.from** : object&nbsp; **.from** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.from.Syntax -->**.from** : string<br/>**.from** : object<br/>**.from** : collection<!-- END REF -->
 
 #### Description
 
@@ -300,7 +300,7 @@ For specific formatting requirements, please consult the [RFC#5322](https://tool
 
 ## .replyTo
 
-<!-- REF #EmailobjectClass.replyTo.Syntax -->**.replyTo** : string&nbsp; **.replyTo** : object&nbsp; **.replyTo** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.replyTo.Syntax -->**.replyTo** : string<br/>**.replyTo** : object<br/>**.replyTo** : collection<!-- END REF -->
 
 #### Description
 
@@ -316,7 +316,7 @@ The `.sendAt` property contains the <!-- REF #EmailobjectClass.sendAt.Summary --
 
 ## .sender
 
-<!-- REF #EmailobjectClass.sender.Syntax -->**.sender** : string&nbsp; **.sender** : object&nbsp; **.sender** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.sender.Syntax -->**.sender** : string<br/>**.sender** : object<br/>**.sender** : collection<!-- END REF -->
 
 #### Description
 
@@ -357,7 +357,7 @@ The `.stringBody` property contains the <!-- REF #EmailobjectClass.stringBody.Su
 
 ## .to
 
-<!-- REF #EmailobjectClass.to.Syntax -->**.to** : string&nbsp; **.to** : object&nbsp; **.to** : collection<!-- END REF -->
+<!-- REF #EmailobjectClass.to.Syntax -->**.to** : string<br/>**.to** : object<br/>**.to** : collection<!-- END REF -->
 
 #### Description
 

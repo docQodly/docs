@@ -84,7 +84,7 @@ The Outline panel in the model editor provides a structured view of all datastor
 <Column.List align="center" justifyContent="between">
   <Column.Item width="60%">
     The Outline includes a search bar that allows filtering of datastore classes, attributes, and functions by entering keywords. 
-    &nbsp; 
+    <br/>
     This functionality is particularly useful for large and complex models.
   </Column.Item>
   <Column.Item width="30%">
@@ -104,7 +104,7 @@ The Outline panel in the model editor provides a structured view of all datastor
   </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 Datastore classes can also be added directly from the Outline by clicking the Add Dataclass button: <img src={require('./img/outline_addDataclass.png').default} style={{borderRadius: '6px', width: '25%'}} />
 
@@ -181,7 +181,7 @@ In this JSON structure:
         <li><code>attributes</code> : An array containing detailed definitions of each attribute of the data class.</li>
         <li><code>extraProperties</code> : Additional properties specific to this data class, such as position and panel color for visualization purposes.</li>
     </ul> 
-    &nbsp; 
+    <br/>
     <li><strong>attributes</strong>: Within the <strong>attributes</strong> array, each attribute definition includes:</li>
     <ul>
         <li><code>name</code> : The name of the attribute.</li>

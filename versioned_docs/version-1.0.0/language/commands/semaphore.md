@@ -102,5 +102,5 @@ result = semaphore_proof
 
 #### See also
 
-[`clearSemaphore`](clearSemaphore.md)&nbsp; 
+[`clearSemaphore`](clearSemaphore.md)<br/>
 [`Signal` class](../SignalClass.md)

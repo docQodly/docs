@@ -31,7 +31,7 @@ While datastore permissions cascade down to DataClasses, they remain adaptable. 
 
 <img src={require('./img/overriddingDataStore.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 By setting specific permissions in the `Restricted` privilege for the `Employee` DataClass, you prevent users with the `Guest` privilege from accessing sensitive employee data.
 

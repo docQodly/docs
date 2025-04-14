@@ -72,7 +72,7 @@ Database resource access control depends on the chosen rendering method.
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="75%">
-        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by Qodly Studio's embedded web server. &nbsp; &nbsp; 
+        This option enables you to render the current page directly within the Page Editor window. Here, the Page is rendered by Qodly Studio's embedded web server. <br/><br/>
         This approach provides a comprehensive view of data classes, functions, and attributes, even if they are not exposed as REST resources.
     </Column.Item>
     <Column.Item width="20%">
@@ -80,7 +80,7 @@ Database resource access control depends on the chosen rendering method.
     </Column.Item>
 </Column.List>
 
-&nbsp; 
+<br/>
 
 Please keep in mind that:
 

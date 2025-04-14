@@ -51,7 +51,7 @@ To include the `ManageReports` privilege within the scope of `ManageFinancials`:
 
 <img src={require('./img/IncludePrivilege3.png').default} style={{borderRadius: '6px'}} />
 
-&nbsp; &nbsp; 
+<br/><br/>
 
 :::info
 
