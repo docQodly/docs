@@ -12,28 +12,28 @@ The project structure is organized to facilitate the development and maintenance
 - **src**: The main source code directory.
   - [**components**](#custom-component-repository): The directory for custom components.
     - **ExampleComponent**: An example custom component directory.
-      - [**ExampleComponent.build.tsx**](#examplecomponentbuildtsx-file): Component build logic.
-      - [**ExampleComponent.render.tsx**](#examplecomponentrendertsx-file): Component rendering logic.
-      - [**ExampleComponent.settings.tsx**](#examplecomponentsettingstsx-file): Component settings.
-      - [**ExampleComponent.config.tsx**](#examplecomponentbuildconfig-file): Configuration for the component.
+      - [**ExampleComponent.build.tsx**](#examplecomponentbuildtsx): Component build logic.
+      - [**ExampleComponent.render.tsx**](#examplecomponentrendertsx): Component rendering logic.
+      - [**ExampleComponent.settings.tsx**](#examplecomponentsettingstsx): Component settings.
+      - [**ExampleComponent.config.tsx**](#examplecomponentconfigtsx): Configuration for the component.
       - [**index.tsx**](#indextsx): Entry point for the component.
-    - [**index.tsx**](#indextsx-file-in-components-repository): The entry point for the components directory.
-  - [**App.tsx**](#apptsx-file): Main application component.
+    - [**index.tsx**](#indextsx): The entry point for the components directory.
+  - [**App.tsx**](#apptsx): Main application component.
   - **index.css**: Global CSS styles.
-  - [**main.tsx**](#maintsx-file): Entry point for the application.
+  - [**main.tsx**](#maintsx): Entry point for the application.
   - **vite-env.d.ts**: TypeScript declaration file for Vite.
 - **.eslintrc.cjs**: ESLint configuration file.
 - **.gitignore**: Specifies intentionally untracked files that Git should ignore.
 - **.prettierignore**: Specifies files and directories to ignore for formatting using Prettier.
 - **.prettierrc**: Configuration file for Prettier.
-- [**index.html**](#indexhtml-file): Main HTML file for the application.
+- [**index.html**](#indexhtml): Main HTML file for the application.
 - **package-lock.json**: Lock file for npm dependencies.
 - **package.json**: Project metadata and npm dependencies.
-- [**proxy.config.ts**](#proxyconfigts-file): Configuration for the development server proxy.
+- [**proxy.config.ts**](#proxyconfigts): Configuration for the development server proxy.
 - **README.md**: Project documentation.
 - **tsconfig.json**: TypeScript configuration file.
 - **tsconfig.node.json**: TypeScript configuration file for Node.js.
-- [**vite.config.ts**](#viteconfigts-file): Vite configuration file.
+- [**vite.config.ts**](#viteconfigts): Vite configuration file.
 
 
 <!-- #####################################################

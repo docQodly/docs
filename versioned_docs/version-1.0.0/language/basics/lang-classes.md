@@ -8,7 +8,7 @@ title: Classes
 
 The QodlyScript language supports the concept of **classes**. In a programming language, using a class allows you to define an object behaviour with associated properties and functions.
 
-Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#property) and [computed](#function-get-and-function-set)).
+Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#property) and [computed](#function-get-and-function-set)).
 
 > The class model in QodlyScript is similar to classes in JavaScript, and based on a chain of prototypes.
 
@@ -745,7 +745,7 @@ o = newObject("prop",42,"f",formula(this.prop))
 val = o.f() //42
 ```
 
-When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
+When a [constructor](#constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
 
 ```qs
 //Class: ob
@@ -894,7 +894,7 @@ Singleton classes are not supported by [ORDA-based classes](../../orda/data-mode
 
 ### Creating and using singletons
 
-You declare singleton classes by adding appropriate keyword(s) before the [`Class constructor`](#class-constructor):
+You declare singleton classes by adding appropriate keyword(s) before the [`Class constructor`](#constructor):
 
 - To declare a (process) singleton class, write `singleton Class Constructor()`.
 - To declare a shared singleton class, write `shared singleton Class constructor()`.

@@ -499,7 +499,7 @@ Filters apply to all ORDA or REST requests executed in your Qodly projects. A fi
 |[entitySelection.query()](../language/EntitySelectionClass.md#query)||
 |[entitySelection.attributeName](../language/EntitySelectionClass.md#attributename)|Filter applied if *attributeName* is a related entity or related entities of a filtered dataclass (including alias or computed attribute)|
 |[entity.attributeName](../language/EntityClass.md#attributename)|Filter applied if *attributeName* corresponds to related entities of a filtered dataclass (including alias or computed attribute)|
-|[Create entity selection](../language/EntitySelectionClass.md#create-entity-selection)||
+|[Create entity selection](../language/DataClassClass.md#newselection)||
 
 
 Other ORDA functions accessing data do not directly trigger the filter, but they nevertheless benefit from it. For example, the [`entity.next()`](../language/EntityClass.md#next) function will return the next entity in the already-filtered entity selection. On the other hand, if the entity selection is not filtered, [`entity.next()`](../language/EntityClass.md#next) will work on non-filtered entities.
