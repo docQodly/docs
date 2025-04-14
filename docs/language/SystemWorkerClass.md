@@ -12,11 +12,11 @@ The `SystemWorker` class is available from the `4D` class store.
 
 ||
 |---|
-|[<!-- INCLUDE #4D.SystemWorker.new().Syntax -->](#4d-systemworker-new)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #4D.SystemWorker.new().Summary -->|
+|[<!-- INCLUDE #4D.SystemWorker.new().Syntax -->](#4dsystemworkernew)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #4D.SystemWorker.new().Summary -->|
 |[<!-- INCLUDE #SystemWorkerClass.closeInput().Syntax -->](#closeinput)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.closeInput().Summary --> |
 |[<!-- INCLUDE #SystemWorkerClass.commandLine.Syntax -->](#commandline)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.commandLine.Summary --> |
 |[<!-- INCLUDE #SystemWorkerClass.currentDirectory.Syntax -->](#currentdirectory)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.currentDirectory.Summary --> |
-|[<!-- INCLUDE #SystemWorkerClass.dataType.Syntax -->](#dataype)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.dataType.Summary --> |
+|[<!-- INCLUDE #SystemWorkerClass.dataType.Syntax -->](#datatype)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.dataType.Summary --> |
 |[<!-- INCLUDE #SystemWorkerClass.encoding.Syntax -->](#encoding)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.encoding.Summary --> |
 |[<!-- INCLUDE #SystemWorkerClass.errors.Syntax -->](#errors)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.errors.Summary --> |
 |[<!-- INCLUDE #SystemWorkerClass.exitCode.Syntax -->](#exitcode)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #SystemWorkerClass.exitCode.Summary --> |
@@ -128,7 +128,7 @@ When the executable waits for all data to be received through `postMessage()`, `
 
 #### Description
 
-The `.commandLine` property <!-- REF #SystemWorkerClass.commandLine.Summary -->contains the command line passed as parameter to the [`new()`](#4d-systemworker-new) function<!-- END REF -->.
+The `.commandLine` property <!-- REF #SystemWorkerClass.commandLine.Summary -->contains the command line passed as parameter to the [`new()`](#4dsystemworkernew) function<!-- END REF -->.
 
 This property is **read-only**.
 
@@ -348,7 +348,7 @@ Actually, `.wait()` waits until the end of processing of the `onTerminate` formu
 
 :::note 
 
-During the `.wait()` execution, callback functions are executed, whether they originate from other instances of the same class, or instances of any classes supporting the same callback mechanism (`HTTPRequest`, `TCPConnection`, `SystemWorker`). You can exit from a `.wait()` by calling [`shutdown()`](#shutdown) or `terminate()` (depending on the API) from a callback.
+During the `.wait()` execution, callback functions are executed, whether they originate from other instances of the same class, or instances of any classes supporting the same callback mechanism (`HTTPRequest`, `TCPConnection`, `SystemWorker`). You can exit from a `.wait()` by calling `shutdown()` or [`terminate()`](#terminate) (depending on the API) from a callback.
 
 :::
 

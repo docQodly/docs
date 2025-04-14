@@ -15,7 +15,7 @@ You can view and modify a few of the attribute’s properties when you select or
 
 - **Delete**: Deletes the attribute from the datastore class.
 - **Scope**: A closed lock icon indicates that the attribute is **Not exposed as REST**, i.e. it can only be called from the server code.
-- **Name**: [Attribute name](#attribute-names) that you can change by double-clicking on it to render the area enterable.
+- **Name**: [Attribute name](#attribute-name) that you can change by double-clicking on it to render the area enterable.
   - a name in **bold** indicates that an index is associated to the attribute.
   - a name <u>underlined</u> indicates the primary key attribute
   - a name in _italics_ indicates a not exposed attribute
@@ -261,7 +261,7 @@ Similarly, calculated attributes can be included in **sorts**. When a calculated
 
 ### Create a calculated attribute
 
-You create a calculated attribute by defining a [`get` function](../../orda/data-model.md#function-get-attributename) in the [**entity class**](#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
+You create a calculated attribute by defining a [`get` function](../../orda/data-model.md#function-get-attributename) in the [**entity class**](../../orda/data-model.md#entity-class) of the dataclass. The calculated attribute will be automatically available in the dataclass attributes and in the entity attributes.
 
 Three other calculated attribute functions ([`set`](../../orda/data-model.md#function-set-attributename), [`query`](../../orda/data-model.md#function-query-attributename), and [`orderBy`](../../orda/data-model.md#function-orderby-attributename)) can also be defined in the entity class. They are optional.
 

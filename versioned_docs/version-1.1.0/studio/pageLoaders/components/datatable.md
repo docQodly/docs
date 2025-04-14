@@ -360,7 +360,7 @@ Customize the styles of the DataTable component by utilizing specific CSS classe
 
 The **DataTable** component can respond to various events, enabling dynamic user experiences. 
 
-Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
+Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/commands/webEvent.md) when called in an event function triggered by a **DataTable** component.
 
 Events that can trigger actions within the component include:
 
