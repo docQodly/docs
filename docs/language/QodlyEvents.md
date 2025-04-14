@@ -16,8 +16,8 @@ The **QodlyEvents** class is a **shared singleton**, meaning a single instance i
 
 ||
 |---|
-|[<!-- INCLUDE #QodlyEvents.onStartup().Syntax -->](#onStartup)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStartup().Summary -->|
-|[<!-- INCLUDE #QodlyEvents.onStop().Syntax -->](#onStop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStop().Summary -->|
+|[<!-- INCLUDE #QodlyEvents.onStartup().Syntax -->](#onstartup)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStartup().Summary -->|
+|[<!-- INCLUDE #QodlyEvents.onStop().Syntax -->](#onstop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStop().Summary -->|
 |[<!-- INCLUDE #QodlyEvents.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.me.Summary -->|
 
 
@@ -86,7 +86,7 @@ cs.QodlyEvents.me.onStop({ saveState: true })
 
 The `.me` property <!-- REF #QodlyEvents.me.Summary -->returns the current instance of the QodlyEvents singleton.<!-- END REF --> 
 
-It must be used when calling functions like [onStartup()](#onStartup) or [`onStop()`](#onStop).
+It must be used when calling functions like [onStartup()](#onstartup) or [`onStop()`](#onstop).
 
 :::tip Why .me is Required:
 If you attempt to call:

@@ -472,7 +472,7 @@ In the *msgsIDs* parameter, you can pass:
 * a collection containing the unique IDs of the specific messages to delete, or
 * the `kIMAPAll` constant (integer) to delete all messages in the selected mailbox.
 
-Executing this function does not actually remove messages. Messages with the "delete" flag can still be found by the [`.searchMails()`](#searchmails) function. Flagged messages are deleted from the IMAP server with the [`.expunge()`](#expunge) function or by selecting another mailbox or when the IMAP transporter object (created with [4D.IMAPTransporter.new](#imap-new-transporter)) is destroyed.
+Executing this function does not actually remove messages. Messages with the "delete" flag can still be found by the [`.searchMails()`](#searchmails) function. Flagged messages are deleted from the IMAP server with the [`.expunge()`](#expunge) function or by selecting another mailbox or when the IMAP transporter object (created with [4D.IMAPTransporter.new](#4dimaptransporternew)) is destroyed.
 
 **Returned object**
 

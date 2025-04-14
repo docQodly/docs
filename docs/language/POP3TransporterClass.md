@@ -44,19 +44,19 @@ POP3 Transporter objects provide the following properties and functions:
 
 #### Description
 
-The `4D.POP3Transporter.new()` function <!-- REF #4D.POP3Transporter.new().Summary -->configures a new POP3 connection<!-- END REF -->according to the *server* parameter and returns a new *[POP3 transporter](#pop3-transporter-object)* object. The returned transporter object will then usually be used to receive emails.
+The `4D.POP3Transporter.new()` function <!-- REF #4D.POP3Transporter.new().Summary -->configures a new POP3 connection<!-- END REF -->according to the *server* parameter and returns a new *[POP3 transporter](#functions-and-properties)* object. The returned transporter object will then usually be used to receive emails.
 
 In the *server* parameter, pass an object containing the following properties:
 
 |*server*|Default value (if omitted)|
 |---|---|
 |[<!-- INCLUDE #transporter.acceptUnsecureConnection.Syntax -->](#acceptunsecureconnection)<br/><!-- INCLUDE #transporter.acceptUnsecureConnection.Summary -->|false|
-|.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). Not returned in *[SMTP transporter](#smtptransporterobject)* object.|none|
+|.**accessTokenOAuth2**: string<br/>.**accessTokenOAuth2**: object<br/>string string or token object representing OAuth2 authorization credentials. Used only with OAUTH2 `authenticationMode`. If `accessTokenOAuth2` is used but `authenticationMode` is omitted, the OAuth 2 protocol is used (if allowed by the server). |none|
 |[<!-- INCLUDE #transporter.authenticationMode.Syntax -->](#authenticationmode)<br/><!-- INCLUDE #transporter.authenticationMode.Summary -->|the most secure authentication mode supported by the server is used|
 |[<!-- INCLUDE #transporter.connectionTimeOut.Syntax -->](#connectiontimeout)<br/><!-- INCLUDE #transporter.connectionTimeOut.Summary -->|30|
 |[<!-- INCLUDE #transporter.host.Syntax -->](#host)<br/><!-- INCLUDE #transporter.host.Summary -->|*mandatory*
 |[<!-- INCLUDE #transporter.logFile.Syntax -->](#logfile)<br/><!-- INCLUDE #transporter.logFile.Summary -->|none|
-|**.password** : string<br/>User password for authentication on the server. Not returned in *[SMTP transporter](#smtptransporterobject)* object.|none|
+|**.password** : string<br/>User password for authentication on the server. |none|
 |[<!-- INCLUDE #transporter.port.Syntax -->](#port)<br/><!-- INCLUDE #transporter.port.Summary -->|995|
 |[<!-- INCLUDE #transporter.user.Syntax -->](#user)<br/><!-- INCLUDE #transporter.user.Summary -->|none|
 
@@ -232,7 +232,7 @@ info = "The mailbox contains "+string(boxInfo.mailCount)+" messages.")
 
 ##### Description
 
-The `.getMail()` function <!-- REF #POP3TransporterClass.getMail().Summary -->returns the `Email` object corresponding to the *msgNumber* in the mailbox designated by the [`POP3 transporter`](#pop3-transporter-object)<!-- END REF -->. This function allows you to locally handle the email contents.
+The `.getMail()` function <!-- REF #POP3TransporterClass.getMail().Summary -->returns the `Email` object corresponding to the *msgNumber* in the mailbox designated by the [`POP3 transporter`](#functions-and-properties)<!-- END REF -->. This function allows you to locally handle the email contents.
 
 Pass in *msgNumber* the number of the message to retrieve. This number is returned in the `number` property by the [`.getMailInfoList()`](#getmailinfolist) function.
 

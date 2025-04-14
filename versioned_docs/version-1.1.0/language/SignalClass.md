@@ -26,12 +26,12 @@ Any worker/process calling the `.wait()` method will suspend its execution until
 
 Note that to avoid blocking situations, the `.wait()` can also return after a defined timeout has been reached.
 
-Signal objects are created with the [newSignal](#newsignal) command.
+Signal objects are created with the [newSignal](./commands/newSignal.md) command.
 
 
 ### Working with signals
 
-In QodlyScript, you create a new signal object by calling the [`newSignal`](#newsignal) command. Once created, this signal must be passed as a parameter to the [`callWorker`](commands/callWorker.md) command so that it can modify it when it has finished the task you want to wait for.
+In QodlyScript, you create a new signal object by calling the [`newSignal`](./commands/newSignal.md) command. Once created, this signal must be passed as a parameter to the [`callWorker`](commands/callWorker.md) command so that it can modify it when it has finished the task you want to wait for.
 
 - `signal.wait()` must be called from the worker that needs another worker to finish a task in order to continue.
 - `signal.trigger()` must be called from the worker that finished its execution in order to release all others.
