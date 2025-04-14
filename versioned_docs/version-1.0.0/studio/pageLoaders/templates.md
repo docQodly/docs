@@ -36,10 +36,13 @@ Navigate to the Components section and locate the Templates tab to explore the a
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ol start="3">
-            <li> <strong>Explore Templates</strong>: Upon selection, a panel opens, presenting various templates.<br/></li>
-            Each template is accompanied by a <code>Preview Image</code> to visualize the template's content and a <code>Title and Description</code> to understand the template's purpose and functionality.
-            <br/><br/>
-            <img alt="styles-library" src={require('./img/templates_description.png').default} style={{borderRadius: '6px'}} />
+                <li>
+                        <strong>Explore Templates</strong>: Upon selection, a panel opens, presenting various templates.
+                        <br/><br/>
+                        Each template is accompanied by a <code>Preview Image</code> to visualize the template's content and a <code>Title and Description</code> to understand the template's purpose and functionality.
+                        <br/><br/>
+                        <img alt="styles-library" src={require('./img/templates_description.png').default} style={{borderRadius: '6px'}} />
+                </li>
         </ol>
 	</Column.Item>
 	<Column.Item width="40%">
