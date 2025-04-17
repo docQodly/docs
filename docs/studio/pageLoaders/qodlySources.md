@@ -52,7 +52,7 @@ Shared qodlysource, on the other hand, are scoped to the entire application and 
 By default, when you [**create a Qodly Source**](#creating-a-qodly-source) without specifying a namespace, you define a Page qodlysource.
 :::
 
-#### Shared functions
+### Shared functions
 
 Shared functions are also accessible when Entity and Entity Selection serve as shared qodlysources, making them available for use in multiple Pages within the same project.
 
@@ -67,6 +67,56 @@ When selecting a component bound to a qodlysource, the Properties panel provides
 :::info
 When configuring a function event, the Contextual panel indicates whether the function is shared.
 :::
+
+## Built-in Shared Qodly Namespace
+
+Shared namespaces enable you to define qodlysources accessible across multiple pages within your application. Among these shared namespaces, Qodly provides a built-in namespace named `Qodly`, specially designed to simplify common tasks related to URL handling and shared data management.
+
+The `Qodly` namespace  <img src={require('./img/Built-inSharedQodlyNamespace.png').default} style={{borderRadius: '6px', width: '30%'}} /> is automatically included in every Qodly project. It is designed to help developers easily access and manage shared data crucial for application-wide tasks, such as URL parsing and navigation management. This namespace:
+
+- Cannot be edited or deleted to ensure consistency and integrity across your application.
+
+- Provides ready-to-use datasources available to all application pages.
+
+
+
+### Qodlysource: Location
+
+Within the **Qodly** namespace, you'll find the predefined datasource named **Location** <img src={require('./img/QodlysourceLocation.png').default} style={{borderRadius: '6px', width: '30%'}} />. 
+
+The Location qodlysource is specifically designed to facilitate handling URL-related data, making it simple to interact with different URL segments.
+
+
+#### Key Attributes of Location:
+
+- **urlQuery** *(Array)*: Stores URL segments that identify specific resources. These segments represent parts of the URL separated by slashes (`/`).
+  
+  **Example:**
+  ```javascript
+  // URL: example.com/products/item
+  Location.urlQuery // Output: ["products", "item"]
+  ```
+
+- **urlPath** *(Object)*: Contains key-value pairs representing parameters that appear after the question mark (`?`) in URLs.
+
+  **Example:**
+  ```javascript
+  // URL: example.com/search?category=shoes&color=blue
+  Location.urlPath // Output: { category: "shoes", color: "blue" }
+  ```
+
+- **anchor** *(String)*: Stores the part of the URL following the hash symbol (`#`). This is typically used for navigation within the same page or handling client-side routing.
+
+  **Example:**
+  ```javascript
+  // URL: example.com/page#section3
+  Location.anchor // → "section3"
+  ```
+
+:::info Restrictions:
+The **Location** datasource is shared across your entire application and **cannot be edited or deleted**. This ensures uniform behavior and prevents accidental modifications.
+:::
+
 
 ## Creating a Qodly Source
 
