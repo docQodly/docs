@@ -110,7 +110,10 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <img src={require('./img/inputType_password.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
-                :::tip Reveal Password Toggle
+                
+                :::tip 
+                #### Reveal Password Toggle:
+
                         <Column.List align="center" justifyContent="between">
                                 <Column.Item width="50%">
                                         For Text Input components of type password, when the "Reveal Password" toggle is enabled:
@@ -130,7 +133,8 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                         </Column.List>
                         However, when the "Reveal Password" toggle is disabled, the password remains hidden, and the tooltip functionality is not available.
                 :::
-                :::tip Direction Option for the Reveal Password Icon
+                :::tip 
+                #### Direction Option for the Reveal Password Icon:
                         <Column.List align="center" justifyContent="between">
                                 <Column.Item width="70%">
                                         You can adjust the placement of the reveal password icon within the text input field. Choose between left or right positioning based on your design preferences or functional needs.
@@ -148,19 +152,42 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 <img src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
                         </Column.Item>
                 </Column.List>
-                :::tip Week Start Customization in Date Picker
-                        **Week Starts** <img src={require('./img/inputType_dateWeekStarts.png').default} style={{borderRadius: '6px', width: '35%'}} /> defines which day should be considered the start of the week in the date picker. You can select a starting day such as Monday, Sunday, or any other day depending on your region or application needs.
+                :::tip 
+                #### Week Start Customization in Date Picker:
+                        Week Starts <img src={require('./img/inputType_dateWeekStarts.png').default} style={{borderRadius: '6px', width: '35%'}} /> defines which day should be considered the start of the week in the date picker. You can select a starting day such as Monday, Sunday, or any other day depending on your region or application needs.
                 :::
-                :::tip Intervals for Date Input
+                :::tip 
+                #### Intervals for Date Input:
                         The Intervals feature allows users to control date selection by either linking a datasource or manually defining intervals:
                         <ul>
-                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /><br/></li>
+                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /><br/> After adding an interval, you'll see a **dropdown menu to choose the Interval Type**</li>
                                 | **Interval Type**  | **Description** | **Available Options** |
                                 |--------------------|----------------|----------------------|
                                 | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today <br/> - **From**: calendar picker to select a start date |
                                 | **Until**         | Restricts date selection up to a specific date. | - **Today checkbox**: sets the end date as today <br/> - **To**: calendar picker to select an end date |
                                 | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date <br/> - **To**: end date <br/> - **Repeat**: Weekly, Monthly, Yearly |
                                 | **Days**          | Limits selection to specific days of the week, such as Monday, Tuesday, Wednesday. | - **Days selection dropdown**: allows choosing specific days of the week: Monday, Tuesday, etc. |
+                                <br/>
+                                #### Include Checkbox (within the card):
+                                <Column.List align="center" justifyContent="between">
+                                        <Column.Item width="60%">
+                                                The options displayed in the interval form will change based on the selected type—except for one field that remains constant across all types: the <strong>Include</strong> checkbox. This checkbox lets you define whether that specific interval should <em>include</em> or <em>exclude</em> the selected date range.  
+                                        </Column.Item>
+                                        <Column.Item width="35%">
+                                                <img src={require('./img/includeDateRange.png').default} style={{borderRadius: '6px'}} />
+                                        </Column.Item>
+                                </Column.List>
+
+                                #### Card Toggle (top-right):
+                                <Column.List align="center" justifyContent="between">
+                                        <Column.Item width="60%">
+                                                Each interval card also has a <strong>toggle in the top-right corner</strong> that lets you enable or disable the entire interval block. Disabling the toggle will prevent that interval from being applied, but your configuration is preserved—you won’t lose your settings.
+                                        </Column.Item>
+                                        <Column.Item width="35%">
+                                                <img src={require('./img/intervalCardToggle.png').default} style={{borderRadius: '6px'}} />
+                                        </Column.Item>
+                                </Column.List>
+
                                 <br/>
                                 <li>Alternatively, you can bind an external datasource (structured as a collection of objects with specific properties defining the filtering rules) to dynamically fetch intervals. <img src={require('./img/inputType_dateIntervals1.png').default} style={{borderRadius: '6px', width: '30%'}} /></li> 
                                 <br/>
