@@ -165,9 +165,10 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 |--------------------|----------------|----------------------|
                                 | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today <br/> - **From**: calendar picker to select a start date |
                                 | **Until**         | Restricts date selection up to a specific date. | - **Today checkbox**: sets the end date as today <br/> - **To**: calendar picker to select an end date |
-                                | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date <br/> - **To**: end date <br/> - **Repeat**: Weekly, Monthly, Yearly |
+                                | **Range**         | Specifies a date range with a start and end date, and can be set to repeat (e.g., Weekly). | - **From**: start date <br/> - **To**: end date <br/> - **Repeat**: Weekly, Monthly, Yearly <br/><br/> **⚠️ Note:** If the start date is later than the end date, an error will be shown and dates will be disabled until corrected. <img src={require('./img/rangeIntervalInconsistentDates.png').default} style={{borderRadius: '6px', width: '60%'}} />|
                                 | **Days**          | Limits selection to specific days of the week, such as Monday, Tuesday, Wednesday. | - **Days selection dropdown**: allows choosing specific days of the week: Monday, Tuesday, etc. |
                                 <br/>
+
                                 #### Include Checkbox (within the card):
                                 <Column.List align="center" justifyContent="between">
                                         <Column.Item width="60%">
