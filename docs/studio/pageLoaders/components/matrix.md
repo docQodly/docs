@@ -46,6 +46,20 @@ Enhance the **Matrix** component to align with your application's requirements u
         </Column.Item>
     </Column.List>
 
+- **Selection Behavior**: Defines how the Matrix component behaves after data is updated, such as after reloading or applying a filter. Developers can choose from different behaviors to control how the Matrix scrolls and whether an element is automatically selected.
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="60%">
+            <ul>
+                <li><strong>Select & Scroll First</strong>: With this option, the Matrix automatically scrolls to the top and selects the first element whenever data is reloaded or filtered.</li>
+                <li><strong>Select & Scroll Current (Default)</strong>: By default, the Matrix scrolls to the currently selected item and keeps it in view after a data update.</li>
+				<li><strong>No Select</strong>: With this option, the Matrix retains its current scroll position and does not auto-select any element after a data update.</li>
+            </ul>
+        </Column.Item>
+        <Column.Item width="35%">
+            <img src={require('./img/matrixCustomizableScrollPositioning.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
 
 ## Data Integration
 
