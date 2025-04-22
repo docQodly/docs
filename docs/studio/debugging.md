@@ -91,24 +91,6 @@ Breakpoints can have different statuses depending on the context, which are repr
 |<img src={require('./img/debug11.png').default} style={{borderRadius: '6px'}}/>|Unverified breakpoint|The breakpoint is saved, but no debug session is currently active. It will not pause code execution until a debug session is started.| 
 |<img src={require('./img/debug12.png').default} style={{borderRadius: '6px'}}/>|Disabled breakpoint|The breakpoint has been manually disabled. It remains visible but will not interrupt code execution until re-enabled.| 
 
-
-### Breakpoints Management
-
-Managing breakpoints is crucial for a streamlined debugging process. By using a specific button <img src={require('./img/managingBreakpoints1.png').default} style={{borderRadius: '6px', width: '3%'}} /> within the code editor, you can perform various actions to organize your breakpoints:
-
-<Column.List align="center" justifyContent="between">
-    <Column.Item width="55%">
-        <ul>
-            <li><strong>Remove Breakpoints in the Current File</strong>: Clears all breakpoints from your active file.<br/></li>
-            <li><strong>Remove Breakpoints in Other Files</strong>: Removes all breakpoints from non-active files.<br/></li>
-            <li><strong>Remove Breakpoints in All Files</strong>: Eliminates all breakpoints across the entire project.<br/></li>                                        
-        </ul>
-    </Column.Item>
-    <Column.Item width="40%">
-        <img src={require('./img/managingBreakpoints2.png').default} style={{borderRadius: '6px'}} />
-    </Column.Item>
-</Column.List>
-
 ## Debugger Sidebar
 
 The **Debugger Sidebar** provides a centralized interface to monitor and manage all breakpoints across an application. It is designed to give developers full visibility into their active, disabled, or grouped breakpoints—regardless of which file or method they belong to.
@@ -188,14 +170,14 @@ Breakpoints can be removed individually or in groups:
 
 - An overflow menu (⋮) provides additional bulk removal options:
     <Column.List align="center" justifyContent="between">
-        <Column.Item width="35%">
+        <Column.Item width="45%">
             <ul>
-                <li>Remove breakpoints in the current file.<br/></li>
-                <li>Remove breakpoints in other files.<br/></li>
-                <li>Remove all breakpoints across the entire app.</li> 
+                <li><strong>Remove Breakpoints in the Current File</strong>: Clears all breakpoints from your active file.<br/></li>
+                <li><strong>Remove Breakpoints in Other Files</strong>: Removes all breakpoints from non-active files.<br/></li>
+                <li><strong>Remove Breakpoints in All Files</strong>: Eliminates all breakpoints across the entire project.<br/></li>  
             </ul>
         </Column.Item>
-        <Column.Item width="60%">
+        <Column.Item width="50%">
             <img src={require('./img/managingBreakpoints10.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
