@@ -61,6 +61,10 @@ Enhance the **Matrix** component to align with your application's requirements u
         </Column.Item>
     </Column.List>
 
+:::info
+The Selection Behavior option is only visible if the currently selected element in the Matrix is filled.
+:::
+
 ## Data Integration
 
 The **Matrix** component is data-bound, meaning it relies on an external qodlysource to populate its options. This allows the component to display and interact with data.
