@@ -89,6 +89,7 @@ Breakpoints can have different statuses depending on the context, which are repr
 | <img src={require('./img/debug9.png').default} style={{borderRadius: '6px'}}/>|Breakpoint|The breakpoint is validated in the debug session and will pause code execution as expected.| 
 |<img src={require('./img/debug10.png').default} style={{borderRadius: '6px'}}/>|Draft breakpoint|The method or function where the breakpoint is set has not been correctly saved. Please ensure you save your changes first for the breakpoint to be validated and take effect.| 
 |<img src={require('./img/debug11.png').default} style={{borderRadius: '6px'}}/>|Unverified breakpoint|The breakpoint is saved, but no debug session is currently active. It will not pause code execution until a debug session is started.| 
+|<img src={require('./img/debug12.png').default} style={{borderRadius: '6px'}}/>|Disabled breakpoint|The breakpoint is | 
 
 
 ### Breakpoints Management
@@ -108,3 +109,84 @@ Managing breakpoints is crucial for a streamlined debugging process. By using a 
     </Column.Item>
 </Column.List>
 
+## Managing Breakpoints
+
+### Sidebar Overview
+
+The **Breakpoints Sidebar** provides a centralized interface to monitor and manage all breakpoints across an application. It is designed to give developers full visibility into their active, disabled, or grouped breakpoints—regardless of which file or method they belong to.
+
+You can open the Breakpoints Sidebar from the left-hand panel in the code editor:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <ol>
+            <li>Open Qodly Studio.<br/></li>
+            <li>In the code editor, look for the vertical tab on the left side.<br/></li>
+            <li>Click the sidebar icon to open the Breakpoints Sidebar<br/></li>                                        
+        </ol>
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/managingBreakpoints3.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+:::info
+You can interact with all breakpoints even if they’re in different files — no need to open each one manually. The Breakpoints Sidebar saves time and helps you stay focused when debugging large apps.
+:::
+
+### Sidebar Structure
+
+The Breakpoints Sidebar displays all breakpoints grouped by file path and method or class name. For each breakpoint, the following information and actions are available:
+
+<Column.List align="center" justifyContent="between">
+    <Column.Item width="55%">
+        <ol>
+            <li>Breakpoint label: Indicates the method or class and line number where the breakpoint is defined.<br/></li>
+            <li>Status checkbox: Marks whether the breakpoint is currently active or disabled.<br/></li>
+            <li>Line number: Shown on the right to indicate the exact position within the code.<br/></li> 
+            <li>Action icons: Provide quick access to delete, or navigate to a breakpoint once you hover over a breakpoint.<br/></li>                                        
+        </ol>
+    </Column.Item>
+    <Column.Item width="40%">
+        <img src={require('./img/managingBreakpoints4.png').default} style={{borderRadius: '6px'}} />
+    </Column.Item>
+</Column.List>
+
+### Breakpoint Activation
+
+Each breakpoint is associated with an activation checkbox:
+
+- When the checkbox is selected <img src={require('./img/managingBreakpoints5.png').default} style={{borderRadius: '6px', width:'10%'}} />, the breakpoint is active and will interrupt code execution during a debug session.
+- When the checkbox is cleared <img src={require('./img/managingBreakpoints6.png').default} style={{borderRadius: '6px', width:'13%'}} />, the breakpoint remains listed but is temporarily disabled.
+
+To manage breakpoints in bulk, a "Disable All" button <img src={require('./img/managingBreakpoints7.png').default} style={{borderRadius: '6px', width:'35%'}} /> is available at the top of the panel, allowing all breakpoints across the app to be disabled simultaneously without deletion.
+
+### Breakpoint Deletion
+
+Breakpoints can be removed individually or in groups:
+
+- The trash icon beside a specific breakpoint <img src={require('./img/managingBreakpoints8.png').default} style={{borderRadius: '6px', width:'35%'}} /> removes only that breakpoint.
+- The trash icon beside a method or class header <img src={require('./img/managingBreakpoints9.png').default} style={{borderRadius: '6px', width:'35%'}} /> removes all breakpoints defined within that method or class.
+
+- An overflow menu (⋮) provides additional bulk removal options:
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="35%">
+            <ul>
+                <li>Remove breakpoints in the current file.<br/></li>
+                <li>Remove breakpoints in other files.<br/></li>
+                <li>Remove all breakpoints across the entire app.</li> 
+            </ul>
+        </Column.Item>
+        <Column.Item width="60%">
+            <img src={require('./img/managingBreakpoints10.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+### Breakpoint Navigation
+
+Each breakpoint entry includes an edit icon <img src={require('./img/managingBreakpoints11.png').default} style={{borderRadius: '6px', width:'30%'}} /> that enables direct navigation to the corresponding line in the code editor. This function supports fast inspection or modification of the code surrounding the breakpoint location.
+
+
+### Collapse/Expand Groups
+
+To improve readability when working with a large number of breakpoints, the sidebar includes a "Collapse All" button <img src={require('./img/managingBreakpoints12.png').default} style={{borderRadius: '6px', width:'30%'}} /> . This feature collapses all method or class sections, minimizing the visual footprint of the list and helping developers focus only on relevant groups.
