@@ -141,11 +141,11 @@ For more information, please refer to the [Managing Breakpoints](#managing-break
 
 During a debug session, the debugger sidebar also includes a **Variables section**. This panel helps you inspect the state of your code at any given moment by displaying:
 
-- Local variables of the currently executed method or class
+- **Local Variables**: Displays all variables that are currently in scope within the method or class being executed. This includes any variables you've defined inside that function or block of code.
 
-- Variables of the current line, if applicable
+- **Current Line Variable**: Highlights the specific variable being accessed or modified on the line of code currently being executed.
 
-- Arguments, which represent the collection of parameters passed to the 4D Debugger
+- **Arguments**: Lists the arguments passed into the method, function, or class. These represent the input values the current code is working with, as provided by the calling context.
 
 This makes it easier to understand the current context, trace issues, and test assumptions while stepping through your code.
 
