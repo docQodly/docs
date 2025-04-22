@@ -89,7 +89,7 @@ Breakpoints can have different statuses depending on the context, which are repr
 | <img src={require('./img/debug9.png').default} style={{borderRadius: '6px'}}/>|Breakpoint|The breakpoint is validated in the debug session and will pause code execution as expected.| 
 |<img src={require('./img/debug10.png').default} style={{borderRadius: '6px'}}/>|Draft breakpoint|The method or function where the breakpoint is set has not been correctly saved. Please ensure you save your changes first for the breakpoint to be validated and take effect.| 
 |<img src={require('./img/debug11.png').default} style={{borderRadius: '6px'}}/>|Unverified breakpoint|The breakpoint is saved, but no debug session is currently active. It will not pause code execution until a debug session is started.| 
-|<img src={require('./img/debug12.png').default} style={{borderRadius: '6px'}}/>|Disabled breakpoint|The breakpoint is | 
+|<img src={require('./img/debug12.png').default} style={{borderRadius: '6px'}}/>|Disabled breakpoint|The breakpoint has been manually disabled. It remains visible but will not interrupt code execution until re-enabled.| 
 
 
 ### Breakpoints Management
