@@ -109,20 +109,18 @@ Managing breakpoints is crucial for a streamlined debugging process. By using a 
     </Column.Item>
 </Column.List>
 
-## Managing Breakpoints
+## Debugger Sidebar
 
-### Sidebar Overview
+The **Debugger Sidebar** provides a centralized interface to monitor and manage all breakpoints across an application. It is designed to give developers full visibility into their active, disabled, or grouped breakpoints—regardless of which file or method they belong to.
 
-The **Breakpoints Sidebar** provides a centralized interface to monitor and manage all breakpoints across an application. It is designed to give developers full visibility into their active, disabled, or grouped breakpoints—regardless of which file or method they belong to.
-
-You can open the Breakpoints Sidebar from the left-hand panel in the code editor:
+You can open the Debugger Sidebar from the left-hand panel in the code editor:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ol>
             <li>Open Qodly Studio.<br/></li>
             <li>In the code editor, look for the vertical tab on the left side.<br/></li>
-            <li>Click the sidebar icon to open the Breakpoints Sidebar<br/></li>                                        
+            <li>Click the sidebar icon to open the Debugger Sidebar<br/></li>                                        
         </ol>
     </Column.Item>
     <Column.Item width="40%">
@@ -151,6 +149,26 @@ The Breakpoints Sidebar displays all breakpoints grouped by file path and method
         <img src={require('./img/managingBreakpoints4.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
+
+:::info
+For more information, please refer to the [Managing Breakpoints](#managing-breakpoints) section.
+:::
+
+
+### Variables Panel
+
+During a debug session, the debugger sidebar also includes a **Variables section**. This panel helps you inspect the state of your code at any given moment by displaying:
+
+- Local variables of the currently executed method or class
+
+- Variables of the current line, if applicable
+
+- Arguments, which represent the collection of parameters passed to the 4D Debugger
+
+This makes it easier to understand the current context, trace issues, and test assumptions while stepping through your code.
+
+
+## Managing Breakpoints
 
 ### Breakpoint Activation
 
