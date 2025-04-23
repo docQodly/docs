@@ -65,7 +65,7 @@ const sidebars = {
 			label: 'Release Notes',
 			collapsed: false,
 			items: [
-						'notes/1.10.0',
+						'notes/1.10.1',
 						'notes/1.1.0',
 						'notes/1.0.0',
 						'notes/1.0.0-beta.6',
