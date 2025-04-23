@@ -534,6 +534,27 @@ const sidebars = {
 		},
 		'qodlyLookerStudio/qodlyLookerStudioConnector',
 		{
+			type: "link",
+			label: "Third-party Authentication",
+			href: "https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider"
+		}, 
+		{
+			type: 'category',
+			label: 'Email Integration',
+			items: [	
+				{
+					type: 'link',
+					label: "Office365 (Outlook)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
+				},
+				{
+					type: 'link',
+					label: "Google (Gmail)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
+				},
+			]
+		 },   
+		{
 			type: 'category',
 			label: 'Custom Components',
 			items: [	
