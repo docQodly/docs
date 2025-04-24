@@ -8,7 +8,7 @@ import Column from '@site/src/components/Column'
 
 ## Overview
 
-Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup#building-the-project).
+Qodly Studio offers an upload functionality to enhance the user experience and streamline the integration of custom components. This feature enables users to upload components generated using the [`npm run build` command](../../../customComponent/setup.md#building-the-project).
 
 
 ## Community's Custom Components
@@ -34,8 +34,7 @@ Clicking the button opens a popup with two upload methods:
 <Column.List align="center" justifyContent="between">
     <Column.Item width="60%">
         <ul>
-            <li> Users can drag and drop a component file onto the designated area within the popup.</li>
-            <br/>
+            <li> Users can drag and drop a component file onto the designated area within the popup.<br/></li>
             <li> Alternatively, users have the option to select a component file from their computer using a file explorer.</li>
         </ul>
     </Column.Item>

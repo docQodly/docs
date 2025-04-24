@@ -72,7 +72,7 @@ Within the **Select Input** component, an embedded **Select** allows for further
         <Column.List align="center" justifyContent="between">
                 <Column.Item width="60%">
                         <ul>
-                                <li><strong>Label</strong>: A descriptive text label for each option.</li> <br/>
+                                <li><strong>Label</strong>: A descriptive text label for each option.<br/></li>
                                 <li><strong>Value</strong>: A distinct value to each option, enabling effective data handling based on the selections made by users.</li>
                         </ul>
                 </Column.Item>

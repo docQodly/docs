@@ -21,7 +21,7 @@ A class name must be compliant with standard [property naming rules](#object-pro
 
 :::warning
 
-Giving the same name to a user class and a [dataclass](#dataclass) is not recommended, in order to prevent any conflict.
+Giving the same name to a [user class](../../studio/coding.md#user-classes) and a [dataclass](../../studio/coding.md#orda-classes) is not recommended, in order to prevent any conflict.
 
 :::
 
@@ -65,7 +65,7 @@ If you use **string notation** within square brackets, property names can contai
 
 :::
 
-See also [ECMA Script standard](https://www.ecma-international.org/ecma-262/5.1/#sec-7.6).
+See also [ECMA Script standard](https://www.ecma-international.org/ecma-262/5.1#sec-7.6).
 
 ## Parameters
 

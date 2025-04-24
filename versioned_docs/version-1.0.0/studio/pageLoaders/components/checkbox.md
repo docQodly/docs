@@ -49,7 +49,7 @@ Enhance the **Checkbox** component to align with your application's requirements
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.</li><br/>
+                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.<br/></li>
                 <li><strong>Switch Variant</strong>: Choose this for a switch-like appearance.</li>
             </ul>
         </Column.Item>

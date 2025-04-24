@@ -130,9 +130,15 @@ At the core of the Conditions Interface is the Schema Editor, a dynamic visualiz
 
 Ensure proper placement by dragging the `Saved condition` to the ellipsis icon <img alt="explorer" src={require('./img/conditionsInterface_schema1.png').default} style={{borderRadius: '6px', width:'3%'}} />, which represents the condition's specific level within the schema. Dropping it elsewhere might not integrate the condition correctly.
 
-When multiple conditions are present, dropping it onto the connecting logical operator square <img alt="explorer" src={require('./img/conditionsInterface_schema2.png').default} style={{borderRadius: '6px', width:'3%'}} /> will integrate it as well.
 :::
 
+When multiple conditions are present, dropping it onto the connecting logical operator square <img alt="explorer" src={require('./img/conditionsInterface_schema2.png').default} style={{borderRadius: '6px', width:'3%'}} /> will integrate it as well.
+
+:::info
+
+Once integrated, a Go to button <img src={require('./img/editSavedCondition.png').default} style={{borderRadius: '6px', width:'40%'}} /> appears next to the saved condition's name. Clicking it opens the full saved condition in edit mode, so you can review or modify its configuration without leaving the current schema view. 
+
+:::
 
 ### Logical Condition Combination
 

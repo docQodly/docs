@@ -115,7 +115,7 @@ This property is **read-only**.
 
 The `.new()` function <!-- REF #ClassClass.new().Summary -->creates and returns a `cs.className` object which is a new instance of the class on which it is called<!-- END REF -->. This function is automatically available on all classes from the [`cs` class store](basics/lang-classes.md#cs).
 
-You can pass one or more optional *param* parameters, which will be passed to the [class constructor](basics/lang-classes#constructor) function (if any) in the className class definition. Within the constructor function, the [`This`](basics/lang-classes.md#this) is bound to the new object being constructed.
+You can pass one or more optional *param* parameters, which will be passed to the [class constructor](basics/lang-classes.md#constructor) function (if any) in the className class definition. Within the constructor function, the [`This`](basics/lang-classes.md#this) is bound to the new object being constructed.
 
 - If `.new()` is called on a non-existing class, an error is returned.
 - If `.new()` is called on a [singleton class](basics/lang-classes.md#singleton-classes) that has already been instantiated, the singleton instance is returned, not a new instance.
@@ -165,7 +165,7 @@ person = cs.Person.new("John","Doe",40)
 
 The `.superclass` property <!-- REF #ClassClass.superclass.Summary -->returns the parent class of the class<!-- END REF -->. A superclass can be a `4D.Class` object, or a `cs.className` object. If the class does not have a parent class, the property returns **null**.
 
-A superclass of a user class is declared in a class by using the [`Class extends <superclass>`](basics/lang-classes#extends-classname) keyword.
+A superclass of a user class is declared in a class by using the [`Class extends <superclass>`](basics/lang-classes.md#extends-classname) keyword.
 
 This property is **read-only**.
 

@@ -98,40 +98,34 @@ HTTP Handlers can be added through both the UI and the code editor.
 
 #### Using the HTTP Handler UI:
 
-1. Clicking the <img src={require('./img/add.png').default} style={{borderRadius: '6px', width:'3%'}} />  button opens a form for inputting handler details.
+1. Clicking the <img src={require('./img/addHandlersButton.png').default} style={{borderRadius: '6px', width:'20%'}} />  button opens a form for inputting handler details.
 
 2. The form requires specifying the following details:
 
-    <Column.List align="center" justifyContent="between">
-        <Column.Item width="45%">
-            <ul>
-                <li> Class: Selecting an existing class from the dropdown list or manually entering a class name. </li> <br/>
-                <li> Method: Choosing an available method from the selected class or entering a method manually. </li> <br/>
-                <li> Pattern: Defining the URL pattern. </li> <br/>
-                <li> As Regex: Enabling this if using a regular expression for URL matching. </li> <br/>
-                <li> Verbs: Selecting supported HTTP methods (GET, POST, PUT, DELETE). </li> <br/>
-            </ul>
-        </Column.Item>
-        <Column.Item width="50%">
-            <img src={require('./img/addHandlersForm.png').default} style={{borderRadius: '6px'}} />
-        </Column.Item>
-    </Column.List>
+    - Class: Selecting an existing class from the dropdown list or manually entering a class name. 
+    - Method: Choosing an available method from the selected class or entering a method manually. 
+    - Pattern: Defining the URL pattern. 
+    - As Regex: Enabling this if using a regular expression for URL matching. 
+    - Verbs: Selecting supported HTTP methods (GET, POST, PUT, DELETE). 
 
-3. Clicking Save applies the configuration.
+    <img src={require('./img/addHandlersForm.png').default} style={{borderRadius: '6px'}} />
+
+3. Clicking "Confirm Changes" <img src={require('./img/confirmAddHandler.png').default} style={{borderRadius: '6px', width:'5%'}} /> applies the configuration.
 
 :::danger Handling Class and Method Errors
 
 When manually entering a class name or method that does not exist, the system provides visual feedback to prevent misconfiguration.
 
 <Column.List align="center" justifyContent="between">
-    <Column.Item width="45%">
+    <Column.Item width="65%">
         <ul>
-            <li>If the specified class or method does not exist, a <code>Nothing found</code> message appears, and the input field turns red.</li><br/>
+            <li>If the specified class or method does not exist, a <code>Nothing found</code> message appears, and the input field turns red.<br/></li>
             <li>Unrecognized entries are automatically removed when pressing Enter.</li>
         </ul>
     </Column.Item>
-    <Column.Item width="50%">
+    <Column.Item width="30%">
         <img src={require('./img/UnrecognizedHTTPHandlers2.png').default} style={{borderRadius: '6px'}} />
+        <img src={require('./img/UnrecognizedHTTPHandlers3.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 :::
@@ -188,7 +182,7 @@ The code editor does not enforce immediate validation when an invalid HTTP metho
 
 Editing allows modifications to the class, method, URL pattern, or HTTP methods:
 
-- Use the UI to expand <img src={require('./img/expandHandler.png').default} style={{borderRadius: '6px', width:'3%'}} /> a handler and adjust its settings.
+- Use the UI to edit <img src={require('./img/editHandler.png').default} style={{borderRadius: '6px', width:'3%'}} /> a handler and adjust its settings.
 
 - Or, edit the JSON file directly for manual changes from the code editor.
 
@@ -217,11 +211,6 @@ Execution order can be adjusted:
 - Drag and drop handlers in the UI <img src={require('./img/dragDrop.png').default} style={{borderRadius: '6px', width:'3%'}} />.
 
 - Manually rearrange JSON objects in the file.
-
-
-### Expand/Collapse HTTP Handlers
-
-For better organization, handlers in the UI can be expanded <img src={require('./img/expand.png').default} style={{borderRadius: '6px', width:'3%'}} /> or collapsed <img src={require('./img/collapse.png').default} style={{borderRadius: '6px', width:'3%'}} /> to show or hide details.
 
 
 ## Matching Rules 
@@ -283,11 +272,15 @@ When an HTTP request is received, the system evaluates each handler in the order
 
 :::tip Example of First Match Execution
 
-Given the following configuration:
+Given the following configuration:  
+
+<img src={require('./img/HTTPHandlersOrderExecution.png').default} style={{borderRadius: '6px'}} />
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="52%">
-        <img src={require('./img/HTTPHandlersOrderExecution.png').default} style={{borderRadius: '6px'}} />
+        A request to GET `/products/123` will match both handlers:
+        - The first handler matches because the URL `/products/123` satisfies the regular expression `/products/[0-9]+`.
+        - The second handler matches because `/products` is a prefix of the URL.
     </Column.Item>
     <Column.Item width="44%">
         ```json
@@ -312,11 +305,7 @@ Given the following configuration:
 </Column.List>
 
 
-A request to GET `/products/123` will match both handlers:
 
-- The first handler matches because the URL `/products/123` satisfies the regular expression `/products/[0-9]+`.
-
-- The second handler matches because `/products` is a prefix of the URL.
 
 
 However, only the first handler `getProductDetails` is executed, as it appears first in the configuration.

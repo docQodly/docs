@@ -25,7 +25,7 @@ The model view includes permissions, allowing you to assign access rights at any
 You can access your current project's model in the **Model Editor** by clicking on the <img src={require('./img/model-icon.png').default} style={{borderRadius: '6px'}} /> in your project's sidebar.
 
 :::note
-You can also open your model as a [JSON file](#json-view).
+You can also open your model as a [JSON file](#model-json-representation).
 :::
 
 ### Default State
@@ -122,7 +122,7 @@ Removing a dataclass from the model does not remove its associated functions.
 
 ### Datastore Functions
 
-The Datastore Functions section lists all functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level. These functions can be managed directly from the Outline panel.
+The Datastore Functions section lists all functions defined at the [cs.DataStore](../../orda/data-model.md#datastore) class level. These functions can be managed directly from the Outline panel.
 
 Functions can be opened and edited by clicking on the edit icon next to the function name <img src={require('./img/outline_editDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />. New functions can be added by clicking the Add Function button <img src={require('./img/outline_addDatastoreFunction.png').default} style={{borderRadius: '6px', width: '25%'}} />.
 
@@ -246,6 +246,6 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 :::warning
 
-Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes#renaming-a-datastore-class).
+Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes.md#renaming-a-datastore-class).
 
 :::

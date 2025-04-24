@@ -65,7 +65,7 @@ const sidebars = {
 			label: 'Release Notes',
 			collapsed: false,
 			items: [
-						'notes/1.2.0',
+						'notes/1.10.1',
 						'notes/1.1.0',
 						'notes/1.0.0',
 						'notes/1.0.0-beta.6',
@@ -533,6 +533,27 @@ const sidebars = {
 			],
 		},
 		'qodlyLookerStudio/qodlyLookerStudioConnector',
+		{
+			type: "link",
+			label: "Third-party Authentication",
+			href: "https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider"
+		}, 
+		{
+			type: 'category',
+			label: 'Email Integration',
+			items: [	
+				{
+					type: 'link',
+					label: "Office365 (Outlook)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
+				},
+				{
+					type: 'link',
+					label: "Google (Gmail)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
+				},
+			]
+		 },   
 		{
 			type: 'category',
 			label: 'Custom Components',

@@ -25,7 +25,7 @@ The model view includes permissions, allowing you to assign access rights at any
 You can access your current project's model in the **Model Editor** by clicking on the <img src={require('./img/model-icon.png').default} style={{borderRadius: '6px'}} /> in your project's sidebar.
 
 :::note
-You can also open your model as a [JSON file](#json-view).
+You can also open your model as a [JSON file](#model-json-representation).
 :::
 
 ### Default State
@@ -77,7 +77,7 @@ The Miniature Overview Area allows you to view an overview of your model at a sm
 
 ## Outline
 
-On the left side of the model editor, the **Outline** lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model#datastore) class level) in your model:
+On the left side of the model editor, the **Outline** lists all **datastore classes** and **datastore functions** (i.e. functions defined at the [cs.DataStore](../../orda/data-model.md#datastore) class level) in your model:
 
 
 <img src={require('./img/outline.png').default} style={{borderRadius: '6px'}} />
@@ -207,6 +207,6 @@ The syntax check feature identifies and corrects syntax errors and formatting is
 
 :::warning
 
-Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes#renaming-a-datastore-class).
+Editing the model through the JSON code must be done with care since data model integrity rules are not checked in the Text Editor. In particular, you must pay attention to [naming rules](attributes.md#attribute-name), or [renaming issues](datastore-classes.md#renaming-a-datastore-class).
 
 :::

@@ -16,7 +16,7 @@ Qodly Sources are integral to Qodly's architectural design, simplifying the deve
 
 ### Events and Qodly Sources
 
-You can also attach events to qodlysources, triggering specific actions when these qodlysources are updated in the web browser. Please refer to [Qodly Source Events](events/bindingActionToEvents#qodly-source-events) for more details.
+You can also attach events to qodlysources, triggering specific actions when these qodlysources are updated in the web browser. Please refer to [Qodly Source Events](events/bindingActionToEvents.md#qodly-sources) for more details.
 
 ![components](./img/QodlySource-1.2.png)
 
@@ -75,18 +75,14 @@ Within the Page Editor, the **Qodly Sources** section conveniently organizes ava
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-            <li>A <strong>Search</strong> area for filtering the qodlysource list.</li>
-            <br/>
-            <li>The <strong>Catalog</strong>, containing:</li>
-            <br/>
+            <li>A <strong>Search</strong> area for filtering the qodlysource list.<br/></li>
+            <li>The <strong>Catalog</strong>, containing:<br/></li>
             <ul>
-                <li>Dataclasses from your application. Here, you can designate entities or entity selections from your Datastore, which will be handled by the server as qodlysources.</li>
-                <br/>
+                <li>Dataclasses from your application. Here, you can designate entities or entity selections from your Datastore, which will be handled by the server as qodlysources.<br/></li>
                 <li>Functions defined at the datastore level and within each dataclass.</li>
             </ul>
             <br/>
-            <li><strong>This Page</strong>: qodlysource exclusive to the current Page.</li>
-            <br/>
+            <li><strong>This Page</strong>: qodlysource exclusive to the current Page.<br/></li>
             <li><strong>Namespaces</strong>: Shared qodlysources organized by namespaces. You can create a namespace by clicking the <code>+</code> icon or when defining a shared qodlysource.</li>
         </ul>        
 	</Column.Item>
@@ -309,8 +305,7 @@ Iterative components can be bound to two types of qodlysources:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
         <ul>
-            <li><strong>Qodly Source</strong>: This is the primary qodlysource used for iterating through data. Its attributes are bound to the component, allowing you to display and work with the iterative data. Typically, this qodlysource represents an entity selection or a array. </li>
-            <br/>
+            <li><strong>Qodly Source</strong>: This is the primary qodlysource used for iterating through data. Its attributes are bound to the component, allowing you to display and work with the iterative data. Typically, this qodlysource represents an entity selection or a array. <br/></li>
             <li><strong>Selected Element</strong>: This secondary qodlysource is used to retrieve the currently selected item within the iterative component. In most cases, it represents an entity or a array element.</li>
         </ul>        
 	</Column.Item>

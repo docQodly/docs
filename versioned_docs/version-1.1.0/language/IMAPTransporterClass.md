@@ -215,7 +215,7 @@ status = transporter.addFlags(kIMAPAll,flags)
 
 The `.append()` function <!-- REF #IMAPTransporterClass.append().Summary -->appends a `mailObj` to the `destinationBox`<!-- END REF -->.
 
-In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailObjectClass#properties). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
+In the `mailObj` parameter, pass an Email object. For a comprehensive description of mail properties, see [Email object](EmailObjectClass.md#properties). The `.append()` function supports keyword tags in the Email object's `keywords` attribute.
 
 The optional `destinationBox` parameter lets you pass the name of a mailbox where the `mailObj` will be appended. If omitted, the current mailbox is used.
 
@@ -472,7 +472,7 @@ In the *msgsIDs* parameter, you can pass:
 * a collection containing the unique IDs of the specific messages to delete, or
 * the `kIMAPAll` constant (integer) to delete all messages in the selected mailbox.
 
-Executing this function does not actually remove messages. Messages with the "delete" flag can still be found by the [`.searchMails()`](#searchmails) function. Flagged messages are deleted from the IMAP server with the [`.expunge()`](#expunge) function or by selecting another mailbox or when the IMAP transporter object (created with [4D.IMAPTransporter.new](#imap-new-transporter)) is destroyed.
+Executing this function does not actually remove messages. Messages with the "delete" flag can still be found by the [`.searchMails()`](#searchmails) function. Flagged messages are deleted from the IMAP server with the [`.expunge()`](#expunge) function or by selecting another mailbox or when the IMAP transporter object (created with [4D.IMAPTransporter.new](#4dimaptransporternew)) is destroyed.
 
 **Returned object**
 
@@ -832,7 +832,7 @@ See [`getBoxList()` example](#getboxlist).
 |msgNumber|integer|&#8594;|Sequence number of the message|
 |msgID|string|&#8594;|Unique ID of the message|
 |options|object|&#8594;|Message handling instructions|
-|Result|object|&#8592;|[Email object](EmailObjectClass#properties)|<!-- END REF -->
+|Result|object|&#8592;|[Email object](EmailObjectClass.md#properties)|<!-- END REF -->
 
 #### Description
 
@@ -899,7 +899,7 @@ You want to get the message with ID = 1:
 |startMsg|integer|&#8594;|Sequence number of the first message|
 |endMsg |integer|&#8594;|Sequence number of the last message|
 |options|object|&#8594;|Message handling instructions|
-|Result|object|&#8592;|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
+|Result|object|&#8592;|Object containing:<br/><ul><li>a collection of [Email objects](EmailObjectClass.md#properties) and</li><li>a collection of IDs or numbers for missing messages, if any</li></ul>|<!-- END REF -->
 
 #### Description
 
@@ -943,7 +943,7 @@ The optional *options* parameter allows you to define the parts of the messages 
 
 |Property | Type | Description |
 |---|---|---|
-|list  |collection |collection of [`Email` objects](EmailObjectClass#properties). If no Email objects are found, an empty collection is returned.|
+|list  |collection |collection of [`Email` objects](EmailObjectClass.md#properties). If no Email objects are found, an empty collection is returned.|
 |notFound |collection| collection of:<br/><ul><li>first syntax - previously passed message IDs that do not exist</li><li>second syntax - sequence numbers of messages between startMsg and endMsg that do not exist</li></ul>An empty collection is returned if all messages are found.|
 
 #### Example
@@ -1013,7 +1013,7 @@ The optional *updateSeen* parameter allows you to specify if the message is mark
 
 #### Result
 
-`.getMIMEAsblob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass#properties) with the `mailConvertFromMIME` command.
+`.getMIMEAsblob()` returns a `blob` which can be archived in a database or converted to an [`Email` object](EmailObjectClass.md#properties) with the `mailConvertFromMIME` command.
 
 #### Example
 

@@ -501,6 +501,7 @@
         }
       ]
     },
+    "qodlyLookerStudio/qodlyLookerStudioConnector",
 		{
 			"type": "category",
 			"label": "Custom Components",

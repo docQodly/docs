@@ -215,4 +215,4 @@ The `components` directory serves as the repository for custom components:
 While developers have the flexibility to implement their initial component in their preferred manner, adhering to the suggested structure is recommended
 :::
 
-Refer to the [custom component structure](./structure#custom-component-repository) section for detailed information.
+Refer to the [custom component structure](./structure.md#custom-component-repository) section for detailed information.

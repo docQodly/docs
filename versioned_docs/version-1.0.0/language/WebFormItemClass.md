@@ -8,7 +8,7 @@ The `4D.WebFormItem` class allows you to handle the behavior of your webform com
 
 `4D.WebFormItem` objects are properties of the [`4D.WebForm`](WebFormClass) object returned by the [`webForm`](commands/webForm) command. 
 
-When you call the [`webForm`](./commands/webForm) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/pageLoaders/pageLoaderOverview#server-side) in your webform.
+When you call the [`webForm`](./commands/webForm) command, the returned `4D.WebForm` proxy object holds as many `4D.WebFormItems` as there are components with [**server-side references**](../studio/pageLoaders/pageLoaderOverview.md#server-side) in your webform.
 
 For example, `WebFormObject.myImage` refers to the image component with `myImage` as server reference.
 
@@ -19,9 +19,9 @@ For example, `WebFormObject.myImage` refers to the image component with `myImage
 
 ||
 |---|
-|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
+|[<!-- INCLUDE #WebFormItemClass.addCSSClass().Syntax -->](#addcssclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.addCSSClass().Summary -->|
 |[<!-- INCLUDE #WebFormItemClass.hide().Syntax -->](#hide)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.hide().Summary -->|
-|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removeclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
+|[<!-- INCLUDE #WebFormItemClass.removeCSSClass().Syntax -->](#removecssclass)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.removeCSSClass().Summary -->|
 |[<!-- INCLUDE #WebFormItemClass.show().Syntax -->](#show)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #WebFormItemClass.show().Summary -->|
 
 

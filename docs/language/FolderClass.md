@@ -84,7 +84,7 @@ The `4D.Folder.new()` function <!-- REF #4D.Folder.new().Summary -->creates and 
 
 The `.create()` function <!-- REF #FolderClass.create().Summary -->creates a folder on disk according to the properties of the `folder` object<!-- END REF -->.
 
-If necessary, the function creates the folder hierachy as described in the [platformPath](#platformpath) or [path](#path) properties. If the folder already exists on disk, the function does nothing (no error is thrown) and returns false.
+If necessary, the function creates the folder hierachy as described in the [path](#path) property. If the folder already exists on disk, the function does nothing (no error is thrown) and returns false.
 
 **Returned value**
 

@@ -8,7 +8,7 @@ title: Classes
 
 The QodlyScript language supports the concept of **classes**. In a programming language, using a class allows you to define an object behaviour with associated properties and functions.
 
-Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#class-extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#property) and [computed](#function-get-and-function-set)).
+Once a user class is defined, you can **instantiate** objects of this class anywhere in your code. Each object is an instance of its class. A class can [`extend`](#extends-classname) another class, and then inherits from its [functions](#function) and properties ([declared](#property) and [computed](#function-get-and-function-set)).
 
 > The class model in QodlyScript is similar to classes in JavaScript, and based on a chain of prototypes.
 
@@ -41,7 +41,7 @@ hello = person.sayHello() //"Hello John Doe"
 
 ### User classes
 
-To create a new user class in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
+To [create a new user class](../../studio/coding.md#creating) in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
 
 ![class](img/class3.png)
 
@@ -51,9 +51,9 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 ![class](img/class2.png)
 
 
-### Data Model classes
+### DataStore classes
 
-Data Model classes are automatically created when you click on the `<...>` button in the model editor, when a dataclass is selected. For more information, please refer to [this section](../../orda/data-model.md#creating-data-model-classes).
+Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../studio/model/model-editor-interface.md#outline).
 
 
 
@@ -65,7 +65,7 @@ When naming classes, you should keep in mind the following rules:
 - Class names are case sensitive.
 - Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
 
-A user class in Qodly is defined by a specific [method file (.4qs)](../../studio/coding#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
+A user class in Qodly is defined by a specific [method file (.4qs)](../../studio/coding.md#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
 
 ```
 Project folder
@@ -93,7 +93,7 @@ Available classes are accessible from their class stores. Two class stores are a
 
 The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
-It returns all user classes defined in the opened project, as well as [Data Model classes](../../orda/data-model.md#creating-data-model-classes).
+It returns all user classes defined in the opened project, as well as [Data Model classes](../../studio/coding.md#classes).
 
 #### Example
 
@@ -738,14 +738,14 @@ The `this` command <!-- REF #_command_.this.Summary -->returns a reference to th
 
 In most cases, the value of `this` is determined by how a function is called. It can't be set by assignment during execution, and it may be different each time the function is called.
 
-When executing a formula object created by the [`formula`](../FunctionClass#formula-objects) or [`formulaFromString`](../commands/formulaFromString) commands, `this` returns a reference to the object currently processed by the formula. For example:
+When executing a formula object created by the [`formula`](../FunctionClass.md#formula-objects) or [`formulaFromString`](../commands/formulaFromString) commands, `this` returns a reference to the object currently processed by the formula. For example:
 
 ```qs
 o = newObject("prop",42,"f",formula(this.prop))
 val = o.f() //42
 ```
 
-When a [constructor](#class-constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
+When a [constructor](#constructor) function is used (with the [`new()`](../ClassClass.md#new) function), its `this` is bound to the new object being constructed.
 
 ```qs
 //Class: ob
@@ -894,7 +894,7 @@ Singleton classes are not supported by [ORDA-based classes](../../orda/data-mode
 
 ### Creating and using singletons
 
-You declare singleton classes by adding appropriate keyword(s) before the [`Class constructor`](#class-constructor):
+You declare singleton classes by adding appropriate keyword(s) before the [`Class constructor`](#constructor):
 
 - To declare a (process) singleton class, write `singleton Class Constructor()`.
 - To declare a shared singleton class, write `shared singleton Class constructor()`.
@@ -919,7 +919,7 @@ The [`.isSessionSingleton`](../ClassClass.md#issessionsingleton) property of Cla
 
 :::info
 
-Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#data-model-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
+Singleton classes are only supported in [User classes](#user-classes). They are NOT supported in [Data Model classes](#datastore-classes) such as [Dataclass](../../orda/data-model.md#dataclass).  
 
 :::
 

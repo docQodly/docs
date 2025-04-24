@@ -107,7 +107,7 @@ Formatting options may vary based on the specific data type of the attribute and
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
                 <ul>
-                        <li>For <strong>Text (string)</strong>:</li> <br/>
+                        <li>For <strong>Text (string)</strong>:<br/></li>
                         <ul>
                                 <li><strong>UPPERCASE</strong>: Converts all characters to uppercase.</li> 
                                 <li><strong>lowercase</strong>: Converts all characters to lowercase.</li>
@@ -126,7 +126,7 @@ Formatting options may vary based on the specific data type of the attribute and
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
                 <ul>
-                        <li>For <strong>Number</strong>:</li> <br/>
+                        <li>For <strong>Number</strong>:<br/></li>
                         <ul>
                                 <li><strong>0</strong>: Standard numerical format.</li> 
                                 <li><strong>0%</strong>: Displays the number as a percentage.</li>
@@ -147,7 +147,7 @@ Formatting options may vary based on the specific data type of the attribute and
 <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
                 <ul>
-                        <li>For <strong>Date</strong>:</li> <br/>
+                        <li>For <strong>Date</strong>:<br/></li>
                         <ul>
                                 <li><strong>Date short</strong>: Displays the date in a short format.</li> 
                                 <li><strong>Date long</strong>: Displays the date in a long format.</li>

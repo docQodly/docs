@@ -34,7 +34,7 @@ Enhance the Tabs component to align with your application's requirements using t
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Line Variant</strong>: Select the "Line" variant for tabs with an underlined styling effect.</li> <br/>
+                <li><strong>Line Variant</strong>: Select the "Line" variant for tabs with an underlined styling effect.<br/></li>
                 <li><strong>Enclosed Variant</strong>: Opt for the "Enclosed" variant to showcase tabs with a bordered presentation. This choice adds an additional layer of style to your tabs.</li> 
             </ul>
         </Column.Item>
@@ -50,9 +50,9 @@ Enhance the Tabs component to align with your application's requirements using t
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Title Customization</strong>: Modify tab titles to precisely reflect the content or functionality associated with each tab.</li> <br/>
-                <li><strong>Tab Duplication</strong>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
-                <li><strong>Tab Removal</strong>: Delete tabs that no longer serve a purpose by clicking on the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li> <br/>
+                <li><strong>Title Customization</strong>: Modify tab titles to precisely reflect the content or functionality associated with each tab.<br/></li>
+                <li><strong>Tab Duplication</strong>: Duplicate existing tabs to replicate configurations quickly by clicking on the <img src={require('./img/duplicate.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.<br/></li>
+                <li><strong>Tab Removal</strong>: Delete tabs that no longer serve a purpose by clicking on the <img src={require('./img/delete.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.<br/></li>
                 <li><strong>Moving Tab</strong>:  Arrange tabs to your preferred position by clicking on the <img src={require('./img/arrange.png').default} style={{borderRadius: '6px', height: '25px', width: '25px'}}/> icon.</li>
             </ul>
         </Column.Item>

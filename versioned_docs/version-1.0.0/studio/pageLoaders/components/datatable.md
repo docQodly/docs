@@ -63,10 +63,10 @@ Enhance the **DataTable** component to align with your application's requirement
         <Column.List align="center" justifyContent="between">
                 <Column.Item width="60%">
                         <ul>
-                                <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.</li><br/>
-                                <li><strong>Source</strong>: The source attribute specifies the qodlysource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's qodlysource. This determines the content to be displayed in the column cells.</li><br/>
-                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.</li><br/>
-                                <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).</li><br/>
+                                <li><strong>Title</strong>: The title is the text displayed in the header row as the label for the column. It also appears as the column name in the properties area.<br/></li>
+                                <li><strong>Source</strong>: The source attribute specifies the qodlysource for the column. Typically, it refers to an attribute whose value depends on each element of the DataTable's qodlysource. This determines the content to be displayed in the column cells.<br/></li>
+                                <li><strong>Format</strong>: The format property allows you to define how the data in the column should be displayed, depending on its type. It specifies the visual representation of the data, such as date formatting or decimal places. See <a href="componentsBasics#data-formatting">Formats</a> for a description of available formats.<br/></li>
+                                <li><strong>Width</strong>: The width of the column can be customized. You have the option to define the width in pixels or as a percentage. The unit menu at the right side of the entry area lets you choose between PX (pixels) or % (percentage).<br/></li>
                                 <li><strong>Sorting</strong>: The sorting selector enables users to interactively sort the column. When this selector is activated, users can click on the header area of the column to perform ascending or descending sorting at runtime.</li>
                         </ul>
                 </Column.Item>
@@ -95,7 +95,7 @@ To associate data with the **DataTable** component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
                 <ol>
-                        <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.</li><br/>
+                        <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Data Table component.<br/></li>
                         <li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the DataTable. For instance, you can select an entity selection, such as the <code>Packages</code> dataclass.</li>
                 </ol>
 	</Column.Item>
@@ -336,14 +336,14 @@ Here's a glimpse of how the **DataTable** component will look and behave in acti
 <img src={require('./img/dataTable_Preview.gif').default} style={{borderRadius: '6px'}} />
 
 :::info
-Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](../styling#customizing-datatable-styles).
+Customize the styles of the DataTable component by utilizing specific CSS classes that target various elements of the DataTable. For more details, refer to the section on [Customizing DataTable Styles](#customizing-datatable-styles).
 :::
 
 ## Triggers and Events
 
 The **DataTable** component can respond to various events, enabling dynamic user experiences. 
 
-Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/WebFormClass.md#webevent) when called in an event function triggered by a **DataTable** component.
+Additional information including the **column number**, **row number**, and **column qodlysource name** are returned by the [`webEvent` command](../../../language/commands/webEvent.md) when called in an event function triggered by a **DataTable** component.
 
 Events that can trigger actions within the component include:
 

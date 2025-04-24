@@ -57,8 +57,8 @@ You can create a method or class using one of the three methods:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.</li><br/><br/><br/><br/><br/>
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. </li><br/><br/><br/><br/>
+            <li> You can create them individually from dedicated grids on the <a href="./overview#qodly-studio-homepage">Studio Homepage</a>.<br/><br/></li>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to either <code>Methods</code> or <code>Classes</code>. <br/><br/></li>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for either <code>Methods</code> or <code>Classes</code>.</li>
         </ol>
 	</Column.Item>

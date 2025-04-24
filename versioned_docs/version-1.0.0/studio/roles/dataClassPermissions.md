@@ -23,7 +23,7 @@ The <img src={require('./img/dataclass.png').default} style={{borderRadius: '6px
 
 ## Example: DataClass-Level Access Control
 
-Building on the approach where the [Guest privilege is granted initial read access to the entire datastore](datastorePermissions#2nd-solution-full-access-to-gradual-restriction), you can gradually restrict access to specific resources by configuring **DataClass** permissions. This involves excluding the `Guest` privilege from certain DataClasses.
+Building on the approach where the [Guest privilege is granted initial read access to the entire datastore](datastorePermissions.md#full-access-to-gradual-restriction), you can gradually restrict access to specific resources by configuring **DataClass** permissions. This involves excluding the `Guest` privilege from certain DataClasses.
 
 :::tip
 While datastore permissions cascade down to DataClasses, they remain adaptable. DataClass permissions allow you to override or supplement the broader settings as needed.

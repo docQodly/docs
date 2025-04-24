@@ -67,7 +67,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ul>
-                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.</li> <br/>
+                <li><strong>Placeholder</strong>: Set a placeholder to provide users with a hint or example of the expected input. This text appears within the input field and disappears as soon as users begin typing.<br/></li>
                 <li><strong>Input Type</strong>: Select the appropriate input type to match the nature of the expected data. Available types include:</li>
         </ul>
 	</Column.Item>
@@ -154,7 +154,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                 :::tip Intervals for Date Input
                         The Intervals feature allows users to control date selection by either linking a datasource or manually defining intervals:
                         <ul>
-                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /></li> <br/>
+                                <li>You can define date intervals manually using the "Add Interval" button. <img src={require('./img/inputType_dateIntervals2.png').default} style={{borderRadius: '6px', width: '25%'}} /><br/></li>
                                 | **Interval Type**  | **Description** | **Available Options** |
                                 |--------------------|----------------|----------------------|
                                 | **Starting from**  | Defines a start date from which users can select dates onward. | - **Today checkbox**: sets the start date as today <br/> - **From**: calendar picker to select a start date |

@@ -51,9 +51,9 @@ If you wish to stop a debug session, follow these steps:
     <Column.Item width="55%">
         <ul>
             <ul>
-                <li><strong>Keep in progress</strong>: Qodly will continue evaluating the code until the end of the current method or function, and then the debugger will be detached.</li><br/>
-                <li><strong>Stop</strong>: The debugger will be immediately detached.</li><br/>
-                <li><strong>Cancel</strong>: The debugger will not be detached.</li><br/>                                        
+                <li><strong>Keep in progress</strong>: Qodly will continue evaluating the code until the end of the current method or function, and then the debugger will be detached.<br/></li>
+                <li><strong>Stop</strong>: The debugger will be immediately detached.<br/></li>
+                <li><strong>Cancel</strong>: The debugger will not be detached.<br/></li>                                        
             </ul>
         </ul>
     </Column.Item>
@@ -98,9 +98,9 @@ Managing breakpoints is crucial for a streamlined debugging process. By using a 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="55%">
         <ul>
-            <li><strong>Remove Breakpoints in the Current File</strong>: Clears all breakpoints from your active file.</li><br/>
-            <li><strong>Remove Breakpoints in Other Files</strong>: Removes all breakpoints from non-active files.</li><br/>
-            <li><strong>Remove Breakpoints in All Files</strong>: Eliminates all breakpoints across the entire project.</li><br/>                                        
+            <li><strong>Remove Breakpoints in the Current File</strong>: Clears all breakpoints from your active file.<br/></li>
+            <li><strong>Remove Breakpoints in Other Files</strong>: Removes all breakpoints from non-active files.<br/></li>
+            <li><strong>Remove Breakpoints in All Files</strong>: Eliminates all breakpoints across the entire project.<br/></li>                                        
         </ul>
     </Column.Item>
     <Column.Item width="40%">

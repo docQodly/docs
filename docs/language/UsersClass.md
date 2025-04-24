@@ -79,7 +79,7 @@ The User object returned by the function above contains the following properties
 |Property|Type|Description|
 |---|---|---|
 |email|String|The user's email used for account creation.The user's email used for account creation.|
-|role|String|The user's role within the application [Roles & Privileges](../studio/roles/rolesPrivilegesOverview).|
+|role|String|The user's role within the application [Roles & Privileges](../studio/roles/rolesPrivilegesOverview.md).|
 |firstname|String|The user's first name.|
 |lastname|String|The user's last name.|
 

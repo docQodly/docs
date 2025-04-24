@@ -28,8 +28,8 @@ To restrict access to sensitive dataclasses such as those containing user creden
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ol>
-            <li>Open the Model Editor.</li> <br/>
-            <li>Access the properties panel of the dataclass you intend to modify.</li> <br/>
+            <li>Open the Model Editor.<br/></li>
+            <li>Access the properties panel of the dataclass you intend to modify.<br/></li>
             <li>Enable the <code>Do not Expose as REST</code> option within the Scope property.</li>
         </ol>
     </Column.Item>
@@ -46,7 +46,7 @@ By default, attributes within these dataclasses are also exposed. To limit expos
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
         <ol>
-            <li>In the Model Editor, select the attribute you intend to hide.</li> <br/>
+            <li>In the Model Editor, select the attribute you intend to hide.<br/></li>
             <li>Enable the <code>Do not Expose as REST</code> option in the Scope property.</li>
         </ol>
     </Column.Item>

@@ -11,7 +11,7 @@ The Contextual panel facilitates the association of class functions, navigation 
 
 To bind class functions, navigation actions or standard actions with events, follow these steps:
 
-1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](../pageLoaderOverview#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](../qodlySources#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](../qodlySources#from-this-page) area.
+1. **Select a Component or Qodly Source**: Begin by choosing the component or qodlysource to which you want to attach an event. This selection can be made using the canvas, the [outline](../pageLoaderOverview.md#outline), or, in the case of Qodly sources, either the [shared Qodly Sources](../qodlySources.md#from-a-namespace-shared-qodly-source) area or the [local Qodly Sources](../qodlySources.md#from-this-page) area.
 
 2. **Expand the Contextual Panel**: Once your selection is made, expand the `Contextual panel` <img src={require('./img/events_contextualPanel.png').default} style={{borderRadius: '6px', width: '20%'}} />. It will provide you with a list of compatible events specifically tailored to your chosen component or qodlysource.
 
@@ -185,7 +185,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../orda/data-model#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model.md#datastoreimplementation-class">datastore class functions</a> distinguishable by the keyword <code>Datastore</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -196,7 +196,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../orda/data-model#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
+            <li>Exposed <a href="../../../orda/data-model.md#dataclass-class">dataclass class functions</a> distinguishable by the keyword <code>Dataclass Name</code>.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">
@@ -207,7 +207,7 @@ For events bound to Class functions, the collapsed card displays the function si
 <Column.List align="center" justifyContent="between">
     <Column.Item width="50%">
         <ul>
-            <li>Exposed <a href="../../../orda/data-model#entity-class">entity class functions</a> and <a href="../../../orda/data-model#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
+            <li>Exposed <a href="../../../orda/data-model.md#entity-class">entity class functions</a> and <a href="../../../orda/data-model.md#entityselection-class">entity selection class functions</a>, distinguished by the <code>Namespace Of Qodly Source</code> keyword, encompass shared functions when these entities serve as shared qodlysources.</li>
         </ul>
     </Column.Item>
     <Column.Item width="49%">

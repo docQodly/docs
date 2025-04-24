@@ -16,8 +16,8 @@ The **QodlyEvents** class is a **shared singleton**, meaning a single instance i
 
 ||
 |---|
-|[<!-- INCLUDE #QodlyEvents.onStartup().Syntax -->](#onStartup)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStartup().Summary -->|
-|[<!-- INCLUDE #QodlyEvents.onStop().Syntax -->](#onStop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStop().Summary -->|
+|[<!-- INCLUDE #QodlyEvents.onStartup().Syntax -->](#onstartup)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStartup().Summary -->|
+|[<!-- INCLUDE #QodlyEvents.onStop().Syntax -->](#onstop)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.onStop().Summary -->|
 |[<!-- INCLUDE #QodlyEvents.me.Syntax -->](#me)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #QodlyEvents.me.Summary -->|
 
 
@@ -32,7 +32,7 @@ The **QodlyEvents** class is a **shared singleton**, meaning a single instance i
 
 #### Description
 
-The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->triggers the [onStartup() function](../studio/qodlyEventsClassInterface#accessing-qodlyevents) logic defined in the QodlyEvents class interface.<!-- END REF -->  The .onStartup() function executes automatically when the server starts by calling cs.QodlyEvents.me.onStartup(). 
+The `.onStartup()` function <!-- REF #QodlyEvents.onStartup().Summary -->triggers the [onStartup() function](../studio/qodlyEventsClassInterface.md#accessing-qodlyevents) logic defined in the QodlyEvents class interface.<!-- END REF -->  The .onStartup() function executes automatically when the server starts by calling cs.QodlyEvents.me.onStartup(). 
 
 Additionally, developers can manually execute .onStartup() when needed, such as:
 - Explicitly triggering the startup logic from another function.
@@ -56,7 +56,7 @@ cs.QodlyEvents.me.onStartup({ config: "default" })
 
 #### Description
 
-The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->triggers the [onStop()](../studio/qodlyEventsClassInterface#accessing-qodlyevents) function logic defined in the QodlyEvents class interface.<!-- END REF --> The .onStop() function executes automatically when the server shuts down by calling cs.QodlyEvents.me.onStop(). 
+The `.onStop()` function <!-- REF #QodlyEvents.onStop().Summary -->triggers the [onStop()](../studio/qodlyEventsClassInterface.md#accessing-qodlyevents) function logic defined in the QodlyEvents class interface.<!-- END REF --> The .onStop() function executes automatically when the server shuts down by calling cs.QodlyEvents.me.onStop(). 
 
 Additionally, developers can manually execute .onStop() when needed, such as:
 - Explicitly triggering the shutdown logic before stopping the server.
@@ -86,7 +86,7 @@ cs.QodlyEvents.me.onStop({ saveState: true })
 
 The `.me` property <!-- REF #QodlyEvents.me.Summary -->returns the current instance of the QodlyEvents singleton.<!-- END REF --> 
 
-It must be used when calling functions like [onStartup()](#onStartup) or [`onStop()`](#onStop).
+It must be used when calling functions like [onStartup()](#onstartup) or [`onStop()`](#onstop).
 
 :::tip Why .me is Required:
 If you attempt to call:

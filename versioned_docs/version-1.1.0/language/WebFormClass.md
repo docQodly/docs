@@ -133,7 +133,7 @@ webForm.setError("My error message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the Page and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents.md#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a red *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-error.png)
 
@@ -171,7 +171,7 @@ webForm.setMessage("My information message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the Page and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents.md#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a green *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-info.png)
 
@@ -204,6 +204,6 @@ webForm.setWarning("My warning message")
 
 ```
 
-If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the Page and disappears automatically after 5 seconds:
+If the [**Provide feedback**](../studio/pageLoaders/events/bindingActionToEvents.md#providing-feedback) feature is enabled for the event, the *message* is automatically displayed as a yellow *toast* at the bottom of the Page and disappears automatically after 5 seconds:
 
 ![](img/message-warning.png)

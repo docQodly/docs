@@ -152,8 +152,8 @@ To designate a state as the default:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="55%">
     <ol>
-        <li><strong>Locate the State</strong>: In the "States" panel, find the state you want to set as the default..</li><br/>
-        <li><strong>Set as Default Button</strong>: Next to the state's name, you will see a checkbox labeled "Set as default state". Check this box to set the state as the default.</li><br/>
+        <li><strong>Locate the State</strong>: In the "States" panel, find the state you want to set as the default..<br/></li>
+        <li><strong>Set as Default Button</strong>: Next to the state's name, you will see a checkbox labeled "Set as default state". Check this box to set the state as the default.<br/></li>
     </ol>
 	</Column.Item>
 	<Column.Item width="40%">

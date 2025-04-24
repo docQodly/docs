@@ -49,7 +49,7 @@ Enhance the **Checkbox** component to align with your application's requirements
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.</li><br/>
+                <li><strong>Checkbox Variant</strong>: Select this for the standard checkbox style.<br/></li>
                 <li><strong>Switch Variant</strong>: Choose this for a switch-like appearance.</li>
             </ul>
         </Column.Item>
@@ -64,9 +64,9 @@ Enhance the **Checkbox** component to align with your application's requirements
     <Column.List align="center" justifyContent="between">
         <Column.Item width="60%">
             <ul>
-                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.</li><br/>
-                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.</li><br/>
-                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. </li><br/>
+                <li><strong>Two-State Checkbox (Default)</strong>: Select this for straightforward binary decisions.<br/></li>
+                <li><strong>Three-State Checkbox</strong>: Select this for scenarios requiring an optional or undefined state.<br/></li>
+                <li><strong>Initial Indeterminate Checkbox</strong>: Select this to provide an indeterminate state initially, transitioning to two-state behavior after first use. <br/></li>
             </ul>
         </Column.Item>
         <Column.Item width="31%">

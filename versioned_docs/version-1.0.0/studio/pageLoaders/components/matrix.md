@@ -62,8 +62,7 @@ To associate data with the **Matrix** component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.</li>
-            <br/>
+            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Matrix component.<br/></li>
             <li value="é"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Matrix. For instance, you can select an entity selection from a relevant dataclass, such as <code>roomSelection</code>.</li>
         </ol>
 	</Column.Item>
@@ -128,10 +127,10 @@ To implement this functionality, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="40%">
 		<ol start="1">
-        	<li>Integrate the Matrix component into the interface.</li> <br/><br/>
-			<li>Select a Qodly Source like <code>Rooms</code> for the Matrix.</li> <br/><br/>
-			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.</li> <br/><br/>
-            <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.</li> <br/><br/>
+        	<li>Integrate the Matrix component into the interface.<br/><br/></li>
+			<li>Select a Qodly Source like <code>Rooms</code> for the Matrix.<br/><br/></li>
+			<li>Embed a component (e.g., a button) within the Matrix for each iterated data.<br/><br/></li>
+            <li>Bind the desired function, like <code>selectRoomOption</code>, to the component's event, such as a button click, using <code>$This</code>.<br/><br/></li>
             <li>In the code editor, within the function, you can directly retrieve the data of the currently selected element without the need to pass the selected element qodlysource as a parameter to the function.</li> 
 		</ol>
 	</Column.Item>
@@ -159,7 +158,7 @@ The Matrix component supports a range of CSS classes, enabling customization of 
 | **Class Name**   | **Applies To**                 | **Description**                            |
 |------------------|-------------------------------|--------------------------------------------|
 | `.FdVirtualGrid`        | The entire matrix              | Styles the entire matrix area.       |
-| `.innerScrollContainer`   | All the default styleboxes in the matrix              | Targets all the [default styleboxes](stylebox#enhancing-content-presentation) incorporated in the matrix.           |
+| `.innerScrollContainer`   | All the default styleboxes in the matrix              | Targets all the [default styleboxes](stylebox.md#enhancing-content-presentation) incorporated in the matrix.           |
 | `.innerScrollContainer > div.selected`   | The selected stylebox     | Applies styles to the currently selected stylebox. |
 | `.innerScrollContainer > div:hover`   | The hovered stylebox     | Applies styles to the currently hovered stylebox. |
 | `.fd-stylebox > div` | The internal elements of styleboxes | Targets the internal components of the styleboxes that form the main Matrix. |

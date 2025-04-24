@@ -40,7 +40,7 @@ You can apply the `type` function to variables and parameters of a method.
 
 :::note
 
-You cannot apply the `type` function to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]). To do this, you must use the [`valueType`](#valuetype) command.
+You cannot apply the `type` function to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]). To do this, you must use the [`valueType`](../commands/valueType.md) command.
 
 :::
 

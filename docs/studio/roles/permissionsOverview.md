@@ -81,17 +81,17 @@ The reset functionality allows users to clear all permissions for the current pr
 - A confirmation dialog will appear, asking the user to confirm or cancel the action <img src={require('./img/ResetPermissionsDialog.png').default} style={{borderRadius: '6px', width:'30%'}} />.
 
 
-### Clear Non-Existing Resources
+### Clean Non-Existing Resources
 
 If a resource is unavailable (e.g., an attribute name from the Tag DataClass was deleted), it appears in red in the permissions table. A shadow effect is applied to indicate that the resource no longer exists. The resource icon also turns red, providing a clear visual indication of its unavailability.
 
-Also, the clear button to remove permissions related to resources that no longer exist becomes enabled. <img src={require('./img/clearNonExistingResources2.png').default} style={{borderRadius: '6px', width:'10%'}} />
+Also, the clean button to remove permissions, related to resources that no longer exist, becomes enabled. <img src={require('./img/clearNonExistingResources2.png').default} style={{borderRadius: '6px', width:'10%'}} />
 
 <img src={require('./img/clearNonExistingResources4.png').default} style={{borderRadius: '6px'}} />
 
 <Column.List align="center">
     <Column.Item width="65%">
-        Once the clear button is clicked, all permissions associated with non-existing resources will be deleted from the catalog across all privileges.
+        Once the clean button is clicked, all permissions associated with non-existing resources will be deleted from the catalog across all privileges.
     </Column.Item>
     <Column.Item width="35%">
         <img src={require('./img/clearNonExistingResources3.png').default} style={{borderRadius: '6px'}} />
@@ -99,7 +99,7 @@ Also, the clear button to remove permissions related to resources that no longer
 </Column.List>
 
 :::info
-When all resources are available, the Clear button is disabled.  <img src={require('./img/clearNonExistingResources1.png').default} style={{borderRadius: '6px', width:'10%'}} />
+When all resources are available, the Clean button is disabled.  <img src={require('./img/clearNonExistingResources1.png').default} style={{borderRadius: '6px', width:'10%'}} />
 :::
 
 ## Inheritance

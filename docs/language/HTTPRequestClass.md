@@ -3,9 +3,9 @@ id: HTTPRequestClass
 title: HTTPRequest
 ---
 
-The `HTTPRequest` class allows you to handle [`HTTPRequest objects`](#httprequest-object) that can be used to configure and send requests to an HTTP server, as well as to process the HTTP server responses.
+The `HTTPRequest` class allows you to handle [`HTTPRequest objects`](#functions-and-properties) that can be used to configure and send requests to an HTTP server, as well as to process the HTTP server responses.
 
-The `HTTPRequest` class is available from the `4D` class store. You create and send HTTP requests using the [4D.HTTPRequest.new()](#4dhttprequestnew) function, that returns a [`HTTPRequest object`](#httprequest-object).
+The `HTTPRequest` class is available from the `4D` class store. You create and send HTTP requests using the [4D.HTTPRequest.new()](#4dhttprequestnew) function, that returns a [`HTTPRequest object`](#functions-and-properties).
 
 
 ### Example
@@ -50,14 +50,14 @@ HTTPRequest objects provide the following functions and properties:
 ||
 |---|
 |[<!-- INCLUDE #4D.HTTPRequest.new().Syntax -->](#4dhttprequestnew)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #4D.HTTPRequest.new().Summary -->|
-|[<!-- INCLUDE #HTTPRequestClass.dataType.Syntax -->](#dataType)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.dataType.Summary -->|
+|[<!-- INCLUDE #HTTPRequestClass.dataType.Syntax -->](#datatype)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.dataType.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.encoding.Syntax -->](#encoding)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.encoding.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.errors.Syntax -->](#errors)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.errors.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.headers.Syntax -->](#headers)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.headers.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.method.Syntax -->](#method)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.method.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.protocol.Syntax -->](#protocol)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.protocol.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.response.Syntax -->](#response)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.response.Summary -->|
-|[<!-- INCLUDE #HTTPRequestClass.returnResponseBody.Syntax -->](#returnResponseBody)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.returnResponseBody.Summary -->|
+|[<!-- INCLUDE #HTTPRequestClass.returnResponseBody.Syntax -->](#returnresponsebody)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.returnResponseBody.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.terminate().Syntax -->](#terminate)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.terminate().Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.terminated.Syntax -->](#terminated)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.terminated.Summary -->|
 |[<!-- INCLUDE #HTTPRequestClass.timeout.Syntax -->](#timeout)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #HTTPRequestClass.timeout.Summary -->|
@@ -138,7 +138,7 @@ All callback functions receive two object parameters:
 
 |Parameter|Type|
 |---|---|
-|param1|[`HTTPRequest` object](#httprequest-object)|
+|param1|[`HTTPRequest` object](#functions-and-properties)|
 |param2|[`Event` object](#event-object)|
 
 Here is the sequence of callback calls:
@@ -392,7 +392,7 @@ If the response from the server has already arrived, the function returns immedi
 
 :::note 
 
-During the `.wait()` execution, callback functions are executed, whether they originate from other instances of the same class, or instances of any classes supporting the same callback mechanism (`HTTPRequest`, `TCPConnection`, `SystemWorker`). You can exit from a `.wait()` by calling [`shutdown()`](#shutdown) or `terminate()` (depending on the API) from a callback.
+During the `.wait()` execution, callback functions are executed, whether they originate from other instances of the same class, or instances of any classes supporting the same callback mechanism (`HTTPRequest`, `TCPConnection`, `SystemWorker`). You can exit from a `.wait()` by calling `shutdown()` or [`terminate()`](#terminate) (depending on the API) from a callback.
 
 :::
 

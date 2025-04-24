@@ -24,7 +24,7 @@ exposed function getTest() : string
 :::
 
 :::info
-For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../orda/data-model#exposed-vs-non-exposed-functions).
+For more details, refer to the section on [Exposed vs. Non-Exposed Functions](../orda/data-model.md#exposed-vs-non-exposed-functions).
 :::
 
 ### `onHttpGet` Functions
@@ -78,10 +78,10 @@ The ORDA REST API provides several endpoints to call class functions:
 
 |Class function|Syntax|
 |---|----|
-|[Datastore Class](../orda/data-model#datastore)|`/rest/$catalog/DataStoreClassFunction`|
-|[Dataclass Class](../orda/data-model#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
-|[EntitySelection Class](../orda/data-model#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
-|[Entity Class](../orda/data-model#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
+|[Datastore Class](../orda/data-model.md#datastore)|`/rest/$catalog/DataStoreClassFunction`|
+|[Dataclass Class](../orda/data-model.md#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
+|[EntitySelection Class](../orda/data-model.md#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
+|[Entity Class](../orda/data-model.md#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
 |[Singleton class](../language/basics/lang-classes.md#singleton-classes)|`/rest/$singleton/SingletonClass/SingletonClassFunction` (see [$singleton page]($singleton.md))|
 
 

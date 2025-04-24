@@ -6,8 +6,8 @@ title: ZIPArchive
 
 A QodlyScript ZIP archive is a `File` or `folder` object containing one or more files or folders, which are compressed to be smaller than their original size. These archives are created with a ".zip" extension and can be used to save space or transfer files via mediums which may have size limitations (e.g., email or network).
 
-- You create a ZIP archive with the [zipCreateArchive](#zipcreatearchive) command.
-- [`ZIPFile`](ZipFileClass.md) and [`ZIPFolder`](ZipFolderClass.md) instances are available through the [`root`](#root) property (`ZIPFolder`) of the object returned by [zipReadArchive](#zipreadearchive) command.
+- You create a ZIP archive with the [zipCreateArchive](./commands/zipCreateArchive.md) command.
+- [`ZIPFile`](ZipFileClass.md) and [`ZIPFolder`](ZipFolderClass.md) instances are available through the [`root`](#root) property (`ZIPFolder`) of the object returned by [zipReadArchive](./commands/zipReadArchive.md) command.
 
 ### Example
 

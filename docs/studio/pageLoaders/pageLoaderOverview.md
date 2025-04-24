@@ -11,8 +11,8 @@ In Qodly, a project's groundwork starts with a Page, which acts as the primary c
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.</li><br/><br/><br/><br/><br/>
-            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. </li><br/><br/><br/><br/>
+            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.<br/><br/></li>
+            <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. <br/><br/></li>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
 	</Column.Item>
@@ -43,8 +43,8 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding#classes), [model](../model/model-editor-interface.md), etc. 
-13. [**Tooltip**](components/componentsBasics#tooltip): Offers efficient component management and manipulation actions.
+12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements, including [class functions](../coding.md#classes), [model](../model/model-editor-interface.md), etc. 
+13. [**Tooltip**](components/componentsBasics.md#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs
 
@@ -362,7 +362,7 @@ Server Side allows you to control the component's behavior, such as [hiding](../
 Discover numerous customization avenues that empower you to fine-tune components according to distinct needs. 
 
 :::info
-For further details, refer to the [Properties Panel Styling Options](./styling#properties-panel-styling-options) section.
+For further details, refer to the [Properties Panel Styling Options](./styling.md#properties-panel-styling-options) section.
 :::
 
 :::info

@@ -30,7 +30,7 @@ An [entity](../orda/data-model.md#entity) is an instance of a [Dataclass](../ord
 |[<!-- INCLUDE #EntityClass.save().Syntax -->](#save)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.save().Summary -->|
 |[<!-- INCLUDE #EntityClass.toObject().Syntax -->](#toobject)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.toObject().Summary -->|
 |[<!-- INCLUDE #EntityClass.touched().Syntax -->](#touched)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.touched().Summary -->|
-|[<!-- INCLUDE #EntityClass.touchedAttributes().Syntax -->](#touchedattributes)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.touchedAttributes().Summary -->|
+|[<!-- INCLUDE #EntityClass.touchedAttributes().Syntax -->](#touchedattributes-)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.touchedAttributes().Summary -->|
 |[<!-- INCLUDE #EntityClass.unlock().Syntax -->](#unlock)&nbsp;&nbsp;&nbsp;&nbsp;<!-- INCLUDE #EntityClass.unlock().Summary -->|
 
 
@@ -379,7 +379,7 @@ The object returned by `.drop( )` contains the following properties:
 
 |Constant|	Value|	Comment|
 |---|---|---|
-|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can be returned when `kForceDropIfStampChanged` option is used.</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can be returned when `kForceDropIfStampChanged` option is used.<br/></li>**Associated statusText**: "Entity does not exist anymore"|
 |`kStatusLocked`|3|The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"|
 |`kStatusSeriousError`|	4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
 |`kStatusStampHasChanged`|	2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kForceDropIfStampChanged` option is not used<br/>**Associated statusText**: "Stamp has changed"|
@@ -890,7 +890,7 @@ The object returned by `.lock()` contains the following properties:
 
 |Constant	|Value|	Comment|
 |---|---|---|
-|`kStatusEntityDoesNotExistAnymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `kReloadIfStampChanged` option is used</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusEntityDoesNotExistAnymore`|	5|The entity no longer exists in the data. This error can occur in the following cases:<li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). This error can only be returned when `kReloadIfStampChanged` option is used<br/></li>**Associated statusText**: "Entity does not exist anymore"|
 |`kStatusLocked`|	3	|The entity is locked by a pessimistic lock. **Associated statusText**: "Already locked"
 |`kStatusSeriousError`|	4	|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc. **Associated statusText**: "Other error"|
 |`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error occurs only if the `kReloadIfStampChanged` option is not used<br/>**Associated statusText**: "Stamp has changed"|
@@ -1038,7 +1038,7 @@ The object returned by `.reload()` contains the following properties:
 
 |Constant|	Value|	Comment|
 |---|---|---|
-|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>***Associated statusText***: "Entity does not exist anymore"|
+|`kStatusEntityDoesNotExistAnymore`|5|The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).<br/></li>***Associated statusText***: "Entity does not exist anymore"|
 |`kStatusSeriousError`|4|	A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>***Associated statusText***: "Other error"|
 
 
@@ -1082,7 +1082,7 @@ The object returned by `.reload()` contains the following properties:
 
 The `.save()` function <!-- REF #EntityClass.save().Summary -->saves the changes made to the entity<!-- END REF --> in the table related to its dataClass. You must call this function after creating or modifying an entity if you want to save the changes made to it.
 
-The save operation is executed only if at least one entity attribute has been "touched" (see the [`.touched()`](#touched) and [`.touchedAttributes()`](#touchedattributes) functions). Otherwise, the function does nothing (the trigger is not called).
+The save operation is executed only if at least one entity attribute has been "touched" (see the [`.touched()`](#touched) and [`.touchedAttributes()`](#touchedattributes-) functions). Otherwise, the function does nothing (the trigger is not called).
 
 In a multi-process application, the `.save()` function is executed under an ["optimistic lock"](../orda/data.md#entity-locking) mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved. 
 
@@ -1126,7 +1126,7 @@ The following values can be returned in the `status` and `statusText` properties
 |Constant|	Value	|Comment|
 |---|---|---|
 |`kStatusAutomergeFailed`|	6|	(Only if the `kAutoMerge` option is used) The automatic merge option failed when saving the entity.<br/>**Associated statusText**: "Auto merge failed"|
-|`kStatusEntityDoesNotExistAnymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).</li><br/>**Associated statusText**: "Entity does not exist anymore"|
+|`kStatusEntityDoesNotExistAnymore`|	5|	The entity no longer exists in the data. This error can occur in the following cases:<br/><li>the entity has been dropped (the stamp has changed and the memory space is now free)</li><li>the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space).<br/></li>**Associated statusText**: "Entity does not exist anymore"|
 |`kStatusLocked`|	3|	The entity is locked by a pessimistic lock.<br/>**Associated statusText**: "Already locked"
 |`kStatusSeriousError`|4|A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc.<br/>**Associated statusText**: "Other error"|
 |`kStatusStampHasChanged`|2|The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock). This error can only occur if the `kAutoMerge` option is not used<br/>**Associated statusText**: "Stamp has changed"|

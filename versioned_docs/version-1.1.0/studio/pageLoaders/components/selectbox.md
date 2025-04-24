@@ -98,7 +98,7 @@ To associate data with the **Select Box** component, follow these steps:
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Select Box component.</li> <br/>
+            <li value="1"><strong>Navigate to the Properties Panel</strong>: Access the Data Access category located within the Properties panel for the Select Box component.<br/></li>
 			<li value="2"><strong>Define the Qodly Source</strong>: Specify the appropriate qodlysource that contains the data you want to display within the Select Box. For instance, you can select an entity selection, such as the <code>Destination</code> dataclass.</li>
         </ol>
 	</Column.Item>
@@ -126,7 +126,7 @@ To associate data iterated over a Qodly Source, you can follow these additional 
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="50%">
         <ol>
-            <li value="4"><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.</li> <br/>
+            <li value="4"><strong>Choose the Iterator</strong>: Choose the iterator corresponding to the iterated data (e.g., <code>$This</code>) to represent the current data item.<br/></li>
 			<li value="5"><strong>Choose the Attribute</strong>: Once you've selected the iterator, choose the specific attribute that you want to display within the component. This could be attributes like the name of the destination, the country, or any other relevant information.</li>
         </ol>
 	</Column.Item>
