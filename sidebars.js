@@ -534,13 +534,13 @@ const sidebars = {
 		},
 		'qodlyLookerStudio/qodlyLookerStudioConnector',
 		{
-			type: "link",
-			label: "Third-party Authentication",
-			href: "https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider"
+			type: 'link',
+			label: 'OAuth 2.0',
+			href: 'https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider'
 		}, 
 		{
 			type: 'category',
-			label: 'Email Integration',
+			label: 'Email',
 			items: [	
 				{
 					type: 'link',
