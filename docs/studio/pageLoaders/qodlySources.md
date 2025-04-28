@@ -117,6 +117,70 @@ The Location qodlysource is specifically designed to facilitate handling URL-rel
 The **Location** datasource is shared across your entire application and **cannot be edited or deleted**. This ensures uniform behavior and prevents accidental modifications.
 :::
 
+### Qodlysource: UserLanguage
+
+Within the **Qodly** namespace, you'll find the predefined datasource named **UserLanguage** <img src={require('./img/QodlysourceUserLanguage.png').default} style={{borderRadius: '6px', width: '30%'}} />.
+
+The UserLanguage qodlysource is specifically designed to manage multilingual behavior within your application by storing the currently selected language and the list of available supported languages.
+
+It provides a seamless way to bind user-selected languages at runtime without requiring manual coding or session handling.
+
+#### Key Attributes of UserLanguage:
+
+- **selected** *(Object)*: Stores the currently active locale chosen by the user. This object contains information about the selected language.
+
+        **Structure:**
+        ```javascript
+        {
+           isocode: "en",
+           locale: "anglais",
+           native: "English"
+        }
+        ```
+
+        Each locale entry include:
+        - `isocode`: Standard two-letter language code (e.g., "en" for English).
+        - `locale`: Display name for the language.
+        - `native`: Native name for the language (as spoken in that locale).
+        
+        **Example:**
+        ```javascript
+        UserLanguage.selected // → { isocode: "fr", locale: "français", native: "Français" }
+        ```
+
+- **supported** (Array): Lists all the available supported locales that the user has created in the **Localization page**. Each entry in the array represents one locale and must follow the same structure as the `selected` object.
+
+        **Structure:**
+        ```javascript
+        [
+           {
+              isocode: "en",
+              locale: "anglais",
+              native: "English"
+           },
+           {
+              isocode: "de",
+              locale: "allemand",
+              native: "Deutsch"
+           }
+        ]
+        ```
+
+        **Example:**
+        ```javascript
+        UserLanguage.supported // → [
+        //    { isocode: "en", locale: "anglais", native: "English" },
+        //    { isocode: "es", locale: "espagnol", native: "Español" }
+        //   ]
+        ```
+
+:::info Restrictions:
+The **UserLanguage** datasource is shared across your entire application and **cannot be deleted or edited manually**.  
+
+To modify the list of supported languages (adding or removing locales), you must update the configuration from the [Localization page](../localization.md#accessing-the-localization-page).  
+Changes made in the Localization page will automatically be reflected in the `UserLanguage.supported` array.
+:::
+
 
 ## Creating a Qodly Source
 
