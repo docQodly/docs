@@ -185,6 +185,11 @@ const sidebars = {
 		},
 		{
 			type: 'doc',
+			id: 'studio/localization',
+			label: "Localization"
+		},
+		{
+			type: 'doc',
 			id: 'studio/settings',
 			label: "Settings"
 		},

@@ -118,6 +118,16 @@ The qodlysource for the **File Upload** component can take the form of either a 
 Alternatively, you can establish the connection by dragging and dropping the qodlysource onto the File Upload component.
 :::
 
+## Example: Sending the File and File Name
+
+To send both a file and its name to the database, the File Upload component must be bound to a Picture field (e.g., imageEntity.Content) within an entity. However, to capture the file name along with the file itself, you must also reference the entity in the action that handles the file upload.
+
+For example, in the "Send" button of your form, you can use a function with two parameters:
+
+uploadImage(imageEntity, imageEntity.Content)
+
+To implement this, your function should retrieve the picture from imageEntity.Content and the file name from the object (e.g., OB Get($oImage; "path")), then save both to a new entity instance.
+
 ## Showcase
 
 Here's a glimpse of how the **File Upload** component will look and behave in action:
