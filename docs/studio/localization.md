@@ -291,7 +291,7 @@ Removing a locale will:
 
 ## Runtime Language Switching
 
-To enable dynamic, user-driven language switching at runtime, the application must be configured to bind to the `UserLanguage` shared Qodly source.
+To enable dynamic, user-driven language switching at runtime, the application must be configured to bind to the [UserLanguage shared Qodly source](./pageLoaders/qodlySources.md#qodlysource-userlanguage).
 
 Runtime switching involves the following configuration steps:
 
@@ -344,3 +344,5 @@ If no UserLanguage binding is configured, language switching will not function i
 | Missing translation for key	        | Default literal or primary locale value is used. |
 | Unsupported browser language	        | Application defaults to the Primary Locale.    |
 | No Primary Locale configured          | System behavior may vary; may revert to first configured locale. |
+
+
