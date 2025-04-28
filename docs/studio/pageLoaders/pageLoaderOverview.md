@@ -86,6 +86,14 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 
 <br/>
 
+### Localization (i18n)
+
+The Localization button <img alt="Localization Icon" src={require('./img/pageLocalizationButton.png').default} style={{borderRadius: '6px', width: '4%'}} /> in the header panel lets you preview your application in the different locales you created from the Localization page.
+
+:::info
+For further details, refer to the [Localization (i18n)](../localization.md) section.
+:::
+
 ### Dialogs
 
 The Dialog button <img alt="Dialog Icon" src={require('./img/headerPanel_Dialogs.png').default} style={{borderRadius: '6px', width: '3%'}} /> in the header panel provides access to a list of Dialogs. Each Dialog is designed as a popup overlay, aimed at enhancing user engagement by displaying additional content  within the existing Page.
