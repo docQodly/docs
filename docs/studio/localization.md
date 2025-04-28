@@ -31,18 +31,6 @@ Localization in Qodly is designed to integrate seamlessly into the visual develo
 | Key                       | A unique reference identifier linking a literal to its translations.  |
 | UserLanguage	            | A built-in shared source containing the currently selected locale and the list of supported locales. |
 
-## Localization Feature Behavior
-
-Localization within Qodly operates according to a layered priority model to determine which language is displayed to the end user.
-The priority order is as follows:
-
-1. User-selected language via the runtime language selector.
-2. Session-stored language (persisted from a previous visit).
-3. Browser language detection, if supported by the application.
-4. Primary locale fallback, if no other condition applies.
-
-If a literal does not have a translation for the active locale, the system will default to displaying the literal in the primary language or the original text if no primary translation exists.
-
 
 ## Managing Localization
 
@@ -285,7 +273,7 @@ To completely remove a locale:
 
 Removing a locale will:
 
-- Delete all translations associated with that locale.
+- Delete all translation keys associated with that locale.
 - Automatically update the `UserLanguage.supported` array, removing the deleted language from the runtime switching options.
 
 
@@ -346,3 +334,82 @@ If no UserLanguage binding is configured, language switching will not function i
 | No Primary Locale configured          | System behavior may vary; may revert to first configured locale. |
 
 
+## Localization Feature Behavior
+
+Localization in Qodly follows a **layered priority model** to determine which language is displayed to the end user at any given moment.
+
+The priority order for language resolution is:
+
+1. **User-selected language**:  If the user manually selects a language during their session (for example, using a language switcher dropdown), the application will immediately display the selected language and store it in the session.
+
+2. **Session-stored language**:  On subsequent visits, if a session language has been previously stored, the application will automatically reuse this stored language preference without requiring user interaction.
+
+3. **Browser language detection**:  If no session language is set (e.g., on a user's very first login), the application will attempt to detect the user's browser language.  
+   - If the browser language matches one of the supported locales configured in the Localization page, it will be used automatically.
+
+4. **Primary locale fallback**:  If neither a session language nor a matching browser language is available, the application will fall back to displaying the **Primary locale** defined in the Localization settings.
+
+### Behavior for Missing Translations
+
+If a literal does not have a translation value for the active locale:
+
+- The system will attempt to use the translation defined in the **Primary locale**.
+- If no translation is defined even in the Primary locale, the original text value (literal) will be displayed as-is.
+
+This ensures that the application remains functional even if translations are incomplete.
+
+## Exporting and Importing Translations
+
+Qodly makes it easy to manage translations externally by allowing you to **export** and **import** translation files. You can export your application's literals to a CSV or JSON file, translate them externally, and then re-import them back into your application.
+
+### Exporting Literals
+
+The **Export** button is initially disabled <img src={require('./img/exportLitralsButton.png').default} style={{borderRadius: '6px', width:'3%'}} />  by default.  
+
+To enable the Export button:
+
+1. You must select at least one locale from the Localization panel.
+
+2. You can either:
+
+    - Manually check the box for one or more locales. <img src={require('./img/exportLitralsCheckbox.png').default} style={{borderRadius: '6px', width:'40%'}} />
+
+    - Or check the **Select All** checkbox <img src={require('./img/exportLitralsCheckboxAll.png').default} style={{borderRadius: '6px', width:'40%'}} /> to select all available locales at once.
+
+
+    Once at least one locale is selected, the **Export** button becomes active <img src={require('./img/exportLitralsButton2.png').default} style={{borderRadius: '6px', width:'3%'}} />.
+
+3. Click **Export** to open the export configuration modal.
+
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="45%">
+            Inside the Export modal:
+                - Select your preferred export format:  
+                    - **CSV**: Suitable for spreadsheet editing or basic translation workflows.  
+                    - **JSON**: Suitable for structured editing and external system integration.
+                - After selecting the format, click **Export**.  
+        </Column.Item>
+        <Column.Item width="45%">
+            <img src={require('./img/exportLitralsModal.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+
+A file will be generated and downloaded in the chosen format containing all literals for the selected locales.
+
+### Importing Literals
+
+To import translated literals:
+    - Click the **Import** button <img src={require('./img/importLitralsButton.png').default} style={{borderRadius: '6px', width:'3%'}} /> located next to the Export options.
+    <Column.List align="center" justifyContent="between">
+        <Column.Item width="45%">
+            - A file selector will open.
+
+            - Upload a valid `.csv` or `.json` file matching the export format.
+
+            - Once a file is selected, click **Import** to update your application's literals.
+        </Column.Item>
+        <Column.Item width="45%">
+            <img src={require('./img/importLitralsModal.png').default} style={{borderRadius: '6px'}} />
+        </Column.Item>
+    </Column.List>
+    
