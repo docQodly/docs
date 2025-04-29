@@ -192,16 +192,20 @@ To create a translation key:
 Once created:
 
 - The translation key will be automatically associated with the text.
-- The key will appear in the Localization page under all configured locales.
-<img src={require('./img/localizationPageKeyLocale.png').default} style={{borderRadius: '6px'}} />
+    <img src={require('./img/localizationPageKeyLocale.png').default} style={{borderRadius: '6px'}} />
+
+    :::warning
+    The key will not appear under all locales by default in the page. This is intentional—developers may choose to translate a key in only a subset of locales if the text varies across languages.
+    :::
 
 - Different values can be assigned for the same key depending on the active locale.
 
 
-### Revoking a Translation Key
+
+### Removing a Key from a Literal
 
 If needed, you can remove a translation key association from a text component:
-s
+
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
         - Click again on the **i18n** button from the component’s tooltip.
@@ -214,6 +218,10 @@ s
 </Column.List>
 
 This action will unlink the text from the translation key, allowing it to behave as a standard independent literal again.
+
+:::warning
+Removing a key from a literal in a specific locale will only affect that locale. The key remains available and associated in other locales where it has already been used.
+:::
 
 ### Configuring Key Values Per Locale
 
@@ -276,6 +284,35 @@ Removing a locale will:
 - Delete all translation keys associated with that locale.
 - Automatically update the `UserLanguage.supported` array, removing the deleted language from the runtime switching options.
 
+### Editing a Translation Key
+
+To edit the value of a translation key for a specific locale:
+
+1. Go to the Localization page in Qodly Studio.
+2. Select the desired locale.
+3. Locate the key you wish to update from the list.
+4. Click the edit icon or directly click into the value field.
+5. Modify the value and click the ✔ button to confirm your changes or ✖ to cancel.
+
+<img src={require('./img/editKey.png').default} style={{borderRadius: '6px'}} /> 
+
+### Deleting a Translation Key
+
+To delete a translation key entirely from the Localization page:
+
+1. Open the Localization page.
+2. Navigate to the locale where the key is visible.
+3. Locate the key in the list and click the delete icon.
+
+<img src={require('./img/deleteKey.png').default} style={{borderRadius: '6px'}} /> 
+
+Deleting a key will:
+
+- Remove the key itself.
+- Remove all translations associated with it across all locales.
+- Unlink any components or literals that were referencing the deleted key.
+
+Use this option only when the key is no longer needed in the application.
 
 ## Runtime Language Switching
 
@@ -324,16 +361,6 @@ When the application is rendered:
 If no UserLanguage binding is configured, language switching will not function in preview or renderer modes, even if locales exist.
 :::
 
-## Limitations and Considerations
-
-| Condition                             | Behavior                                                   |
-|---------------------------------------|---------------------------------------------------------------|
-| No UserLanguage configured	        | Language switching at runtime will not function; only design-time preview is possible.|
-| Missing translation for key	        | Default literal or primary locale value is used. |
-| Unsupported browser language	        | Application defaults to the Primary Locale.    |
-| No Primary Locale configured          | System behavior may vary; may revert to first configured locale. |
-
-
 ## Localization Feature Behavior
 
 Localization in Qodly follows a **layered priority model** to determine which language is displayed to the end user at any given moment.
@@ -351,16 +378,21 @@ The priority order for language resolution is:
 
 ### Behavior for Missing Translations
 
-If a literal does not have a translation value for the active locale:
-
-- The system will attempt to use the translation defined in the **Primary locale**.
-- If no translation is defined even in the Primary locale, the original text value (literal) will be displayed as-is.
+If a literal does not have a translation value for the active locale, the original text value (literal) will be displayed as-is.
 
 This ensures that the application remains functional even if translations are incomplete.
 
 ## Exporting and Importing Translations
 
 Qodly makes it easy to manage translations externally by allowing you to **export** and **import** translation files. You can export your application's literals to a CSV or JSON file, translate them externally, and then re-import them back into your application.
+
+### Export First, then Import
+
+Before you can import translations into Qodly, you must first export your application's literals. This ensures that the file structure matches the expected internal format.
+
+You cannot create a valid translation file from scratch or use a file exported from another app. The import process requires a file that was originally exported from your own Qodly app.
+
+Once exported, you can edit the file using a spreadsheet editor (for CSV) or a code/text editor (for JSON), then re-import it into your app.
 
 ### Exporting Literals
 
@@ -396,7 +428,7 @@ To enable the Export button:
 
 A file will be generated and downloaded in the chosen format containing all literals for the selected locales.
 
-### Importing Literals
+### Exporting Literals
 
 To import translated literals:
     - Click the **Import** button <img src={require('./img/importLitralsButton.png').default} style={{borderRadius: '6px', width:'3%'}} /> located next to the Export options.
@@ -405,11 +437,73 @@ To import translated literals:
             - A file selector will open.
 
             - Upload a valid `.csv` or `.json` file matching the export format.
-
+            
             - Once a file is selected, click **Import** to update your application's literals.
         </Column.Item>
         <Column.Item width="45%">
             <img src={require('./img/importLitralsModal.png').default} style={{borderRadius: '6px'}} />
         </Column.Item>
     </Column.List>
-    
+
+### Supported File Formats
+
+Qodly supports two export/import formats: JSON and CSV. Each format has its own structure and is suitable for different use cases.
+
+#### JSON Format
+
+The JSON format is structured for developers and tools that prefer a nested, key-based structure.
+
+| Field | Description |
+|-------|-------------|
+| `webforms.i18n` | Maps component IDs to their translation data. Each ID represents a UI element. |
+| `resolverName` | The type of component (e.g., Label, Text, SelectBox). |
+| `props` | An array of translated properties, each with: `__dataPath`, `__default`, and one or more language translations. |
+| `i18n` | Contains all custom translation keys created by the developer. Each key includes a `default` value and language-specific values. |
+
+**Example:**
+```json
+{
+  "webforms": {
+    "i18n": {
+      "1DVbAUpEoU": {
+        "resolverName": "Label",
+        "props": [
+          {
+            "__dataPath": "text",
+            "__default": "Label",
+            "en": "Label",
+            "es": "Label"
+          }
+        ]
+      },
+      ...
+    }
+  },
+  "i18n": {
+    "marketingText_Key": {
+      "default": "marketing Style Text",
+      "en": "Qodly Studio is a modern, low-code development environment...",
+      "fr": "Qodly Studio est un environnement de développement..."
+    }
+  }
+}
+```
+
+#### CSV Format
+
+The CSV format is ideal for translation teams working in spreadsheet editors.
+
+| Column | Description |
+|--------|-------------|
+| `keys` | Path to the literal or translation key. E.g., `webforms.i18n.Z7Gc1JzZ16.doc` or `i18n.marketingText_Key.en`. |
+| `resolverName` | Type of the UI component (`Label`, `Text`, etc.). |
+| `__t` | The default fallback value shown when a translation is missing. |
+| `en`, `es`, `fr`, etc. | Columns for each language code, containing the translated values. |
+| `key_default` | The value tied to a custom translation key when applicable. |
+
+**Example:**
+```
+keys,resolverName,__t,en,es,key_default,zh,ja,it,de,fr
+webforms.i18n.1DVbAUpEoU.text,Label,"Label","Label","Label"
+i18n.marketingText_Key.en,,,,,Qodly Studio is a modern, low-code development environment...
+```
