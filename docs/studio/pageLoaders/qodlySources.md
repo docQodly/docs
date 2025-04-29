@@ -338,6 +338,24 @@ For Entity Selection or Entity types, make sure to also configure additional set
 </Column.List>
 
 
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="35%">
+                If the value is long or complex, a <code>Maximize</code> button <img src={require('./img/maximizeQodlySourceEditor.png').default} style={{borderRadius: '6px', width:'10%'}} /> appears (only for object and array types), opening a popup editor to give you more editing space. 
+	</Column.Item>
+	<Column.Item width="60%">
+	        <img src={require('./img/popupEditor.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
+<Column.List align="center" justifyContent="between">
+	<Column.Item width="35%">
+                The popup itself can also be maximized to cover the full contextual panel for better visibility.
+	</Column.Item>
+	<Column.Item width="60%">
+	        <img src={require('./img/popupEditor2.png').default} style={{borderRadius: '6px'}} />
+	</Column.Item>
+</Column.List>
+
 ### Renaming a Qodly Source
 
 You can easily rename a qodlysource from the contextual panel. In doing so, Qodly Studio will automatically update references to the renamed qodlysource:
