@@ -267,7 +267,7 @@ To edit an existing locale:
 
 - Navigate to the **Localization** page from the Explorer.
 - Locate the locale you want to modify in the list.
-- Click on the **Edi** button <img src={require('./img/editLocaleButton.png').default} style={{borderRadius: '6px', width: '35%'}} /> next to the locale name.
+- Click on the **Edit** button <img src={require('./img/editLocaleButton.png').default} style={{borderRadius: '6px', width: '35%'}} /> next to the locale name.
 - A language selector dropdown will appear.
 - Choose a new language to replace the current one.
 
@@ -428,7 +428,7 @@ To enable the Export button:
 
 A file will be generated and downloaded in the chosen format containing all literals for the selected locales.
 
-### Exporting Literals
+### Importing Literals
 
 To import translated literals:
     - Click the **Import** button <img src={require('./img/importLitralsButton.png').default} style={{borderRadius: '6px', width:'3%'}} /> located next to the Export options.
