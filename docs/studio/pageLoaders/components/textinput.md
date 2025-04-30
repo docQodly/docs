@@ -199,6 +199,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                                 | `include` | `Boolean` | Defines whether the interval should include (`true`) or exclude (`false`) dates. |
                                 | `type` | `String` | Specifies the interval type. Possible values: **startingFrom, until, range, days**. |
                                 | `params` | `Object` | Contains details about the interval, such as specific dates or recurring patterns. |
+                                | `active` | `Boolean` | Whether the interval is active. Defaults to true. If false, the interval is ignored. This behaves exactly like the Card Toggle in the UI, which enables or disables the interval block without removing your settings. |
                                 <br/>
                                 #### **`params` Object Properties**  
                                 | **Interval Type** | **Parameters** | **Example JSON Format** |
