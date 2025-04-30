@@ -146,7 +146,7 @@ Within the **Text Input** component, an embedded **Input** allows for further cu
                 :::
                 <Column.List align="center" justifyContent="between">
                         <Column.Item width="60%">
-                                <li><strong>date</strong>: Limits input to date values with a date picker.</li>
+                                <li><strong>date</strong>: Limits input to date values with a date picker. Users can navigate to the next or previous month, as well as jump to the next or previous year directly within the date picker.</li>
                         </Column.Item>
                         <Column.Item width="35%">
                                 <img src={require('./img/inputType_date.png').default} style={{borderRadius: '6px'}} />
