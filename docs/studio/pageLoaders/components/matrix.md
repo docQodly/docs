@@ -53,7 +53,7 @@ Enhance the **Matrix** component to align with your application's requirements u
             <ul>
                 <li><strong>Select & Scroll First</strong>: With this option, the Matrix automatically scrolls to the top and selects the first element whenever data is reloaded or filtered.</li>
                 <li><strong>Select & Scroll Current (Default)</strong>: By default, the Matrix scrolls to the currently selected item and keeps it in view after a data update.</li>
-				<li><strong>No Select</strong>: With this option, the Matrix retains its current scroll position and does not auto-select any element after a data update.</li>
+				<li><strong>No Select</strong>: With this option, the Matrix retains its current scroll position and does not auto-select any element after a data update. Use this option when you want full control over selection. It's ideal when you're manually setting the selected item—for example, by calling a function or using a standard action that updates the selected element datasource yourself.</li>
             </ul>
         </Column.Item>
         <Column.Item width="35%">
