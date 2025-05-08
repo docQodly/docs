@@ -208,6 +208,9 @@ The Select Box component supports various CSS classes, enabling customization of
 | `.fd-selectbox__container > div:hover`   | Components within choices    | Styles individual components inside each choice when hovered. |
 | `.FdVirtualList`   | The select box options list    | Applies styles to the list of choices in the select box. |
 | `.fd-selectbox__menu`   | The select box menu    | Styles the entire select box menu, including the search area. |
+| `.fd-selectbox__search	`   | The select box search bar wrapper    | Styles the overall container for the search bar. |
+| `.fd-selectbox__search__icon	`   | The select box search icon		    | Styles the icon used for searching. |
+| `.fd-selectbox__search__input	`   | The select box search input field	    | Styles the text input where users type search terms. |
 
 ### Custom styling examples
 The following examples demonstrate how to customize the Select Box component's appearance.
@@ -219,7 +222,7 @@ This example styles the Select Box default view (Header), using a silver backgro
 	<Column.Item width="60%">
 	<pre>
         <code className="language-css">{`
-self.fd-selectbox {
+self .fd-selectbox {
 border-radius: 10px;
 background-color: #E0E0E0; 
 box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
@@ -262,7 +265,7 @@ In this example each choice within the select box is customized with rounded cor
 	<pre>
 		<code className="language-css">
 			{`
-self.fd-selectbox {
+self .fd-selectbox {
 border-radius: 10px;
 background-color: #E0E0E0; 
 box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
@@ -290,7 +293,7 @@ In this example, the virtual list of the Select Box is customized by applying a 
 	<pre>
 		<code className="language-css">
 			{`
-self.fd-selectbox {
+self .fd-selectbox {
 border-radius: 10px;
 background-color: #E0E0E0; 
 box-shadow: -4px 4px 10px rgba(220, 220, 220, 0.4), -2px 2px 10px rgba(192, 192, 192, 0.3);
@@ -316,7 +319,7 @@ This example customizes the Select Box menu by applying a light gray background,
 	<pre>
 		<code className="language-css">
 			{`
-self.fd-selectbox__menu {
+self .fd-selectbox__menu {
 	color:rgb(152, 92, 8);
 	background-color: #E0E0E0; 
 	font-family: cursive;
@@ -333,6 +336,24 @@ self.fd-selectbox__menu {
 :::tip 
 For smooth application of CSS Classes, both `.fd-selectbox` and `.fd-selectbox__menu` should be attached to `self` **without an extra space** unlike other classNames.
 :::
+
+#### Example 6: Custom Search Bar Styling
+This example shows how to apply a dark theme to the search bar using the available CSS classes:
+
+```css
+self {
+	.fd-selectbox__search {
+		background-color: black;
+		color: white;
+	}
+	.fd-selectbox__search__input {
+		background-color: transparent;
+	}
+	.fd-selectbox__search__icon {
+		color: white;
+	}
+}
+```
 
 ## Showcase
 
