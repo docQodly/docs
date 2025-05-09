@@ -507,3 +507,18 @@ keys,resolverName,__t,en,es,key_default,zh,ja,it,de,fr
 webforms.i18n.1DVbAUpEoU.text,Label,"Label","Label","Label"
 i18n.marketingText_Key.en,,,,,Qodly Studio is a modern, low-code development environment...
 ```
+
+## Add i18n for Other Specific Components
+
+For components other than Text, adding i18n translation keys is done directly through the Properties panel in Qodly Studio.
+
+For example, to localize the label of a Button component:
+
+1. Select the component in your page.
+2. Go to the Properties tab in the right-hand panel.
+3. Locate the Label field.
+4. You have three options:
+    - Assign a key to all locales: Click the purple i18n button next to the label field without selecting a locale. This adds the key for all supported locales.
+    - Assign a key to a specific locale: First select the target locale from the locale switcher, then click the i18n button. This will assign the key only for that selected locale.
+    - Manually edit label value: You can also manually change the value of the label per locale without using a translation key.
+
