@@ -32,7 +32,7 @@ Localization in Qodly is designed to integrate seamlessly into the visual develo
 | UserLanguage	            | A built-in shared source containing the currently selected locale and the list of supported locales. |
 
 
-## Managing Localization
+## Localization Setup
 
 ### Accessing the Localization Page
 
@@ -89,14 +89,14 @@ To add supported languages:
 </Column.List>
 
 
-:::info
+### Setting the Primary Locale
 
 One of the locales must be set as the **Primary Locale**, which acts as the default language whenever no user preference or browser match is available.
 
 <img src={require('./img/primaryLocale.png').default} style={{borderRadius: '6px'}} />
 
 Setting a Primary Locale ensures consistent fallback behavior across user sessions and browsers.
-:::
+
 
 ### Previewing Locales in the Studio
 
@@ -122,9 +122,11 @@ Developers can manually switch between configured locales during development to 
 This preview is strictly for **design-time visualization** within the canvas and does not affect runtime user sessions or language selection persistence.
 
 
-### Manual Translation 
+## Translating Content
 
 A **literal** is any visible text in the application interface (e.g., labels, button texts, titles). By default, each literal exists independently for each locale page. 
+
+### Manual Translation 
 
 Developers can manually modify the literal text **directly** in each locale's version without creating a translation key.  
 
@@ -142,8 +144,6 @@ This method is simple for small applications but becomes harder to maintain as t
 :::
 
 ### Creating Translation Keys
-
-A **literal** is any visible text in the application interface (e.g., labels, button texts, titles). By default, each literal exists independently for each locale page. 
 
 For better scalability, **literals can be assigned to translation keys**. A **translation key** links a text element to a centralized reference, allowing it to be easily managed and translated across all supported locales.
 
@@ -195,11 +195,29 @@ Once created:
     <img src={require('./img/localizationPageKeyLocale.png').default} style={{borderRadius: '6px'}} />
 
     :::warning
-    The key will not appear under all locales by default in the page. This is intentional—developers may choose to translate a key in only a subset of locales if the text varies across languages.
+    The key will not appear under all locales because it was assigned to the component while a specific locale was selected. To assign a key across all locales, make sure you're in the base state (without any locale selected) before adding the key. See the [Translation Key Scenarios section](#translation-key-scenarios) for more details.
     :::
 
 - Different values can be assigned for the same key depending on the active locale.
 
+### Translation Key Scenarios
+
+Here’s a breakdown of the different ways you can localize content:
+
+1. **Assign a Key to All Locales**: Make sure no locale is selected (you're in the base state).
+    - Click the purple i18n button.
+    - This will create and assign a translation key that appears across all supported locales.
+    - Use this when you want the label to stay consistent across all languages unless explicitly overridden.
+
+2. **Assign a Key to a Specific Locale**: First, select a locale using the locale switcher.
+    - Then click the purple i18n button.
+    - The translation key will be assigned only to the selected locale.
+    - Useful when the text content or meaning varies significantly between languages and shouldn't be reused globally.
+
+3. **Manually Edit the Label per Locale**: Instead of using keys, you can manually update the Label field for each locale.
+    - Select a locale and directly type the desired label.
+    - This is quick and flexible but may become harder to manage at scale.
+    - Use the approach that best matches the complexity and reuse patterns of your UI labels.
 
 
 ### Removing a Key from a Literal
@@ -261,6 +279,23 @@ When creating locales for the first time, **no keys exist initially**.
 This ensures that key management is progressively unlocked as localization is set up.
 :::
 
+### Add i18n for Other Specific Components
+
+For components other than the Text component, adding i18n translation keys is done directly through the Properties panel in Qodly Studio.
+
+For example, to localize the label of a Button component:
+
+1. Select the component in your page.
+2. Go to the Properties tab in the right-hand panel.
+3. Locate the Label/Title field.
+4. You have three options:
+    - Assign a key to all locales: Click the purple i18n button next to the label field without selecting a locale. This adds the key for all supported locales.
+    - Assign a key to a specific locale: First select the target locale from the locale switcher, then click the i18n button. This will assign the key only for that selected locale.
+    - Manually edit label value: You can also manually change the value of the label per locale without using a translation key.
+
+
+## Managing Locales
+
 ### Editing a Locale
 
 To edit an existing locale:
@@ -283,6 +318,9 @@ Removing a locale will:
 
 - Delete all translation keys associated with that locale.
 - Automatically update the `UserLanguage.supported` array, removing the deleted language from the runtime switching options.
+
+
+## Managing Keys
 
 ### Editing a Translation Key
 
@@ -313,6 +351,7 @@ Deleting a key will:
 - Unlink any components or literals that were referencing the deleted key.
 
 Use this option only when the key is no longer needed in the application.
+
 
 ## Runtime Language Switching
 
@@ -376,11 +415,13 @@ The priority order for language resolution is:
 
 4. **Primary locale fallback**:  If neither a session language nor a matching browser language is available, the application will fall back to displaying the **Primary locale** defined in the Localization settings.
 
-### Behavior for Missing Translations
+:::info Behavior for Missing Translations
 
 If a literal does not have a translation value for the active locale, the original text value (literal) will be displayed as-is.
 
 This ensures that the application remains functional even if translations are incomplete.
+
+:::
 
 ## Exporting and Importing Translations
 
@@ -507,18 +548,3 @@ keys,resolverName,__t,en,es,key_default,zh,ja,it,de,fr
 webforms.i18n.1DVbAUpEoU.text,Label,"Label","Label","Label"
 i18n.marketingText_Key.en,,,,,Qodly Studio is a modern, low-code development environment...
 ```
-
-## Add i18n for Other Specific Components
-
-For components other than Text, adding i18n translation keys is done directly through the Properties panel in Qodly Studio.
-
-For example, to localize the label of a Button component:
-
-1. Select the component in your page.
-2. Go to the Properties tab in the right-hand panel.
-3. Locate the Label field.
-4. You have three options:
-    - Assign a key to all locales: Click the purple i18n button next to the label field without selecting a locale. This adds the key for all supported locales.
-    - Assign a key to a specific locale: First select the target locale from the locale switcher, then click the i18n button. This will assign the key only for that selected locale.
-    - Manually edit label value: You can also manually change the value of the label per locale without using a translation key.
-

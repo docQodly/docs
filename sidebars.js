@@ -186,7 +186,7 @@ const sidebars = {
 		{
 			type: 'doc',
 			id: 'studio/localization',
-			label: "Localization"
+			label: "Localization (i18n)"
 		},
 		{
 			type: 'doc',
