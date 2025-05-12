@@ -140,53 +140,53 @@ Thank you for helping us improve! 🚀
         title: 'Docs', //Docs
         logo: {
           alt: 'Qodly',
-          //src: 'img/qodly-logo-dark.svg',
-          //srcDark: 'img/qodly-logo-white.svg',
           src: 'img/qodly-light-version.svg',
           srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
+          // Qodly Cloud
           {
             type: 'doc',
             docId: 'get-started/quickstart',
             position: 'left',
-            label: 'Getting Started',
+            label: 'Getting Started (OLD)',
           },
-          /*{
-            type: 'doc',
-            docId: 'cloud/getStarted',
-            position: 'left',
-            label: 'console',
-          },*/
           {
             type: 'doc',
             docId: 'studio/overview',
             position: 'left',
-            label: 'Develop',
+            label: 'Develop (OLD)',
           },
           {
             type: 'doc',
             docId: 'cloud/consoleOverview',
             position: 'left',
-            label: 'Run & Manage',
+            label: 'Run & Manage (OLD)',
           },
           {
             type: 'doc',
             docId: 'api/overview',
             position: 'left',
-            label: 'Integrations',
+            label: 'Integrations (OLD)',
           },
           {
             type: "doc",
             position: "left",
             docId: "orda/data-model",
-            label: "Guides",
+            label: "Guides (OLD)",
           }, 
           {
             type: "doc",
             position: "left",
             docId: "faq/faq",
-            label: "FAQ",
+            label: "FAQ (OLD)",
+          },
+          // Qodly 4D Pro
+          {
+            type: 'doc',
+            docId: '4DQodlyPro/gettingStarted',
+            position: 'left',
+            label: 'Develop',
           },
           {
             type: 'docsVersionDropdown',
@@ -194,14 +194,6 @@ Thank you for helping us improve! 🚀
             //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
             dropdownActiveClassDisabled: false,
           },  
-          /*
-            {to: '/blog', label: 'Blog', position: 'left'},
-            {
-              href: 'https://github.com/docQodly/docs',
-              label: 'GitHub',
-              position: 'right',
-            },
-          */
         ],
       },
       footer: {
