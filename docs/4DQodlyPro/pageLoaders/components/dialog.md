@@ -182,7 +182,7 @@ Employing the `.show()` method triggers the `On Open` event, whereas utilizing `
 
 The overlay style of dialogs can be further styled using the shared CSS class `fd-dialog-overlay`, such as:
 
-```qs
+```css
 fd-dialog-overlay {
 	background-color: rgba(137, 43, 226, 50%);
 }

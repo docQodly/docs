@@ -39,10 +39,10 @@ Developers can modify the onStartup() and onStop() functions inside the QodlyEve
 shared singleton Class constructor()
 
 shared function onStartup()
-	LOG EVENT("Application startup completed successfully."; 0)
+    logEvent("Application startup completed successfully.", 0)
 
 shared function onStop()
-	LOG EVENT("Application is shutting down."; 0)
+    logEvent("Application is shutting down.", 0)
 ```
 
 

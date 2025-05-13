@@ -4,9 +4,6 @@ title: Binding Actions to Events
 ---
 
 import Column from '@site/src/components/Column'
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 
 ## Binding Standard Actions to Events
 
@@ -428,45 +425,44 @@ Consider a function called `product.productManual`, which is exposed with the `o
 <Tabs>
   <TabItem value="4D" label="4D" default>
     ```4d
-exposed onHTTPGet Function productManual($productName : Text) : 4D.OutgoingMessage
+    exposed onHTTPGet Function productManual($productName : Text) : 4D.OutgoingMessage
         var $manual : 4D.File
         var $response : 4D.OutgoingMessage := 4D.OutgoingMessage.new()
 
-    // Specify the file location based on the product name
-    $manual := File("/SOURCES/Shared/" + productName + ".pdf")
+        // Specify the file location based on the product name
+        $manual := File("/SOURCES/Shared/" + productName + ".pdf")
 
-    // Set the file content as the body of the outgoing message
-    $response.setBody($manual.getContent())
+        // Set the file content as the body of the outgoing message
+        $response.setBody($manual.getContent())
+            
+        // Set the appropriate Content-Type for a PDF
+        $response.setHeader("Content-Type"; "application/pdf")
         
-    // Set the appropriate Content-Type for a PDF
-    $response.setHeader("Content-Type"; "application/pdf")
-    
-    // Return the constructed response
-    return $response
-```
+        // Return the constructed response
+        return $response
+    ```
   </TabItem>
   <TabItem value="qs" label="QodlyScript">
-   ```qs
-exposed onHTTPGet function productManual($productName : text) : 4D.OutgoingMessage
-    var $manual : 4D.File
-    var $response : 4D.OutgoingMessage = 4D.OutgoingMessage.new()
+    ```qs
+    exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMessage
+        var manual : 4D.File
+        var response : 4D.OutgoingMessage = 4D.OutgoingMessage.new()
 
-    // Specify the file location based on the product name
-    $manual = file("/SOURCES/Shared/" + productName + ".pdf")
+        // Specify the file location based on the product name
+        manual = file("/SOURCES/Shared/" + productName + ".pdf")
 
-    // Set the file content as the body of the outgoing message
-    $response.setBody($manual.getContent())
+        // Set the file content as the body of the outgoing message
+        response.setBody(manual.getContent())
+            
+        // Set the appropriate Content-Type for a PDF
+        response.setHeader("Content-Type", "application/pdf")
         
-    // Set the appropriate Content-Type for a PDF
-    $response.setHeader("Content-Type", "application/pdf")
-    
-    // Return the constructed response
-    return $response
-```
+        // Return the constructed response
+        return response
+    ```
   </TabItem>
 </Tabs>
 
-:::
 
 #### Configuring Display Options
 

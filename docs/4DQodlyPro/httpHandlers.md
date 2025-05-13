@@ -370,7 +370,7 @@ The [4D.IncomingMessage class](../language/IncomingMessageClass.md) provides fun
 
 Below is an example of an HTTP handler that processes a file upload.
 
-:::info HTTP Request Handler Configuration:
+#### HTTP Request Handler Configuration:
 ```json
 [
     {
@@ -381,7 +381,6 @@ Below is an example of an HTTP handler that processes a file upload.
     }
 ]
 ```
-:::
 
 The request URL: `/putFile?fileName=testFile`
 
@@ -394,41 +393,81 @@ The request URL: `/putFile?fileName=testFile`
     - The filename is extracted using the [`urlQuery`](../language/IncomingMessageClass.md#urlquery) object.
 
 
-:::info Implementation of the UploadFile Class:
-```qs
-//UploadFile class
+#### Implementation of the UploadFile Class:
 
-shared singleton constructor()
-     
-Function uploadFile($request : 4D.IncomingMessage) : 4D.OutgoingMessage
+<Tabs>
+  <TabItem value="4D" label="4D" default>
+    ```4d
+    //UploadFile class
+
+    shared singleton constructor()
+        
+    Function uploadFile($request : 4D.IncomingMessage) : 4D.OutgoingMessage
+        var $response := 4D.OutgoingMessage.new()
+        var $body := "Not supported file"
+        var $fileName; fileType : Text
+        var $file : 4D.File
+        var $picture : Picture
+        var $created : Boolean
+        
+        $fileName := $request.urlQuery.fileName
+        $fileType := $request.getHeader("Content-Type")
+        
+        Case of 
+            : ($fileType = "application/pdf")
+                $file := File("/PACKAGE/Files/"+fileName+".pdf")
+                $created := $file.create()
+                $file.setContent($request.getBlob())
+                $body := "Upload OK - File size: "+string($file.size)
+                
+            : ($fileType = "image/jpeg")
+                $file := File("/PACKAGE/Files/"+fileName+".jpg")
+                $picture := $request.getPicture()
+                $body := "Upload OK - Image size: "+string($file.size)
+        End case 
+        
+        $response.setBody($body)
+        $response.setHeader("Content-Type"; "text/plain")
+        
+        return $response
+    ```
+  </TabItem>
+  <TabItem value="qs" label="QodlyScript">
+    ```qs
+    //UploadFile class
+
+    shared singleton constructor()
     
-    var $response := 4D.OutgoingMessage.new()
-    
-    var $body := "Not supported file"
-    var $fileName; fileType : Text
-    var $file : 4D.File
-    var $picture : Picture
-    var $created : Boolean
-    
-    $fileName := $request.urlQuery.fileName
-    $fileType := $request.getHeader("Content-Type")
-    
-	Case of 
-        : ($fileType = "application/pdf")
-            $file := File("/PACKAGE/Files/"+fileName+".pdf")
-            $created := $file.create()
-            $file.setContent($request.getBlob())
-            $body := "Upload OK - File size: "+string($file.size)
+    function uploadFile(request : 4D.IncomingMessage) : 4D.OutgoingMessage
+        var response = 4D.OutgoingMessage.new()
+        var body = "Not supported file"
+        var fileName, fileType : string
+        var file : 4D.File
+        var picture : picture
+        var created : boolean
+        
+        fileName = request.urlQuery.fileName
+        fileType = request.getHeader("Content-Type")
+        
+        switch 
+            : (fileType == "application/pdf")
+                file = file("/PACKAGE/Files/"+fileName+".pdf")
+                created = file.create()
+                file.setContent(request.getBlob())
+                body = "Upload OK - File size: "+string(file.size)
             
-        : ($fileType = "image/jpeg")
-            $file := File("/PACKAGE/Files/"+fileName+".jpg")
-            $picture := $request.getPicture()
-            $body := "Upload OK - Image size: "+string($file.size)
-	End case 
-    
-    $response.setBody($body)
-    $response.setHeader("Content-Type"; "text/plain")
-    
-    return $response
-```
-:::
+            : (fileType == "image/jpeg")
+                file = file("/PACKAGE/Files/"+fileName+".jpg")
+                picture =  request.getPicture()
+                body = "Upload OK - Image size: "+string(file.size)
+                
+        end 
+        
+        response.setBody(body)
+        response.setHeader("Content-Type", "text/plain")
+        
+        return response
+    ```
+  </TabItem>
+</Tabs>
+
