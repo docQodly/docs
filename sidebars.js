@@ -77,6 +77,11 @@ const sidebars = {
 				'QodlyinCloud/studio/model/functions',
 				'QodlyinCloud/studio/model/import',
 			],
+		},	
+		{
+			type: 'doc',
+			id: 'QodlyinCloud/studio/qodlyEventsClass',
+			label: "QodlyEvents Class Interface"
 		},
 		{
 			type: 'doc',
@@ -560,7 +565,6 @@ const sidebars = {
 			label: 'Coding and Debugging',
 			items: ['4DQodlyPro/coding',
 				'4DQodlyPro/debugging',
-				'4DQodlyPro/qodlyEventsClass',
 			],
 		},
 		{
