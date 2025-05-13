@@ -4,6 +4,8 @@ title: Binding Actions to Events
 ---
 
 import Column from '@site/src/components/Column'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 
 ## Binding Standard Actions to Events
@@ -419,16 +421,19 @@ There are two primary methods for ensuring precise parameter handling:
 
 Functions defined with the [onHttpGet](../../../orda/data-model.md#onhttpget-keyword) keyword and returning an instance of the [4D.OutgoingMessage](../../../language/OutgoingMessageClass.md) class, have a unique behavior when bound to events. Unlike standard functions, `onHttpGet functions` are specifically designed to handle `HTTP GET` requests and provide additional flexibility for displaying results to users.
 
-:::info Example
-Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.
+#### Example
 
-```qs
+Consider a function called `product.productManual`, which is exposed with the `onHTTPGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.
+
+<Tabs>
+  <TabItem value="4D" label="4D" default>
+    ```4d
 exposed onHTTPGet Function productManual($productName : Text) : 4D.OutgoingMessage
-    var $manual : 4D.File
-    var $response : 4D.OutgoingMessage := 4D.OutgoingMessage.new()
+        var $manual : 4D.File
+        var $response : 4D.OutgoingMessage := 4D.OutgoingMessage.new()
 
     // Specify the file location based on the product name
-    $manual = file("/SOURCES/Shared/" + productName + ".pdf")
+    $manual := File("/SOURCES/Shared/" + productName + ".pdf")
 
     // Set the file content as the body of the outgoing message
     $response.setBody($manual.getContent())
@@ -439,6 +444,28 @@ exposed onHTTPGet Function productManual($productName : Text) : 4D.OutgoingMessa
     // Return the constructed response
     return $response
 ```
+  </TabItem>
+  <TabItem value="qs" label="QodlyScript">
+   ```qs
+exposed onHTTPGet function productManual($productName : text) : 4D.OutgoingMessage
+    var $manual : 4D.File
+    var $response : 4D.OutgoingMessage = 4D.OutgoingMessage.new()
+
+    // Specify the file location based on the product name
+    $manual = file("/SOURCES/Shared/" + productName + ".pdf")
+
+    // Set the file content as the body of the outgoing message
+    $response.setBody($manual.getContent())
+        
+    // Set the appropriate Content-Type for a PDF
+    $response.setHeader("Content-Type", "application/pdf")
+    
+    // Return the constructed response
+    return $response
+```
+  </TabItem>
+</Tabs>
+
 :::
 
 #### Configuring Display Options
