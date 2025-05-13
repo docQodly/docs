@@ -648,9 +648,9 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Coding and Debugging',
-			items: ['studio/coding',
-				'studio/debugging',
-				'studio/qodlyEventsClass',
+			items: ['4DQodlyPro/coding',
+				'4DQodlyPro/debugging',
+				'4DQodlyPro/qodlyEventsClass',
 			],
 		},
 		{

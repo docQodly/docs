@@ -423,21 +423,21 @@ Functions defined with the [onHttpGet](../../../orda/data-model.md#onhttpget-key
 Consider a function called `product.productManual`, which is exposed with the `onHttpGet` keyword. This function can retrieve a product manual in PDF format based on the `productName` parameter. When bound to an onclick event, users can download or view the manual by simply clicking a button.
 
 ```qs
-exposed onHTTPGet function productManual(productName : string) : 4D.OutgoingMessage
-    var manual : 4D.File
-    var response : 4D.OutgoingMessage = 4D.OutgoingMessage.new()
+exposed onHTTPGet Function productManual($productName : Text) : 4D.OutgoingMessage
+    var $manual : 4D.File
+    var $response : 4D.OutgoingMessage := 4D.OutgoingMessage.new()
 
     // Specify the file location based on the product name
-    manual = file("/SOURCES/Shared/" + productName + ".pdf")
+    $manual = file("/SOURCES/Shared/" + productName + ".pdf")
 
     // Set the file content as the body of the outgoing message
-    response.setBody(manual.getContent())
+    $response.setBody($manual.getContent())
         
     // Set the appropriate Content-Type for a PDF
-    response.setHeader("Content-Type", "application/pdf")
+    $response.setHeader("Content-Type"; "application/pdf")
     
     // Return the constructed response
-    return response
+    return $response
 ```
 :::
 

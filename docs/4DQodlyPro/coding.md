@@ -193,23 +193,23 @@ Methods and class functions in Qodly Studio feature real-time synchronization wh
 	- These measures ensure that even after a page refresh, `User A` remains fully informed about any changes made by others, such as `User B`, while preserving their own unsaved changes.
 
 <Column.List align="center" justifyContent="between">
-    <Column.Item width="65%">
+    <Column.Item width="60%">
         <ul>
           <li><strong>Reload Option</strong>: Within the method/class tab of Qodly Studio, you'll find the <a href="#reloading-code">Reload</a> feature. Upon selecting this option, a confirmation message will promptly appear, indicating that your local changes will be lost. Should <code>User A</code> choose to reload the content will trigger an immediate refresh of the code content directly from the server.</li>
         </ul>
     </Column.Item>
-    <Column.Item width="30%">
+    <Column.Item width="35%">
 		<img src={require('./img/codingCollaborative_reload.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
 
 <Column.List align="center" justifyContent="between">
-    <Column.Item width="65%">
+    <Column.Item width="60%">
         <ul>
           <li><strong>Save all</strong>: Should <code>User A</code> choose to <a href="#saving">save</a> the outdated code in their tab, a confirmation message will appear, alerting them to the presence of new content saved by <code>User B</code>. This serves as a safeguard to prevent unintentional overwriting of more recent changes made by different users.</li>
         </ul>
     </Column.Item>
-    <Column.Item width="30%">
+    <Column.Item width="35%">
 		<img src={require('./img/codingCollaborative_saveAll.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>

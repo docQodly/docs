@@ -396,42 +396,39 @@ The request URL: `/putFile?fileName=testFile`
 
 :::info Implementation of the UploadFile Class:
 ```qs
-    //UploadFile class
+//UploadFile class
 
 shared singleton constructor()
+     
+Function uploadFile($request : 4D.IncomingMessage) : 4D.OutgoingMessage
     
+    var $response := 4D.OutgoingMessage.new()
     
-function uploadFile(request : 4D.IncomingMessage) : 4D.OutgoingMessage
+    var $body := "Not supported file"
+    var $fileName; fileType : Text
+    var $file : 4D.File
+    var $picture : Picture
+    var $created : Boolean
     
-    var response = 4D.OutgoingMessage.new()
+    $fileName := $request.urlQuery.fileName
+    $fileType := $request.getHeader("Content-Type")
     
-    var body = "Not supported file"
-    var fileName, fileType : string
-    var file : 4D.File
-    var picture : picture
-    var created : boolean
-    
-    fileName = request.urlQuery.fileName
-    fileType = request.getHeader("Content-Type")
-    
-    switch 
-        : (fileType == "application/pdf")
-            file = file("/PACKAGE/Files/"+fileName+".pdf")
-            created = file.create()
-            file.setContent(request.getBlob())
-            body = "Upload OK - File size: "+string(file.size)
+	Case of 
+        : ($fileType = "application/pdf")
+            $file := File("/PACKAGE/Files/"+fileName+".pdf")
+            $created := $file.create()
+            $file.setContent($request.getBlob())
+            $body := "Upload OK - File size: "+string($file.size)
             
-        : (fileType == "image/jpeg")
-            file = file("/PACKAGE/Files/"+fileName+".jpg")
-            picture =  request.getPicture()
-            body = "Upload OK - Image size: "+string(file.size)
-            
-    end 
+        : ($fileType = "image/jpeg")
+            $file := File("/PACKAGE/Files/"+fileName+".jpg")
+            $picture := $request.getPicture()
+            $body := "Upload OK - Image size: "+string($file.size)
+	End case 
     
-    response.setBody(body)
-    response.setHeader("Content-Type", "text/plain")
+    $response.setBody($body)
+    $response.setHeader("Content-Type"; "text/plain")
     
-    return response
-
+    return $response
 ```
 :::
