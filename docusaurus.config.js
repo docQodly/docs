@@ -9,8 +9,8 @@ const isProduction = process.env.GITHUB_REPOSITORY_OWNER === 'qodly';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Qodly Documentation',
-  tagline: 'Learn. Build. Ship. Everything you need for Qodly.',
+  title: '4D Qodly Pro Documentation',
+  tagline: 'Easily build powerful, low-code web interfaces to elevate your 4D applications.',
   url: isProduction ? "https://developer.qodly.com" : "https://docqodly.github.io",
   baseUrl: "/docs/",
   onBrokenLinks: 'warn',
@@ -151,38 +151,38 @@ Thank you for helping us improve! 🚀
           // Qodly Cloud
           {
             type: 'doc',
-            docId: 'get-started/quickstart',
+            docId: 'QodlyinCloud/get-started/quickstart',
             position: 'left',
             label: 'Getting Started (OLD)',
           },
           {
             type: 'doc',
-            docId: 'studio/overview',
+            docId: 'QodlyinCloud/studio/overview',
             position: 'left',
             label: 'Develop (OLD)',
           },
           {
             type: 'doc',
-            docId: 'cloud/consoleOverview',
+            docId: 'QodlyinCloud/cloud/consoleOverview',
             position: 'left',
             label: 'Run & Manage (OLD)',
           },
           {
             type: 'doc',
-            docId: 'api/overview',
+            docId: 'QodlyinCloud/api/overview',
             position: 'left',
             label: 'Integrations (OLD)',
           },
           {
             type: "doc",
             position: "left",
-            docId: "orda/data-model",
+            docId: "QodlyinCloud/orda/data-model",
             label: "Guides (OLD)",
           }, 
           {
             type: "doc",
             position: "left",
-            docId: "faq/faq",
+            docId: "QodlyinCloud/faq/faq",
             label: "FAQ (OLD)",
           },
           // Qodly 4D Pro
