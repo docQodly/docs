@@ -157,7 +157,7 @@ Thank you for helping us improve! 🚀
           },
           {
             type: 'doc',
-            docId: 'QodlyinCloud/studio/overview',
+            docId: 'QodlyinCloud/studio/roles/example-of-configuration',
             position: 'left',
             label: 'Develop (OLD)',
           },

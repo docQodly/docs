@@ -55,92 +55,17 @@ const sidebars = {
 	],
 	Develop_Q: [
 		{
-			type: 'doc',
-			id: 'QodlyinCloud/studio/overview',
-			label: "Overview"
-		},
-		{
-			type: 'category',
-			label: 'Pages',
-			items: ['QodlyinCloud/studio/pageLoaders/pageLoaderOverview',
-				{
-					type: 'category',
-					label: 'Components',
-					items: [
-						'QodlyinCloud/studio/pageLoaders/components/componentsBasics',
-						'QodlyinCloud/studio/pageLoaders/components/uploadCustomComponents',
-						'QodlyinCloud/studio/pageLoaders/components/button',
-						'QodlyinCloud/studio/pageLoaders/components/checkbox',
-						'QodlyinCloud/studio/pageLoaders/components/datatable',
-						'QodlyinCloud/studio/pageLoaders/components/dialog',
-						'QodlyinCloud/studio/pageLoaders/components/fileupload',
-						'QodlyinCloud/studio/pageLoaders/components/icon',
-						'QodlyinCloud/studio/pageLoaders/components/image',
-						'QodlyinCloud/studio/pageLoaders/components/matrix',
-						'QodlyinCloud/studio/pageLoaders/components/pageLoader',
-						'QodlyinCloud/studio/pageLoaders/components/radio',
-						'QodlyinCloud/studio/pageLoaders/components/rangeinput',
-						'QodlyinCloud/studio/pageLoaders/components/selectbox',
-						'QodlyinCloud/studio/pageLoaders/components/selectinput',
-						'QodlyinCloud/studio/pageLoaders/components/stylebox',
-						'QodlyinCloud/studio/pageLoaders/components/tabs',
-						'QodlyinCloud/studio/pageLoaders/components/text',
-						'QodlyinCloud/studio/pageLoaders/components/textinput',
-					],
-				},
-				'QodlyinCloud/studio/pageLoaders/craftedComponents',
-				'QodlyinCloud/studio/pageLoaders/templates',
-				'QodlyinCloud/studio/pageLoaders/date-time-formats',
-				'QodlyinCloud/studio/pageLoaders/qodlySources',
-				{
-					type: 'category',
-					label: 'Events',
-					items: [
-						'QodlyinCloud/studio/pageLoaders/events/overview',
-						'QodlyinCloud/studio/pageLoaders/events/eventsManagement',
-						'QodlyinCloud/studio/pageLoaders/events/bindingActionToEvents',
-					],
-				},
-				{
-					type: 'category',
-					label: 'States',
-					items: [
-						'QodlyinCloud/studio/pageLoaders/states/stateOverview',
-						'QodlyinCloud/studio/pageLoaders/states/nonConditionalState',
-						'QodlyinCloud/studio/pageLoaders/states/conditionalState',
-					],
-				},
-				'QodlyinCloud/studio/pageLoaders/styling',
-				'QodlyinCloud/studio/rendering',
-			],
-		},
-		{
-			type: 'category',
-			label: 'Coding and Debugging',
-			items: ['QodlyinCloud/studio/coding',
-				'QodlyinCloud/studio/debugging',
-				'QodlyinCloud/studio/qodlyEventsClass',
-			],
-		},
-		{
 			type: 'category',
 			label: 'Roles And Privileges',
 			items: [
-				'QodlyinCloud/studio/roles/overview',
+				'QodlyinCloud/studio/roles/example-of-configuration',
 				{
 					type: 'category',
 					label: 'Permissions',
 					items: [
-						'QodlyinCloud/studio/roles/permissionsOverview',
-						'QodlyinCloud/studio/roles/datastorePermissions',
-						'QodlyinCloud/studio/roles/dataClassPermissions',
-						'QodlyinCloud/studio/roles/attributesPermissions',
-						'QodlyinCloud/studio/roles/functionPermissions',
 						'QodlyinCloud/studio/roles/modelEditorApproach'
 					]
-				},
-				'QodlyinCloud/studio/roles/includingPrivileges',
-				'QodlyinCloud/studio/roles/example-of-configuration',
+				}
 			],
 		},
 		{
@@ -152,21 +77,6 @@ const sidebars = {
 				'QodlyinCloud/studio/model/functions',
 				'QodlyinCloud/studio/model/import',
 			],
-		},
-		{
-			type: 'doc',
-			id: 'QodlyinCloud/studio/httpHandlers',
-			label: "HTTP Handlers"
-		},
-		{
-			type: 'doc',
-			id: 'QodlyinCloud/studio/localization',
-			label: "Localization (i18n)"
-		},
-		{
-			type: 'doc',
-			id: 'QodlyinCloud/studio/settings',
-			label: "Settings"
 		},
 		{
 			type: 'doc',
