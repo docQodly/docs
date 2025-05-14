@@ -41,7 +41,7 @@ hello = person.sayHello() //"Hello John Doe"
 
 ### User classes
 
-To [create a new user class](../../4DQodlyPro/coding.md#creating) in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
+To [create a new user class](../../../4DQodlyPro/coding.md#creating) in Qodly Studio, click on the **+** button of the Explorer and give a name to the class:
 
 ![class](img/class3.png)
 
@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### DataStore classes
 
-Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../4DQodlyPro/model/model-editor-interface.md#datastore-classes-and-attributes).
+Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../../4DQodlyPro/model/model-editor-interface.md#datastore-classes-and-attributes).
 
 
 ### Class definition
@@ -64,7 +64,7 @@ When naming classes, you should keep in mind the following rules:
 - Class names are case sensitive.
 - Giving the same name to a user class and a datastore's dataclass is not recommended, in order to prevent any conflict.
 
-A user class in Qodly is defined by a specific [method file (.4qs)](../../4DQodlyPro/coding.md#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
+A user class in Qodly is defined by a specific [method file (.4qs)](../../../4DQodlyPro/coding.md#4qs-files), stored in the `/Project/Sources/Classes/` folder. The name of the file is the class name. For example, a class named "Polygon" will be based upon the following file:
 
 ```
 Project folder
@@ -92,7 +92,7 @@ Available classes are accessible from their class stores. Two class stores are a
 
 The `cs` command <!-- REF #_command_.cs.Summary -->returns a *Class Store* object containing all user classes defined in the current project<!-- END REF -->. This command is necessary to instantiate an object from a user class.
 
-It returns all user classes defined in the opened project, as well as [Data Model classes](../../4DQodlyPro/coding.md#classes).
+It returns all user classes defined in the opened project, as well as [Data Model classes](../../../4DQodlyPro/coding.md#classes).
 
 #### Example
 

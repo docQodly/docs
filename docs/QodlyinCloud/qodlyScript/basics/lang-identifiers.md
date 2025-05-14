@@ -21,7 +21,7 @@ A class name must be compliant with standard [property naming rules](#object-pro
 
 :::warning
 
-Giving the same name to a [user class](../../4DQodlyPro/coding.md#user-classes) and a [dataclass](../../4DQodlyPro/coding.md#orda-classes) is not recommended, in order to prevent any conflict.
+Giving the same name to a [user class](../../../4DQodlyPro/coding.md#user-classes) and a [dataclass](../../../4DQodlyPro/coding.md#orda-classes) is not recommended, in order to prevent any conflict.
 
 :::
 
