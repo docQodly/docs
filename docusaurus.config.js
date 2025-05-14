@@ -148,41 +148,29 @@ Thank you for helping us improve! 🚀
           srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
-          // Qodly Cloud
+          // Old Doc pages
           {
             type: 'doc',
-            docId: 'QodlyinCloud/get-started/quickstart',
-            position: 'left',
-            label: 'Getting Started (OLD)',
-          },
-          {
-            type: 'doc',
-            docId: 'QodlyinCloud/studio/roles/example-of-configuration',
+            docId: 'Old/studio/roles/example-of-configuration',
             position: 'left',
             label: 'Develop (OLD)',
           },
           {
             type: 'doc',
-            docId: 'QodlyinCloud/cloud/consoleOverview',
-            position: 'left',
-            label: 'Run & Manage (OLD)',
-          },
-          {
-            type: 'doc',
-            docId: 'QodlyinCloud/api/overview',
+            docId: 'Old/api/overview',
             position: 'left',
             label: 'Integrations (OLD)',
           },
           {
             type: "doc",
             position: "left",
-            docId: "QodlyinCloud/orda/data-model",
+            docId: "Old/orda/data-model",
             label: "Guides (OLD)",
           }, 
           {
             type: "doc",
             position: "left",
-            docId: "QodlyinCloud/faq/faq",
+            docId: "Old/faq/faq",
             label: "FAQ (OLD)",
           },
           // Qodly 4D Pro
@@ -191,6 +179,13 @@ Thank you for helping us improve! 🚀
             docId: '4DQodlyPro/gettingStarted',
             position: 'left',
             label: 'Develop',
+          },
+          // Qodly Cloud
+          {
+            type: 'doc',
+            docId: 'QodlyinCloud/quickstart',
+            position: 'left',
+            label: 'Qodly Cloud',
           },
           {
             type: 'docsVersionDropdown',
