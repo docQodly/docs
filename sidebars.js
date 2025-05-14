@@ -17,22 +17,6 @@ const sidebars = {
 	GetStarted_Q: [
 		{
 			type: 'category',
-			label: 'Qodly Overview',
-			items: ['Old/get-started/first-app',
-				'Old/get-started/test-debug',
-				'Old/get-started/deployment',
-				'Old/get-started/access',
-				'Old/get-started/data-management',
-				'Old/get-started/support',
-				'Old/get-started/updates',
-				'Old/get-started/community',
-				'Old/get-started/subscriptions',
-				'Old/get-started/payments',
-				'Old/get-started/refunds',
-			],
-		},
-		{
-			type: 'category',
 			label: 'Release Notes',
 			collapsed: false,
 			items: [
@@ -331,6 +315,22 @@ const sidebars = {
 		{
 			type: 'doc',
 			id: 'QodlyinCloud/quickstart'
+		},
+		{
+			type: 'category',
+			label: 'Qodly Overview',
+			items: ['QodlyinCloud/get-started/first-app',
+				'QodlyinCloud/get-started/test-debug',
+				'QodlyinCloud/get-started/deployment',
+				'QodlyinCloud/get-started/access',
+				'QodlyinCloud/get-started/data-management',
+				'QodlyinCloud/get-started/support',
+				'QodlyinCloud/get-started/updates',
+				'QodlyinCloud/get-started/community',
+				'QodlyinCloud/get-started/subscriptions',
+				'QodlyinCloud/get-started/payments',
+				'QodlyinCloud/get-started/refunds',
+			],
 		},
 		{
 			type: 'category',

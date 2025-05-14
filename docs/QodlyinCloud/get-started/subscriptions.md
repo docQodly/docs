@@ -18,7 +18,7 @@ For our most up-to-date information, please visit [Qodly pricing](https://qodly
 
 ## Subscription & Upgrade (coming soon)
 
-Once you created your new application, on the [Subscription page](../cloud/billingSubscriptionManagement.md), you can manage all your subscriptions, including creating new environments, upgrading, or deleting them. It provides a global view for each application.
+Once you created your new application, on the [Subscription page](../console/billingSubscriptionManagement.md), you can manage all your subscriptions, including creating new environments, upgrading, or deleting them. It provides a global view for each application.
 
 The billing cycle starts at the beginning of the month. Depending on the day you subscribe or upgrade, the difference will be calculated and invoiced.
 

@@ -31,7 +31,7 @@ A patch release fixes bugs without adding new features, incrementing the third n
 
 The following steps are required to upgrade your Qodly application:
 
-1. Create a [new release](../cloud/releaseManagementDeployment.md)
+1. Create a [new release](../console/releaseManagementDeployment.md)
 2. Update the Development environment
 3. [Test the app](test-debug.md)
 4. Fix any bugs
