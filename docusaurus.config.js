@@ -151,7 +151,7 @@ Thank you for helping us improve! 🚀
           // Old Doc pages
           {
             type: 'doc',
-            docId: 'Old/studio/roles/example-of-configuration',
+            docId: 'Old/studio/roles/modelEditorApproach',
             position: 'left',
             label: 'Develop (OLD)',
           },
