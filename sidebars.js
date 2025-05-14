@@ -54,7 +54,6 @@ const sidebars = {
 			type: 'category',
 			label: 'Roles And Privileges',
 			items: [
-				'Old/studio/roles/example-of-configuration',
 				{
 					type: 'category',
 					label: 'Permissions',
