@@ -45,7 +45,7 @@ exposed onHTTPGet function getFile() : 4D.OutgoingMessage
 
 :::note
 
-A 4D.OutgoingMessage object is a [non-sharable](../language/basics/lang-shared.md) object.
+A 4D.OutgoingMessage object is a [non-sharable](../qodlyScript/basics/lang-shared.md) object.
 
 :::
 

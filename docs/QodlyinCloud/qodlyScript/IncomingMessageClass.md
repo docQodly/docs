@@ -306,7 +306,7 @@ Example: `http://www.mywebapp.com/myCall/?myparams='[{"firstname": "Marie","isWo
 
 Parameters are passed in JSON format and enclosed within a collection.
 
-In this case, parameters are received as JSON text in the `urlQuery` property and can be parsed using [`jsonParse`](../language/commands/jsonParse.md). 
+In this case, parameters are received as JSON text in the `urlQuery` property and can be parsed using [`jsonParse`](../qodlyScript/commands/jsonParse.md). 
 
 ```qs
 //urlQuery.myparams: "[{"firstname": "Marie","isWoman": true,"id": 3}]"

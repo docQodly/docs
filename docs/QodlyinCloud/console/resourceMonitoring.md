@@ -233,7 +233,7 @@ This section provides a drop-down menu where you can select the type of logs to 
 
 :::note
 
-You can write custom information in the diagnostic log file thanks to the [`logEvent()`](../language/commands/logEvent.md) command. 
+You can write custom information in the diagnostic log file thanks to the [`logEvent()`](../qodlyScript/commands/logEvent.md) command. 
 
 :::
 
