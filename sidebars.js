@@ -14,41 +14,6 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
 	// Old Doc pages
-	Develop_Q: [
-		{
-			type: 'category',
-			label: 'Roles And Privileges',
-			items: [
-				{
-					type: 'category',
-					label: 'Permissions',
-					items: [
-						'Old/studio/roles/modelEditorApproach'
-					]
-				}
-			],
-		},
-		{
-			type: 'category',
-			label: 'Model',
-			items: ['Old/studio/model/model-editor-interface',
-				'Old/studio/model/datastore-classes',
-				'Old/studio/model/attributes',
-				'Old/studio/model/functions',
-				'Old/studio/model/import',
-			],
-		},	
-		{
-			type: 'doc',
-			id: 'Old/studio/qodlyEventsClass',
-			label: "QodlyEvents Class Interface"
-		},
-		{
-			type: 'doc',
-			id: 'Old/data-explorer/data-explorer',
-			label: "Data Explorer"
-		},
-	],
 	Integrations_Q: [
 		{
 			type: 'category',
@@ -299,18 +264,18 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Qodly Overview',
-			items: ['QodlyinCloud/get-started/first-app',
-				'QodlyinCloud/get-started/test-debug',
-				'QodlyinCloud/get-started/deployment',
-				'QodlyinCloud/get-started/access',
-				'QodlyinCloud/get-started/data-management',
-				'QodlyinCloud/get-started/support',
-				'QodlyinCloud/get-started/updates',
-				'QodlyinCloud/get-started/community',
-				'QodlyinCloud/get-started/subscriptions',
-				'QodlyinCloud/get-started/payments',
-				'QodlyinCloud/get-started/refunds',
+			label: 'Qodly Cloud Overview',
+			items: ['QodlyinCloud/getStarted/first-app',
+				'QodlyinCloud/getStarted/test-debug',
+				'QodlyinCloud/getStarted/deployment',
+				'QodlyinCloud/getStarted/access',
+				'QodlyinCloud/getStarted/data-management',
+				'QodlyinCloud/getStarted/support',
+				'QodlyinCloud/getStarted/updates',
+				'QodlyinCloud/getStarted/community',
+				'QodlyinCloud/getStarted/subscriptions',
+				'QodlyinCloud/getStarted/payments',
+				'QodlyinCloud/getStarted/refunds',
 			],
 		},
 		{
@@ -339,6 +304,46 @@ const sidebars = {
 				},
 				'QodlyinCloud/console/billingSubscriptionManagement',
 				'QodlyinCloud/console/userAccountManagement',
+			],
+		},
+		{
+			type: 'category',
+			label: 'Cloud-Only Features',
+			items: [
+				{
+					type: 'category',
+					label: 'Model',
+					items: [
+						'QodlyinCloud/cloudOnlyFeatures/model/model-editor-interface',
+						'QodlyinCloud/cloudOnlyFeatures/model/datastore-classes',
+						'QodlyinCloud/cloudOnlyFeatures/model/attributes',
+						'QodlyinCloud/cloudOnlyFeatures/model/functions',
+						'QodlyinCloud/cloudOnlyFeatures/model/import',
+					],
+				},	
+				{
+					type: 'doc',
+					id: 'QodlyinCloud/cloudOnlyFeatures/qodlyEventsClass',
+					label: "QodlyEvents Class Interface"
+				},
+				{
+					type: 'doc',
+					id: 'QodlyinCloud/cloudOnlyFeatures/data-explorer/data-explorer',
+					label: "Data Explorer"
+				},
+				{
+					type: 'category',
+					label: 'Roles And Privileges',
+					items: [
+						{
+							type: 'category',
+							label: 'Permissions',
+							items: [
+								'QodlyinCloud/cloudOnlyFeatures/roles/modelEditorApproach'
+							]
+						}
+					],
+				},
 			],
 		},
 		{
@@ -598,7 +603,7 @@ const sidebars = {
 		{
 			type: 'category',
 			label: 'Release Notes',
-			collapsed: false,
+			// collapsed: false,
 			items: [
 						'QodlyinCloud/releaseNotes/1.2.0',
 						'QodlyinCloud/releaseNotes/1.1.0',

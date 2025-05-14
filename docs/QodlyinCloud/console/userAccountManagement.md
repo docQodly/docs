@@ -11,7 +11,7 @@ The **User management page** allows you to add and configure the **Qodly directo
 
 Users connecting through the **public access** must be managed by your code. 
 
-For an overview of user access in Qodly applications, please refer to the [**Access**](../get-started/access.md) page. 
+For an overview of user access in Qodly applications, please refer to the [**Access**](../getStarted/access.md) page. 
 
 
 ## Interfaces

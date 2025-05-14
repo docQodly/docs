@@ -151,12 +151,6 @@ Thank you for helping us improve! 🚀
           // Old Doc pages
           {
             type: 'doc',
-            docId: 'Old/studio/roles/modelEditorApproach',
-            position: 'left',
-            label: 'Develop (OLD)',
-          },
-          {
-            type: 'doc',
             docId: 'Old/api/overview',
             position: 'left',
             label: 'Integrations (OLD)',

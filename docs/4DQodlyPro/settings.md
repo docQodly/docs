@@ -48,7 +48,7 @@ Show/hide helper tip icons <img src={require('./img/helper-tip.png').default} st
 
 ### Activate Welcome Tour
 
-Turn on/off the [Welcome tour dialogs](../get-started/quickstart.md#navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
+Turn on/off the [Welcome tour dialogs](../getStarted/quickstart.md#navigate-qodly-studio-and-begin-the-welcome-tour) for Qodly Studio.
 
 ### Activate tabs preview mode
 
