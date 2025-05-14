@@ -14,25 +14,6 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
 	// Old Doc pages
-	GetStarted_Q: [
-		{
-			type: 'category',
-			label: 'Release Notes',
-			collapsed: false,
-			items: [
-						'Old/notes/1.2.0',
-						'Old/notes/1.1.0',
-						'Old/notes/1.0.0',
-						'Old/notes/1.0.0-beta.6',
-						'Old/notes/1.0.0-beta.5',
-						'Old/notes/1.0.0-beta.4',
-						'Old/notes/1.0.0-beta.3',
-						'Old/notes/1.0.0-beta.2',
-						'Old/notes/1.0.0-beta.1',
-						'Old/notes/1.0.0-beta.0'
-					],
-		},
-	],
 	Develop_Q: [
 		{
 			type: 'category',
@@ -613,6 +594,23 @@ const sidebars = {
 					],
 				},
 			],
+		},
+		{
+			type: 'category',
+			label: 'Release Notes',
+			collapsed: false,
+			items: [
+						'QodlyinCloud/releaseNotes/1.2.0',
+						'QodlyinCloud/releaseNotes/1.1.0',
+						'QodlyinCloud/releaseNotes/1.0.0',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.6',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.5',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.4',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.3',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.2',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.1',
+						'QodlyinCloud/releaseNotes/1.0.0-beta.0'
+					],
 		},
 	]
 
