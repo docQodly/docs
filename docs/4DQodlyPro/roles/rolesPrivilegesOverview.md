@@ -184,7 +184,7 @@ exposed Function loadSessionUserInfo()
 
 ```
 
-For more detailed information, refer to the [Sessions](../../language/SessionClass.md) and [Users](../../language/UsersClass.md) sections.
+For more detailed information, refer to the [Sessions](../../QodlyinCloud/qodlyScript/SessionClass.md) and [Users](../../QodlyinCloud/qodlyScript/UsersClass.md) sections.
 
 
 

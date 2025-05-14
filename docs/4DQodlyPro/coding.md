@@ -17,12 +17,12 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 
 ### Methods
 
-[Methods](../language/basics/lang-methods.md) are isolated blocks of code that serve various functions within your application. They can be invoked from class functions or other methods but cannot be directly accessed from components.
+[Methods](../QodlyinCloud/qodlyScript/basics/lang-methods.md) are isolated blocks of code that serve various functions within your application. They can be invoked from class functions or other methods but cannot be directly accessed from components.
 
 
 ### Classes
 
-[Classes](../language/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes: **ORDA classes** and **user classes**.
+[Classes](../QodlyinCloud/qodlyScript/basics/lang-classes.md) allow you to organize your code around objects. Only class functions can be accessed from components. Qodly offers two main types of classes: **ORDA classes** and **user classes**.
 
 
 #### ORDA Classes
@@ -38,7 +38,7 @@ Non-created element names appear in light grey. To create an ORDA class, just cl
 
 #### User Classes
 
-User classes are used for controlling component behavior or any part of your application, without no specific connection to the data model. User classes can declare functions and properties. [Singleton classes](../language/basics/lang-classes.md#singleton-classes) are user classes.
+User classes are used for controlling component behavior or any part of your application, without no specific connection to the data model. User classes can declare functions and properties. [Singleton classes](../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes) are user classes.
 
 
 ## Method and Function Management
@@ -68,7 +68,7 @@ You can create a method or class using one of the three methods:
 
 <Column.List align="center" justifyContent="between">
     <Column.Item width="65%">
-      A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../language/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.
+      A new entry, labeled as <code>UntitledN</code> appears in the list, where N is a number incrementing with each new creation. You can provide a <a href="../QodlyinCloud/qodlyScript/basics/lang-identifiers">compliant name</a> and press <strong>Enter</strong> to confirm the modification.
     </Column.Item>
     <Column.Item width="30%">
 		<img src={require('./img/coding_namingMethod.png').default} style={{borderRadius: '6px'}} />
@@ -95,7 +95,7 @@ To rename a method or class, you can either:
         <ul>
 			<li>Click on the icon at the right side of the item in the Explorer.</li>
 			<br/>
-			<li>Or, in the <a href="./overview#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../language/basics/lang-identifiers">compliant name</a>.</li>
+			<li>Or, in the <a href="./overview#contextual-menu">tab pop-up menu</a>, select <code>Rename</code>. The tab name becomes editable, and you can give it a <a href="../QodlyinCloud/qodlyScript/basics/lang-identifiers">compliant name</a>.</li>
 		</ul>
     </Column.Item>
     <Column.Item width="30%">

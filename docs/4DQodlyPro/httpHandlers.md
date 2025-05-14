@@ -317,11 +317,11 @@ However, only the first handler `getProductDetails` is executed, as it appears f
 
 ### Function Configuration
 
-The HTTP Request handler code must be implemented in a function of a [**Shared**](../language/basics/lang-classes.md#shared-singleton) [**singleton class**](../language/basics/lang-classes.md#singleton-classes). 
+The HTTP Request handler code must be implemented in a function of a [**Shared**](../QodlyinCloud/qodlyScript/basics/lang-classes.md#shared-singleton) [**singleton class**](../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes). 
 
 If the singleton is missing or not shared, an error `Cannot find singleton` is returned by the server. If the class or the function defined as handler is not found, an error `Cannot find singleton function` is returned by the server.
 
-Request handler functions are not necessarily shared, unless some request handler properties are updated by the functions. In this case, you need to declare its functions with the [`shared` keyword](../language/basics/lang-classes.md#shared-functions).
+Request handler functions are not necessarily shared, unless some request handler properties are updated by the functions. In this case, you need to declare its functions with the [`shared` keyword](../QodlyinCloud/qodlyScript/basics/lang-classes.md#shared-functions).
 
 :::note
 
@@ -354,19 +354,19 @@ This handler catches all requests that are not matched by earlier handlers. It c
 
 ### Input: 4D.IncomingMessage Class Instance
 
-When a request is intercepted by the handler, it is received on the server as an instance of the [4D.IncomingMessage class](../language/IncomingMessageClass.md). 
+When a request is intercepted by the handler, it is received on the server as an instance of the [4D.IncomingMessage class](../QodlyinCloud/qodlyScript/IncomingMessageClass.md). 
 
 This object provides all necessary request information, including the request URL, verb, headers, URL parameters, and request body. The request handler can use this information to trigger the appropriate business logic.
  
 ### Output: 4D.OutgoingMessage Class Instance
 
-The request handler can return an object instance of the [4D.OutGoingMessage class](../language/OutgoingMessageClass.md), which represents web content ready for a browser to handle, such as a file content or a structured response.
+The request handler can return an object instance of the [4D.OutGoingMessage class](../QodlyinCloud/qodlyScript/OutgoingMessageClass.md), which represents web content ready for a browser to handle, such as a file content or a structured response.
 
 
 
 ### Example
 
-The [4D.IncomingMessage class](../language/IncomingMessageClass.md) provides functions to retrieve [headers](../language/IncomingMessageClass.md#headers) and the [body](../language/IncomingMessageClass.md#gettext) of the request.
+The [4D.IncomingMessage class](../QodlyinCloud/qodlyScript/IncomingMessageClass.md) provides functions to retrieve [headers](../QodlyinCloud/qodlyScript/IncomingMessageClass.md#headers) and the [body](../QodlyinCloud/qodlyScript/IncomingMessageClass.md#gettext) of the request.
 
 Below is an example of an HTTP handler that processes a file upload.
 
@@ -390,7 +390,7 @@ The request URL: `/putFile?fileName=testFile`
 
     - The filename is included as a query parameter (*fileName*).
 
-    - The filename is extracted using the [`urlQuery`](../language/IncomingMessageClass.md#urlquery) object.
+    - The filename is extracted using the [`urlQuery`](../QodlyinCloud/qodlyScript/IncomingMessageClass.md#urlquery) object.
 
 
 #### Implementation of the UploadFile Class:

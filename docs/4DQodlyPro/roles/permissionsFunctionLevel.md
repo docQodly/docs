@@ -25,7 +25,7 @@ To configure **Function** Permissions for a specific privilege, follow these ste
 :::tip
 
 If the Singleton class or its exposed functions don't appear in the permissions dropdown, follow these steps to enable it:
-1. Navigate to the [Singleton class](../../language/basics/lang-classes.md#singleton-classes) in the class section.
+1. Navigate to the [Singleton class](../../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes) in the class section.
 
 2. Check if the **Singleton class** is missing any exposed functions.
 

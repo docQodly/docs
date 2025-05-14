@@ -361,7 +361,7 @@ The Data Access properties encompass distinct options and fields tailored to eac
 <br/>
 
 :::info 
-Server Side allows you to control the component's behavior, such as [hiding](../../language/WebFormItemClass.md#hide), [showing](../../language/WebFormItemClass.md#show), [adding CSS classes](../../language/WebFormItemClass.md#addcssclass), or [removing CSS classes](../../language/WebFormItemClass.md#removecssclass) from it.
+Server Side allows you to control the component's behavior, such as [hiding](../../QodlyinCloud/qodlyScript/WebFormItemClass.md#hide), [showing](../../QodlyinCloud/qodlyScript/WebFormItemClass.md#show), [adding CSS classes](../../QodlyinCloud/qodlyScript/WebFormItemClass.md#addcssclass), or [removing CSS classes](../../QodlyinCloud/qodlyScript/WebFormItemClass.md#removecssclass) from it.
 :::
 
 

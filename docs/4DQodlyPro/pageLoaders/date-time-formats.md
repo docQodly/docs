@@ -10,7 +10,7 @@ Throughout your Qodly projects, you might need to format date and/or time values
 Qodly includes a comprehensive list of patterns that you can use to create and apply customized date and time formats in your applications, in addition to predefined formats. Customized format patterns are supported by:
 
 - the [date and time qodlysources](components/componentsBasics.md#data-formatting) used in your Pages, 
-- the [`string`](../../language/commands/string.md) command.
+- the [`string`](../../QodlyinCloud/qodlyScript/commands/string.md) command.
 
 
 ## Pattern list

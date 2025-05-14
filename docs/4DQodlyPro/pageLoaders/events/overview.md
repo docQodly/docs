@@ -39,7 +39,7 @@ When the `On Change` event is linked to a Qodly Source, it will trigger in the f
 
 |Trigger|Description|
 |---|---|
-|Qodly Source|<li>The reference pointed to by the qodlysource changes in the web browser (not on the server)</li><li>The entity is [touched](../../../language/EntityClass.md#touched)</li>|
+|Qodly Source|<li>The reference pointed to by the qodlysource changes in the web browser (not on the server)</li><li>The entity is [touched](../../../QodlyinCloud/qodlyScript/EntityClass.md#touched)</li>|
 |Entity Qodly Source|The contents of the entity attribute change|
 |Entity Selection Qodly Source| <li>The reference pointed by the qodlysource changes in the web browser (not on the server)</li><li>An entity is added to the entity selection</li>|
 |Scalar Qodly Source|The contents of the scalar qodlysource change|
