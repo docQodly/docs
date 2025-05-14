@@ -19,7 +19,7 @@ The `logEvent` command <!--REF #_command_.logEvent.Summary-->writes *message* in
 
 :::info
 
-You can access the *diagnostic log file* in the [**Logs tab of the Console**](../../cloud/resourceMonitoring.md#log-file-type).
+You can access the *diagnostic log file* in the [**Logs tab of the Console**](../../console/resourceMonitoring.md#log-file-type).
 
 :::
 

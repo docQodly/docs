@@ -5,7 +5,7 @@ slug: /guides/creating-a-login-page-for-public-access
 
 ---
 
-This section is a tutorial that will show you how to implement a simple login page for a Qodly app with [public access enabled](../../cloud/resourceMonitoring.md#application-access), i.e. for users NOT using the [authenticated url](../../cloud/resourceMonitoring.md#2-authenticated-url). 
+This section is a tutorial that will show you how to implement a simple login page for a Qodly app with [public access enabled](../../console/resourceMonitoring.md#application-access), i.e. for users NOT using the [authenticated url](../../console/resourceMonitoring.md#2-authenticated-url). 
 
 The default page is a login form, requiring for a login and a password. 
 
@@ -23,7 +23,7 @@ At every step of this tutorial, before testing the changes, do not forget to **s
 
 ## Create a blank app 
 
-In your console, [create a new blank app](../../cloud/myApps.md#creating-a-new-application). Of course, you can also open an existing app of yours and adapt this tutorial. 
+In your console, [create a new blank app](../../console/myApps.md#creating-a-new-application). Of course, you can also open an existing app of yours and adapt this tutorial. 
 
 ## Prepare Data 
 
@@ -119,7 +119,7 @@ When you preview a Page in a new tab (or using the **Preview** button), then pri
 <br/>
 <img src={require('./img/login-preview-button.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-This role can be assigned in the [Team section](../../cloud/userAccountManagement.md#team-tab-environment-specific) of your application console: 
+This role can be assigned in the [Team section](../../console/userAccountManagement.md#team-tab-environment-specific) of your application console: 
 
 <img src={require('./img/login-admin.png').default} style={{borderRadius: '6px', height: '80%', width: '80%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
