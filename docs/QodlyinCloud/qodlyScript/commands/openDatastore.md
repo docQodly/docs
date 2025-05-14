@@ -21,7 +21,7 @@ The following remote datastores are supported by the command:
 
 |datastore kind|Description|
 |---|---|
-|Qodly application|Another Qodly Server application that provided you with an **api endpoint** and a valid **api key** associated with a defined [role](../../studio/roles/rolesPrivilegesOverview.md#roles-defining-user-profiles). You must pass the api key in the `api-key` property of the *connectionInfo* object. You can then work with the returned datastore object, with all privileges granted to the associated role.|
+|Qodly application|Another Qodly Server application that provided you with an **api endpoint** and a valid **api key** associated with a defined [role](../../4DQodlyPro/roles/rolesPrivilegesOverview.md#roles-defining-user-profiles). You must pass the api key in the `api-key` property of the *connectionInfo* object. You can then work with the returned datastore object, with all privileges granted to the associated role.|
 |Remote 4D Server application|A 4D Server application (version 20 or more) [available as a remote datastore](https://developer.4d.com/docs/REST/configuration), i.e.:<li>its web server is launched with http and/or https enabled,</li><li>its datastore is exposed to REST (**Expose as REST server** option checked).</li> A license can be required.|
 
 

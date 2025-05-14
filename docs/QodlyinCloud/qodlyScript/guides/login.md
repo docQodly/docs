@@ -86,11 +86,11 @@ Note that for security, only a password hash is stored in the database.
 
 <img src={require('./img/login-welcome.png').default} style={{borderRadius: '6px', height: '80%', width: '80%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
  
-If you [preview](../../studio/rendering.md#preview-in-qodly-studio) this welcome page, you obtain the list of items already existing in the database: 
+If you [preview](../../4DQodlyPro/rendering.md#preview-in-qodly-studio) this welcome page, you obtain the list of items already existing in the database: 
 
 <img src={require('./img/login-welcome-preview.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
-4. Before continuing to the next section, setup your Start page to be the **login** page in your [Qodly application settings](../../studio/settings.md#application-settings): 
+4. Before continuing to the next section, setup your Start page to be the **login** page in your [Qodly application settings](../../4DQodlyPro/settings.md#application-settings): 
 
 <img src={require('./img/login-settings.png').default} style={{borderRadius: '6px', height: '80%', width: '80%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 
@@ -137,7 +137,7 @@ Now switch to the **Roles** tab and create a role called "PublicAuth". Add the "
 
 Now any users having one of these roles will have access to items in database. 
 
-To check the "Admin" role, preview your *welcome* page [in a new tab](../../studio/rendering.md#preview-page-in-a-new-tab). In the *welcome* page running under the "Admin" role, items are visible: 
+To check the "Admin" role, preview your *welcome* page [in a new tab](../../4DQodlyPro/rendering.md#preview-page-in-a-new-tab). In the *welcome* page running under the "Admin" role, items are visible: 
 
 <img src={require('./img/login-welcome-preview.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 

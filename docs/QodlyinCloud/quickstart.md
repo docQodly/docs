@@ -79,7 +79,7 @@ With the development environment ready, it's time to access Qodly Studio and fol
 
     :::note
 
-    You can skip or reactivate the Welcome Tour anytime through [Qodly Studio Settings](../studio/settings.md#activate-welcome-tour). 
+    You can skip or reactivate the Welcome Tour anytime through [Qodly Studio Settings](../4DQodlyPro/settings.md#activate-welcome-tour). 
 
     <img src={require('./img/qs8.png').default} style={{borderRadius: '6px', height: '50%', width: '50%'}} />
 

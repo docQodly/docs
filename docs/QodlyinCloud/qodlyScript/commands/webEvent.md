@@ -24,7 +24,7 @@ The returned object contains the following properties:
 
 | Property |  |Type| Description |
 |----|---|----|----|
-| caller |  |string| [Server-side reference](../../studio/pageLoaders/pageLoaderOverview.md#data-access-category) of the component triggering the event |
+| caller |  |string| [Server-side reference](../../4DQodlyPro/pageLoaders/pageLoaderOverview.md#data-access-category) of the component triggering the event |
 | eventType |  |string| Type of event:<li>onblur</li><li>onfocus</li><li>onclick</li><li>onauxclick</li><li>onmouseenter</li><li>onmouseleave</li><li>onkeyup</li><li>onkeydown</li><li>onchange</li><li>unload</li><li>onload - triggered when the `Page` loads</li>|
 | data	| |object|Additional information depending on the involved component|
 | 	|index |number|<li>Tabs component: index of the tab (indexing starts at 0)</li><li>Data Table component: column number</li>|

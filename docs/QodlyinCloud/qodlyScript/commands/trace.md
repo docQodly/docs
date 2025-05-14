@@ -18,4 +18,4 @@ You use `trace` <!-- REF #_command_.trace.Summary -->to debug your code during t
 
 The `trace` command turns on the Qodly debugger for the current process. The Debugger is displayed before the next line of code is executed, and continues to be displayed for each line of code that is executed.
 
-A valid [debug session](../../studio/debugging.md#starting-a-debug-session) must be launched for a `trace` call to open the debugger. Otherwise, the `trace` command is ignored.
+A valid [debug session](../../4DQodlyPro/debugging.md#starting-a-debug-session) must be launched for a `trace` call to open the debugger. Otherwise, the `trace` command is ignored.
