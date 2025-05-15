@@ -56,7 +56,7 @@ The `SingletonClassFunction()` function must have been declared with the `onHttp
 
 :::info
 
-You can restrict calls to specific singleton functions by configuring appropriate [permissions](../studio/roles/permissionsFunctionLevel.md#configuring-function-permissions).
+You can restrict calls to specific singleton functions by configuring appropriate [permissions](../../4DQodlyPro/roles/permissionsFunctionLevel.md#configuring-function-permissions).
 
 :::
 

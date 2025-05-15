@@ -418,7 +418,7 @@ A filter creates a restricted view of the data, built upon any business rules su
 
 :::info
 
-Filters apply to **entities**. If you want restrict access to a **dataclass** itself or to one or more of its **attributes**, you might consider using [session privileges](../studio/roles/rolesPrivilegesOverview.md) which are more appropriate in this case.
+Filters apply to **entities**. If you want restrict access to a **dataclass** itself or to one or more of its **attributes**, you might consider using [session privileges](../../../4DQodlyPro/roles/rolesPrivilegesOverview.md) which are more appropriate in this case.
 
 :::
 

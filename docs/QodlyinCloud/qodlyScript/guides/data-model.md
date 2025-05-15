@@ -473,12 +473,12 @@ Keep in mind that these objects describe attributes, but do not give access to d
 
 ### Alias attributes
 
-An [alias attribute](../studio/model/attributes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
+An [alias attribute](../../cloudOnlyFeatures/model/attributes.md#alias-attributes) is built above another attribute of the data model, named target attribute. The target attribute can belong to a related dataclass (available through any number of relation levels) or to the same dataclass. An alias attribute stores no data, but the path to its target attribute. You can define as many alias attributes as you want in a dataclass.
 
 
 ## Calculated attributes
 
-[Calculated attributes](../studio/model/attributes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
+[Calculated attributes](../../cloudOnlyFeatures/model/attributes.md#calculated-attributes) are declared using a `get <attributeName>` function in the [Entity class definition](#entity-class). Their value is not stored but evaluated each time they are accessed. They do not belong to the underlying database structure, but are usually built upon it and can be used as any attribute of the data model. 
 
 :::info
 

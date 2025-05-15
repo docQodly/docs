@@ -53,7 +53,7 @@ You can also select **New > Class** from the menu bar, enter a name and click **
 
 ### DataStore classes
 
-Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../../4DQodlyPro/model/model-editor-interface.md#datastore-classes-and-attributes).
+Data Model classes are created when you click on the `+` button in the model editor in the `DataStore Classes` setion. For more information, please refer to [this section](../../cloudOnlyFeatures/model/model-editor-interface.md#datastore-classes-and-attributes).
 
 
 ### Class definition

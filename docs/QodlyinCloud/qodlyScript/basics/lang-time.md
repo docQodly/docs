@@ -7,7 +7,7 @@ A Time attribute, variable or expression can be in the range of 00:00:00 to 596,
 
 :::info
 
-In [Qodly models](../../../4DQodlyPro/model/attributes.md), time attributes have the type **Duration**.
+In [Qodly models](../../cloudOnlyFeatures/model/attributes.md), time attributes have the type **Duration**.
 
 :::
 

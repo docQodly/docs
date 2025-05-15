@@ -22,7 +22,7 @@ Qodly is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).
 
 Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
 
-User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../studio/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../orda/data-model.md#datastore) for [user sessions](../language/SessionClass.md).
+User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../4DQodlyPro/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../orda/data-model.md#datastore) for [user sessions](../language/SessionClass.md).
 
 Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
 
@@ -72,7 +72,7 @@ No, Qodly Studio offers an experience of intuitive and visual web development th
 <details>
 <summary style= {{ fontWeight: "bold" , marginBottom: "20px" }}> Is Qodly Studio supported on all Web browsers?</summary>
 
-See the requirements list [here](../studio/overview.md#requirements).
+See the requirements list [here](../4DQodlyPro/overview.md#requirements).
 
 </details>
 
@@ -80,7 +80,7 @@ See the requirements list [here](../studio/overview.md#requirements).
 <details>
 <summary style= {{ fontWeight: "bold", marginBottom: "20px" }}> Why is the Base State Visible Before the Correct State?</summary>
 
-The Base state becomes momentarily visible because the actual correct state is applied only after the [page has initially rendered](../studio/rendering.md#pagerenderer-lifecycle). This occurs due to the timing of when qodly sources and conditions are processed. Initially, the page loads and displays the Base state by default. As qodly sources are fetched and conditions evaluated, the appropriate state for the user is determined and applied, causing the transition from the Base state to the correct state.
+The Base state becomes momentarily visible because the actual correct state is applied only after the [page has initially rendered](../4DQodlyPro/rendering.md#pagerenderer-lifecycle). This occurs due to the timing of when qodly sources and conditions are processed. Initially, the page loads and displays the Base state by default. As qodly sources are fetched and conditions evaluated, the appropriate state for the user is determined and applied, causing the transition from the Base state to the correct state.
 
 To resolve this, the `onInit` event should be used to ensure that all necessary qodly sources and conditions are set up before the page is rendered. This approach prevents the Base state from being displayed and ensures the page renders directly into the correct state based on the user's role and conditions.
 
