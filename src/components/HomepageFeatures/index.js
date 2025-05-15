@@ -10,40 +10,40 @@ const FeatureList = [
     Svg: require('@site/static/img/q-get-started.svg').default,
     description: (
       <>
-        Connect to the Qodly console and enter the application building world!
+        Connect to Qodly Studio and unlock a world of app-building possibilities.s
       </>
     ),
-		link: "get-started/quickstart"
+		link: "4DQodlyPro/gettingStarted"
   },
   {
     title: 'Develop',
     Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Create and design business apps in an intuitive and integrated environment, using a simple browser.
+        Design and build powerful business apps with intuitive, browser-based tools.
       </>
     ),
-	link: "studio/overview"
+	link: "4DQodlyPro/qodlyStudioInterface"
   },
   {
-    title: 'Run & Manage',
+    title: 'Deploy',
     Svg: require('@site/static/img/q-dep-run-mng.svg').default,
     description: (
       <>
-        Launch and monitor your Qodly applications using a full-featured console in our cloud infrastructure.
+        Seamlessly integrate and deploy Qodly pages within your 4D environment.
       </>
     ),
 		link: "cloud/consoleOverview"
   },
   {
-    title: 'Integrations',
+    title: 'Cloud',
     Svg: require('@site/static/img/q-dev.svg').default,
     description: (
       <>
-        Connect your Qodly apps to external services, embed custom solutions, and unlock new possibilities for your workflows!
+        Take your Qodly apps to the next level with our all-in-one cloud platform — develop, launch, and monitor from anywhere.
       </>
     ),
-		link: "api/overview"
+		link: "QodlyinCloud/quickstart"
   }
 ];
 
