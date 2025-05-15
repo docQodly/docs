@@ -8,21 +8,21 @@ Querying data is the most common database operation. You will always need to sea
 
 Querying the Qodly datastore can be done through two APIs:
 
-- the QodlyScript language - using the [entity selection `query()` function](../language/EntitySelectionClass.md#query) or the [dataclass `query()` function](../language/DataClassClass.md#query).  
+- the QodlyScript language - using the [entity selection `query()` function](../EntitySelectionClass.md#query) or the [dataclass `query()` function](../DataClassClass.md#query).  
 - the REST API - using the **$filter** command 
 
 Queries always return **entity selections**. 
 
 :::note
 
-The [`Collection class`](../language/CollectionClass.md#query) contains also a [`query()`](../language/CollectionClass.md#query) function that returns a collection. The query string is identical as dataclass/entity selection queries, except that queries on collections do not support *formula* parameter.
+The [`Collection class`](../CollectionClass.md#query) contains also a [`query()`](../CollectionClass.md#query) function that returns a collection. The query string is identical as dataclass/entity selection queries, except that queries on collections do not support *formula* parameter.
 
 :::
 
 
 ## `query()` syntaxes
 
-The `query()` function is available in both the [entity selection class](../language/EntitySelectionClass.md#query) and the [dataclass class](../language/DataClassClass.md#query).  
+The `query()` function is available in both the [entity selection class](../EntitySelectionClass.md#query) and the [dataclass class](../DataClassClass.md#query).  
 
 **.query**( *queryString* : string \{ , *...value* : any \} \{ , *querySettings* : object \} ) : 4D.EntitySelection <br/>**.query**( *formula* : object \{ , *querySettings* : object \} ) : 4D.EntitySelection
 
@@ -66,7 +66,7 @@ where:
 *	**formula**: a valid formula passed as `string` or `object`. The formula will be evaluated for each processed entity and must return a boolean value. Within the formula, the entity is available through the `this` object.  
 
 	*	**string**: the formula string must be preceeded by the `eval()` statement, so that the query parser evaluates the expression correctly. For example: *"eval(length(this.lastname) >=30)"*
-	*	**object**: the [formula object](../language/FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](../language/FunctionClass.md#formula-objects) or [`formulaFromString`](../language/commands/formulaFromString) command. 
+	*	**object**: the [formula object](../FunctionClass.md) is passed as a **placeholder** (see below). The formula must have been created using the [`formula`](../FunctionClass.md#formula-objects) or [`formulaFromString`](../commands/formulaFromString) command. 
 
 	>* Keep in mind that formulas only support `&` and `|` symbols as logical operators. 
 	>* If the formula is not the only search criteria, the [query engine optimizer](#about-queryplan-and-querypath) could prior process other criteria (e.g. indexed attributes) and thus, the formula could be evaluated for only a subset of entities.
@@ -333,7 +333,7 @@ es=ds.Movie.query("roles.actor.lastName == :1 AND roles.actor{2}.lastName == :2"
 
 As an alternative to formula insertion within the *queryString* parameter (see above), you can pass directly a formula object as a boolean search criteria. Using a formula object for queries is usually recommended since you benefit from tokenization, and code is easier to search/read.  
 
-The *formula* must have been created using the [`formula`](../language/FunctionClass.md#formula-objects) or [`formulaFromString`](../language/commands/formulaFromString) command. In this case:
+The *formula* must have been created using the [`formula`](../FunctionClass.md#formula-objects) or [`formulaFromString`](../commands/formulaFromString) command. In this case:
 
 *	the *formula* is evaluated for each entity and must return `true` or `false`. During the execution of the query, if the *formula*'s result is not a boolean, it is considered as `false`. 
 *	within the *formula*, the entity is available through the `this` object. 

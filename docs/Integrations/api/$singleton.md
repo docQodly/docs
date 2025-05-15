@@ -6,7 +6,7 @@ title: $singleton
 
 ## Definition
 
-You can directly call exposed [functions of your shared singletons](../language/basics/lang-classes.md#singleton-classes) through REST.
+You can directly call exposed [functions of your shared singletons](../../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes) through REST.
 
 Singleton functions are called in POST or GET requests with the `$singleton` command and without `()`. For example, if you have defined a `buildVehicle()` function in the `VehicleFactory` shared singleton class, you could call it using the following request:
 
@@ -64,7 +64,7 @@ You can restrict calls to specific singleton functions by configuring appropriat
 
 ## Parameters
 
-You can send parameters to singleton functions. On the server side, they will be received in the [declared parameters](../language/basics/lang-parameters.md#declaring-parameters) of the singleton class functions.
+You can send parameters to singleton functions. On the server side, they will be received in the [declared parameters](../../QodlyinCloud/qodlyScript/basics/lang-parameters.md#declaring-parameters) of the singleton class functions.
 
 Sending parameters to singleton functions is exactly the same as sending parameter to ORDA class functions. Please refer to the [**Function Parameters** page](classFunctionsParameters.md) for a detailed description.
 

@@ -12,7 +12,7 @@ title: $queryplan
 The `$queryplan` endpoint is designed to provide insights into the execution strategy of queries processed by the server. This endpoint helps developers and database administrators to analyze and optimize query performance by returning a detailed breakdown of the query execution plan.
 
 :::info
-For additional information, please consult the ["About queryPlan and queryPath"](../language/DataClassClass.md#about-queryplan-and-querypath) documentation.
+For additional information, please consult the ["About queryPlan and queryPath"](../../QodlyinCloud/qodlyScript/DataClassClass.md#about-queryplan-and-querypath) documentation.
 :::
 
 ### Syntax

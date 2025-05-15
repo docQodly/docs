@@ -10,7 +10,7 @@ title: $querypath
 The `$querypath` endpoint allows developers to understand how queries are executed in the backend. It provides a step-by-step breakdown of the query execution, showing each operation, its performance, and the results obtained at each stage. It also reveales optimization techniques and the exact path taken by the server to fetch the required data.
 
 :::info
-For additional information, please consult the ["About queryPlan and queryPath"](../language/DataClassClass.md#about-queryplan-and-querypath) documentation.
+For additional information, please consult the ["About queryPlan and queryPath"](../../QodlyinCloud/qodlyScript/DataClassClass.md#about-queryplan-and-querypath) documentation.
 :::
 
 ### Syntax

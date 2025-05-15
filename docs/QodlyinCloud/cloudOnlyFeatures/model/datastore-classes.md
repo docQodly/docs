@@ -25,7 +25,7 @@ To create a new datastore class, follow these steps:
 
    <img src={require('./img/dataclass2.png').default} style={{borderRadius: '6px'}} />
 
-2. Enter the name of the new data class, adhering to the general [naming rules](../../language/basics/lang-identifiers.md#classes).
+2. Enter the name of the new data class, adhering to the general [naming rules](../../qodlyScript/basics/lang-identifiers.md#classes).
 
 The datastore class is now created and displayed in the model area with its ID attribute. You can proceed to add [attributes](attributes.md) to it.
 

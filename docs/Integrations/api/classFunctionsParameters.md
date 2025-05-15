@@ -341,7 +341,7 @@ If the entity selection or discount is missing or invalid:
 
 ### Returning a document
 
-You want to propose a link to download the user manual for a selected product with several formats available. You write a `getUserManual()` function of the Products dataclass. You return an object of the [`OutgoingMessage` class](../language/OutgoingMessageClass.md). 
+You want to propose a link to download the user manual for a selected product with several formats available. You write a `getUserManual()` function of the Products dataclass. You return an object of the [`OutgoingMessage` class](../../QodlyinCloud/qodlyScript/OutgoingMessageClass.md). 
 
 ```qs
 // Product dataclass

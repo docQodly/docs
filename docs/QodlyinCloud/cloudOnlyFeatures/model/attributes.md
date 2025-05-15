@@ -27,7 +27,7 @@ All attributes of a datastore class are also listed in the [Outline area](model-
 
 ### Attribute name
 
-Attribute names are case-sensitive: "firstName" and "firstNAME" are not equal. The attribute name must be unique, start with a letter, and can contain only numbers and letters. You cannot include accented and non-Roman letters. For more information, please refer to the [Identifiers](../../language/basics/lang-identifiers.md) section. If you enter an invalid character, you will not be able to save the name.
+Attribute names are case-sensitive: "firstName" and "firstNAME" are not equal. The attribute name must be unique, start with a letter, and can contain only numbers and letters. You cannot include accented and non-Roman letters. For more information, please refer to the [Identifiers](../../qodlyScript/basics/lang-identifiers.md) section. If you enter an invalid character, you will not be able to save the name.
 
 <img src={require('./img/wrong-name.png').default} style={{borderRadius: '6px'}} />
 
@@ -66,7 +66,7 @@ To create a storage attribute:
 
 ### Data types
 
-The following table lists all available Qodly Database storage (*aka* scalar) data types and how they are handled in the [QodlyScript language](../../language/basics/lang-data-types.md):
+The following table lists all available Qodly Database storage (*aka* scalar) data types and how they are handled in the [QodlyScript language](../../qodlyScript/basics/lang-data-types.md):
 
 |Data Types	|Language support|Description|
 |---|----|---|
@@ -238,14 +238,14 @@ arch.save() //courseName and name are "Archaeology II"
 
 ### Alias attribute type
 
-Alias attribute [`kind`](../../language/DataClassClass.md#attributename) is "alias".
+Alias attribute [`kind`](../../qodlyScript/DataClassClass.md#attributename) is "alias".
 
-An alias attribute inherits its data [`type`](../../language/DataClassClass.md#attributename) property from the target attribute:
+An alias attribute inherits its data [`type`](../../qodlyScript/DataClassClass.md#attributename) property from the target attribute:
 
-- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
-- if the target attribute [`kind`](../../language/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection").
+- if the target attribute [`kind`](../../qodlyScript/DataClassClass.md#attributename) is "storage", the alias data type is of the same type,
+- if the target attribute [`kind`](../../qodlyScript/DataClassClass.md#attributename) is "relatedEntity" or "relatedEntities", the alias data type is of the `4D.Entity` or `4D.EntitySelection` type ("*classname*Entity" or "*classname*Selection").
 
-Alias attributes based upon relations have a specific [`path`](../../language/DataClassClass.md#attributename) property, containing the path of their target attributes.
+Alias attributes based upon relations have a specific [`path`](../../qodlyScript/DataClassClass.md#attributename) property, containing the path of their target attributes.
 
 ## Calculated attributes
 
@@ -265,7 +265,7 @@ You create a calculated attribute by defining a [`get` function](../../orda/data
 
 Three other calculated attribute functions ([`set`](../../orda/data-model.md#function-set-attributename), [`query`](../../orda/data-model.md#function-query-attributename), and [`orderBy`](../../orda/data-model.md#function-orderby-attributename)) can also be defined in the entity class. They are optional.
 
-Within calculated attribute functions, `this` designates the entity. Calculated attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../../language/EntityClass.md) or [entity selection class](../../language/EntitySelectionClass.md) functions.
+Within calculated attribute functions, `this` designates the entity. Calculated attributes can be used and handled as any dataclass attribute, i.e. they will be processed by [entity class](../../qodlyScript/EntityClass.md) or [entity selection class](../../qodlyScript/EntitySelectionClass.md) functions.
 
 ## Properties
 

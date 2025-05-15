@@ -22,7 +22,7 @@ Qodly is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).
 
 Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
 
-User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../4DQodlyPro/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../orda/data-model.md#datastore) for [user sessions](../language/SessionClass.md).
+User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../4DQodlyPro/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../orda/data-model.md#datastore) for [user sessions](../QodlyinCloud/qodlyScript/SessionClass.md).
 
 Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
 
@@ -100,7 +100,7 @@ Qodly Server is actually a full stack of integrated servers and development laye
 
 Qodly Server includes:
 
-- an **HTTP server**, handling all incoming requests. It provides a high level of security by supporting [user sessions](../language/guides/sessions.md) and their associated privileges, connected to your own user directory in the cloud through **Amazon Cognito**.
+- an **HTTP server**, handling all incoming requests. It provides a high level of security by supporting [user sessions](../QodlyinCloud/qodlyScript/guides/sessions.md) and their associated privileges, connected to your own user directory in the cloud through **Amazon Cognito**.
 - a **REST server** with a comprehensive API. The REST server handles requests that access the resources of the Qodly application, for example to get data from the datastore or to execute functions. The REST server exposes an automatically generated REST API to access and manipulate data. For example, if you have an exposed dataclass named "Product", it can automatically return its entities using the `/Product` request. The REST server also has a memory link between the web and the datastore layer to achieve very short processing times.
 - a **Web application server**, handling your application Pages and features.
 - **Qodly Database**, a built-in relational database. The Qodly Database has extended capabilities to store and process data. Model and data access is done through **ORDA** (*Object Relational Data Access*), an enhanced technology allowing to handle both the model and the data of a database as **objects**. With ORDA, the database is accessed through an abstraction layer, the **datastore** (which is an object itself). The ORM is natively included in the ORDA concept.

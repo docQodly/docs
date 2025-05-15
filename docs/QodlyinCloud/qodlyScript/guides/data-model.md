@@ -28,7 +28,7 @@ As a result, ORDA exposes the whole database as a set of data model objects, inc
 
 ### Objects have Classes
 
-With ORDA, you can declare and use high-level [user class functions](../language/basics/lang-classes.md#function) above the data model. This allows you to write business-oriented code and "publish" it just like an API. Datastore, dataclasses, entity selections, and entities are all available as class objects that can contain functions.
+With ORDA, you can declare and use high-level [user class functions](../basics/lang-classes.md#function) above the data model. This allows you to write business-oriented code and "publish" it just like an API. Datastore, dataclasses, entity selections, and entities are all available as class objects that can contain functions.
 
 For example, you could create a `getNextWithHigherSalary()` function in the `EmployeeEntity` class to return employees with a salary higher than the selected one. It would be as simple as calling:
 
@@ -46,7 +46,7 @@ Thanks to this feature, the entire business logic of your Qodly application can 
 
 ### Class Architecture
 
-ORDA provides **generic classes** exposed through a **`4D`** class store, as well as specific **user classes** (extending generic classes) exposed in the [**`cs`** class store](../language/basics/lang-classes.md):
+ORDA provides **generic classes** exposed through a **`4D`** class store, as well as specific **user classes** (extending generic classes) exposed in the [**`cs`** class store](../basics/lang-classes.md):
 
 ![](img/ClassDiagramImage.png)
 
@@ -54,17 +54,17 @@ All ORDA data model classes are exposed as properties of the **`cs`** class stor
 
 |Class|Example name|Instantiated by|
 |---|---|---|
-|cs.DataStore|cs.DataStore|[`ds`](../language/commands/ds) command|
-|cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../language/DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
-|cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../language/DataClassClass.md#get), [`dataClass.new()`](../language/DataClassClass.md#new), [`entitySelection.first()`](../language/EntitySelectionClass.md#first), [`entitySelection.last()`](../language/EntitySelectionClass.md#last), [`entity.previous()`](../language/EntityClass.md#previous), [`entity.next()`](../language/EntityClass.md#next), [`entity.first()`](../language/EntityClass.md#first), [`entity.last()`](../language/EntityClass.md#last), [`entity.clone()`](../language/EntityClass.md#clone)|
-|cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../language/DataClassClass.md#query), [`entitySelection.query()`](../language/EntitySelectionClass.md#query), [`dataClass.all()`](../language/DataClassClass.md#all), [`dataClass.fromCollection()`](../language/DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../language/DataClassClass.md#newselection), [`entitySelection.drop()`](../language/EntitySelectionClass.md#drop), [`entity.getSelection()`](../language/EntityClass.md#getselection), [`entitySelection.and()`](../language/EntitySelectionClass.md#and), [`entitySelection.minus()`](../language/EntitySelectionClass.md#minus), [`entitySelection.or()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../language/EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../language/EntitySelectionClass.md#orderbyformula-), [`entitySelection.slice()`](../language/EntitySelectionClass.md#slice)|
+|cs.DataStore|cs.DataStore|[`ds`](../commands/ds) command|
+|cs.*DataClassName*|cs.Employee|[`dataStore.DataClassName`](../DataStoreClass.md#dataclassname), `dataStore["DataClassName"]`|
+|cs.*DataClassName*Entity|cs.EmployeeEntity|[`dataClass.get()`](../DataClassClass.md#get), [`dataClass.new()`](../DataClassClass.md#new), [`entitySelection.first()`](../EntitySelectionClass.md#first), [`entitySelection.last()`](../EntitySelectionClass.md#last), [`entity.previous()`](../EntityClass.md#previous), [`entity.next()`](../EntityClass.md#next), [`entity.first()`](../EntityClass.md#first), [`entity.last()`](../EntityClass.md#last), [`entity.clone()`](../EntityClass.md#clone)|
+|cs.*DataClassName*Selection|cs.EmployeeSelection|[`dataClass.query()`](../DataClassClass.md#query), [`entitySelection.query()`](../EntitySelectionClass.md#query), [`dataClass.all()`](../DataClassClass.md#all), [`dataClass.fromCollection()`](../DataClassClass.md#fromcollection), [`dataClass.newSelection()`](../DataClassClass.md#newselection), [`entitySelection.drop()`](../EntitySelectionClass.md#drop), [`entity.getSelection()`](../EntityClass.md#getselection), [`entitySelection.and()`](../EntitySelectionClass.md#and), [`entitySelection.minus()`](../EntitySelectionClass.md#minus), [`entitySelection.or()`](../EntitySelectionClass.md#or), [`entitySelection.orderBy()`](../EntitySelectionClass.md#or), [`entitySelection.orderByFormula()`](../EntitySelectionClass.md#orderbyformula-), [`entitySelection.slice()`](../EntitySelectionClass.md#slice)|
 
 Also, object instances from ORDA data model user classes benefit from their parent's properties and functions:
 
-- a Datastore class object can call functions from the [ORDA Datastore generic class](../language/DataStoreClass.md).
-- a Dataclass class object can call functions from the [ORDA Dataclass generic class](../language/DataClassClass.md).
-- an Entity selection class object can call functions from the [ORDA Entity selection generic class](../language/EntitySelectionClass.md).
-- an Entity class object can call functions from the [ORDA Entity generic class](../language/EntityClass.md).
+- a Datastore class object can call functions from the [ORDA Datastore generic class](../DataStoreClass.md).
+- a Dataclass class object can call functions from the [ORDA Dataclass generic class](../DataClassClass.md).
+- an Entity selection class object can call functions from the [ORDA Entity selection generic class](../EntitySelectionClass.md).
+- an Entity class object can call functions from the [ORDA Entity generic class](../EntityClass.md).
 
 
 ## Datastore
@@ -74,7 +74,7 @@ The datastore is the interface object to a database. It builds a representation 
 - The model contains and describes all the dataclasses that make up the datastore. It is independant from the underlying database itself.
 - Data refers to the information that is going to be used and stored in this model. For example, names, addresses, and birthdates of employees are pieces of data that you can work with in a datastore.
 
-When handled through the code, the datastore is an object named DataStore, returned by the [`ds`](../language/commands/ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
+When handled through the code, the datastore is an object named DataStore, returned by the [`ds`](../commands/ds) command, whose properties are all of the [dataclasses](#dataclass) which have been specifically **exposed**. 
 
 The DataStore object itself cannot be copied as an object:
 
@@ -388,7 +388,7 @@ moreThanAvg=ds.Company.all().employees.withSalaryGreaterThanAverage()
 
 ### Ordered or unordered entity selection
 
-For optimization reasons, by default ORDA usually creates unordered entity selections, except when you call the [`orderBy()`](../language/EntitySelectionClass.md#orderby) function or use specific options. In this documentation, unless specified, "entity selection" usually refers to an "unordered entity selection".
+For optimization reasons, by default ORDA usually creates unordered entity selections, except when you call the [`orderBy()`](../EntitySelectionClass.md#orderby) function or use specific options. In this documentation, unless specified, "entity selection" usually refers to an "unordered entity selection".
 
 Ordered entity selections are created only when necessary or when specifically requested using options, i.e. in the following cases:
 
@@ -424,7 +424,7 @@ There is no specific class for attribute objects. Basically, dataclass propertie
  revenuesAttribute=ds.Company["revenues"] //alternate way to reference
 ```
 
-This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../language/DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
+This code assigns to `nameAttribute` and `revenuesAttribute` references to the `name` and `revenues` attributes of the `Company` dataclass. This syntax does NOT return values held inside of the attribute, but instead returns objects describing the attributes themselves, that you can handle by calling the [dataclass *attribute name*](../DataClassClass.md#attributename). To handle values, you need to go through [Entities](#entity).
 
 The **Expose as REST resource** option must be selected at the model level for each attribute that you want to be called from the Web (by default this option is inherited from the dataclass level). 
 
@@ -632,7 +632,7 @@ The *event* parameter contains the following properties:
 |dataClassName|string|Dataclass name|
 |kind|string|"query"|
 |value|variant|Value to be handled by the calculated attribute|
-|operator|string|Query operator (see also the [`query` class function](../language/DataClassClass.md#query)). Possible values:<li>>;== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li>&lt;= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
+|operator|string|Query operator (see also the [`query` class function](../DataClassClass.md#query)). Possible values:<li>>;== (equal to, @ is wildcard)</li><li>=== (equal to, @ is not wildcard)</li><li>!= (not equal to, @ is wildcard)</li><li>!== (not equal to, @ is not wildcard)</li><li>< (less than)</li><li>&lt;= (less than or equal to)</li><li>> (greater than)</li><li>>= (greater than or equal to)</li><li>IN (included in)</li><li>% (contains keyword)</li>|
 |result|variant|Value to be handled by the calculated attribute. Pass `null` in this property if you want to execute a default query (always sequential for calculated attributes).|
 
 > If the function returns a value in *result* and another value is assigned to the `event.result` property, the priority is given to `event.result`. 
@@ -680,7 +680,7 @@ function query fullName(event : object)->result : object
 	result=newObject("query", myQuery, "parameters", parameters)
 ```
 
-> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../language/DataClassClass.md#query)).
+> Keep in mind that using placeholders in queries based upon user text input is recommended for security reasons (see [`query()` description](../DataClassClass.md#query)).
 
 Calling code, for example:
 
@@ -826,7 +826,7 @@ exposed function <functionName>
 
 :::note
 
-The `exposed` keyword can only be used with Data model class functions as well as [shared singleton functions](../language/basics/lang-classes.md#singleton-classes). If used with a [regular user class](../language/basics/lang-classes.md) function, it is ignored.
+The `exposed` keyword can only be used with Data model class functions as well as [shared singleton functions](../basics/lang-classes.md#singleton-classes). If used with a [regular user class](../basics/lang-classes.md) function, it is ignored.
 
 :::
 
@@ -869,12 +869,12 @@ status=ds.Schools.registerNewStudent(student) //can be called from a web request
 
 ## onHttpGet keyword
 
-Use the `onHttpGet` keyword to declare functions that can be called through HTTP requests using the `GET` verb. Such functions can return any web contents, for example using the [`4D.OutgoingMessage`](../language/OutgoingMessageClass.md) class. 
+Use the `onHttpGet` keyword to declare functions that can be called through HTTP requests using the `GET` verb. Such functions can return any web contents, for example using the [`4D.OutgoingMessage`](../OutgoingMessageClass.md) class. 
 
 The `onHttpGet` keyword is available with:
 
 - ORDA Data model class functions
-- [Singletons class functions](../language/basics/lang-classes.md#singleton-classes)
+- [Singletons class functions](../basics/lang-classes.md#singleton-classes)
 
 The formal syntax is:
 
@@ -897,7 +897,7 @@ As this type of call is an easy offered action, the developer must ensure no sen
 
 ### params
 
-A function with `onHttpGet` keyword accepts [parameters](../language/basics/lang-parameters.md).
+A function with `onHttpGet` keyword accepts [parameters](../basics/lang-parameters.md).
 
 In the HTTP GET request, parameters must be passed directly in the URL and declared using the `$params` keyword (they must be enclosed in a collection). 
 
@@ -915,7 +915,7 @@ A function with `onHttpGet` keyword can return any value of a supported type (sa
 
 :::info
 
-You can return a value of the [`4D.OutgoingMessage`](../language/OutgoingMessageClass.md) class type to benefit from properties and functions to set the header, the body, and the status of the answer. 
+You can return a value of the [`4D.OutgoingMessage`](../OutgoingMessageClass.md) class type to benefit from properties and functions to set the header, the body, and the status of the answer. 
 
 :::
 

@@ -82,7 +82,7 @@ The ORDA REST API provides several endpoints to call class functions:
 |[Dataclass Class](../orda/data-model.md#dataclass)|`/rest/{{dataClass}}/DataClassClassFunction`|
 |[EntitySelection Class](../orda/data-model.md#entityselection-class)|`/rest/{{dataClass}}/EntitySelectionClassFunction`|
 |[Entity Class](../orda/data-model.md#entity-class)|`/rest/{{dataClass}}(key)/EntityClassFunction`|
-|[Singleton class](../language/basics/lang-classes.md#singleton-classes)|`/rest/$singleton/SingletonClass/SingletonClassFunction` (see [$singleton page]($singleton.md))|
+|[Singleton class](../../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes)|`/rest/$singleton/SingletonClass/SingletonClassFunction` (see [$singleton page]($singleton.md))|
 
 
 
