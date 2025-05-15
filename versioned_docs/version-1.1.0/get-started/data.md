@@ -7,7 +7,7 @@ Qodly offers various tools and services to manage and back up your data. You can
 
 ## Data Explorer
 
-The [Data Explorer](../data-explorer/data-explorer.md) allows you to access and manage your application data seamlessly. From within your studio, you can explore your environment comprehensively, view entities by DataClass, and perform updates or deletions as necessary.
+The [Data Explorer](https://developer.4d.com/docs/Admin/dataExplorer) allows you to access and manage your application data seamlessly. From within your studio, you can explore your environment comprehensively, view entities by DataClass, and perform updates or deletions as necessary.
 
 ## Automatic backup
 

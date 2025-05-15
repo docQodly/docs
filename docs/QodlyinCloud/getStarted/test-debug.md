@@ -8,6 +8,6 @@ Different tools are available for testing at any time during your development, i
 During development, you have two levels of preview: [page level](../../4DQodlyPro/rendering.md#preview-in-qodly-studio) and [application level](../../4DQodlyPro/rendering.md#preview-the-entire-site). During creating your page, you can preview it at any time. 
 
 The previewer lets you view the entire application, making it easy to test all behaviors. If you find a bug, you can activate the [debugger](../../4DQodlyPro/debugging.md), which will guide you step by step to fix it. 
-To check your data, use the [Data Explorer](../data-explorer/data-explorer.md) to navigate or edit it.
+To check your data, use the [Data Explorer](https://developer.4d.com/docs/Admin/dataExplorer) to navigate or edit it.
 
 You can also [invite users](../console/userAccountManagement.md#add-user-to-a-specific-environment) with specific roles to test the application externally, which is the best way to gather their feedback.

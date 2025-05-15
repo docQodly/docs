@@ -64,7 +64,7 @@ Each Customer can have multiple Orders, and an Order is not necessarily placed i
 
 #### Step 1: Generate API Credentials in Qodly
 
-To allow Looker Studio to access your Qodly data, you need an [API endpoint](../cloud/apiKeys.md#api-endpoint) and [API key](../cloud/apiKeys.md#api-key). These credentials act as authentication tokens that ensure secure access to your data.
+To allow Looker Studio to access your Qodly data, you need an [API endpoint](../../QodlyinCloud/console/apiKeys.md#api-endpoint) and [API key](../../QodlyinCloud/console/apiKeys.md#api-key). These credentials act as authentication tokens that ensure secure access to your data.
 
 1. **Access the Qodly Console**:
 

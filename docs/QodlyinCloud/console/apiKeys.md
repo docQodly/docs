@@ -17,7 +17,7 @@ The API endpoint serves as a gateway, allowing developers to interact with Qodly
 
 ### API Key
 
-An API key acts as a unique identifier for authenticating external clients. Each key is linked to a specific [**role**](../4DQodlyPro/roles/rolesPrivilegesOverview.md), controlling the scope of access and actions permitted within the application. It must be included in the HTTP headers of all REST requests to validate the requester’s permissions. [See below](#using-api-keys) for more information.
+An API key acts as a unique identifier for authenticating external clients. Each key is linked to a specific [**role**](../../4DQodlyPro/roles/rolesPrivilegesOverview.md), controlling the scope of access and actions permitted within the application. It must be included in the HTTP headers of all REST requests to validate the requester’s permissions. [See below](#using-api-keys) for more information.
 
 
 ## Managing API Keys
@@ -58,7 +58,7 @@ The initial API key management screen shows the environment’s API endpoint and
 |--------------------|------------------------------------------------------------------------------------------------------------------------|
 | **Description**    | A brief identifier for the key to help recognize its purpose. |
 | **API Type** | Choose between two types:<br/><br/>1. **Standard**: This is the regular type, appropriate for most users, where access permissions are managed according to the assigned role.<br/><br/>2. **Administration**: Intended for developers of custom components, offering extended privileges that allow for comprehensive access and management of application data, bypassing standard role-based restrictions. |
-| **Role**           | Assigns access level based on [application-defined roles](../4DQodlyPro/roles/rolesPrivilegesOverview.md). Default is Admin. |
+| **Role**           | Assigns access level based on [application-defined roles](../../4DQodlyPro/roles/rolesPrivilegesOverview.md). Default is Admin. |
 | **Expiration Date** | Sets a validity period up to one year for security purposes. |
 | **Allowed Hosts**  | Restrict the API key’s use to specific IPs by adding IP addresses under this setting. |
 

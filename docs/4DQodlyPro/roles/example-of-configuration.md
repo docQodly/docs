@@ -6,7 +6,7 @@ import Column from '@site/src/components/Column'
 
 This section is a tutorial that will show you how to configure roles and privileges for a HealthCare application handling patients and appointments, including confidential data. 
 
-It includes the support of both **public** and **authenticated** [application accesses](../../cloud/resourceMonitoring.md#application-access). 
+It includes the support of both **public** and **authenticated** [application accesses](../../QodlyinCloud/console/resourceMonitoring.md#application-access). 
 
 
 ## Application overview
@@ -31,7 +31,7 @@ The following personaes are identified, along with their access:
 
 <img src={require('./img/example-personae.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
-**Mary** and **Arthur** are registered as [Qodly users](../../cloud/userAccountManagement.md#users-page) and use the authenticated endpoint. The administrator [assigns them a role in the console](../../cloud/userAccountManagement.md#edit-user-details).​
+**Mary** and **Arthur** are registered as [Qodly users](../../QodlyinCloud/console/userAccountManagement.md#users-page) and use the authenticated endpoint. The administrator [assigns them a role in the console](../../QodlyinCloud/console/userAccountManagement.md#edit-user-details).​
 
 <img src={require('./img/example-users.png').default} style={{borderRadius: '6px', width:'70%'}} />
 
@@ -123,7 +123,7 @@ Here are the corresponding role definitions.
 
 By default in new Qodly applications, the public access is **disabled**. The public access is the access granted for public users (like **X**) without any role.
 
-1. [Activate the Public access explicitely](../../cloud/resourceMonitoring.md#3-public-url-development-environment-only) in the console. 
+1. [Activate the Public access explicitely](../../QodlyinCloud/console/resourceMonitoring.md#3-public-url-development-environment-only) in the console. 
 
 
 2. Allow the *guest* privilege to read the appointments. 

@@ -412,7 +412,7 @@ The `sendMails` method:
 
 ## Restricting entity selections
 
-In ORDA, you can create filters to restrict access to entities of any of your dataclasses. Once implemented, a filter is automatically applied whenever the entities of the dataclass are accessed either by **ORDA class functions** such as [`all()`](../language/DataClassClass.md#all) or [`query()`](../language/EntitySelectionClass.md#query), or by the REST API (which involves the [Data Explorer](../data-explorer/data-explorer.md) and [remote datastores](../language/commands/openDatastore.md)).
+In ORDA, you can create filters to restrict access to entities of any of your dataclasses. Once implemented, a filter is automatically applied whenever the entities of the dataclass are accessed either by **ORDA class functions** such as [`all()`](../language/DataClassClass.md#all) or [`query()`](../language/EntitySelectionClass.md#query), or by the REST API (which involves the [Data Explorer](https://developer.4d.com/docs/Admin/dataExplorer) and [remote datastores](../language/commands/openDatastore.md)).
 
 A filter creates a restricted view of the data, built upon any business rules such as current session user. For example, in an application used by salespersons to make deals with their customers, you can restrict the read customers to those managed by the authenticated salesperson.
 

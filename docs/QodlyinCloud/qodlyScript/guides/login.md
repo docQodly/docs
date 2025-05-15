@@ -63,7 +63,7 @@ user.save()
 
 Note that for security, only a password hash is stored in the database. 
 
-3. In the [Data explorer](../../data-explorer/data-explorer.md), you can verify that you now have some data: 
+3. In the [Data explorer](https://developer.4d.com/docs/Admin/dataExplorer), you can verify that you now have some data: 
 
 <img src={require('./img/login-explorer-1.png').default} style={{borderRadius: '6px', height: '30%', width: '30%', borderColor: '#1D1B49', borderStyle: 'solid'}} />
 

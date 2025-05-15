@@ -4,7 +4,7 @@ title: IncomingMessage
 ---
 
 
-The `4D.IncomingMessage` class allows you to handle the object received by a custom [**HTTP request handler**](../4DQodlyPro/httpHandlers.md). HTTP requests and their properties are automatically received as an instance of the `4D.IncomingMessage` class. Parameters given directly in the request with GET verb are handled by the [`.urlQuery`](#urlquery) property, while parameters passed in the body of the request are available through functions such as [`.getBlob()`](#getblob) or [`getText()`](#gettext).
+The `4D.IncomingMessage` class allows you to handle the object received by a custom [**HTTP request handler**](../../4DQodlyPro/httpHandlers.md). HTTP requests and their properties are automatically received as an instance of the `4D.IncomingMessage` class. Parameters given directly in the request with GET verb are handled by the [`.urlQuery`](#urlquery) property, while parameters passed in the body of the request are available through functions such as [`.getBlob()`](#getblob) or [`getText()`](#gettext).
 
 The HTTP request handler can return any value (or nothing). It usually returns an instance of the [`4D.OutgoingMessage`](OutgoingMessageClass.md) class. 
 
@@ -13,7 +13,7 @@ All properties of this class are read-only. They are automatically filled by the
 
 ### Example
 
-The following HTTP handler configuration [has been defined in Qodly Studio](../4DQodlyPro/httpHandlers.md#configuring-http-handlers):
+The following HTTP handler configuration [has been defined in Qodly Studio](../../4DQodlyPro/httpHandlers.md#configuring-http-handlers):
 
 ```json
 [

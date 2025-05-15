@@ -265,7 +265,7 @@ The `.setPrivileges()` function <!-- REF #SessionClass.setPrivileges().Summary -
 
 :::info
 
-For more information, please refer to the [**Privileges**](../4DQodlyPro/roles/rolesPrivilegesOverview.md) section.
+For more information, please refer to the [**Privileges**](../../4DQodlyPro/roles/rolesPrivilegesOverview.md) section.
 
 :::
 
