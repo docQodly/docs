@@ -319,6 +319,7 @@ const sidebars = {
 						'QodlyinCloud/cloudOnlyFeatures/model/attributes',
 						'QodlyinCloud/cloudOnlyFeatures/model/functions',
 						'QodlyinCloud/cloudOnlyFeatures/model/import',
+						'QodlyinCloud/cloudOnlyFeatures/model/modelPermissions'
 					],
 				},	
 				{
@@ -326,24 +327,7 @@ const sidebars = {
 					id: 'QodlyinCloud/cloudOnlyFeatures/qodlyEventsClass',
 					label: "QodlyEvents Class Interface"
 				},
-				{
-					type: 'doc',
-					id: 'QodlyinCloud/cloudOnlyFeatures/data-explorer/data-explorer',
-					label: "Data Explorer"
-				},
-				{
-					type: 'category',
-					label: 'Roles And Privileges',
-					items: [
-						{
-							type: 'category',
-							label: 'Permissions',
-							items: [
-								'QodlyinCloud/cloudOnlyFeatures/roles/modelEditorApproach'
-							]
-						}
-					],
-				},
+
 			],
 		},
 		{

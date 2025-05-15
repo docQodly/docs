@@ -1,6 +1,6 @@
 ---
-id: modelEditorApproach
-title: Model Editor Approach
+id: modelPermissions
+title: Assigning Permissions
 ---
 
 import Column from '@site/src/components/Column'   
