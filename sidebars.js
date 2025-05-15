@@ -13,134 +13,6 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-	// Old Doc pages
-	Integrations_Q: [
-		{
-			type: 'category',
-			label: 'REST API',
-			items: [	
-				{
-					type: 'doc',
-					id: 'Old/api/overview',
-				},
-				{
-					type: 'category',
-					label: 'Server Information API',
-					items: [
-						'Old/api/$catalog',
-						'Old/api/$info'
-					],
-				},
-				{
-					type: 'category',
-					label: 'DataClass Operations API',
-					items: [
-						'Old/api/dataclassEndpoints',
-						'Old/api/dataclassManipulation',
-						'Old/api/$asArray',
-						'Old/api/$atomic$atOnce',
-						'Old/api/$attributes',
-						'Old/api/$binary',
-						'Old/api/$clean',
-						'Old/api/$compute',
-						'Old/api/$distinct',
-						'Old/api/$entityset',
-						'Old/api/$expand',
-						'Old/api/$filter',
-						'Old/api/$format',
-						'Old/api/$imageformat',
-						'Old/api/$lock',
-						'Old/api/$method',
-						'Old/api/$orderby',
-						'Old/api/$queryplan',
-						'Old/api/$querypath',
-						'Old/api/$savedfilter',
-						'Old/api/$savedorderby',
-						'Old/api/$singleton',
-						'Old/api/$skip',
-						'Old/api/$timeout',
-						'Old/api/$top$limit',
-						'Old/api/$version',
-					],
-				},
-				{
-					type: 'category',
-					label: 'Class Functions API',
-					items: [
-						'Old/api/classFunctionsOverview',
-						'Old/api/classFunctionsParameters',
-						'Old/api/classfunctionsFunctionCalls'
-					],
-				},
-			],
-		},
-		'Old/qodlyLookerStudio/qodlyLookerStudioConnector',
-		{
-			type: 'link',
-			label: 'OAuth 2.0',
-			href: 'https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider'
-		}, 
-		{
-			type: 'category',
-			label: 'Email',
-			items: [	
-				{
-					type: 'link',
-					label: "Office365 (Outlook)",
-					href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
-				},
-				{
-					type: 'link',
-					label: "Google (Gmail)",
-					href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
-				},
-			]
-		 },   
-		{
-			type: 'category',
-			label: 'Custom Components',
-			items: [	
-				{
-					type: 'doc',
-					id: 'Old/customComponent/overview',
-				},
-				{
-					type: 'doc',
-					id: 'Old/customComponent/setup',
-				},
-				{
-					type: 'doc',
-					id: 'Old/customComponent/structure',
-				},
-				{
-					type: "category",
-					label: "API Reference",
-					items: [
-						{
-							type: 'category',
-							label: '@ws-ui/webform-editor',
-							items: [
-								'Old/customComponent/api-reference/webform-editor/v0.2.24',
-								'Old/customComponent/api-reference/webform-editor/v0.2.16',
-							]
-						},
-					],
-				},
-			],
-		}
-	],
-	Guides_Q: [
-		{
-			type: 'category',
-			label: 'Programming Guide',
-			items: [	'Old/orda/data-model', 
-						'Old/orda/data',
-						'Old/orda/queries',
-						'QodlyinCloud/qodlyScript/guides/sessions',
-						'QodlyinCloud/qodlyScript/guides/login',
-			],
-		}
-	],
 	// Qodly 4D Pro
 	Develop: [
 		{
@@ -328,6 +200,17 @@ const sidebars = {
 					label: "QodlyEvents Class Interface"
 				},
 
+			],
+		},
+		{
+			type: 'category',
+			label: 'Programming Guide',
+			items: [	
+				'QodlyinCloud/qodlyScript/guides/data-model', 
+				'QodlyinCloud/qodlyScript/guides/data',
+				'QodlyinCloud/qodlyScript/guides/queries',
+				'QodlyinCloud/qodlyScript/guides/sessions',
+				'QodlyinCloud/qodlyScript/guides/login',
 			],
 		},
 		{
@@ -601,8 +484,131 @@ const sidebars = {
 						'QodlyinCloud/releaseNotes/1.0.0-beta.0'
 					],
 		},
-	]
-
+	],
+	//
+	Integrations: [
+		'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
+		{
+			type: 'link',
+			label: 'REST API',
+			href: 'https://developer.4d.com/docs/category/rest-api'
+		}, 
+		{
+			type: 'link',
+			label: 'OAuth 2.0',
+			href: 'https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider'
+		}, 
+		{
+			type: 'category',
+			label: 'Email',
+			items: [	
+				{
+					type: 'link',
+					label: "Office365 (Outlook)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
+				},
+				{
+					type: 'link',
+					label: "Google (Gmail)",
+					href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
+				},
+			]
+		},   
+		{
+			type: 'category',
+			label: 'Custom Components',
+			items: [	
+				{
+					type: 'doc',
+					id: 'Integrations/customComponent/overview',
+				},
+				{
+					type: 'doc',
+					id: 'Integrations/customComponent/setup',
+				},
+				{
+					type: 'doc',
+					id: 'Integrations/customComponent/structure',
+				},
+				{
+					type: "category",
+					label: "API Reference",
+					items: [
+						{
+							type: 'category',
+							label: '@ws-ui/webform-editor',
+							items: [
+								'Integrations/customComponent/api-reference/webform-editor/v0.2.24',
+								'Integrations/customComponent/api-reference/webform-editor/v0.2.16',
+							]
+						},
+					],
+				},
+			],
+		}
+	],
+	// For Arnaud to copy in the 4D doc
+	RestAPI: [
+		{
+			type: 'category',
+			label: 'REST API',
+			items: [	
+				{
+					type: 'doc',
+					id: 'Integrations/api/overview',
+				},
+				{
+					type: 'category',
+					label: 'Server Information API',
+					items: [
+						'Integrations/api/$catalog',
+						'Integrations/api/$info'
+					],
+				},
+				{
+					type: 'category',
+					label: 'DataClass Operations API',
+					items: [
+						'Integrations/api/dataclassEndpoints',
+						'Integrations/api/dataclassManipulation',
+						'Integrations/api/$asArray',
+						'Integrations/api/$atomic$atOnce',
+						'Integrations/api/$attributes',
+						'Integrations/api/$binary',
+						'Integrations/api/$clean',
+						'Integrations/api/$compute',
+						'Integrations/api/$distinct',
+						'Integrations/api/$entityset',
+						'Integrations/api/$expand',
+						'Integrations/api/$filter',
+						'Integrations/api/$format',
+						'Integrations/api/$imageformat',
+						'Integrations/api/$lock',
+						'Integrations/api/$method',
+						'Integrations/api/$orderby',
+						'Integrations/api/$queryplan',
+						'Integrations/api/$querypath',
+						'Integrations/api/$savedfilter',
+						'Integrations/api/$savedorderby',
+						'Integrations/api/$singleton',
+						'Integrations/api/$skip',
+						'Integrations/api/$timeout',
+						'Integrations/api/$top$limit',
+						'Integrations/api/$version',
+					],
+				},
+				{
+					type: 'category',
+					label: 'Class Functions API',
+					items: [
+						'Integrations/api/classFunctionsOverview',
+						'Integrations/api/classFunctionsParameters',
+						'Integrations/api/classfunctionsFunctionCalls'
+					],
+				},
+			],
+		},
+	],
 };
 
 module.exports = sidebars;

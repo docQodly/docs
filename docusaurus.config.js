@@ -148,31 +148,19 @@ Thank you for helping us improve! 🚀
           srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
-          // Old Doc pages
-          {
-            type: 'doc',
-            docId: 'Old/api/overview',
-            position: 'left',
-            label: 'Integrations (OLD)',
-          },
-          {
-            type: "doc",
-            position: "left",
-            docId: "Old/orda/data-model",
-            label: "Guides (OLD)",
-          }, 
-          {
-            type: "doc",
-            position: "left",
-            docId: "Old/faq/faq",
-            label: "FAQ (OLD)",
-          },
           // Qodly 4D Pro
           {
             type: 'doc',
             docId: '4DQodlyPro/gettingStarted',
             position: 'left',
             label: 'Develop',
+          },
+          // Integrations
+          {
+            type: 'doc',
+            docId: 'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
+            position: 'left',
+            label: 'Integrations',
           },
           // Qodly Cloud
           {
@@ -181,12 +169,27 @@ Thank you for helping us improve! 🚀
             position: 'left',
             label: 'Qodly Cloud',
           },
+          // For Arnaud to copy in the 4D doc
+          {
+            type: "doc",
+            position: "left",
+            docId: "Integrations/api/overview",
+            label: "REST API (OLD)",
+          }, 
+          // Old Doc pages
+          {
+            type: "doc",
+            position: "left",
+            docId: "Old/faq/faq",
+            label: "FAQ (OLD)",
+          },
+          //
           {
             type: 'docsVersionDropdown',
             position: 'right',
             //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
             dropdownActiveClassDisabled: false,
-          },  
+          }, 
         ],
       },
       footer: {
