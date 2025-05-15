@@ -180,7 +180,7 @@ Thank you for helping us improve! 🚀
           {
             type: "doc",
             position: "left",
-            docId: "Old/faq/faq",
+            docId: "faq/faq",
             label: "FAQ (OLD)",
           },
           //
