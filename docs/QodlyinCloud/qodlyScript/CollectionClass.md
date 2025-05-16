@@ -2240,9 +2240,9 @@ where:
  |---|---|---|
  |Equal to |==, = |Gets matching data, supports the wildcard (@), neither case-sensitive nor diacritic.|
  ||===, IS| Gets matching data, considers the @ as a standard character, neither case-sensitive nor diacritic|
- |Not equal to| #, != |Supports the wildcard (@). Equivalent to "Not condition applied on a statement" ([see below](../orda/queries.md#not-equal-to-in-collections)).|
+ |Not equal to| #, != |Supports the wildcard (@). Equivalent to "Not condition applied on a statement" ([see below](../qodlyScript/guides/queries.md#not-equal-to-in-collections)).|
  ||!==, IS NOT| Considers the @ as a standard character|
- |Not condition applied on a statement| NOT| Parenthesis are mandatory when NOT is used before a statement containing several operators. Equivalent to "Not equal to" ([see below](../orda/queries.md#not-equal-to-in-collections)).|
+ |Not condition applied on a statement| NOT| Parenthesis are mandatory when NOT is used before a statement containing several operators. Equivalent to "Not equal to" ([see below](../qodlyScript/guides/queries.md#not-equal-to-in-collections)).|
  |Less than| &lt;| |
  |Greater than| > ||
  |Less than or equal to| &lt;=||

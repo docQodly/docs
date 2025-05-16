@@ -325,7 +325,7 @@ Request handler functions are not necessarily shared, unless some request handle
 
 :::note
 
-It is **not recommended** to expose request handler functions to external REST calls using [`exposed`](../orda/data-model.md#exposed-vs-non-exposed-functions) or [`onHttpGet`](../orda/data-model.md#onhttpget-keyword) keywords.
+It is **not recommended** to expose request handler functions to external REST calls using [`exposed`](../QodlyinCloud/qodlyScript/guides/data-model.md#exposed-vs-non-exposed-functions) or [`onHttpGet`](../QodlyinCloud/qodlyScript/guides/data-model.md#onhttpget-keyword) keywords.
 
 :::
 

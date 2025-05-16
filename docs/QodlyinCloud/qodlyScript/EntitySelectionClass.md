@@ -4,7 +4,7 @@ title: EntitySelection
 ---
 
 
-An entity selection is an object containing one or more reference(s) to [entities](../orda/data-model.md#entity) belonging to the same [Dataclass](../orda/data-model.md#dataclass). An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass.
+An entity selection is an object containing one or more reference(s) to [entities](../qodlyScript/guides/data-model.md#entity) belonging to the same [Dataclass](../qodlyScript/guides/data-model.md#dataclass). An entity selection can contain 0, 1 or X entities from the dataclass -- where X can represent the total number of entities contained in the dataclass.
 
 Entity selections can be created from existing selections using various functions of the [`DataClass` class](DataClassClass.md) such as [`.all()`](DataClassClass.md#all) or [`.query()`](DataClassClass.md#query), or functions of the `EntityClass` class itself, such as [`.and()`](#and) or [`orderBy()`](#orderby). You can also create blank entity selections using the [`dataClass.newSelection()`](DataClassClass.md#newselection) function.
 
@@ -235,12 +235,12 @@ The `.add()` function <!-- REF #EntitySelectionClass.add().Summary -->adds the s
 
 :::caution
 
-The entity selection must be *alterable*, i.e. it has been created for example by [`.newSelection()`](DataClassClass.md#newselection), otherwise `.add()` will return an error. Shareable entity selections do not accept the addition of entities. For more information, please refer to the [Shareable or alterable entity selections](../orda/data.md#shareable-or-alterable-entity-selections) section.
+The entity selection must be *alterable*, i.e. it has been created for example by [`.newSelection()`](DataClassClass.md#newselection), otherwise `.add()` will return an error. Shareable entity selections do not accept the addition of entities. For more information, please refer to the [Shareable or alterable entity selections](../qodlyScript/guides/data.md#shareable-or-alterable-entity-selections) section.
 
 :::
 
-*	If the entity selection is [ordered](../orda/data-model.md#ordered-or-unordered-entity-selection), *entity* is added at the end of the selection. If a reference to the same entity already belongs to the entity selection, it is duplicated and a new reference is added.
-*	If the entity selection is [unordered](../orda/data-model.md#ordered-or-unordered-entity-selection), *entity* is added anywhere in the selection, with no specific order.
+*	If the entity selection is [ordered](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection), *entity* is added at the end of the selection. If a reference to the same entity already belongs to the entity selection, it is duplicated and a new reference is added.
+*	If the entity selection is [unordered](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection), *entity* is added anywhere in the selection, with no specific order.
 
 The modified entity selection is returned by the function, so that function calls can be chained.
 
@@ -302,7 +302,7 @@ The `.and()` function <!-- REF #EntitySelectionClass.and().Summary -->combines t
 
 :::note
 
-You can compare [ordered and/or unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
+You can compare [ordered and/or unordered entity selections](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
 
 :::
 
@@ -410,7 +410,7 @@ The `.clean()` function <!-- REF #EntitySelectionClass.clean().Summary -->return
 
 By default, when an entity is [dropped](EntitySelectionClass.md#drop), its reference(s) in existing entity selection(s) become *undefined* but are not removed from the entity selection object(s). Deleted entities are still included in the [`.length`](#length) property and are displayed as blank lines if the entity selection is bound to an interface object such as a list. In this case, calling the `.clean()` function on the entity selection allows you to get a new, up-to-date entity selection, not containing *undefined* entity references.
 
-The resulting entity selection keeps the same [order criteria](../orda/data-model.md#ordered-or-unordered-entity-selection) and the same [alterable/shareable](../orda/data.md#shareable-or-alterable-entity-selections) property as the original entity selection.
+The resulting entity selection keeps the same [order criteria](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection) and the same [alterable/shareable](../qodlyScript/guides/data.md#shareable-or-alterable-entity-selections) property as the original entity selection.
 
 
 #### Example   
@@ -534,7 +534,7 @@ The `.copy()` function <!-- REF #EntitySelectionClass.copy().Summary -->returns 
 
 > This function does not modify the original entity selection.
 
-By default, if the *option* parameter is omitted, the function returns a new, [alterable](../orda/data.md#shareable-or-alterable-entity-selections) entity selection (even if the function is applied to a [shareable](../orda/data.md#shareable-or-alterable-entity-selections) entity selection). Pass the `kShared` constant in the *option* parameter if you want to create a shareable entity selection.
+By default, if the *option* parameter is omitted, the function returns a new, [alterable](../qodlyScript/guides/data.md#shareable-or-alterable-entity-selections) entity selection (even if the function is applied to a [shareable](../qodlyScript/guides/data.md#shareable-or-alterable-entity-selections) entity selection). Pass the `kShared` constant in the *option* parameter if you want to create a shareable entity selection.
 
 
 #### Example   
@@ -959,7 +959,7 @@ The following generic code duplicates all entities of the entity selection:
 
 The `.isAlterable()` function <!-- REF #EntitySelectionClass.isAlterable().Summary -->returns true if the entity selection is alterable<!-- END REF -->, and false if the entity selection is not alterable.
 
-For more information, please refer to the [Shareable or alterable entity selections](../orda/data.md#shareable-or-alterable-entity-selections) section.
+For more information, please refer to the [Shareable or alterable entity selections](../qodlyScript/guides/data.md#shareable-or-alterable-entity-selections) section.
 
 
 <!-- END REF -->
@@ -982,7 +982,7 @@ For more information, please refer to the [Shareable or alterable entity selecti
 
 The `.isOrdered()` function <!-- REF #EntitySelectionClass.isOrdered().Summary -->returns true if the entity selection is ordered<!-- END REF -->, and false if it is unordered.
 
-For more information, please refer to the [Ordered or unordered entity selection](../orda/data-model.md#ordered-or-unordered-entity-selection) section.
+For more information, please refer to the [Ordered or unordered entity selection](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection) section.
 
 
 #### Example   
@@ -1198,7 +1198,7 @@ The `.minus()` function <!-- REF #EntitySelectionClass.minus().Summary -->exclud
 *	If you pass *entity* as parameter, the function creates a new entity selection without *entity* (if *entity* belongs to the entity selection). If *entity* was not included in the original entity selection, a new reference to the entity selection is returned.
 *	If you pass *entitySelection* as parameter, the function returns an entity selection containing the entities belonging to the original entity selection without the entities belonging to *entitySelection*.
 
->You can compare [ordered and/or unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
+>You can compare [ordered and/or unordered entity selections](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
 
 If the original entity selection or both the original entity selection and the *entitySelection* parameter are empty, an empty entity selection is returned.
 
@@ -1259,7 +1259,7 @@ The `.or()` function <!-- REF #EntitySelectionClass.or().Summary -->combines the
 *	If you pass *entity* as parameter, you compare this entity with the entity selection. If the entity belongs to the entity selection, a new reference to the entity selection is returned. Otherwise, a new entity selection containing the original entity selection and the entity is returned.
 *	If you pass *entitySelection* as parameter, you compare entity selections. A new entity selection containing the entities belonging to the original entity selection or *entitySelection* is returned (or is not exclusive, entities referenced in both selections are not duplicated in the resulting selection).
 
->You can compare [ordered and/or unordered entity selections](../orda/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
+>You can compare [ordered and/or unordered entity selections](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection). The resulting selection is always unordered.
 
 If the original entity selection and the *entitySelection* parameter are empty, an empty entity selection is returned. If the original entity selection is empty, a reference to *entitySelection* or an entity selection containing only *entity* is returned.
 
@@ -1308,7 +1308,7 @@ If the original entity selection and the parameter are not related to the same d
 
 #### Description
 
-The `.orderBy()` function <!-- REF #EntitySelectionClass.orderBy().Summary -->returns a new [ordered](../orda/data-model.md#ordered-or-unordered-entity-selection) entity selection containing all entities of the entity selection in the order specified by *pathString* or *pathObjects* criteria<!-- END REF -->.
+The `.orderBy()` function <!-- REF #EntitySelectionClass.orderBy().Summary -->returns a new [ordered](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection) entity selection containing all entities of the entity selection in the order specified by *pathString* or *pathObjects* criteria<!-- END REF -->.
 
 > This function does not modify the original entity selection.
 
@@ -1504,7 +1504,7 @@ If no matching entities are found, an empty `EntitySelection` is returned.
 
 For detailed information on how to build a query using *queryString*, *value*, and *querySettings* parameters, please refer to the DataClass [`.query()`](DataClassClass.md#query) function description.
 
->By default if you omit the **order by** statement in the *queryString*, the returned entity selection is [not ordered](../orda/data-model.md#ordered-or-unordered-entity-selection).
+>By default if you omit the **order by** statement in the *queryString*, the returned entity selection is [not ordered](../qodlyScript/guides/data-model.md#ordered-or-unordered-entity-selection).
 
 #### Example 1  
 

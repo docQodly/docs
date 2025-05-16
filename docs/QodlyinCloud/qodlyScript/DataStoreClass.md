@@ -3,7 +3,7 @@ id: DataStoreClass
 title: DataStore
 ---
 
-A [Datastore](../orda/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. A `Datastore` object is returned by the [`ds`](commands/ds.md) command (a shortcut to the main datastore) or the [`openDatastore`](commands/openDatastore.md) command.
+A [Datastore](../qodlyScript/guides/data-model.md#datastore) is the interface object provided by ORDA to reference and access a database. A `Datastore` object is returned by the [`ds`](commands/ds.md) command (a shortcut to the main datastore) or the [`openDatastore`](commands/openDatastore.md) command.
 
 
 
@@ -62,7 +62,7 @@ See example for the [`.startTransaction()`](#starttransaction) function.
 
 #### Description
 
-Each dataclass in a datastore is available as a property of the [DataStore object](../orda/data-model.md#datastore). The returned cs.object contains <!-- REF DataStoreClass.dataclassName.Summary -->all attributes of the dataclass as objects<!-- END REF -->.
+Each dataclass in a datastore is available as a property of the [DataStore object](../qodlyScript/guides/data-model.md#datastore). The returned cs.object contains <!-- REF DataStoreClass.dataclassName.Summary -->all attributes of the dataclass as objects<!-- END REF -->.
 
 
 #### Example

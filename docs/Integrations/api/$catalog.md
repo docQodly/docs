@@ -354,7 +354,7 @@ The response structure for the `$catalog/{{dataClass}}` endpoint looks something
 
 ## singletons
 
-If you have defined [shared singletons](../../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes) containing at least one [exposed function](../orda/data-model.md#exposed-vs-non-exposed-functions), a `singletons` section is added to the returned json for both the `/$catalog` and `/$catalog/$all` syntaxes. It contains the collection of singleton classes as objects with their **name** and **methods** (i.e., exposed functions).
+If you have defined [shared singletons](../../QodlyinCloud/qodlyScript/basics/lang-classes.md#singleton-classes) containing at least one [exposed function](../../QodlyinCloud/qodlyScript/guides/data-model.md#exposed-vs-non-exposed-functions), a `singletons` section is added to the returned json for both the `/$catalog` and `/$catalog/$all` syntaxes. It contains the collection of singleton classes as objects with their **name** and **methods** (i.e., exposed functions).
 
 Singleton functions can be called by REST requests using the [`$singleton` command]($singleton.md).
 

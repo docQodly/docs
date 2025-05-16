@@ -17,7 +17,7 @@ title: session
 
 The `session` command <!-- REF #_command_.session.Summary -->returns the `Session` object corresponding to the current scalable user web session<!-- END REF -->.
 
-The `Session` object is available from any web processes in ORDA [Data Model Class functions](../../orda/data-model.md) called with REST requests.
+The `Session` object is available from any web processes in ORDA [Data Model Class functions](../../../QodlyinCloud/qodlyScript/guides/data-model.md) called with REST requests.
 
 
 

@@ -22,7 +22,7 @@ Qodly is powered by [**Amazon Web Services**](https://aws.amazon.com/cognito/).
 
 Every Qodly Server is a container deployed on a Virtual Machine (VM) powered by [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).  
 
-User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../4DQodlyPro/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../orda/data-model.md#datastore) for [user sessions](../QodlyinCloud/qodlyScript/SessionClass.md).
+User access is managed by Qodly Identity Service (QIS) based on [AWS Cognito](https://aws.amazon.com/cognito/). It is a central service to control all users access to Qodly modules. Every developer or application user needs to be declared in QIS with an appropriate [role](../4DQodlyPro/roles/rolesPrivilegesOverview.md#understanding-roles). Roles allow you to assign different permissions at [datastore level](../QodlyinCloud/qodlyScript/guides/data-model.md#datastore) for [user sessions](../QodlyinCloud/qodlyScript/SessionClass.md).
 
 Automatic scheduled backups are provided for staging and production environment. Backups are stored on [AWS S3](https://aws.amazon.com/s3/) services.  
 
@@ -160,7 +160,7 @@ Since entities are managed as references, data is loaded only when necessary, i.
     - **declaration** of both user class and datastore class object variables
     - **instantiation** of user class objects.
 
-  `ds` is a shortcut to the main DataStore object, providing access to the [ORDA model and data object](../orda/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects.
+  `ds` is a shortcut to the main DataStore object, providing access to the [ORDA model and data object](../QodlyinCloud/qodlyScript/guides/data-model.md) instances. It is a kind of singleton, used for **instantiation** of datastore objects.
   Datastore objects are instantiated and managed by ORDA and cannot be handled through the `cs` Class Store.
 
   ```qs
