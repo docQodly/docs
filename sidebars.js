@@ -13,12 +13,15 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-	// Qodly 4D Pro
-	Develop: [
+	//
+	GettingStarted: [
 		{
 			type: 'doc',
 			id: '4DQodlyPro/gettingStarted'
 		},
+	],
+	// Qodly 4D Pro
+	Develop: [
 		{
 			type: 'doc',
 			id: '4DQodlyPro/qodlyStudioInterface'
@@ -489,6 +492,35 @@ const sidebars = {
             id: "faq/faq",
         },
 	],
+	// Custom Component
+	CustomComponent: [
+		{
+			type: 'doc',
+			id: 'Integrations/customComponent/overview',
+		},
+		{
+			type: 'doc',
+			id: 'Integrations/customComponent/setup',
+		},
+		{
+			type: 'doc',
+			id: 'Integrations/customComponent/structure',
+		},
+		{
+			type: "category",
+			label: "API Reference",
+			items: [
+				{
+					type: 'category',
+					label: '@ws-ui/webform-editor',
+					items: [
+						'Integrations/customComponent/api-reference/webform-editor/v0.2.24',
+						'Integrations/customComponent/api-reference/webform-editor/v0.2.16',
+					]
+				},
+			],
+		},
+	],
 	//
 	Integrations: [
 		'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
@@ -518,100 +550,6 @@ const sidebars = {
 				},
 			]
 		},   
-		{
-			type: 'category',
-			label: 'Custom Components',
-			items: [	
-				{
-					type: 'doc',
-					id: 'Integrations/customComponent/overview',
-				},
-				{
-					type: 'doc',
-					id: 'Integrations/customComponent/setup',
-				},
-				{
-					type: 'doc',
-					id: 'Integrations/customComponent/structure',
-				},
-				{
-					type: "category",
-					label: "API Reference",
-					items: [
-						{
-							type: 'category',
-							label: '@ws-ui/webform-editor',
-							items: [
-								'Integrations/customComponent/api-reference/webform-editor/v0.2.24',
-								'Integrations/customComponent/api-reference/webform-editor/v0.2.16',
-							]
-						},
-					],
-				},
-			],
-		}
-	],
-	// For Arnaud to copy in the 4D doc
-	RestAPI: [
-		{
-			type: 'category',
-			label: 'REST API',
-			items: [	
-				{
-					type: 'doc',
-					id: 'Integrations/api/overview',
-				},
-				{
-					type: 'category',
-					label: 'Server Information API',
-					items: [
-						'Integrations/api/$catalog',
-						'Integrations/api/$info'
-					],
-				},
-				{
-					type: 'category',
-					label: 'DataClass Operations API',
-					items: [
-						'Integrations/api/dataclassEndpoints',
-						'Integrations/api/dataclassManipulation',
-						'Integrations/api/$asArray',
-						'Integrations/api/$atomic$atOnce',
-						'Integrations/api/$attributes',
-						'Integrations/api/$binary',
-						'Integrations/api/$clean',
-						'Integrations/api/$compute',
-						'Integrations/api/$distinct',
-						'Integrations/api/$entityset',
-						'Integrations/api/$expand',
-						'Integrations/api/$filter',
-						'Integrations/api/$format',
-						'Integrations/api/$imageformat',
-						'Integrations/api/$lock',
-						'Integrations/api/$method',
-						'Integrations/api/$orderby',
-						'Integrations/api/$queryplan',
-						'Integrations/api/$querypath',
-						'Integrations/api/$savedfilter',
-						'Integrations/api/$savedorderby',
-						'Integrations/api/$singleton',
-						'Integrations/api/$skip',
-						'Integrations/api/$timeout',
-						'Integrations/api/$top$limit',
-						'Integrations/api/$version',
-					],
-				},
-				{
-					type: 'category',
-					label: 'Class Functions API',
-					items: [
-						'Integrations/api/classFunctionsOverview',
-						'Integrations/api/classFunctionsParameters',
-						'Integrations/api/classfunctionsFunctionCalls'
-					],
-				},
-			],
-		},
 	],
 };
 

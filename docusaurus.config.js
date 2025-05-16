@@ -148,19 +148,26 @@ Thank you for helping us improve! 🚀
           srcDark: 'img/qodly-dark-version.svg',
         },
         items: [
+          // 
+          {
+            type: "doc",
+            docId: "4DQodlyPro/gettingStarted",
+            position: "left",
+            label: "Getting Started",
+          },
           // Qodly 4D Pro
           {
             type: 'doc',
-            docId: '4DQodlyPro/gettingStarted',
+            docId: '4DQodlyPro/qodlyStudioInterface',
             position: 'left',
             label: 'Develop',
           },
-          // Integrations
+          // Custom Component
           {
             type: 'doc',
-            docId: 'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
+            docId: 'Integrations/customComponent/overview',
             position: 'left',
-            label: 'Integrations',
+            label: 'Custom Components',
           },
           // Qodly Cloud
           {
