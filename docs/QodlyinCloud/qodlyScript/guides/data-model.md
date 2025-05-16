@@ -905,13 +905,13 @@ In the HTTP GET request, parameters must be passed directly in the URL and decla
 IP:port/rest/<dataclass>/functionName?$params='[<params>]'
 ```
 
-See the [Parameters](../api/classFunctionsParameters.md) section in the REST API documentation. 
+See the [Parameters](../../../Integrations/api/classFunctionsParameters.md) section in the REST API documentation. 
 
 
 
 ### result
 
-A function with `onHttpGet` keyword can return any value of a supported type (same as for REST [parameters](../api/classFunctionsParameters.md)).
+A function with `onHttpGet` keyword can return any value of a supported type (same as for REST [parameters](../../../Integrations/api/classFunctionsParameters.md)).
 
 :::info
 

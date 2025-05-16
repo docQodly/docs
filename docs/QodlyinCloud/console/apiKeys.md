@@ -13,7 +13,7 @@ The API Keys tab in Qodly allows you to create and manage API keys for secure, p
 
 ### API Endpoint
 
-The API endpoint serves as a gateway, allowing developers to interact with Qodly applications programmatically. Using standard HTTP methods, the endpoint can facilitate data access, trigger actions, or retrieve information by integrating with Qodly’s [`openDatastore`](../qodlyScript/commands/openDatastore.md) command or [REST requests](../api/overview.md).
+The API endpoint serves as a gateway, allowing developers to interact with Qodly applications programmatically. Using standard HTTP methods, the endpoint can facilitate data access, trigger actions, or retrieve information by integrating with Qodly’s [`openDatastore`](../qodlyScript/commands/openDatastore.md) command or [REST requests](../../Integrations/api/overview.md).
 
 ### API Key
 
@@ -110,7 +110,7 @@ To authenticate REST requests to the Server, the API key must be included in the
 
 - **Using the [`openDatastore`](../qodlyScript/commands/openDatastore.md) Command**: When connecting to another Qodly application, use the `openDatastore` command. Simply pass the API endpoint and key through the `hostname` and `api-key` properties in the `connectionInfo` parameter. This method automatically includes the API key in the HTTP headers for underlying REST requests.
 
-- **Using the REST API Directly**: Insert the `api-key` into the HTTP header with the API endpoint URL in all REST requests. For a practical example, refer to the [API endpoint usage example in Postman](../api/overview.md#api-endpoint-usage-example-in-postman).
+- **Using the REST API Directly**: Insert the `api-key` into the HTTP header with the API endpoint URL in all REST requests. For a practical example, refer to the [API endpoint usage example in Postman](../../Integrations/api/overview.md#api-endpoint-usage-example-in-postman).
 
 
 ## How to Manage Your API Access - Tutorial Video
