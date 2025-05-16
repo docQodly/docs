@@ -169,20 +169,6 @@ Thank you for helping us improve! 🚀
             position: 'left',
             label: 'Qodly Cloud',
           },
-          // For Arnaud to copy in the 4D doc
-          {
-            type: "doc",
-            position: "left",
-            docId: "Integrations/api/overview",
-            label: "REST API (OLD)",
-          }, 
-          // Old Doc pages
-          {
-            type: "doc",
-            position: "left",
-            docId: "faq/faq",
-            label: "FAQ (OLD)",
-          },
           //
           {
             type: 'docsVersionDropdown',

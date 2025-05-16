@@ -3,7 +3,7 @@ id: gettingStarted
 title: Getting Started
 ---
 
-**Qodly Studio** is an interface builder for web applications. It provides developers with a graphical page editor to design applications running in web browsers or smartphones. It supports natively the [ORDA objects](../ORDA/overview.md).
+**Qodly Studio** is an interface builder for web applications. It provides developers with a graphical page editor to design applications running in web browsers or smartphones. It supports natively the [ORDA objects](https://developer.4d.com/docs/ORDA/overview).
 
 You can use Qodly Studio directly from your **4D environment** to build modern and sophisticated interfaces that you can easily integrate to your existing 4D projects and deploy **on premise**.
 
@@ -36,15 +36,15 @@ The recommended resolution is 1920x1080.
 - Development: 4D v20 R2 or higher
 - Deployment: 4D Server v20 R2 or higher
 - Qodly Studio only works with 4D projects (binary databases are not supported).
-- Web sessions (*aka* Scalable sessions) must [be enabled](sessions.md#enabling-web-sessions).
-- The 4D code called by Qodly forms must be [thread-safe](preemptiveWeb.md).
+- Web sessions (*aka* Scalable sessions) must [be enabled](https://developer.4d.com/docs/WebServer/sessions#enabling-web-sessions).
+- The 4D code called by Qodly forms must be [thread-safe](https://developer.4d.com/docs/WebServer/preemptiveWeb).
 
 
 ### Enabling access to Qodly Studio
 
 By default, access to Qodly Studio is not granted.
 
-Qodly Studio is served by the [WebAdmin web server](../Admin/webAdmin.md) and displays data from 4D projects handled by the [4D web server](webServer.md).
+Qodly Studio is served by the [WebAdmin web server](https://developer.4d.com/docs/Admin/webAdmin) and displays data from 4D projects handled by the [4D web server](https://developer.4d.com/docs/WebServer/overview).
 
 To enable access to Qodly Studio, you must explicitly allow it at two levels:
 
@@ -56,28 +56,28 @@ If one of the two levels (or both) are not enabled, access to Qodly Studio is de
 
 #### At 4D level
 
-As a first security level, you need to [allow access to Qodly Studio on the WebAdmin web server](../Admin/webAdmin.md#enable-access-to-qodly-studio). This setting applies to the 4D application (4D or 4D Server) on the host machine. All projects opened with that 4D application take this setting into account.
+As a first security level, you need to [allow access to Qodly Studio on the WebAdmin web server](https://developer.4d.com/docs/Admin/webAdmin#enable-access-to-qodly-studio). This setting applies to the 4D application (4D or 4D Server) on the host machine. All projects opened with that 4D application take this setting into account.
 
 Keep this option unchecked if you want to make sure no access to Qodly Studio is allowed on the application. Check this option to make it possible to access Qodly Studio. However, you still need to enable it at every project level.
 
-Additionally, you can [configure the WebAdmin web server's HTTP/HTTPS port used](../Admin/webAdmin.md#accept-http-connections-on-localhost).
+Additionally, you can [configure the WebAdmin web server's HTTP/HTTPS port used](https://developer.4d.com/docs/Admin/webAdmin#accept-http-connections-on-localhost).
 
 :::note
 
-After any change to these settings, you must [restart the WebAdmin web server](../Admin/webAdmin.md#start-and-stop) for the new configuration to be effective.
+After any change to these settings, you must [restart the WebAdmin web server](https://developer.4d.com/docs/Admin/webAdmin#start-and-stop) for the new configuration to be effective.
 
 :::
 
 #### At project level
 
-After you have enabled access to Qodly Studio at the 4D level, you need to explicitly designate every project that can be accessed. The **Enable access to Qodly Studio** option must be enabled on the [Web Features page of the 4D application's Settings](../settings/web.md#enable-access-to-qodly-studio).
+After you have enabled access to Qodly Studio at the 4D level, you need to explicitly designate every project that can be accessed. The **Enable access to Qodly Studio** option must be enabled on the [Web Features page of the 4D application's Settings](https://developer.4d.com/docs/settings/web#enable-access-to-qodly-studio).
 
-Keep in mind that [user settings](../settings/overview.md) can be defined at several levels, and that priorities apply.
+Keep in mind that [user settings](https://developer.4d.com/docs/settings/overview) can be defined at several levels, and that priorities apply.
 
 
 ### Activating authentication
 
-Authentication on the WebAdmin web server is granted using an access key. For more details, see [Access key](../Admin/webAdmin.md#access-key).
+Authentication on the WebAdmin web server is granted using an access key. For more details, see [Access key](https://developer.4d.com/docs/Admin/webAdmin#access-key).
 
 
 ### Development and deployment
@@ -97,7 +97,7 @@ You can open Qodly Studio, [debug](#using-qodly-debugger-on-4d-server) and edit 
 
 ## Opening Qodly Studio
 
-The Qodly Studio page is available when the [WebAdmin web server is running](../Admin/webAdmin.md#start-and-stop) and authentication is activated (see above).
+The Qodly Studio page is available when the [WebAdmin web server is running](https://developer.4d.com/docs/Admin/webAdmin#start-and-stop) and authentication is activated (see above).
 
 There are two ways to access Qodly Studio:
 
@@ -115,7 +115,7 @@ If the WebAdmin web server is already running, depending on its configuration, y
 
 	`localhost:7080/studio`
 
-	You will then be prompted to enter the [access key](../Admin/webAdmin.md#access-key) to access Qodly Studio.
+	You will then be prompted to enter the [access key](https://developer.4d.com/docs/Admin/webAdmin#access-key) to access Qodly Studio.
 
 
 
@@ -142,7 +142,7 @@ There is no direct compatibility between apps implemented with 4D and apps imple
 |View and edit tables (dataclasses), attributes and relations|4D Structure Editor(1)|Qodly Studio Model Editor|
 |Qodly pages|Qodly Studio Page Editor|Qodly Studio Page Editor|
 |Desktop forms|4D IDE|*not supported*|
-|Programming language|4D Language featuring ORDA|[QodlyScript](https://developer.qodly.com/docs/category/qodlyscript) featuring ORDA|
+|Programming language|4D Language featuring ORDA|[QodlyScript](../QodlyinCloud/qodlyScript/basics/lang-quicktour.md) featuring ORDA|
 |Coding IDE|4D IDE code editor *or* VS Code with [4D-Analyzer extension](https://github.com/4d/4D-Analyzer-VSCode)<br/>*4D Server only*: Qodly Studio code editor (see (2))|Qodly Studio code editor|
 |Debugger|4D IDE debugger<br/>*4D Server only*: Qodly Studio debugger (see [this paragraph](#using-qodly-debugger-on-4d-server))|Qodly Studio debugger|
 |REST/Web roles and privileges|roles.json direct edit/Qodly Studio roles and privileges editor|Qodly Studio role and privileges editor|
@@ -166,14 +166,14 @@ The following commands and classes are dedicated to the server-side management o
 We recommend using class functions over project methods. Only class functions can be called from components. However, you can still use your project methods in Qodly Studio in two ways:
 
 - You can call your methods from class functions.
-- You can directly [execute your methods](https://developer.qodly.com/docs/studio/coding#methods-and-classes) from the Qodly Explorer.
+- You can directly [execute your methods](../4DQodlyPro/coding.md#method-and-function-management) from the Qodly Explorer.
 
 
 ### Offline use
 
 You can develop with Qodly Studio while your computer is not connected to the internet. In this case however, the following features are not available:
 
-- [Templates](https://developer.qodly.com/docs/studio/pageLoaders/templates): the Template library is empty
+- [Templates](../4DQodlyPro/pageLoaders/templates.md): the Template library is empty
 - UI tips: they are not displayed when you click on ![alt-text](./img/tips.png) icons.
 
 
@@ -187,29 +187,29 @@ Qodly Studio encapsulates Qodly pages, including layout, data connections, and e
 
 :::info
 
-See [this page](https://developer.qodly.com/docs/studio/rendering) for detailed information on how to render Qodly pages in Qodly.
+See [this page](../4DQodlyPro/rendering.md) for detailed information on how to render Qodly pages in Qodly.
 
 :::
 
 To enable the rendering of Qodly pages, the following options must be set.
 
 * The 4D project's **Settings** > **Web** > **Web Features** > [**Expose as REST server**](../settings/web.md#expose-as-rest-server) option must be activated.
-* The [4D web server](webServer.md) must be running.
+* The [4D web server](https://developer.4d.com/docs/WebServer/overview) must be running.
 
 :::note
 
-[Renderer buttons](https://developer.qodly.com/docs/studio/rendering#how-to-render-a-webform) are not available if the configuration options are not activated.
+[Renderer buttons](../4DQodlyPro/rendering.md#page-rendering-options) are not available if the configuration options are not activated.
 
 :::
 
 ### Scope of Qodly forms
 
-When rendering Qodly forms in the Qodly Studio, the renderer will connect to the 4D web server through HTTP or HTTPS, depending on the settings, following the same HTTP/HTTPS connection pattern as for the [4D WebAdmin web server](../Admin/webAdmin.md#accept-http-connections-on-localhost). See also [this paragraph](#about-license-usage-for-rendering) about URL schemes and license usage.
+When rendering Qodly forms in the Qodly Studio, the renderer will connect to the 4D web server through HTTP or HTTPS, depending on the settings, following the same HTTP/HTTPS connection pattern as for the [4D WebAdmin web server](https://developer.4d.com/docs/Admin/webAdmin#accept-http-connections-on-localhost). See also [this paragraph](#about-license-usage-for-rendering) about URL schemes and license usage.
 
 
 Keep in mind that Qodly Studio runs through the 4D WebAdmin web server. When you use Qodly Studio as a developer, even when you preview a Qodly Page in the studio, you're using the 4D WebAdmin web server. This allows you to see dataclasses, functions and attributes that are not exposed as REST resources for example (they are greyed out).
 
-However, page rendering happens outside Qodly Studio, and is served by the standard 4D web server. In this situation, your web application cannot access assets that are not exposed as REST resources. See [Exposed vs non-exposed functions](../ORDA/ordaClasses.md#exposed-vs-non-exposed-functions) and [Exposing tables](../REST/configuration.md#exposing-tables) for more information on how to expose assets.
+However, page rendering happens outside Qodly Studio, and is served by the standard 4D web server. In this situation, your web application cannot access assets that are not exposed as REST resources. See [Exposed vs non-exposed functions](https://developer.4d.com/docs/ORDA/ordaClasses#exposed-vs-non-exposed-functions) and [Exposing tables](https://developer.4d.com/docs/REST/configuration#exposing-tables) for more information on how to expose assets.
 
 
 

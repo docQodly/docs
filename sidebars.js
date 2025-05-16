@@ -484,6 +484,10 @@ const sidebars = {
 						'QodlyinCloud/releaseNotes/1.0.0-beta.0'
 					],
 		},
+		{
+            type: "doc",
+            id: "faq/faq",
+        },
 	],
 	//
 	Integrations: [
