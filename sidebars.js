@@ -139,7 +139,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: 'Qodly Cloud Overview',
+			label: 'Cloud Overview',
 			items: ['QodlyinCloud/getStarted/first-app',
 				'QodlyinCloud/getStarted/test-debug',
 				'QodlyinCloud/getStarted/deployment',
@@ -472,6 +472,39 @@ const sidebars = {
 		},
 		{
 			type: 'category',
+			label: 'Integrations',
+			items: [	
+				'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
+				{
+					type: 'link',
+					label: 'REST API',
+					href: 'https://developer.4d.com/docs/category/rest-api'
+				}, 
+				{
+					type: 'link',
+					label: 'OAuth 2.0',
+					href: 'https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider'
+				}, 
+				{
+					type: 'category',
+					label: 'Email',
+					items: [	
+						{
+							type: 'link',
+							label: "Office365 (Outlook)",
+							href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
+						},
+						{
+							type: 'link',
+							label: "Google (Gmail)",
+							href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
+						},
+					]
+				},  
+			],
+		},
+		{
+			type: 'category',
 			label: 'Release Notes',
 			// collapsed: false,
 			items: [
@@ -520,36 +553,6 @@ const sidebars = {
 				},
 			],
 		},
-	],
-	//
-	Integrations: [
-		'Integrations/qodlyLookerStudio/qodlyLookerStudioConnector',
-		{
-			type: 'link',
-			label: 'REST API',
-			href: 'https://developer.4d.com/docs/category/rest-api'
-		}, 
-		{
-			type: 'link',
-			label: 'OAuth 2.0',
-			href: 'https://github.com/4d/4D-NetKit/tree/20R8#oauth2provider'
-		}, 
-		{
-			type: 'category',
-			label: 'Email',
-			items: [	
-				{
-					type: 'link',
-					label: "Office365 (Outlook)",
-					href: "https://github.com/4d/4D-NetKit/tree/20R8#office365"
-				},
-				{
-					type: 'link',
-					label: "Google (Gmail)",
-					href: "https://github.com/4d/4D-NetKit/tree/20R8#google"
-				},
-			]
-		},   
 	],
 };
 
