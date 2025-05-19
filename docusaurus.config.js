@@ -79,9 +79,6 @@ const config = {
           path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-
-          // Disable versioning Temporary
-          onlyIncludeVersions: ['current'],
           
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -181,7 +178,26 @@ Thank you for helping us improve! 🚀
             type: 'docsVersionDropdown',
             position: 'right',
             //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-            dropdownActiveClassDisabled: false,
+            dropdownActiveClassDisabled: true,
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr class="dropdown-separator">',
+              },
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived versions</b>',
+              },
+              {
+                label: '1.1.0',
+                href: 'https://docusaurus-archive-october-2023.netlify.app/docs/2.3.1',
+              },
+              {
+                label: '1.0.0',
+                href: 'https://docusaurus-archive-october-2023.netlify.app/docs/2.2.0',
+              },
+            ],
           }, 
         ],
       },

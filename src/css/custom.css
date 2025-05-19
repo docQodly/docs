@@ -35,6 +35,15 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+.dropdown-separator {
+  margin: 0.3rem 0;
+}
+
+.dropdown-archived-versions {
+  font-size: 0.875rem;
+  padding: 0.2rem 0.5rem;
+}
+
 img {
   border-radius: 6px;
 }
