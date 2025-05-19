@@ -151,20 +151,18 @@ Assigning a translation key enables centralized updates, reduces duplication, an
 
 To create a translation key:
 
-1. Open the **i18n** menu from the page header panel.
-2. Select a locale from the language selector.
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
-        3. Double-click the text within the text component you want to translate.
+        1. Double-click the text within the text component you want to translate.
     </Column.Item>
     <Column.Item width="45%">
         <img src={require('./img/textTranslationKey.png').default} style={{borderRadius: '6px'}} />
     </Column.Item>
 </Column.List>
-4. From the tooltip, click on the **i18n** button <img src={require('./img/tooltipI18n.png').default} style={{borderRadius: '6px'}} />.
+2. From the tooltip, click on the **i18n** button <img src={require('./img/tooltipI18n.png').default} style={{borderRadius: '6px'}} />.
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
-        5. A modal will appear showing the current text value.
+        3. A modal will appear showing the current text value.
     </Column.Item>
     <Column.Item width="45%">
         <img src={require('./img/tooltipI18nModal.png').default} style={{borderRadius: '6px'}} />
@@ -172,7 +170,7 @@ To create a translation key:
 </Column.List>
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
-        6. In the **Search for keys** field, type the desired key name (for example, `marketingText_Key`).
+        4. In the **Search for keys** field, type the desired key name (for example, `marketingText_Key`).
     </Column.Item>
     <Column.Item width="45%">
         <img src={require('./img/tooltipI18nModalSearchForKeys.png').default} style={{borderRadius: '6px'}} />
@@ -180,9 +178,9 @@ To create a translation key:
 </Column.List>
 <Column.List align="center" justifyContent="between">
     <Column.Item width="45%">
-        7. The system will suggest creating the key.
+        5. The system will suggest creating the key.
 
-        8. Click **Create** to link your text to the new key.
+        6. Click **Create** to link your text to the new key.
     </Column.Item>
     <Column.Item width="45%">
         <img src={require('./img/tooltipI18nModalCreateKey.png').default} style={{borderRadius: '6px'}} />
@@ -194,27 +192,21 @@ Once created:
 - The translation key will be automatically associated with the text.
     <img src={require('./img/localizationPageKeyLocale.png').default} style={{borderRadius: '6px'}} />
 
-    :::warning
-    The key will not appear under all locales because it was assigned to the component while a specific locale was selected. To assign a key across all locales, make sure you're in the base state (without any locale selected) before adding the key. See the [Translation Key Scenarios section](#translation-key-scenarios) for more details.
+    :::tip
+    The key will appear under all locales.
     :::
 
 - Different values can be assigned for the same key depending on the active locale.
 
 ### Translation Key Scenarios
 
-Here’s a breakdown of the different ways you can localize content:
+Here’s how key assignment works when localizing content:
 
-1. **Assign a Key to All Locales**: Make sure no locale is selected (you're in the base state).
-    - Click the purple i18n button.
-    - This will create and assign a translation key that appears across all supported locales.
-    - Use this when you want the label to stay consistent across all languages unless explicitly overridden.
+1. **Assigning a Key in the Base State (No Locale Selected)**: When no specific locale is selected (you’re in the base state), clicking the purple i18n button adds the key to all locales.
 
-2. **Assign a Key to a Specific Locale**: First, select a locale using the locale switcher.
-    - Then click the purple i18n button.
-    - The translation key will be assigned only to the selected locale.
-    - Useful when the text content or meaning varies significantly between languages and shouldn't be reused globally.
+2. **Assigning a Key While a Locale is Selected**: If a locale is selected when you click the i18n button, the key is still added to all locales, including the base state. 
 
-3. **Manually Edit the Label per Locale**: Instead of using keys, you can manually update the Label field for each locale.
+3. **Manually Editing Labels per Locale (No Key Used)**: Instead of using keys, you can manually update the Label field for each locale.
     - Select a locale and directly type the desired label.
     - This is quick and flexible but may become harder to manage at scale.
     - Use the approach that best matches the complexity and reuse patterns of your UI labels.
