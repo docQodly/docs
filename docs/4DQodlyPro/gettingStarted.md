@@ -352,7 +352,7 @@ If you run the renderer from the Qodly Studio and these two web servers are not 
 
 :::info
 
-Using different schemes might also lead to [session](sessions.md) issues, such as losing [privileges](https://developer.4d.com/docs/ORDA/privileges) after a page refresh.
+Using different schemes might also lead to [session](https://developer.4d.com/docs/commands/session) issues, such as losing [privileges](https://developer.4d.com/docs/ORDA/privileges) after a page refresh.
 
 :::
 

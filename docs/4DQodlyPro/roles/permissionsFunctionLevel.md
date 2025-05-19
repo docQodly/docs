@@ -33,7 +33,7 @@ If the Singleton class or its exposed functions don't appear in the permissions 
 
 4. Save the changes and re-check the permissions dropdown. 
 
-5. If the Singleton class and its exposed functions still don't appear, [reload](../overview.md#contextual-menu) the changes by following the documentation for applying the latest updates. 
+5. If the Singleton class and its exposed functions still don't appear, [reload](../qodlyStudioInterface.md#contextual-menu) the changes by following the documentation for applying the latest updates. 
 
 Now, the Singleton class and its exposed functions should be available for selection, whether it’s the standard class Singleton or the shared one.
 

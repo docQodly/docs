@@ -27,7 +27,7 @@ In **QodlyScript**, you can structure your code using two fundamental constructs
 
 #### ORDA Classes
 
-[ORDA Classes](../QodlyinCloud/qodlyScript/guides/data-model.md) are used to configure the data model and implement business logic. ORDA classes are automatically available (empty by default) in the [Explorer](overview.md#qodly-studio-home-page):
+[ORDA Classes](../QodlyinCloud/qodlyScript/guides/data-model.md) are used to configure the data model and implement business logic. ORDA classes are automatically available (empty by default) in the [Explorer](./qodlyStudioInterface.md#qodly-studio-home-page):
 
 - The [DataStore class](../QodlyinCloud/qodlyScript/guides/data-model.md#datastore) is always displayed in first position.
 - Dataclass names are listed along with icons that you can expand/collapse. When expanded, a dataclass gives access to its related [DataClass class](../QodlyinCloud/qodlyScript/guides/data-model.md#dataclass-class), [Entity class](../QodlyinCloud/qodlyScript/guides/data-model.md#entity-class), and [Entity selection class](../QodlyinCloud/qodlyScript/guides/data-model.md#entity-class).

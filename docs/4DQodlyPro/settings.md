@@ -52,7 +52,7 @@ Turn on/off the [Welcome tour dialogs](../4DQodlyPro/settings.md#activate-welcom
 
 ### Activate tabs preview mode
 
-Enables or disables the [**Tabs preview mode**](overview.md#preview-mode), which allows you to open and preview your Qodly files (Pages, model, classes, methods, or any other file) in a single tab. As a result, this option can reduce drastically the number of opened tabs in your project.
+Enables or disables the [**Tabs preview mode**](./qodlyStudioInterface.md#preview-mode), which allows you to open and preview your Qodly files (Pages, model, classes, methods, or any other file) in a single tab. As a result, this option can reduce drastically the number of opened tabs in your project.
 
 
 
