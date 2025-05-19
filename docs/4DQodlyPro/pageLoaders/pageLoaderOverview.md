@@ -11,7 +11,7 @@ In Qodly, a project's groundwork starts with a Page, which acts as the primary c
 <Column.List align="center" justifyContent="between">
 	<Column.Item width="60%">
         <ol>
-            <li>On the <a href="../overview#qodly-studio-homepage-overview">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.<br/><br/></li>
+            <li>On the <a href="../qodlyStudioInterface.md#qodly-studio-home-pages">Qodly Studio Homepage</a>, select <code>Page</code> and name the new Page in the creation modal.<br/><br/></li>
             <li>In the <strong>Explorer</strong>, simply click the plus icon located next to <code>Pages</code>. <br/><br/></li>
             <li>While in the <strong>Page Editor</strong>, go to the <code>New +</code> tab and opt for <code>Page</code>.</li>
         </ol>
@@ -43,7 +43,7 @@ The Page Editor enhances your application by providing a versatile toolkit for i
 10. **Device toolbar**: Coming Soon.
 <!-- Simulates how a website looks and functions on various devices and screen sizes for testing and optimization. -->
 11. [**Breadcrumbs**](#breadcrumbs): Displays component hierarchy for navigation.
-12. [**Tabs**](../overview.md#tabs): Organizes open Pages and all other open elements. 
+12. [**Tabs**](../qodlyStudioInterface.md#tabs): Organizes open Pages and all other open elements. 
 13. [**Tooltip**](components/componentsBasics.md#tooltip): Offers efficient component management and manipulation actions.
 
 ## Breadcrumbs

@@ -121,36 +121,6 @@ If the WebAdmin web server is already running, depending on its configuration, y
 
 ## Developing with Qodly Studio
 
-### Documentation
-
-The Qodly Studio documentation is available on the [Qodly documentation website](https://developer.qodly.com/docs/studio/overview).
-
-You can rely on this documentation and its associated resources for developing web applications powered by Qodly pages. However, depending on implementation stage, 4D developers will either use Qodly Studio or 4D IDE (see [Feature comparison](#feature-comparison)).
-
-Code examples are provided in [QodlyScript](https://developer.qodly.com/docs/category/qodlyscript), but since QodlyScript inherits from the 4D Language, you won't be lost. For more information, see the [From QodlyScript to 4D Language](from-qodlyscript-to-4d.md) page.
-                                                                                                                                                           
-:::info
-
-There is no direct compatibility between apps implemented with 4D and apps implemented with Qodly.
-
-:::
-
-### Feature comparison
-
-||Qodly Studio in 4D|Qodly Studio in Qodly Cloud platform|
-|---|---|---|
-|View and edit tables (dataclasses), attributes and relations|4D Structure Editor(1)|Qodly Studio Model Editor|
-|Qodly pages|Qodly Studio Page Editor|Qodly Studio Page Editor|
-|Desktop forms|4D IDE|*not supported*|
-|Programming language|4D Language featuring ORDA|[QodlyScript](../QodlyinCloud/qodlyScript/basics/lang-quicktour.md) featuring ORDA|
-|Coding IDE|4D IDE code editor *or* VS Code with [4D-Analyzer extension](https://github.com/4d/4D-Analyzer-VSCode)<br/>*4D Server only*: Qodly Studio code editor (see (2))|Qodly Studio code editor|
-|Debugger|4D IDE debugger<br/>*4D Server only*: Qodly Studio debugger (see [this paragraph](#using-qodly-debugger-on-4d-server))|Qodly Studio debugger|
-|REST/Web roles and privileges|roles.json direct edit/Qodly Studio roles and privileges editor|Qodly Studio role and privileges editor|
-
-(1) The **Model** item is disabled in Qodly Studio.<br/>
-(2) In 4D Server, opening 4D code with the Qodly Studio code editor is supported **for testing and debugging purposes** (see [this paragraph](#development-and-deployment)). Note that in 4D single-user, if you open some 4D code with the Qodly Studio code editor, syntax coloring is not available and a "Lsp not loaded" warning is displayed.
-
-
 ### Language
 
 The following commands and classes are dedicated to the server-side management of Qodly pages:
@@ -193,7 +163,7 @@ See [this page](../4DQodlyPro/rendering.md) for detailed information on how to r
 
 To enable the rendering of Qodly pages, the following options must be set.
 
-* The 4D project's **Settings** > **Web** > **Web Features** > [**Expose as REST server**](../settings/web.md#expose-as-rest-server) option must be activated.
+* The 4D project's **Settings** > **Web** > **Web Features** > [**Expose as REST server**](https://developer.4d.com/docs/19/REST/configuration#starting-the-rest-server) option must be activated.
 * The [4D web server](https://developer.4d.com/docs/WebServer/overview) must be running.
 
 :::note
@@ -275,17 +245,17 @@ A warning dialog box will prompt you to confirm whether you want to detach the d
 
 ## Force login
 
-With Qodly Studio for 4D, the ["force login" mode](../REST/authUsers.md#force-login-mode) allows you to control the number of opened web sessions that require 4D Client licenses. You can also [logout](#logout) the user at any moment to decrement the number of retained licenses.
+With Qodly Studio for 4D, the ["force login" mode](https://developer.4d.com/docs/REST/authUsers#force-login-mode) allows you to control the number of opened web sessions that require 4D Client licenses. You can also [logout](#logout) the user at any moment to decrement the number of retained licenses.
 
 ### Configuration
 
-Make sure the ["force login" mode](../REST/authUsers.md#force-login-mode) is enabled for your 4D application in the [Roles and Privileges page](https://developer.qodly.com/docs/studio/roles/rolesPrivilegesOverview), using the **Force login** option:
+Make sure the ["force login" mode](https://developer.4d.com/docs/REST/authUsers#force-login-mode) is enabled for your 4D application in the [Roles and Privileges page](https://developer.qodly.com/docs/studio/roles/rolesPrivilegesOverview), using the **Force login** option:
 
 ![alt-text](./img/forcelogin.png)
 
-You can also set this option directly in the [**roles.json** file](../ORDA/privileges.md#rolesjson-file).
+You can also set this option directly in the [**roles.json** file](https://developer.4d.com/docs/ORDA/privileges#rolesjson-file).
 
-You just need then to implemented the [`authentify()`](../REST/authUsers.md#function-authentify) function in the datastore class and call it from the Qodly page. A licence will be consumed only when the user is actually logged.
+You just need then to implemented the [`authentify()`](https://developer.4d.com/docs/REST/authUsers#function-authentify) function in the datastore class and call it from the Qodly page. A licence will be consumed only when the user is actually logged.
 
 
 :::note Compatibility
@@ -361,7 +331,7 @@ To logout the user, you just need to execute the **Logout** standard action from
 
 Triggering the logout action from a web user session has the following effects:
 
-- the current web user session loses its privileges, only [descriptive REST requests](../REST/authUsers.md#descriptive-rest-requests) are allowed,
+- the current web user session loses its privileges, only [descriptive REST requests](https://developer.4d.com/docs/REST/authUsers#descriptive-rest-requests) are allowed,
 - the associated 4D license is released,
 - the `Session.storage` is kept until the web session inactivity timeout is reached (at least one hour). During this period after a logout, if the user logs in again, the same session is used and the `Session.storage` shared object is available with its current contents.
 
@@ -382,7 +352,7 @@ If you run the renderer from the Qodly Studio and these two web servers are not 
 
 :::info
 
-Using different schemes might also lead to [session](sessions.md) issues, such as losing [privileges](../ORDA/privileges.md) after a page refresh.
+Using different schemes might also lead to [session](sessions.md) issues, such as losing [privileges](https://developer.4d.com/docs/ORDA/privileges) after a page refresh.
 
 :::
 
@@ -420,4 +390,4 @@ To avoid using more licenses than necessary, we recommend doing one of the follo
 
 - Run the renderer on another browser tab (by entering the rendered URL of your Qodly page: `IP:port/$lib/renderer/?w=QodlyPageName`).
 - Ensure the Qodly Studio and your database are reached on the same URL scheme.
-- Use the `Lax` value for the [session cookie](webServerConfig.md#session-cookie-samesite) of your project database's web server.
+- Use the `Lax` value for the [session cookie](https://developer.4d.com/docs/API/WebServerClass#sessioncookiesamesite) of your project database's web server.
