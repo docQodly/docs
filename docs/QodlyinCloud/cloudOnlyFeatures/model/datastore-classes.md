@@ -126,4 +126,4 @@ Allows you to store comments with your datastore class for private use.
 
 Defines the permissions at the dataclass level. Permissions can also be set at the datastore and attribute levels.
 
-Dataclass permissions are described in [this section](../roles/dataClassPermissions.md).
+Dataclass permissions are described in [this section](../../../4DQodlyPro/roles/dataClassPermissions.md).

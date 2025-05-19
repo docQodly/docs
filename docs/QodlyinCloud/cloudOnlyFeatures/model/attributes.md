@@ -301,4 +301,4 @@ Here is the list of all available properties:
 
 This area allows you to define the permissions at the attribute level. Permissions can also be set at the dataclass and datastore levels.
 
-Attribute permissions are described in [this section](../roles/attributesPermissions.md).
+Attribute permissions are described in [this section](../../../4DQodlyPro/roles/attributesPermissions.md).

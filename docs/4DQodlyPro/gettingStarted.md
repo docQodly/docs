@@ -215,7 +215,7 @@ This command launches the Qodly renderer on a local address in your default brow
 
 When using Qodly pages in a deployed 4D Server application (interpreted mode), you might encounter some cases where you need to debug your pages on the server, for example when a specific user configuration is required. In this case, you can attach the [Qodly Studio debugger](https://developer.qodly.com/docs/studio/debugging) to the 4D Server and then, benefit from its features when executing your Qodly pages.
 
-Note that in this case, the Qodly Studio debugger will display all the code executed on the server, in accordance with the [attached debugger rule on 4D Server](../Debugging/debugging-remote.md#attached-debugger).  
+Note that in this case, the Qodly Studio debugger will display all the code executed on the server, in accordance with the [attached debugger rule on 4D Server](https://developer.4d.com/docs/Debugging/debugging-remote#attached-debugger).  
 
 To attach the Qodly Studio debugger to your running 4D Server application:
 
@@ -390,4 +390,4 @@ To avoid using more licenses than necessary, we recommend doing one of the follo
 
 - Run the renderer on another browser tab (by entering the rendered URL of your Qodly page: `IP:port/$lib/renderer/?w=QodlyPageName`).
 - Ensure the Qodly Studio and your database are reached on the same URL scheme.
-- Use the `Lax` value for the [session cookie](https://developer.4d.com/docs/API/WebServerClass#sessioncookiesamesite) of your project database's web server.
+- Use the `Lax` value for the [session cookie](https://developer.4d.com/docs/WebServer/webServerConfig.html#session-cookie-samesite) of your project database's web server.

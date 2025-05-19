@@ -66,4 +66,4 @@ To edit an existing function, click on <img src={require('./img/functionsPen.png
 This area allows you to define the permissions for the selected function.
 <img src={require('./img/functionsPermission.png').default} style={{borderRadius: '6px',width: '40%'}} />
 
-Function permissions are described in [this section](../roles/permissionsFunctionLevel.md).
+Function permissions are described in [this section](../../../4DQodlyPro/roles/permissionsFunctionLevel.md).
