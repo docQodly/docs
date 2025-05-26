@@ -191,11 +191,11 @@ Thank you for helping us improve! 🚀
               },
               {
                 label: '1.1.0',
-                href: 'https://docusaurus-archive-october-2023.netlify.app/docs/2.3.1',
+                href: 'https://developer.qodly.com/docs-archive/get-started/quickstart',
               },
               {
                 label: '1.0.0',
-                href: 'https://docusaurus-archive-october-2023.netlify.app/docs/2.2.0',
+                href: 'https://developer.qodly.com/docs-archive/1.0.0/get-started/quickstart',
               },
             ],
           }, 
