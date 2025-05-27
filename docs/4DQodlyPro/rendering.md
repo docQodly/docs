@@ -180,3 +180,26 @@ Understanding the lifecycle of a page is crucial for diagnosing and fixing rende
     - **Loading JSON of Sub Pages**: In some cases, additional sub pages need to be loaded dynamically based on user interactions or specific conditions. This involves fetching and loading JSON files for sub pages, allowing for the dynamic expansion of content.
 
     - **Restarting Initialization for Sub Pages**: Once the JSON of sub pages is loaded, the initialization process restarts from **initializing local Qodly sources** for these sub pages. This ensures that each sub page has access to the necessary data and components, repeating the initialization steps to prepare the sub page for display.
+
+## Connection Status Handling
+
+The Qodly Renderer displays system messages when the client loses or regains network connectivity during rendering.
+
+These messages appear as colored banners at the top of the page and provide immediate feedback without interrupting the current page state.
+
+#### When the connection is lost:
+
+* A red banner is displayed at the top of the rendered page.
+* The message shown is:
+  **Connection lost**
+* The banner remains visible until:
+
+  * The connection is restored, or
+  * The user manually closes it using the close button located in the top-right corner of the banner.
+
+#### When the connection is re-established:
+
+* A green banner is displayed with the message:
+  **Connection restored**
+* This message automatically disappears after a few seconds.
+* No user action is required to dismiss it.
