@@ -76,13 +76,13 @@ The `Qodly` namespace  <img src={require('./img/Built-inSharedQodlyNamespace.png
 
 - Cannot be edited or deleted to ensure consistency and integrity across your application.
 
-- Provides ready-to-use datasources available to all application pages.
+- Provides ready-to-use qodlysources available to all application pages.
 
 
 
 ### Qodlysource: Location
 
-Within the **Qodly** namespace, you'll find the predefined datasource named **Location** <img src={require('./img/QodlysourceLocation.png').default} style={{borderRadius: '6px', width: '30%'}} />. 
+Within the **Qodly** namespace, you'll find the predefined qodlysource named **Location** <img src={require('./img/QodlysourceLocation.png').default} style={{borderRadius: '6px', width: '30%'}} />. 
 
 The Location qodlysource is specifically designed to facilitate handling URL-related data, making it simple to interact with different URL segments.
 
@@ -114,12 +114,12 @@ The Location qodlysource is specifically designed to facilitate handling URL-rel
   ```
 
 :::info Restrictions:
-The **Location** datasource is shared across your entire application and **cannot be edited or deleted**. This ensures uniform behavior and prevents accidental modifications.
+The **Location** qodlysource is shared across your entire application and **cannot be edited or deleted**. This ensures uniform behavior and prevents accidental modifications.
 :::
 
 ### Qodlysource: UserLanguage
 
-Within the **Qodly** namespace, you'll find the predefined datasource named **UserLanguage** <img src={require('./img/QodlysourceUserLanguage.png').default} style={{borderRadius: '6px', width: '30%'}} />.
+Within the **Qodly** namespace, you'll find the predefined qodlysource named **UserLanguage** <img src={require('./img/QodlysourceUserLanguage.png').default} style={{borderRadius: '6px', width: '30%'}} />.
 
 The UserLanguage qodlysource is specifically designed to manage multilingual behavior within your application by storing the currently selected language and the list of available supported languages.
 
@@ -175,12 +175,30 @@ It provides a seamless way to bind user-selected languages at runtime without re
         ```
 
 :::info Restrictions:
-The **UserLanguage** datasource is shared across your entire application and **cannot be deleted or edited manually**.  
+The **UserLanguage** qodlysource is shared across your entire application and **cannot be deleted or edited manually**.  
 
 To modify the list of supported languages (adding or removing locales), you must update the configuration from the [Localization page](../localization.md#accessing-the-localization-page).  
 Changes made in the Localization page will automatically be reflected in the `UserLanguage.supported` array.
 :::
 
+### Qodlysource: Title
+
+Within the Qodly namespace, you'll find the predefined qodlysource named Title.
+
+The Title qodlysource is specifically designed to control the browser tab title dynamically. By default, the browser tab title is derived from the name of the current Page. When the Qodly.Title qodlysource is defined, it overrides this behavior and sets the tab title based on its value.
+
+#### Key Behavior of Title:
+
+- **Override tab title**: When a value is set in Qodly.Title, it becomes the browser tab title, replacing the default Page-based title.
+
+- **Fallback behavior**: If Qodly.Title is not defined, the default behavior remains in place, and the tab title is derived from the Page name.
+
+
+:::info Restrictions:
+The **Title** qodlysource is shared across your entire application and **cannot be deleted or edited manually**.  
+
+It is of type String and its value is editable at runtime to allow dynamic updates to the tab title.
+:::
 
 ## Creating a Qodly Source
 
