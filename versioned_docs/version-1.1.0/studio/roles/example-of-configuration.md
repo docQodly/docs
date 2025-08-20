@@ -101,9 +101,16 @@ Only the *Doctor* role can view the patient's confidential data (gathered in a *
 
 <img src={require('./img/example-config4.png').default} style={{borderRadius: '6px', width:'100%'}} />
 
-2. Assign it to the *Doctor* role (see [roles](#roles) below). This will exclude all other roles). ​
+2. Assign it to the *Doctor* role (see [roles](#roles) below). This will exclude all other roles. ​
 
 <img src={require('./img/example-viewsecretinfo.png').default} style={{borderRadius: '6px', width:'80%'}} />
+
+:::info Why are all other roles excluded?
+
+Once a resource is associated with a privilege, that privilege is required to access the resource, which blocks roles that do not have that privilege. It's like putting a lock on a door: you need to have the key to open it. In this case, we created the *viewConfidentialInfo* privilege and associated it to the `Patients.confidentialInfo` attribute, so it automatically impacts roles that do not have this privilege (i.e., Secretary). 
+Usually, when reading entities, if a privilege is missing to read certain attributes, they are excluded (filtered) from the query response.
+
+:::
 
 ### Roles
 
